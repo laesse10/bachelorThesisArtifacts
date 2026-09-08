@@ -1,0 +1,11 @@
+task=5 kernel=fuse_diamond node=nid005482 cores=288 2026-09-08T10:50:39+02:00
+[1/1] fuse_diamond
+    c            ok           median 169.152 ms 
+    cpp          ok           median 167.350 ms 
+    fortran      ok           median 166.804 ms 
+    numba        ok           median 185.894 ms 
+    c_reference  ok           median 30.878 ms source=fuse_diamond_reference.c sha256=ead7cb4b8d194d60
+    agent        ok           median 30.100 ms arm=llr40v10-oss120b-fortran job=621019 seq=1 lang=fortran campaign_sp
+
+wrote 6 rows -> results_parts/fuse_diamond.csv
+DONE fuse_diamond 2026-09-08T11:20:50+02:00

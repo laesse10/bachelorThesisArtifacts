@@ -1,0 +1,7 @@
+node=nid006547
+THP: [always] madvise never | defrag: always defer defer+madvise [madvise] never
+round  anon_huge_MB  frac_of_2.42GB   median_ms   samples
+0      2048          0.886            868.7       872 871 869 868 870 868 868 869
+1      2048          0.886            869.3       869 869 869 870 871 870 869 868
+2      2048          0.886            861.3       870 868 862 861 861 861 861 861
+3      2048          0.886            862.4       863 861 862 861 863 865 862 861

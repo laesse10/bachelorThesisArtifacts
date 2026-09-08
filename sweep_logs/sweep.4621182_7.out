@@ -1,0 +1,11 @@
+task=7 kernel=fuse_stencil_through_transient node=nid006347 cores=288 2026-09-08T10:50:38+02:00
+[1/1] fuse_stencil_through_transient
+    c            ok           median 119.594 ms 
+    cpp          ok           median 118.654 ms 
+    fortran      ok           median 117.643 ms 
+    numba        ok           median 187.500 ms 
+    c_reference  ok           median 47.679 ms source=fuse_stencil_through_transient_reference.c sha256=0acd59d853882
+    agent        ok           median 50.310 ms arm=llr40v10-kimi27sglang-c job=621017 seq=1 lang=c campaign_speedup=2
+
+wrote 6 rows -> results_parts/fuse_stencil_through_transient.csv
+DONE fuse_stencil_through_transient 2026-09-08T11:18:28+02:00

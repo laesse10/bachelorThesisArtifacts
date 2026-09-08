@@ -1,0 +1,11 @@
+task=19 kernel=tsvc_2_s231 node=nid005586 cores=288 2026-09-08T11:13:55+02:00
+[1/1] tsvc_2_s231
+    c            ok           median 777.031 ms 
+    cpp          ok           median 777.525 ms 
+    fortran      ok           median 745.307 ms 
+    numba        ok           median 625.047 ms 
+    c_reference  ok           median 724.260 ms source=tsvc_2_s231_reference.c sha256=9f1ad23b84e1aa3a
+    agent        ok           median 69.892 ms arm=llr40v10-qwen38-c job=621016 seq=2 lang=c campaign_speedup=96.274 
+
+wrote 6 rows -> results_parts/tsvc_2_s231.csv
+DONE tsvc_2_s231 2026-09-08T11:38:23+02:00

@@ -1,0 +1,11 @@
+task=11 kernel=segment_reduce_ragged node=nid005628 cores=288 2026-09-08T10:58:11+02:00
+[1/1] segment_reduce_ragged
+    c            ok           median 39.218 ms 
+    cpp          ok           median 39.046 ms 
+    fortran      ok           median 39.900 ms 
+    numba        ok           median 55.430 ms 
+    c_reference  unsupported   no hand-written _reference.c in the corpus
+    agent        ok           median 38.209 ms arm=llr40v10-kimi27sglang-c job=621729 seq=3 lang=c campaign_speedup=1
+
+wrote 6 rows -> results_parts/segment_reduce_ragged.csv
+DONE segment_reduce_ragged 2026-09-08T11:05:25+02:00

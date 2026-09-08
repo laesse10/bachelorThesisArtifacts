@@ -1,0 +1,11 @@
+task=25 kernel=tsvc_2_s275 node=nid005632 cores=288 2026-09-08T11:13:55+02:00
+[1/1] tsvc_2_s275
+    c            ok           median 720.062 ms 
+    cpp          ok           median 783.266 ms 
+    fortran      ok           median 759.481 ms 
+    numba        ok           median 694.068 ms 
+    c_reference  ok           median 812.231 ms source=tsvc_2_s275_reference.c sha256=f1196da07f7aa442
+    agent        ok           median 163.305 ms arm=llr40v10-qwen38-fortran job=621385 seq=2 lang=fortran campaign_spe
+
+wrote 6 rows -> results_parts/tsvc_2_s275.csv
+DONE tsvc_2_s275 2026-09-08T11:37:13+02:00

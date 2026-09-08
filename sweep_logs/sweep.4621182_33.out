@@ -1,0 +1,11 @@
+task=33 kernel=tsvc_2_s323 node=nid005482 cores=288 2026-09-08T11:21:15+02:00
+[1/1] tsvc_2_s323
+    c            ok           median 80.807 ms 
+    cpp          ok           median 85.841 ms 
+    fortran      ok           median 78.724 ms 
+    numba        ok           median 83.595 ms 
+    c_reference  ok           median 80.812 ms source=tsvc_2_s323_reference.c sha256=ff85c3b6d5ec33b9
+    agent        ok           median 80.792 ms arm=llr40v10-qwen38-c job=621727 seq=1 lang=c campaign_speedup=16.057 
+
+wrote 6 rows -> results_parts/tsvc_2_s323.csv
+DONE tsvc_2_s323 2026-09-08T11:41:03+02:00

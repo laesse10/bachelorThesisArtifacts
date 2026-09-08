@@ -1,0 +1,11 @@
+task=8 kernel=quasi_affine_reduce_odd node=nid006385 cores=288 2026-09-08T10:50:38+02:00
+[1/1] quasi_affine_reduce_odd
+    c            ok           median 63.709 ms 
+    cpp          ok           median 63.748 ms 
+    fortran      ok           median 63.654 ms 
+    numba        ok           median 67.570 ms 
+    c_reference  ok           median 66.359 ms source=quasi_affine_reduce_odd_reference.c sha256=743ca676c255011f
+    agent        ok           median 63.862 ms arm=llr40v10-qwen38-fortran job=621728 seq=1 lang=fortran campaign_spe
+
+wrote 6 rows -> results_parts/quasi_affine_reduce_odd.csv
+DONE quasi_affine_reduce_odd 2026-09-08T11:01:58+02:00

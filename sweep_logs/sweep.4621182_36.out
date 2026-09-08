@@ -1,0 +1,11 @@
+task=36 kernel=tsvc_2_vpvts node=nid005617 cores=288 2026-09-08T11:26:59+02:00
+[1/1] tsvc_2_vpvts
+    c            ok           median 87.230 ms 
+    cpp          ok           median 88.737 ms 
+    fortran      ok           median 88.877 ms 
+    numba        ok           median 86.437 ms 
+    c_reference  ok           median 87.128 ms source=tsvc_2_vpvts_reference.c sha256=0f208afd7a9a6bc0
+    agent        ok           median 87.087 ms arm=llr40v10-qwen38-fortran job=621020 seq=1 lang=fortran campaign_spe
+
+wrote 6 rows -> results_parts/tsvc_2_vpvts.csv
+DONE tsvc_2_vpvts 2026-09-08T11:46:22+02:00

@@ -1,0 +1,11 @@
+task=10 kernel=scatter_accum_dup node=nid005632 cores=288 2026-09-08T10:52:13+02:00
+[1/1] scatter_accum_dup
+    c            ok           median 346.074 ms 
+    cpp          ok           median 345.864 ms 
+    fortran      ok           median 364.702 ms 
+    numba        ok           median 401.661 ms 
+    c_reference  unsupported   no hand-written _reference.c in the corpus
+    agent        ok           median 938.018 ms arm=llr40v10-qwen38-c job=621727 seq=5 lang=c campaign_speedup=17.737 
+
+wrote 6 rows -> results_parts/scatter_accum_dup.csv
+DONE scatter_accum_dup 2026-09-08T11:11:37+02:00

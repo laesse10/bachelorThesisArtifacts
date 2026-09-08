@@ -1,0 +1,11 @@
+task=31 kernel=tsvc_2_s318 node=nid005514 cores=288 2026-09-08T11:14:58+02:00
+[1/1] tsvc_2_s318
+    c            ok           median 80.124 ms 
+    cpp          ok           median 80.030 ms 
+    fortran      ok           median 80.045 ms 
+    numba        ok           median 286.128 ms 
+    c_reference  ok           median 80.278 ms source=tsvc_2_s318_reference.c sha256=f6f47d5151c6663d
+    agent        ok           median 247.476 ms arm=llr40v10-kimi27sglang-fortran job=621022 seq=4 lang=fortran campai
+
+wrote 6 rows -> results_parts/tsvc_2_s318.csv
+DONE tsvc_2_s318 2026-09-08T11:38:41+02:00

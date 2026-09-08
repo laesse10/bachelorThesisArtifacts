@@ -1,0 +1,11 @@
+task=24 kernel=tsvc_2_s2710 node=nid005628 cores=288 2026-09-08T11:13:55+02:00
+[1/1] tsvc_2_s2710
+    c            ok           median 217.608 ms 
+    cpp          ok           median 216.866 ms 
+    fortran      ok           median 220.045 ms 
+    numba        ok           median 99.706 ms 
+    c_reference  ok           median 216.950 ms source=tsvc_2_s2710_reference.c sha256=b9082229eb88c749
+    agent        ok           median 83.307 ms arm=llr40v10-kimi27sglang-fortran job=621022 seq=5 lang=fortran campai
+
+wrote 6 rows -> results_parts/tsvc_2_s2710.csv
+DONE tsvc_2_s2710 2026-09-08T11:36:22+02:00

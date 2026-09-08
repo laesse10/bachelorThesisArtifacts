@@ -1,0 +1,11 @@
+task=2 kernel=compact_threshold_pack node=nid006317 cores=288 2026-09-08T10:37:00+02:00
+[1/1] compact_threshold_pack
+    c            ok           median 112.828 ms 
+    cpp          ok           median 112.860 ms 
+    fortran      ok           median 112.747 ms 
+    numba        ok           median 107.603 ms 
+    c_reference  unsupported   no hand-written _reference.c in the corpus
+    agent        ok           median 145.202 ms arm=llr40v10-qwen38-c job=621383 seq=1 lang=c campaign_speedup=11.678 
+
+wrote 6 rows -> results_parts/compact_threshold_pack.csv
+DONE compact_threshold_pack 2026-09-08T10:50:44+02:00

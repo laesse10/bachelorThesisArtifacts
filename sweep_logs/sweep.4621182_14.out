@@ -1,0 +1,11 @@
+task=14 kernel=tsvc_2_s1232 node=nid005909 cores=288 2026-09-08T11:01:59+02:00
+[1/1] tsvc_2_s1232
+    c            ok           median 47.437 ms 
+    cpp          ok           median 68.220 ms 
+    fortran      ok           median 63.185 ms 
+    numba        ok           median 79.987 ms 
+    c_reference  ok           median 61.687 ms source=tsvc_2_s1232_reference.c sha256=455109e4e2c80bee
+    agent        ok           median 13.325 ms arm=llr40v10-qwen38-fortran job=621385 seq=1 lang=fortran campaign_spe
+
+wrote 6 rows -> results_parts/tsvc_2_s1232.csv
+DONE tsvc_2_s1232 2026-09-08T11:07:48+02:00

@@ -1,0 +1,11 @@
+task=3 kernel=ext_break_capture node=nid005481 cores=288 2026-09-08T10:47:30+02:00
+[1/1] ext_break_capture
+    c            ok           median 69.719 ms 
+    cpp          ok           median 69.620 ms 
+    fortran      ok           median 69.796 ms 
+    numba        ok           median 74.231 ms 
+    c_reference  ok           median 69.989 ms source=ext_break_capture_reference.c sha256=c8a1d98b15a038f4
+    agent        ok           median 32.505 ms arm=llr40v10-qwen38-c job=621383 seq=1 lang=c campaign_speedup=9.763 s
+
+wrote 6 rows -> results_parts/ext_break_capture.csv
+DONE ext_break_capture 2026-09-08T10:59:49+02:00

@@ -1,0 +1,5 @@
+kernel,preset,n,output_elems,finite,finite_pct,n_inf,n_nan,max_finite,verdict
+tsvc_2_s115,M,20481,20481,117,0.57,2,20362,1.054e+308,DEGENERATE: majority non-finite
+wf_triangular,M,17409,303073281,154288734,50.91,8863111,139921436,1.797e+308,DEGENERATE: majority non-finite
+wf_diff_skew,M,12289,151019521,14379836,9.52,4982354,131657331,1.798e+308,DEGENERATE: majority non-finite
+tsvc_2_s3110,M,17409,4,4,100.0,0,0,1.294e+04,healthy

@@ -1,0 +1,11 @@
+task=4 kernel=ext_war_unit node=nid005909 cores=288 2026-09-08T10:48:33+02:00
+[1/1] ext_war_unit
+    c            ok           median 62.200 ms 
+    cpp          ok           median 62.192 ms 
+    fortran      ok           median 61.111 ms 
+    numba        ok           median 62.435 ms 
+    c_reference  ok           median 62.284 ms source=ext_war_unit_reference.c sha256=2ee53f9778ce59a0
+    agent        ok           median 62.497 ms arm=llr40v10-kimi27sglang-c job=621729 seq=3 lang=c campaign_speedup=5
+
+wrote 6 rows -> results_parts/ext_war_unit.csv
+DONE ext_war_unit 2026-09-08T11:01:15+02:00

@@ -1,0 +1,11 @@
+node=nid005318 jobid=4618363 cores=288 2026-09-07T17:52:51+02:00
+[1/1] tsvc_2_s115
+    c            incorrect    median 84.873 ms output did not match the NumPy reference
+    cpp          incorrect    median 84.497 ms output did not match the NumPy reference
+    fortran      incorrect    median 84.938 ms output did not match the NumPy reference
+    numba        ok           median 144.864 ms 
+    c_reference  incorrect    median 83.951 ms source=tsvc_2_s115_reference.c sha256=123993dec309bef2; output did not
+    agent        incorrect    median 87.833 ms arm=llr40v10-qwen38-c job=621383 seq=2 lang=c campaign_speedup=2.027 s
+
+wrote 6 rows -> pilot_results.csv
+DONE 2026-09-07T18:53:52+02:00

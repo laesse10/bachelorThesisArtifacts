@@ -1,0 +1,11 @@
+task=21 kernel=tsvc_2_s235 node=nid005609 cores=288 2026-09-08T11:13:55+02:00
+[1/1] tsvc_2_s235
+    c            ok           median 805.797 ms 
+    cpp          ok           median 821.214 ms 
+    fortran      ok           median 792.999 ms 
+    numba        ok           median 658.103 ms 
+    c_reference  ok           median 654.437 ms source=tsvc_2_s235_reference.c sha256=2b951a54990630ee
+    agent        ok           median 59.504 ms arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran campai
+
+wrote 6 rows -> results_parts/tsvc_2_s235.csv
+DONE tsvc_2_s235 2026-09-08T11:43:33+02:00

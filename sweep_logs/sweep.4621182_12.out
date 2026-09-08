@@ -1,0 +1,11 @@
+task=12 kernel=tsvc_2_s115 node=nid005481 cores=288 2026-09-08T11:00:56+02:00
+[1/1] tsvc_2_s115
+    c            incorrect    median 83.657 ms output did not match the NumPy reference
+    cpp          incorrect    median 83.830 ms output did not match the NumPy reference
+    fortran      incorrect    median 84.242 ms output did not match the NumPy reference
+    numba        ok           median 143.645 ms 
+    c_reference  incorrect    median 83.524 ms source=tsvc_2_s115_reference.c sha256=123993dec309bef2; output did not
+    agent        incorrect    median 87.906 ms arm=llr40v10-qwen38-c job=621383 seq=2 lang=c campaign_speedup=2.027 s
+
+wrote 6 rows -> results_parts/tsvc_2_s115.csv
+DONE tsvc_2_s115 2026-09-08T12:01:49+02:00

@@ -1,0 +1,11 @@
+task=1 kernel=argmax_with_index node=nid005909 cores=288 2026-09-08T10:30:11+02:00
+[1/1] argmax_with_index
+    c            ok           median 71.829 ms 
+    cpp          ok           median 71.724 ms 
+    fortran      ok           median 71.883 ms 
+    numba        ok           median 178.695 ms 
+    c_reference  ok           median 71.783 ms source=argmax_with_index_reference.c sha256=1cf93d4244fe5cee
+    agent        ok           median 71.843 ms arm=llr40v10-qwen38-c job=621016 seq=1 lang=c campaign_speedup=15.585 
+
+wrote 6 rows -> results_parts/argmax_with_index.csv
+DONE argmax_with_index 2026-09-08T10:46:11+02:00

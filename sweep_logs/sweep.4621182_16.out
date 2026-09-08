@@ -1,0 +1,11 @@
+task=16 kernel=tsvc_2_s152 node=nid005546 cores=288 2026-09-08T11:03:05+02:00
+[1/1] tsvc_2_s152
+    c            ok           median 65.472 ms 
+    cpp          ok           median 64.161 ms 
+    fortran      ok           median 64.843 ms 
+    numba        ok           median 64.599 ms 
+    c_reference  ok           median 52.497 ms source=tsvc_2_s152_reference.c sha256=3c358eebfba6b2a7
+    agent        ok           median 52.915 ms arm=llr40v10-oss120b-c job=621015 seq=1 lang=c campaign_speedup=6.056 
+
+wrote 6 rows -> results_parts/tsvc_2_s152.csv
+DONE tsvc_2_s152 2026-09-08T11:14:45+02:00

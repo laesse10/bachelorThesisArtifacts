@@ -1,0 +1,11 @@
+task=29 kernel=tsvc_2_s3112 node=nid005484 cores=288 2026-09-08T11:14:28+02:00
+[1/1] tsvc_2_s3112
+    c            ok           median 81.783 ms 
+    cpp          ok           median 81.745 ms 
+    fortran      ok           median 81.705 ms 
+    numba        ok           median 81.706 ms 
+    c_reference  ok           median 81.692 ms source=tsvc_2_s3112_reference.c sha256=32971573861117eb
+    agent        ok           median 81.725 ms arm=llr40v10-oss120b-fortran job=621019 seq=1 lang=fortran campaign_sp
+
+wrote 6 rows -> results_parts/tsvc_2_s3112.csv
+DONE tsvc_2_s3112 2026-09-08T11:27:27+02:00

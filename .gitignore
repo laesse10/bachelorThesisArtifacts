@@ -1,0 +1,12 @@
+# The benchmark corpus is an EXTERNAL pinned checkout, never vendored here.
+# See REPRODUCE.md section 1: clone spcl/HPCAgent-Bench at e2bceb68 and point
+# $LLR40_BENCH at it. (It is 3.3 GB and is not this artifact's to redistribute.)
+bench/
+
+# Per-cell intermediate JSONL written during a sweep; every value it held is
+# already merged into results.csv (time_ns_all keeps all 30 raw timings).
+scratch/
+
+__pycache__/
+*.pyc
+venv/

@@ -1,0 +1,11 @@
+task=15 kernel=tsvc_2_s1244 node=nid006385 cores=288 2026-09-08T11:02:32+02:00
+[1/1] tsvc_2_s1244
+    c            ok           median 52.625 ms 
+    cpp          ok           median 52.795 ms 
+    fortran      ok           median 54.535 ms 
+    numba        ok           median 53.694 ms 
+    c_reference  ok           median 53.007 ms source=tsvc_2_s1244_reference.c sha256=8d30e45e13623ebc
+    agent        ok           median 58.183 ms arm=llr40v10-qwen38-c job=622265 seq=1 lang=c campaign_speedup=5.592 s
+
+wrote 6 rows -> results_parts/tsvc_2_s1244.csv
+DONE tsvc_2_s1244 2026-09-08T11:23:09+02:00

@@ -1,0 +1,11 @@
+task=18 kernel=tsvc_2_s2275 node=nid005866 cores=288 2026-09-08T11:13:55+02:00
+[1/1] tsvc_2_s2275
+    c            ok           median 733.526 ms 
+    cpp          ok           median 939.785 ms 
+    fortran      ok           median 943.891 ms 
+    numba        ok           median 931.292 ms 
+    c_reference  ok           median 936.344 ms source=tsvc_2_s2275_reference.c sha256=37d66de66de797fc
+    agent        ok           median 74.846 ms arm=llr40v10-qwen38-c job=621016 seq=1 lang=c campaign_speedup=125.947
+
+wrote 6 rows -> results_parts/tsvc_2_s2275.csv
+DONE tsvc_2_s2275 2026-09-08T11:37:21+02:00

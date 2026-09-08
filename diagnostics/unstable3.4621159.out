@@ -1,0 +1,25 @@
+node=nid005671 2026-09-08T09:31:38+02:00
+[1/3] tsvc_2_s115
+    c            ok           median 0.013 ms 
+    cpp          ok           median 0.014 ms 
+    fortran      ok           median 0.013 ms 
+    numba        ok           median 0.020 ms 
+    c_reference  ok           median 0.013 ms source=tsvc_2_s115_reference.c sha256=123993dec309bef2
+    agent        ok           median 0.025 ms arm=llr40v10-kimi27sglang-c job=621729 seq=2 lang=c campaign_speedup=3
+[2/3] wf_triangular
+    c            ok           median 0.009 ms 
+    cpp          ok           median 0.009 ms 
+    fortran      ok           median 0.009 ms 
+    numba        ok           median 0.017 ms 
+    c_reference  ok           median 0.009 ms source=wf_triangular_reference.c sha256=fef1c39715e90ace
+    agent        ok           median 0.043 ms arm=llr40v10-kimi27sglang-c job=621730 seq=1 lang=c campaign_speedup=1
+[3/3] wf_diff_skew
+    c            ok           median 0.009 ms 
+    cpp          ok           median 0.009 ms 
+    fortran      ok           median 0.009 ms 
+    numba        ok           median 0.013 ms 
+    c_reference  ok           median 0.009 ms source=wf_diff_skew_reference.c sha256=32113cc55b653084
+    agent        ok           median 0.020 ms arm=llr40v10-oss120b-c job=621015 seq=1 lang=c campaign_speedup=3.469 
+
+wrote 18 rows -> results_unstable3_presetS.csv
+DONE 2026-09-08T09:33:56+02:00

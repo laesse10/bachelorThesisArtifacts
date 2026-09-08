@@ -1,0 +1,11 @@
+task=34 kernel=tsvc_2_s4112 node=nid005625 cores=288 2026-09-08T11:22:48+02:00
+[1/1] tsvc_2_s4112
+    c            ok           median 454.501 ms 
+    cpp          ok           median 454.484 ms 
+    fortran      ok           median 474.894 ms 
+    numba        ok           median 458.160 ms 
+    c_reference  ok           median 453.660 ms source=tsvc_2_s4112_reference.c sha256=728fe69187948308
+    agent        ok           median 442.889 ms arm=llr40v10-oss120b-c job=621382 seq=1 lang=c campaign_speedup=22.746
+
+wrote 6 rows -> results_parts/tsvc_2_s4112.csv
+DONE tsvc_2_s4112 2026-09-08T11:43:07+02:00

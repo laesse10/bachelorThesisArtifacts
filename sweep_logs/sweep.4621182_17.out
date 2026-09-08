@@ -1,0 +1,11 @@
+task=17 kernel=tsvc_2_s2233 node=nid005865 cores=288 2026-09-08T11:13:55+02:00
+[1/1] tsvc_2_s2233
+    c            ok           median 426.799 ms 
+    cpp          ok           median 425.211 ms 
+    fortran      ok           median 426.414 ms 
+    numba        ok           median 456.314 ms 
+    c_reference  ok           median 423.592 ms source=tsvc_2_s2233_reference.c sha256=c8663d708d82e4c5
+    agent        unsupported   no agent submission in either campaign
+
+wrote 6 rows -> results_parts/tsvc_2_s2233.csv
+DONE tsvc_2_s2233 2026-09-08T11:31:36+02:00

@@ -1,0 +1,11 @@
+task=9 kernel=scan_affine_decay node=nid006423 cores=288 2026-09-08T10:50:38+02:00
+[1/1] scan_affine_decay
+    c            ok           median 118.902 ms 
+    cpp          ok           median 118.713 ms 
+    fortran      ok           median 147.914 ms 
+    numba        ok           median 147.883 ms 
+    c_reference  unsupported   no hand-written _reference.c in the corpus
+    agent        ok           median 235.275 ms arm=llr40v10-qwen38-c job=621727 seq=2 lang=c campaign_speedup=8.244 s
+
+wrote 6 rows -> results_parts/scan_affine_decay.csv
+DONE scan_affine_decay 2026-09-08T11:05:30+02:00

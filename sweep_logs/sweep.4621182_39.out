@@ -1,0 +1,11 @@
+task=39 kernel=wf_diff_skew node=nid005610 cores=288 2026-09-08T11:32:12+02:00
+[1/1] wf_diff_skew
+    c            ok           median 59.731 ms 
+    cpp          ok           median 59.799 ms 
+    fortran      ok           median 59.702 ms 
+    numba        ok           median 61.140 ms 
+    c_reference  ok           median 59.600 ms source=wf_diff_skew_reference.c sha256=32113cc55b653084
+    agent        ok           median 61.881 ms arm=llr40v10-oss120b-c job=621015 seq=1 lang=c campaign_speedup=3.469 
+
+wrote 6 rows -> results_parts/wf_diff_skew.csv
+DONE wf_diff_skew 2026-09-08T11:34:58+02:00

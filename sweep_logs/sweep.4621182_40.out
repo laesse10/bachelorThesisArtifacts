@@ -1,0 +1,11 @@
+task=40 kernel=wf_triangular node=nid005351 cores=288 2026-09-08T11:35:18+02:00
+[1/1] wf_triangular
+    c            ok           median 99.174 ms 
+    cpp          ok           median 99.176 ms 
+    fortran      ok           median 99.088 ms 
+    numba        ok           median 375.556 ms 
+    c_reference  ok           median 99.263 ms source=wf_triangular_reference.c sha256=fef1c39715e90ace
+    agent        ok           median 153.742 ms arm=llr40v10-kimi27sglang-c job=621730 seq=1 lang=c campaign_speedup=1
+
+wrote 6 rows -> results_parts/wf_triangular.csv
+DONE wf_triangular 2026-09-08T12:13:02+02:00

@@ -1,0 +1,11 @@
+node=nid005554 jobid=4618408 cores=288 2026-09-07T18:06:57+02:00
+[1/1] tsvc_2_s3110
+    c            ok           median 120.375 ms 
+    cpp          ok           median 120.959 ms 
+    fortran      ok           median 119.870 ms 
+    numba        ok           median 313.827 ms 
+    c_reference  ok           median 120.215 ms source=tsvc_2_s3110_reference.c sha256=f761d4122cc24220
+    agent        ok           median 120.086 ms arm=llr40v10-kimi27sglang-c job=621730 seq=2 lang=c campaign_speedup=1
+
+wrote 6 rows -> pilot2_results.csv
+DONE 2026-09-07T18:34:12+02:00

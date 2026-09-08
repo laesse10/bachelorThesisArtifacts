@@ -1,0 +1,9 @@
+kernel,representation,optimization_class,cell_slowdown,class_geomean,deviation_x,direction
+tsvc_2_s2233,cpp,loop_interchange,1.0,5.891,0.17,faster than class
+tsvc_2_s2233,fortran,loop_interchange,1.009,5.745,0.18,faster than class
+tsvc_2_s2233,c,loop_interchange,1.01,5.28,0.19,faster than class
+tsvc_2_s2233,c_reference,loop_interchange,1.001,4.914,0.2,faster than class
+tsvc_2_s2233,numba,loop_interchange,1.081,5.045,0.21,faster than class
+tsvc_2_s3111,fortran,reduction,5.825,1.313,4.44,slower than class
+tsvc_2_s316,c,reduction,3.99,1.22,3.27,slower than class
+tsvc_2_s316,c_reference,reduction,3.99,1.253,3.18,slower than class

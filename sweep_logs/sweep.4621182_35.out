@@ -1,0 +1,11 @@
+task=35 kernel=tsvc_2_vag node=nid005526 cores=288 2026-09-08T11:23:19+02:00
+[1/1] tsvc_2_vag
+    c            ok           median 440.890 ms 
+    cpp          ok           median 440.437 ms 
+    fortran      ok           median 458.497 ms 
+    numba        ok           median 436.424 ms 
+    c_reference  ok           median 441.455 ms source=tsvc_2_vag_reference.c sha256=3ed7a9f6c00c016a
+    agent        ok           median 481.195 ms arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran campai
+
+wrote 6 rows -> results_parts/tsvc_2_vag.csv
+DONE tsvc_2_vag 2026-09-08T11:41:16+02:00

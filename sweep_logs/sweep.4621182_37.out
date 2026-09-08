@@ -1,0 +1,11 @@
+task=37 kernel=tsvc_2_vtvtv node=nid005484 cores=288 2026-09-08T11:28:03+02:00
+[1/1] tsvc_2_vtvtv
+    c            ok           median 97.485 ms 
+    cpp          ok           median 97.485 ms 
+    fortran      ok           median 97.466 ms 
+    numba        ok           median 97.928 ms 
+    c_reference  ok           median 97.271 ms source=tsvc_2_vtvtv_reference.c sha256=b07b384ec1946d11
+    agent        ok           median 97.553 ms arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran campai
+
+wrote 6 rows -> results_parts/tsvc_2_vtvtv.csv
+DONE tsvc_2_vtvtv 2026-09-08T11:45:40+02:00

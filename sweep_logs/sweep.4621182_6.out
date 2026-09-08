@@ -1,0 +1,11 @@
+task=6 kernel=fuse_move_ifs node=nid005515 cores=288 2026-09-08T10:50:39+02:00
+[1/1] fuse_move_ifs
+    c            ok           median 67.797 ms 
+    cpp          ok           median 67.580 ms 
+    fortran      ok           median 65.773 ms 
+    numba        ok           median 65.253 ms 
+    c_reference  ok           median 67.898 ms source=fuse_move_ifs_reference.c sha256=473478cf8c0223e4
+    agent        ok           median 51.651 ms arm=llr40v10-kimi27sglang-c job=621017 seq=2 lang=c campaign_speedup=8
+
+wrote 6 rows -> results_parts/fuse_move_ifs.csv
+DONE fuse_move_ifs 2026-09-08T11:07:35+02:00

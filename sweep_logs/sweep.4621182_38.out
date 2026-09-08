@@ -1,0 +1,11 @@
+task=38 kernel=versioned_distance_update node=nid006522 cores=288 2026-09-08T11:30:07+02:00
+[1/1] versioned_distance_update
+    c            ok           median 293.595 ms 
+    cpp          ok           median 293.233 ms 
+    fortran      ok           median 327.780 ms 
+    numba        ok           median 320.112 ms 
+    c_reference  unsupported   no hand-written _reference.c in the corpus
+    agent        ok           median 121.442 ms arm=llr40v10-qwen38-fortran job=621385 seq=3 lang=fortran campaign_spe
+
+wrote 6 rows -> results_parts/versioned_distance_update.csv
+DONE versioned_distance_update 2026-09-08T11:47:08+02:00
