@@ -1,0 +1,31 @@
+\chapter{Extending the CloudSC Loop-Nest Analysis}
+\label{ch:cloudsc}
+% RQ4. Builds on Bonsall's semester project "Evaluating the Auto-Vectorization Amenability
+% of DaCe-Generated Code" (References/DaCeCodegenAnalysis_AlexanderBonsall.pdf).
+
+\section{Prior Results}
+% Five loop nests: autoconversion snow, ice supersaturation adjustment, LU solver,
+% rain evaporation (Abel-Boutle), saturation calculation.
+% Variants: original Fortran, DaCe Fortran frontend, DaCe Python frontend.
+% Findings: row/column-major porting bug in the Python frontend (LU solver 8.4x);
+% forcing vectorization rarely helps; recommendations: stage reductions through scalar
+% temporaries, FP flags for GCC or fewer connectors.
+
+\section{What Was Left Open}
+% 1. Warm-up not accounted for: variants still drifting at the end of the run.
+% 2. DaCe timer resolution is 1 us; ice supersaturation (~16--19 us) cannot be ordered.
+% 3. Kernels only C++ vectorized (DaCe failed) not all analysed.
+% 4. Why -fassociative-math changes GCC's behaviour with no FP change in the assembly.
+% 5. Rule "FP flags for GCC" not applied to rain evaporation (min/max-heavy).
+% 6. Heavily branching loops (ice supersaturation, autoconversion) not studied.
+% 7. Recommendations stated but not implemented in the code generator.
+
+\section{Extended Setup}
+% Reuse the LLR-40 protocol: ns timer outside DaCe, warm-up until steady state,
+% min-of-k, NumPy/Fortran oracle. Optionally add numba/C/C++ representations of the loop
+% nests to connect to RQ1.
+
+\section{Results}
+% One subsection per open item addressed.
+
+\section{Implications for DaCe Code Generation}

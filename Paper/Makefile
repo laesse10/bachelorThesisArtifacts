@@ -45,8 +45,9 @@ thesis.ps: thesis.dvi
 thesis.aux: $(texfiles)
 	$(Q) $(Q_LATEX) $(LATEX) -interaction=nonstopmode -file-line-error thesis.tex
 
+# '-': BibTeX errors out while nothing is cited yet; don't fail the build.
 thesis.bbl: thesis.aux
-	$(Q)$(Q_OTHER) $(BIBTEX) thesis
+	-$(Q)$(Q_OTHER) $(BIBTEX) thesis
 
 clean:
 	rm -rf build/

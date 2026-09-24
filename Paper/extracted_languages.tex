@@ -1,0 +1,31 @@
+\chapter{Language Comparison on the Extracted Kernels}
+\label{ch:extracted-languages}
+% RQ2 / bullet (2), part 2. Same protocol as the LLR-40 matrix (Chapter methodology).
+% TODO: generate c/cpp/fortran/numba lowerings, sweep, validate against the NumPy oracle.
+
+\section{Setup}
+% Columns: c, cpp, fortran, numba (translator lowerings) + upstream native reference as
+% the analogue of LLR-40's c_reference column.
+% Native reference is CPU-timeable only for comet_int4_gemm, warpx_* and nfa_frontier
+% (C++); spgemm_hash and triangle_count are CUDA -> unsupported on the CPU matrix;
+% quatrex_rgf's reference is Python (a numba port already exists).
+% Agent column: only if campaign submissions exist for these kernels.
+
+\section{How These Kernels Differ from LLR-40}
+% Data types: int4/int32, int64, uint8, boolean, complex128; float64 only for WarpX.
+% -> the FP confounds of LLR-40 (FMA contraction, gfortran reassociation) only apply to
+%    WarpX and QuaTrEx; the integer kernels are graded bit-exact.
+% Scatter-add in esirkepov: reduction order changes results -> tolerance matters.
+% Run-time dispatch (field_gather depos_order, five-way), data-dependent control flow
+% (NFA, hash tables, binary search).
+
+\section{Coverage and Correctness}
+% Predict non-ok cells before measuring, as for LLR-40.
+
+\section{Performance}
+% Heatmap and per-dwarf aggregate, normalised to the fastest representation.
+
+\section{Comparison with LLR-40}
+% Do the representation rankings from Chapter llr40 hold on application code?
+% Optional: multi-threaded run, since every kernel has a natural parallel axis
+% (particles, components, rows, energy points) and the single-thread protocol hides it.

@@ -55,10 +55,6 @@
 %% LaTeX' own graphics handling
 \usepackage{graphicx}
 
-%% We unfortunately need this for the Rules chapter.  Remove it
-%% afterwards; or at least NEVER use its underlining features.
-\usepackage{soul}
-
 %% This allows you to add .pdf files. It is used to add the
 %% declaration of originality.
 \usepackage{pdfpages}
@@ -134,11 +130,6 @@
 
 
 
-%% IMPORTANT!!! Change the active line below to \studentwritingtrue
-%% when you want to start writing to easily get rid of the initial chapters
-\newif\ifstudentwriting
-\studentwritingfalse
-% \studentwritingtrue
 
 
 
@@ -146,21 +137,11 @@
 %% ====================
 
 \title{Title of Thesis}
-\author{S. Tudent}
-\thesistype{Master Thesis}
-\advisors{Advisors: Prof.\ Dr.\ A. D. Visor, Dr.\ P. Ostdoc}
+\author{Lars Hulsbergen}
+\thesistype{Bachelor Thesis}
+\advisors{Advisors: TODO}
 \department{Department of Computer Science}
-\date{January 19, 2038}
-
-
-\ifstudentwriting
-\title{A Randomized Algorithm for Computing the Median}
-\author{S. Tudent}
-\thesistype{Master Thesis}
-\advisors{Advisors: Prof.\ Dr.\ A. D. Visor, Dr.\ P. Ostdoc}
-\department{Department of Computer Science}
-\date{January 19, 2038}
-\fi
+\date{\today}
 
 \begin{document}
 
@@ -183,7 +164,7 @@
 
 
 
-\ifstudentwriting \input{student_abstract.tex} \else \input{abstract.tex} \fi
+\input{abstract.tex}
 
 
 %% TOC with the proper setup, do not change.
@@ -191,10 +172,16 @@
 \tableofcontents
 \mainmatter
 
-\ifstudentwriting \else \input{explanations_to_remove} \fi
-
-
-\input{student_writeup.tex}
+\input{introduction}
+\input{background}
+\input{methodology}
+\input{llr40}
+\input{extracted}
+\input{extracted_languages}
+\input{solvers}
+\input{cloudsc}
+\input{discussion}
+\input{conclusion}
 
 \backmatter
 

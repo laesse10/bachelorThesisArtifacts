@@ -1,0 +1,28 @@
+\chapter{Language Comparison on LLR-40}
+\label{ch:llr40}
+% RQ1. Data: llr40Matrix/ (results.csv, labels.csv, class_aggregate.csv, figures/).
+
+\section{Kernels and Representations}
+% 40 llr-focus40 kernels (TSVC-2 + extensions), 14 optimization classes (31 declared,
+% 9 derived). 6 timed representations: c, c_reference, cpp, fortran, numba, agent.
+% Note: 9 of 14 classes have <= 2 members -> no strong cross-class claims.
+
+\section{Coverage and Correctness}
+% 229 ok / 6 unsupported / 5 incorrect, every non-ok predicted beforehand.
+% s115: FMA contraction makes all GCC columns incorrect, numba passes bit-for-bit.
+% wf_triangular / wf_diff_skew pass vacuously (50.9% / 9.5% finite). Preset-S rows.
+% Figure: figures/coverage.pdf
+
+\section{Performance Across Representations}
+% Heatmap (figures/heatmap.pdf) and class aggregate (figures/class_aggregate.pdf).
+% numba vs C vs C++ vs Fortran on the same backend; c vs c_reference
+% (translator vs hand-written).
+
+\section{Per-Class Findings}
+% loop_interchange / loop_distribution: agent 6--12x faster, GCC did not interchange.
+% indirect_addressing: agent slower than plain C.
+% reduction: fortran/c median exactly 1.00x -> reassociation confound did not materialise.
+
+\section{Outliers}
+% tsvc_2_s2233, tsvc_2_s3111 (fortran 4.4x), tsvc_2_s316 (c, c_reference ~3.2x).
+% Explain each from source/assembly.

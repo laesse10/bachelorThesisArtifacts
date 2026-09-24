@@ -1,0 +1,46 @@
+\chapter{Extracted Application Kernels}
+\label{ch:extracted}
+% Bullet (2), part 1: the kernels themselves are a contribution.
+% Data: extracted_kernels_lars/ (copied from HPCAgent-Bench origin/main 299e23df7).
+
+\section{Selection by Berkeley Dwarf}
+% Asanovic et al. 2006. Eight kernels from seven upstream codes, covering 6 of 13 dwarfs:
+%   1  Dense LA           comet_int4_gemm             CoMet (ORNL)        PR #18 (supersedes #16)
+%   2  Sparse LA          quatrex_rgf                 QuaTrEx (ETH)       PR #17
+%   2  Sparse LA          spgemm_hash                 SpBench / cuBool    PR #21
+%   4  N-Body             warpx_boris_push            WarpX               PR #11
+%   4  N-Body             warpx_esirkepov_deposition  WarpX               PR #11
+%   4  N-Body             warpx_field_gather          WarpX               PR #11
+%   9  Graph Traversal    triangle_count              GraphAIBench        PR #22
+%  13  FSM                nfa_frontier                ANMLZoo / VASim     PR #20
+% Why these: contrast with LLR-40's flat loop nests -- irregular access, scatter,
+% set intersection, bit manipulation, complex arithmetic, run-time dispatch.
+
+\section{Porting Methodology}
+% Faithful, complete ports: every upstream branch kept (e.g. WarpX's compile-time
+% WARPX_DIM_* becomes a run-time geom dispatch over six geometries).
+% Per kernel: manifest (.yaml), input generator, NumPy reference, native reference
+% (_reference.cpp / .cu / .py), tests against the native reference.
+% Upstream provenance pinned (WarpX 26.08 d72f49d7, QuaTrEx cdcdb79e, cuBool 81573de, ...).
+
+\section{Kernel Descriptions}
+% One subsection per kernel: mathematics, upstream hot spot, what is graded.
+% comet_int4_gemm: 2-bit CCC codes, popcount planes, int32 accumulation, bit-exact.
+% quatrex_rgf: selected inversion of a block-tridiagonal system, complex128,
+%   O(NB*BS^3) two-pass recurrence per energy point.
+% spgemm_hash: boolean (OR,AND) SpGEMM in CSR, five upstream phases (row analysis,
+%   binning, hash count, hash fill, sort); cost is de-duplication, not arithmetic.
+% warpx_boris_push: relativistic Boris rotation, Full/FirstHalf/SecondHalf branches.
+% warpx_esirkepov_deposition: charge-conserving current deposition (scatter-add).
+% warpx_field_gather: shape-function interpolation of Yee-grid E/B onto particles.
+% triangle_count: degree-ordered DAG, edge-parallel two-phase binary-search intersection.
+% nfa_frontier: homogeneous NFA over a byte stream, one component per work item.
+
+\section{Manifest Design Decisions}
+% Presets sized to real application runs (QuaTrEx L = CNT GW shape; NFA M ~ ANMLZoo Brill).
+% Config axes vs size symbols; pinning to compile-time constants (field_gather: DaCe leg
+% exceeded the 1200 s cap, pinning cut the graph 6956 -> 5525 states, ~20%).
+% Capacity bounds (spgemm nnz_C_cap), NO_SCALE (triangle_count), int4 storage.
+
+\section{Validation Against Upstream}
+% What the tests check, how disagreements were resolved.

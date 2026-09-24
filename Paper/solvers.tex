@@ -1,0 +1,34 @@
+\chapter{The Solver Subtrack and the Preconditioning Skill}
+\label{ch:solvers}
+% RQ3 / bullet (3). Data: Solvers/skills/ (the skill), Solvers/kernels/ (its test bed).
+
+\section{Test Kernels}
+% 14 solver kernels written to exercise the skill, not as a measurement corpus:
+% sgs_pcg, mg_vcycle, amg_setup, sptrsv_level, ilu0, rb_sor, sparse_cholesky,
+% lanczos_reorth, householder_qr, mixed_precision_ir, jfnk_bratu, bdf_newton_krylov,
+% rk4_ensemble, rk45_ensemble. Each: NumPy loop reference, generator, manifest.
+% Chosen to span the kernel patterns of the verdict table (fixed-iterate Krylov,
+% multigrid, triangular solve, factorization, integrators, JFNK with a binding cap).
+
+\section{Grading Versus Convergence}
+% Literature judges a preconditioner by iteration count; the benchmark grades elementwise
+% against one reference. The two disagree by 8--9 orders of magnitude.
+
+\section{The Freedom Verdict}
+% Three questions: fixed iterate? graded count/flag/history? binding iteration cap?
+% Verdict table by kernel pattern: nearly every kernel freezes its preconditioner.
+% JFNK Bratu: open at N <= 64, capped (frozen) at N >= 96; fast-Poisson preconditioner
+% passes at N=32, misses by 1.2e6x budget at N=128.
+
+\section{Making a Frozen Preconditioner Fast}
+% Level scheduling on the reference ordering (legal) vs colouring (illegal).
+% Measured level structure (stencil, SuiteSparse), substitution vs graded band.
+
+\section{Skill Design}
+% v1 kernel-focused -> v2 generalised -> v3 progressive disclosure: what changed and why.
+% Six-step workflow, degrees of freedom, hard rules.
+
+\section{Evaluation of the Skill}
+% Three evals (frozen preconditioner, binding cap, disagreement) with/without skill.
+% Baseline failures they were built from.
+% TODO: run the with/without-skill comparison on the test kernels and report results.

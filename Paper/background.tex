@@ -1,0 +1,32 @@
+\chapter{Background}
+\label{ch:background}
+
+\section{HPCAgent-Bench}
+% Kernel = NumPy reference (oracle) + input generator + YAML manifest (presets S/M/L/XL,
+% graded outputs). Elementwise grading |a - e| <= atol + rtol |e|. Agent campaigns
+% (llr40v10 arms). Translator (numpyto_c) produces the C/C++/Fortran/numba lowerings.
+
+\section{The Berkeley Dwarfs}
+% Asanovic et al. 2006: 13 computational patterns; used to place the extracted kernels
+% and to show what LLR-40 (loop-level, mostly structured) does not cover.
+
+\section{Compiler Auto-Vectorization and Loop-Level Reasoning}
+% TSVC (Callahan et al.), Maleki et al., TSVC-2. Loop transformations used as LLR-40
+% classes: interchange, distribution, fusion, reduction, wavefront, scalar expansion, ...
+% Cost models (Pohl et al.), limits of TSVC as an ideal case (Siso et al.).
+
+\section{Floating-Point Semantics and Compiler Flags}
+% -ffp-contract=fast (FMA), -fassociative-math / reassociation, why -ffast-math breaks an
+% elementwise oracle. gfortran vs gcc reassociation difference.
+
+\section{Code Representations}
+% numba (JIT, parallel=True, no fastmath), C, C++, Fortran; translator-generated vs
+% hand-written; DaCe and the SDFG as a further generator.
+
+\section{Iterative Solvers and Preconditioning}
+% Krylov methods (CG, GMRES), Gauss-Seidel/SOR, ILU/IC, sparse triangular solve and level
+% scheduling, multigrid, Newton-Krylov/JFNK, time integrators.
+
+\section{Agent Skills}
+% What a skill is (SKILL.md, progressive disclosure, reference files), why it is the
+% vehicle for domain knowledge an agent otherwise lacks.

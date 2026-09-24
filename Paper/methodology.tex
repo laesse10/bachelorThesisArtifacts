@@ -1,0 +1,21 @@
+\chapter{Measurement Methodology}
+\label{ch:methodology}
+% Shared by the LLR-40, solver and CloudSC chapters: define once, reference later.
+
+\section{Platform and Toolchain}
+% CSCS Alps daint, GH200, Neoverse-V2 (aarch64), exclusive node, one kernel per node.
+% GNU 13.3.1 for gcc/g++/gfortran (no clang/flang on gh200) -> backend held constant.
+% Flags table incl. FP_RELAX, -ffp-contract=fast, no -ffast-math, no -fassociative-math.
+
+\section{Protocol}
+% Pinned before measuring (llr40Matrix/protocol.md). Single thread (OMP_NUM_THREADS,
+% NUMBA_NUM_THREADS=1), float64, preset M. 5 warmups + 30 timed reps, all stored.
+% NumPy oracle validation for every cell; statuses ok / unsupported / incorrect.
+
+\section{Statistics and Noise}
+% Min-of-k for all aggregates; the ~14% memory-bandwidth artifact (diagnosed, root cause
+% unknown); per-cell RSD and bimodality flags; geometric means normalised to fastest.
+
+\section{Threats to Validity}
+% gfortran reassociation and -ftree-parallelize-loops; agent column not like-for-like
+% (MI300A, OpenMP code run serially); numerically degenerate kernels at preset M.
