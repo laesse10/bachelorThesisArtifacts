@@ -1,0 +1,16 @@
+\chapter{Loop-Transformation Kernels}
+\label{ch:loop-kernels}
+% Data: llr40Matrix/ (HPCAgent-Bench tag llr-focus40, benchmark commit e2bceb68).
+% Terminology: kernels whose efficient execution requires dependence analysis and a loop
+% transformation (interchange, distribution, fusion, ...) -- avoid the corpus-internal
+% name "loop-level reasoning" in the text.
+
+\section{Kernel Set}
+% 40 kernels: TSVC-2 loops plus extensions (wavefront, fusion, scan, packing, ...).
+% Roster frozen two independent ways (tag and campaign observations agree).
+% Contrast with Chapter extracted: flat loop nests, float64 throughout.
+
+\section{Transformation Classes}
+% 14 classes (31 labels declared in the manifests, 9 derived from source).
+% reduction 10, control flow 5, loop interchange 5, indirect addressing 4, ...
+% 9 of 14 classes have <= 2 members -> no strong per-class claims.

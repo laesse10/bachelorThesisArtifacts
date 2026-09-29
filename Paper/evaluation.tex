@@ -1,0 +1,44 @@
+\chapter{Evaluation}
+\label{ch:evaluation}
+% One chapter evaluating everything jointly: both kernel sets, both skills.
+
+\section{Experimental Setup}
+% Platform: CSCS Alps daint, GH200, Neoverse-V2 (aarch64), exclusive node per kernel.
+% Toolchain: GNU 13.3.1 for gcc/g++/gfortran (backend held constant); flags incl.
+% FP_RELAX and -ffp-contract=fast; no -ffast-math, no -fassociative-math.
+% Representations: c, cpp, fortran, numba (translator lowerings), hand-written reference
+% (c_reference for loop kernels; upstream C++ for comet, WarpX, NFA; CUDA references of
+% spgemm_hash and triangle_count are not CPU-timeable), agent submissions.
+% Protocol pinned before measuring: single thread, preset M, 5 warm-ups + 30 timed reps,
+% every timing stored, NumPy oracle for every cell, statuses ok/unsupported/incorrect.
+% Statistics: min-of-k (memory-bandwidth artifact on ~14% of reps), RSD, geometric means
+% normalised to the fastest representation.
+% Skill evaluation: fresh agent with and without the skill, rubric per scenario.
+
+\section{Language Comparison}
+% Both kernel sets in one matrix and one heatmap.
+% Coverage and correctness: 229 ok / 6 unsupported / 5 incorrect on the loop kernels;
+% FMA contraction makes s115 incorrect in every GCC column while numba passes;
+% wf_triangular / wf_diff_skew pass vacuously. Predict non-ok cells for the extracted
+% kernels before measuring.
+% Performance: interchange/distribution -- agent 6--12x faster (GCC did not interchange);
+% indirect addressing -- agent slower than C; reductions -- fortran/c median 1.00x.
+% Extracted kernels: integer kernels are bit-exact, so FP confounds apply only to WarpX
+% and QuaTrEx; does the ranking from flat loop nests hold on irregular code?
+% TODO: extracted-kernel lowerings and timings.
+
+\section{Skill Evaluation}
+% Kernel extraction: extract a kernel with and without the skill; score fidelity
+% (validation layers passed, boundary choice, documented simplifications).
+% Preconditioning: three scenarios (frozen preconditioner, binding cap, disagreement) on
+% the solver test kernels, with and without the skill; baseline failures without it.
+% TODO: run both.
+
+\section{Discussion}
+% Representation, compiler or algorithm: how much of the spread is language, generator,
+% or a restructuring the compiler did not perform.
+% What elementwise grading permits: FP flags, preconditioner choice, reassociation;
+% vacuous passes on numerically degenerate kernels.
+% Threats to validity: gfortran reassociation and -ftree-parallelize-loops; agent column
+% not like-for-like (MI300A, OpenMP code run serially); single-thread only; machine-
+% specific timings (-march=native).
