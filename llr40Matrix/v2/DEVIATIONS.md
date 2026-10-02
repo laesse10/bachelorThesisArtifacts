@@ -98,6 +98,6 @@ it is listed here.
     user's other sessions. One resubmit was refused (`QOSMaxSubmitJobPerUserLimit`) and submitted
     by hand. The chain now retries and leaves `chain_claims/RESUBMIT_FAILED`.
 21. **Job IDs of the final data:** main matrix, preset F, `-ffp-contract=off` and A/B in 4969572
-    (except the 3 re-measured kernels: 4970062). Opt reports in 4970131; numba opt reports in the
-    numba-only job. Every srun line is in `srun_lines.txt`.
+    (except the 3 re-measured kernels: 4970062). Opt reports in 4970131; numba opt reports in 4970181
+    (numba-only). Every srun line is in `srun_lines.txt`.
 
