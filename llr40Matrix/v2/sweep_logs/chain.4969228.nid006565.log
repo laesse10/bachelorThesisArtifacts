@@ -1,0 +1,4 @@
+SRUN[MAIN tsvc_2_s311]: srun --nodes=1 --ntasks=1 -w nid006565 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_s311 --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_s311.csv --scratch scratch/tsvc_2_s311 --attempts-out agent_attempts_parts/tsvc_2_s311.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_s311
+    c            build_error   C (gcc) - default - default - validation: SUCCESS | C (gcc) - default 
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

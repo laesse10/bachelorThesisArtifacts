@@ -300,6 +300,11 @@ if __name__ == "__main__":
     ap.add_argument("--attempts-out", default="agent_attempts.csv")
     ap.add_argument("--attempt-logs", default="agent_attempt_logs")
     ARGS = ap.parse_args()
+    # The driver runs with cwd=BENCH, so a relative --scratch would make it write its JSONL under
+    # the bench tree while this process looks under its own cwd (first debug job, 4969228: every
+    # cell recorded build_error). Resolve every path argument here, once.
+    for _a in ("out", "scratch", "attempts_out", "attempt_logs"):
+        setattr(ARGS, _a, str(pathlib.Path(getattr(ARGS, _a)).resolve()))
     ATTEMPTS = []
     pathlib.Path(ARGS.scratch).mkdir(parents=True, exist_ok=True)
     COMMIT = subprocess.run(["git", "-C", str(BENCH), "rev-parse", "HEAD"],
