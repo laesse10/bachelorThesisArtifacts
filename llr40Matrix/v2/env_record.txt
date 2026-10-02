@@ -1,0 +1,14 @@
+BENCH_COMMIT=26a4f0cfc1540cead109dfc8d736f1c45263e390
+BENCH_COMMIT_DATE=2026-09-28T15:34:25+02:00
+BENCH_ORIGIN_MAIN_QUERIED=2026-10-02T13:59:02+02:00 (git ls-remote; fresh clone, the old clone's fetch failed with a corrupt pack)
+ICLR_COMMIT=2830ed3f5285c747de53dda2b04229d6a3c0f243
+GCC_ON_PATH=gcc (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]
+GCC_USED_FOR_C=gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14; harness floor COMPILER_MIN_MAJOR gcc>=14 because -std=c23]
+GXX=g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/usr/bin/g++-13]
+GFORTRAN=GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/usr/bin/gfortran-13]
+PYTHON=Python 3.12.13 (v1: 3.11.13; the v2 commit requires >=3.12, os.CLONE_NEWUSER in seal.py)
+NUMBA=0.67.0
+NUMPY=2.4.6
+LLVMLITE=0.49.0
+KERNEL=6.4.0-150600.23.125-64kb
+NOTE_V1_CORRECTION=v1 env_record says GCC 13.3.1 for C; the v1 .so files (.comment) show C was built by GCC 14.2.0 (same floor at e2bceb68). C++ and Fortran were 13.3.1 in v1 and are in v2.
