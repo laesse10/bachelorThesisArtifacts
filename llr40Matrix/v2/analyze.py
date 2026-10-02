@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 """Phase 5: aggregate results.csv -> figures/ + tables. No hand-entered numbers.
 
-Slowdown is per-row: a cell's median / the fastest OK median in that kernel's row. Class
+Slowdown is per-row: a cell's min-of-k / the fastest OK min-of-k in that kernel's row. Class
 aggregates use the GEOMETRIC mean, because slowdowns are ratios.
+
+v2 additions (task 5): the v1 aggregates are kept for comparability, plus two variants that
+remove the normalisation artifact (a kernel missing a column is normalised to a different
+"fastest" column than its class): aggregates over COMPLETE-CASE kernels only (all 6 columns ok),
+normalised (a) to the fastest column in the row and (b) to the fixed column ``c``. Variant rows
+(flags_variant set, or preset != M) never enter any aggregate.
 """
 import argparse, csv, math, pathlib, statistics
 import numpy as np
@@ -21,7 +27,7 @@ def load(results, labels, preset="M"):
     lab = {r["kernel"]: r for r in csv.DictReader(open(labels))}
     cells, extra = {}, []
     for r in csv.DictReader(open(results)):
-        if r.get("preset", preset) == preset:
+        if r.get("preset", preset) == preset and not r.get("flags_variant"):
             cells[(r["kernel"], r["representation"])] = r
         else:
             extra.append(r)
@@ -41,13 +47,13 @@ def med(cell):
     return None
 
 
-def slowdowns(cells, kernels):
-    """kernel -> {repr: slowdown vs the fastest OK cell in that row}."""
+def slowdowns(cells, kernels, base_col=None):
+    """kernel -> {repr: slowdown vs the fastest OK cell in that row} (or vs ``base_col``)."""
     out = {}
     for k in kernels:
         row = {r: med(cells.get((k, r))) for r in REPRS}
         ok = [v for v in row.values() if v]
-        base = min(ok) if ok else None
+        base = (row.get(base_col) if base_col else (min(ok) if ok else None))
         out[k] = {r: (v / base if (v and base) else None) for r, v in row.items()}
     return out
 
@@ -79,7 +85,7 @@ def heatmap(sd, lab, kernels, path):
                     color="white" if (not np.isnan(M[i, j]) and M[i, j] > vmax * 0.55) else "black")
     fig.colorbar(im, ax=ax, label="log10(slowdown vs fastest in row)", shrink=0.6)
     ax.set_title("LLR-40: slowdown vs fastest representation per kernel\n"
-                 "(preset M, float64, 1 thread, GNU 13.3.1; '-' = no ok timing)", fontsize=9)
+                 "(preset M, float64, 1 thread, gcc 14.2.0 (C) / g++, gfortran 13.3.1; '-' = no ok timing)", fontsize=9)
     fig.tight_layout(); fig.savefig(path, dpi=190); fig.savefig(str(path).replace(".png", ".pdf"))
     plt.close(fig)
 
@@ -196,6 +202,22 @@ def main(a):
     coverage(cells, lab, kernels, REPO / "coverage.csv", fig / "coverage.png")
     out = outliers(sd, lab, kernels, classes, G, REPO / "outliers.csv")
     nf = noise_floor(cells, REPO / "noise_floor.csv")
+    # --- v2: complete-case aggregates, normalised to the row's fastest and to the fixed column c
+    complete = [k for k in kernels if all(med(cells.get((k, r))) for r in REPRS)]
+    excluded = [k for k in kernels if k not in complete]
+    with open(REPO / "complete_case_excluded.csv", "w", newline="") as fh:
+        w = csv.writer(fh); w.writerow(["kernel", "optimization_class", "non_ok_columns"])
+        for k in excluded:
+            w.writerow([k, lab[k]["optimization_class"],
+                        " ".join(f"{r}:{(cells.get((k, r)) or {}).get('status', 'missing')}"
+                                 for r in REPRS if not med(cells.get((k, r))))])
+    for tag, base in (("complete", None), ("complete_vs_c", "c")):
+        sdx = slowdowns(cells, complete, base_col=base)
+        cl, Gx = class_aggregate(sdx, lab, complete, REPO / f"class_aggregate_{tag}.csv",
+                                 fig / f"class_aggregate_{tag}.png")
+        ox = outliers(sdx, lab, complete, cl, Gx, REPO / f"outliers_{tag}.csv")
+        print(f"[{tag}] kernels {len(complete)}  classes {len(cl)}  outliers {len(ox)}")
+    print(f"complete-case: {len(complete)} kernels; excluded {len(excluded)}: {excluded}")
     import collections
     st = collections.Counter(c["status"] for c in cells.values())
     print(f"cells: {len(cells)}   status: {dict(st)}")
