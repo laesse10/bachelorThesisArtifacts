@@ -1,0 +1,17 @@
+SRUN[MAIN fuse_diamond]: srun --nodes=1 --ntasks=1 -w nid006551 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels fuse_diamond --preset M --warmup 5 --reps 30 --out results_parts/fuse_diamond.csv --scratch scratch/fuse_diamond --attempts-out agent_attempts_parts/fuse_diamond.csv --attempt-logs agent_attempt_logs
+[1/1] fuse_diamond
+    c            ok           median 179.336 ms 
+    cpp          ok           median 178.684 ms 
+    fortran      ok           median 175.745 ms 
+    numba        ok           median 201.670 ms 
+    c_reference  ok           median 30.971 ms source=fuse_diamond_reference.c sha256=ead7cb4b8d194d60
+    agent        ok           median 30.814 ms rank=3 arm=llr40v10-oss120b-fortran job=621019 seq=1 lang=fortran camp
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/results_parts/fuse_diamond.csv
+SRUN[MAIN tsvc_2_s318]: srun --nodes=1 --ntasks=1 -w nid006551 --exclusive --cpu-bind=cores --hint=nomultithread --time=26 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_s318 --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_s318.csv --scratch scratch/tsvc_2_s318 --attempts-out agent_attempts_parts/tsvc_2_s318.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_s318
+    c            ok           median 80.579 ms 
+    cpp          ok           median 80.673 ms 
+    fortran      ok           median 80.684 ms 
+[2026-10-02T15:41:06.747] error: *** STEP 4969249.10 ON nid006551 CANCELLED AT 2026-10-02T15:41:06 DUE to SIGNAL Terminated ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

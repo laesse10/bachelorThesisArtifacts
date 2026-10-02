@@ -9,8 +9,11 @@ PY="${LLR40_PYTHON:-/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python}"
 WT=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2
 mkdir -p results_parts agent_attempts_parts variant_parts variant_attempts_parts
 step() {  # $@ = command run on the node
-  local CMD=(srun --nodes=1 --ntasks=1 -w "$NODE" --exclusive --cpu-bind=cores --hint=nomultithread
-             --time="$MIN" "$@")
+  # The WHOLE node goes to the step (--cpus-per-task = every cpu): a 1-cpu step cgroup would stop
+  # numactl from binding the timed child to socket 0 and make the harness resolve
+  # -ftree-parallelize-loops=1 (job 4969249, discarded). One task, one node, never shared.
+  local CMD=(srun --nodes=1 --ntasks=1 --cpus-per-task="${SLURM_CPUS_ON_NODE:-288}" -w "$NODE" --exclusive
+             --cpu-bind=cores --hint=nomultithread --time="$MIN" "$@")
   echo "SRUN[$KIND $KERNEL]: ${CMD[*]}"
   echo "$(date -Is) job=${SLURM_JOB_ID} partition=${SLURM_JOB_PARTITION} node=$NODE ${CMD[*]}" >> srun_lines.txt
   "${CMD[@]}"
@@ -36,6 +39,9 @@ case "$KIND" in
            variant "$WT-nopar"  M M "without-ftree-parallelize-loops" fortran abwithout
            variant "$WT-abwith" M M "with-ftree-parallelize-loops" fortran abwith
          fi ;;
+  PROBE) # geometry check run by chain_debug.sbatch before any unit: what the build child sees
+         step env LLR40_BENCH="$WT" numactl --cpunodebind=0 --membind=0 "$PY" -c \
+           "import os,re,sys;sys.path[:0]=[os.environ['LLR40_BENCH'],os.environ['LLR40_BENCH']+'/hpcagent_bench/numpy_translators/src'];from hpcagent_bench import languages as L;f=L.baseline_flags('fortran');m=re.search(r'parallelize-loops=(\d+)',f);print('PROBE',os.uname().nodename,len(os.sched_getaffinity(0)),m.group(1) if m else 0)" ;;
   OPTREP) "$PY" merge_results.py
           step env LLR40_BENCH="$WT-aux" numactl --cpunodebind=0 --membind=0 "$PY" opt_reports.py ;;
 esac

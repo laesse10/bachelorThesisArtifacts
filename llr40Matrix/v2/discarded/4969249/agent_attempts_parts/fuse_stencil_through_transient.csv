@@ -1,0 +1,2 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+fuse_stencil_through_transient,1,llr40v10-kimi27sglang-c,621017,1,c,28.882,19dae12d481d043351db72315919d27e67b03c6f55fe694cb4850053c1d21faf,ok,,1,

@@ -1,0 +1,15 @@
+SRUN[MAIN fuse_stencil_through_transient]: srun --nodes=1 --ntasks=1 -w nid006557 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels fuse_stencil_through_transient --preset M --warmup 5 --reps 30 --out results_parts/fuse_stencil_through_transient.csv --scratch scratch/fuse_stencil_through_transient --attempts-out agent_attempts_parts/fuse_stencil_through_transient.csv --attempt-logs agent_attempt_logs
+[1/1] fuse_stencil_through_transient
+    c            ok           median 117.411 ms 
+    cpp          ok           median 116.777 ms 
+    fortran      ok           median 112.305 ms 
+    numba        ok           median 189.145 ms 
+    c_reference  ok           median 47.877 ms source=fuse_stencil_through_transient_reference.c sha256=0acd59d853882
+    agent        ok           median 54.830 ms rank=1 arm=llr40v10-kimi27sglang-c job=621017 seq=1 lang=c campaign_sp
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/results_parts/fuse_stencil_through_transient.csv
+SRUN[MAIN tsvc_2_s2275]: srun --nodes=1 --ntasks=1 -w nid006557 --exclusive --cpu-bind=cores --hint=nomultithread --time=26 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_s2275 --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_s2275.csv --scratch scratch/tsvc_2_s2275 --attempts-out agent_attempts_parts/tsvc_2_s2275.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_s2275
+    c            ok           median 702.043 ms 
+[2026-10-02T15:41:06.748] error: *** STEP 4969249.11 ON nid006557 CANCELLED AT 2026-10-02T15:41:06 DUE to SIGNAL Terminated ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
