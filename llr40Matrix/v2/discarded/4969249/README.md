@@ -1,16 +1,11 @@
 # Discarded: debug chain job 4969249 (2026-10-02 15:23-15:41, cancelled)
 
-The rows themselves are well-formed, but they were measured with a different step geometry than
-v1 and than the rest of v2, so they are not part of the matrix.
+CORRECTION (2026-10-02, later the same day): the reason originally given here was wrong.
 
-`chain_unit.sh` launched each unit as `srun --nodes=1 --ntasks=1 --exclusive ...` inside a
-10-node allocation. That step's cgroup holds ONE cpu, so `numactl --cpunodebind=0` could not
-widen it: the timed child ran pinned to 1 core instead of socket 0, and the harness resolved
-`-ftree-parallelize-loops=1` (parloops off) for every Fortran build. In v1 the sweep's build
-child saw more than one core: all 15 v1 Fortran libraries that call GOMP_parallel were built
-inside their kernel's own v1 sweep window. So the Fortran/agent-Fortran cells here are not
-comparable with v1, and task 4's two arms would have been identical.
-
-Fixed: steps get the whole node (`--cpus-per-task=$SLURM_CPUS_ON_NODE`), and every chain job
-first probes each node and refuses to measure unless the build child sees >1 core and the
-resolved Fortran flag has n > 1.
+These 25 rows were measured in the 1-cpu step geometry, which is the SAME geometry as v1
+(`-ftree-parallelize-loops=1`, parloops off, timed child on one core). I cancelled the job
+believing v1's Fortran builds had parloops active, inferred from GOMP_parallel calls in the v1
+libraries. Those calls are `*._omp_fn.N` (OpenMP from agent Fortran sources), not parloops'
+`*._loopfn.N`; no v1 Fortran-column build has a `_loopfn`. The rows are not wrong; they are a
+partial run superseded by the complete re-measurement in the same geometry, and are not merged so
+that the v2 matrix comes from one uninterrupted configuration.

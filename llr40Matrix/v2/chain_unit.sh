@@ -9,10 +9,11 @@ PY="${LLR40_PYTHON:-/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python}"
 WT=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2
 mkdir -p results_parts agent_attempts_parts variant_parts variant_attempts_parts
 step() {  # $@ = command run on the node
-  # The WHOLE node goes to the step (--cpus-per-task = every cpu): a 1-cpu step cgroup would stop
-  # numactl from binding the timed child to socket 0 and make the harness resolve
-  # -ftree-parallelize-loops=1 (job 4969249, discarded). One task, one node, never shared.
-  local CMD=(srun --nodes=1 --ntasks=1 --cpus-per-task="${SLURM_CPUS_ON_NODE:-288}" -w "$NODE" --exclusive
+  # v1 geometry: ONE task with ONE cpu (v1's `srun --exclusive --cpu-bind=cores --hint=nomultithread`
+  # in a 1-node job). The step cgroup holds one core, so the timed child runs on it and the harness
+  # resolves -ftree-parallelize-loops=1, exactly as v1 did and recorded. (A whole-node step gives
+  # n=72 and parloops ON -- supplementary_wholenode/.) -w keeps one step per node.
+  local CMD=(srun --nodes=1 --ntasks=1 -w "$NODE" --exclusive
              --cpu-bind=cores --hint=nomultithread --time="$MIN" "$@")
   echo "SRUN[$KIND $KERNEL]: ${CMD[*]}"
   echo "$(date -Is) job=${SLURM_JOB_ID} partition=${SLURM_JOB_PARTITION} node=$NODE ${CMD[*]}" >> srun_lines.txt

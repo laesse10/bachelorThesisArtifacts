@@ -1,0 +1,2 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+segment_reduce_ragged,1,llr40v10-kimi27sglang-c,621729,3,c,13.969,387cc5b48888c0868a8ec8784a053b52780bf04a2c2a2987f6252643154b578b,ok,,1,

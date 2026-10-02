@@ -23,12 +23,12 @@ P0=$("$PY" chain_status.py --progress)
 "$PY" chain_status.py --todo > "$CLAIMS/todo.tsv"
 echo "job=$SLURM_JOB_ID nodes=${NODES[*]} start=$(date -Is) progress=$P0 todo=$(wc -l < "$CLAIMS/todo.tsv")"
 
-# --- geometry guard: refuse to measure unless the build child sees socket 0 (>1 core) and the
-# harness resolves -ftree-parallelize-loops with n > 1, as in v1 (see discarded/4969249/).
+# --- geometry guard: refuse to measure unless the build child sees exactly v1's geometry: one
+# core, and the harness resolving -ftree-parallelize-loops=1 (see supplementary_wholenode/README).
 for n in "${NODES[@]}"; do bash chain_unit.sh PROBE - "$n" 2 > "$CLAIMS/probe.$n" 2>&1 & done; wait
 cat "$CLAIMS"/probe.* | grep -E "^PROBE" | tee "$CLAIMS/probe.summary"
 if [ "$(grep -c '^PROBE' "$CLAIMS/probe.summary")" -ne "${#NODES[@]}" ] || \
-   awk '$3 < 2 || $4 < 2 {bad=1} END {exit !bad}' "$CLAIMS/probe.summary"; then
+   awk '$3 != 1 || $4 != 1 {bad=1} END {exit !bad}' "$CLAIMS/probe.summary"; then
   echo "GEOMETRY_FAILED: not measuring, not resubmitting" | tee chain_claims/GEOMETRY_FAILED
   cat "$CLAIMS"/probe.*; exit 1
 fi

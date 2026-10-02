@@ -1,15 +1,28 @@
-! hpcagent_bench-autogen -- generated from tsvc_2_s115_numpy.py; edit the numpy reference and regenerate, or delete this line to keep local edits as a hand override.
-subroutine tsvc_2_s115_fp64(a, aa, LEN_2D) bind(C, name="tsvc_2_s115_fp64")
-    use, intrinsic :: iso_c_binding
-    integer(c_int64_t), value, intent(in) :: LEN_2D
-    real(c_double), intent(inout) :: a(LEN_2D)
-    real(c_double), intent(in) :: aa(LEN_2D, LEN_2D)
-    integer(c_int64_t) :: i_l1, j_l0
+module tsvc_2_s115_mod
+  use iso_c_binding
+  implicit none
+contains
+  subroutine tsvc_2_s115_fp64(a, aa, LEN_2D) bind(C, name="tsvc_2_s115_fp64")
+    ! Arguments
+    real(c_double), intent(inout) :: a(*)
+    real(c_double), intent(in) :: aa(*)
+    integer(c_int64_t), value :: LEN_2D
+    ! Local variables
+    integer(c_int64_t) :: j, i, base
+    real(c_double) :: a_j
 
-    do j_l0 = 0, (LEN_2D) - 1
-        do i_l1 = (j_l0 + 1), (LEN_2D) - 1
-            a((i_l1) + 1) = (a((i_l1) + 1) - (aa((i_l1) + 1, (j_l0) + 1) * a((j_l0) + 1)))
-        end do
+    if (LEN_2D <= 0) return
+
+    !$omp parallel default(shared) private(j, i, base, a_j)
+    do j = 0, LEN_2D-1
+      a_j = a(j+1)
+      base = j * LEN_2D
+      !$omp do simd schedule(static)
+      do i = j+1, LEN_2D-1
+        a(i+1) = a(i+1) - aa(base + i + 1) * a_j
+      end do
+      ! implicit barrier at end of omp for
     end do
-
-end subroutine tsvc_2_s115_fp64
+    !$omp end parallel
+  end subroutine tsvc_2_s115_fp64
+end module tsvc_2_s115_mod

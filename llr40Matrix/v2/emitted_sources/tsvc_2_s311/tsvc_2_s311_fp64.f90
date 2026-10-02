@@ -1,14 +1,19 @@
-! hpcagent_bench-autogen -- generated from tsvc_2_s311_numpy.py; edit the numpy reference and regenerate, or delete this line to keep local edits as a hand override.
-subroutine tsvc_2_s311_fp64(a, sum_out, LEN_1D) bind(C, name="tsvc_2_s311_fp64")
-    use, intrinsic :: iso_c_binding
-    integer(c_int64_t), value, intent(in) :: LEN_1D
-    real(c_double), intent(in) :: a(LEN_1D)
-    real(c_double), intent(inout) :: sum_out(LEN_1D)
-    integer(c_int64_t) :: i_l0
+subroutine tsvc_2_s311_fp64(a, sum_out, LEN_1D, workspace, workspace_bytes) bind(C, name="tsvc_2_s311_fp64")
+  use iso_c_binding
+  implicit none
+  real(c_double), intent(in)  :: a(*)
+  real(c_double), intent(out) :: sum_out(*)
+  integer(c_int64_t), value   :: LEN_1D
+  type(c_ptr),       value   :: workspace
+  integer(c_int64_t), value  :: workspace_bytes
+  real(c_double) :: s
+  integer(c_int64_t) :: i
 
-    sum_out((0) + 1) = 0.0_c_double
-    do i_l0 = 0, (LEN_1D) - 1
-        sum_out((0) + 1) = (sum_out((0) + 1) + a((i_l0) + 1))
-    end do
-
+  s = 0.0_c_double
+  !$omp parallel do reduction(+:s) schedule(static)
+  do i = 1, LEN_1D
+     s = s + a(i)
+  end do
+  !$omp end parallel do
+  sum_out(1) = s
 end subroutine tsvc_2_s311_fp64

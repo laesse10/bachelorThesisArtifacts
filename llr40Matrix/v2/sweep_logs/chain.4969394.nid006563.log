@@ -1,0 +1,60 @@
+SRUN[MAIN tsvc_2_s231]: srun --nodes=1 --ntasks=1 --cpus-per-task=288 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_s231 --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_s231.csv --scratch scratch/tsvc_2_s231 --attempts-out agent_attempts_parts/tsvc_2_s231.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_s231
+    c            ok           median 643.718 ms 
+    cpp          ok           median 652.453 ms 
+    fortran      ok           median 672.554 ms 
+    numba        ok           median 513.641 ms 
+    c_reference  ok           median 610.596 ms source=tsvc_2_s231_reference.c sha256=9f1ad23b84e1aa3a
+    agent        ok           median 69.741 ms rank=1 arm=llr40v10-qwen38-c job=621016 seq=2 lang=c campaign_speedup=
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/results_parts/tsvc_2_s231.csv
+SRUN[MAIN tsvc_2_s119]: srun --nodes=1 --ntasks=1 --cpus-per-task=288 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=25 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_s119 --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_s119.csv --scratch scratch/tsvc_2_s119 --attempts-out agent_attempts_parts/tsvc_2_s119.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_s119
+    c            ok           median 70.247 ms 
+    cpp          ok           median 69.810 ms 
+    fortran      ok           median 69.853 ms 
+    numba        ok           median 65.327 ms 
+    c_reference  ok           median 69.854 ms source=tsvc_2_s119_reference.c sha256=49dbe536bda55b77
+    agent        ok           median 56.826 ms rank=1 arm=llr40v10-kimi27sglang-fortran job=621731 seq=1 lang=fortran
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/results_parts/tsvc_2_s119.csv
+SRUN[MAIN tsvc_2_vtvtv]: srun --nodes=1 --ntasks=1 --cpus-per-task=288 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=23 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_vtvtv --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_vtvtv.csv --scratch scratch/tsvc_2_vtvtv --attempts-out agent_attempts_parts/tsvc_2_vtvtv.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_vtvtv
+    c            ok           median 95.932 ms 
+    cpp          ok           median 95.979 ms 
+    fortran      ok           median 8.415 ms 
+    numba        ok           median 97.285 ms 
+    c_reference  ok           median 97.467 ms source=tsvc_2_vtvtv_reference.c sha256=b07b384ec1946d11
+    agent        ok           median 97.191 ms rank=1 arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/results_parts/tsvc_2_vtvtv.csv
+SRUN[MAIN ext_war_unit]: srun --nodes=1 --ntasks=1 --cpus-per-task=288 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=21 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels ext_war_unit --preset M --warmup 5 --reps 30 --out results_parts/ext_war_unit.csv --scratch scratch/ext_war_unit --attempts-out agent_attempts_parts/ext_war_unit.csv --attempt-logs agent_attempt_logs
+[1/1] ext_war_unit
+    c            ok           median 63.160 ms 
+    cpp          ok           median 62.780 ms 
+    fortran      ok           median 61.640 ms 
+    numba        ok           median 60.958 ms 
+    c_reference  ok           median 62.827 ms source=ext_war_unit_reference.c sha256=2ee53f9778ce59a0
+    agent        ok           median 62.661 ms rank=1 arm=llr40v10-kimi27sglang-c job=621729 seq=3 lang=c campaign_sp
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/results_parts/ext_war_unit.csv
+SRUN[AB quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 --cpus-per-task=288 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=20 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-nopar /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_variant.py --kernels quasi_affine_reduce_odd --preset M --preset-label M --flags-variant without-ftree-parallelize-loops --reprs fortran --warmup 5 --reps 30 --out variant_parts/abwithout.quasi_affine_reduce_odd.csv --scratch scratch/variants/abwithout.quasi_affine_reduce_odd --attempts-out variant_attempts_parts/abwithout.quasi_affine_reduce_odd.csv --attempt-logs agent_attempt_logs_variants --emitted-dir emitted_sources_variants/abwithout
+[1/1] quasi_affine_reduce_odd
+    fortran      ok           median 63.711 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/variant_parts/abwithout.quasi_affine_reduce_odd.csv
+SRUN[AB quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 --cpus-per-task=288 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=20 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-abwith /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_variant.py --kernels quasi_affine_reduce_odd --preset M --preset-label M --flags-variant with-ftree-parallelize-loops --reprs fortran --warmup 5 --reps 30 --out variant_parts/abwith.quasi_affine_reduce_odd.csv --scratch scratch/variants/abwith.quasi_affine_reduce_odd --attempts-out variant_attempts_parts/abwith.quasi_affine_reduce_odd.csv --attempt-logs agent_attempt_logs_variants --emitted-dir emitted_sources_variants/abwith
+[1/1] quasi_affine_reduce_odd
+    fortran      ok           median 63.810 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/variant_parts/abwith.quasi_affine_reduce_odd.csv
+SRUN[AB tsvc_2_s318]: srun --nodes=1 --ntasks=1 --cpus-per-task=288 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=19 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-abwith /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_variant.py --kernels tsvc_2_s318 --preset M --preset-label M --flags-variant with-ftree-parallelize-loops --reprs fortran --warmup 5 --reps 30 --out variant_parts/abwith.tsvc_2_s318.csv --scratch scratch/variants/abwith.tsvc_2_s318 --attempts-out variant_attempts_parts/abwith.tsvc_2_s318.csv --attempt-logs agent_attempt_logs_variants --emitted-dir emitted_sources_variants/abwith
+[1/1] tsvc_2_s318
+    fortran      ok           median 80.559 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/variant_parts/abwith.tsvc_2_s318.csv
+SRUN[AB tsvc_2_s318]: srun --nodes=1 --ntasks=1 --cpus-per-task=288 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=19 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-nopar /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_variant.py --kernels tsvc_2_s318 --preset M --preset-label M --flags-variant without-ftree-parallelize-loops --reprs fortran --warmup 5 --reps 30 --out variant_parts/abwithout.tsvc_2_s318.csv --scratch scratch/variants/abwithout.tsvc_2_s318 --attempts-out variant_attempts_parts/abwithout.tsvc_2_s318.csv --attempt-logs agent_attempt_logs_variants --emitted-dir emitted_sources_variants/abwithout
+[1/1] tsvc_2_s318
+    fortran      ok           median 80.256 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/variant_parts/abwithout.tsvc_2_s318.csv
