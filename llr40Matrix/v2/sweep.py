@@ -39,6 +39,14 @@ FIELDS = ["kernel", "representation", "preset", "status", "time_ns_median", "tim
           "timestamp", "notes"]
 
 
+def place(src, dst):
+    """copy2 + touch. The harness reuses lib<k>_<fw>.so while it is NEWER than every source
+    (cpp_runtime._ensure_built); copy2 keeps the source's old mtime, so without the touch a
+    substituted or restored source could be shadowed by the previous cell's library."""
+    shutil.copy2(src, dst)
+    os.utime(dst)
+
+
 def sha(p):
     return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
 
@@ -190,6 +198,11 @@ def main():
             if src.is_file():
                 bak = pathlib.Path(ARGS.scratch) / f"pristine.{k}_fp64{ext}"
                 shutil.copy2(src, bak); pristine[ext] = (src, bak, sha(src))
+        # v2: keep the exact emitted sources that were timed (diff_vs_v1, opt reports)
+        keep = REPO / "emitted_sources" / k; keep.mkdir(parents=True, exist_ok=True)
+        for f in [backend / f"{k}_fp64{e}" for e in (".c", ".cpp", ".f90")] + [kdir / f"{k}_numba_np.py"]:
+            if f.is_file():
+                shutil.copy2(f, keep / f.name)
         try:
             for rep in ("c", "cpp", "fortran", "numba", "c_reference", "agent"):
                 fw, ext = REPRS[rep]
@@ -197,13 +210,13 @@ def main():
                                       "numba": "numba"}.get(fw, "")
                 # --- restore pristine before every cell, and verify it ---
                 for e, (src, bak, want) in pristine.items():
-                    shutil.copy2(bak, src)
+                    place(bak, src)
                     assert sha(src) == want, f"pristine restore mismatch for {e}"
                 if rep == "c_reference":
                     hand = kdir / f"{k}_reference.c"
                     if not hand.is_file():
                         emit(rows, k, rep, "unsupported", [], "no hand-written _reference.c in the corpus", "gcc", FLAGS["c"]); continue
-                    shutil.copy2(hand, backend / f"{k}_fp64.c")
+                    place(hand, backend / f"{k}_fp64.c")
                     note = f"source={hand.name} sha256={sha(hand)[:16]}"
                 elif rep == "agent":
                     cands = picks.get(k) or []
@@ -219,7 +232,7 @@ def main():
                                         f"delivered language {lang!r} has no column", False)
                             continue
                         fw, ext = LANG_FW[lang]
-                        shutil.copy2(c["path"], backend / f"{k}_fp64{ext}")
+                        place(c["path"], backend / f"{k}_fp64{ext}")
                         st, samples, nt = run_framework(k, fw, ARGS.preset, ARGS.reps, ARGS.timeout)
                         log_attempt(k, rank, c, st, nt, st == "ok")
                         if st == "ok":
@@ -227,7 +240,7 @@ def main():
                         last = (c, st, samples, nt)
                         # restore before trying the next candidate
                         for e, (src, bak, want) in pristine.items():
-                            shutil.copy2(bak, src)
+                            place(bak, src)
                     if chosen is None and last is None:
                         # every candidate was in a language this matrix has no column for
                         emit(rows, k, rep, "unsupported", [],
@@ -247,7 +260,7 @@ def main():
                      compiler, FLAGS.get(lang, "@nb.njit(parallel=True, cache=True)"))
         finally:
             for e, (src, bak, want) in pristine.items():
-                shutil.copy2(bak, src)
+                place(bak, src)
         # flush after every kernel: the sweep must survive a wall-clock kill
         with open(ARGS.out, "w", newline="") as fh:
             w = csv.DictWriter(fh, fieldnames=FIELDS); w.writeheader(); w.writerows(rows)
