@@ -58,6 +58,17 @@ def out_table(w, rows, limit=25):
     w("")
 
 
+def discrepancy_note(lab, kernels):
+    """Which subset of labels.csv, if any, protocol.md's numbers correspond to (computed, not assumed)."""
+    dec = [k for k in kernels if lab[k]["source_of_label"] == "declared"]
+    dd = collections.Counter(lab[k]["optimization_class"] for k in dec)
+    der = sorted(k for k in kernels if lab[k]["source_of_label"] == "derived" and lab[k]["optimization_class"] == "reduction")
+    return (f"Protocol's 8 reductions equals the {dd.get('reduction', 0)} DECLARED (manifest) reduction labels; "
+            f"the derived {', '.join('`'+k+'`' for k in der)} make {dd.get('reduction', 0) + len(der)}. Its 13 classes / 7 "
+            f"small classes match neither the declared-only labels ({len(dd)} / {sum(1 for v in dd.values() if v <= 2)}) "
+            f"nor the full set, and the repository history (one commit) does not show where they came from.")
+
+
 def main(a):
     res = rd(a.results)
     M = [r for r in res if is_main(r)]
@@ -169,8 +180,8 @@ def main(a):
       f"({sum(n for n in dist.values() if n <= 2)} kernels).\n")
     w(f"**Discrepancy with protocol.md, left as written there:** protocol.md section 5 says reductions "
       f"are 8 of 40, 13 classes, 7 with <=2 members. `labels.csv` gives reduction "
-      f"{dist.get('reduction', 0)}, {len(dist)} classes, {len(small)} with <=2 members. The protocol "
-      "figures were written before the 9 derived labels were final.\n")
+      f"{dist.get('reduction', 0)}, {len(dist)} classes, {len(small)} with <=2 members. "
+      + discrepancy_note(lab, kernels) + "\n")
     w("| class | kernels |")
     w("|---|---:|")
     for c, n in dist.most_common():

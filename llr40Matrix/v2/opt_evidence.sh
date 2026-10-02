@@ -23,9 +23,12 @@ d=$EV/s3111; mkdir -p $d; cp $OR/tsvc_2_s3111/fortran/tsvc_2_s3111_fp64.f90 $d/o
 sed 's/sum_val = (sum_val + a((i_l0) + 1))/sum_val = sum_val + a((i_l0) + 1)/' $d/orig.f90 > $d/noparen.f90
 ( cd $d && /usr/bin/gfortran-13 $FF -c orig.f90 -o orig.o -fdump-tree-vect-details -fopt-info-vec-all 2> orig.optinfo.txt \
   && /usr/bin/gfortran-13 $FF -c noparen.f90 -o noparen.o -fopt-info-vec-optimized -fopt-info-vec-missed 2> noparen.optinfo.txt )
-grep -n -B2 -A1 "unsupported use in stmt" $d/orig.f90.*vect > $d/orig.vect.excerpt.txt || true
+grep -n -B3 -A1 "unsupported use in stmt" $d/orig.f90.*vect > $d/orig.vect.excerpt.txt || true
 diff $d/orig.f90 $d/noparen.f90 > $d/noparen.diff || true
 dis $d/orig.o tsvc_2_s3111_fp64 > $d/orig.s.txt; dis $d/noparen.o tsvc_2_s3111_fp64 > $d/noparen.s.txt
+{ echo "orig:    vectorized=$(grep -c 'optimized: loop vectorized' $d/orig.optinfo.txt) branch_b.gt=$(grep -cE '^b\.gt' $d/orig.s.txt) fadda=$(grep -cE '^fadda' $d/orig.s.txt)"
+  echo "noparen: vectorized=$(grep -c 'optimized: loop vectorized' $d/noparen.optinfo.txt) vector_fadd=$(grep -cE '^fadd\s+v[0-9]+\.2d' $d/noparen.s.txt) faddp=$(grep -cE '^faddp' $d/noparen.s.txt) fadda=$(grep -cE '^fadda' $d/noparen.s.txt)"
+  grep -h "((_" $d/orig.vect.excerpt.txt | head -1; } > $d/summary.txt
 
 # --- s316 ------------------------------------------------------------------------------------
 d=$EV/s316; mkdir -p $d

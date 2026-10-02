@@ -4,7 +4,7 @@ Benchmark commit `26a4f0cfc1540cead109dfc8d736f1c45263e390` (v1: `e2bceb68`). Ag
 Machine: CSCS Alps `daint`, NVIDIA GH200, aarch64 (Neoverse-V2), one kernel per exclusive node.  
 Toolchain as the harness actually ran it: **C (`c`, `c_reference`, agent-C) gcc-14 (SUSE Linux) 14.2.0**; C++ g++ (SUSE Linux) 13.3.1 20250313; Fortran GNU Fortran (SUSE Linux) 13.3.1 20250313. Python 3.12.13 (v1: 3.11.13; the v2 commit requires >=3.12, os.CLONE_NEWUSER in seal.py); numba 0.67.0; numpy 2.4.6.  
 Preset M, float64, `OMP_NUM_THREADS=1`, 5 warmup + 30 timed reps, min-of-k. Protocol: [../protocol.md](../protocol.md), unchanged.  
-Rows by Slurm job: `debug/4969572` 262.
+Rows by Slurm job: `debug/4969572` 244, `debug/4970062` 18.
 
 ## Status, v2 against v1
 
@@ -33,16 +33,15 @@ Non-ok cells (rows, not omissions; error text in `notes`):
 
 ## What changed against v1 (`diff_vs_v1.csv`)
 
-Timed source across the two commits, all 240 cells: identical 116, preprocessed_identical 77, comments_only 33, code 8, n.a. (no _reference.c at either commit) 5, n.a. (no agent submission) 1. `preprocessed_identical` = the text differs but `gcc -E` of both is identical (the new prelude macro `NPB_HD` expands to nothing on the host).
+Timed source across the two commits, all 240 cells: identical 118, preprocessed_identical 78, comments_only 33, code 5, n.a. (no _reference.c at either commit) 5, n.a. (no agent submission) 1. `preprocessed_identical` = the text differs but `gcc -E` of both is identical (the new prelude macro `NPB_HD` expands to nothing on the host).
 
-**28 cells** moved by more than 5% in min-of-k or changed status (0 status changes).
+**26 cells** moved by more than 5% in min-of-k or changed status (0 status changes).
 
-By source change: identical 14, preprocessed_identical 7, comments_only 5, code 2.
+By source change: identical 14, preprocessed_identical 7, comments_only 5.
 
 | kernel | repr | v2/v1 | RSD v1 % | RSD v2 % | source | explanation |
 |---|---|---:|---:|---:|---|---|
 | `tsvc_2_s2275` | `c_reference` | 0.4565 | 4.66 | 17.34 | identical | source identical for the compiler; change is harness/environment/noise |
-| `tsvc_2_s311` | `fortran` | 0.5637 | 2.23 | 1.1 | code | timed source changed between commits |
 | `tsvc_2_s2275` | `cpp` | 0.6755 | 5.08 | 16.68 | preprocessed_identical | source identical for the compiler; change is harness/environment/noise |
 | `tsvc_2_s235` | `fortran` | 0.7368 | 4.35 | 11.07 | identical | source identical for the compiler; change is harness/environment/noise |
 | `tsvc_2_s235` | `cpp` | 0.7501 | 14.73 | 13.58 | preprocessed_identical | source identical for the compiler; change is harness/environment/noise |
@@ -67,7 +66,6 @@ By source change: identical 14, preprocessed_identical 7, comments_only 5, code 
 | `tsvc_2_s1232` | `c_reference` | 1.3258 | 6.67 | 16.49 | identical | source identical for the compiler; change is harness/environment/noise |
 | `tsvc_2_s1232` | `numba` | 1.343 | 12.44 | 7.09 | comments_only | source identical for the compiler; change is harness/environment/noise |
 | `tsvc_2_s2275` | `fortran` | 1.4135 | 10.21 | 15.18 | identical | source identical for the compiler; change is harness/environment/noise |
-| `wf_triangular` | `c` | 1.548 | 0.86 | 1.98 | code | timed source changed between commits |
 | `tsvc_2_s235` | `c_reference` | 1.6325 | 13.93 | 4.08 | identical | source identical for the compiler; change is harness/environment/noise |
 
 Of the flagged cells whose source did not change, 19 have RSD > 5% in at least one of the two series (the diagnosed bandwidth artifact, protocol.md section 4).
@@ -98,7 +96,7 @@ Kernels whose agent cell is not the campaign's top pick, and why:
 
 14 classes over 40 kernels (31 declared, 9 derived). Largest: `reduction` 10/40. 9 classes have <=2 members (13 kernels).
 
-**Discrepancy with protocol.md, left as written there:** protocol.md section 5 says reductions are 8 of 40, 13 classes, 7 with <=2 members. `labels.csv` gives reduction 10, 14 classes, 9 with <=2 members. The protocol figures were written before the 9 derived labels were final.
+**Discrepancy with protocol.md, left as written there:** protocol.md section 5 says reductions are 8 of 40, 13 classes, 7 with <=2 members. `labels.csv` gives reduction 10, 14 classes, 9 with <=2 members. Protocol's 8 reductions equals the 8 DECLARED (manifest) reduction labels; the derived `argmax_with_index`, `quasi_affine_reduce_odd` make 10. Its 13 classes / 7 small classes match neither the declared-only labels (12 / 8) nor the full set, and the repository history (one commit) does not show where they came from.
 
 | class | kernels |
 |---|---:|
@@ -121,7 +119,7 @@ The 9 derived labels were checked by hand against the source: see [derived_label
 
 ## Run-to-run spread
 
-Over 229 ok cells: median RSD 1.22%, max 41.10%; 53 (23.1%) bimodal-suspect (RSD > 5%). All aggregates use min-of-k.
+Over 229 ok cells: median RSD 1.17%, max 41.10%; 54 (23.6%) bimodal-suspect (RSD > 5%). All aggregates use min-of-k.
 
 ## Geometric-mean slowdown per class x representation
 
@@ -140,9 +138,9 @@ Over 229 ok cells: median RSD 1.22%, max 41.10%; 53 (23.1%) bimodal-suspect (RSD
 | node_splitting | 1 | 1.02 | 1.00 | 1.01 | 1.01 | 1.01 | 1.09 |
 | packing | 1 | 1.04 | -- | 1.05 | 1.05 | 1.00 | 1.35 |
 | recurrence | 1 | 1.04 | 1.03 | 1.10 | 1.00 | 1.02 | 1.03 |
-| reduction | 10 | 1.22 | 1.26 | 1.08 | 1.24 | 1.75 | 1.21 |
+| reduction | 10 | 1.22 | 1.25 | 1.08 | 1.31 | 1.74 | 1.21 |
 | scalar_expansion | 2 | 1.09 | 1.12 | 1.13 | 1.12 | 1.10 | 1.02 |
-| wavefront | 2 | 1.23 | 1.01 | 1.00 | 1.00 | 1.99 | 1.30 |
+| wavefront | 2 | 1.00 | 1.01 | 1.00 | 1.00 | 1.99 | 1.31 |
 
 Kept for comparability with v1. A kernel missing a column is normalised to a different 'fastest' column than its class, which is what produced the `tsvc_2_s2233` pseudo-outliers.
 
@@ -160,9 +158,9 @@ Kept for comparability with v1. A kernel missing a column is normalised to a dif
 | loop_interchange | 4 | 8.10 | 8.33 | 7.77 | 7.92 | 8.12 | 1.00 |
 | node_splitting | 1 | 1.02 | 1.00 | 1.01 | 1.01 | 1.01 | 1.09 |
 | recurrence | 1 | 1.04 | 1.03 | 1.10 | 1.00 | 1.02 | 1.03 |
-| reduction | 9 | 1.25 | 1.26 | 1.09 | 1.24 | 1.81 | 1.14 |
+| reduction | 9 | 1.25 | 1.25 | 1.08 | 1.32 | 1.81 | 1.14 |
 | scalar_expansion | 2 | 1.09 | 1.12 | 1.13 | 1.12 | 1.10 | 1.02 |
-| wavefront | 2 | 1.23 | 1.01 | 1.00 | 1.00 | 1.99 | 1.30 |
+| wavefront | 2 | 1.00 | 1.01 | 1.00 | 1.00 | 1.99 | 1.31 |
 
 Only kernels with all 6 columns ok (33 of 40).
 
@@ -180,9 +178,9 @@ Only kernels with all 6 columns ok (33 of 40).
 | loop_interchange | 4 | 1.00 | 1.03 | 0.96 | 0.98 | 1.00 | 0.12 |
 | node_splitting | 1 | 1.00 | 0.98 | 0.99 | 0.99 | 0.99 | 1.07 |
 | recurrence | 1 | 1.00 | 1.00 | 1.06 | 0.97 | 0.99 | 1.00 |
-| reduction | 9 | 1.00 | 1.01 | 0.87 | 0.99 | 1.45 | 0.91 |
+| reduction | 9 | 1.00 | 1.00 | 0.87 | 1.06 | 1.45 | 0.91 |
 | scalar_expansion | 2 | 1.00 | 1.02 | 1.03 | 1.02 | 1.01 | 0.93 |
-| wavefront | 2 | 1.00 | 0.82 | 0.81 | 0.81 | 1.61 | 1.06 |
+| wavefront | 2 | 1.00 | 1.01 | 1.00 | 1.00 | 1.99 | 1.31 |
 
 1.00 = the autogen C column; < 1 is faster than `c`.
 
@@ -206,9 +204,9 @@ Complete-case, normalised to the row's fastest:
 
 | kernel | representation | class | cell | class geomean | deviation |
 |---|---|---|---:|---:|---:|
-| `tsvc_2_s3111` | `fortran` | reduction | 5.833 | 1.242 | 4.7x |
-| `tsvc_2_s316` | `c` | reduction | 3.98 | 1.249 | 3.19x |
-| `tsvc_2_s316` | `c_reference` | reduction | 3.982 | 1.256 | 3.17x |
+| `tsvc_2_s3111` | `fortran` | reduction | 5.833 | 1.322 | 4.41x |
+| `tsvc_2_s316` | `c` | reduction | 3.98 | 1.248 | 3.19x |
+| `tsvc_2_s316` | `c_reference` | reduction | 3.982 | 1.254 | 3.18x |
 
 ## The three numerically degenerate kernels
 
@@ -232,10 +230,10 @@ Largest size at which the NumPy reference output is 100% finite (binary search o
 
 | column | status (fast) | status (off) | min (fast) ms | min (off) ms |
 |---|---|---|---:|---:|
-| `c` | incorrect | ok | 83.45 | 84.49 |
-| `cpp` | incorrect | ok | 83.60 | 85.22 |
-| `fortran` | incorrect | ok | 87.25 | 85.21 |
-| `c_reference` | incorrect | ok | 84.70 | 85.05 |
+| `c` | incorrect | ok | 83.06 | 84.49 |
+| `cpp` | incorrect | ok | 83.30 | 85.22 |
+| `fortran` | incorrect | ok | 84.34 | 85.21 |
+| `c_reference` | incorrect | ok | 83.97 | 85.05 |
 
 **FMA contraction alone explains the incorrect verdict**: with contraction off, all four GCC columns validate at preset M, and nothing else in the flag string differs.
 
@@ -259,6 +257,10 @@ Supplementary, whole-node step geometry (flag resolved to `-ftree-parallelize-lo
 | `tsvc_2_s316` | without,with | 80.30 | 80.48 | 1.0023 | 0.78 | 0.77 |
 | `tsvc_2_s318` | with,without | 80.83 | 80.65 | 0.9977 | 0.45 | 0.77 |
 | `tsvc_2_s319` | without,with | 76.06 | 75.53 | 0.9931 | 0.41 | 0.57 |
+
+## Optimisation reports
+
+240 cells indexed in `opt_reports_index.csv`: ok 194, numba_error 40, unsupported 6. Findings: [opt_findings.md](opt_findings.md).
 
 ## Incidents and deviations
 

@@ -147,9 +147,14 @@ def do_numba(k, src_in, rows):
 
 
 def main():
+    only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
     picks = json.load(open(REPO / "agent_picks.json"))
     res = [r for r in csv.DictReader(open(REPO / "results.csv")) if r["preset"] == "M" and not r.get("flags_variant")]
     rows = []
+    keep = []
+    if only:   # refresh one representation's rows, keep the rest of the index as it is
+        keep = [x for x in csv.DictReader(open(REPO / "opt_reports_index.csv")) if x["representation"] != only]
+        res = [r for r in res if r["representation"] == only]
     for r in res:
         k, rep = r["kernel"], r["representation"]
         es = REPO / "emitted_sources" / k
@@ -172,6 +177,10 @@ def main():
         elif rep == "numba":
             do_numba(k, es / f"{k}_numba_np.py", rows)
         print(f"{k:32s} {rep:12s} {rows[-1]['status']}", flush=True)
+    if keep:
+        order = {(r["kernel"], r["representation"]): i for i, r in enumerate(
+            x for x in csv.DictReader(open(REPO / "results.csv")) if x["preset"] == "M" and not x.get("flags_variant"))}
+        rows = sorted(keep + rows, key=lambda x: order.get((x["kernel"], x["representation"]), 1e9))
     with open(REPO / "opt_reports_index.csv", "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=FIELDS); w.writeheader()
         for row in rows:
@@ -182,5 +191,9 @@ def main():
 
 
 if __name__ == "__main__":
-    os.environ.setdefault("NUMBA_CACHE_DIR", str(REPO / "scratch" / "numba_cache"))
+    # A FRESH cache per run: the kernels carry @nb.njit(cache=True), and a cache written by an
+    # earlier run of this script cannot be loaded for a module imported from a file path
+    # ("No module named '<dynamic>'", second OPTREP run). cache=True does not change codegen.
+    import tempfile
+    os.environ["NUMBA_CACHE_DIR"] = tempfile.mkdtemp(prefix="optrep_numba_cache_")
     main()

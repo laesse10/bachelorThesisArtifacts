@@ -73,8 +73,11 @@ it is listed here.
     flag active. Probably three cells are invalid there (item 16).
 16. `discarded/contaminated_pristine_4969572/`: in job 4969572, `tsvc_2_s115` (.f90),
     `tsvc_2_s311` (.f90) and `wf_triangular` (.c) timed an agent source left behind by a cancelled
-    job. All 6 cells of these 3 kernels are re-measured in a separate chain job (see
-    `slurm_job`), with the same geometry and code.
+    job. All 6 cells of these 3 kernels were re-measured in chain job 4970062 (`slurm_job`), with
+    the same geometry and code. The re-measured values are back in line with v1 (e.g. `s311`
+    fortran 135.4 ms vs v1 136.7; `wf_triangular` c 99.5 ms vs v1 98.3). Afterwards, all 160 timed
+    snapshots in `emitted_sources/` were checked byte-identical to an independent regeneration at
+    `26a4f0cf`.
 
 ## Not done or not changed
 
@@ -85,3 +88,16 @@ it is listed here.
     a compute node in the same step geometry, not captured from the timed builds. numba assembly
     is `inspect_asm()` for the signature built from preset-S inputs, which matches preset M:
     float64 C-contiguous arrays and int64 sizes.
+19. **Opt-report incidents.** (a) The first OPTREP run also reported the four `-ffp-contract=off`
+    rows of `s115` (a filter bug, fixed): duplicate index rows were dropped, and their files were
+    byte-identical rewrites. (b) The second OPTREP run (job 4970131) hit the numba cache written by
+    the first ("No module named '<dynamic>'"), so all 40 numba rows were regenerated with a fresh
+    `NUMBA_CACHE_DIR` (`opt_reports_numba.sbatch`, `opt_reports.py --only numba`). `cache=True`
+    does not affect code generation.
+20. **Chain resubmit rejected.** The debug QoS allows 2 submitted jobs per user, shared with this
+    user's other sessions. One resubmit was refused (`QOSMaxSubmitJobPerUserLimit`) and submitted
+    by hand. The chain now retries and leaves `chain_claims/RESUBMIT_FAILED`.
+21. **Job IDs of the final data:** main matrix, preset F, `-ffp-contract=off` and A/B in 4969572
+    (except the 3 re-measured kernels: 4970062). Opt reports in 4970131; numba opt reports in the
+    numba-only job. Every srun line is in `srun_lines.txt`.
+
