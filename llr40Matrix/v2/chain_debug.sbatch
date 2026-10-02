@@ -58,7 +58,16 @@ STALL=chain_claims/stall_count; s=$(cat "$STALL" 2>/dev/null || echo 0)
 if (( P1 > P0 )); then s=0; else s=$((s + 1)); fi; echo "$s" > "$STALL"
 if (( LEFT > 0 )); then
   if (( s >= 2 )); then echo "STALLED: 2 jobs without progress; not resubmitting" | tee chain_claims/STALLED
-  else sbatch --nodes="$SLURM_JOB_NUM_NODES" --dependency=afterany:$SLURM_JOB_ID chain_debug.sbatch; fi
+  else
+    # the debug QoS allows 2 SUBMITTED jobs per user, shared with every other session of this
+    # user: retry for a few minutes, and leave a marker instead of stopping silently (4970062)
+    ok=0
+    for try in 1 2 3 4 5 6; do
+      if sbatch --nodes="$SLURM_JOB_NUM_NODES" --dependency=afterany:$SLURM_JOB_ID chain_debug.sbatch; then ok=1; break; fi
+      sleep 20
+    done
+    (( ok )) || echo "RESUBMIT_FAILED $(date -Is): $LEFT units left" | tee chain_claims/RESUBMIT_FAILED
+  fi
 else
   echo "CHAIN COMPLETE $(date -Is)" | tee chain_claims/COMPLETE
 fi
