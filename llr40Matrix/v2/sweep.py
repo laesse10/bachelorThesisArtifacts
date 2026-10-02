@@ -36,7 +36,7 @@ LANG_FW = {"c": ("cc", ".c"), "cpp": ("cpp", ".cpp"), "fortran": ("fortran", ".f
 
 FIELDS = ["kernel", "representation", "preset", "status", "time_ns_median", "time_ns_min", "time_ns_all", "compiler",
           "compiler_version", "flags", "threads", "n_warmup", "n_reps", "commit_hash",
-          "timestamp", "notes"]
+          "timestamp", "notes", "slurm_job"]
 
 
 def place(src, dst):
@@ -154,6 +154,14 @@ def log_attempt(kernel, rank, c, status, note, chosen):
         w = csv.DictWriter(fh, fieldnames=ATTEMPT_FIELDS); w.writeheader(); w.writerows(ATTEMPTS)
 
 
+def flush(rows):
+    """Written after EVERY cell: a chained debug job may be killed at its wall limit."""
+    tmp = pathlib.Path(str(ARGS.out) + ".tmp")
+    with open(tmp, "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=FIELDS, extrasaction="ignore"); w.writeheader(); w.writerows(rows)
+    tmp.replace(ARGS.out)
+
+
 def emit(rows, kernel, repr_name, status, samples_ms, note, compiler, flags):
     ns = [int(round(s * 1e6)) for s in samples_ms]   # driver reports milliseconds
     rows.append({
@@ -166,7 +174,9 @@ def emit(rows, kernel, repr_name, status, samples_ms, note, compiler, flags):
         "flags": flags, "threads": 1, "n_warmup": ARGS.warmup, "n_reps": len(ns),
         "commit_hash": COMMIT, "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "notes": note,
+        "slurm_job": f"{os.environ.get('SLURM_JOB_PARTITION', '')}/{os.environ.get('SLURM_JOB_ID', '')}",
     })
+    flush(rows)
     print(f"    {repr_name:<12} {status:<12} "
           f"{'median %.3f ms' % (statistics.median(samples_ms)) if samples_ms else ''} {note[:70]}",
           flush=True)
@@ -176,7 +186,11 @@ def main():
     kernels = [l.strip() for l in open(ARGS.kernels) if l.strip()] if pathlib.Path(ARGS.kernels).is_file() \
         else ARGS.kernels.split(",")
     picks = json.load(open(REPO / "agent_picks.json"))
-    rows = []
+    # v2 resume (chained 30-min debug jobs): cells already in --out are kept and skipped; a cell
+    # interrupted mid-series left no row and is re-run from scratch (fresh warmup).
+    rows = list(csv.DictReader(open(ARGS.out))) if pathlib.Path(ARGS.out).is_file() else []
+    if pathlib.Path(ARGS.attempts_out).is_file():
+        ATTEMPTS.extend(csv.DictReader(open(ARGS.attempts_out)))
     for n, k in enumerate(kernels, 1):
         print(f"[{n}/{len(kernels)}] {k}", flush=True)
         kdir, backend = BENCHMARKS / k, BENCHMARKS / k / "cpp_backend"
@@ -205,6 +219,8 @@ def main():
                 shutil.copy2(f, keep / f.name)
         try:
             for rep in ("c", "cpp", "fortran", "numba", "c_reference", "agent"):
+                if any(r["kernel"] == k and r["representation"] == rep for r in rows):
+                    print(f"    {rep:<12} already recorded (resume)", flush=True); continue
                 fw, ext = REPRS[rep]
                 note, compiler = "", {"cc": "gcc", "cpp": "g++", "fortran": "gfortran",
                                       "numba": "numba"}.get(fw, "")
@@ -225,6 +241,11 @@ def main():
                     chosen = last = None
                     for rank, c in enumerate(cands[:ARGS.agent_tries], 1):
                         lang = c["language"]
+                        prior = [a for a in ATTEMPTS if a["kernel"] == k and str(a["rank"]) == str(rank)
+                                 and a["status"] != "ok"]
+                        if prior:   # rejected in an earlier chained job: keep its record, move on
+                            last = (c, prior[-1]["status"], [], prior[-1]["first_error_line"])
+                            continue
                         if lang not in LANG_FW:
                             # v2: recorded, not silently skipped
                             LAST_LOG[0] = ""
@@ -261,9 +282,7 @@ def main():
         finally:
             for e, (src, bak, want) in pristine.items():
                 place(bak, src)
-        # flush after every kernel: the sweep must survive a wall-clock kill
-        with open(ARGS.out, "w", newline="") as fh:
-            w = csv.DictWriter(fh, fieldnames=FIELDS); w.writeheader(); w.writerows(rows)
+        flush(rows)
     print(f"\nwrote {len(rows)} rows -> {ARGS.out}")
 
 

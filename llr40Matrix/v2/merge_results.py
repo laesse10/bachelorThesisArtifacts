@@ -48,6 +48,8 @@ for k in roster:
     p = REPO / "agent_attempts_parts" / f"{k}.csv"
     if p.is_file():
         att.extend(list(csv.DictReader(open(p))))
+# a resumed run can re-log a candidate; keep the last record per (kernel, rank)
+att = list({(a["kernel"], str(a["rank"])): a for a in att}.values())
 if att:
     with open(REPO / "agent_attempts.csv", "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(att[0])); w.writeheader(); w.writerows(att)

@@ -1,1 +1,4 @@
 scratch/
+chain_claims/
+opt_reports/*/*/build/
+opt_reports/*/numba/__pycache__/
