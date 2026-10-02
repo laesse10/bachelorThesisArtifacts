@@ -1,0 +1,13 @@
+diff --git a/hpcagent_bench/flags.py b/hpcagent_bench/flags.py
+index 7c9e5d5f2..12801e08d 100644
+--- a/hpcagent_bench/flags.py
++++ b/hpcagent_bench/flags.py
+@@ -238,7 +238,7 @@ GCC_AUTOPAR = "-ftree-parallelize-loops={n} -floop-parallelize-all -fgraphite-id
+ #: - nvfortran: ``-stdpar=multicore``. No compilers.yaml block references it until the opt-in
+ #:   NVIDIA HPC SDK layer is baked into the images.
+ DO_CONCURRENT_FLANG = "-fdo-concurrent-to-openmp=host"
+-DO_CONCURRENT_GFORTRAN = "-ftree-parallelize-loops={n}"
++DO_CONCURRENT_GFORTRAN = ""
+ DO_CONCURRENT_NVFORTRAN = "-stdpar=multicore"
+ 
+ #: Pluto pre-processes the source; only OpenMP is added at compile time.

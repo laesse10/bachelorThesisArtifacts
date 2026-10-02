@@ -1,0 +1,13 @@
+diff --git a/hpcagent_bench/flags.py b/hpcagent_bench/flags.py
+index 7c9e5d5f2..6fb607c4d 100644
+--- a/hpcagent_bench/flags.py
++++ b/hpcagent_bench/flags.py
+@@ -68,7 +68,7 @@ _FP_ASSOC = "-fassociative-math" if config.get("flags.fp_associative", False) el
+ #: FP contraction pinned to ``fast``: gcc and icx default to it, clang to ``on`` (one expression only),
+ #: so unpinned compiler columns, and a DaCe kernel that splits an expression across statements, would
+ #: differ in fma fusion. IEEE sanctions it (fma is correctly rounded); it does not imply -ffast-math.
+-_FP_CONTRACT = "-ffp-contract=fast"
++_FP_CONTRACT = "-ffp-contract=off"
+ 
+ #: nvc's spelling of the same thing: ``-Mfma``, on by default at ``-O2`` and above, so this states the
+ #: default. Unverified without the NVIDIA HPC SDK (INSTALL_NVHPC); ``containers/parallelizer-gate.sh``

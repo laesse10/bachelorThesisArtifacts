@@ -298,5 +298,13 @@ if __name__ == "__main__":
     VERSIONS["numba"] = f"numba {_nb.__version__}"
     sys.path[:0] = [str(BENCH), str(BENCH / "hpcagent_bench/numpy_translators/src")]
     from hpcagent_bench import languages
-    FLAGS = {l: languages.baseline_flags(l) for l in ("c", "cpp", "fortran")}
+    # v2: resolve the flag string under the SAME binding as the build child (numactl node 0), not
+    # this srun-bound process: -ftree-parallelize-loops={n} takes n from the caller's affinity, so
+    # v1 recorded n=1 while the builds ran with node 0's core count.
+    _probe = subprocess.run(
+        ["numactl", "--cpunodebind=0", "--membind=0", PY, "-c",
+         "import json;from hpcagent_bench import languages as L;"
+         "print(json.dumps({l: L.baseline_flags(l) for l in ('c','cpp','fortran')}))"],
+        cwd=BENCH, env=env_for_run(), capture_output=True, text=True)
+    FLAGS = json.loads(_probe.stdout.strip().splitlines()[-1])
     main()
