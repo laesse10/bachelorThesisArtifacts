@@ -260,7 +260,7 @@ Supplementary, whole-node step geometry (flag resolved to `-ftree-parallelize-lo
 
 ## Optimisation reports
 
-240 cells indexed in `opt_reports_index.csv`: ok 194, numba_error 40, unsupported 6. Findings: [opt_findings.md](opt_findings.md).
+240 cells indexed in `opt_reports_index.csv`: ok 234, unsupported 6. Findings: [opt_findings.md](opt_findings.md).
 
 ## Incidents and deviations
 
