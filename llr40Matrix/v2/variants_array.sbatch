@@ -23,7 +23,7 @@ echo "task=$SLURM_ARRAY_TASK_ID kind=$KIND kernel=$KERNEL node=$(hostname) $(dat
 run() {  # $1 bench worktree  $2 preset  $3 preset label  $4 flags_variant  $5 reprs  $6 tag
   local CMD=(srun --exclusive --cpu-bind=cores --hint=nomultithread
     env LLR40_BENCH="$1" "$PY" sweep_variant.py
-      --kernels "$KERNEL" --preset "$2" --preset-label "$3" --flags-variant "$4" --reprs "$5"
+      --kernels "$KERNEL" --preset "$2" --preset-label="$3" --flags-variant="$4" --reprs "$5"
       --warmup 5 --reps 30
       --out "variant_parts/${6}.${KERNEL}.csv"
       --scratch "scratch/variants/${6}.${SLURM_ARRAY_TASK_ID}"

@@ -19,8 +19,8 @@ step() {  # $@ = command run on the node
   "${CMD[@]}"
 }
 variant() {  # $1 worktree $2 preset $3 label $4 flags_variant $5 reprs $6 tag
-  step env LLR40_BENCH="$1" "$PY" sweep_variant.py --kernels "$KERNEL" --preset "$2" --preset-label "$3" \
-    --flags-variant "$4" --reprs "$5" --warmup 5 --reps 30 \
+  step env LLR40_BENCH="$1" "$PY" sweep_variant.py --kernels "$KERNEL" --preset "$2" --preset-label="$3" \
+    --flags-variant="$4" --reprs "$5" --warmup 5 --reps 30 \
     --out "variant_parts/${6}.${KERNEL}.csv" --scratch "scratch/variants/${6}.${KERNEL}" \
     --attempts-out "variant_attempts_parts/${6}.${KERNEL}.csv" \
     --attempt-logs agent_attempt_logs_variants --emitted-dir "emitted_sources_variants/${6}"
