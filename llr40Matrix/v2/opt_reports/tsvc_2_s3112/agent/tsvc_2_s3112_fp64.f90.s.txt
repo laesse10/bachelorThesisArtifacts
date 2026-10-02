@@ -1,0 +1,13 @@
+# objdump -d tsvc_2_s3112_fp64.f90.o  (functions matching tsvc_2_s3112_fp64*)
+0000000000000000 <tsvc_2_s3112_fp64>:
+   0:	f100005f 	cmp	x2, #0x0
+   4:	5400012d 	b.le	28 <tsvc_2_s3112_fp64+0x28>
+   8:	2f00e400 	movi	d0, #0x0
+   c:	d2800003 	mov	x3, #0x0                   	// #0
+  10:	fc637801 	ldr	d1, [x0, x3, lsl #3]
+  14:	1e612800 	fadd	d0, d0, d1
+  18:	fc237820 	str	d0, [x1, x3, lsl #3]
+  1c:	91000463 	add	x3, x3, #0x1
+  20:	eb03005f 	cmp	x2, x3
+  24:	54ffff61 	b.ne	10 <tsvc_2_s3112_fp64+0x10>  // b.any
+  28:	d65f03c0 	ret

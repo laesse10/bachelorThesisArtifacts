@@ -1,0 +1,2 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+ext_war_unit,1,llr40v10-kimi27sglang-c,621729,3,c,5.996,20906b99b5e25abfd8818bb16a1580e1d2f3ec4b8eaccfd8bf2aceb753afe306,ok,,1,

@@ -1,0 +1,44 @@
+$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-aux/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/wf_triangular/c/wf_triangular_fp64.c -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/wf_triangular/c/build/wf_triangular_fp64.c.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+wf_triangular_fp64.c:21:25: missed: couldn't vectorize loop
+wf_triangular_fp64.c:21:25: missed: Loop costings may not be worthwhile.
+wf_triangular_fp64.c:35:21: missed: couldn't vectorize loop
+wf_triangular_fp64.c:35:21: missed: not vectorized: unsupported control flow in loop.
+wf_triangular_fp64.c:47:41: missed: couldn't vectorize loop
+wf_triangular_fp64.c:47:41: missed: not vectorized: unsupported outerloop form.
+wf_triangular_fp64.c:52:45: missed: couldn't vectorize loop
+wf_triangular_fp64.c:53:59: missed: not vectorized, possible dependence between data-refs *_64 and *_50
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:17:55: optimized: loop split
+wf_triangular_fp64.c:31:56: optimized: loop split
+wf_triangular_fp64.c:16:31: missed: couldn't vectorize loop
+wf_triangular_fp64.c:8:6: missed: statement clobbers memory: __builtin_GOMP_parallel (wf_triangular_fp64._omp_fn.0, &.omp_data_o.6, 0, 0);
+wf_triangular_fp64.c:16:31: missed: couldn't vectorize loop
+wf_triangular_fp64.c:8:6: missed: statement clobbers memory: __builtin_GOMP_parallel (wf_triangular_fp64._omp_fn.0, &.omp_data_o.6, 0, 0);
+wf_triangular_fp64.c:30:29: missed: couldn't vectorize loop
+wf_triangular_fp64.c:8:6: missed: statement clobbers memory: __builtin_GOMP_parallel (wf_triangular_fp64._omp_fn.1, &.omp_data_o.9, 0, 0);
+wf_triangular_fp64.c:30:29: missed: couldn't vectorize loop
+wf_triangular_fp64.c:8:6: missed: statement clobbers memory: __builtin_GOMP_parallel (wf_triangular_fp64._omp_fn.1, &.omp_data_o.9, 0, 0);
+wf_triangular_fp64.c:8:6: missed: statement clobbers memory: __builtin_GOMP_parallel (wf_triangular_fp64._omp_fn.1, &.omp_data_o.9, 0, 0);
+wf_triangular_fp64.c:8:6: missed: statement clobbers memory: __builtin_GOMP_parallel (wf_triangular_fp64._omp_fn.1, &.omp_data_o.9, 0, 0);
+wf_triangular_fp64.c:8:6: missed: statement clobbers memory: __builtin_GOMP_parallel (wf_triangular_fp64._omp_fn.0, &.omp_data_o.6, 0, 0);
+wf_triangular_fp64.c:8:6: missed: statement clobbers memory: __builtin_GOMP_parallel (wf_triangular_fp64._omp_fn.0, &.omp_data_o.6, 0, 0);
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:19:21: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:19:21: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:19:21: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:19:21: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:19:21: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:19:21: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:33:17: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:19:21: missed: not vectorized: vectorization is not profitable.
+wf_triangular_fp64.c:19:21: missed: not vectorized: vectorization is not profitable.

@@ -1,0 +1,19 @@
+# objdump -d tsvc_2_s252_fp64.cpp.o  (functions matching tsvc_2_s252_fp64*)
+0000000000000000 <tsvc_2_s252_fp64>:
+   0:	f100007f 	cmp	x3, #0x0
+   4:	5400018d 	b.le	34 <tsvc_2_s252_fp64+0x34>
+   8:	2f00e400 	movi	d0, #0x0
+   c:	d2800004 	mov	x4, #0x0                   	// #0
+  10:	fc647822 	ldr	d2, [x1, x4, lsl #3]
+  14:	1e604001 	fmov	d1, d0
+  18:	fc647840 	ldr	d0, [x2, x4, lsl #3]
+  1c:	1e600840 	fmul	d0, d2, d0
+  20:	1e612801 	fadd	d1, d0, d1
+  24:	fc247801 	str	d1, [x0, x4, lsl #3]
+  28:	91000484 	add	x4, x4, #0x1
+  2c:	eb04007f 	cmp	x3, x4
+  30:	54ffff01 	b.ne	10 <tsvc_2_s252_fp64+0x10>  // b.any
+  34:	d65f03c0 	ret
+
+Disassembly of section .text.startup:
+

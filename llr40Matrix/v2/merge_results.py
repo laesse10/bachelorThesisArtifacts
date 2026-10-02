@@ -12,7 +12,7 @@ import csv, pathlib
 REPO = pathlib.Path(__file__).resolve().parent
 FIELDS = ["kernel", "representation", "preset", "flags_variant", "status", "time_ns_median", "time_ns_min",
           "time_ns_all", "compiler", "compiler_version", "flags", "threads", "n_warmup", "n_reps",
-          "commit_hash", "timestamp", "notes"]
+          "commit_hash", "timestamp", "notes", "slurm_job"]
 roster = [l.strip() for l in open(REPO / "roster40.txt") if l.strip()]
 
 
@@ -48,6 +48,17 @@ for k in roster:
     p = REPO / "agent_attempts_parts" / f"{k}.csv"
     if p.is_file():
         att.extend(list(csv.DictReader(open(p))))
+# first_error_line is re-derived from the saved driver log with sweep.py's own extractor, so a
+# pattern-order fix there applies to attempts already measured (the logs are the evidence).
+import importlib.util, os, sys
+sys.argv = sys.argv[:1]
+os.environ.setdefault("LLR40_BENCH", "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2")
+_sp = importlib.util.spec_from_file_location("_sweep", REPO / "sweep.py")
+_sw = importlib.util.module_from_spec(_sp); _sp.loader.exec_module(_sw)
+for a in att:
+    lp = REPO / "agent_attempt_logs" / a.get("log", "")
+    if a.get("log") and lp.is_file():
+        a["first_error_line"] = _sw.first_error_line(a["status"], a["first_error_line"], lp.read_text())
 # a resumed run can re-log a candidate; keep the last record per (kernel, rank)
 att = list({(a["kernel"], str(a["rank"])): a for a in att}.values())
 if att:

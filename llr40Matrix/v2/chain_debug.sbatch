@@ -58,7 +58,7 @@ STALL=chain_claims/stall_count; s=$(cat "$STALL" 2>/dev/null || echo 0)
 if (( P1 > P0 )); then s=0; else s=$((s + 1)); fi; echo "$s" > "$STALL"
 if (( LEFT > 0 )); then
   if (( s >= 2 )); then echo "STALLED: 2 jobs without progress; not resubmitting" | tee chain_claims/STALLED
-  else sbatch --dependency=afterany:$SLURM_JOB_ID chain_debug.sbatch; fi
+  else sbatch --nodes="$SLURM_JOB_NUM_NODES" --dependency=afterany:$SLURM_JOB_ID chain_debug.sbatch; fi
 else
   echo "CHAIN COMPLETE $(date -Is)" | tee chain_claims/COMPLETE
 fi

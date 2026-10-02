@@ -1,0 +1,6 @@
+kernel,representation,optimization_class,cell_slowdown,class_geomean,deviation_x,direction
+tsvc_2_s3111,fortran,reduction,5.76,0.995,5.79,slower than class
+tsvc_2_s316,agent,reduction,0.251,0.913,0.28,faster than class
+tsvc_2_s318,agent,reduction,3.15,0.913,3.45,slower than class
+tsvc_2_s316,fortran,reduction,0.291,0.995,0.29,faster than class
+tsvc_2_s316,numba,reduction,0.446,1.451,0.31,faster than class

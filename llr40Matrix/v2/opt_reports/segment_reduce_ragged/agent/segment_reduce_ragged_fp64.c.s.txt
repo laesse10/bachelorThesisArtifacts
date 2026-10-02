@@ -1,0 +1,98 @@
+# objdump -d segment_reduce_ragged_fp64.c.o  (functions matching segment_reduce_ragged_fp64*)
+0000000000000000 <segment_reduce_ragged_fp64._omp_fn.0>:
+   0:	a9b87bfd 	stp	x29, x30, [sp, #-128]!
+   4:	910003fd 	mov	x29, sp
+   8:	aa0003e6 	mov	x6, x0
+   c:	d2800023 	mov	x3, #0x1                   	// #1
+  10:	d2800000 	mov	x0, #0x0                   	// #0
+  14:	aa0303e2 	mov	x2, x3
+  18:	a90153f3 	stp	x19, x20, [sp, #16]
+  1c:	9101a3f4 	add	x20, sp, #0x68
+  20:	910183f3 	add	x19, sp, #0x60
+  24:	aa1403e5 	mov	x5, x20
+  28:	aa1303e4 	mov	x4, x19
+  2c:	a9025bf5 	stp	x21, x22, [sp, #32]
+  30:	a90363f7 	stp	x23, x24, [sp, #48]
+  34:	a94060c1 	ldp	x1, x24, [x6]
+  38:	a9415cd5 	ldp	x21, x23, [x6, #16]
+  3c:	f94010d6 	ldr	x22, [x6, #32]
+  40:	94000000 	bl	0 <GOMP_loop_nonmonotonic_guided_start>
+  44:	360006a0 	tbz	w0, #0, 118 <segment_reduce_ragged_fp64._omp_fn.0+0x118>
+  48:	fd002bef 	str	d15, [sp, #80]
+  4c:	2f00e40f 	movi	d15, #0x0
+  50:	a9046bf9 	stp	x25, x26, [sp, #64]
+  54:	9101c3fa 	add	x26, sp, #0x70
+  58:	aa1a03f9 	mov	x25, x26
+  5c:	d503201f 	nop
+  60:	25d8e047 	ptrue	p7.d, vl2
+  64:	a94623e6 	ldp	x6, x8, [sp, #96]
+  68:	8b060ea7 	add	x7, x21, x6, lsl #3
+  6c:	a9007f5f 	stp	xzr, xzr, [x26]
+  70:	a9400ce2 	ldp	x2, x3, [x7]
+  74:	eb03005f 	cmp	x2, x3
+  78:	5400034a 	b.ge	e0 <segment_reduce_ragged_fp64._omp_fn.0+0xe0>  // b.tcont
+  7c:	cb020063 	sub	x3, x3, x2
+  80:	f100047f 	cmp	x3, #0x1
+  84:	54000220 	b.eq	c8 <segment_reduce_ragged_fp64._omp_fn.0+0xc8>  // b.none
+  88:	6f00e404 	movi	v4.2d, #0x0
+  8c:	d341fc61 	lsr	x1, x3, #1
+  90:	8b020ee5 	add	x5, x23, x2, lsl #3
+  94:	d2800000 	mov	x0, #0x0                   	// #0
+  98:	8b020ec4 	add	x4, x22, x2, lsl #3
+  9c:	d37cec21 	lsl	x1, x1, #4
+  a0:	3ce068a3 	ldr	q3, [x5, x0]
+  a4:	3ce06882 	ldr	q2, [x4, x0]
+  a8:	91004000 	add	x0, x0, #0x10
+  ac:	4e62cc64 	fmla	v4.2d, v3.2d, v2.2d
+  b0:	eb00003f 	cmp	x1, x0
+  b4:	54ffff61 	b.ne	a0 <segment_reduce_ragged_fp64._omp_fn.0+0xa0>  // b.any
+  b8:	3d801fe4 	str	q4, [sp, #112]
+  bc:	36000123 	tbz	w3, #0, e0 <segment_reduce_ragged_fp64._omp_fn.0+0xe0>
+  c0:	927ff863 	and	x3, x3, #0xfffffffffffffffe
+  c4:	8b030042 	add	x2, x2, x3
+  c8:	d37df042 	lsl	x2, x2, #3
+  cc:	fd403be0 	ldr	d0, [sp, #112]
+  d0:	fc626adf 	ldr	d31, [x22, x2]
+  d4:	fc626ae1 	ldr	d1, [x23, x2]
+  d8:	1f4103e0 	fmadd	d0, d31, d1, d0
+  dc:	fd003be0 	str	d0, [sp, #112]
+  e0:	a5e0bf3e 	ld1d	{z30.d}, p7/z, [x25]
+  e4:	1e6041fd 	fmov	d29, d15
+  e8:	65d83fdd 	fadda	d29, p7, d29, z30.d
+  ec:	fc267b1d 	str	d29, [x24, x6, lsl #3]
+  f0:	910004c6 	add	x6, x6, #0x1
+  f4:	910020e7 	add	x7, x7, #0x8
+  f8:	eb06011f 	cmp	x8, x6
+  fc:	54fffb8c 	b.gt	6c <segment_reduce_ragged_fp64._omp_fn.0+0x6c>
+ 100:	aa1403e1 	mov	x1, x20
+ 104:	aa1303e0 	mov	x0, x19
+ 108:	94000000 	bl	0 <GOMP_loop_nonmonotonic_guided_next>
+ 10c:	3707faa0 	tbnz	w0, #0, 60 <segment_reduce_ragged_fp64._omp_fn.0+0x60>
+ 110:	fd402bef 	ldr	d15, [sp, #80]
+ 114:	a9446bf9 	ldp	x25, x26, [sp, #64]
+ 118:	94000000 	bl	0 <GOMP_loop_end_nowait>
+ 11c:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 120:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 124:	a94363f7 	ldp	x23, x24, [sp, #48]
+ 128:	a8c87bfd 	ldp	x29, x30, [sp], #128
+ 12c:	d65f03c0 	ret
+
+
+0000000000000130 <segment_reduce_ragged_fp64>:
+ 130:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+ 134:	910003fd 	mov	x29, sp
+ 138:	aa0103e7 	mov	x7, x1
+ 13c:	aa0203e6 	mov	x6, x2
+ 140:	aa0303e5 	mov	x5, x3
+ 144:	910043e1 	add	x1, sp, #0x10
+ 148:	f140089f 	cmp	x4, #0x2, lsl #12
+ 14c:	1a9fc7e2 	cset	w2, le
+ 150:	a90103e4 	stp	x4, x0, [sp, #16]
+ 154:	90000000 	adrp	x0, 0 <segment_reduce_ragged_fp64._omp_fn.0>
+ 158:	52800003 	mov	w3, #0x0                   	// #0
+ 15c:	91000000 	add	x0, x0, #0x0
+ 160:	a9021be7 	stp	x7, x6, [sp, #32]
+ 164:	f9001be5 	str	x5, [sp, #48]
+ 168:	94000000 	bl	0 <GOMP_parallel>
+ 16c:	a8c47bfd 	ldp	x29, x30, [sp], #64
+ 170:	d65f03c0 	ret

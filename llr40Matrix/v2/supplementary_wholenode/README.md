@@ -15,3 +15,8 @@ The v2 matrix is therefore re-measured in the v1 geometry. This set is kept beca
 only measurement with the gfortran autopar flag ACTIVE -- see ftree_parallelize_ab.csv in v2/.
 
 The FPOFF unit failed here on an argparse bug (fixed); opt reports were not produced here.
+
+KNOWN CONTAMINATION: this run very likely shares the leftover-source defect described in
+`discarded/contaminated_pristine_4969572/README.md` (it ran after the cancelled jobs): its
+`tsvc_2_s311/fortran`, `wf_triangular/c` and `tsvc_2_s115/fortran` cells probably timed an agent
+source, not the autogen lowering. Treat those three cells here as invalid.

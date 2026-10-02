@@ -1,0 +1,109 @@
+# objdump -d tsvc_2_s115_fp64.f90.o  (functions matching tsvc_2_s115_fp64*)
+0000000000000020 <tsvc_2_s115_fp64._omp_fn.0>:
+  20:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+  24:	910003fd 	mov	x29, sp
+  28:	a9025bf5 	stp	x21, x22, [sp, #32]
+  2c:	f9400815 	ldr	x21, [x0, #16]
+  30:	f10002bf 	cmp	x21, #0x0
+  34:	5400090d 	b.le	154 <tsvc_2_s115_fp64._omp_fn.0+0x134>
+  38:	a90153f3 	stp	x19, x20, [sp, #16]
+  3c:	aa0003f3 	mov	x19, x0
+  40:	d2800016 	mov	x22, #0x0                   	// #0
+  44:	d2800014 	mov	x20, #0x0                   	// #0
+  48:	a90363f7 	stp	x23, x24, [sp, #48]
+  4c:	94000000 	bl	0 <omp_get_num_threads>
+  50:	93407c18 	sxtw	x24, w0
+  54:	94000000 	bl	0 <omp_get_thread_num>
+  58:	93407c17 	sxtw	x23, w0
+  5c:	14000005 	b	70 <tsvc_2_s115_fp64._omp_fn.0+0x50>
+  60:	94000000 	bl	0 <GOMP_barrier>
+  64:	8b1502d6 	add	x22, x22, x21
+  68:	eb1402bf 	cmp	x21, x20
+  6c:	54000700 	b.eq	14c <tsvc_2_s115_fp64._omp_fn.0+0x12c>  // b.none
+  70:	aa1403e4 	mov	x4, x20
+  74:	91000694 	add	x20, x20, #0x1
+  78:	cb1402a1 	sub	x1, x21, x20
+  7c:	9ad80c23 	sdiv	x3, x1, x24
+  80:	9b188461 	msub	x1, x3, x24, x1
+  84:	eb0102ff 	cmp	x23, x1
+  88:	540006cb 	b.lt	160 <tsvc_2_s115_fp64._omp_fn.0+0x140>  // b.tstop
+  8c:	9b177c67 	mul	x7, x3, x23
+  90:	8b070022 	add	x2, x1, x7
+  94:	8b020060 	add	x0, x3, x2
+  98:	eb00005f 	cmp	x2, x0
+  9c:	54fffe2a 	b.ge	60 <tsvc_2_s115_fp64._omp_fn.0+0x40>  // b.tcont
+  a0:	a9402668 	ldp	x8, x9, [x19]
+  a4:	f100047f 	cmp	x3, #0x1
+  a8:	8b040021 	add	x1, x1, x4
+  ac:	fa401040 	ccmp	x2, x0, #0x0, ne	// ne = any
+  b0:	fc647903 	ldr	d3, [x8, x4, lsl #3]
+  b4:	540005ca 	b.ge	16c <tsvc_2_s115_fp64._omp_fn.0+0x14c>  // b.tcont
+  b8:	8b070026 	add	x6, x1, x7
+  bc:	910006ca 	add	x10, x22, #0x1
+  c0:	4e080462 	dup	v2.2d, v3.d[0]
+  c4:	910004c5 	add	x5, x6, #0x1
+  c8:	8b060146 	add	x6, x10, x6
+  cc:	8b050d05 	add	x5, x8, x5, lsl #3
+  d0:	d341fc60 	lsr	x0, x3, #1
+  d4:	d2800002 	mov	x2, #0x0                   	// #0
+  d8:	8b060d26 	add	x6, x9, x6, lsl #3
+  dc:	d2800004 	mov	x4, #0x0                   	// #0
+  e0:	3ce268c1 	ldr	q1, [x6, x2]
+  e4:	91000484 	add	x4, x4, #0x1
+  e8:	3ce268a0 	ldr	q0, [x5, x2]
+  ec:	4ee2cc20 	fmls	v0.2d, v1.2d, v2.2d
+  f0:	3ca268a0 	str	q0, [x5, x2]
+  f4:	91004042 	add	x2, x2, #0x10
+  f8:	eb04001f 	cmp	x0, x4
+  fc:	54ffff21 	b.ne	e0 <tsvc_2_s115_fp64._omp_fn.0+0xc0>  // b.any
+ 100:	927ff862 	and	x2, x3, #0xfffffffffffffffe
+ 104:	3607fae3 	tbz	w3, #0, 60 <tsvc_2_s115_fp64._omp_fn.0+0x40>
+ 108:	8b070021 	add	x1, x1, x7
+ 10c:	cb020063 	sub	x3, x3, x2
+ 110:	2518e3e1 	ptrue	p1.b
+ 114:	25e31fe0 	whilelo	p0.d, xzr, x3
+ 118:	05282063 	mov	z3.d, d3
+ 11c:	91000420 	add	x0, x1, #0x1
+ 120:	8b010041 	add	x1, x2, x1
+ 124:	8b020000 	add	x0, x0, x2
+ 128:	8b0a0021 	add	x1, x1, x10
+ 12c:	a5e04101 	ld1d	{z1.d}, p0/z, [x8, x0, lsl #3]
+ 130:	a5e14120 	ld1d	{z0.d}, p0/z, [x9, x1, lsl #3]
+ 134:	65e1a460 	fmsb	z0.d, p1/m, z3.d, z1.d
+ 138:	e5e04100 	st1d	{z0.d}, p0, [x8, x0, lsl #3]
+ 13c:	94000000 	bl	0 <GOMP_barrier>
+ 140:	8b1502d6 	add	x22, x22, x21
+ 144:	eb1402bf 	cmp	x21, x20
+ 148:	54fff941 	b.ne	70 <tsvc_2_s115_fp64._omp_fn.0+0x50>  // b.any
+ 14c:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 150:	a94363f7 	ldp	x23, x24, [sp, #48]
+ 154:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 158:	a8c47bfd 	ldp	x29, x30, [sp], #64
+ 15c:	d65f03c0 	ret
+ 160:	91000463 	add	x3, x3, #0x1
+ 164:	d2800001 	mov	x1, #0x0                   	// #0
+ 168:	17ffffc9 	b	8c <tsvc_2_s115_fp64._omp_fn.0+0x6c>
+ 16c:	d2800002 	mov	x2, #0x0                   	// #0
+ 170:	910006ca 	add	x10, x22, #0x1
+ 174:	17ffffe5 	b	108 <tsvc_2_s115_fp64._omp_fn.0+0xe8>
+ 178:	d503201f 	nop
+ 17c:	d503201f 	nop
+
+
+0000000000000180 <tsvc_2_s115_fp64>:
+ 180:	f100005f 	cmp	x2, #0x0
+ 184:	540001cd 	b.le	1bc <tsvc_2_s115_fp64+0x3c>
+ 188:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+ 18c:	aa0203e4 	mov	x4, x2
+ 190:	910003fd 	mov	x29, sp
+ 194:	90000002 	adrp	x2, 0 <__tsvc_2_s115_mod_MOD___copy___iso_c_binding_C_ptr>
+ 198:	52800003 	mov	w3, #0x0                   	// #0
+ 19c:	a90187e0 	stp	x0, x1, [sp, #24]
+ 1a0:	91000040 	add	x0, x2, #0x0
+ 1a4:	910063e1 	add	x1, sp, #0x18
+ 1a8:	52800002 	mov	w2, #0x0                   	// #0
+ 1ac:	f90017e4 	str	x4, [sp, #40]
+ 1b0:	94000000 	bl	0 <GOMP_parallel>
+ 1b4:	a8c37bfd 	ldp	x29, x30, [sp], #48
+ 1b8:	d65f03c0 	ret
+ 1bc:	d65f03c0 	ret

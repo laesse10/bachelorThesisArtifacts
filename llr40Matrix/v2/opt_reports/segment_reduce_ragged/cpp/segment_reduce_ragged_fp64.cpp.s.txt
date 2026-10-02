@@ -1,0 +1,35 @@
+# objdump -d segment_reduce_ragged_fp64.cpp.o  (functions matching segment_reduce_ragged_fp64*)
+0000000000000000 <segment_reduce_ragged_fp64>:
+   0:	f100009f 	cmp	x4, #0x0
+   4:	5400038d 	b.le	74 <segment_reduce_ragged_fp64+0x74>
+   8:	d2800009 	mov	x9, #0x0                   	// #0
+   c:	9100202b 	add	x11, x1, #0x8
+  10:	04e0e3ea 	cntd	x10
+  14:	d503201f 	nop
+  18:	d503201f 	nop
+  1c:	d503201f 	nop
+  20:	f8697827 	ldr	x7, [x1, x9, lsl #3]
+  24:	2f00e401 	movi	d1, #0x0
+  28:	f8697966 	ldr	x6, [x11, x9, lsl #3]
+  2c:	eb0600ff 	cmp	x7, x6
+  30:	540001aa 	b.ge	64 <segment_reduce_ragged_fp64+0x64>  // b.tcont
+  34:	cb0700c6 	sub	x6, x6, x7
+  38:	8b070c48 	add	x8, x2, x7, lsl #3
+  3c:	d2800005 	mov	x5, #0x0                   	// #0
+  40:	25e61fe0 	whilelo	p0.d, xzr, x6
+  44:	8b070c67 	add	x7, x3, x7, lsl #3
+  48:	a5e54102 	ld1d	{z2.d}, p0/z, [x8, x5, lsl #3]
+  4c:	a5e540e0 	ld1d	{z0.d}, p0/z, [x7, x5, lsl #3]
+  50:	8b0a00a5 	add	x5, x5, x10
+  54:	65c20800 	fmul	z0.d, z0.d, z2.d
+  58:	65d82001 	fadda	d1, p0, d1, z0.d
+  5c:	25e61ca0 	whilelo	p0.d, x5, x6
+  60:	54ffff41 	b.ne	48 <segment_reduce_ragged_fp64+0x48>  // b.any
+  64:	fc297801 	str	d1, [x0, x9, lsl #3]
+  68:	91000529 	add	x9, x9, #0x1
+  6c:	eb09009f 	cmp	x4, x9
+  70:	54fffd81 	b.ne	20 <segment_reduce_ragged_fp64+0x20>  // b.any
+  74:	d65f03c0 	ret
+
+Disassembly of section .text.startup:
+

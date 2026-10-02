@@ -1,0 +1,4 @@
+kernel,representation,optimization_class,cell_slowdown,class_geomean,deviation_x,direction
+tsvc_2_s3111,fortran,reduction,5.833,1.242,4.7,slower than class
+tsvc_2_s316,c,reduction,3.98,1.249,3.19,slower than class
+tsvc_2_s316,c_reference,reduction,3.982,1.256,3.17,slower than class

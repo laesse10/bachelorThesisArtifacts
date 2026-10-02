@@ -1,0 +1,1189 @@
+# signature (Array(float64, 2, 'C', False, aligned=True), Array(float64, 2, 'C', False, aligned=True), Array(float64, 2, 'C', False, aligned=True), Array(float64, 1, 'C', False, aligned=True), int64, int64)
+	.file	"<string>"
+	.text
+	.globl	_ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	.p2align	4
+	.type	_ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx,@function
+_ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx:
+	.cfi_startproc
+	sub	sp, sp, #416
+	stp	x29, x30, [sp, #320]
+	stp	x28, x27, [sp, #336]
+	stp	x26, x25, [sp, #352]
+	stp	x24, x23, [sp, #368]
+	stp	x22, x21, [sp, #384]
+	stp	x20, x19, [sp, #400]
+	.cfi_def_cfa_offset 416
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w25, -56
+	.cfi_offset w26, -64
+	.cfi_offset w27, -72
+	.cfi_offset w28, -80
+	.cfi_offset w30, -88
+	.cfi_offset w29, -96
+	ldr	x20, [sp, #440]
+	ldr	x28, [sp, #640]
+	ldr	x22, [sp, #584]
+	mov	x23, x7
+	mov	x24, x6
+	mov	x26, x1
+	ldr	x21, [sp, #512]
+	mov	x19, x0
+	mov	x0, x20
+	bl	NRT_incref
+	mov	x0, x21
+	bl	NRT_incref
+	mov	x0, x22
+	bl	NRT_incref
+	sub	x8, x28, #1
+	stp	x8, xzr, [sp, #296]
+	bl	get_num_threads
+	mov	x27, x0
+	bl	get_parallel_chunksize
+	cmp	x27, #1
+	b.lt	.LBB0_25
+	ldr	x8, [sp, #648]
+	ldr	x9, [sp, #632]
+	ldr	x10, [sp, #624]
+	mov	x1, x0
+	add	x2, sp, #304
+	add	x3, sp, #296
+	stp	x21, x20, [sp, #80]
+	str	x19, [sp, #96]
+	ldr	x25, [sp, #616]
+	mov	x0, x27
+	ldr	x19, [sp, #560]
+	ldr	x21, [sp, #552]
+	ldr	x29, [sp, #544]
+	ldr	x20, [sp, #416]
+	str	x1, [sp, #56]
+	mov	w1, #1
+	stp	x22, x8, [sp, #64]
+	ldr	x8, [sp, #576]
+	stp	x8, x9, [sp, #40]
+	ldr	x8, [sp, #568]
+	str	x8, [sp, #32]
+	ldp	x22, x8, [sp, #424]
+	stp	x10, x8, [sp, #16]
+	bl	get_sched_size
+	mov	x27, x0
+	mov	x0, xzr
+	bl	set_parallel_chunksize
+	lsl	x0, x27, #1
+	bl	allocate_sched
+	mov	x26, x0
+	add	x1, sp, #304
+	add	x2, sp, #296
+	mov	w0, #1
+	mov	x3, x27
+	mov	x4, x26
+	mov	x5, xzr
+	bl	do_scheduling_unsigned
+	add	x8, sp, #248
+	add	x0, sp, #316
+	stp	x28, x26, [sp, #248]
+	movi	v0.2d, #0000000000000000
+	stp	x8, x24, [sp, #264]
+	mov	w8, #2
+	stp	x25, x29, [sp, #280]
+	stp	x27, x8, [sp, #192]
+	ldp	x8, x9, [sp, #16]
+	stp	x23, x20, [sp, #208]
+	str	x19, [sp, #240]
+	stp	q0, q0, [sp, #112]
+	str	wzr, [sp, #316]
+	stp	x8, x21, [sp, #224]
+	mov	w8, #16
+	mov	x21, x19
+	str	x8, [sp, #104]
+	mov	w8, #8
+	stp	x8, x22, [sp, #144]
+	ldr	x8, [sp, #48]
+	stp	x9, x8, [sp, #160]
+	ldp	x9, x8, [sp, #32]
+	stp	x9, x8, [sp, #176]
+	bl	numba_gil_ensure
+	bl	PyEval_SaveThread
+	mov	x24, x0
+	bl	get_num_threads
+	mov	x7, x0
+	adrp	x0, :got:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE
+	add	x1, sp, #256
+	add	x2, sp, #192
+	add	x3, sp, #104
+	mov	w5, #6
+	ldr	x0, [x0, :got_lo12:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE]
+	mov	w6, #5
+	mov	x4, xzr
+	bl	numba_parallel_for
+	mov	x0, x24
+	bl	PyEval_RestoreThread
+	add	x0, sp, #316
+	bl	numba_gil_release
+	ldr	x0, [sp, #56]
+	bl	set_parallel_chunksize
+	mov	x0, x26
+	bl	deallocate_sched
+	ldr	x0, [sp, #64]
+	bl	NRT_decref
+	ldr	x8, [sp, #72]
+	cmp	x8, #1
+	b.lt	.LBB0_23
+	ldp	x20, x19, [sp, #88]
+	ldr	x0, [sp, #80]
+	subs	x10, x28, #1
+	b.lt	.LBB0_22
+	ldr	x16, [sp, #488]
+	ldr	x9, [sp, #472]
+	and	x13, x28, #0x7ffffffffffffffe
+	fmov	d0, #1.00000000
+	fmov	v1.2d, #1.00000000
+	and	x12, x28, #0x7ffffffffffffff8
+	add	x14, x29, #32
+	lsl	x15, x21, #3
+	neg	x17, x13
+	neg	x18, x28
+	mov	x8, xzr
+	madd	x11, x16, x10, x28
+	madd	x10, x21, x10, x28
+	add	x10, x29, x10, lsl #3
+	add	x11, x9, x11, lsl #3
+	cmp	x9, x10
+	orr	x10, x21, x16
+	lsl	x16, x16, #3
+	ccmp	x29, x11, #2, lo
+	ubfx	x10, x10, #60, #1
+	and	x11, x28, #0x6
+	csinc	w10, w10, wzr, hs
+	b	.LBB0_5
+	.p2align	5, , 16
+.LBB0_4:
+	add	x8, x8, #1
+	add	x14, x14, x15
+	add	x9, x9, x16
+	add	x29, x29, x15
+	cmp	x8, x28
+	b.eq	.LBB0_22
+.LBB0_5:
+	cmp	x28, #1
+	cset	w1, eq
+	orr	w1, w1, w10
+	tbz	w1, #0, .LBB0_7
+	mov	x3, xzr
+	b	.LBB0_16
+	.p2align	5, , 16
+.LBB0_7:
+	cmp	x28, #8
+	b.hs	.LBB0_9
+	mov	x1, xzr
+	b	.LBB0_13
+	.p2align	5, , 16
+.LBB0_9:
+	neg	x1, x12
+	mov	x4, xzr
+	.p2align	5, , 16
+.LBB0_10:
+	add	x2, x14, x4
+	add	x3, x9, x4
+	adds	x1, x1, #8
+	add	x4, x4, #64
+	ldp	q2, q3, [x2, #-32]
+	ldp	q4, q5, [x2]
+	fadd	v3.2d, v3.2d, v1.2d
+	fadd	v5.2d, v5.2d, v1.2d
+	fadd	v2.2d, v2.2d, v1.2d
+	fadd	v4.2d, v4.2d, v1.2d
+	stp	q2, q3, [x3]
+	stp	q4, q5, [x3, #32]
+	b.ne	.LBB0_10
+	cmp	x28, x12
+	b.eq	.LBB0_4
+	and	x1, x28, #0x7ffffffffffffff8
+	and	x3, x28, #0x7ffffffffffffff8
+	cbz	x11, .LBB0_16
+.LBB0_13:
+	add	x2, x17, x1
+	lsl	x1, x1, #3
+	.p2align	5, , 16
+.LBB0_14:
+	ldr	q2, [x29, x1]
+	adds	x2, x2, #2
+	fadd	v2.2d, v2.2d, v1.2d
+	str	q2, [x9, x1]
+	add	x1, x1, #16
+	b.ne	.LBB0_14
+	and	x3, x28, #0x7ffffffffffffffe
+	cmp	x28, x13
+	b.eq	.LBB0_4
+.LBB0_16:
+	sub	w1, w28, w3
+	mov	x2, x3
+	ands	x1, x1, #0x3
+	b.eq	.LBB0_19
+	mov	x2, x3
+	.p2align	5, , 16
+.LBB0_18:
+	ldr	d2, [x29, x2, lsl #3]
+	subs	x1, x1, #1
+	fadd	d2, d2, d0
+	str	d2, [x9, x2, lsl #3]
+	add	x2, x2, #1
+	b.ne	.LBB0_18
+.LBB0_19:
+	sub	x1, x3, x28
+	cmn	x1, #4
+	b.hi	.LBB0_4
+	lsl	x4, x2, #3
+	add	x1, x18, x2
+	.p2align	5, , 16
+.LBB0_21:
+	add	x2, x29, x4
+	add	x3, x9, x4
+	add	x4, x4, #32
+	adds	x1, x1, #4
+	ldr	d2, [x2]
+	fadd	d2, d2, d0
+	str	d2, [x3]
+	ldr	d2, [x2, #8]
+	fadd	d2, d2, d0
+	str	d2, [x3, #8]
+	ldr	d2, [x2, #16]
+	fadd	d2, d2, d0
+	str	d2, [x3, #16]
+	ldr	d2, [x2, #24]
+	fadd	d2, d2, d0
+	str	d2, [x3, #24]
+	b.ne	.LBB0_21
+	b	.LBB0_4
+.LBB0_22:
+	bl	NRT_decref
+	mov	x0, x20
+	bl	NRT_decref
+	mov	w0, wzr
+	str	xzr, [x19]
+	b	.LBB0_24
+.LBB0_23:
+	ldr	x0, [sp, #80]
+	bl	NRT_decref
+	ldr	x0, [sp, #88]
+	bl	NRT_decref
+	ldr	x8, [sp, #96]
+	mov	w0, wzr
+	str	xzr, [x8]
+.LBB0_24:
+	ldp	x20, x19, [sp, #400]
+	ldp	x22, x21, [sp, #384]
+	ldp	x24, x23, [sp, #368]
+	ldp	x26, x25, [sp, #352]
+	ldp	x28, x27, [sp, #336]
+	ldp	x29, x30, [sp, #320]
+	add	sp, sp, #416
+	ret
+.LBB0_25:
+	movz	x8, #:abs_g0_nc:printf_format
+	mov	x1, x27
+	movk	x8, #:abs_g1_nc:printf_format
+	movk	x8, #:abs_g2_nc:printf_format
+	movk	x8, #:abs_g3:printf_format
+	mov	x0, x8
+	bl	printf
+	movz	x8, #:abs_g0_nc:.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	mov	w0, #1
+	movk	x8, #:abs_g1_nc:.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	movk	x8, #:abs_g2_nc:.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	movk	x8, #:abs_g3:.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	str	x8, [x26]
+	b	.LBB0_24
+.Lfunc_end0:
+	.size	_ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx, .Lfunc_end0-_ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	.cfi_endproc
+
+	.globl	_ZN7cpython17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	.p2align	4
+	.type	_ZN7cpython17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx,@function
+_ZN7cpython17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx:
+	.cfi_startproc
+	stp	x29, x30, [sp, #-96]!
+	stp	x28, x27, [sp, #16]
+	stp	x26, x25, [sp, #32]
+	stp	x24, x23, [sp, #48]
+	stp	x22, x21, [sp, #64]
+	stp	x20, x19, [sp, #80]
+	sub	sp, sp, #704
+	.cfi_def_cfa_offset 800
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w25, -56
+	.cfi_offset w26, -64
+	.cfi_offset w27, -72
+	.cfi_offset w28, -80
+	.cfi_offset w30, -88
+	.cfi_offset w29, -96
+	mov	x0, x1
+	movz	x1, #:abs_g0_nc:.const.fuse_move_ifs
+	add	x8, sp, #656
+	add	x9, sp, #664
+	add	x4, sp, #696
+	add	x5, sp, #688
+	movk	x1, #:abs_g1_nc:.const.fuse_move_ifs
+	add	x6, sp, #680
+	add	x7, sp, #672
+	mov	w2, #6
+	mov	w3, #6
+	movk	x1, #:abs_g2_nc:.const.fuse_move_ifs
+	stp	x9, x8, [sp]
+	movk	x1, #:abs_g3:.const.fuse_move_ifs
+	bl	PyArg_UnpackTuple
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [sp, #352]
+	str	xzr, [sp, #400]
+	str	q0, [sp, #384]
+	str	xzr, [sp, #336]
+	cbz	w0, .LBB1_35
+	adrp	x8, :got:_ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	ldr	x8, [x8, :got_lo12:_ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx]
+	ldr	x8, [x8]
+	cbz	x8, .LBB1_20
+	ldr	x0, [sp, #696]
+	add	x1, sp, #576
+	stp	q0, q0, [sp, #576]
+	stp	q0, q0, [sp, #608]
+	str	xzr, [sp, #640]
+	bl	NRT_adapt_ndarray_from_python
+	ldr	x8, [sp, #600]
+	cmp	w0, #0
+	ccmp	x8, #8, #0, eq
+	cset	w19, ne
+	b.ne	.LBB1_22
+	tbnz	w19, #0, .LBB1_35
+.LBB1_4:
+	ldr	x0, [sp, #688]
+	ldr	x27, [sp, #576]
+	ldr	x25, [sp, #608]
+	add	x1, sp, #496
+	movi	v0.2d, #0000000000000000
+	ldr	x24, [sp, #616]
+	ldr	x22, [sp, #624]
+	ldr	x28, [sp, #632]
+	ldr	x29, [sp, #640]
+	stp	q0, q0, [sp, #496]
+	stp	q0, q0, [sp, #528]
+	str	xzr, [sp, #560]
+	bl	NRT_adapt_ndarray_from_python
+	ldr	x8, [sp, #520]
+	cmp	w0, #0
+	ccmp	x8, #8, #0, eq
+	cset	w19, ne
+	b.ne	.LBB1_23
+	tbnz	w19, #0, .LBB1_31
+.LBB1_6:
+	ldr	x0, [sp, #680]
+	ldr	x26, [sp, #496]
+	ldr	x23, [sp, #528]
+	add	x1, sp, #416
+	movi	v0.2d, #0000000000000000
+	ldr	x21, [sp, #544]
+	stp	q0, q0, [sp, #416]
+	stp	q0, q0, [sp, #448]
+	str	xzr, [sp, #480]
+	bl	NRT_adapt_ndarray_from_python
+	ldr	x8, [sp, #440]
+	cmp	w0, #0
+	ccmp	x8, #8, #0, eq
+	cset	w19, ne
+	b.ne	.LBB1_24
+	tbnz	w19, #0, .LBB1_30
+.LBB1_8:
+	ldp	x20, x9, [sp, #448]
+	ldp	x10, x11, [sp, #464]
+	ldr	x8, [sp, #480]
+	add	x1, sp, #352
+	ldr	x0, [sp, #672]
+	ldr	x19, [sp, #416]
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [sp, #352]
+	str	q0, [sp, #384]
+	str	xzr, [sp, #400]
+	stp	x10, x9, [sp, #304]
+	stp	x8, x11, [sp, #288]
+	bl	NRT_adapt_ndarray_from_python
+	cbnz	w0, .LBB1_25
+	ldr	x8, [sp, #376]
+	cmp	x8, #8
+	b.ne	.LBB1_25
+	ldr	x0, [sp, #664]
+	stp	x29, x28, [sp, #248]
+	stp	x22, x25, [sp, #264]
+	ldr	x29, [sp, #400]
+	str	x24, [sp, #280]
+	ldr	x24, [sp, #352]
+	ldp	x22, x28, [sp, #384]
+	stp	x19, x26, [sp, #320]
+	bl	PyNumber_Long
+	cbz	x0, .LBB1_26
+	mov	x26, x0
+	bl	PyLong_AsLongLong
+	mov	x25, x0
+	mov	x0, x26
+	bl	Py_DecRef
+	bl	PyErr_Occurred
+	cbnz	x0, .LBB1_28
+.LBB1_12:
+	ldr	x0, [sp, #656]
+	bl	PyNumber_Long
+	cbz	x0, .LBB1_27
+	mov	x19, x27
+	mov	x27, x0
+	bl	PyLong_AsLongLong
+	mov	x26, x0
+	mov	x0, x27
+	mov	x27, x19
+	bl	Py_DecRef
+	bl	PyErr_Occurred
+	cbnz	x0, .LBB1_28
+.LBB1_14:
+	ldp	x9, x10, [sp, #288]
+	str	x22, [sp, #200]
+	ldp	x22, x19, [sp, #320]
+	ldr	x7, [sp, #280]
+	add	x0, sp, #344
+	add	x1, sp, #336
+	stp	x25, x26, [sp, #224]
+	stp	x28, x29, [sp, #208]
+	str	x21, [sp, #72]
+	str	x23, [sp, #56]
+	stp	x9, x24, [sp, #160]
+	ldp	x9, x8, [sp, #304]
+	str	x22, [sp, #96]
+	stp	x9, x10, [sp, #144]
+	stp	x20, x8, [sp, #128]
+	ldp	x9, x10, [sp, #248]
+	ldp	x8, x6, [sp, #264]
+	stp	x9, x19, [sp, #16]
+	stp	x8, x10, [sp]
+	bl	_ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	ldr	x20, [sp, #336]
+	mov	w21, w0
+	mov	x0, x27
+	bl	NRT_decref
+	mov	x0, x19
+	bl	NRT_decref
+	mov	x0, x22
+	bl	NRT_decref
+	mov	x0, x24
+	bl	NRT_decref
+	cbnz	w21, .LBB1_17
+	adrp	x19, :got:_Py_NoneStruct
+	ldr	x19, [x19, :got_lo12:_Py_NoneStruct]
+	mov	x0, x19
+	bl	Py_IncRef
+.LBB1_16:
+	mov	x0, x19
+	add	sp, sp, #704
+	ldp	x20, x19, [sp, #80]
+	ldp	x22, x21, [sp, #64]
+	ldp	x24, x23, [sp, #48]
+	ldp	x26, x25, [sp, #32]
+	ldp	x28, x27, [sp, #16]
+	ldp	x29, x30, [sp], #96
+	ret
+.LBB1_17:
+	bl	PyErr_Clear
+	ldr	w1, [x20, #8]
+	ldr	x0, [x20]
+	ldr	w8, [x20, #32]
+	cmp	w8, #1
+	b.lt	.LBB1_32
+	sxtw	x1, w1
+	bl	PyBytes_FromStringAndSize
+	mov	x19, x0
+	ldp	x0, x8, [x20, #16]
+	blr	x8
+	cbz	x0, .LBB1_36
+	mov	x1, x0
+	mov	x0, x19
+	bl	numba_runtime_build_excinfo_struct
+	mov	x19, x0
+	mov	x0, x20
+	bl	NRT_Free
+	mov	x0, x19
+	b	.LBB1_33
+.LBB1_20:
+	movz	x1, #:abs_g0_nc:".const.missing Environment: _ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx"
+	movk	x1, #:abs_g1_nc:".const.missing Environment: _ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx"
+	movk	x1, #:abs_g2_nc:".const.missing Environment: _ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx"
+	movk	x1, #:abs_g3:".const.missing Environment: _ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx"
+.LBB1_21:
+	adrp	x0, :got:PyExc_RuntimeError
+	ldr	x0, [x0, :got_lo12:PyExc_RuntimeError]
+	bl	PyErr_SetString
+	b	.LBB1_35
+.LBB1_22:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	tbz	w19, #0, .LBB1_4
+	b	.LBB1_35
+.LBB1_23:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	tbz	w19, #0, .LBB1_6
+	b	.LBB1_31
+.LBB1_24:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	tbz	w19, #0, .LBB1_8
+	b	.LBB1_30
+.LBB1_25:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	b	.LBB1_29
+.LBB1_26:
+	mov	x25, xzr
+	bl	PyErr_Occurred
+	cbz	x0, .LBB1_12
+	b	.LBB1_28
+.LBB1_27:
+	mov	x26, xzr
+	bl	PyErr_Occurred
+	cbz	x0, .LBB1_14
+.LBB1_28:
+	mov	x0, x24
+	bl	NRT_decref
+	ldp	x19, x26, [sp, #320]
+.LBB1_29:
+	mov	x0, x19
+	bl	NRT_decref
+.LBB1_30:
+	mov	x0, x26
+	bl	NRT_decref
+.LBB1_31:
+	mov	x0, x27
+	bl	NRT_decref
+	b	.LBB1_35
+.LBB1_32:
+	ldr	x2, [x20, #16]
+	bl	numba_unpickle
+.LBB1_33:
+	cbz	x0, .LBB1_35
+	bl	numba_do_raise
+.LBB1_35:
+	mov	x19, xzr
+	b	.LBB1_16
+.LBB1_36:
+	movz	x1, #:abs_g0_nc:".const.Error creating Python tuple from runtime exception arguments"
+	movk	x1, #:abs_g1_nc:".const.Error creating Python tuple from runtime exception arguments"
+	movk	x1, #:abs_g2_nc:".const.Error creating Python tuple from runtime exception arguments"
+	movk	x1, #:abs_g3:".const.Error creating Python tuple from runtime exception arguments"
+	b	.LBB1_21
+.Lfunc_end1:
+	.size	_ZN7cpython17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx, .Lfunc_end1-_ZN7cpython17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	.cfi_endproc
+
+	.globl	cfunc._ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	.p2align	4
+	.type	cfunc._ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx,@function
+cfunc._ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx:
+	.cfi_startproc
+	sub	sp, sp, #304
+	str	x29, [sp, #256]
+	stp	x30, x21, [sp, #272]
+	stp	x20, x19, [sp, #288]
+	.cfi_def_cfa_offset 304
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w30, -32
+	.cfi_offset w29, -48
+	add	x15, sp, #233
+	ldp	q0, q1, [sp, #416]
+	ldp	x8, x9, [sp, #304]
+	ldur	q2, [x15, #255]
+	add	x15, sp, #249
+	ldr	x10, [sp, #344]
+	ldr	x11, [sp, #360]
+	add	x0, sp, #264
+	add	x1, sp, #248
+	ldur	q3, [x15, #255]
+	ldr	x12, [sp, #384]
+	ldp	x13, x14, [sp, #448]
+	ldr	x15, [sp, #520]
+	str	xzr, [sp, #264]
+	str	xzr, [sp, #248]
+	stp	x6, x7, [sp]
+	stp	x13, x14, [sp, #160]
+	str	x12, [sp, #96]
+	mov	x6, x4
+	mov	x7, x5
+	str	x11, [sp, #72]
+	str	x10, [sp, #56]
+	stp	x8, x9, [sp, #16]
+	str	x15, [sp, #232]
+	stp	q0, q1, [sp, #128]
+	stur	q2, [sp, #200]
+	stur	q3, [sp, #216]
+	bl	_ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	mov	w8, w0
+	ldr	x19, [sp, #248]
+	ldr	x0, [sp, #264]
+	str	wzr, [sp, #244]
+	cbnz	w8, .LBB2_2
+	ldp	x20, x19, [sp, #288]
+	ldp	x30, x21, [sp, #272]
+	ldr	x29, [sp, #256]
+	add	sp, sp, #304
+	ret
+.LBB2_2:
+	mov	x21, x0
+	add	x0, sp, #244
+	bl	numba_gil_ensure
+	bl	PyErr_Clear
+	ldr	w1, [x19, #8]
+	ldr	x0, [x19]
+	ldr	w8, [x19, #32]
+	cmp	w8, #1
+	b.lt	.LBB2_6
+	sxtw	x1, w1
+	bl	PyBytes_FromStringAndSize
+	mov	x20, x0
+	ldp	x0, x8, [x19, #16]
+	blr	x8
+	cbz	x0, .LBB2_9
+	mov	x1, x0
+	mov	x0, x20
+	bl	numba_runtime_build_excinfo_struct
+	mov	x20, x0
+	mov	x0, x19
+	bl	NRT_Free
+	cbz	x20, .LBB2_8
+	mov	x0, x20
+	b	.LBB2_7
+.LBB2_6:
+	ldr	x2, [x19, #16]
+	bl	numba_unpickle
+	cbz	x0, .LBB2_8
+.LBB2_7:
+	bl	numba_do_raise
+.LBB2_8:
+	movz	x0, #:abs_g0_nc:".const.<numba.core.cpu.CPUContext>"
+	movk	x0, #:abs_g1_nc:".const.<numba.core.cpu.CPUContext>"
+	movk	x0, #:abs_g2_nc:".const.<numba.core.cpu.CPUContext>"
+	movk	x0, #:abs_g3:".const.<numba.core.cpu.CPUContext>"
+	bl	PyUnicode_FromString
+	mov	x19, x0
+	bl	PyErr_WriteUnraisable
+	mov	x0, x19
+	bl	Py_DecRef
+	add	x0, sp, #244
+	bl	numba_gil_release
+	mov	x0, x21
+	ldp	x20, x19, [sp, #288]
+	ldp	x30, x21, [sp, #272]
+	ldr	x29, [sp, #256]
+	add	sp, sp, #304
+	ret
+.LBB2_9:
+	adrp	x0, :got:PyExc_RuntimeError
+	movz	x1, #:abs_g0_nc:".const.Error creating Python tuple from runtime exception arguments.1"
+	ldr	x0, [x0, :got_lo12:PyExc_RuntimeError]
+	movk	x1, #:abs_g1_nc:".const.Error creating Python tuple from runtime exception arguments.1"
+	movk	x1, #:abs_g2_nc:".const.Error creating Python tuple from runtime exception arguments.1"
+	movk	x1, #:abs_g3:".const.Error creating Python tuple from runtime exception arguments.1"
+	bl	PyErr_SetString
+	mov	x0, xzr
+	ldp	x20, x19, [sp, #288]
+	ldp	x30, x21, [sp, #272]
+	ldr	x29, [sp, #256]
+	add	sp, sp, #304
+	ret
+.Lfunc_end2:
+	.size	cfunc._ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx, .Lfunc_end2-cfunc._ZN17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx
+	.cfi_endproc
+
+	.weak	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE
+	.p2align	4
+	.type	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE,@function
+__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE:
+	.cfi_startproc
+	sub	sp, sp, #464
+	stp	x29, x30, [sp, #368]
+	stp	x28, x27, [sp, #384]
+	stp	x26, x25, [sp, #400]
+	stp	x24, x23, [sp, #416]
+	stp	x22, x21, [sp, #432]
+	stp	x20, x19, [sp, #448]
+	.cfi_def_cfa_offset 464
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w25, -56
+	.cfi_offset w26, -64
+	.cfi_offset w27, -72
+	.cfi_offset w28, -80
+	.cfi_offset w30, -88
+	.cfi_offset w29, -96
+	ldp	x9, x8, [x1, #16]
+	ldp	x21, x19, [x1]
+	ldp	x20, x27, [x0]
+	ldp	x28, x29, [x0, #16]
+	ldr	x22, [x0, #32]
+	ldp	x10, x11, [x2, #64]
+	str	wzr, [sp, #348]
+	stp	x8, x9, [sp, #328]
+	ldp	x24, x9, [x1, #32]
+	ldr	x8, [x1, #48]
+	stp	x8, x9, [sp, #312]
+	ldp	x9, x8, [x2]
+	stp	x8, x9, [sp, #248]
+	ldp	x9, x8, [x2, #48]
+	stp	x8, x9, [sp, #296]
+	ldp	x9, x8, [x2, #16]
+	stp	x8, x9, [sp, #232]
+	ldp	x8, x9, [x2, #32]
+	str	x8, [sp, #224]
+	ldr	x8, [x2, #80]
+	stp	x10, x9, [sp, #280]
+	stp	x8, x11, [sp, #264]
+	cmp	x21, #1
+	b.lt	.LBB3_11
+	ldp	x9, x8, [sp, #328]
+	mov	w23, #8
+	mul	x26, x9, x8
+	ldp	x9, x8, [sp, #312]
+	mul	x25, x9, x8
+	b	.LBB3_3
+	.p2align	5, , 16
+.LBB3_2:
+	ldp	x9, x8, [sp, #248]
+	subs	x21, x21, #1
+	add	x27, x27, x9
+	add	x20, x20, x8
+	ldp	x8, x9, [sp, #232]
+	add	x29, x29, x8
+	ldr	x8, [sp, #224]
+	add	x28, x28, x9
+	add	x22, x22, x8
+	b.eq	.LBB3_11
+.LBB3_3:
+	ldp	x10, x9, [sp, #264]
+	ldr	x11, [x27]
+	add	x0, sp, #360
+	add	x1, sp, #352
+	mov	w5, #8
+	stp	x23, x22, [sp, #168]
+	str	x25, [sp, #160]
+	movi	v0.2d, #0000000000000000
+	mov	x2, xzr
+	str	q0, [sp, #144]
+	stp	x23, x29, [sp, #112]
+	str	x24, [sp, #104]
+	stur	q0, [sp, #88]
+	stp	x23, x28, [sp, #40]
+	str	x26, [sp, #32]
+	stp	x9, x10, [sp, #200]
+	ldp	x10, x9, [sp, #312]
+	str	q0, [sp, #16]
+	mov	x3, xzr
+	mov	x4, x19
+	mov	x6, x20
+	mov	x7, x19
+	stp	x9, x10, [sp, #184]
+	ldp	x9, x8, [sp, #280]
+	stp	x8, x11, [sp]
+	stp	x24, x9, [sp, #128]
+	ldp	x10, x9, [sp, #296]
+	stp	x9, x10, [sp, #72]
+	ldp	x10, x9, [sp, #328]
+	stp	x9, x10, [sp, #56]
+	bl	_ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE
+	cmn	w0, #2
+	b.eq	.LBB3_2
+	cbz	w0, .LBB3_2
+	mov	w19, w0
+	add	x0, sp, #348
+	bl	numba_gil_ensure
+	cmp	w19, #0
+	b.gt	.LBB3_12
+	mov	w8, w19
+	cmn	w19, #1
+	b.eq	.LBB3_10
+	cmn	w8, #3
+	b.ne	.LBB3_9
+	adrp	x0, :got:PyExc_StopIteration
+	ldr	x0, [x0, :got_lo12:PyExc_StopIteration]
+	bl	PyErr_SetNone
+	b	.LBB3_10
+.LBB3_9:
+	adrp	x0, :got:PyExc_SystemError
+	movz	x1, #:abs_g0_nc:".const.unknown error when calling native function.5"
+	ldr	x0, [x0, :got_lo12:PyExc_SystemError]
+	movk	x1, #:abs_g1_nc:".const.unknown error when calling native function.5"
+	movk	x1, #:abs_g2_nc:".const.unknown error when calling native function.5"
+	movk	x1, #:abs_g3:".const.unknown error when calling native function.5"
+	bl	PyErr_SetString
+.LBB3_10:
+	add	x0, sp, #348
+	bl	numba_gil_release
+.LBB3_11:
+	ldp	x20, x19, [sp, #448]
+	ldp	x22, x21, [sp, #432]
+	ldp	x24, x23, [sp, #416]
+	ldp	x26, x25, [sp, #400]
+	ldp	x28, x27, [sp, #384]
+	ldp	x29, x30, [sp, #368]
+	add	sp, sp, #464
+	ret
+.LBB3_12:
+	bl	PyErr_Clear
+.Lfunc_end3:
+	.size	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE, .Lfunc_end3-__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE
+	.cfi_endproc
+
+	.weak	_ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE
+	.p2align	4
+	.type	_ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE,@function
+_ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE:
+	ldp	x10, x8, [x6]
+	ldr	x11, [sp, #8]
+	sub	x13, x8, x10
+	mov	x8, #9223372036854775806
+	cmp	x13, x8
+	ccmp	x11, #1, #8, ls
+	b.ge	.LBB4_2
+.LBB4_1:
+	str	xzr, [x0]
+	mov	w0, wzr
+	ret
+.LBB4_2:
+	ldr	x8, [sp, #192]
+	ldr	x9, [sp, #176]
+	ldr	x15, [sp, #64]
+	lsl	x8, x8, #3
+	ldr	x16, [sp, #48]
+	ldr	x12, [sp, #120]
+	madd	x14, x10, x8, x9
+	lsl	x9, x15, #3
+	madd	x15, x10, x9, x16
+	cmp	x11, #1
+	b.ne	.LBB4_7
+	add	x11, x13, #2
+	add	x10, x12, x10, lsl #3
+	b	.LBB4_5
+	.p2align	5, , 16
+.LBB4_4:
+	add	x15, x15, x9
+	add	x14, x14, x8
+	sub	x11, x11, #1
+	cmp	x11, #1
+	b.ls	.LBB4_1
+.LBB4_5:
+	ldr	d0, [x10], #8
+	fcmp	d0, #0.0
+	b.le	.LBB4_4
+	ldr	d0, [x14]
+	fadd	d0, d0, d0
+	str	d0, [x15]
+	b	.LBB4_4
+.LBB4_7:
+	add	x13, x13, #1
+	and	x16, x11, #0x7ffffffffffffffe
+	cmp	x11, #7
+	b.hi	.LBB4_20
+	cmp	x11, x16
+	b.eq	.LBB4_11
+	and	x16, x11, #0xfffffffffffffffe
+	neg	x16, x16
+	b	.LBB4_15
+	.p2align	5, , 16
+.LBB4_10:
+	add	x10, x10, #1
+	add	x15, x15, x9
+	add	x14, x14, x8
+	cmp	x13, #1
+	sub	x13, x13, #1
+	b.ls	.LBB4_1
+.LBB4_11:
+	ldr	d0, [x12, x10, lsl #3]
+	fcmp	d0, #0.0
+	b.le	.LBB4_10
+	mov	x16, xzr
+	mov	x17, x11
+	.p2align	5, , 16
+.LBB4_13:
+	ldr	q0, [x14, x16]
+	subs	x17, x17, #2
+	fadd	v0.2d, v0.2d, v0.2d
+	str	q0, [x15, x16]
+	add	x16, x16, #16
+	b.ne	.LBB4_13
+	b	.LBB4_10
+	.p2align	5, , 16
+.LBB4_14:
+	add	x10, x10, #1
+	add	x15, x15, x9
+	add	x14, x14, x8
+	cmp	x13, #1
+	sub	x13, x13, #1
+	b.ls	.LBB4_1
+.LBB4_15:
+	ldr	d0, [x12, x10, lsl #3]
+	fcmp	d0, #0.0
+	b.le	.LBB4_14
+	mov	x17, xzr
+	mov	x18, x16
+	.p2align	5, , 16
+.LBB4_17:
+	ldr	q0, [x14, x17]
+	adds	x18, x18, #2
+	fadd	v0.2d, v0.2d, v0.2d
+	str	q0, [x15, x17]
+	add	x17, x17, #16
+	b.ne	.LBB4_17
+	and	x17, x11, #0x7ffffffffffffffe
+	.p2align	5, , 16
+.LBB4_19:
+	ldr	d0, [x14, x17, lsl #3]
+	fadd	d0, d0, d0
+	str	d0, [x15, x17, lsl #3]
+	add	x17, x17, #1
+	cmp	x11, x17
+	b.ne	.LBB4_19
+	b	.LBB4_14
+.LBB4_20:
+	and	x18, x11, #0x7ffffffffffffff8
+	cmp	x11, x18
+	b.ne	.LBB4_26
+	add	x14, x14, #32
+	add	x15, x15, #32
+	b	.LBB4_23
+	.p2align	5, , 16
+.LBB4_22:
+	add	x10, x10, #1
+	add	x14, x14, x8
+	add	x15, x15, x9
+	cmp	x13, #1
+	sub	x13, x13, #1
+	b.ls	.LBB4_1
+.LBB4_23:
+	ldr	d0, [x12, x10, lsl #3]
+	fcmp	d0, #0.0
+	b.le	.LBB4_22
+	mov	x16, x15
+	mov	x17, x14
+	mov	x18, x11
+	.p2align	5, , 16
+.LBB4_25:
+	ldp	q0, q1, [x17, #-32]
+	subs	x18, x18, #8
+	fadd	v1.2d, v1.2d, v1.2d
+	fadd	v0.2d, v0.2d, v0.2d
+	ldp	q2, q3, [x17], #64
+	fadd	v2.2d, v2.2d, v2.2d
+	fadd	v3.2d, v3.2d, v3.2d
+	stp	q0, q1, [x16, #-32]
+	stp	q2, q3, [x16], #64
+	b.ne	.LBB4_25
+	b	.LBB4_22
+.LBB4_26:
+	and	x1, x11, #0x6
+	and	x17, x11, #0x6
+	lsl	x18, x18, #3
+	neg	x1, x1
+	b	.LBB4_28
+	.p2align	5, , 16
+.LBB4_27:
+	add	x10, x10, #1
+	add	x15, x15, x9
+	add	x14, x14, x8
+	cmp	x13, #1
+	sub	x13, x13, #1
+	b.ls	.LBB4_1
+.LBB4_28:
+	ldr	d0, [x12, x10, lsl #3]
+	fcmp	d0, #0.0
+	b.le	.LBB4_27
+	and	x3, x11, #0x7ffffffffffffff8
+	mov	x2, xzr
+	.p2align	5, , 16
+.LBB4_30:
+	add	x4, x14, x2
+	add	x5, x15, x2
+	add	x2, x2, #64
+	subs	x3, x3, #8
+	ldp	q0, q1, [x4]
+	ldp	q2, q3, [x4, #32]
+	fadd	v1.2d, v1.2d, v1.2d
+	fadd	v3.2d, v3.2d, v3.2d
+	fadd	v0.2d, v0.2d, v0.2d
+	fadd	v2.2d, v2.2d, v2.2d
+	stp	q0, q1, [x5]
+	stp	q2, q3, [x5, #32]
+	b.ne	.LBB4_30
+	and	x2, x11, #0x7ffffffffffffff8
+	mov	x3, x1
+	mov	x4, x18
+	cbz	x17, .LBB4_34
+	.p2align	5, , 16
+.LBB4_32:
+	ldr	q0, [x14, x4]
+	adds	x3, x3, #2
+	fadd	v0.2d, v0.2d, v0.2d
+	str	q0, [x15, x4]
+	add	x4, x4, #16
+	b.ne	.LBB4_32
+	and	x2, x11, #0x7ffffffffffffffe
+	cmp	x11, x16
+	b.eq	.LBB4_27
+	.p2align	5, , 16
+.LBB4_34:
+	ldr	d0, [x14, x2, lsl #3]
+	fadd	d0, d0, d0
+	str	d0, [x15, x2, lsl #3]
+	add	x2, x2, #1
+	cmp	x11, x2
+	b.ne	.LBB4_34
+	b	.LBB4_27
+.Lfunc_end4:
+	.size	_ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE, .Lfunc_end4-_ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE
+
+	.weak	NRT_decref
+	.p2align	4
+	.type	NRT_decref,@function
+NRT_decref:
+	.cfi_startproc
+	cbz	x0, .LBB5_2
+	dmb	ish
+	mov	x8, #-1
+	ldadd	x8, x8, [x0]
+	cmp	x8, #1
+	b.eq	.LBB5_3
+.LBB5_2:
+	ret
+.LBB5_3:
+	dmb	ishld
+	b	NRT_MemInfo_call_dtor
+.Lfunc_end5:
+	.size	NRT_decref, .Lfunc_end5-NRT_decref
+	.cfi_endproc
+
+	.weak	NRT_incref
+	.p2align	4
+	.type	NRT_incref,@function
+NRT_incref:
+	cbz	x0, .LBB6_2
+	mov	w8, #1
+	ldadd	x8, x8, [x0]
+.LBB6_2:
+	ret
+.Lfunc_end6:
+	.size	NRT_incref, .Lfunc_end6-NRT_incref
+
+	.type	printf_format,@object
+	.section	.rodata,"a",@progbits
+	.p2align	4, 0x0
+printf_format:
+	.asciz	"num_threads: %d\n"
+	.size	printf_format, 17
+
+	.type	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a,@object
+	.p2align	4, 0x0
+.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a:
+	.ascii	"\200\004\225e\000\000\000\000\000\000\000\214\bbuiltins\224\214\fRuntimeError\224\223\224\214@Invalid number of threads. This likely indicates a bug in Numba.\224\205\224N\207\224."
+	.size	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a, 112
+
+	.type	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a.sha1,@object
+	.p2align	4, 0x0
+.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a.sha1:
+	.ascii	"\235\213\326\325A\263\3436\375y\027\231I@x\033\306\212:\212"
+	.size	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a.sha1, 20
+
+	.type	.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a,@object
+	.p2align	4, 0x0
+.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a:
+	.xword	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	.word	112
+	.zero	4
+	.xword	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a.sha1
+	.xword	0
+	.word	0
+	.zero	4
+	.size	.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a, 40
+
+	.type	.const.fuse_move_ifs,@object
+	.p2align	2, 0x0
+.const.fuse_move_ifs:
+	.asciz	"fuse_move_ifs"
+	.size	.const.fuse_move_ifs, 14
+
+	.type	_ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx,@object
+	.comm	_ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx,8,8
+	.type	".const.missing Environment: _ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx",@object
+	.p2align	4, 0x0
+".const.missing Environment: _ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx":
+	.asciz	"missing Environment: _ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx"
+	.size	".const.missing Environment: _ZN08NumbaEnv17nbk_fuse_move_ifs13fuse_move_ifsB3v11B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedExx", 294
+
+	.type	".const.can't unbox array from PyObject into native value.  The object maybe of a different type",@object
+	.p2align	4, 0x0
+".const.can't unbox array from PyObject into native value.  The object maybe of a different type":
+	.asciz	"can't unbox array from PyObject into native value.  The object maybe of a different type"
+	.size	".const.can't unbox array from PyObject into native value.  The object maybe of a different type", 89
+
+	.type	".const.Error creating Python tuple from runtime exception arguments",@object
+	.p2align	4, 0x0
+".const.Error creating Python tuple from runtime exception arguments":
+	.asciz	"Error creating Python tuple from runtime exception arguments"
+	.size	".const.Error creating Python tuple from runtime exception arguments", 61
+
+	.type	".const.Error creating Python tuple from runtime exception arguments.1",@object
+	.p2align	4, 0x0
+".const.Error creating Python tuple from runtime exception arguments.1":
+	.asciz	"Error creating Python tuple from runtime exception arguments"
+	.size	".const.Error creating Python tuple from runtime exception arguments.1", 61
+
+	.type	".const.<numba.core.cpu.CPUContext>",@object
+	.p2align	4, 0x0
+".const.<numba.core.cpu.CPUContext>":
+	.asciz	"<numba.core.cpu.CPUContext>"
+	.size	".const.<numba.core.cpu.CPUContext>", 28
+
+	.type	".const.unknown error when calling native function.5",@object
+	.p2align	4, 0x0
+".const.unknown error when calling native function.5":
+	.asciz	"unknown error when calling native function"
+	.size	".const.unknown error when calling native function.5", 43
+
+	.type	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE,@object
+	.comm	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x40002c872210B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedEx5ArrayIdLi2E1C7mutable7alignedE5ArrayIdLi1E1C7mutable7alignedE5ArrayIdLi2E1C7mutable7alignedE,8,8
+	.section	".note.GNU-stack","",@progbits

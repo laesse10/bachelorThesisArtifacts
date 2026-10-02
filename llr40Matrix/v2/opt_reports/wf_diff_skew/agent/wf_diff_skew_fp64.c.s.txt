@@ -1,0 +1,114 @@
+# objdump -d wf_diff_skew_fp64.c.o  (functions matching wf_diff_skew_fp64*)
+0000000000000000 <wf_diff_skew_fp64._omp_fn.0>:
+   0:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+   4:	910003fd 	mov	x29, sp
+   8:	a90153f3 	stp	x19, x20, [sp, #16]
+   c:	a9046bf9 	stp	x25, x26, [sp, #64]
+  10:	a9406813 	ldp	x19, x26, [x0]
+  14:	f100075f 	cmp	x26, #0x1
+  18:	5400096d 	b.le	144 <wf_diff_skew_fp64._omp_fn.0+0x144>
+  1c:	a9025bf5 	stp	x21, x22, [sp, #32]
+  20:	d1000754 	sub	x20, x26, #0x1
+  24:	a90363f7 	stp	x23, x24, [sp, #48]
+  28:	d2800037 	mov	x23, #0x1                   	// #1
+  2c:	a90573fb 	stp	x27, x28, [sp, #80]
+  30:	94000000 	bl	0 <omp_get_num_threads>
+  34:	93407c15 	sxtw	x21, w0
+  38:	94000000 	bl	0 <omp_get_thread_num>
+  3c:	aa1403e2 	mov	x2, x20
+  40:	9ad50e94 	sdiv	x20, x20, x21
+  44:	93407c18 	sxtw	x24, w0
+  48:	d2800001 	mov	x1, #0x0                   	// #0
+  4c:	9b158a95 	msub	x21, x20, x21, x2
+  50:	eb15031f 	cmp	x24, x21
+  54:	9a94a694 	cinc	x20, x20, lt	// lt = tstop
+  58:	9b187e98 	mul	x24, x20, x24
+  5c:	d341fe9b 	lsr	x27, x20, #1
+  60:	d37cef7b 	lsl	x27, x27, #4
+  64:	927ffa96 	and	x22, x20, #0xfffffffffffffffe
+  68:	8b1802b5 	add	x21, x21, x24
+  6c:	9a95b318 	csel	x24, x24, x21, lt	// lt = tstop
+  70:	8b180295 	add	x21, x20, x24
+  74:	14000007 	b	90 <wf_diff_skew_fp64._omp_fn.0+0x90>
+  78:	8b1a0039 	add	x25, x1, x26
+  7c:	910006f7 	add	x23, x23, #0x1
+  80:	94000000 	bl	0 <GOMP_barrier>
+  84:	aa1903e1 	mov	x1, x25
+  88:	eb17035f 	cmp	x26, x23
+  8c:	54000560 	b.eq	138 <wf_diff_skew_fp64._omp_fn.0+0x138>  // b.none
+  90:	eb1802bf 	cmp	x21, x24
+  94:	54ffff2d 	b.le	78 <wf_diff_skew_fp64._omp_fn.0+0x78>
+  98:	f100069f 	cmp	x20, #0x1
+  9c:	54000680 	b.eq	16c <wf_diff_skew_fp64._omp_fn.0+0x16c>  // b.none
+  a0:	aa1603fc 	mov	x28, x22
+  a4:	8b010302 	add	x2, x24, x1
+  a8:	8b010359 	add	x25, x26, x1
+  ac:	8b020e63 	add	x3, x19, x2, lsl #3
+  b0:	8b190301 	add	x1, x24, x25
+  b4:	d2800000 	mov	x0, #0x0                   	// #0
+  b8:	8b010e61 	add	x1, x19, x1, lsl #3
+  bc:	aa0303e4 	mov	x4, x3
+  c0:	91002063 	add	x3, x3, #0x8
+  c4:	3ce06880 	ldr	q0, [x4, x0]
+  c8:	3ce0683e 	ldr	q30, [x1, x0]
+  cc:	3ce0687f 	ldr	q31, [x3, x0]
+  d0:	4e7ed41e 	fadd	v30.2d, v0.2d, v30.2d
+  d4:	4e7fd7df 	fadd	v31.2d, v30.2d, v31.2d
+  d8:	3ca0683f 	str	q31, [x1, x0]
+  dc:	91004000 	add	x0, x0, #0x10
+  e0:	eb00037f 	cmp	x27, x0
+  e4:	54ffff01 	b.ne	c4 <wf_diff_skew_fp64._omp_fn.0+0xc4>  // b.any
+  e8:	eb16029f 	cmp	x20, x22
+  ec:	54000340 	b.eq	154 <wf_diff_skew_fp64._omp_fn.0+0x154>  // b.none
+  f0:	8b1c0041 	add	x1, x2, x28
+  f4:	8b180320 	add	x0, x25, x24
+  f8:	8b010e62 	add	x2, x19, x1, lsl #3
+  fc:	8b1c0000 	add	x0, x0, x28
+ 100:	cb1c0283 	sub	x3, x20, x28
+ 104:	25e31fe7 	whilelo	p7.d, xzr, x3
+ 108:	a5e15e7c 	ld1d	{z28.d}, p7/z, [x19, x1, lsl #3]
+ 10c:	a5e05e61 	ld1d	{z1.d}, p7/z, [x19, x0, lsl #3]
+ 110:	65dc003c 	fadd	z28.d, z1.d, z28.d
+ 114:	910006f7 	add	x23, x23, #0x1
+ 118:	91002041 	add	x1, x2, #0x8
+ 11c:	a5e0bc3d 	ld1d	{z29.d}, p7/z, [x1]
+ 120:	65dd039d 	fadd	z29.d, z28.d, z29.d
+ 124:	e5e05e7d 	st1d	{z29.d}, p7, [x19, x0, lsl #3]
+ 128:	94000000 	bl	0 <GOMP_barrier>
+ 12c:	aa1903e1 	mov	x1, x25
+ 130:	eb17035f 	cmp	x26, x23
+ 134:	54fffae1 	b.ne	90 <wf_diff_skew_fp64._omp_fn.0+0x90>  // b.any
+ 138:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 13c:	a94363f7 	ldp	x23, x24, [sp, #48]
+ 140:	a94573fb 	ldp	x27, x28, [sp, #80]
+ 144:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 148:	a9446bf9 	ldp	x25, x26, [sp, #64]
+ 14c:	a8c67bfd 	ldp	x29, x30, [sp], #96
+ 150:	d65f03c0 	ret
+ 154:	910006f7 	add	x23, x23, #0x1
+ 158:	94000000 	bl	0 <GOMP_barrier>
+ 15c:	eb17035f 	cmp	x26, x23
+ 160:	54fffec0 	b.eq	138 <wf_diff_skew_fp64._omp_fn.0+0x138>  // b.none
+ 164:	aa1903e1 	mov	x1, x25
+ 168:	17ffffcf 	b	a4 <wf_diff_skew_fp64._omp_fn.0+0xa4>
+ 16c:	d280001c 	mov	x28, #0x0                   	// #0
+ 170:	8b1a0039 	add	x25, x1, x26
+ 174:	8b010302 	add	x2, x24, x1
+ 178:	17ffffde 	b	f0 <wf_diff_skew_fp64._omp_fn.0+0xf0>
+ 17c:	d503201f 	nop
+
+
+0000000000000180 <wf_diff_skew_fp64>:
+ 180:	aa0003e5 	mov	x5, x0
+ 184:	aa0103e4 	mov	x4, x1
+ 188:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 18c:	90000000 	adrp	x0, 0 <wf_diff_skew_fp64._omp_fn.0>
+ 190:	910003fd 	mov	x29, sp
+ 194:	910043e1 	add	x1, sp, #0x10
+ 198:	52800003 	mov	w3, #0x0                   	// #0
+ 19c:	91000000 	add	x0, x0, #0x0
+ 1a0:	52800002 	mov	w2, #0x0                   	// #0
+ 1a4:	a90113e5 	stp	x5, x4, [sp, #16]
+ 1a8:	94000000 	bl	0 <GOMP_parallel>
+ 1ac:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 1b0:	d65f03c0 	ret

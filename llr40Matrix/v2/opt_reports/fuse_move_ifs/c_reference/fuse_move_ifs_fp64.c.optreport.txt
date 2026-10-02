@@ -1,0 +1,10 @@
+$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-aux/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/fuse_move_ifs/c_reference/fuse_move_ifs_fp64.c -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/fuse_move_ifs/c_reference/build/fuse_move_ifs_fp64.c.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+fuse_move_ifs_fp64.c:28:27: missed: couldn't vectorize loop
+fuse_move_ifs_fp64.c:30:32: missed: not vectorized: complicated access pattern.
+fuse_move_ifs_fp64.c:29:29: optimized: loop vectorized using 16 byte vectors
+fuse_move_ifs_fp64.c:20:25: missed: couldn't vectorize loop
+fuse_move_ifs_fp64.c:20:25: missed: not vectorized: unsupported outerloop form.
+fuse_move_ifs_fp64.c:22:29: optimized: loop vectorized using 16 byte vectors
+fuse_move_ifs_fp64.c:29:29: optimized: loop with 2 iterations completely unrolled (header execution count 40682885)
+fuse_move_ifs_fp64.c:22:29: optimized: loop with 2 iterations completely unrolled (header execution count 23954634)

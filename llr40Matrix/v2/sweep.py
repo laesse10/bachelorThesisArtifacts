@@ -126,7 +126,7 @@ def first_error_line(status, note, log):
         return m.group(0).strip()[:400]
     lines = [l.strip() for l in log.splitlines() if l.strip()]
     pats = {"build_error": (r"\berror\b", r"Error\b", r"undefined reference", r"Traceback"),
-            "incorrect": (r"valid", r"mismatch", r"differ", r"max(imum)?[ _]abs", r"tolerance", r"allclose"),
+            "incorrect": (r"mismatch", r"differ", r"max(imum)?[ _]abs", r"tolerance", r"allclose", r"valid"),
             "timeout": (r"timeout",)}.get(status, (r"error",))
     for pat in pats:
         for l in lines:
@@ -194,6 +194,16 @@ def main():
     for n, k in enumerate(kernels, 1):
         print(f"[{n}/{len(kernels)}] {k}", flush=True)
         kdir, backend = BENCHMARKS / k, BENCHMARKS / k / "cpp_backend"
+        # 0. v2: a previous run killed mid-cell (scancel / wall limit) never reaches the `finally`
+        # restore, so a substituted hand/agent source can be left in cpp_backend. The emitter never
+        # regenerates a file without its autogen marker, so it would be snapshotted as "pristine"
+        # and timed as the c/cpp/fortran column (happened: s115/s311 .f90, wf_triangular .c).
+        # Remove any unmarked fp64 source first; the emitter then writes the real lowering.
+        for ext in (".c", ".cpp", ".f90"):
+            f = backend / f"{k}_fp64{ext}"
+            if f.is_file() and "hpcagent_bench-autogen" not in f.read_text().splitlines()[0]:
+                print(f"    removing leftover non-autogen {f.name} before generation", flush=True)
+                f.unlink()
         # 1. generate the lowerings + numba sibling
         gen = subprocess.run(
             [PY, "-c", "import sys,hpcagent_bench.autogen as A;"
@@ -211,6 +221,8 @@ def main():
             src = backend / f"{k}_fp64{ext}"
             if src.is_file():
                 bak = pathlib.Path(ARGS.scratch) / f"pristine.{k}_fp64{ext}"
+                if "hpcagent_bench-autogen" not in src.read_text().splitlines()[0]:
+                    raise SystemExit(f"{src.name}: snapshot is not autogen output; refusing to time it")
                 shutil.copy2(src, bak); pristine[ext] = (src, bak, sha(src))
         # v2: keep the exact emitted sources that were timed (diff_vs_v1, opt reports)
         keep = REPO / "emitted_sources" / k; keep.mkdir(parents=True, exist_ok=True)

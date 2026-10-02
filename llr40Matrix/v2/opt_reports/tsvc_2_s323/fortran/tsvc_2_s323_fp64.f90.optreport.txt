@@ -1,0 +1,8 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_s323/fortran/tsvc_2_s323_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_s323/fortran/build/tsvc_2_s323_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+tsvc_2_s323_fp64.f90:12:13: missed: couldn't vectorize loop
+tsvc_2_s323_fp64.f90:13:79: missed: not vectorized, possible dependence between data-refs (*b_18(D))[_1] and (*b_18(D))[i_l0_28]
+tsvc_2_s323_fp64.f90:14:73: missed: not vectorized: vectorization is not profitable.
+tsvc_2_s323_fp64.f90:14:73: missed: not vectorized: vectorization is not profitable.
+tsvc_2_s323_fp64.f90:14:73: missed: not vectorized: vectorization is not profitable.
+tsvc_2_s323_fp64.f90:14:73: missed: not vectorized: vectorization is not profitable.

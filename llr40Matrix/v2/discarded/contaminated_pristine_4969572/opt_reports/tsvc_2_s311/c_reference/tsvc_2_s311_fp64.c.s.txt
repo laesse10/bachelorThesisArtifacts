@@ -1,0 +1,17 @@
+# objdump -d tsvc_2_s311_fp64.c.o  (functions matching tsvc_2_s311_fp64*)
+0000000000000000 <tsvc_2_s311_fp64>:
+   0:	f900003f 	str	xzr, [x1]
+   4:	f100005f 	cmp	x2, #0x0
+   8:	5400018d 	b.le	38 <tsvc_2_s311_fp64+0x38>
+   c:	2f00e41f 	movi	d31, #0x0
+  10:	d2800003 	mov	x3, #0x0                   	// #0
+  14:	04e0e3e4 	cntd	x4
+  18:	25e21fe7 	whilelo	p7.d, xzr, x2
+  1c:	d503201f 	nop
+  20:	a5e35c1e 	ld1d	{z30.d}, p7/z, [x0, x3, lsl #3]
+  24:	8b040063 	add	x3, x3, x4
+  28:	65d83fdf 	fadda	d31, p7, d31, z30.d
+  2c:	25e21c67 	whilelo	p7.d, x3, x2
+  30:	54ffff81 	b.ne	20 <tsvc_2_s311_fp64+0x20>  // b.any
+  34:	fd00003f 	str	d31, [x1]
+  38:	d65f03c0 	ret

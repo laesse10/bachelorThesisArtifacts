@@ -148,7 +148,7 @@ def do_numba(k, src_in, rows):
 
 def main():
     picks = json.load(open(REPO / "agent_picks.json"))
-    res = [r for r in csv.DictReader(open(REPO / "results.csv")) if r["preset"] == "M"]
+    res = [r for r in csv.DictReader(open(REPO / "results.csv")) if r["preset"] == "M" and not r.get("flags_variant")]
     rows = []
     for r in res:
         k, rep = r["kernel"], r["representation"]
