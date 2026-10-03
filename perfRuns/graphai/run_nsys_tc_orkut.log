@@ -1,0 +1,50 @@
+WARNING: Device-side CUDA Event completion trace is currently enabled.
+         This may increase runtime overhead and the likelihood of false
+         dependencies across CUDA Streams. If you wish to avoid this, please
+         disable the feature with --cuda-event-trace=false.
+Triangle Counting: assuming the neighbor lists are sorted.
+input file prefix: /capstor/scratch/cscs/lhulsbergen/graphaibench/inputs/orkut/graph, graph name: orkut
+Reading graph: |V| 3072441 |E| 234370166
+In-memory vertices
+In-memory edges
+Orientation enabled, generating DAG
+|E| after clean: 117185083
+Generating the new graph in memory
+deleting old graph
+Time on generating the DAG: 0.112078 sec
+|V|: 3072441, |E|: 117185083, Max Degree: 535
+Found 4 devices
+  Device[0]: NVIDIA GH200 120GB
+  Compute capability: 9.0
+  Warp size: 32
+  Total # SM: 132
+Unknown device type
+  Total # CUDA cores: 0
+  Total amount of shared memory per block: 49152 bytes
+  Total # registers per block: 65536
+  Total amount of constant memory: 65536 bytes
+  Total global memory: 95.0 GB
+  Memory Clock Rate: 2.50 GHz
+  Memory Bus Width: 6144 bits
+  Peak Memory Bandwidth: 4022.78 GB/s
+
+  Device[1]: NVIDIA GH200 120GB
+  Device[2]: NVIDIA GH200 120GB
+  Device[3]: NVIDIA GH200 120GB
+Allocating GPU memory for the graph ... Done
+Time on allocating device memory for the graph on GPU0: 0.002277 sec
+Copying graph data to GPU memory ... Done
+Time on copying graph to GPU0: 0.005572 sec
+Time on generating the edgelist: 0.19056 sec
+Using BinarySearch Edge-parallel Warp-centric
+max_blocks_per_SM = 8
+CUDA triangle counting (1056 CTAs, 256 threads/CTA)
+reps = 100, per rep = 0.068349 sec
+runtime [gpu_warp_ep] = 6.83491 sec
+throughput = 0.0171451 billion Traversed Edges Per Second (TEPS)
+total_num_triangles = 627584181
+Collecting data...
+Generating '/tmp/nsys-report-c05b.qdstrm'
+[1/1] [0%                          ] nsys_tc_orkut.nsys-rep[1/1] [0%                          ] nsys_tc_orkut.nsys-rep[1/1] [14%                         ] nsys_tc_orkut.nsys-rep[1/1] [=16%                        ] nsys_tc_orkut.nsys-rep[1/1] [=17%                        ] nsys_tc_orkut.nsys-rep[1/1] [==18%                       ] nsys_tc_orkut.nsys-rep[1/1] [===22%                      ] nsys_tc_orkut.nsys-rep[1/1] [======35%                   ] nsys_tc_orkut.nsys-rep[1/1] [==========48%               ] nsys_tc_orkut.nsys-rep[1/1] [=============58%            ] nsys_tc_orkut.nsys-rep[1/1] [===============65%          ] nsys_tc_orkut.nsys-rep[1/1] [=================72%        ] nsys_tc_orkut.nsys-rep[1/1] [=================73%        ] nsys_tc_orkut.nsys-rep[1/1] [=================74%        ] nsys_tc_orkut.nsys-rep[1/1] [==================75%       ] nsys_tc_orkut.nsys-rep[1/1] [==================76%       ] nsys_tc_orkut.nsys-rep[1/1] [=====================88%    ] nsys_tc_orkut.nsys-rep[1/1] [========================100%] nsys_tc_orkut.nsys-rep[1/1] [========================100%] nsys_tc_orkut.nsys-rep
+Generated:
+	/capstor/scratch/cscs/lhulsbergen/perf_runs/graphai/nsys_tc_orkut.nsys-rep

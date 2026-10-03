@@ -1,0 +1,50 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 1K of event 'cycles'
+# Event count (approx.): 33046901175
+#
+# Overhead  Shared Object         Symbol                                                                                                                                     IPC   [IPC Coverage]
+# ........  ....................  .........................................................................................................................................  ....................
+#
+    20.77%  [unknown]             [k] 0xffffd17dfe19181c                                                                                                                     -      -            
+    11.62%  [vdso]                [.] __kernel_clock_gettime                                                                                                                 -      -            
+     5.11%  libcuda.so.595.91.07  [.] 0x00000000002f3f74                                                                                                                     -      -            
+     4.91%  libcuda.so.595.91.07  [.] 0x00000000002f3fc8                                                                                                                     -      -            
+     4.01%  tc_gpu_base           [.] GraphT<false, false>::orientation(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [clone ._omp_fn.2]  -      -            
+     3.61%  libcuda.so.595.91.07  [.] 0x0000000000274ef0                                                                                                                     -      -            
+     3.10%  libcuda.so.595.91.07  [.] 0x00000000002f3f84                                                                                                                     -      -            
+     3.01%  libcuda.so.595.91.07  [.] 0x00000000002f3f94                                                                                                                     -      -            
+     2.40%  libcuda.so.595.91.07  [.] 0x00000000002f40d0                                                                                                                     -      -            
+     2.20%  libcuda.so.595.91.07  [.] 0x00000000002f3fa8                                                                                                                     -      -            
+     2.10%  libcuda.so.595.91.07  [.] 0x00000000002f3fa0                                                                                                                     -      -            
+     1.81%  tc_gpu_base           [.] GraphT<false, false>::init_edgelist(bool, bool)                                                                                        -      -            
+     1.81%  libcuda.so.595.91.07  [.] 0x00000000002f3fc0                                                                                                                     -      -            
+     1.30%  libcuda.so.595.91.07  [.] 0x000000000035a3f8                                                                                                                     -      -            
+     1.30%  libcuda.so.595.91.07  [.] 0x00000000002f3f8c                                                                                                                     -      -            
+     1.20%  libcuda.so.595.91.07  [.] 0x00000000002f3fb4                                                                                                                     -      -            
+     1.20%  libcuda.so.595.91.07  [.] 0x00000000002f3f7c                                                                                                                     -      -            
+     1.10%  libcuda.so.595.91.07  [.] 0x00000000002f3f40                                                                                                                     -      -            
+     1.00%  libcuda.so.595.91.07  [.] 0x00000000002f3f30                                                                                                                     -      -            
+     1.00%  libcuda.so.595.91.07  [.] 0x000000000027bb7c                                                                                                                     -      -            
+     0.90%  libcuda.so.595.91.07  [.] 0x0000000000274ef4                                                                                                                     -      -            
+     0.90%  libcuda.so.595.91.07  [.] 0x00000000002f08b4                                                                                                                     -      -            
+     0.70%  libcuda.so.595.91.07  [.] 0x00000000002f3f5c                                                                                                                     -      -            
+     0.70%  libcuda.so.595.91.07  [.] 0x00000000002f40e8                                                                                                                     -      -            
+     0.70%  libcuda.so.595.91.07  [.] 0x00000000002f3fd4                                                                                                                     -      -            
+     0.60%  [unknown]             [k] 0xffffd17dfe0d00b4                                                                                                                     -      -            
+     0.60%  libcuda.so.595.91.07  [.] 0x00000000002f3f70                                                                                                                     -      -            
+     0.60%  libcuda.so.595.91.07  [.] 0x00000000002f40e4                                                                                                                     -      -            
+     0.60%  libcuda.so.595.91.07  [.] 0x000000000034ac20                                                                                                                     -      -            
+     0.54%  tc_gpu_base           [.] GraphT<false, false>::orientation(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [clone ._omp_fn.1]  -      -            
+     0.52%  [unknown]             [k] 0xffffd17e29510160                                                                                                                     -      -            
+     0.50%  libcuda.so.595.91.07  [.] 0x0000000000274e88                                                                                                                     -      -            
+     0.50%  libcuda.so.595.91.07  [.] 0x00000000002f40d4                                                                                                                     -      -            
+     0.50%  libcuda.so.595.91.07  [.] 0x00000000002f3f64                                                                                                                     -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

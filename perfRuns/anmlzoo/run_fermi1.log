@@ -1,0 +1,4 @@
+Simulation Time: 475352 ms
+Throughput: 0.0021037 MB/s
+[ perf record: Woken up 800 times to write data ]
+[ perf record: Captured and wrote 200.044 MB perf_fermi1.data (47057 samples) ]

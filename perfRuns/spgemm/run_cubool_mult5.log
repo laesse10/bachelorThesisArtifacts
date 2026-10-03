@@ -1,0 +1,41 @@
+WARNING: Kernel address maps (/proc/{kallsyms,modules}) are restricted,
+check /proc/sys/kernel/kptr_restrict and /proc/sys/kernel/perf_event_paranoid.
+
+Samples in kernel functions may not be resolved if a suitable vmlinux
+file is not found in the buildid cache or in the vmlinux path.
+
+Samples in kernel modules won't be resolved at all.
+
+If some relocation was applied (e.g. kexec) symbols may be misresolved
+even with a suitable vmlinux or kallsyms file.
+
+Couldn't record kernel reference relocation symbol
+Symbol resolution may be skewed if relocation was used (e.g. kexec).
+Check /proc/kallsyms permission or run as root.
+Matrix file: /capstor/scratch/cscs/lhulsbergen/spbench/data/amazon-2008/amazon-2008.mtx
+Shape: 735323x735323
+Total Nnz: 5158388
+Total Nnz/Row: 7.01513
+Max Nnz/Row: 10
+Matrix file: /capstor/scratch/cscs/lhulsbergen/spbench/data/web-Google/web-Google.mtx
+Shape: 916428x916428
+Total Nnz: 5105039
+Total Nnz/Row: 5.57058
+Max Nnz/Row: 456
+Matrix file: /capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-TX/roadNet-TX.mtx
+Shape: 1393383x1393383
+Total Nnz: 3843320
+Total Nnz/Row: 2.75827
+Max Nnz/Row: 12
+Matrix file: /capstor/scratch/cscs/lhulsbergen/spbench/data/belgium_osm/belgium_osm.mtx
+Shape: 1441295x1441295
+Total Nnz: 3099940
+Total Nnz/Row: 2.1508
+Max Nnz/Row: 10
+Matrix file: /capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-CA/roadNet-CA.mtx
+Shape: 1971281x1971281
+Total Nnz: 5533214
+Total Nnz/Row: 2.80691
+Max Nnz/Row: 12
+[ perf record: Woken up 23 times to write data ]
+[ perf record: Captured and wrote 5.460 MB perf_cubool_mult5.data (1232 samples) ]
