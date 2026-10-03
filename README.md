@@ -4,7 +4,7 @@ Two independent artifacts.
 
 | directory | what |
 |---|---|
-| **[`llr40Matrix/`](llr40Matrix/)** | the LLR-40 measurement matrix: six code representations of 40 loop-level-reasoning kernels, built, validated against a NumPy oracle and timed on CSCS Alps `daint` (NVIDIA GH200, aarch64). 240 cells plus 18 preset-S rows, every individual timing retained. |
+| **[`llr40Matrix/`](llr40Matrix/)** | the LLR-40 measurement matrix: six code representations of 40 loop-level-reasoning kernels, built, validated against a NumPy oracle and timed on CSCS Alps `daint` (NVIDIA GH200, aarch64). 240 cells plus 18 preset-S rows, every individual timing retained. **Current version: [`llr40Matrix/v2/`](llr40Matrix/v2/)**; the top level is v1, kept as the historical record. |
 | **[`Solvers/`](Solvers/)** | fourteen solver kernels, and the preconditioning skill written against them: three successive versions plus the measurement scripts behind every figure it quotes. |
 
 Each directory has its own README and stands on its own. `llr40Matrix/README.md` carries the
