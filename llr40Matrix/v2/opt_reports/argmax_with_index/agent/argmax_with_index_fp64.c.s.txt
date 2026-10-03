@@ -1,0 +1,147 @@
+# objdump -d argmax_with_index_fp64.c.o  (functions matching argmax_with_index_fp64*)
+0000000000000000 <argmax_with_index_fp64._omp_fn.0>:
+   0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+   4:	910003fd 	mov	x29, sp
+   8:	a90153f3 	stp	x19, x20, [sp, #16]
+   c:	aa0003f3 	mov	x19, x0
+  10:	f9400414 	ldr	x20, [x0, #8]
+  14:	94000000 	bl	0 <omp_get_thread_num>
+  18:	b9801261 	ldrsw	x1, [x19, #16]
+  1c:	93407c03 	sxtw	x3, w0
+  20:	8b010282 	add	x2, x20, x1
+  24:	d1000442 	sub	x2, x2, #0x1
+  28:	9ac10c42 	sdiv	x2, x2, x1
+  2c:	9b027c63 	mul	x3, x3, x2
+  30:	eb03029f 	cmp	x20, x3
+  34:	540001ac 	b.gt	68 <argmax_with_index_fp64._omp_fn.0+0x68>
+  38:	d2fffe01 	mov	x1, #0xfff0000000000000    	// #-4503599627370496
+  3c:	92800003 	mov	x3, #0xffffffffffffffff    	// #-1
+  40:	9e67003e 	fmov	d30, x1
+  44:	90000002 	adrp	x2, 0 <argmax_with_index_fp64._omp_fn.0>
+  48:	90000001 	adrp	x1, 0 <argmax_with_index_fp64._omp_fn.0>
+  4c:	91000042 	add	x2, x2, #0x0
+  50:	91000021 	add	x1, x1, #0x0
+  54:	fc20d85e 	str	d30, [x2, w0, sxtw #3]
+  58:	f820d823 	str	x3, [x1, w0, sxtw #3]
+  5c:	a94153f3 	ldp	x19, x20, [sp, #16]
+  60:	a8c27bfd 	ldp	x29, x30, [sp], #32
+  64:	d65f03c0 	ret
+  68:	f9400264 	ldr	x4, [x19]
+  6c:	8b030042 	add	x2, x2, x3
+  70:	91000461 	add	x1, x3, #0x1
+  74:	eb14005f 	cmp	x2, x20
+  78:	9a94d042 	csel	x2, x2, x20, le
+  7c:	fc63789e 	ldr	d30, [x4, x3, lsl #3]
+  80:	eb02003f 	cmp	x1, x2
+  84:	54fffe0a 	b.ge	44 <argmax_with_index_fp64._omp_fn.0+0x44>  // b.tcont
+  88:	fc61789f 	ldr	d31, [x4, x1, lsl #3]
+  8c:	1e7f23d0 	fcmpe	d30, d31
+  90:	540000a4 	b.mi	a4 <argmax_with_index_fp64._omp_fn.0+0xa4>  // b.first
+  94:	91000421 	add	x1, x1, #0x1
+  98:	eb01005f 	cmp	x2, x1
+  9c:	54ffff61 	b.ne	88 <argmax_with_index_fp64._omp_fn.0+0x88>  // b.any
+  a0:	17ffffe9 	b	44 <argmax_with_index_fp64._omp_fn.0+0x44>
+  a4:	1e6043fe 	fmov	d30, d31
+  a8:	aa0103e3 	mov	x3, x1
+  ac:	17fffffa 	b	94 <argmax_with_index_fp64._omp_fn.0+0x94>
+
+
+00000000000000b0 <argmax_with_index_fp64>:
+  b0:	a9bb7bfd 	stp	x29, x30, [sp, #-80]!
+  b4:	910003fd 	mov	x29, sp
+  b8:	a90153f3 	stp	x19, x20, [sp, #16]
+  bc:	aa0103f4 	mov	x20, x1
+  c0:	a9025bf5 	stp	x21, x22, [sp, #32]
+  c4:	aa0203f5 	mov	x21, x2
+  c8:	f100007f 	cmp	x3, #0x0
+  cc:	540009ed 	b.le	208 <argmax_with_index_fp64+0x158>
+  d0:	aa0303f3 	mov	x19, x3
+  d4:	aa0003f6 	mov	x22, x0
+  d8:	94000000 	bl	0 <omp_get_max_threads>
+  dc:	910ffe61 	add	x1, x19, #0x3ff
+  e0:	90000002 	adrp	x2, 0 <argmax_with_index_fp64._omp_fn.0>
+  e4:	a903cff6 	stp	x22, x19, [sp, #56]
+  e8:	934afc21 	asr	x1, x1, #10
+  ec:	eb20c03f 	cmp	x1, w0, sxtw
+  f0:	52808003 	mov	w3, #0x400                 	// #1024
+  f4:	1a81a000 	csel	w0, w0, w1, ge	// ge = tcont
+  f8:	7110001f 	cmp	w0, #0x400
+  fc:	9100e3e1 	add	x1, sp, #0x38
+ 100:	1a83d013 	csel	w19, w0, w3, le
+ 104:	91000040 	add	x0, x2, #0x0
+ 108:	7100027f 	cmp	w19, #0x0
+ 10c:	1a9fc673 	csinc	w19, w19, wzr, gt
+ 110:	b9004bf3 	str	w19, [sp, #72]
+ 114:	2a1303e2 	mov	w2, w19
+ 118:	52800003 	mov	w3, #0x0                   	// #0
+ 11c:	94000000 	bl	0 <GOMP_parallel>
+ 120:	2f00e41f 	movi	d31, #0x0
+ 124:	90000002 	adrp	x2, 0 <argmax_with_index_fp64._omp_fn.0>
+ 128:	d2800000 	mov	x0, #0x0                   	// #0
+ 12c:	d2800009 	mov	x9, #0x0                   	// #0
+ 130:	d37d7e63 	ubfiz	x3, x19, #3, #32
+ 134:	91000048 	add	x8, x2, #0x0
+ 138:	52800021 	mov	w1, #0x1                   	// #1
+ 13c:	f8606906 	ldr	x6, [x8, x0]
+ 140:	b7f80346 	tbnz	x6, #63, 1a8 <argmax_with_index_fp64+0xf8>
+ 144:	90000007 	adrp	x7, 0 <argmax_with_index_fp64._omp_fn.0>
+ 148:	34000701 	cbz	w1, 228 <argmax_with_index_fp64+0x178>
+ 14c:	910000e5 	add	x5, x7, #0x0
+ 150:	91002004 	add	x4, x0, #0x8
+ 154:	fc6068bf 	ldr	d31, [x5, x0]
+ 158:	eb04007f 	cmp	x3, x4
+ 15c:	540002e0 	b.eq	1b8 <argmax_with_index_fp64+0x108>  // b.none
+ 160:	f8646905 	ldr	x5, [x8, x4]
+ 164:	b7f803a5 	tbnz	x5, #63, 1d8 <argmax_with_index_fp64+0x128>
+ 168:	aa0403e0 	mov	x0, x4
+ 16c:	910000e1 	add	x1, x7, #0x0
+ 170:	fc60683e 	ldr	d30, [x1, x0]
+ 174:	1e7e23f0 	fcmpe	d31, d30
+ 178:	540002c4 	b.mi	1d0 <argmax_with_index_fp64+0x120>  // b.first
+ 17c:	eb0500df 	cmp	x6, x5
+ 180:	91000044 	add	x4, x2, #0x0
+ 184:	1e7ec7e0 	fccmp	d31, d30, #0x0, gt
+ 188:	54000240 	b.eq	1d0 <argmax_with_index_fp64+0x120>  // b.none
+ 18c:	91002000 	add	x0, x0, #0x8
+ 190:	eb00007f 	cmp	x3, x0
+ 194:	54000120 	b.eq	1b8 <argmax_with_index_fp64+0x108>  // b.none
+ 198:	f8606885 	ldr	x5, [x4, x0]
+ 19c:	b6fffea5 	tbz	x5, #63, 170 <argmax_with_index_fp64+0xc0>
+ 1a0:	52800001 	mov	w1, #0x0                   	// #0
+ 1a4:	aa0603e9 	mov	x9, x6
+ 1a8:	91002000 	add	x0, x0, #0x8
+ 1ac:	eb00007f 	cmp	x3, x0
+ 1b0:	54fffc61 	b.ne	13c <argmax_with_index_fp64+0x8c>  // b.any
+ 1b4:	aa0903e6 	mov	x6, x9
+ 1b8:	f9000286 	str	x6, [x20]
+ 1bc:	fd0002bf 	str	d31, [x21]
+ 1c0:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 1c4:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 1c8:	a8c57bfd 	ldp	x29, x30, [sp], #80
+ 1cc:	d65f03c0 	ret
+ 1d0:	aa0503e6 	mov	x6, x5
+ 1d4:	17ffffde 	b	14c <argmax_with_index_fp64+0x9c>
+ 1d8:	91004004 	add	x4, x0, #0x10
+ 1dc:	eb04007f 	cmp	x3, x4
+ 1e0:	54fffec0 	b.eq	1b8 <argmax_with_index_fp64+0x108>  // b.none
+ 1e4:	f8646905 	ldr	x5, [x8, x4]
+ 1e8:	b6fffc05 	tbz	x5, #63, 168 <argmax_with_index_fp64+0xb8>
+ 1ec:	aa0403e0 	mov	x0, x4
+ 1f0:	aa0603e9 	mov	x9, x6
+ 1f4:	91002000 	add	x0, x0, #0x8
+ 1f8:	52800001 	mov	w1, #0x0                   	// #0
+ 1fc:	eb00007f 	cmp	x3, x0
+ 200:	54fff9e1 	b.ne	13c <argmax_with_index_fp64+0x8c>  // b.any
+ 204:	17ffffec 	b	1b4 <argmax_with_index_fp64+0x104>
+ 208:	2f00e41f 	movi	d31, #0x0
+ 20c:	d2800006 	mov	x6, #0x0                   	// #0
+ 210:	f9000286 	str	x6, [x20]
+ 214:	fd0002bf 	str	d31, [x21]
+ 218:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 21c:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 220:	a8c57bfd 	ldp	x29, x30, [sp], #80
+ 224:	d65f03c0 	ret
+ 228:	aa0603e5 	mov	x5, x6
+ 22c:	aa0003e4 	mov	x4, x0
+ 230:	aa0903e6 	mov	x6, x9
+ 234:	17ffffcd 	b	168 <argmax_with_index_fp64+0xb8>

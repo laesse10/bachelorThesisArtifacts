@@ -1,0 +1,2 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+scan_affine_decay,1,llr40v10-qwen38-c,621727,2,c,8.244,7764c69a6bf0b57246b043ab8d80803fbd068467d5a7c4a0d966e56b82d45da3,ok,,1,

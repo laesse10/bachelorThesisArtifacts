@@ -1,0 +1,14 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_vpvts/agent/tsvc_2_vpvts_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_vpvts/agent/build/tsvc_2_vpvts_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+tsvc_2_vpvts_fp64.f90:12:47: optimized: loop vectorized using 16 byte vectors
+tsvc_2_vpvts_fp64.f90:12:47: optimized:  loop versioned for vectorization because of possible aliasing
+tsvc_2_vpvts_fp64.f90:10:17: optimized: loop turned into non-loop; it never loops
+tsvc_2_vpvts_fp64.f90:10:17: missed: not vectorized: vectorization is not profitable.
+tsvc_2_vpvts_fp64.f90:10:17: missed: not vectorized: vectorization is not profitable.
+tsvc_2_vpvts_fp64.f90:10:17: missed: not vectorized: vectorization is not profitable.
+tsvc_2_vpvts_fp64.f90:10:17: missed: not vectorized: vectorization is not profitable.
+tsvc_2_vpvts_fp64.f90:1:34: missed: statement clobbers memory: __builtin_GOMP_parallel (tsvc_2_vpvts_fp64._omp_fn.0, &.omp_data_o.9, 0, 0);
+tsvc_2_vpvts_fp64.f90:10:17: missed: not vectorized: vectorization is not profitable.
+tsvc_2_vpvts_fp64.f90:10:17: missed: not vectorized: vectorization is not profitable.
+tsvc_2_vpvts_fp64.f90:10:17: missed: not vectorized: vectorization is not profitable.
+tsvc_2_vpvts_fp64.f90:10:17: missed: not vectorized: vectorization is not profitable.

@@ -1,0 +1,129 @@
+# objdump -d fuse_move_ifs_fp64.f90.o  (functions matching fuse_move_ifs_fp64*)
+0000000000000000 <fuse_move_ifs_fp64>:
+   0:	f10000bf 	cmp	x5, #0x0
+   4:	9a9fa0af 	csel	x15, x5, xzr, ge	// ge = tcont
+   8:	54000f8d 	b.le	1f8 <fuse_move_ifs_fp64+0x1f8>
+   c:	d37df1ed 	lsl	x13, x15, #3
+  10:	aa0303eb 	mov	x11, x3
+  14:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+  18:	aa0003ea 	mov	x10, x0
+  1c:	d10004b1 	sub	x17, x5, #0x1
+  20:	d342fca8 	lsr	x8, x5, #2
+  24:	927ef4ae 	and	x14, x5, #0xfffffffffffffffc
+  28:	9280000c 	mov	x12, #0xffffffffffffffff    	// #-1
+  2c:	d2800009 	mov	x9, #0x0                   	// #0
+  30:	910003fd 	mov	x29, sp
+  34:	d503201f 	nop
+  38:	d503201f 	nop
+  3c:	d503201f 	nop
+  40:	fc697840 	ldr	d0, [x2, x9, lsl #3]
+  44:	aa0903f0 	mov	x16, x9
+  48:	91000529 	add	x9, x9, #0x1
+  4c:	1e602018 	fcmpe	d0, #0.0
+  50:	5400078c 	b.gt	140 <fuse_move_ifs_fp64+0x140>
+  54:	8b0d016b 	add	x11, x11, x13
+  58:	8b0d014a 	add	x10, x10, x13
+  5c:	8b0f018c 	add	x12, x12, x15
+  60:	eb0900bf 	cmp	x5, x9
+  64:	54fffee1 	b.ne	40 <fuse_move_ifs_fp64+0x40>  // b.any
+  68:	f100009f 	cmp	x4, #0x0
+  6c:	5400066d 	b.le	138 <fuse_move_ifs_fp64+0x138>
+  70:	1e6e1003 	fmov	d3, #1.000000000000000000e+00
+  74:	6f03f602 	fmov	v2.2d, #1.000000000000000000e+00
+  78:	91004066 	add	x6, x3, #0x10
+  7c:	91004024 	add	x4, x1, #0x10
+  80:	92800007 	mov	x7, #0xffffffffffffffff    	// #-1
+  84:	d280000b 	mov	x11, #0x0                   	// #0
+  88:	aa0b03ec 	mov	x12, x11
+  8c:	9100056b 	add	x11, x11, #0x1
+  90:	f1000a3f 	cmp	x17, #0x2
+  94:	54000a69 	b.ls	1e0 <fuse_move_ifs_fp64+0x1e0>  // b.plast
+  98:	d10040ca 	sub	x10, x6, #0x10
+  9c:	d1004089 	sub	x9, x4, #0x10
+  a0:	d2800000 	mov	x0, #0x0                   	// #0
+  a4:	d2800002 	mov	x2, #0x0                   	// #0
+  a8:	3ce06941 	ldr	q1, [x10, x0]
+  ac:	91000442 	add	x2, x2, #0x1
+  b0:	3ce068c0 	ldr	q0, [x6, x0]
+  b4:	4e62d421 	fadd	v1.2d, v1.2d, v2.2d
+  b8:	4e62d400 	fadd	v0.2d, v0.2d, v2.2d
+  bc:	3ca06921 	str	q1, [x9, x0]
+  c0:	3ca06880 	str	q0, [x4, x0]
+  c4:	91008000 	add	x0, x0, #0x20
+  c8:	eb08005f 	cmp	x2, x8
+  cc:	54fffee1 	b.ne	a8 <fuse_move_ifs_fp64+0xa8>  // b.any
+  d0:	eb0e00bf 	cmp	x5, x14
+  d4:	54000280 	b.eq	124 <fuse_move_ifs_fp64+0x124>  // b.none
+  d8:	aa0e03ea 	mov	x10, x14
+  dc:	aa0e03e0 	mov	x0, x14
+  e0:	cb0a00a9 	sub	x9, x5, x10
+  e4:	f100053f 	cmp	x9, #0x1
+  e8:	54000140 	b.eq	110 <fuse_move_ifs_fp64+0x110>  // b.none
+  ec:	910004e2 	add	x2, x7, #0x1
+  f0:	8b0a0042 	add	x2, x2, x10
+  f4:	d37df042 	lsl	x2, x2, #3
+  f8:	3ce26860 	ldr	q0, [x3, x2]
+  fc:	4e62d400 	fadd	v0.2d, v0.2d, v2.2d
+ 100:	3ca26820 	str	q0, [x1, x2]
+ 104:	36000109 	tbz	w9, #0, 124 <fuse_move_ifs_fp64+0x124>
+ 108:	927ff929 	and	x9, x9, #0xfffffffffffffffe
+ 10c:	8b090000 	add	x0, x0, x9
+ 110:	91000400 	add	x0, x0, #0x1
+ 114:	8b070000 	add	x0, x0, x7
+ 118:	fc607860 	ldr	d0, [x3, x0, lsl #3]
+ 11c:	1e632800 	fadd	d0, d0, d3
+ 120:	fc207820 	str	d0, [x1, x0, lsl #3]
+ 124:	8b0d00c6 	add	x6, x6, x13
+ 128:	8b0d0084 	add	x4, x4, x13
+ 12c:	8b0f00e7 	add	x7, x7, x15
+ 130:	eb0c021f 	cmp	x16, x12
+ 134:	54fffaa1 	b.ne	88 <fuse_move_ifs_fp64+0x88>  // b.any
+ 138:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 13c:	d65f03c0 	ret
+ 140:	f1000a3f 	cmp	x17, #0x2
+ 144:	54000549 	b.ls	1ec <fuse_move_ifs_fp64+0x1ec>  // b.plast
+ 148:	d2800006 	mov	x6, #0x0                   	// #0
+ 14c:	d2800007 	mov	x7, #0x0                   	// #0
+ 150:	9100417e 	add	x30, x11, #0x10
+ 154:	91004152 	add	x18, x10, #0x10
+ 158:	d503201f 	nop
+ 15c:	d503201f 	nop
+ 160:	3ce66961 	ldr	q1, [x11, x6]
+ 164:	910004e7 	add	x7, x7, #0x1
+ 168:	3ce66bc0 	ldr	q0, [x30, x6]
+ 16c:	4e61d421 	fadd	v1.2d, v1.2d, v1.2d
+ 170:	4e60d400 	fadd	v0.2d, v0.2d, v0.2d
+ 174:	3ca66941 	str	q1, [x10, x6]
+ 178:	3ca66a40 	str	q0, [x18, x6]
+ 17c:	910080c6 	add	x6, x6, #0x20
+ 180:	eb0800ff 	cmp	x7, x8
+ 184:	54fffee1 	b.ne	160 <fuse_move_ifs_fp64+0x160>  // b.any
+ 188:	eb0e00bf 	cmp	x5, x14
+ 18c:	54fff640 	b.eq	54 <fuse_move_ifs_fp64+0x54>  // b.none
+ 190:	aa0e03fe 	mov	x30, x14
+ 194:	aa0e03e6 	mov	x6, x14
+ 198:	cb1e00b2 	sub	x18, x5, x30
+ 19c:	f100065f 	cmp	x18, #0x1
+ 1a0:	54000140 	b.eq	1c8 <fuse_move_ifs_fp64+0x1c8>  // b.none
+ 1a4:	91000587 	add	x7, x12, #0x1
+ 1a8:	8b1e00e7 	add	x7, x7, x30
+ 1ac:	d37df0e7 	lsl	x7, x7, #3
+ 1b0:	3ce76860 	ldr	q0, [x3, x7]
+ 1b4:	4e60d400 	fadd	v0.2d, v0.2d, v0.2d
+ 1b8:	3ca76800 	str	q0, [x0, x7]
+ 1bc:	3607f4d2 	tbz	w18, #0, 54 <fuse_move_ifs_fp64+0x54>
+ 1c0:	927ffa52 	and	x18, x18, #0xfffffffffffffffe
+ 1c4:	8b1200c6 	add	x6, x6, x18
+ 1c8:	910004c6 	add	x6, x6, #0x1
+ 1cc:	8b0c00c6 	add	x6, x6, x12
+ 1d0:	fc667860 	ldr	d0, [x3, x6, lsl #3]
+ 1d4:	1e602800 	fadd	d0, d0, d0
+ 1d8:	fc267800 	str	d0, [x0, x6, lsl #3]
+ 1dc:	17ffff9e 	b	54 <fuse_move_ifs_fp64+0x54>
+ 1e0:	d280000a 	mov	x10, #0x0                   	// #0
+ 1e4:	d2800000 	mov	x0, #0x0                   	// #0
+ 1e8:	17ffffbe 	b	e0 <fuse_move_ifs_fp64+0xe0>
+ 1ec:	d280001e 	mov	x30, #0x0                   	// #0
+ 1f0:	d2800006 	mov	x6, #0x0                   	// #0
+ 1f4:	17ffffe9 	b	198 <fuse_move_ifs_fp64+0x198>
+ 1f8:	d65f03c0 	ret

@@ -1,0 +1,39 @@
+diff --git a/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/tsvc_2_s115.yaml b/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/tsvc_2_s115.yaml
+index ec0b2379f..e773675b3 100644
+--- a/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/tsvc_2_s115.yaml
++++ b/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/tsvc_2_s115.yaml
+@@ -3,7 +3,7 @@ name: TSVC s115
+ level: 1
+ parameters:
+   S:
+-    LEN_2D: 64
++    LEN_2D: 118
+   M:
+     LEN_2D: 20481
+   L:
+diff --git a/hpcagent_bench/benchmarks/loop_level_reasoning/wf_diff_skew/wf_diff_skew.yaml b/hpcagent_bench/benchmarks/loop_level_reasoning/wf_diff_skew/wf_diff_skew.yaml
+index 35ff6fc8e..b05904169 100644
+--- a/hpcagent_bench/benchmarks/loop_level_reasoning/wf_diff_skew/wf_diff_skew.yaml
++++ b/hpcagent_bench/benchmarks/loop_level_reasoning/wf_diff_skew/wf_diff_skew.yaml
+@@ -4,7 +4,7 @@ short-name: Wavefront Skew
+ level: 1
+ parameters:
+   S:
+-    LEN_2D: 64
++    LEN_2D: 1017
+   M:
+     LEN_2D: 12289
+   L:
+diff --git a/hpcagent_bench/benchmarks/loop_level_reasoning/wf_triangular/wf_triangular.yaml b/hpcagent_bench/benchmarks/loop_level_reasoning/wf_triangular/wf_triangular.yaml
+index a5761dbd4..9e8d4b627 100644
+--- a/hpcagent_bench/benchmarks/loop_level_reasoning/wf_triangular/wf_triangular.yaml
++++ b/hpcagent_bench/benchmarks/loop_level_reasoning/wf_triangular/wf_triangular.yaml
+@@ -4,7 +4,7 @@ short-name: Tri Wavefront
+ level: 1
+ parameters:
+   S:
+-    LEN_2D: 64
++    LEN_2D: 517
+   M:
+     LEN_2D: 17409
+   L:

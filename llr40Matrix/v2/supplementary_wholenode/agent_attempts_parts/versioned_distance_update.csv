@@ -1,0 +1,2 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+versioned_distance_update,1,llr40v10-qwen38-fortran,621385,3,fortran,30.055,01661d852f138e7e9788a82e7d49fe32d331e275d901a366586f7cbf350f9d1d,ok,,1,

@@ -1,0 +1,14 @@
+$ /users/lhulsbergen/bin/g++ -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-aux/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c++20 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/fuse_move_ifs/cpp/fuse_move_ifs_fp64.cpp -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/fuse_move_ifs/cpp/build/fuse_move_ifs_fp64.cpp.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+fuse_move_ifs_fp64.cpp:176:33: missed: couldn't vectorize loop
+fuse_move_ifs_fp64.cpp:178:62: missed: not vectorized: complicated access pattern.
+fuse_move_ifs_fp64.cpp:177:35: optimized: loop vectorized using 16 byte vectors
+fuse_move_ifs_fp64.cpp:177:35: optimized: loop vectorized using 16 byte vectors
+fuse_move_ifs_fp64.cpp:168:31: missed: couldn't vectorize loop
+fuse_move_ifs_fp64.cpp:168:31: missed: not vectorized: control flow in loop.
+fuse_move_ifs_fp64.cpp:170:35: optimized: loop vectorized using 16 byte vectors
+fuse_move_ifs_fp64.cpp:170:35: optimized: loop vectorized using 16 byte vectors
+fuse_move_ifs_fp64.cpp:177:35: optimized: loop turned into non-loop; it never loops
+fuse_move_ifs_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+fuse_move_ifs_fp64.cpp:170:35: optimized: loop turned into non-loop; it never loops
+fuse_move_ifs_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops

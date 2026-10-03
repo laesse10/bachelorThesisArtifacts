@@ -1,0 +1,19 @@
+$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-aux/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/segment_reduce_ragged/agent/segment_reduce_ragged_fp64.c -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/segment_reduce_ragged/agent/build/segment_reduce_ragged_fp64.c.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+segment_reduce_ragged_fp64.c:15:17: optimized: Loop 3 distributed: split to 0 loops and 1 library calls.
+segment_reduce_ragged_fp64.c:10:13: missed: couldn't vectorize loop
+segment_reduce_ragged_fp64.c:10:13: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+segment_reduce_ragged_fp64.c:12:32: missed: couldn't vectorize loop
+segment_reduce_ragged_fp64.c:12:32: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+segment_reduce_ragged_fp64.c:15:17: optimized: loop vectorized using variable length vectors
+segment_reduce_ragged_fp64.c:17:23: optimized: loop vectorized using 16 byte vectors
+segment_reduce_ragged_fp64.c:17:23: optimized: loop turned into non-loop; it never loops
+segment_reduce_ragged_fp64.c:10:13: missed: statement clobbers memory: _19 = __builtin_GOMP_loop_nonmonotonic_guided_start (0, NSEG_17, 1, 1, &.istart0.9, &.iend0.10);
+segment_reduce_ragged_fp64.c:15:17: missed: statement clobbers memory: __builtin_memset (&D.5460, 0, 16);
+segment_reduce_ragged_fp64.c:10:13: missed: statement clobbers memory: _36 = __builtin_GOMP_loop_nonmonotonic_guided_next (&.istart0.9, &.iend0.10);
+segment_reduce_ragged_fp64.c:10:13: missed: statement clobbers memory: __builtin_GOMP_loop_end_nowait ();
+segment_reduce_ragged_fp64.c:3:6: missed: statement clobbers memory: __builtin_GOMP_parallel (segment_reduce_ragged_fp64._omp_fn.0, &.omp_data_o.8, _17, 0);
+segment_reduce_ragged_fp64.c:10:13: missed: not vectorized: vectorization is not profitable.
+segment_reduce_ragged_fp64.c:10:13: missed: not vectorized: vectorization is not profitable.
+segment_reduce_ragged_fp64.c:10:13: missed: not vectorized: vectorization is not profitable.
+segment_reduce_ragged_fp64.c:10:13: missed: not vectorized: vectorization is not profitable.

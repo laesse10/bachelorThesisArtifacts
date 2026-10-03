@@ -1,0 +1,13 @@
+# objdump -d quasi_affine_reduce_odd_fp64.c.o  (functions matching quasi_affine_reduce_odd_fp64*)
+0000000000000000 <quasi_affine_reduce_odd_fp64>:
+   0:	2f00e41f 	movi	d31, #0x0
+   4:	f100045f 	cmp	x2, #0x1
+   8:	540000ed 	b.le	24 <quasi_affine_reduce_odd_fp64+0x24>
+   c:	d2800023 	mov	x3, #0x1                   	// #1
+  10:	fc63781e 	ldr	d30, [x0, x3, lsl #3]
+  14:	91000863 	add	x3, x3, #0x2
+  18:	1e7e2bff 	fadd	d31, d31, d30
+  1c:	eb03005f 	cmp	x2, x3
+  20:	54ffff8c 	b.gt	10 <quasi_affine_reduce_odd_fp64+0x10>
+  24:	fd00003f 	str	d31, [x1]
+  28:	d65f03c0 	ret

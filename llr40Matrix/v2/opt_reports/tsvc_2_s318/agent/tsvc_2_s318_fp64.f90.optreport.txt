@@ -1,0 +1,23 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_s318/agent/tsvc_2_s318_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_s318/agent/build/tsvc_2_s318_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+tsvc_2_s318_fp64.f90:59:26: missed: not vectorized: more than one data ref in stmt: *dst_2(D) = *src_3(D);
+tsvc_2_s318_fp64.f90:34:29: missed: statement clobbers memory: __builtin_GOMP_parallel (tsvc_2_s318_fp64._omp_fn.0, &.omp_data_o.5, 0, 0);
+tsvc_2_s318_fp64.f90:48:66: missed: not vectorized: vectorization is not profitable.
+tsvc_2_s318_fp64.f90:48:66: missed: not vectorized: vectorization is not profitable.
+tsvc_2_s318_fp64.f90:48:66: missed: not vectorized: vectorization is not profitable.
+tsvc_2_s318_fp64.f90:48:66: missed: not vectorized: vectorization is not profitable.
+tsvc_2_s318_fp64.f90:50:55: optimized: versioned this loop for when certain strides are 1
+tsvc_2_s318_fp64.f90:50:55: missed: couldn't vectorize loop
+tsvc_2_s318_fp64.f90:50:55: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+tsvc_2_s318_fp64.f90:50:55: missed: couldn't vectorize loop
+tsvc_2_s318_fp64.f90:52:43: missed: not vectorized: unsupported use in stmt.
+tsvc_2_s318_fp64.f90:50:55: missed: couldn't vectorize loop
+tsvc_2_s318_fp64.f90:52:43: missed: not vectorized: unsupported use in stmt.
+tsvc_2_s318_fp64.f90:48:66: missed: statement clobbers memory: best = maxloc_init ();
+tsvc_2_s318_fp64.f90:48:66: missed: statement clobbers memory: _14 = __builtin_GOMP_loop_nonmonotonic_guided_start (2, _12, 1, 512, &.istart0.6, &.iend0.7);
+tsvc_2_s318_fp64.f90:48:66: missed: statement clobbers memory: _31 = __builtin_GOMP_loop_nonmonotonic_guided_next (&.istart0.6, &.iend0.7);
+tsvc_2_s318_fp64.f90:48:66: missed: statement clobbers memory: __builtin_GOMP_loop_end_nowait ();
+tsvc_2_s318_fp64.f90:48:66: missed: statement clobbers memory: __builtin_GOMP_atomic_start ();
+tsvc_2_s318_fp64.f90:48:66: missed: statement clobbers memory: D.3138 = maxloc_combine (_34, &best);
+tsvc_2_s318_fp64.f90:48:66: missed: not vectorized: more than one data ref in stmt: *_34 = D.3138;
+tsvc_2_s318_fp64.f90:48:66: missed: statement clobbers memory: __builtin_GOMP_atomic_end ();

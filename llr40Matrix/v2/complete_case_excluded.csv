@@ -1,0 +1,8 @@
+kernel,optimization_class,non_ok_columns
+versioned_distance_update,dependence_distance,c_reference:unsupported
+scatter_accum_dup,indirect_addressing,c_reference:unsupported
+segment_reduce_ragged,indirect_addressing,c_reference:unsupported
+tsvc_2_s115,linear_dependence,c:incorrect c_reference:incorrect cpp:incorrect fortran:incorrect agent:incorrect
+tsvc_2_s2233,loop_interchange,agent:unsupported
+compact_threshold_pack,packing,c_reference:unsupported
+scan_affine_decay,reduction,c_reference:unsupported

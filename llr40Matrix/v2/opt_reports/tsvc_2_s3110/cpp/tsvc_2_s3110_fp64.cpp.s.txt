@@ -1,0 +1,34 @@
+# objdump -d tsvc_2_s3110_fp64.cpp.o  (functions matching tsvc_2_s3110_fp64*)
+0000000000000000 <tsvc_2_s3110_fp64>:
+   0:	fd400001 	ldr	d1, [x0]
+   4:	aa0003e3 	mov	x3, x0
+   8:	f100005f 	cmp	x2, #0x0
+   c:	5400028d 	b.le	5c <tsvc_2_s3110_fp64+0x5c>
+  10:	9e6703e3 	fmov	d3, xzr
+  14:	d37df045 	lsl	x5, x2, #3
+  18:	d2800004 	mov	x4, #0x0                   	// #0
+  1c:	9e6703e2 	fmov	d2, xzr
+  20:	d2800000 	mov	x0, #0x0                   	// #0
+  24:	fc607860 	ldr	d0, [x3, x0, lsl #3]
+  28:	1e612010 	fcmpe	d0, d1
+  2c:	540001cc 	b.gt	64 <tsvc_2_s3110_fp64+0x64>
+  30:	91000400 	add	x0, x0, #0x1
+  34:	eb02001f 	cmp	x0, x2
+  38:	54ffff61 	b.ne	24 <tsvc_2_s3110_fp64+0x24>  // b.any
+  3c:	91000484 	add	x4, x4, #0x1
+  40:	8b050063 	add	x3, x3, x5
+  44:	eb04001f 	cmp	x0, x4
+  48:	54fffec1 	b.ne	20 <tsvc_2_s3110_fp64+0x20>  // b.any
+  4c:	5e61d842 	scvtf	d2, d2
+  50:	5e61d863 	scvtf	d3, d3
+  54:	1e612841 	fadd	d1, d2, d1
+  58:	1e632821 	fadd	d1, d1, d3
+  5c:	fd000021 	str	d1, [x1]
+  60:	d65f03c0 	ret
+  64:	9e670003 	fmov	d3, x0
+  68:	1e604001 	fmov	d1, d0
+  6c:	9e670082 	fmov	d2, x4
+  70:	17fffff0 	b	30 <tsvc_2_s3110_fp64+0x30>
+
+Disassembly of section .text.startup:
+

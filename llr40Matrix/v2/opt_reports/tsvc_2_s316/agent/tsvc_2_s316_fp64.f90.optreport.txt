@@ -1,0 +1,11 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_s316/agent/tsvc_2_s316_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_s316/agent/build/tsvc_2_s316_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+tsvc_2_s316_fp64.f90:20:36: missed: couldn't vectorize loop
+tsvc_2_s316_fp64.f90:20:55: missed: not vectorized: number of iterations cannot be computed.
+tsvc_2_s316_fp64.f90:22:22: optimized: loop vectorized using 16 byte vectors
+tsvc_2_s316_fp64.f90:22:22: optimized: loop vectorized using 16 byte vectors
+tsvc_2_s316_fp64.f90:20:55: optimized: loop with 2 iterations completely unrolled (header execution count 58121789)
+tsvc_2_s316_fp64.f90:20:55: optimized: loop with 2 iterations completely unrolled (header execution count 53067173)
+tsvc_2_s316_fp64.f90:20:55: missed: statement clobbers memory: _31 = __atomic_load_8 (_29, 0);
+tsvc_2_s316_fp64.f90:20:55: missed: statement clobbers memory: _36 = .ATOMIC_COMPARE_EXCHANGE (_29, _6, _34, 8, 0, 0);
+tsvc_2_s316_fp64.f90:5:29: missed: statement clobbers memory: __builtin_GOMP_parallel (tsvc_2_s316_fp64._omp_fn.0, &.omp_data_o.3, 0, 0);

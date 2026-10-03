@@ -1,0 +1,35 @@
+# objdump -d tsvc_2_s1232_fp64.cpp.o  (functions matching tsvc_2_s1232_fp64*)
+0000000000000000 <tsvc_2_s1232_fp64>:
+   0:	f100007f 	cmp	x3, #0x0
+   4:	5400038d 	b.le	74 <tsvc_2_s1232_fp64+0x74>
+   8:	9b047c6b 	mul	x11, x3, x4
+   c:	d37df067 	lsl	x7, x3, #3
+  10:	d280000a 	mov	x10, #0x0                   	// #0
+  14:	d2800008 	mov	x8, #0x0                   	// #0
+  18:	d2800009 	mov	x9, #0x0                   	// #0
+  1c:	9100056b 	add	x11, x11, #0x1
+  20:	d37df16b 	lsl	x11, x11, #3
+  24:	aa0803e6 	mov	x6, x8
+  28:	eb08007f 	cmp	x3, x8
+  2c:	540001ad 	b.le	60 <tsvc_2_s1232_fp64+0x60>
+  30:	aa0a03e5 	mov	x5, x10
+  34:	d503201f 	nop
+  38:	d503201f 	nop
+  3c:	d503201f 	nop
+  40:	fc656820 	ldr	d0, [x1, x5]
+  44:	910004c6 	add	x6, x6, #0x1
+  48:	fc656841 	ldr	d1, [x2, x5]
+  4c:	1e612800 	fadd	d0, d0, d1
+  50:	fc256800 	str	d0, [x0, x5]
+  54:	8b0700a5 	add	x5, x5, x7
+  58:	eb06007f 	cmp	x3, x6
+  5c:	54ffff21 	b.ne	40 <tsvc_2_s1232_fp64+0x40>  // b.any
+  60:	91000529 	add	x9, x9, #0x1
+  64:	8b040108 	add	x8, x8, x4
+  68:	8b0b014a 	add	x10, x10, x11
+  6c:	eb09007f 	cmp	x3, x9
+  70:	54fffda1 	b.ne	24 <tsvc_2_s1232_fp64+0x24>  // b.any
+  74:	d65f03c0 	ret
+
+Disassembly of section .text.startup:
+

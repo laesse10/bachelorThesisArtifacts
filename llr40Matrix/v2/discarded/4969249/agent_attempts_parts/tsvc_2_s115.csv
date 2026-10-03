@@ -1,0 +1,3 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+tsvc_2_s115,1,llr40v10-kimi27sglang-c,621729,2,c,3.018,881ca8bcf492d072ffd94301f8a7cd608e49b5c5bcb3b398866c643b2614e4a1,incorrect,C (gcc) - default did not validate!,0,tsvc_2_s115.rank01.881ca8bcf492.log
+tsvc_2_s115,2,llr40v10-kimi27sglang-c,621729,3,c,2.958,3cdf9afc27a4ebf541ae4266f58ad10f8d4ec47791c27daaa8bb500b4a0fc456,incorrect,C (gcc) - default did not validate!,0,tsvc_2_s115.rank02.3cdf9afc27a4.log

@@ -1,0 +1,29 @@
+$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-aux/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/ext_war_unit/agent/ext_war_unit_fp64.c -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/ext_war_unit/agent/build/ext_war_unit_fp64.c.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+ext_war_unit_fp64.c:44:23: missed: couldn't vectorize loop
+ext_war_unit_fp64.c:44:23: missed: not vectorized: unsupported outerloop form.
+ext_war_unit_fp64.c:50:21: optimized: loop vectorized using 16 byte vectors
+ext_war_unit_fp64.c:50:21: optimized: loop vectorized using variable length vectors
+ext_war_unit_fp64.c:50:21: optimized: loop turned into non-loop; it never loops
+ext_war_unit_fp64.c:14:21: optimized: loop vectorized using 16 byte vectors
+ext_war_unit_fp64.c:14:21: optimized: loop vectorized using variable length vectors
+ext_war_unit_fp64.c:37:27: missed: couldn't vectorize loop
+ext_war_unit_fp64.c:7:6: missed: possible alias involving gather/scatter between *_10 and *_13
+ext_war_unit_fp64.c:32:21: optimized: loop vectorized using 16 byte vectors
+ext_war_unit_fp64.c:32:21: optimized: loop vectorized using variable length vectors
+ext_war_unit_fp64.c:14:21: optimized: loop turned into non-loop; it never loops
+ext_war_unit_fp64.c:32:21: optimized: loop turned into non-loop; it never loops
+ext_war_unit_fp64.c:7:6: missed: splitting region at dont-vectorize loop 6 entry at bb29
+ext_war_unit_fp64.c:23:31: missed: statement clobbers memory: p_29 = realloc (pretmp_113, _5);
+ext_war_unit_fp64.c:39:24: missed: splitting region at dominance boundary bb17
+ext_war_unit_fp64.c:7:6: missed: statement clobbers memory: __builtin_GOMP_parallel (ext_war_unit_fp64._omp_fn.0, &.omp_data_o.23, 0, 0);
+ext_war_unit_fp64.c:42:13: missed: not vectorized: vectorization is not profitable.
+ext_war_unit_fp64.c:42:13: missed: not vectorized: vectorization is not profitable.
+ext_war_unit_fp64.c:42:13: missed: not vectorized: vectorization is not profitable.
+ext_war_unit_fp64.c:42:13: missed: not vectorized: vectorization is not profitable.
+ext_war_unit_fp64.c:42:13: missed: not vectorized: vectorization is not profitable.
+ext_war_unit_fp64.c:42:13: missed: not vectorized: vectorization is not profitable.
+ext_war_unit_fp64.c:42:13: missed: not vectorized: vectorization is not profitable.
+ext_war_unit_fp64.c:42:13: missed: not vectorized: vectorization is not profitable.
+ext_war_unit_fp64.c:42:13: missed: splitting region at dominance boundary bb3
+ext_war_unit_fp64.c:14:18: missed: splitting region at dominance boundary bb16

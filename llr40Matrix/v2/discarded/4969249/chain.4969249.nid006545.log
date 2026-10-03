@@ -1,0 +1,9 @@
+SRUN[MAIN tsvc_2_s115]: srun --nodes=1 --ntasks=1 -w nid006545 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_s115 --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_s115.csv --scratch scratch/tsvc_2_s115 --attempts-out agent_attempts_parts/tsvc_2_s115.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_s115
+    c            incorrect    median 84.655 ms output did not match the NumPy reference
+    cpp          incorrect    median 84.342 ms output did not match the NumPy reference
+    fortran      incorrect    median 85.248 ms output did not match the NumPy reference
+    numba        ok           median 144.275 ms 
+    c_reference  incorrect    median 84.102 ms source=tsvc_2_s115_reference.c sha256=123993dec309bef2; output did not
+[2026-10-02T15:41:06.747] error: *** STEP 4969249.4 ON nid006545 CANCELLED AT 2026-10-02T15:41:06 DUE to SIGNAL Terminated ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

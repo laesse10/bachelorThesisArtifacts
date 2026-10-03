@@ -1,0 +1,3 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+tsvc_2_s233,1,llr40v10-qwen38-c,621727,2,c,98.209,d6cf9370c2ede874c761feff8d79615a8dda0ec4a328af75e29028833eb01505,build_error,tsvc_2_s233/cpp_backend/tsvc_2_s233_fp64.c:4:10: fatal error: immintrin.h: No such file or directory,0,tsvc_2_s233.rank01.d6cf9370c2ed.log
+tsvc_2_s233,2,llr40v10-qwen38-c,621727,1,c,75.072,5179b85fb41f95d21b8d4768329336440ef5d03ee515dfe5e39244b50f405684,ok,,1,

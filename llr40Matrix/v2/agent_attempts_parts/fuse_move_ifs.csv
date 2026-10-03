@@ -1,0 +1,2 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+fuse_move_ifs,1,llr40v10-kimi27sglang-c,621017,2,c,8.839,4be046ffc4b2dabd407a646cfd716a0c85cfdb4620dc74996662bf82cf2a10ea,ok,,1,

@@ -1,0 +1,10 @@
+SRUN[MAIN wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels wf_triangular --preset M --warmup 5 --reps 30 --out results_parts/wf_triangular.csv --scratch scratch/wf_triangular --attempts-out agent_attempts_parts/wf_triangular.csv --attempt-logs agent_attempt_logs
+[1/1] wf_triangular
+    c            ok           median 100.881 ms 
+    cpp          ok           median 100.549 ms 
+    fortran      ok           median 100.587 ms 
+    numba        ok           median 383.504 ms 
+    c_reference  ok           median 101.313 ms source=wf_triangular_reference.c sha256=fef1c39715e90ace
+    agent        ok           median 157.423 ms rank=1 arm=llr40v10-kimi27sglang-c job=621730 seq=1 lang=c campaign_sp
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/results_parts/wf_triangular.csv

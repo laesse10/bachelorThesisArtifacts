@@ -1,0 +1,2 @@
+noparen.f90:10:13: optimized: loop vectorized using 16 byte vectors
+noparen.f90:10:13: optimized: loop vectorized using 16 byte vectors

@@ -1,0 +1,3 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+tsvc_2_vag,1,llr40v10-qwen38-c,621383,2,c,25.126,76b313675ea1ffa383d6532831efff6ac69803677e9fa6c19e2da655aeaee168,build_error,tsvc_2_vag/cpp_backend/tsvc_2_vag_fp64.c:2:10: fatal error: immintrin.h: No such file or directory,0,tsvc_2_vag.rank01.76b313675ea1.log
+tsvc_2_vag,2,llr40v10-kimi27sglang-fortran,621022,2,fortran,23.436,d7a97d2985f6e004a7cba919c243fd5ee72718034eb1fb818ea4fc69fc7f9955,ok,,1,

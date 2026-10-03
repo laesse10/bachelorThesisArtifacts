@@ -1,5 +1,15 @@
 # LLR-40 measurement matrix
 
+> **Cite [`v2/`](v2/) -- the current matrix.** It was re-measured at HPCAgent-Bench `26a4f0cf`
+> with every agent attempt logged, optimisation reports, and the follow-up experiments. Start with
+> [`v2/summary.md`](v2/summary.md), [`v2/opt_findings.md`](v2/opt_findings.md) and
+> [`v2/DEVIATIONS.md`](v2/DEVIATIONS.md). The files in this directory are the v1 matrix
+> (`e2bceb68`), kept unchanged as the historical record. Two v1 statements are superseded:
+> - **Toolchain.** v1 says "GNU 13.3.1 throughout". The C columns (`c`, `c_reference`,
+>   agent-C) were in fact built by **gcc 14.2.0**, in v1 and v2 alike; C++ and Fortran are 13.3.1.
+> - **Agent advantage on `loop_interchange` / `loop_distribution`.** v1 says ~6-12x; v2 measures
+>   **3.0-9.9x**.
+
 Six code representations of the 40 `llr-focus40` loop-level-reasoning kernels from
 HPCAgent-Bench, built, validated against the NumPy oracle, and timed on CSCS Alps `daint`
 (NVIDIA GH200, aarch64), one kernel per exclusive node.

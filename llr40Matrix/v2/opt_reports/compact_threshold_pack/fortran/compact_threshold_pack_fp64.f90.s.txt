@@ -1,0 +1,19 @@
+# objdump -d compact_threshold_pack_fp64.f90.o  (functions matching compact_threshold_pack_fp64*)
+0000000000000000 <compact_threshold_pack_fp64>:
+   0:	d2800006 	mov	x6, #0x0                   	// #0
+   4:	f100009f 	cmp	x4, #0x0
+   8:	5400010d 	b.le	28 <compact_threshold_pack_fp64+0x28>
+   c:	d2800005 	mov	x5, #0x0                   	// #0
+  10:	fc657840 	ldr	d0, [x2, x5, lsl #3]
+  14:	1e602018 	fcmpe	d0, #0.0
+  18:	540000cc 	b.gt	30 <compact_threshold_pack_fp64+0x30>
+  1c:	910004a5 	add	x5, x5, #0x1
+  20:	eb05009f 	cmp	x4, x5
+  24:	54ffff61 	b.ne	10 <compact_threshold_pack_fp64+0x10>  // b.any
+  28:	f9000006 	str	x6, [x0]
+  2c:	d65f03c0 	ret
+  30:	fc657861 	ldr	d1, [x3, x5, lsl #3]
+  34:	1e600820 	fmul	d0, d1, d0
+  38:	fc267820 	str	d0, [x1, x6, lsl #3]
+  3c:	910004c6 	add	x6, x6, #0x1
+  40:	17fffff7 	b	1c <compact_threshold_pack_fp64+0x1c>

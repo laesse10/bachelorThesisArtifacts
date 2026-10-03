@@ -1,0 +1,14 @@
+SRUN[MAIN tsvc_2_s3110]: srun --nodes=1 --ntasks=1 -w nid006556 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_s3110 --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_s3110.csv --scratch scratch/tsvc_2_s3110 --attempts-out agent_attempts_parts/tsvc_2_s3110.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_s3110
+    c            ok           median 121.882 ms 
+    cpp          ok           median 137.083 ms 
+    fortran      ok           median 121.794 ms 
+    numba        ok           median 313.992 ms 
+    c_reference  ok           median 121.187 ms source=tsvc_2_s3110_reference.c sha256=f761d4122cc24220
+    agent        ok           median 121.318 ms rank=3 arm=llr40v10-kimi27sglang-c job=621730 seq=2 lang=c campaign_sp
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/results_parts/tsvc_2_s3110.csv
+SRUN[MAIN tsvc_2_s275]: srun --nodes=1 --ntasks=1 -w nid006556 --exclusive --cpu-bind=cores --hint=nomultithread --time=26 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels tsvc_2_s275 --preset M --warmup 5 --reps 30 --out results_parts/tsvc_2_s275.csv --scratch scratch/tsvc_2_s275 --attempts-out agent_attempts_parts/tsvc_2_s275.csv --attempt-logs agent_attempt_logs
+[1/1] tsvc_2_s275
+[2026-10-02T15:41:06.747] error: *** STEP 4969249.12 ON nid006556 CANCELLED AT 2026-10-02T15:41:06 DUE to SIGNAL Terminated ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

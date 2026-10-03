@@ -1,0 +1,26 @@
+# objdump -d tsvc_2_s1244_fp64.cpp.o  (functions matching tsvc_2_s1244_fp64*)
+0000000000000000 <tsvc_2_s1244_fp64>:
+   0:	f100049f 	cmp	x4, #0x1
+   4:	5400026d 	b.le	50 <tsvc_2_s1244_fp64+0x50>
+   8:	d1000485 	sub	x5, x4, #0x1
+   c:	91002006 	add	x6, x0, #0x8
+  10:	d2800004 	mov	x4, #0x0                   	// #0
+  14:	d503201f 	nop
+  18:	d503201f 	nop
+  1c:	d503201f 	nop
+  20:	fc647821 	ldr	d1, [x1, x4, lsl #3]
+  24:	fc647840 	ldr	d0, [x2, x4, lsl #3]
+  28:	1f400402 	fmadd	d2, d0, d0, d1
+  2c:	1f410821 	fmadd	d1, d1, d1, d2
+  30:	1e612800 	fadd	d0, d0, d1
+  34:	fc247800 	str	d0, [x0, x4, lsl #3]
+  38:	fc6478c1 	ldr	d1, [x6, x4, lsl #3]
+  3c:	1e602820 	fadd	d0, d1, d0
+  40:	fc247860 	str	d0, [x3, x4, lsl #3]
+  44:	91000484 	add	x4, x4, #0x1
+  48:	eb05009f 	cmp	x4, x5
+  4c:	54fffea1 	b.ne	20 <tsvc_2_s1244_fp64+0x20>  // b.any
+  50:	d65f03c0 	ret
+
+Disassembly of section .text.startup:
+

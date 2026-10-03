@@ -1,0 +1,39 @@
+# objdump -d tsvc_2_s318_fp64.c.o  (functions matching tsvc_2_s318_fp64*)
+0000000000000000 <tsvc_2_s318_fp64>:
+   0:	fd40001f 	ldr	d31, [x0]
+   4:	1e60c3ff 	fabs	d31, d31
+   8:	f100045f 	cmp	x2, #0x1
+   c:	540001cd 	b.le	44 <tsvc_2_s318_fp64+0x44>
+  10:	6f00e41e 	movi	v30.2d, #0x0
+  14:	f100047f 	cmp	x3, #0x1
+  18:	54000201 	b.ne	58 <tsvc_2_s318_fp64+0x58>  // b.any
+  1c:	d503201f 	nop
+  20:	fc637801 	ldr	d1, [x0, x3, lsl #3]
+  24:	1e60c021 	fabs	d1, d1
+  28:	1e6123f0 	fcmpe	d31, d1
+  2c:	54000104 	b.mi	4c <tsvc_2_s318_fp64+0x4c>  // b.first
+  30:	91000463 	add	x3, x3, #0x1
+  34:	eb03005f 	cmp	x2, x3
+  38:	54ffff41 	b.ne	20 <tsvc_2_s318_fp64+0x20>  // b.any
+  3c:	5e61dbde 	scvtf	d30, d30
+  40:	1e7e2bff 	fadd	d31, d31, d30
+  44:	fd00003f 	str	d31, [x1]
+  48:	d65f03c0 	ret
+  4c:	9e67007e 	fmov	d30, x3
+  50:	1e60403f 	fmov	d31, d1
+  54:	17fffff7 	b	30 <tsvc_2_s318_fp64+0x30>
+  58:	8b030c00 	add	x0, x0, x3, lsl #3
+  5c:	d2800024 	mov	x4, #0x1                   	// #1
+  60:	d37df063 	lsl	x3, x3, #3
+  64:	fd400000 	ldr	d0, [x0]
+  68:	1e60c000 	fabs	d0, d0
+  6c:	1e6023f0 	fcmpe	d31, d0
+  70:	540000c4 	b.mi	88 <tsvc_2_s318_fp64+0x88>  // b.first
+  74:	91000484 	add	x4, x4, #0x1
+  78:	8b030000 	add	x0, x0, x3
+  7c:	eb04005f 	cmp	x2, x4
+  80:	54ffff21 	b.ne	64 <tsvc_2_s318_fp64+0x64>  // b.any
+  84:	17ffffee 	b	3c <tsvc_2_s318_fp64+0x3c>
+  88:	9e67009e 	fmov	d30, x4
+  8c:	1e60401f 	fmov	d31, d0
+  90:	17fffff9 	b	74 <tsvc_2_s318_fp64+0x74>

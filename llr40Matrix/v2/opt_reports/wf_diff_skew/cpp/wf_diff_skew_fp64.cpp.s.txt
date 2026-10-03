@@ -1,0 +1,81 @@
+# objdump -d wf_diff_skew_fp64.cpp.o  (functions matching wf_diff_skew_fp64*)
+0000000000000000 <wf_diff_skew_fp64>:
+   0:	f100043f 	cmp	x1, #0x1
+   4:	5400052d 	b.le	a8 <wf_diff_skew_fp64+0xa8>
+   8:	cb010fee 	neg	x14, x1, lsl #3
+   c:	d100042f 	sub	x15, x1, #0x1
+  10:	d37df02d 	lsl	x13, x1, #3
+  14:	d341fdea 	lsr	x10, x15, #1
+  18:	8b010c04 	add	x4, x0, x1, lsl #3
+  1c:	927ff9e9 	and	x9, x15, #0xfffffffffffffffe
+  20:	cb0001ce 	sub	x14, x14, x0
+  24:	b24001ec 	orr	x12, x15, #0x1
+  28:	d37ced4a 	lsl	x10, x10, #4
+  2c:	910021ce 	add	x14, x14, #0x8
+  30:	924001ef 	and	x15, x15, #0x1
+  34:	91002008 	add	x8, x0, #0x8
+  38:	aa0103e7 	mov	x7, x1
+  3c:	d2800006 	mov	x6, #0x0                   	// #0
+  40:	d280002b 	mov	x11, #0x1                   	// #1
+  44:	f100083f 	cmp	x1, #0x2
+  48:	540000c0 	b.eq	60 <wf_diff_skew_fp64+0x60>  // b.none
+  4c:	d37df0e2 	lsl	x2, x7, #3
+  50:	8b0401c3 	add	x3, x14, x4
+  54:	cb030042 	sub	x2, x2, x3
+  58:	f100205f 	cmp	x2, #0x8
+  5c:	54000288 	b.hi	ac <wf_diff_skew_fp64+0xac>  // b.pmore
+  60:	aa0803e2 	mov	x2, x8
+  64:	cb0600e5 	sub	x5, x7, x6
+  68:	d1002043 	sub	x3, x2, #0x8
+  6c:	fc5f8040 	ldur	d0, [x2, #-8]
+  70:	fc657862 	ldr	d2, [x3, x5, lsl #3]
+  74:	fc408441 	ldr	d1, [x2], #8
+  78:	1e622800 	fadd	d0, d0, d2
+  7c:	1e612800 	fadd	d0, d0, d1
+  80:	fc257860 	str	d0, [x3, x5, lsl #3]
+  84:	eb04005f 	cmp	x2, x4
+  88:	54ffff01 	b.ne	68 <wf_diff_skew_fp64+0x68>  // b.any
+  8c:	9100056b 	add	x11, x11, #0x1
+  90:	8b0d0108 	add	x8, x8, x13
+  94:	8b0100e7 	add	x7, x7, x1
+  98:	8b0100c6 	add	x6, x6, x1
+  9c:	8b0d0084 	add	x4, x4, x13
+  a0:	eb0b003f 	cmp	x1, x11
+  a4:	54fffd01 	b.ne	44 <wf_diff_skew_fp64+0x44>  // b.any
+  a8:	d65f03c0 	ret
+  ac:	d1002103 	sub	x3, x8, #0x8
+  b0:	d2800002 	mov	x2, #0x0                   	// #0
+  b4:	d503201f 	nop
+  b8:	d503201f 	nop
+  bc:	d503201f 	nop
+  c0:	3ce26880 	ldr	q0, [x4, x2]
+  c4:	3ce26862 	ldr	q2, [x3, x2]
+  c8:	3ce26901 	ldr	q1, [x8, x2]
+  cc:	4e62d400 	fadd	v0.2d, v0.2d, v2.2d
+  d0:	4e61d400 	fadd	v0.2d, v0.2d, v1.2d
+  d4:	3ca26880 	str	q0, [x4, x2]
+  d8:	91004042 	add	x2, x2, #0x10
+  dc:	eb0a005f 	cmp	x2, x10
+  e0:	54ffff01 	b.ne	c0 <wf_diff_skew_fp64+0xc0>  // b.any
+  e4:	b4fffd4f 	cbz	x15, 8c <wf_diff_skew_fp64+0x8c>
+  e8:	8b0900e2 	add	x2, x7, x9
+  ec:	8b0900c5 	add	x5, x6, x9
+  f0:	d37df042 	lsl	x2, x2, #3
+  f4:	8b0c00c3 	add	x3, x6, x12
+  f8:	fc657800 	ldr	d0, [x0, x5, lsl #3]
+  fc:	9100056b 	add	x11, x11, #0x1
+ 100:	8b0d0108 	add	x8, x8, x13
+ 104:	8b0100e7 	add	x7, x7, x1
+ 108:	8b0100c6 	add	x6, x6, x1
+ 10c:	fc626802 	ldr	d2, [x0, x2]
+ 110:	8b0d0084 	add	x4, x4, x13
+ 114:	fc637801 	ldr	d1, [x0, x3, lsl #3]
+ 118:	1e622800 	fadd	d0, d0, d2
+ 11c:	1e612800 	fadd	d0, d0, d1
+ 120:	fc226800 	str	d0, [x0, x2]
+ 124:	eb0b003f 	cmp	x1, x11
+ 128:	54fff8e1 	b.ne	44 <wf_diff_skew_fp64+0x44>  // b.any
+ 12c:	17ffffdf 	b	a8 <wf_diff_skew_fp64+0xa8>
+
+Disassembly of section .text.startup:
+
