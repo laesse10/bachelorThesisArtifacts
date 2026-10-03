@@ -1,0 +1,28 @@
+vasim;__clone3_internal;clone3 2
+vasim;__libc_start_call_main;main;Automata::automataToANMLFile;writeStringToFile;std::basic_filebuf<char, std::char_traits<char> >::open;std::__basic_file<char>::open;__fopen_internal;_IO_file_fopen@@GLIBC_2.17;_IO_file_open;__GI___libc_open 3
+vasim;__libc_start_call_main;main;Automata::automataToANMLFile;writeStringToFile;std::basic_filebuf<char, std::char_traits<char> >::open;std::__basic_file<char>::open;__fopen_internal;_IO_file_fopen@@GLIBC_2.17;strstr 201
+vasim;_start;[unknown];[unknown];[unknown] 1
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::automataToANMLFile 33161732
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::automataToANMLFile;STE::toANML[abi:cxx11];bitsetToCharset[abi:cxx11] 33160566
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::automataToANMLFile;STE::toANML[abi:cxx11];std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append;std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate;__GI___memcpy_sve 32792815
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::automataToANMLFile;cfree@GLIBC_2.17;_int_free 149815
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::finalizeAutomata;Automata::addEdge;Element::addInput 33186404
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::finalizeAutomata;Automata::addEdge;cfree@GLIBC_2.17;_int_free 33147691
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::finalizeAutomata;Automata::getElement;std::__detail::_Map_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Element*>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Element*> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>, true>::operator[] 33156108
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::finalizeAutomata;Automata::validateReportElement 602028554
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;Automata::finalizeAutomata;cfree@GLIBC_2.17;_int_free 33202821
+vasim;_start;__libc_start_main@@GLIBC_2.34;__libc_start_call_main;main;parseInputStream;file2CharVector;std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char> > 16644706
+vasim;_start;_dl_start 83
+vasim;_start;_dl_start;[unknown];[unknown];[unknown] 1
+vasim;_start;_dl_start;_dl_sysdep_start;dl_main;_dl_new_object;__minimal_calloc 42091
+vasim;thread_start;start_thread 290
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate 66112807
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate 99203336
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate;Automata::computeSTEMatches 413730862416
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate;Automata::computeSTEMatches;Element::activate 4266244010
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate;Automata::enableSTEMatchingChildren 27586744242
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate;Automata::enableSTEMatchingChildren;Element::enableChildSTEs 1071469158629
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate;Automata::enableSTEMatchingChildren;STE::deactivate 20904847112
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate;Automata::enableStartStates 2845189088
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate;Automata::enableStartStates;STE::startIsAllInput 15184261227
+vasim;thread_start;start_thread;[libstdc++.so.6.0.33];Automata::simulate;Automata::simulate;Automata::enableStartStates;STE::startIsStartOfData 33041426

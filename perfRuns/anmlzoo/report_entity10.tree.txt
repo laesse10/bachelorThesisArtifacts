@@ -1,0 +1,176 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 48K of event 'cycles:u'
+# Event count (approx.): 1586179039255
+#
+# Children      Self  Command  Shared Object          Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+# ........  ........  .......  .....................  .............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+#
+    99.89%     0.00%  vasim    libc.so.6              [.] thread_start
+            |
+            ---thread_start
+               start_thread
+               |          
+                --99.89%--0x40001399095b
+                          Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                          |          
+                           --99.88%--Automata::simulate(unsigned char)
+                                     |          
+                                     |--53.33%--Automata::enableSTEMatchingChildren()
+                                     |          |          
+                                     |          |--48.46%--Element::enableChildSTEs(Stack<Element*>*)
+                                     |          |          
+                                     |           --2.38%--STE::deactivate()
+                                     |          
+                                     |--33.88%--Automata::computeSTEMatches(unsigned char)
+                                     |          
+                                      --12.65%--Automata::enableStartStates(bool)
+                                                |          
+                                                 --5.98%--STE::startIsAllInput()
+
+    99.89%     0.00%  vasim    libc.so.6              [.] start_thread
+            |          
+             --99.89%--start_thread
+                       0x40001399095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       |          
+                        --99.88%--Automata::simulate(unsigned char)
+                                  |          
+                                  |--53.33%--Automata::enableSTEMatchingChildren()
+                                  |          |          
+                                  |          |--48.46%--Element::enableChildSTEs(Stack<Element*>*)
+                                  |          |          
+                                  |           --2.38%--STE::deactivate()
+                                  |          
+                                  |--33.88%--Automata::computeSTEMatches(unsigned char)
+                                  |          
+                                   --12.65%--Automata::enableStartStates(bool)
+                                             |          
+                                              --5.98%--STE::startIsAllInput()
+
+    99.89%     0.00%  vasim    libstdc++.so.6.0.33    [.] 0x000040001399095b
+            |
+            ---0x40001399095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               |          
+                --99.88%--Automata::simulate(unsigned char)
+                          |          
+                          |--53.33%--Automata::enableSTEMatchingChildren()
+                          |          |          
+                          |          |--48.46%--Element::enableChildSTEs(Stack<Element*>*)
+                          |          |          
+                          |           --2.38%--STE::deactivate()
+                          |          
+                          |--33.88%--Automata::computeSTEMatches(unsigned char)
+                          |          
+                           --12.65%--Automata::enableStartStates(bool)
+                                     |          
+                                      --5.98%--STE::startIsAllInput()
+
+    99.89%     0.01%  vasim    vasim                  [.] Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+            |          
+             --99.88%--Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       |          
+                       |--53.33%--Automata::enableSTEMatchingChildren()
+                       |          |          
+                       |          |--48.46%--Element::enableChildSTEs(Stack<Element*>*)
+                       |          |          
+                       |           --2.38%--STE::deactivate()
+                       |          
+                       |--33.88%--Automata::computeSTEMatches(unsigned char)
+                       |          
+                        --12.65%--Automata::enableStartStates(bool)
+                                  |          
+                                   --5.98%--STE::startIsAllInput()
+
+    99.88%     0.02%  vasim    vasim                  [.] Automata::simulate(unsigned char)
+            |          
+             --99.86%--Automata::simulate(unsigned char)
+                       |          
+                       |--53.33%--Automata::enableSTEMatchingChildren()
+                       |          |          
+                       |          |--48.46%--Element::enableChildSTEs(Stack<Element*>*)
+                       |          |          
+                       |           --2.38%--STE::deactivate()
+                       |          
+                       |--33.88%--Automata::computeSTEMatches(unsigned char)
+                       |          
+                        --12.65%--Automata::enableStartStates(bool)
+                                  |          
+                                   --5.98%--STE::startIsAllInput()
+
+    53.33%     2.49%  vasim    vasim                  [.] Automata::enableSTEMatchingChildren()
+            |          
+            |--50.84%--Automata::enableSTEMatchingChildren()
+            |          |          
+            |          |--48.46%--Element::enableChildSTEs(Stack<Element*>*)
+            |          |          
+            |           --2.38%--STE::deactivate()
+            |          
+             --2.49%--thread_start
+                       start_thread
+                       0x40001399095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::enableSTEMatchingChildren()
+
+    48.46%    48.46%  vasim    vasim                  [.] Element::enableChildSTEs(Stack<Element*>*)
+            |
+            ---thread_start
+               start_thread
+               0x40001399095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               Automata::enableSTEMatchingChildren()
+               Element::enableChildSTEs(Stack<Element*>*)
+
+    33.88%    33.54%  vasim    vasim                  [.] Automata::computeSTEMatches(unsigned char)
+            |          
+             --33.54%--thread_start
+                       start_thread
+                       0x40001399095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::computeSTEMatches(unsigned char)
+
+    12.65%     6.66%  vasim    vasim                  [.] Automata::enableStartStates(bool)
+            |          
+            |--6.66%--thread_start
+            |          start_thread
+            |          0x40001399095b
+            |          Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+            |          Automata::simulate(unsigned char)
+            |          Automata::enableStartStates(bool)
+            |          
+             --5.98%--Automata::enableStartStates(bool)
+                       STE::startIsAllInput()
+
+     5.98%     5.98%  vasim    vasim                  [.] STE::startIsAllInput()
+            |
+            ---thread_start
+               start_thread
+               0x40001399095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               Automata::enableStartStates(bool)
+               STE::startIsAllInput()
+
+     2.38%     2.38%  vasim    vasim                  [.] STE::deactivate()
+            |
+            ---thread_start
+               start_thread
+               0x40001399095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               Automata::enableSTEMatchingChildren()
+               STE::deactivate()
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

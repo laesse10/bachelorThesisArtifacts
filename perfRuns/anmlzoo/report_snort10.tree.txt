@@ -1,0 +1,403 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 88K of event 'cycles:u'
+# Event count (approx.): 2846210277579
+#
+# Children      Self  Command  Shared Object          Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+# ........  ........  .......  .....................  ............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+#
+    99.95%     0.00%  vasim    libc.so.6              [.] thread_start
+            |
+            ---thread_start
+               |          
+                --99.95%--start_thread
+                          |          
+                           --99.95%--0x400003fd095b
+                                     Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                                     |          
+                                      --99.94%--Automata::simulate(unsigned char)
+                                                |          
+                                                |--62.01%--Automata::specialElementSimulation2()
+                                                |          |          
+                                                |          |--29.61%--SpecialElement::disable()
+                                                |          |          |          
+                                                |          |          |--10.73%--memcmp
+                                                |          |          |          
+                                                |          |          |--2.07%--__GI___memcpy_sve
+                                                |          |          |          
+                                                |          |          |--1.14%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                                                |          |          |          
+                                                |          |           --1.06%--memcmp@plt
+                                                |          |          
+                                                |           --28.43%--OR::calculate()
+                                                |                     |          
+                                                |                     |--10.94%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                                                |                     |          
+                                                |                      --5.84%--__GI___memcpy_sve
+                                                |          
+                                                |--14.59%--Automata::computeSTEMatches(unsigned char)
+                                                |          
+                                                |--12.66%--Automata::enableStartStates(bool)
+                                                |          |          
+                                                |           --6.08%--STE::startIsAllInput()
+                                                |          
+                                                 --10.65%--Automata::enableSTEMatchingChildren()
+                                                           |          
+                                                           |--8.82%--Element::enableChildSTEs(Stack<Element*>*)
+                                                           |          
+                                                            --0.74%--Element::enableChildSpecialElements(std::queue<Element*, std::deque<Element*, std::allocator<Element*> > >*)
+
+    99.95%     0.00%  vasim    libc.so.6              [.] start_thread
+            |          
+             --99.95%--start_thread
+                       0x400003fd095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       |          
+                        --99.94%--Automata::simulate(unsigned char)
+                                  |          
+                                  |--62.01%--Automata::specialElementSimulation2()
+                                  |          |          
+                                  |          |--29.61%--SpecialElement::disable()
+                                  |          |          |          
+                                  |          |          |--10.73%--memcmp
+                                  |          |          |          
+                                  |          |          |--2.07%--__GI___memcpy_sve
+                                  |          |          |          
+                                  |          |          |--1.14%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                                  |          |          |          
+                                  |          |           --1.06%--memcmp@plt
+                                  |          |          
+                                  |           --28.43%--OR::calculate()
+                                  |                     |          
+                                  |                     |--10.94%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                                  |                     |          
+                                  |                      --5.84%--__GI___memcpy_sve
+                                  |          
+                                  |--14.59%--Automata::computeSTEMatches(unsigned char)
+                                  |          
+                                  |--12.66%--Automata::enableStartStates(bool)
+                                  |          |          
+                                  |           --6.08%--STE::startIsAllInput()
+                                  |          
+                                   --10.65%--Automata::enableSTEMatchingChildren()
+                                             |          
+                                             |--8.82%--Element::enableChildSTEs(Stack<Element*>*)
+                                             |          
+                                              --0.74%--Element::enableChildSpecialElements(std::queue<Element*, std::deque<Element*, std::allocator<Element*> > >*)
+
+    99.95%     0.00%  vasim    libstdc++.so.6.0.33    [.] 0x0000400003fd095b
+            |
+            ---0x400003fd095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               |          
+                --99.94%--Automata::simulate(unsigned char)
+                          |          
+                          |--62.01%--Automata::specialElementSimulation2()
+                          |          |          
+                          |          |--29.61%--SpecialElement::disable()
+                          |          |          |          
+                          |          |          |--10.73%--memcmp
+                          |          |          |          
+                          |          |          |--2.07%--__GI___memcpy_sve
+                          |          |          |          
+                          |          |          |--1.14%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                          |          |          |          
+                          |          |           --1.06%--memcmp@plt
+                          |          |          
+                          |           --28.43%--OR::calculate()
+                          |                     |          
+                          |                     |--10.94%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                          |                     |          
+                          |                      --5.84%--__GI___memcpy_sve
+                          |          
+                          |--14.59%--Automata::computeSTEMatches(unsigned char)
+                          |          
+                          |--12.66%--Automata::enableStartStates(bool)
+                          |          |          
+                          |           --6.08%--STE::startIsAllInput()
+                          |          
+                           --10.65%--Automata::enableSTEMatchingChildren()
+                                     |          
+                                     |--8.82%--Element::enableChildSTEs(Stack<Element*>*)
+                                     |          
+                                      --0.74%--Element::enableChildSpecialElements(std::queue<Element*, std::deque<Element*, std::allocator<Element*> > >*)
+
+    99.95%     0.01%  vasim    vasim                  [.] Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+            |          
+             --99.94%--Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       |          
+                        --99.94%--Automata::simulate(unsigned char)
+                                  |          
+                                  |--62.01%--Automata::specialElementSimulation2()
+                                  |          |          
+                                  |          |--29.61%--SpecialElement::disable()
+                                  |          |          |          
+                                  |          |          |--10.73%--memcmp
+                                  |          |          |          
+                                  |          |          |--2.07%--__GI___memcpy_sve
+                                  |          |          |          
+                                  |          |          |--1.14%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                                  |          |          |          
+                                  |          |           --1.06%--memcmp@plt
+                                  |          |          
+                                  |           --28.43%--OR::calculate()
+                                  |                     |          
+                                  |                     |--10.94%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                                  |                     |          
+                                  |                      --5.84%--__GI___memcpy_sve
+                                  |          
+                                  |--14.59%--Automata::computeSTEMatches(unsigned char)
+                                  |          
+                                  |--12.66%--Automata::enableStartStates(bool)
+                                  |          |          
+                                  |           --6.08%--STE::startIsAllInput()
+                                  |          
+                                   --10.65%--Automata::enableSTEMatchingChildren()
+                                             |          
+                                             |--8.82%--Element::enableChildSTEs(Stack<Element*>*)
+                                             |          
+                                              --0.74%--Element::enableChildSpecialElements(std::queue<Element*, std::deque<Element*, std::allocator<Element*> > >*)
+
+    99.94%     0.04%  vasim    vasim                  [.] Automata::simulate(unsigned char)
+            |          
+             --99.90%--Automata::simulate(unsigned char)
+                       |          
+                       |--62.01%--Automata::specialElementSimulation2()
+                       |          |          
+                       |          |--29.61%--SpecialElement::disable()
+                       |          |          |          
+                       |          |          |--10.73%--memcmp
+                       |          |          |          
+                       |          |          |--2.07%--__GI___memcpy_sve
+                       |          |          |          
+                       |          |          |--1.14%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                       |          |          |          
+                       |          |           --1.06%--memcmp@plt
+                       |          |          
+                       |           --28.43%--OR::calculate()
+                       |                     |          
+                       |                     |--10.94%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+                       |                     |          
+                       |                      --5.84%--__GI___memcpy_sve
+                       |          
+                       |--14.59%--Automata::computeSTEMatches(unsigned char)
+                       |          
+                       |--12.66%--Automata::enableStartStates(bool)
+                       |          |          
+                       |           --6.08%--STE::startIsAllInput()
+                       |          
+                        --10.65%--Automata::enableSTEMatchingChildren()
+                                  |          
+                                  |--8.82%--Element::enableChildSTEs(Stack<Element*>*)
+                                  |          
+                                   --0.74%--Element::enableChildSpecialElements(std::queue<Element*, std::deque<Element*, std::allocator<Element*> > >*)
+
+    62.01%     3.98%  vasim    vasim                  [.] Automata::specialElementSimulation2()
+            |          
+            |--58.03%--Automata::specialElementSimulation2()
+            |          |          
+            |          |--29.61%--SpecialElement::disable()
+            |          |          |          
+            |          |          |--10.73%--memcmp
+            |          |          |          
+            |          |          |--2.07%--__GI___memcpy_sve
+            |          |          |          
+            |          |          |--1.14%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+            |          |          |          
+            |          |           --1.06%--memcmp@plt
+            |          |          
+            |           --28.43%--OR::calculate()
+            |                     |          
+            |                     |--10.94%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+            |                     |          
+            |                      --5.84%--__GI___memcpy_sve
+            |          
+             --3.98%--thread_start
+                       start_thread
+                       0x400003fd095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::specialElementSimulation2()
+
+    29.61%    13.94%  vasim    vasim                  [.] SpecialElement::disable()
+            |          
+            |--15.66%--SpecialElement::disable()
+            |          |          
+            |          |--10.73%--memcmp
+            |          |          
+            |          |--2.07%--__GI___memcpy_sve
+            |          |          
+            |          |--1.14%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+            |          |          
+            |           --1.06%--memcmp@plt
+            |          
+             --13.94%--thread_start
+                       start_thread
+                       0x400003fd095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::specialElementSimulation2()
+                       SpecialElement::disable()
+
+    28.43%    10.97%  vasim    vasim                  [.] OR::calculate()
+            |          
+            |--17.46%--OR::calculate()
+            |          |          
+            |          |--10.94%--std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+            |          |          
+            |           --5.84%--__GI___memcpy_sve
+            |          
+             --10.97%--thread_start
+                       start_thread
+                       0x400003fd095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::specialElementSimulation2()
+                       OR::calculate()
+
+    14.59%    14.53%  vasim    vasim                  [.] Automata::computeSTEMatches(unsigned char)
+            |          
+             --14.53%--thread_start
+                       start_thread
+                       0x400003fd095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::computeSTEMatches(unsigned char)
+
+    12.66%     6.58%  vasim    vasim                  [.] Automata::enableStartStates(bool)
+            |          
+            |--6.58%--thread_start
+            |          start_thread
+            |          0x400003fd095b
+            |          Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+            |          Automata::simulate(unsigned char)
+            |          Automata::enableStartStates(bool)
+            |          
+             --6.08%--Automata::enableStartStates(bool)
+                       STE::startIsAllInput()
+
+    12.08%    12.08%  vasim    libstdc++.so.6.0.33    [.] std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+            |
+            ---thread_start
+               start_thread
+               0x400003fd095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               Automata::specialElementSimulation2()
+               |          
+               |--10.94%--OR::calculate()
+               |          std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+               |          
+                --1.14%--SpecialElement::disable()
+                          std::_Rb_tree_increment(std::_Rb_tree_node_base*)
+
+    10.74%    10.74%  vasim    libc.so.6              [.] memcmp
+            |
+            ---thread_start
+               start_thread
+               0x400003fd095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               |          
+                --10.73%--Automata::specialElementSimulation2()
+                          SpecialElement::disable()
+                          memcmp
+
+    10.65%     0.73%  vasim    vasim                  [.] Automata::enableSTEMatchingChildren()
+            |          
+            |--9.92%--Automata::enableSTEMatchingChildren()
+            |          |          
+            |          |--8.82%--Element::enableChildSTEs(Stack<Element*>*)
+            |          |          
+            |           --0.74%--Element::enableChildSpecialElements(std::queue<Element*, std::deque<Element*, std::allocator<Element*> > >*)
+            |          
+             --0.73%--thread_start
+                       start_thread
+                       0x400003fd095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::enableSTEMatchingChildren()
+
+     8.82%     8.82%  vasim    vasim                  [.] Element::enableChildSTEs(Stack<Element*>*)
+            |
+            ---thread_start
+               start_thread
+               0x400003fd095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               Automata::enableSTEMatchingChildren()
+               Element::enableChildSTEs(Stack<Element*>*)
+
+     7.91%     7.91%  vasim    libc.so.6              [.] __GI___memcpy_sve
+            |          
+             --7.91%--thread_start
+                       start_thread
+                       0x400003fd095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::specialElementSimulation2()
+                       |          
+                       |--5.84%--OR::calculate()
+                       |          __GI___memcpy_sve
+                       |          
+                        --2.07%--SpecialElement::disable()
+                                  __GI___memcpy_sve
+
+     6.08%     6.08%  vasim    vasim                  [.] STE::startIsAllInput()
+            |
+            ---thread_start
+               start_thread
+               0x400003fd095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               |          
+                --6.08%--Automata::simulate(unsigned char)
+                          Automata::enableStartStates(bool)
+                          STE::startIsAllInput()
+
+     1.06%     1.06%  vasim    vasim                  [.] memcmp@plt
+            |
+            ---thread_start
+               start_thread
+               0x400003fd095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               Automata::specialElementSimulation2()
+               SpecialElement::disable()
+               memcmp@plt
+
+     0.74%     0.73%  vasim    vasim                  [.] Element::enableChildSpecialElements(std::queue<Element*, std::deque<Element*, std::allocator<Element*> > >*)
+            |          
+             --0.73%--thread_start
+                       start_thread
+                       0x400003fd095b
+                       Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+                       Automata::simulate(unsigned char)
+                       Automata::enableSTEMatchingChildren()
+                       Element::enableChildSpecialElements(std::queue<Element*, std::deque<Element*, std::allocator<Element*> > >*)
+
+     0.67%     0.67%  vasim    vasim                  [.] std::_Rb_tree_increment(std::_Rb_tree_node_base*)@plt
+            |
+            ---thread_start
+               start_thread
+               0x400003fd095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               Automata::specialElementSimulation2()
+
+     0.67%     0.67%  vasim    vasim                  [.] memcpy@plt
+            |
+            ---thread_start
+               start_thread
+               0x400003fd095b
+               Automata::simulate(unsigned char*, unsigned long, unsigned long, unsigned long)
+               Automata::simulate(unsigned char)
+               Automata::specialElementSimulation2()
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

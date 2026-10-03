@@ -1,0 +1,87 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 183d7d2..0bcea22 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -36,9 +36,9 @@ if (CUBOOL_WITH_CUDA)
+     set(CUB_ENABLE_HEADER_TESTING OFF CACHE BOOL "" FORCE)
+     set(CUB_ENABLE_TESTING OFF CACHE BOOL "" FORCE)
+     set(CUB_ENABLE_EXAMPLES OFF CACHE BOOL "" FORCE)
+-    add_subdirectory(deps/cub)
++    # CUB ships with the CUDA Toolkit since 11.0, and CUDA 12.x Thrust rejects the vendored
++    # CUB 1.x (deps/cub), so the target is an empty interface over the toolkit's copy.
+     add_library(cub INTERFACE IMPORTED)
+-    target_link_libraries(cub INTERFACE CUB::CUB)
+ 
+     message(STATUS "Add nsparse library as crs matrix multiplication backend")
+     add_subdirectory(deps/nsparse-um)
+diff --git a/cubool/CMakeLists.txt b/cubool/CMakeLists.txt
+index 743b0bb..05cda9f 100644
+--- a/cubool/CMakeLists.txt
++++ b/cubool/CMakeLists.txt
+@@ -141,7 +141,7 @@ set_target_properties(cubool PROPERTIES CXX_STANDARD_REQUIRED ON)
+ 
+ # Cuda specifics
+ if (CUBOOL_WITH_CUDA)
+-    set_target_properties(cubool PROPERTIES CUDA_STANDARD 14)
++    set_target_properties(cubool PROPERTIES CUDA_STANDARD 17)  # CCCL 2.x (CUDA 12.x) needs C++17
+     set_target_properties(cubool PROPERTIES CUDA_STANDARD_REQUIRED ON)
+     set_target_properties(cubool PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+ 
+diff --git a/cubool/sources/cuda/kernels/sptranspose2.cuh b/cubool/sources/cuda/kernels/sptranspose2.cuh
+index 8c50e45..192316e 100644
+--- a/cubool/sources/cuda/kernels/sptranspose2.cuh
++++ b/cubool/sources/cuda/kernels/sptranspose2.cuh
+@@ -28,6 +28,7 @@
+ #include <cuda/kernels/bin_search.cuh>
+ #include <thrust/device_vector.h>
+ #include <nsparse/matrix.h>
++#include <thrust/sort.h>  // no longer pulled in transitively by CCCL 2.x
+ 
+ namespace cubool {
+     namespace kernels {
+diff --git a/cubool/sources/utils/csr_utils.cpp b/cubool/sources/utils/csr_utils.cpp
+index 5d4806a..8e4226e 100644
+--- a/cubool/sources/utils/csr_utils.cpp
++++ b/cubool/sources/utils/csr_utils.cpp
+@@ -22,6 +22,7 @@
+ /* SOFTWARE.                                                                      */
+ /**********************************************************************************/
+ 
++#include <limits>
+ #include <utils/csr_utils.hpp>
+ #include <utils/exclusive_scan.hpp>
+ #include <core/error.hpp>
+diff --git a/deps/nsparse-um/include/nsparse/detail/count_nz.cuh b/deps/nsparse-um/include/nsparse/detail/count_nz.cuh
+index fbceb16..7c97a71 100644
+--- a/deps/nsparse-um/include/nsparse/detail/count_nz.cuh
++++ b/deps/nsparse-um/include/nsparse/detail/count_nz.cuh
+@@ -176,7 +176,12 @@ __global__ void count_nz_pwarp_row(
+     }
+   }
+ 
+-  auto mask = __activemask();
++  // A static mask of this row's pwarp lanes. __activemask() after the divergent hash loop
++  // need not contain the whole group under independent thread scheduling; the group is
++  // always complete here, since its lanes share rid and leave together on rid >= n_rows.
++  static_assert(pwarp <= 32 && (pwarp & (pwarp - 1)) == 0);
++  const unsigned mask = ((pwarp == 32) ? 0xffffffffu : ((1u << pwarp) - 1u))
++                        << ((threadIdx.x % 32u) / pwarp * pwarp);
+   for (auto j = pwarp / 2; j >= 1; j /= 2) {
+     nz += __shfl_xor_sync(mask, nz, j);
+   }
+diff --git a/deps/nsparse-um/include/nsparse/unified_allocator.h b/deps/nsparse-um/include/nsparse/unified_allocator.h
+index ea6a98b..219a7ec 100644
+--- a/deps/nsparse-um/include/nsparse/unified_allocator.h
++++ b/deps/nsparse-um/include/nsparse/unified_allocator.h
+@@ -3,7 +3,10 @@
+ #include <thrust/detail/config.h>
+ #include <thrust/device_ptr.h>
+ #include <thrust/mr/allocator.h>
+-#include <thrust/memory/detail/device_system_resource.h>
++// thrust/memory/detail/device_system_resource.h is gone in CCCL 2.x; these two now hold
++// cuda_memory_resource and device_ptr_memory_resource.
++#include <thrust/device_allocator.h>
++#include <thrust/system/cuda/memory_resource.h>
+ 
+ #include <limits>
+ #include <stdexcept>
