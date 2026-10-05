@@ -1,0 +1,19 @@
+unit REGMEM wf_triangular node=nid005937 start=2026-10-05T11:23:34+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005937 1 1
+SRUN[REGMEM wf_triangular]: srun --nodes=1 --ntasks=1 -w nid005937 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels wf_triangular --preset M --warmup 5 --reps 30 --out parts/regmem/wf_triangular.base.csv --scratch scratch/regmem/wf_triangular.base --attempts-out parts/regmem/wf_triangular.base.attempts.csv --attempt-logs logs/attempts --reprs numba,c --perf --emitted-dir emitted_sources/regmem
+[1/1] wf_triangular
+    c            ok           median 100.185 ms 
+    numba        ok           median 378.174 ms 
+
+wrote 2 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/regmem/wf_triangular.base.csv
+SRUN[REGMEM wf_triangular]: srun --nodes=1 --ntasks=1 -w nid005937 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels wf_triangular --preset M --warmup 5 --reps 30 --out parts/regmem/wf_triangular.westscalar.csv --scratch scratch/regmem/wf_triangular.westscalar --attempts-out parts/regmem/wf_triangular.westscalar.attempts.csv --attempt-logs logs/attempts --reprs numba --variant wf_west_scalar --perf --emitted-dir emitted_sources/regmem --override numba=variants/src/wf_triangular_numba_np.westscalar.py
+[1/1] wf_triangular
+    numba        ok           median 101.392 ms source=wf_triangular_numba_np.westscalar.py sha256=489eb2b7b6e20844
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/regmem/wf_triangular.westscalar.csv
+SRUN[REGMEM wf_triangular]: srun --nodes=1 --ntasks=1 -w nid005937 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/regmem --index parts/regmem/optrep.wf_triangular.base.csv --variant  wf_triangular:numba:python:emitted_sources/regmem/wf_triangular/wf_triangular_numba_np.py wf_triangular:c:c:emitted_sources/regmem/wf_triangular/wf_triangular_fp64.c
+wf_triangular                numba        ok
+wf_triangular                c            ok
+SRUN[REGMEM wf_triangular]: srun --nodes=1 --ntasks=1 -w nid005937 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/regmem --index parts/regmem/optrep.wf_triangular.wf_west_scalar.csv --variant wf_west_scalar wf_triangular:numba:python:variants/src/wf_triangular_numba_np.westscalar.py
+wf_triangular                numba        ok
+unit REGMEM wf_triangular node=nid005937 end=2026-10-05T11:25:43+02:00

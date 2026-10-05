@@ -1,0 +1,26 @@
+unit REGMEM_OPTREP wf_triangular node=nid006558 start=2026-10-05T11:32:35+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006558 1 1
+SRUN[REGMEM_OPTREP wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006558 --exclusive --cpu-bind=cores --hint=nomultithread --time=10 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/regmem/unchanged --index parts/regmem/unchanged/optrep.wf_triangular.base.csv --variant  wf_triangular:numba:python:emitted_sources/regmem/wf_triangular/wf_triangular_numba_np.py wf_triangular:c:c:emitted_sources/regmem/wf_triangular/wf_triangular_fp64.c
+wf_triangular                numba        ok
+wf_triangular                c            ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/regmem/unchanged/optrep.wf_triangular.base.csv'
+srun: error: nid006558: task 0: Exited with exit code 1
+srun: Terminating StepId=4982663.3
+SRUN[REGMEM_OPTREP wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006558 --exclusive --cpu-bind=cores --hint=nomultithread --time=10 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/regmem/wf_west_scalar --index parts/regmem/wf_west_scalar/optrep.wf_triangular.wf_west_scalar.csv --variant wf_west_scalar wf_triangular:numba:python:variants/src/wf_triangular_numba_np.westscalar.py
+wf_triangular                numba        ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/regmem/wf_west_scalar/optrep.wf_triangular.wf_west_scalar.csv'
+srun: error: nid006558: task 0: Exited with exit code 1
+srun: Terminating StepId=4982663.5
+unit REGMEM_OPTREP wf_triangular node=nid006558 end=2026-10-05T11:33:06+02:00

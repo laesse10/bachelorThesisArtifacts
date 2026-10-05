@@ -280,6 +280,31 @@ def unstable_report():
 ELEMENTS = {"versioned_distance_update": 95_000_000 - 1,           # i = K .. LEN_1D-1 at K = 1
             "wf_triangular": 17409 * (17409 - 1) // 2}             # sum_{i=1}^{N-1} (N - i)
 ASSUMED_GHZ = 3.26
+# Hot loop of each cell, read by hand from the disassembly (line numbers in the .s.txt files).
+R = "opt_reports/regmem"
+ASM = {
+    ("versioned_distance_update", "c", ""): (
+        "yes", f"{R}/unchanged/versioned_distance_update/c/versioned_distance_update_fp64.c.s.txt:43-51",
+        "K=1 takes the scalar loop at 0xa0-0xc0 (cmp x5,#0x8; b.eq): ldr d26,[x5,x3,lsl #3] reloads a[i-1], "
+        "which the previous iteration stored (str d26); chain = store -> load -> fmadd"),
+    ("versioned_distance_update", "c", "vdu_k1_scalar"): (
+        "no", f"{R}/vdu_k1_scalar/versioned_distance_update/c/versioned_distance_update_fp64.c.s.txt:44-51",
+        "K==1 loop at 0xa4-0xc0 loads b[i], c[i] only; fmadd d24,d24,d23,d21 carries prev in d24; same fmul+fmadd "
+        "contraction as the unchanged loop"),
+    ("versioned_distance_update", "agent", ""): (
+        "no", f"{R}/unchanged/versioned_distance_update/agent/versioned_distance_update_fp64.f90.s.txt:53-60",
+        "loop at 0xc8-0xe4 (_omp_fn.0): fmadd d1,d1,d3,d0 carries the value in d1"),
+    ("wf_triangular", "numba", ""): (
+        "yes", f"{R}/unchanged/wf_triangular/numba/wf_triangular_numba_np.py.s.txt:56-86",
+        "inner loop .LBB0_7 (unrolled x2): a[i,j-1] reloaded (ldur d1,[x3,#-8] line 69; ldr d1,[x4,x2] line 82) "
+        "from an address built by the negative-index csel (lines 59, 61), then fadd and str to the same element"),
+    ("wf_triangular", "numba", "wf_west_scalar"): (
+        "no", f"{R}/wf_west_scalar/wf_triangular/numba/wf_triangular_numba_np.py.s.txt:52-72",
+        "inner loop .LBB0_7 loads a[i,j] and a[i-1,j] only; fadd d0,d0,d1 carries west in d0; the j-1 csel is gone"),
+    ("wf_triangular", "c", ""): (
+        "no", f"{R}/unchanged/wf_triangular/c/wf_triangular_fp64.c.s.txt:14-21",
+        "GCC already carries west in d31 (fadd d31,d31,d29 at 0x38); loads a[i][j], a[i-1][j] only"),
+}
 
 
 def regmem():
@@ -307,6 +332,9 @@ def regmem():
             "cycles_per_element_assumed_3.26GHz": f"{min(t) * ASSUMED_GHZ / el:.3f}" if t else "",
             "instructions_per_element": f"{ins / (reps * el):.3f}" if ins else "",
             "ipc": f"{ins / cyc:.3f}" if (cyc and ins) else "",
+            "reload_in_hot_loop": ASM[(k, r["representation"], r["variant"])][0],
+            "asm_citation": ASM[(k, r["representation"], r["variant"])][1],
+            "asm_evidence": ASM[(k, r["representation"], r["variant"])][2],
             "source_sha256": r["source_sha256"], "slurm_job": r["slurm_job"], "node": r["node"],
             "compiler_version": r["compiler_version"], "notes": r["notes"], "perf_raw": r.get("perf_raw", ""),
             "time_ns_all": r["time_ns_all"]})
