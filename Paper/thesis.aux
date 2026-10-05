@@ -14,120 +14,184 @@
 \newlabel{ch:introduction}{{1}{1}{Introduction}{chapter.1}{}}
 \newlabel{ch:introduction@cref}{{[chapter][1][]1}{[1][1][]1}{}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Research Questions}{1}{section.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Contributions}{1}{section.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Thesis Outline}{1}{section.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Research Questions and Contributions}{1}{section.1.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
 \@writefile{toc}{\contentsline {chapter}{\chapternumberline {2}Background}{2}{chapter.2}\protected@file@percent }
 \newlabel{ch:background}{{2}{2}{Background}{chapter.2}{}}
 \newlabel{ch:background@cref}{{[chapter][2][]2}{[1][2][]2}{}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}HPCAgent-Bench}{2}{section.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}The Berkeley Dwarfs}{2}{section.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Compiler Auto-Vectorization and Loop-Level Reasoning}{2}{section.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Floating-Point Semantics and Compiler Flags}{2}{section.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Code Representations}{2}{section.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Iterative Solvers and Preconditioning}{2}{section.2.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.7}Agent Skills}{2}{section.2.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Compilers, Languages and Code Generation}{2}{section.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Iterative Solvers and Preconditioning}{2}{section.2.3}\protected@file@percent }
+\citation{hpcagentbench}
+\citation{asanovic2006landscape}
+\citation{comet}
+\citation{joubert2019ccc}
+\citation{quatrex}
+\citation{vetsch2025quatrex}
+\citation{spbench}
+\citation{cubool}
+\citation{warpx}
+\citation{graphaibench}
+\citation{chen2020pangolin}
+\citation{wadden2016anmlzoo}
+\citation{vasim}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Measurement Methodology}{3}{chapter.3}\protected@file@percent }
-\newlabel{ch:methodology}{{3}{3}{Measurement Methodology}{chapter.3}{}}
-\newlabel{ch:methodology@cref}{{[chapter][3][]3}{[1][3][]3}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Platform and Toolchain}{3}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Protocol}{3}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Statistics and Noise}{3}{section.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Threats to Validity}{3}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Extracted Application Kernels}{3}{chapter.3}\protected@file@percent }
+\newlabel{ch:extracted}{{3}{3}{Extracted Application Kernels}{chapter.3}{}}
+\newlabel{ch:extracted@cref}{{[chapter][3][]3}{[1][3][]3}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Selection}{3}{section.3.1}\protected@file@percent }
+\newlabel{sec:extracted-selection}{{3.1}{3}{Selection}{section.3.1}{}}
+\newlabel{sec:extracted-selection@cref}{{[section][1][3]3.1}{[1][3][]3}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Hot spots of the upstream applications. GPU shares are fractions of GPU kernel time (Nsight Systems), CPU shares fractions of sampled self time (\texttt  {perf}).}}{4}{table.3.1}\protected@file@percent }
+\newlabel{tab:profiles}{{3.1}{4}{Hot spots of the upstream applications. GPU shares are fractions of GPU kernel time (Nsight Systems), CPU shares fractions of sampled self time (\texttt {perf})}{table.3.1}{}}
+\newlabel{tab:profiles@cref}{{[table][1][3]3.1}{[1][3][]4}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces The eight extracted kernels, grouped by Berkeley dwarf.}}{4}{table.3.2}\protected@file@percent }
+\newlabel{tab:extracted-kernels}{{3.2}{4}{The eight extracted kernels, grouped by Berkeley dwarf}{table.3.2}{}}
+\newlabel{tab:extracted-kernels@cref}{{[table][2][3]3.2}{[1][3][]4}{}{}{}}
+\citation{svizhenko2002rgf}
+\citation{cubool}
+\citation{nagasaka2017nsparse}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Kernel Descriptions}{5}{section.3.2}\protected@file@percent }
+\newlabel{sec:extracted-descriptions}{{3.2}{5}{Kernel Descriptions}{section.3.2}{}}
+\newlabel{sec:extracted-descriptions@cref}{{[section][2][3]3.2}{[1][4][]5}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{CoMet INT4 GEMM.}{5}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{QuaTrEx RGF selected solve.}{5}{section*.5}\protected@file@percent }
+\citation{myers2021warpx}
+\citation{boris1970}
+\citation{esirkepov2001}
+\@writefile{toc}{\contentsline {paragraph}{Boolean SpGEMM with hash accumulation.}{6}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{WarpX profile.}{6}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{WarpX Boris push.}{6}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{WarpX Esirkepov current deposition.}{6}{section*.9}\protected@file@percent }
+\citation{graphaibench}
+\citation{wadden2016anmlzoo}
+\citation{vasim}
+\@writefile{toc}{\contentsline {paragraph}{WarpX field gather.}{7}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Triangle counting.}{7}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{NFA frontier simulation.}{7}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Design Decisions and Validation}{8}{section.3.3}\protected@file@percent }
+\newlabel{sec:extracted-design}{{3.3}{8}{Design Decisions and Validation}{section.3.3}{}}
+\newlabel{sec:extracted-design@cref}{{[section][3][3]3.3}{[1][8][]8}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Native references.}{8}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Problem sizes.}{8}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Pinned configuration.}{8}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Validation.}{8}{section*.16}\protected@file@percent }
+\citation{tsvc2}
+\citation{callahan1988tsvc}
+\citation{maleki2011evaluation}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}Language Comparison on LLR-40}{4}{chapter.4}\protected@file@percent }
-\newlabel{ch:llr40}{{4}{4}{Language Comparison on LLR-40}{chapter.4}{}}
-\newlabel{ch:llr40@cref}{{[chapter][4][]4}{[1][4][]4}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Kernels and Representations}{4}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Coverage and Correctness}{4}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Performance Across Representations}{4}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Per-Class Findings}{4}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Outliers}{4}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}Loop-Transformation Kernels}{10}{chapter.4}\protected@file@percent }
+\newlabel{ch:loop-kernels}{{4}{10}{Loop-Transformation Kernels}{chapter.4}{}}
+\newlabel{ch:loop-kernels@cref}{{[chapter][4][]4}{[1][10][]10}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Kernel Set}{10}{section.4.1}\protected@file@percent }
+\newlabel{sec:loop-kernel-set}{{4.1}{10}{Kernel Set}{section.4.1}{}}
+\newlabel{sec:loop-kernel-set@cref}{{[section][1][4]4.1}{[1][10][]10}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces The 40 loop-transformation kernels by class. TSVC kernels are named by their TSVC identifier (\texttt  {s311} is \texttt  {tsvc\_2\_s311} in the benchmark).}}{11}{table.4.1}\protected@file@percent }
+\newlabel{tab:loop-classes}{{4.1}{11}{The 40 loop-transformation kernels by class. TSVC kernels are named by their TSVC identifier (\texttt {s311} is \texttt {tsvc\_2\_s311} in the benchmark)}{table.4.1}{}}
+\newlabel{tab:loop-classes@cref}{{[table][1][4]4.1}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Transformation Classes}{11}{section.4.2}\protected@file@percent }
+\newlabel{sec:loop-kernel-classes}{{4.2}{11}{Transformation Classes}{section.4.2}{}}
+\newlabel{sec:loop-kernel-classes@cref}{{[section][2][4]4.2}{[1][10][]11}{}{}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {5}Extracted Application Kernels}{5}{chapter.5}\protected@file@percent }
-\newlabel{ch:extracted}{{5}{5}{Extracted Application Kernels}{chapter.5}{}}
-\newlabel{ch:extracted@cref}{{[chapter][5][]5}{[1][5][]5}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Selection by Berkeley Dwarf}{5}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Porting Methodology}{5}{section.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Kernel Descriptions}{5}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Manifest Design Decisions}{5}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Validation Against Upstream}{5}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {5}Agent Skills}{12}{chapter.5}\protected@file@percent }
+\newlabel{ch:skills}{{5}{12}{Agent Skills}{chapter.5}{}}
+\newlabel{ch:skills@cref}{{[chapter][5][]5}{[1][12][]12}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Kernel-Extraction Skill}{12}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Solver-Preconditioning Skill}{12}{section.5.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {6}Language Comparison on the Extracted Kernels}{6}{chapter.6}\protected@file@percent }
-\newlabel{ch:extracted-languages}{{6}{6}{Language Comparison on the Extracted Kernels}{chapter.6}{}}
-\newlabel{ch:extracted-languages@cref}{{[chapter][6][]6}{[1][6][]6}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Setup}{6}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}How These Kernels Differ from LLR-40}{6}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Coverage and Correctness}{6}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Performance}{6}{section.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Comparison with LLR-40}{6}{section.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {6}Evaluation}{13}{chapter.6}\protected@file@percent }
+\newlabel{ch:evaluation}{{6}{13}{Evaluation}{chapter.6}{}}
+\newlabel{ch:evaluation@cref}{{[chapter][6][]6}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Experimental Setup}{13}{section.6.1}\protected@file@percent }
+\newlabel{sec:setup}{{6.1}{13}{Experimental Setup}{section.6.1}{}}
+\newlabel{sec:setup@cref}{{[section][1][6]6.1}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Platform.}{13}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Toolchain and flags.}{13}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Representations.}{13}{section*.19}\protected@file@percent }
+\citation{hoefler2015benchmarking}
+\@writefile{toc}{\contentsline {paragraph}{Protocol.}{14}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Statistics.}{14}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Reproducibility.}{14}{section*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Language Comparison}{14}{section.6.2}\protected@file@percent }
+\newlabel{sec:language-comparison}{{6.2}{14}{Language Comparison}{section.6.2}{}}
+\newlabel{sec:language-comparison@cref}{{[section][2][6]6.2}{[1][14][]14}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{The language matters little on a shared backend.}{14}{section*.23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Speedup of each version over the translated C version of the same kernel, at preset M on one core of a GH200 node (minimum of 30 runs). Kernels are grouped by transformation class; the bottom rows give each column's geometric mean with its 95\% interval. A hollow cross at 1$\times $ marks a missing version. \texttt  {s115} is not shown, because no GCC version produces a valid result at this size. $^\dagger $The two wavefront kernels pass validation only vacuously at preset M, as explained at the end of this section.}}{15}{figure.6.1}\protected@file@percent }
+\newlabel{fig:llr40-speedup}{{6.1}{15}{Speedup of each version over the translated C version of the same kernel, at preset M on one core of a GH200 node (minimum of 30 runs). Kernels are grouped by transformation class; the bottom rows give each column's geometric mean with its 95\% interval. A hollow cross at 1$\times $ marks a missing version. \texttt {s115} is not shown, because no GCC version produces a valid result at this size. $^\dagger $The two wavefront kernels pass validation only vacuously at preset M, as explained at the end of this section}{figure.6.1}{}}
+\newlabel{fig:llr40-speedup@cref}{{[figure][1][6]6.1}{[1][14][]15}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Geometric-mean speedup of each column over translated C, over the kernels where both are valid, with the number of kernels on which the column is more than 3\% faster, within 3\%, or more than 3\% slower.}}{16}{table.6.1}\protected@file@percent }
+\newlabel{tab:llr40-geomean}{{6.1}{16}{Geometric-mean speedup of each column over translated C, over the kernels where both are valid, with the number of kernels on which the column is more than 3\% faster, within 3\%, or more than 3\% slower}{table.6.1}{}}
+\newlabel{tab:llr40-geomean@cref}{{[table][1][6]6.1}{[1][14][]16}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{The large gaps are individual code-generation decisions.}{16}{section*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Numba's results are LLVM's.}{16}{section*.25}\protected@file@percent }
+\citation{bonsall2026dace}
+\@writefile{toc}{\contentsline {paragraph}{No compiler restructures; the agents do.}{17}{section*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Agent code carries its target machine.}{17}{section*.27}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vectorising is not the same as being fast.}{17}{section*.28}\protected@file@percent }
+\newlabel{par:fma}{{6.2}{17}{Floating-point contraction decides correctness}{section*.29}{}}
+\newlabel{par:fma@cref}{{[section][2][6]6.2}{[1][17][]17}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Floating-point contraction decides correctness.}{17}{section*.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Skill Evaluation}{18}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Discussion}{18}{section.6.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {7}The Solver Subtrack and the Preconditioning Skill}{7}{chapter.7}\protected@file@percent }
-\newlabel{ch:solvers}{{7}{7}{The Solver Subtrack and the Preconditioning Skill}{chapter.7}{}}
-\newlabel{ch:solvers@cref}{{[chapter][7][]7}{[1][7][]7}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Test Kernels}{7}{section.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Grading Versus Convergence}{7}{section.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}The Freedom Verdict}{7}{section.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.4}Making a Frozen Preconditioner Fast}{7}{section.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.5}Skill Design}{7}{section.7.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.6}Evaluation of the Skill}{7}{section.7.6}\protected@file@percent }
-\@writefile{lof}{\addvspace {10pt}}
-\@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {8}Extending the CloudSC Loop-Nest Analysis}{8}{chapter.8}\protected@file@percent }
-\newlabel{ch:cloudsc}{{8}{8}{Extending the CloudSC Loop-Nest Analysis}{chapter.8}{}}
-\newlabel{ch:cloudsc@cref}{{[chapter][8][]8}{[1][8][]8}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8.1}Prior Results}{8}{section.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8.2}What Was Left Open}{8}{section.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8.3}Extended Setup}{8}{section.8.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8.4}Results}{8}{section.8.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8.5}Implications for DaCe Code Generation}{8}{section.8.5}\protected@file@percent }
-\@writefile{lof}{\addvspace {10pt}}
-\@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {9}Discussion}{9}{chapter.9}\protected@file@percent }
-\newlabel{ch:discussion}{{9}{9}{Discussion}{chapter.9}{}}
-\newlabel{ch:discussion@cref}{{[chapter][9][]9}{[1][9][]9}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {9.1}Representation, Compiler or Algorithm?}{9}{section.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9.2}Vectorizing Is Not the Same as Being Fast}{9}{section.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9.3}What Elementwise Grading Permits}{9}{section.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9.4}Limitations}{9}{section.9.4}\protected@file@percent }
-\@writefile{lof}{\addvspace {10pt}}
-\@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {10}Conclusion}{10}{chapter.10}\protected@file@percent }
-\newlabel{ch:conclusion}{{10}{10}{Conclusion}{chapter.10}{}}
-\newlabel{ch:conclusion@cref}{{[chapter][10][]10}{[1][10][]10}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {10.1}Summary}{10}{section.10.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10.2}Future Work}{10}{section.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {7}Conclusion}{19}{chapter.7}\protected@file@percent }
+\newlabel{ch:conclusion}{{7}{19}{Conclusion}{chapter.7}{}}
+\newlabel{ch:conclusion@cref}{{[chapter][7][]7}{[1][19][]19}{}{}{}}
 \bibstyle{plain}
 \bibdata{refs}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{11}{chapter*.5}\protected@file@percent }
+\bibcite{asanovic2006landscape}{1}
+\bibcite{bonsall2026dace}{2}
+\bibcite{boris1970}{3}
+\bibcite{callahan1988tsvc}{4}
+\bibcite{graphaibench}{5}
+\bibcite{chen2020pangolin}{6}
+\bibcite{quatrex}{7}
+\bibcite{esirkepov2001}{8}
+\bibcite{hoefler2015benchmarking}{9}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{20}{chapter*.31}\protected@file@percent }
+\bibcite{joubert2019ccc}{10}
+\bibcite{maleki2011evaluation}{11}
+\bibcite{myers2021warpx}{12}
+\bibcite{nagasaka2017nsparse}{13}
+\bibcite{comet}{14}
+\bibcite{spbench}{15}
+\bibcite{cubool}{16}
+\bibcite{hpcagentbench}{17}
+\bibcite{svizhenko2002rgf}{18}
+\bibcite{tsvc2}{19}
+\bibcite{warpx}{20}
+\bibcite{vetsch2025quatrex}{21}
+\bibcite{wadden2016anmlzoo}{22}
+\bibcite{vasim}{23}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{LLR-40 Full Results}{12}{chapter*.7}\protected@file@percent }
-\newlabel{app:llr40}{{10.2}{12}{LLR-40 Full Results}{chapter*.7}{}}
-\newlabel{app:llr40@cref}{{[section][0][0].0}{[1][12][]12}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{Full Measurement Results}{23}{chapter*.33}\protected@file@percent }
+\newlabel{app:results}{{7}{23}{Full Measurement Results}{chapter*.33}{}}
+\newlabel{app:results@cref}{{[chapter][0][]}{[1][23][]23}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The loop-transformation matrix: minimum of 30 runs in milliseconds, preset M, \texttt  {float64}, one core of a GH200 node. Bold: fastest valid version. ---: version does not exist. $^\ddagger $: output does not match the NumPy oracle; the time is shown but not used. $^\dagger $: passes validation only vacuously at this size (\Cref  {sec:language-comparison}).}}{24}{table.Alph0.1}\protected@file@percent }
+\newlabel{tab:llr40-matrix}{{1}{24}{The loop-transformation matrix: minimum of 30 runs in milliseconds, preset M, \texttt {float64}, one core of a GH200 node. Bold: fastest valid version. ---: version does not exist. $^\ddagger $: output does not match the NumPy oracle; the time is shown but not used. $^\dagger $: passes validation only vacuously at this size (\Cref {sec:language-comparison})}{table.Alph0.1}{}}
+\newlabel{tab:llr40-matrix@cref}{{[table][1][]1}{[1][23][]24}{}{}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{Extracted Kernel Catalogue}{13}{chapter*.9}\protected@file@percent }
-\newlabel{app:extracted}{{10.2}{13}{Extracted Kernel Catalogue}{chapter*.9}{}}
-\newlabel{app:extracted@cref}{{[section][0][0].0}{[1][13][]13}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{Extracted Kernel Catalogue}{25}{chapter*.35}\protected@file@percent }
+\newlabel{app:extracted}{{7}{25}{Extracted Kernel Catalogue}{chapter*.35}{}}
+\newlabel{app:extracted@cref}{{[chapter][0][]}{[1][25][]25}{}{}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{Solver-Preconditioners Skill}{14}{chapter*.11}\protected@file@percent }
-\newlabel{app:skill}{{10.2}{14}{Solver-Preconditioners Skill}{chapter*.11}{}}
-\newlabel{app:skill@cref}{{[section][0][0].0}{[1][14][]14}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{Skill Texts}{26}{chapter*.37}\protected@file@percent }
+\newlabel{app:skills}{{7}{26}{Skill Texts}{chapter*.37}{}}
+\newlabel{app:skills@cref}{{[chapter][0][]}{[1][26][]26}{}{}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{Reproducibility}{15}{chapter*.13}\protected@file@percent }
-\newlabel{app:reproduce}{{10.2}{15}{Reproducibility}{chapter*.13}{}}
-\newlabel{app:reproduce@cref}{{[section][0][0].0}{[1][15][]15}{}{}{}}
-\memsetcounter{lastsheet}{22}
-\memsetcounter{lastpage}{16}
-\gdef \@abspage@last{22}
+\@writefile{toc}{\contentsline {chapter}{Reproducibility}{27}{chapter*.39}\protected@file@percent }
+\newlabel{app:reproduce}{{7}{27}{Reproducibility}{chapter*.39}{}}
+\newlabel{app:reproduce@cref}{{[chapter][0][]}{[1][27][]27}{}{}{}}
+\memsetcounter{lastsheet}{33}
+\memsetcounter{lastpage}{28}
+\gdef \@abspage@last{33}

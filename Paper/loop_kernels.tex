@@ -1,16 +1,78 @@
 \chapter{Loop-Transformation Kernels}
 \label{ch:loop-kernels}
-% Data: llr40Matrix/ (HPCAgent-Bench tag llr-focus40, benchmark commit e2bceb68).
-% Terminology: kernels whose efficient execution requires dependence analysis and a loop
-% transformation (interchange, distribution, fusion, ...) -- avoid the corpus-internal
-% name "loop-level reasoning" in the text.
+% Data: llr40Matrix/ (HPCAgent-Bench tag llr-focus40; v2 measured at benchmark commit 26a4f0cf).
+
+The second kernel set isolates the loop transformations that the extracted kernels of
+\Cref{ch:extracted} mix with everything else. It consists of 40 kernels of HPCAgent-Bench whose
+efficient execution depends on dependence analysis and a loop transformation, such as
+interchange, distribution or fusion, rather than on a library call. We refer to it as the
+loop-transformation set, or LLR-40 after the benchmark's tag for it. This chapter describes
+the kernels and the classes we group them into; \Cref{ch:evaluation} measures them.
 
 \section{Kernel Set}
-% 40 kernels: TSVC-2 loops plus extensions (wavefront, fusion, scan, packing, ...).
-% Roster frozen two independent ways (tag and campaign observations agree).
-% Contrast with Chapter extracted: flat loop nests, float64 throughout.
+\label{sec:loop-kernel-set}
+
+Twenty-nine of the 40 kernels come from TSVC-2~\cite{tsvc2}, the C version of the classic test
+suite for vectorising compilers~\cite{callahan1988tsvc,maleki2011evaluation}: 26 keep their TSVC
+names, and three are renamed variants (\texttt{argmax\_with\_index} is TSVC \texttt{s315},
+\texttt{ext\_break\_capture} is \texttt{s332}, \texttt{ext\_war\_unit} is \texttt{s121}). The
+remaining eleven were written for the benchmark and cover patterns TSVC lacks: producer and
+consumer loops that must be fused through a temporary array, scans and ragged reductions, a
+scatter with duplicate indices, stream compaction, a dependence whose distance is known only at
+run time, and two wavefronts.
+
+Every kernel is written once as a NumPy reference made of explicit loops, which is the
+correctness oracle. From it, the benchmark's translators emit C, C++, Fortran and Numba versions.
+For 35 of the 40 kernels the benchmark also carries a hand-written C reference ported from
+TSVC-2, kept deliberately separate from the translated C so that the two can be compared. All
+kernels compute in \texttt{float64}. At the problem size we measure (preset M), the translated C
+version of a kernel takes between 39\,ms and 789\,ms per call, with a median of 100\,ms, which is
+long enough that loop start-up and timer resolution do not matter.
 
 \section{Transformation Classes}
-% 14 classes (31 labels declared in the manifests, 9 derived from source).
-% reduction 10, control flow 5, loop interchange 5, indirect addressing 4, ...
-% 9 of 14 classes have <= 2 members -> no strong per-class claims.
+\label{sec:loop-kernel-classes}
+
+We group the kernels by the transformation they are meant to exercise
+(\Cref{tab:loop-classes}). For 31 kernels the class is declared in the benchmark manifest; for
+the other nine, whose manifests declare none, we derived it from the loop body. A hand check of
+the nine derived labels against the kernel sources agrees with six, finds two disputable, and
+disputes one. The two disputable ones are \texttt{ext\_break\_capture}, which the benchmark files
+as a search loop in its TSVC original, and \texttt{ext\_war\_unit}, filed under induction
+variables. The disputed one is \texttt{wf\_diff\_skew}, whose dependences are all carried by the
+outer loop, so its inner loop is already parallel and needs no wavefront transformation. Two of
+the declared labels are also questionable: \texttt{vpvts} and \texttt{vtvtv} are filed as control
+flow but contain no branch. We keep all labels as recorded, so that the measurements remain
+comparable with the benchmark's own, and point out where a label matters.
+
+\begin{table}[t]
+  \centering
+  \small
+  \begin{tabular}{@{}lrp{7.6cm}@{}}
+    \toprule
+    Class & $n$ & Kernels \\
+    \midrule
+    Reduction            & 10 & s311, s3110, s3111, s3112, s316, s318, s319, argmax\_with\_index, quasi\_affine\_reduce\_odd, scan\_affine\_decay \\
+    Loop interchange     &  5 & s1232, s2233, s231, s233, s235 \\
+    Control flow         &  5 & s2710, s275, vpvts, vtvtv, ext\_break\_capture \\
+    Indirect addressing  &  4 & s4112, vag, scatter\_accum\_dup, segment\_reduce\_ragged \\
+    Loop fusion          &  3 & fuse\_diamond, fuse\_move\_ifs, fuse\_stencil\_through\_transient \\
+    Dependence distance  &  2 & ext\_war\_unit, versioned\_distance\_update \\
+    Linear dependence    &  2 & s115, s119 \\
+    Scalar expansion     &  2 & s252, s255 \\
+    Wavefront            &  2 & wf\_diff\_skew, wf\_triangular \\
+    Loop distribution    &  1 & s2275 \\
+    Node splitting       &  1 & s1244 \\
+    Interprocedural data flow & 1 & s152 \\
+    Recurrence           &  1 & s323 \\
+    Packing              &  1 & compact\_threshold\_pack \\
+    \bottomrule
+  \end{tabular}
+  \caption{The 40 loop-transformation kernels by class. TSVC kernels are named by their TSVC
+    identifier (\texttt{s311} is \texttt{tsvc\_2\_s311} in the benchmark).}
+  \label{tab:loop-classes}
+\end{table}
+
+The classes are uneven. Reduction is the largest with ten kernels, and nine of the fourteen
+classes have at most two. A per-class average over one or two kernels is a case study, not an
+estimate, so the evaluation reports per-kernel results and uses the classes only to organise
+them.

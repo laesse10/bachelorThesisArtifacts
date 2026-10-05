@@ -1,0 +1,34 @@
+# HPCAgent-Bench benchmark manifest (KernelBench port).
+name: 3D Tensor-Matrix Multiply
+func_name: three_d_tensor_matrix_multiplication
+level: 1
+parameters:
+  S:
+    K: 6
+    L: 5
+    M: 5
+    N: 4
+  M:
+    K: 1024
+    L: 512
+    M: 512
+    N: 16
+  L:
+    K: 2408
+    L: 1204
+    M: 1204
+    N: 18
+  XL:
+    K: 5662
+    L: 2830
+    M: 2830
+    N: 21
+init:
+  arrays:
+    A: (N, M, K)
+    B: (K, L)
+    out: (N, M, L)
+output_args:
+- out
+experiment_tags:
+- kernelbench

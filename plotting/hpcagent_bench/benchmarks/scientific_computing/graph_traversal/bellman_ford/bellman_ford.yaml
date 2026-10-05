@@ -1,0 +1,31 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Bellman-Ford
+level: 2
+parameters:
+  S:
+    N: 200
+  M:
+    N: 1200
+  L:
+    N: 2683
+  XL:
+    N: 6000
+init:
+  input_args:
+  - N
+  output_args:
+  - graph
+  - dist
+  func_name: initialize
+  arrays:
+    graph:
+      shape: (N, N)
+    dist:
+      shape: (N,)
+array_args:
+- graph
+- dist
+output_args:
+- dist
+experiment_tags:
+- graph_traversal

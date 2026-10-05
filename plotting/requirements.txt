@@ -1,0 +1,12 @@
+# What the vendored plotting layer imports, at the versions the test suite passed with
+# (Python 3.12, macOS arm64, 2026-10-03). HPCAgent-Bench itself requires Python >= 3.12.
+numpy==2.5.3
+scipy==1.18.1
+pandas==3.0.6
+matplotlib==3.11.2
+ml_dtypes==0.6.0
+PyYAML==6.0.3
+cffi==2.1.1
+sqlmodel==0.0.47
+# tests only
+pytest==9.1.1

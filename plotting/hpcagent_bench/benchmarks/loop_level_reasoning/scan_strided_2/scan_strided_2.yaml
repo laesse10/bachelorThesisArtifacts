@@ -1,0 +1,22 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Scan, Stride 2
+level: 1
+parameters:
+  S:
+    LEN_1D: 512
+  M:
+    LEN_1D: 95000000
+  L:
+    LEN_1D: 157277866
+  XL:
+    LEN_1D: 260382392
+init:
+  arrays:
+    a: (LEN_1D,)
+    x: (LEN_1D,)
+output_args:
+- a
+chain_length:
+  a: LEN_1D
+loop_level_reasoning:
+  source: tsvc_2_5

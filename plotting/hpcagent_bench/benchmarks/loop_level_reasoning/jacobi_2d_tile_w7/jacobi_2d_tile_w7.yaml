@@ -1,0 +1,25 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Jacobi 2D, Width-7 Tiles
+level: 2
+parameters:
+  S:
+    N: 64
+    TSTEPS: 20
+  M:
+    N: 1942
+    TSTEPS: 20
+  L:
+    N: 3450
+    TSTEPS: 20
+  XL:
+    N: 6129
+    TSTEPS: 20
+init:
+  arrays:
+    A: (N,N)
+    B: (N,N)
+output_args:
+- A
+- B
+loop_level_reasoning:
+  source: adversarial_tile

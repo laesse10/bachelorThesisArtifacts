@@ -1,0 +1,22 @@
+# HPCAgent-Bench benchmark manifest (KernelBench port).
+name: Symmetric MatMul
+func_name: matmul_for_symmetric_matrices
+level: 1
+parameters:
+  S:
+    N: 4
+  M:
+    N: 2048
+  L:
+    N: 4842
+  XL:
+    N: 11447
+init:
+  arrays:
+    A: (N, N)
+    B: (N, N)
+    out: (N, N)
+output_args:
+- out
+experiment_tags:
+- kernelbench

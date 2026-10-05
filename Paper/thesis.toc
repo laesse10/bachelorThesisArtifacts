@@ -3,63 +3,55 @@
 \contentsline {chapter}{Contents}{iii}{chapter*.3}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Research Questions}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Contributions}{1}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Thesis Outline}{1}{section.1.4}%
+\contentsline {section}{\numberline {1.2}Research Questions and Contributions}{1}{section.1.2}%
 \contentsline {chapter}{\chapternumberline {2}Background}{2}{chapter.2}%
 \contentsline {section}{\numberline {2.1}HPCAgent-Bench}{2}{section.2.1}%
-\contentsline {section}{\numberline {2.2}The Berkeley Dwarfs}{2}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Compiler Auto-Vectorization and Loop-Level Reasoning}{2}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Floating-Point Semantics and Compiler Flags}{2}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Code Representations}{2}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Iterative Solvers and Preconditioning}{2}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Agent Skills}{2}{section.2.7}%
-\contentsline {chapter}{\chapternumberline {3}Measurement Methodology}{3}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Platform and Toolchain}{3}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Protocol}{3}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Statistics and Noise}{3}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Threats to Validity}{3}{section.3.4}%
-\contentsline {chapter}{\chapternumberline {4}Language Comparison on LLR-40}{4}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Kernels and Representations}{4}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Coverage and Correctness}{4}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Performance Across Representations}{4}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Per-Class Findings}{4}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Outliers}{4}{section.4.5}%
-\contentsline {chapter}{\chapternumberline {5}Extracted Application Kernels}{5}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Selection by Berkeley Dwarf}{5}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Porting Methodology}{5}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Kernel Descriptions}{5}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Manifest Design Decisions}{5}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Validation Against Upstream}{5}{section.5.5}%
-\contentsline {chapter}{\chapternumberline {6}Language Comparison on the Extracted Kernels}{6}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Setup}{6}{section.6.1}%
-\contentsline {section}{\numberline {6.2}How These Kernels Differ from LLR-40}{6}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Coverage and Correctness}{6}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Performance}{6}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Comparison with LLR-40}{6}{section.6.5}%
-\contentsline {chapter}{\chapternumberline {7}The Solver Subtrack and the Preconditioning Skill}{7}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Test Kernels}{7}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Grading Versus Convergence}{7}{section.7.2}%
-\contentsline {section}{\numberline {7.3}The Freedom Verdict}{7}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Making a Frozen Preconditioner Fast}{7}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Skill Design}{7}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Evaluation of the Skill}{7}{section.7.6}%
-\contentsline {chapter}{\chapternumberline {8}Extending the CloudSC Loop-Nest Analysis}{8}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Prior Results}{8}{section.8.1}%
-\contentsline {section}{\numberline {8.2}What Was Left Open}{8}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Extended Setup}{8}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Results}{8}{section.8.4}%
-\contentsline {section}{\numberline {8.5}Implications for DaCe Code Generation}{8}{section.8.5}%
-\contentsline {chapter}{\chapternumberline {9}Discussion}{9}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Representation, Compiler or Algorithm?}{9}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Vectorizing Is Not the Same as Being Fast}{9}{section.9.2}%
-\contentsline {section}{\numberline {9.3}What Elementwise Grading Permits}{9}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Limitations}{9}{section.9.4}%
-\contentsline {chapter}{\chapternumberline {10}Conclusion}{10}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Summary}{10}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Future Work}{10}{section.10.2}%
-\contentsline {chapter}{Bibliography}{11}{chapter*.5}%
-\contentsline {chapter}{LLR-40 Full Results}{12}{chapter*.7}%
-\contentsline {chapter}{Extracted Kernel Catalogue}{13}{chapter*.9}%
-\contentsline {chapter}{Solver-Preconditioners Skill}{14}{chapter*.11}%
-\contentsline {chapter}{Reproducibility}{15}{chapter*.13}%
+\contentsline {section}{\numberline {2.2}Compilers, Languages and Code Generation}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Iterative Solvers and Preconditioning}{2}{section.2.3}%
+\contentsline {chapter}{\chapternumberline {3}Extracted Application Kernels}{3}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Selection}{3}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Kernel Descriptions}{5}{section.3.2}%
+\contentsline {paragraph}{CoMet INT4 GEMM.}{5}{section*.4}%
+\contentsline {paragraph}{QuaTrEx RGF selected solve.}{5}{section*.5}%
+\contentsline {paragraph}{Boolean SpGEMM with hash accumulation.}{6}{section*.6}%
+\contentsline {paragraph}{WarpX profile.}{6}{section*.7}%
+\contentsline {paragraph}{WarpX Boris push.}{6}{section*.8}%
+\contentsline {paragraph}{WarpX Esirkepov current deposition.}{6}{section*.9}%
+\contentsline {paragraph}{WarpX field gather.}{7}{section*.10}%
+\contentsline {paragraph}{Triangle counting.}{7}{section*.11}%
+\contentsline {paragraph}{NFA frontier simulation.}{7}{section*.12}%
+\contentsline {section}{\numberline {3.3}Design Decisions and Validation}{8}{section.3.3}%
+\contentsline {paragraph}{Native references.}{8}{section*.13}%
+\contentsline {paragraph}{Problem sizes.}{8}{section*.14}%
+\contentsline {paragraph}{Pinned configuration.}{8}{section*.15}%
+\contentsline {paragraph}{Validation.}{8}{section*.16}%
+\contentsline {chapter}{\chapternumberline {4}Loop-Transformation Kernels}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Kernel Set}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Transformation Classes}{11}{section.4.2}%
+\contentsline {chapter}{\chapternumberline {5}Agent Skills}{12}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kernel-Extraction Skill}{12}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Solver-Preconditioning Skill}{12}{section.5.2}%
+\contentsline {chapter}{\chapternumberline {6}Evaluation}{13}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Experimental Setup}{13}{section.6.1}%
+\contentsline {paragraph}{Platform.}{13}{section*.17}%
+\contentsline {paragraph}{Toolchain and flags.}{13}{section*.18}%
+\contentsline {paragraph}{Representations.}{13}{section*.19}%
+\contentsline {paragraph}{Protocol.}{14}{section*.20}%
+\contentsline {paragraph}{Statistics.}{14}{section*.21}%
+\contentsline {paragraph}{Reproducibility.}{14}{section*.22}%
+\contentsline {section}{\numberline {6.2}Language Comparison}{14}{section.6.2}%
+\contentsline {paragraph}{The language matters little on a shared backend.}{14}{section*.23}%
+\contentsline {paragraph}{The large gaps are individual code-generation decisions.}{16}{section*.24}%
+\contentsline {paragraph}{Numba's results are LLVM's.}{16}{section*.25}%
+\contentsline {paragraph}{No compiler restructures; the agents do.}{17}{section*.26}%
+\contentsline {paragraph}{Agent code carries its target machine.}{17}{section*.27}%
+\contentsline {paragraph}{Vectorising is not the same as being fast.}{17}{section*.28}%
+\contentsline {paragraph}{Floating-point contraction decides correctness.}{17}{section*.29}%
+\contentsline {section}{\numberline {6.3}Skill Evaluation}{18}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Discussion}{18}{section.6.4}%
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{19}{chapter.7}%
+\contentsline {chapter}{Bibliography}{20}{chapter*.31}%
+\contentsline {chapter}{Full Measurement Results}{23}{chapter*.33}%
+\contentsline {chapter}{Extracted Kernel Catalogue}{25}{chapter*.35}%
+\contentsline {chapter}{Skill Texts}{26}{chapter*.37}%
+\contentsline {chapter}{Reproducibility}{27}{chapter*.39}%

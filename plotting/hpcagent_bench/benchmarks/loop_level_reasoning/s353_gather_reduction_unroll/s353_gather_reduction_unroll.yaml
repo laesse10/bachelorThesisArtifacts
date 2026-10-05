@@ -1,0 +1,24 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: TSVC s353, Gather Reduction
+level: 1
+parameters:
+  S:
+    N: 1024
+  M:
+    N: 33554432
+  L:
+    N: 55525355
+  XL:
+    N: 91882498
+init:
+  arrays:
+    ip:
+      shape: (N,)
+      dtype: int64
+      index_array: true
+    a: (N,)
+    b: (1,)
+output_args:
+- b
+loop_level_reasoning:
+  source: adversarial_unroll

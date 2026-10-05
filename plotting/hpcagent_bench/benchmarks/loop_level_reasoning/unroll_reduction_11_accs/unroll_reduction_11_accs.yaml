@@ -1,0 +1,20 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Reduction, 11 Accumulators
+level: 1
+parameters:
+  S:
+    N: 1024
+  M:
+    N: 250000000
+  L:
+    N: 360820171
+  XL:
+    N: 520764783
+init:
+  arrays:
+    a: (N,)
+    out: (1,)
+output_args:
+- out
+loop_level_reasoning:
+  source: adversarial_unroll

@@ -1,0 +1,20 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Safety Case, Map of Scans
+level: 1
+parameters:
+  S:
+    LEN_2D: 64
+  M:
+    LEN_2D: 11265
+  L:
+    LEN_2D: 13482
+  XL:
+    LEN_2D: 16136
+init:
+  arrays:
+    a: (LEN_2D,LEN_2D)
+    b: (LEN_2D,LEN_2D)
+output_args:
+- b
+loop_level_reasoning:
+  source: tsvc_2_5

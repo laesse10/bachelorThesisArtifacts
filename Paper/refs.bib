@@ -1,9 +1,13 @@
+% Verified online on 2026-10-02. Keys used in the text are unchanged.
+
 @misc{bonsall2026dace,
   title  = {Evaluating the Auto-Vectorization Amenability of {DaCe}-Generated Code},
-  author = {Bonsall, Alexander Vali and Budanaz, Yakup},
+  author = {Bonsall, Alexander Vali and Budanaz, Yakup Koray},
   year   = {2026},
   note   = {Semester project, ETH Zurich}
 }
+
+% ---------------------------------------------------------------- vectorization
 
 @inproceedings{callahan1988tsvc,
   title     = {Vectorizing Compilers: A Test Suite and Results},
@@ -18,7 +22,8 @@
   author    = {Maleki, Saeed and Gao, Yaoqing and Garzar{\'a}n, Mar{\'\i}a J. and Wong, Tommy and Padua, David A.},
   booktitle = {Proceedings of the 2011 International Conference on Parallel Architectures and Compilation Techniques (PACT)},
   pages     = {372--382},
-  year      = {2011}
+  year      = {2011},
+  doi       = {10.1109/PACT.2011.68}
 }
 
 @misc{tsvc2,
@@ -42,13 +47,168 @@
   volume  = {16},
   number  = {4},
   pages   = {40:1--40:23},
-  year    = {2019}
+  year    = {2019},
+  doi     = {10.1145/3356842}
 }
 
 @techreport{asanovic2006landscape,
   title       = {The Landscape of Parallel Computing Research: A View from {Berkeley}},
-  author      = {Asanovi{\'c}, Krste and Bodik, Ras and Catanzaro, Bryan Christopher and Gebis, Joseph James and Husbands, Parry and Keutzer, Kurt and Patterson, David A. and Plishker, William Lester and Shalf, John and Williams, Samuel Webb and Yelick, Katherine A.},
+  author      = {Asanovi{\'c}, Krste and Bodik, Rastislav and Catanzaro, Bryan and Gebis, Joseph and Husbands, Parry and Keutzer, Kurt and Patterson, David and Plishker, William and Shalf, John and Williams, Samuel and Yelick, Katherine},
   institution = {EECS Department, University of California, Berkeley},
   number      = {UCB/EECS-2006-183},
   year        = {2006}
+}
+
+% ---------------------------------------------------------------- benchmark
+
+@misc{hpcagentbench,
+  title        = {{HPCAgent-Bench}},
+  author       = {{SPCL, ETH Zurich}},
+  howpublished = {\url{https://github.com/spcl/HPCAgent-Bench}}
+}
+
+% ---------------------------------------------------------------- extracted kernels: codes
+
+@misc{comet,
+  title        = {{CoMet}},
+  author       = {{Oak Ridge National Laboratory}},
+  howpublished = {\url{https://github.com/wdj/comet}}
+}
+
+@article{joubert2019ccc,
+  title   = {Parallel Accelerated Custom Correlation Coefficient Calculations for Genomics Applications},
+  author  = {Joubert, Wayne and Nance, James and Climer, Sharlee and Weighill, Deborah and Jacobson, Daniel},
+  journal = {Parallel Computing},
+  volume  = {84},
+  pages   = {15--23},
+  year    = {2019},
+  doi     = {10.1016/j.parco.2019.02.003}
+}
+
+@misc{quatrex,
+  title        = {{QuaTrEx}},
+  author       = {{Computational Nanoelectronics Group, ETH Zurich}},
+  howpublished = {\url{https://github.com/quatrex/quatrex}}
+}
+
+@inproceedings{vetsch2025quatrex,
+  title     = {Ab-initio Quantum Transport with the {GW} Approximation, 42,240 Atoms, and Sustained Exascale Performance},
+  author    = {Vetsch, Nicolas and Maeder, Alexander and Maillou, Vincent and Winka, Anders and Cao, Jiang and Kwasniewski, Grzegorz and Deuschle, Leonard and Hoefler, Torsten and Ziogas, Alexandros Nikolaos and Luisier, Mathieu},
+  booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC '25)},
+  pages     = {1--13},
+  year      = {2025},
+  doi       = {10.1145/3712285.3771784}
+}
+
+@misc{spbench,
+  title        = {{SpBench}: Sparse Boolean Linear Algebra Libraries Benchmark},
+  author       = {Orachyov, Egor},
+  howpublished = {\url{https://github.com/EgorOrachyov/SpBench}}
+}
+
+@misc{cubool,
+  title        = {{cuBool}: Sparse {Boolean} Linear Algebra for {Nvidia} {Cuda}},
+  author       = {Orachyov, Egor and Alimov, Pavel and Grigorev, Semyon},
+  year         = {2021},
+  howpublished = {\url{https://github.com/JetBrains-Research/cuBool}},
+  note         = {Version 1.2.0}
+}
+
+@misc{warpx,
+  title        = {{WarpX}: An Advanced Particle-In-Cell Code},
+  author       = {Vay, Jean-Luc and others},
+  year         = {2018},
+  doi          = {10.5281/zenodo.4571577},
+  howpublished = {\url{https://blast-warpx.github.io}}
+}
+
+@misc{graphaibench,
+  title        = {{GraphAIBench}: A Benchmark Suite for Graph Machine Learning},
+  author       = {Chen, Xuhao},
+  howpublished = {\url{https://github.com/chenxuhao/GraphAIBench}}
+}
+
+@article{chen2020pangolin,
+  title   = {Pangolin: An Efficient and Flexible Graph Mining System on {CPU} and {GPU}},
+  author  = {Chen, Xuhao and Dathathri, Roshan and Gill, Gurbinder and Pingali, Keshav},
+  journal = {Proceedings of the VLDB Endowment},
+  volume  = {13},
+  number  = {8},
+  year    = {2020}
+}
+
+@techreport{vasim,
+  title       = {{VASim}: An Open Virtual Automata Simulator for Automata Processing Application and Architecture Research},
+  author      = {Wadden, Jack and Skadron, Kevin},
+  institution = {University of Virginia},
+  number      = {CS2016-03},
+  year        = {2016}
+}
+
+@inproceedings{wadden2016anmlzoo,
+  title     = {{ANMLZoo}: A Benchmark Suite for Exploring Bottlenecks in Automata Processing Engines and Architectures},
+  author    = {Wadden, Jack and Dang, Vinh and Brunelle, Nathan and others},
+  booktitle = {2016 IEEE International Symposium on Workload Characterization (IISWC)},
+  pages     = {1--12},
+  year      = {2016}
+}
+
+% ---------------------------------------------------------------- extracted kernels: algorithms
+
+@inproceedings{nagasaka2017nsparse,
+  title     = {High-Performance and Memory-Saving Sparse General Matrix-Matrix Multiplication for {NVIDIA} {Pascal} {GPU}},
+  author    = {Nagasaka, Yusuke and Nukada, Akira and Matsuoka, Satoshi},
+  booktitle = {46th International Conference on Parallel Processing (ICPP)},
+  pages     = {101--110},
+  year      = {2017}
+}
+
+@article{svizhenko2002rgf,
+  title   = {Two-Dimensional Quantum Mechanical Modeling of Nanotransistors},
+  author  = {Svizhenko, A. and Anantram, M. P. and Govindan, T. R. and Biegel, B. and Venugopal, R.},
+  journal = {Journal of Applied Physics},
+  volume  = {91},
+  number  = {4},
+  pages   = {2343--2354},
+  year    = {2002},
+  doi     = {10.1063/1.1432117}
+}
+
+@inproceedings{boris1970,
+  title     = {Relativistic Plasma Simulation -- Optimization of a Hybrid Code},
+  author    = {Boris, Jay P.},
+  booktitle = {Proceedings of the Fourth Conference on Numerical Simulation of Plasmas},
+  publisher = {Naval Research Laboratory},
+  pages     = {3--67},
+  year      = {1970}
+}
+
+@article{esirkepov2001,
+  title   = {Exact Charge Conservation Scheme for Particle-in-Cell Simulation with an Arbitrary Form-Factor},
+  author  = {Esirkepov, T. Zh.},
+  journal = {Computer Physics Communications},
+  volume  = {135},
+  number  = {2},
+  pages   = {144--153},
+  year    = {2001},
+  doi     = {10.1016/S0010-4655(00)00228-9}
+}
+
+@article{myers2021warpx,
+  title   = {Porting {WarpX} to {GPU}-Accelerated Platforms},
+  author  = {Myers, A. and Almgren, A. and Amorim, L. D. and Bell, J. and Fedeli, L. and Ge, L. and Gott, K. and Grote, D. P. and Hogan, M. and Huebl, A. and Jambunathan, R. and Lehe, R. and Ng, C. and Rowan, M. and Shapoval, O. and Th{\'e}venet, M. and Vay, J.-L. and Vincenti, H. and Yang, E. and Za{\"\i}m, N. and Zhang, W. and Zhao, Y. and Zoni, E.},
+  journal = {Parallel Computing},
+  volume  = {108},
+  pages   = {102833},
+  year    = {2021},
+  doi     = {10.1016/j.parco.2021.102833}
+}
+
+@inproceedings{hoefler2015benchmarking,
+  title     = {Scientific Benchmarking of Parallel Computing Systems: Twelve Ways to Tell the Masses When Reporting Performance Results},
+  author    = {Hoefler, Torsten and Belli, Roberto},
+  booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC '15)},
+  pages     = {73:1--73:12},
+  year      = {2015},
+  doi       = {10.1145/2807591.2807644}
 }

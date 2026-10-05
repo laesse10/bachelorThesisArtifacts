@@ -1,0 +1,67 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: MINRES Method
+level: 2
+parameters:
+  S:
+    N: 2048
+    nnz: 409600
+  M:
+    N: 25000
+    nnz: 5000000
+  L:
+    N: 619113
+    nnz: 34451729
+  XL:
+    N: 15332043
+    nnz: 237384327
+config:
+  max_iter: {value: 100, selects: iteration}
+init:
+  input_args:
+  - N
+  - nnz
+  output_args:
+  - A
+  - b
+  - x
+  arrays:
+    b: (N,)
+    x: (N,)
+  func_name: initialize
+array_args:
+- A
+- b
+- x
+output_args:
+- x
+sparse_layouts:
+  A:
+    logical_shape:
+    - N
+    - N
+    default_dtype: float64
+    variants:
+      csr:
+        buffers:
+        - role: indptr
+          name: A_indptr
+          shape:
+          - N + 1
+          dtype: int64
+        - role: indices
+          name: A_indices
+          shape:
+          - nnz
+          dtype: int64
+        - role: data
+          name: A_data
+          shape:
+          - nnz
+          dtype: float64
+configurations:
+  csr:
+    A: csr
+_note_concurrency: 'Iterative Krylov-subspace solver for symmetric (possibly indefinite) systems -- inherently
+  single-core: each step uses the previous residual. Suitable only for serial / sequential ports.'
+experiment_tags:
+- sparse

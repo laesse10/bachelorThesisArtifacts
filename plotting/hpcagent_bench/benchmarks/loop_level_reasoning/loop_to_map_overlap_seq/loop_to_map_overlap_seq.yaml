@@ -1,0 +1,20 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Overlapping Sequential Loop
+level: 1
+parameters:
+  S:
+    LEN_1D: 512
+  M:
+    LEN_1D: 100000000
+  L:
+    LEN_1D: 161363686
+  XL:
+    LEN_1D: 260382392
+init:
+  arrays:
+    a: (LEN_1D,)
+    b: (LEN_1D,)
+output_args:
+- a
+loop_level_reasoning:
+  source: tsvc_2_5

@@ -1,0 +1,24 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: TSVC s353, 2D Row Unroll
+level: 1
+parameters:
+  S:
+    N: 128
+  M:
+    N: 10241
+  L:
+    N: 12855
+  XL:
+    N: 16136
+init:
+  arrays:
+    ip:
+      shape: (N,)
+      dtype: int64
+      index_array: true
+    a: (N,N)
+    b: (N,N)
+output_args:
+- b
+loop_level_reasoning:
+  source: adversarial_unroll

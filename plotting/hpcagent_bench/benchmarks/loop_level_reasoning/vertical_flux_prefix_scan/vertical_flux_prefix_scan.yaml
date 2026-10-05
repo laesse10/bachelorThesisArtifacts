@@ -1,0 +1,24 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Vertical Flux Prefix Scan
+level: 1
+parameters:
+  S:
+    N: 16
+    K: 16
+  M:
+    N: 1310721
+    K: 90
+  L:
+    N: 2339472
+    K: 75
+  XL:
+    N: 4175662
+    K: 62
+init:
+  arrays:
+    fall: (N,K)
+    flux: (N,K)
+output_args:
+- flux
+loop_level_reasoning:
+  source: canonicalization

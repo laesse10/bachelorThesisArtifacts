@@ -1,0 +1,25 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Indirect 3-Neighbor Gather
+level: 1
+parameters:
+  S:
+    N: 16
+  M:
+    N: 20971521
+  L:
+    N: 36947986
+  XL:
+    N: 65095598
+init:
+  arrays:
+    field: (N,)
+    idx:
+      shape: (N,3)
+      dtype: int64
+      index_array: true
+    w: (N,3)
+    out: (N,)
+output_args:
+- out
+loop_level_reasoning:
+  source: canonicalization

@@ -1,0 +1,29 @@
+# HPCAgent-Bench benchmark manifest (KernelBench port).
+name: Log-Softmax
+func_name: log_softmax
+level: 1
+parameters:
+  S:
+    batch_size: 4
+    dim: 1
+    dim1: 8
+  M:
+    batch_size: 12288
+    dim: 1
+    dim1: 16384
+  L:
+    batch_size: 22039
+    dim: 1
+    dim1: 10389
+  XL:
+    batch_size: 39528
+    dim: 1
+    dim1: 6587
+init:
+  arrays:
+    x: (batch_size, dim1)
+    out: (batch_size, dim1)
+output_args:
+- out
+experiment_tags:
+- kernelbench

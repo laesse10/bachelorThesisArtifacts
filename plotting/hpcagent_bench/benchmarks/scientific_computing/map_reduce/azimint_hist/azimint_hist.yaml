@@ -1,0 +1,57 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Azimuthal Integration, Hist
+level: 2
+parameters:
+  S:
+    N: 400000
+    npt: 1000
+  M:
+    N: 100000000
+    npt: 1000
+  L:
+    N: 161363531
+    npt: 1000
+  XL:
+    N: 260381892
+    npt: 1000
+  fuzzed:
+    N:
+    - 1000000
+    - 4000000
+    npt: 1000
+init:
+  input_args:
+  - N
+  - npt
+  output_args:
+  - data
+  - radius
+  - out
+  func_name: initialize
+  arrays:
+    data:
+      shape: (N,)
+    radius:
+      shape: (N,)
+    out:
+      shape: (npt,)
+array_args:
+- data
+- radius
+- out
+output_args:
+- out
+mpi:
+  decomposition:
+    axis:
+    - N
+    work_exponent: 1
+  arrays:
+    data:
+    - N
+    radius:
+    - N
+experiment_tags:
+- npbench
+- mpi-focus32
+- azimint_hist

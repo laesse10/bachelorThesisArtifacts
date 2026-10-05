@@ -1,0 +1,67 @@
+HPC Kernel Extraction Workflow
+Goal
+Extract a representative computational kernel from a production HPC application and adapt it into a standalone benchmark suitable for translation and numerical validation.
+1. Build the application
+	•	Compile with release optimizations.
+	•	Disable unnecessary features if appropriate (MPI, GPU, etc.).
+	•	Keep debug symbols for profiling.
+2. Select a representative workload
+	•	Choose an input representative of real production use.
+	•	Minimize runtime while preserving dominant computational behaviour.
+3. Configure execution
+	•	Record compiler flags and environment.
+	•	Configure OpenMP, MPI and BLAS thread counts.
+	•	Benchmark using multiple thread counts (e.g. 1, 2, 4, 8, ...).
+	•	Record execution time for each configuration.
+4. Profile execution
+	•	Linux: perf
+	•	macOS: Instruments / xctrace
+	•	Profile representative thread configurations.
+	•	Identify dominant hotspots.
+	•	Ignore initialization and I/O where appropriate.
+5. Analyze scalability
+	•	Compare hotspot rankings across thread counts.
+	•	Note functions whose relative cost increases with parallelism.
+	•	Choose a profiling configuration representative of the intended workload.
+6. Trace the call hierarchy
+	•	Follow the hottest functions upward.
+	•	Distinguish application logic from library calls.
+	•	Determine where meaningful application-specific computation begins.
+7. Choose an extraction boundary
+The boundary should:
+	•	represent application-level logic
+	•	include surrounding computation
+	•	avoid extracting only a library routine
+	•	preserve the mathematical algorithm
+8. Understand the algorithm
+Document:
+	•	mathematical operations
+	•	inputs and outputs
+	•	data structures
+	•	iteration structure
+	•	convergence criteria
+9. Design the standalone benchmark
+Replace infrastructure (MPI, DBCSR, etc.) with deterministic local implementations while preserving numerical behaviour.
+10. Implement the NumPy version
+	•	deterministic initialization
+	•	explicit loops where appropriate
+	•	translator-compatible constructs
+11. Create reference implementations
+	•	C
+	•	C++
+	•	Fortran
+12. Create the YAML manifest
+	•	presets
+	•	taxonomy
+	•	inputs
+	•	outputs
+	•	metadata
+13. Validate
+	•	benchmark-local tests
+	•	numerical reference tests
+	•	e2e backend tests
+	•	translator compatibility
+14. Review
+	•	compare against upstream implementation
+	•	verify mathematical fidelity
+	•	document simplifications

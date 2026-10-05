@@ -1,0 +1,22 @@
+# HPCAgent-Bench benchmark manifest (KernelBench port).
+name: Lower-Triangular MatMul
+func_name: matmul_for_lower_triangular_matrices
+level: 1
+parameters:
+  S:
+    M: 5
+  M:
+    M: 2048
+  L:
+    M: 5194
+  XL:
+    M: 13175
+init:
+  arrays:
+    A: (M, M)
+    B: (M, M)
+    out: (M, M)
+output_args:
+- out
+experiment_tags:
+- kernelbench

@@ -1,42 +1,281 @@
 \chapter{Extracted Application Kernels}
 \label{ch:extracted}
 % Data: extracted_kernels_lars/ (copied from HPCAgent-Bench origin/main 299e23df7).
-% Extracted with the procedure of the kernel-extraction skill (Chapter skills).
+
+Benchmarks for loop optimisation are dominated by short, synthetic loops. They isolate one
+transformation each, which makes them good diagnostics, but they say little about the code
+that high-performance applications actually spend their time in. To complement the
+loop-transformation kernels of \Cref{ch:loop-kernels}, we extracted eight kernels from six
+production and research codes and added them to HPCAgent-Bench~\cite{hpcagentbench}. This
+chapter describes which kernels we chose and why, what each one computes, and how we
+established that each port is faithful to its upstream source. The extraction procedure
+itself, which we also wrote down as an agent skill, is the subject of \Cref{ch:skills}.
 
 \section{Selection}
-% Eight kernels from seven upstream codes, covering 6 of the 13 Berkeley dwarfs:
-%   1  Dense LA           comet_int4_gemm             CoMet (ORNL)        PR #18 (supersedes #16)
-%   2  Sparse LA          quatrex_rgf                 QuaTrEx (ETH)       PR #17
-%   2  Sparse LA          spgemm_hash                 SpBench / cuBool    PR #21
-%   4  N-Body             warpx_boris_push            WarpX               PR #11
-%   4  N-Body             warpx_esirkepov_deposition  WarpX               PR #11
-%   4  N-Body             warpx_field_gather          WarpX               PR #11
-%   9  Graph Traversal    triangle_count              GraphAIBench        PR #22
-%  13  FSM                nfa_frontier                ANMLZoo / VASim     PR #20
-% Why these: contrast with flat loop nests -- irregular access, scatter, set
-% intersection, bit manipulation, complex arithmetic, run-time dispatch.
-% Data types: int4/int32, int64, uint8, boolean, complex128; float64 only for WarpX.
+\label{sec:extracted-selection}
+
+We organised the selection by the thirteen computational patterns, or \emph{dwarfs}, of the
+Berkeley view on parallel computing~\cite{asanovic2006landscape}, which HPCAgent-Bench also
+uses to structure its scientific-computing track. The eight kernels cover six of the thirteen
+dwarfs (\Cref{tab:extracted-kernels}). Within a dwarf, we chose the hot spot of an
+application that is in active use, and we located it by profiling the application rather
+than by reading its source. \Cref{tab:profiles} summarises the profiles. Except for WarpX,
+which was profiled separately, every application was run on one GH200 node of CSCS Alps
+\texttt{daint}, with \texttt{perf} and DWARF call graphs for the host code and Nsight Systems
+for the GPU kernels; the raw reports are part of the artifact repository. For five of the six
+applications the profile points at a single region of code. QuaTrEx is the exception, and we
+discuss it with its kernel below.
+
+\begin{table}[t]
+  \centering
+  \small
+  \begin{tabular}{@{}lp{3.5cm}p{3.8cm}r@{}}
+    \toprule
+    Application & Profiled workload & Hot spot & Share \\
+    \midrule
+    CoMet          & 2-way CCC, 24\,000 vectors $\times$ 40\,000 fields & CUTLASS INT4 GEMM & 99.7\% GPU \\
+    QuaTrEx        & carbon-nanotube GW, 100 energies, 4 iterations (CPU backend) & ZGEMM, incl.\ the RGF block products & $\approx$40\% CPU \\
+    SpBench/cuBool & $C = A A$ on five SuiteSparse graphs & row analysis and binning & 55.1\% GPU \\
+                   &                                     & hash count and fill     & 44.6\% GPU \\
+    WarpX          & 3D plasma, $256^3$ cells, 537\,M particles, 500 steps & field gather (in \texttt{PushPX}) & $\le$42.7\% \\
+                   &                                     & current deposition      & 40.8\% \\
+                   &                                     & Boris push              & 8.7\% \\
+    GraphAIBench   & triangle counting on com-Orkut       & \texttt{triangle\_bs\_warp\_edge} & 100\% GPU \\
+    VASim          & Brill, EntityResolution, Fermi automata & per-symbol simulation step & $>$99\% CPU \\
+    \bottomrule
+  \end{tabular}
+  \caption{Hot spots of the upstream applications. GPU shares are fractions of GPU kernel
+    time (Nsight Systems), CPU shares fractions of sampled self time (\texttt{perf}).}
+  \label{tab:profiles}
+\end{table}
+
+\begin{table}[t]
+  \centering
+  \small
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    Kernel & Upstream & Data type \\
+    \midrule
+    \multicolumn{3}{@{}l}{\emph{Dense linear algebra}} \\
+    \quad\texttt{comet\_int4\_gemm}  & CoMet~\cite{comet,joubert2019ccc}         & int4 $\to$ int32 \\
+    \multicolumn{3}{@{}l}{\emph{Sparse linear algebra}} \\
+    \quad\texttt{quatrex\_rgf}       & QuaTrEx~\cite{quatrex,vetsch2025quatrex}     & complex128 \\
+    \quad\texttt{spgemm\_hash}       & SpBench/cuBool~\cite{spbench,cubool} & int64 (Boolean) \\
+    \multicolumn{3}{@{}l}{\emph{N-body methods}} \\
+    \quad\texttt{warpx\_boris\_push} & WarpX~\cite{warpx}         & float64 \\
+    \quad\texttt{warpx\_esirkepov\_deposition} & WarpX            & float64 \\
+    \quad\texttt{warpx\_field\_gather} & WarpX                    & float64 \\
+    \multicolumn{3}{@{}l}{\emph{Graph traversal}} \\
+    \quad\texttt{triangle\_count}    & GraphAIBench~\cite{graphaibench,chen2020pangolin} & int64 \\
+    \multicolumn{3}{@{}l}{\emph{Finite-state machines}} \\
+    \quad\texttt{nfa\_frontier}      & ANMLZoo/VASim~\cite{wadden2016anmlzoo,vasim} & uint8, int64 \\
+    \bottomrule
+  \end{tabular}
+  \caption{The eight extracted kernels, grouped by Berkeley dwarf.}
+  \label{tab:extracted-kernels}
+\end{table}
+
+The kernels were chosen to differ from the loop-transformation kernels along three axes.
+First, \emph{access patterns}: they include a scatter with colliding writes, hash-table
+insertion, binary search over adjacency lists and a worklist recurrence, none of which is an
+affine loop nest. Second, \emph{data types}: only the three WarpX kernels compute in
+\texttt{float64}; the others work on 2-bit integer codes, 64-bit indices, bytes or
+\texttt{complex128}. Third, \emph{control flow}: several kernels dispatch at run time on the
+problem configuration or branch on the data itself. The loop-transformation kernels share
+none of these properties, so the two sets together test whether a statement about code
+representations holds beyond flat floating-point loops.
 
 \section{Kernel Descriptions}
-% One paragraph per kernel: mathematics, upstream hot spot, what is graded.
-% comet_int4_gemm: 2-bit CCC codes, popcount planes, int32 accumulation, bit-exact.
-% quatrex_rgf: selected inversion of a block-tridiagonal system, complex128,
-%   O(NB*BS^3) two-pass recurrence per energy point.
-% spgemm_hash: boolean (OR,AND) SpGEMM in CSR, five upstream phases (row analysis,
-%   binning, hash count, hash fill, sort); cost is de-duplication, not arithmetic.
-% warpx_boris_push: relativistic Boris rotation, Full/FirstHalf/SecondHalf branches.
-% warpx_esirkepov_deposition: charge-conserving current deposition (scatter-add).
-% warpx_field_gather: shape-function interpolation of Yee-grid E/B onto particles.
-% triangle_count: degree-ordered DAG, edge-parallel two-phase binary-search intersection.
-% nfa_frontier: homogeneous NFA over a byte stream, one component per work item.
+\label{sec:extracted-descriptions}
+
+Each kernel consists of a NumPy reference, which is the correctness oracle, an input
+generator, a manifest declaring problem sizes and graded outputs, and a native reference
+kept for provenance. We describe each kernel by what it computes, where the upstream
+boundary was drawn, and what was deliberately left out.
+
+\paragraph{CoMet INT4 GEMM.}
+CoMet computes pairwise comparison metrics between genomic vectors. Its CCC metric reduces to
+a tensor-core GEMM over 2-bit field codes: for every pair of vectors $(i, j)$ and every
+$(e_i, e_j) \in \{0,1\}^2$,
+\[
+  \mathit{out}_{i,j,e_i,e_j} = \sum_{f} c_{e_i}(L_{i,f})\, c_{e_j}(R_{j,f}),
+\]
+where $c_1(v) = \operatorname{popcount}(v)$ and $c_0(v) = 2 - c_1(v)$. The kernel keeps this mathematical contract and drops what has no CPU equivalent: the
+tensor-core tiling, the MPI runtime, and two adjacent GPU kernels that repack operands and
+undo a tiling-only row permutation (about 0.1\% of GPU time each). The output is
+accumulated in \texttt{int32} and graded bit-exactly.
+
+\paragraph{QuaTrEx RGF selected solve.}
+QuaTrEx simulates quantum transport with non-equilibrium Green's functions. Its core is the
+recursive Green's function (RGF) algorithm~\cite{svizhenko2002rgf}, which computes the
+block-tridiagonal entries of $X^r = A^{-1}$ and of $X^{\lessgtr} = A^{-1} S^{\lessgtr} A^{-H}$
+for a block-tridiagonal $A$ without forming the dense inverse. This reduces the cost from
+$\mathcal{O}((N_B B)^3)$ to $\mathcal{O}(N_B B^3)$ for $N_B$ blocks of size $B$. The algorithm
+is a forward and a backward recurrence over the blocks, repeated independently for every
+energy point; the energy axis is therefore embarrassingly parallel, while the block axis is
+strictly sequential. We transcribed \texttt{RGF.selected\_solve} with six simplifications,
+each recorded in the kernel's documentation: contact self-energies are pre-folded into the
+supplied blocks, both triangles of the output are written, the current is not computed,
+energy batching (a memory-allocation strategy) is dropped, block sizes are uniform, and the
+batched inverse becomes one inverse per block.
+
+Unlike the other applications, QuaTrEx has no single hot spot. With the CPU backend, about
+40\% of a carbon-nanotube GW run is spent in complex matrix multiplication (ZGEMM), the
+operation the RGF recurrence consists of. The profile resolves only native frames, however,
+so it cannot attribute these products to the RGF solve rather than to other matrix products
+in the GW loop. The eigensolve of the open-boundary conditions and the FFT-based GW
+convolution take about 9\% each. With the GPU backend, no kernel exceeds 8.6\% of GPU time
+among about 280\,000 launches, and the host side is dominated by the same eigensolve. We
+extracted the RGF solve because it is the algorithmic core of the transport calculation, not
+because the profile isolates it.
+
+\paragraph{Boolean SpGEMM with hash accumulation.}
+The kernel computes $C = AB$ over the Boolean $(\lor, \land)$ semiring for matrices in CSR
+format, the operation behind cuBool~\cite{cubool}, which uses the nsparse
+algorithm~\cite{nagasaka2017nsparse}. Row $i$ of $C$ is the union of the rows of $B$ selected
+by row $i$ of $A$, so the cost lies in de-duplicating that union, not in arithmetic. Upstream
+computes it in five phases: an upper bound on each row's size, binning of rows by that
+bound, a symbolic phase that counts distinct columns in a per-row hash table, a scan, and a
+numeric phase that refills the hash tables and sorts each with a bitonic network. Profiling
+cuBool on five SuiteSparse graphs attributes 55.1\% of GPU time to row analysis and binning
+and 44.6\% to the two hash phases, so we ported all five phases rather than only the hashing.
+We left out the path for rows with more than 4096 products. The segmented sort it ends in
+takes 0.1\% of GPU time, and the path is also incorrect: it appends products without
+removing duplicates, so on the \texttt{web-Google} graph the one row that takes it holds 3819
+duplicate column indices.
+
+\paragraph{WarpX profile.}
+WarpX is a particle-in-cell code for plasma and accelerator physics. To decide which of its
+kernels to extract, we profiled a 3D uniform-plasma run with \texttt{perf}, using inputs
+scaled from the WarpX performance study of Myers et al.~\cite{myers2021warpx}: a $256^3$-cell
+grid over a 40\,\textmu m cube, electrons and protons with eight particles per cell each
+(about 537 million particles), cubic particle shapes, Esirkepov current deposition, the Boris
+pusher, the Yee field solver and periodic boundaries, run for 500 time steps without I/O.
+The run took 16\,min 20\,s; \Cref{tab:profiles} shows where the time went. The
+field gather has no entry of its own: it is inlined into the particle-push loop
+\texttt{PushPX}, whose self time of 42.7\% contains the gather together with the rest of that
+loop, so the profile bounds the gather's share from above rather than isolating it. Current deposition
+takes another 40.8\% and the Boris update 8.7\%, while the Yee field solver takes only
+0.5\%. Together, the particle kernels and the loop around them account for about 92\% of the
+run, so we extracted all three.
+
+\paragraph{WarpX Boris push.}
+The Boris pusher~\cite{boris1970} advances every particle's momentum by one relativistic rotation in the
+local electromagnetic field. The port preserves all three push variants (full, first half,
+second half), including the rescaling that makes two half pushes equal one full push. Each
+particle reads and writes only its own elements, so the kernel is a pure elementwise map and
+its outputs are graded bit-exactly.
+
+\paragraph{WarpX Esirkepov current deposition.}
+The Esirkepov scheme~\cite{esirkepov2001} deposits each particle's current onto the grid such
+that the discrete charge-continuity equation holds exactly. The port keeps every branch of
+the upstream kernel: all six geometries, shape orders one to four, the reduced-shape
+deposition near embedded boundaries, ionisation-level weighting, and the azimuthal-mode terms
+of the cylindrical geometry. Unlike the other two WarpX kernels, deposition is a
+\emph{scatter}: neighbouring particles write to the same grid cells. Upstream resolves the
+collisions with atomic additions, which reorder the floating-point accumulation from run to
+run. The benchmark grades bitwise reproducibility across two runs, so a correct parallel
+version must fix the summation order, for example with per-thread grids reduced in a fixed
+order.
+
+\paragraph{WarpX field gather.}
+The field gather is the inverse operation: it interpolates the electric and magnetic fields
+from the staggered grid onto every particle with the same shape functions. The grid is only
+read and each particle writes only its own six outputs, so the particle loop is
+embarrassingly parallel and bit-exact under any schedule. The kernel keeps all geometries and
+shape orders; \Cref{sec:extracted-design} explains why the graded run nevertheless fixes the
+geometry.
+
+\paragraph{Triangle counting.}
+The kernel counts the triangles of an undirected graph with the edge-parallel,
+binary-search variant of GraphAIBench~\cite{graphaibench}. The graph is first oriented into a
+directed acyclic graph by degree, so that each triangle is counted exactly once; the count is
+then the sum, over all directed edges $(u, v)$, of the sizes of the intersections of the
+out-neighbour lists of $u$ and $v$. Each intersection searches the shorter list in the longer
+one with a two-phase binary search: 32 evenly spaced samples first bracket the key, and a
+second search finishes within the bracket. This is what lets the kernel handle adjacency
+lists whose lengths differ by orders of magnitude. The edge loop is a parallel reduction
+into a single integer. On SNAP's com-Orkut graph, this kernel is the application's only GPU
+kernel; it counts the published 627\,584\,181 triangles in 68.3\,ms.
+
+\paragraph{NFA frontier simulation.}
+The kernel simulates a homogeneous nondeterministic finite automaton over a byte stream, the
+inner loop of automata processing as defined by the ANMLZoo
+suite~\cite{wadden2016anmlzoo} and its reference engine VASim~\cite{vasim}. Each cycle
+matches the current symbol against the enabled states, enables the successors of the matched
+states, and re-enables the start states. An automaton is a union of disconnected components,
+one per pattern, and VASim parallelises over these components; the kernel keeps that
+decomposition as its outer loop. Inside a component, consecutive cycles form a strict
+recurrence. On the Brill, EntityResolution and Fermi automata, this per-symbol step takes over 99\% of
+the run, most of it in enabling successors (48--69\%) and matching symbols (27--34\%). We
+omitted ANML counter and gate elements: of the twelve ANMLZoo benchmarks only Snort uses
+them, where they make up 1\% of the elements. In Snort's profile, the time they cost is
+dominated by container overhead rather than automaton logic: traversing a
+\texttt{std::map} and comparing and copying its string keys (\texttt{\_Rb\_tree\_increment}
+12.1\%, \texttt{memcmp} 10.7\%, \texttt{memcpy} 7.9\%). Extracting them would benchmark
+that container choice.
 
 \section{Design Decisions and Validation}
-% Faithful, complete ports with pinned upstream commits (WarpX 26.08 d72f49d7, QuaTrEx
-% cdcdb79e, cuBool 81573de, ...); WarpX's compile-time WARPX_DIM_* becomes a run-time
-% geom dispatch.
-% Presets sized to real runs (QuaTrEx L = CNT GW shape; NFA M ~ ANMLZoo Brill).
-% Config pinning to compile-time constants (field_gather: DaCe leg exceeded the 1200 s
-% cap; pinning cut the graph 6956 -> 5525 states). Capacity bounds (spgemm nnz_C_cap),
-% NO_SCALE (triangle_count), int4 storage.
-% Validation: port vs frozen upstream source, vs independent transcription, every
-% backend vs NumPy.
+\label{sec:extracted-design}
+
+\paragraph{Native references.}
+The native reference beside each kernel takes one of three forms. For SpGEMM, triangle
+counting and the NFA, it is the upstream source itself, excerpted verbatim. For the three
+WarpX kernels and CoMet, the upstream code depends on AMReX or CUTLASS and cannot be compiled
+on its own; there it is a standalone C++ transcription that keeps the upstream operation
+order and replaces the GPU launch with an OpenMP loop. For QuaTrEx, which is written in
+Python, it is a NumPy transcription that keeps the upstream expressions verbatim. Two of the
+references, SpGEMM and triangle counting, are CUDA and cannot be executed on a CPU; this
+matters for the language comparison in \Cref{ch:evaluation}.
+% TODO: in the repo, comet_int4_gemm_reference.cpp is translator output and the actual
+% extraction is comet_int4_gemm_ref.cpp. Resolve before the evaluation uses it.
+
+\paragraph{Problem sizes.}
+Every kernel declares four size presets, S, M, L and XL, where XL is sized above 4\,GB by
+benchmark convention. Where possible, we anchored a preset to a real input. The M preset of the NFA kernel
+holds 42\,273 states in 1281 components over a 1\,MB stream, close to ANMLZoo's Brill
+automaton (42\,658 states in 1962 components), and its L preset approaches the size of the
+EntityResolution automaton. The L preset of QuaTrEx uses block size 32, the block size of a
+QuaTrEx carbon-nanotube simulation.
+
+\paragraph{Pinned configuration.}
+Some kernels have configuration inputs besides their sizes, such as the geometry of the
+WarpX kernels. A configuration input is either swept as an axis or pinned to a compile-time
+constant for every framework. For the field gather we pinned the geometry (3D), the
+interpolation mode and the number of azimuthal modes. As run-time inputs, they kept every
+branch of the six-geometry, five-shape-order dispatch alive in the dataflow graph, and the
+DaCe backend exceeded the 1200\,s limit of the benchmark's numerical-oracle test. Pinning reduced the emitted C++
+code from 36\,251 to 29\,339 lines. The shape order cannot be pinned, because it also
+determines array sizes, so the five-way dispatch over it remains. The other geometries are
+still tested against the native reference, outside the graded run.
+
+\paragraph{Validation.}
+Each port was validated in layers. The benchmark's own tests check that every generated
+backend reproduces the NumPy reference, and a kernel-local test checks the NumPy reference
+against the native one. Beyond that, we validated each kernel against something that does
+not share its implementation:
+\begin{itemize}
+  \item \textbf{QuaTrEx:} bit-for-bit agreement with the upstream transcription, plus the
+    physical symmetries of the output (anti-Hermitian diagonal blocks,
+    $X_{ji} = -X_{ij}^H$). A port that drops a complex conjugate in the same way as its
+    reference would pass the first check but fail the second.
+  \item \textbf{SpGEMM:} a set-union oracle that owes nothing to hash tables or bins, a check
+    that the rows are actually spread over several bins, and a comparison with the running
+    upstream library on SuiteSparse road networks.
+  \item \textbf{Triangle counting:} complete graphs $K_n$, whose $\binom{n}{3}$ triangles are
+    known in closed form. The sizes $n = 12$ and $n = 40$ were chosen to exercise the edge
+    case in which an adjacency list is shorter than the 32 samples.
+  \item \textbf{NFA:} an independent formulation as a dense Boolean matrix-vector product over
+    the whole automaton, plus a comparison with VASim's activation histogram, which agrees
+    state for state on four ANMLZoo automata (Levenshtein, Brill, Snort and Fermi). Report
+    counts agree on all of them except Snort, where the omitted counter and gate elements
+    account for the difference.
+  \item \textbf{WarpX:} the compiled C++ transcriptions against the NumPy port across each
+    kernel's full configuration space (every geometry, shape order and, for the cylindrical
+    geometry, several azimuthal mode counts), built without FMA contraction so that the
+    operation order matches NumPy.
+  \item \textbf{CoMet:} the C++ extraction against the NumPy port on deterministic, random
+    and edge-case inputs, and at several thread counts.
+\end{itemize}
+Every simplification relative to upstream is documented in the kernel's source, since an
+undocumented simplification cannot be told apart from a bug.

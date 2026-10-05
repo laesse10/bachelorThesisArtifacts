@@ -1,0 +1,26 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Strided Store, Stride 2
+level: 1
+parameters:
+  S:
+    LEN_1D: 512
+  M:
+    LEN_1D: 57000000
+  L:
+    LEN_1D: 99471257
+  XL:
+    LEN_1D: 173588261
+init:
+  output_args:
+  - scale
+  - src
+  - dst
+  scalars:
+    scale: 1.0
+  arrays:
+    src: (LEN_1D,)
+    dst: (2 * LEN_1D,)
+output_args:
+- dst
+loop_level_reasoning:
+  source: tsvc_2_5

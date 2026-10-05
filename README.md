@@ -1,16 +1,18 @@
 # Bachelor thesis artifacts
 
-Three independent artifacts.
+Four independent artifacts.
 
 | directory | what |
 |---|---|
 | **[`llr40Matrix/`](llr40Matrix/)** | the LLR-40 measurement matrix: six code representations of 40 loop-level-reasoning kernels, built, validated against a NumPy oracle and timed on CSCS Alps `daint` (NVIDIA GH200, aarch64). 240 cells plus 18 preset-S rows, every individual timing retained. **Current version: [`llr40Matrix/v2/`](llr40Matrix/v2/)**; the top level is v1, kept as the historical record. |
 | **[`Solvers/`](Solvers/)** | fourteen solver kernels, and the preconditioning skill written against them: three successive versions plus the measurement scripts behind every figure it quotes. |
 | **[`perfRuns/`](perfRuns/)** | perf and Nsight Systems profiles of five applications on `daint` (CoMet, QuaTrEx, SpBench/cuBool SpGEMM, GraphAIBench, ANMLZoo/VASim): the runs that identify each application's hot kernel, with the job scripts and the build patches needed on GH200. |
+| **[`plotting/`](plotting/)** | HPCAgent-Bench's plotting layer at commit `26a4f0cf`, vendored unmodified with everything it imports, so the figure scripts run from this repository alone (`python plotting/run.py <script>`); upstream's plotting tests pass against the copy. |
 
 Each directory has its own README and stands on its own. `llr40Matrix/README.md` carries the
 headline results and caveats for the measurement matrix; `Solvers/README.md` describes the kernels
-and the skill; `perfRuns/README.md` summarises each application's profile.
+and the skill; `perfRuns/README.md` summarises each application's profile; `plotting/README.md` records where
+the plotting scripts come from and how to run them.
 
 ## Reproducing
 

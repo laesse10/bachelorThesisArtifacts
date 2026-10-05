@@ -1,0 +1,22 @@
+# HPCAgent-Bench benchmark manifest (KernelBench port).
+name: Upper-Triangular MatMul
+func_name: matmul_for_upper_triangular_matrices
+level: 1
+parameters:
+  S:
+    N: 4
+  M:
+    N: 2048
+  L:
+    N: 5194
+  XL:
+    N: 13175
+init:
+  arrays:
+    A: (N, N)
+    B: (N, N)
+    out: (N, N)
+output_args:
+- out
+experiment_tags:
+- kernelbench

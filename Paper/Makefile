@@ -22,28 +22,29 @@ MPOST = mpost
 
 all:  thesis
 
-texfiles = $(wildcard *.tex)
+texfiles = $(wildcard *.tex figures/*.tex figures/*.pdf)
 
 .PHONY: thesis
-thesis: thesis.pdf thesis.ps
+# PDF only: the figures are PDFs, which the DVI route (latex/dvips) cannot include.
+thesis: thesis.pdf
 
 thesis.pdf: $(texfiles) thesis.bbl
 	$(Q) rm -rf build/pdf/; mkdir -p build/pdf/
-	$(Q) cd build/pdf/ && TEXINPUTS="../../:$$TEXINPUTS" $(Q_LATEX) $(PDFLATEX) -interaction=nonstopmode -file-line-error ../../thesis.tex
-	$(Q) cd build/pdf/ && TEXINPUTS="../../:$$TEXINPUTS" $(Q_LATEX) $(PDFLATEX) -interaction=nonstopmode -file-line-error ../../thesis.tex
+	$(Q) cd build/pdf/ && TEXINPUTS=".:../../:$$TEXINPUTS" $(Q_LATEX) $(PDFLATEX) -interaction=nonstopmode -file-line-error ../../thesis.tex
+	$(Q) cd build/pdf/ && TEXINPUTS=".:../../:$$TEXINPUTS" $(Q_LATEX) $(PDFLATEX) -interaction=nonstopmode -file-line-error ../../thesis.tex
 	$(Q) ln -f build/pdf/thesis.pdf thesis.pdf
 
 thesis.dvi: $(texfiles) thesis.bbl
 	$(Q) rm -rf build/dvi/; mkdir -p build/dvi/
-	$(Q) cd build/dvi/ && TEXINPUTS="../../:$$TEXINPUTS" $(Q_LATEX) $(LATEX) -interaction=nonstopmode -file-line-error ../../thesis.tex
-	$(Q) cd build/dvi/ && TEXINPUTS="../../:$$TEXINPUTS" $(Q_LATEX) $(LATEX) -interaction=nonstopmode -file-line-error ../../thesis.tex
+	$(Q) cd build/dvi/ && TEXINPUTS=".:../../:$$TEXINPUTS" $(Q_LATEX) $(LATEX) -interaction=nonstopmode -file-line-error ../../thesis.tex
+	$(Q) cd build/dvi/ && TEXINPUTS=".:../../:$$TEXINPUTS" $(Q_LATEX) $(LATEX) -interaction=nonstopmode -file-line-error ../../thesis.tex
 	$(Q) ln -f build/dvi/thesis.dvi thesis.dvi
 
 thesis.ps: thesis.dvi
 	$(Q)$(Q_OTHER) $(DVIPS) -q thesis
 
 thesis.aux: $(texfiles)
-	$(Q) $(Q_LATEX) $(LATEX) -interaction=nonstopmode -file-line-error thesis.tex
+	$(Q) $(Q_LATEX) $(PDFLATEX) -interaction=nonstopmode -file-line-error thesis.tex
 
 # '-': BibTeX errors out while nothing is cited yet; don't fail the build.
 thesis.bbl: thesis.aux

@@ -1,0 +1,20 @@
+# HPCAgent-Bench benchmark manifest -- adding a benchmark: see README.md.
+name: Rerollable 7-Way SAXPY
+level: 1
+parameters:
+  S:
+    NBLK: 73
+  M:
+    NBLK: 13571428
+  L:
+    NBLK: 22468266
+  XL:
+    NBLK: 37197484
+init:
+  arrays:
+    a: (7 * NBLK,)
+    b: (7 * NBLK,)
+output_args:
+- a
+loop_level_reasoning:
+  source: tsvc_2_5

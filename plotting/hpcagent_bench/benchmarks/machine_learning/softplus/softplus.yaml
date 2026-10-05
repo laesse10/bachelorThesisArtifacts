@@ -1,0 +1,25 @@
+# HPCAgent-Bench benchmark manifest (KernelBench port).
+name: Softplus Activation
+func_name: softplus
+level: 1
+parameters:
+  S:
+    batch_size: 4
+    dim: 8
+  M:
+    batch_size: 12288
+    dim: 16384
+  L:
+    batch_size: 22039
+    dim: 10389
+  XL:
+    batch_size: 39528
+    dim: 6587
+init:
+  arrays:
+    x: (batch_size, dim)
+    out: (batch_size, dim)
+output_args:
+- out
+experiment_tags:
+- kernelbench
