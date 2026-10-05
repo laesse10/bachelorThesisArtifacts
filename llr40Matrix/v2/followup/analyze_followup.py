@@ -274,6 +274,114 @@ def unstable_report():
         for rd in rounds:
             rr = sorted([r for r in rows if r["round"] == rd], key=lambda r: int(r["time_ns_min"] or 1e18))
             print(f"  round {rd}: " + " < ".join(f"{r['representation']}({ms(int(r['time_ns_min']))})" for r in rr))
+    for k, st in unstable_stats(out).items():
+        print(f"\n{k}: rounds={st['rounds']} KendallW(GCC)={st['W']:.3f} p={st['pW']:.4f} "
+              f"between(GCC minima)={st['between']:.3f} within-column round spread median={st['within_med']:.3f} "
+              f"[{' '.join(f'{c}={st[chr(119)+chr(105)+chr(116)+chr(104)+chr(105)+chr(110)][c]:.3f}' for c in GCC)}] "
+              f"separate={st['separate']}")
+        print(f"   fastest GCC per round: {st['fastest_gcc']}")
+        print(f"   agent advantage per round (best other / agent): {[round(a, 2) for a in st['adv']]}")
+        print(f"   instructions CV% per column: {({c: round(v, 3) for c, v in st['ins_cv'].items()})}")
+        print(f"   GHz range {st['ghz']}; IPC ranges: {({c: (min(v), max(v)) for c, v in st['ipc'].items() if v})}")
+        print(f"   vmstat over {st['n_vm']} GCC series: Spearman(median time, thp_fault_alloc)={st['rho_thp']:.2f} "
+              f"Spearman(median time, pgfault)={st['rho_pgf']:.2f} compact_stall total={st['compact_stall']} "
+              f"page migrations total={st['migrations']}")
+
+
+def spearman(x, y):
+    def rank(v):
+        order = sorted(range(len(v)), key=lambda i: v[i])
+        r = [0.0] * len(v)
+        i = 0
+        while i < len(v):
+            j = i
+            while j + 1 < len(v) and v[order[j + 1]] == v[order[i]]:
+                j += 1
+            for t in range(i, j + 1):
+                r[order[t]] = (i + j) / 2 + 1
+            i = j + 1
+        return r
+    rx, ry = rank(x), rank(y)
+    mx, my = statistics.mean(rx), statistics.mean(ry)
+    num = sum((a - mx) * (b - my) for a, b in zip(rx, ry))
+    den = math.sqrt(sum((a - mx) ** 2 for a in rx) * sum((b - my) ** 2 for b in ry))
+    return num / den if den else float("nan")
+
+
+def kendall_w(rank_rows):
+    """Kendall's coefficient of concordance for n rounds (rows) ranking k columns (no ties)."""
+    n, k = len(rank_rows), len(rank_rows[0])
+    sums = [sum(r[j] for r in rank_rows) for j in range(k)]
+    mean = n * (k + 1) / 2
+    ssd = sum((x - mean) ** 2 for x in sums)
+    return 12 * ssd / (n ** 2 * (k ** 3 - k))
+
+
+def w_permutation_p(rank_rows, iters=20000, seed=12345):
+    """P(W >= observed) when every round's ranking is an independent random permutation."""
+    import random
+    rng = random.Random(seed)
+    obs = kendall_w(rank_rows)
+    k = len(rank_rows[0])
+    base = list(range(1, k + 1))
+    hits = 0
+    for _ in range(iters):
+        rows = []
+        for _r in rank_rows:
+            b = base[:]
+            rng.shuffle(b)
+            rows.append(b)
+        hits += kendall_w(rows) >= obs - 1e-12
+    return hits / iters
+
+
+def unstable_stats(out):
+    """Per kernel: do the GCC columns separate beyond the round-to-round spread? Does the agent win
+    every round? Plus perf: instruction-count stability, clock, IPC range."""
+    res = {}
+    for k in UNSTABLE_K:
+        rows = [r for r in out if r["kernel"] == k and r["time_ns_min"] != ""]
+        rounds = sorted({r["round"] for r in rows})
+        rm = {(r["round"], r["representation"]): int(r["time_ns_min"]) for r in rows}
+        full = [rd for rd in rounds if all((rd, c) in rm for c in ALL6)]
+        if not full:
+            continue
+        ranks = []
+        for rd in full:
+            order = sorted(GCC, key=lambda c: rm[(rd, c)])
+            ranks.append([order.index(c) + 1 for c in GCC])
+        W = kendall_w(ranks)
+        pW = w_permutation_p(ranks)
+        col_min = {c: min(rm[(rd, c)] for rd in full) for c in ALL6}
+        between = max(col_min[c] for c in GCC) / min(col_min[c] for c in GCC)
+        within = {c: max(rm[(rd, c)] for rd in full) / min(rm[(rd, c)] for rd in full) for c in ALL6}
+        within_med = statistics.median(within[c] for c in GCC)
+        fastest_gcc = [min(GCC, key=lambda c: rm[(rd, c)]) for rd in full]
+        adv = [min(rm[(rd, c)] for c in ALL6 if c != "agent") / rm[(rd, "agent")] for rd in full]
+        ins_cv = {}
+        for c in ALL6:
+            ins = [int(r["perf_instructions"]) for r in rows if r["representation"] == c and r["perf_instructions"]]
+            ins_cv[c] = 100 * statistics.pstdev(ins) / statistics.mean(ins) if len(ins) > 1 else float("nan")
+        ghz = [float(r["ghz_counter_enabled"]) for r in rows if r["ghz_counter_enabled"]]
+        ipc = {c: [float(r["ipc"]) for r in rows if r["representation"] == c and r["ipc"]] for c in ALL6}
+        # node memory state: vmstat deltas are node-wide and span the whole series process (build,
+        # oracle, validation, warm-ups, timed reps), so this is a correlation, not a measurement
+        # of the timed reps alone
+        vm = []
+        for r in rows:
+            if r["representation"] not in GCC or not r["vmstat_delta"]:
+                continue
+            d = dict(x.split("=") for x in r["vmstat_delta"].split())
+            vm.append((int(r["time_ns_median"]), int(d.get("thp_fault_alloc", 0)), int(d.get("pgfault", 0)),
+                       int(d.get("compact_stall", 0)), int(d.get("pgmigrate_success", 0)) + int(d.get("pgmigrate_fail", 0))))
+        rho_thp = spearman([v[0] for v in vm], [v[1] for v in vm]) if len(vm) > 2 else float("nan")
+        rho_pgf = spearman([v[0] for v in vm], [v[2] for v in vm]) if len(vm) > 2 else float("nan")
+        res[k] = dict(rounds=len(full), W=W, pW=pW, rho_thp=rho_thp, rho_pgf=rho_pgf, n_vm=len(vm),
+                      compact_stall=sum(v[3] for v in vm), migrations=sum(v[4] for v in vm), col_min=col_min, between=between, within=within,
+                      within_med=within_med, fastest_gcc=fastest_gcc, adv=adv, ins_cv=ins_cv,
+                      ghz=(min(ghz), max(ghz)) if ghz else None, ipc=ipc,
+                      separate=(pW < 0.05 and between > within_med))
+    return res
 
 
 # ----------------------------------------------------------------------------- experiment 4
@@ -347,5 +455,58 @@ def regmem():
                                  "perf_gated_reps")})
 
 
+def unstable_md():
+    """Markdown tables for unstable_interleaved.md."""
+    out, summary = unstable()
+    st = unstable_stats(out)
+    print("| kernel | rounds | Kendall's W, GCC ranks (permutation p) | GCC column minima, worst / best | one column's round-to-round spread, median (range) | fastest GCC column, round 1..6 | GCC columns separate? | agent / best other column, per round | agent fastest in every round? |")
+    print("|---|---:|---|---:|---|---|---|---|---|")
+    for k, x in st.items():
+        w = [x["within"][c] for c in GCC]
+        print(f"| `{k}` | {x['rounds']} | {x['W']:.2f} (p = {x['pW']:.2f}) | {x['between']:.3f} | {x['within_med']:.3f} ({min(w):.3f}-{max(w):.3f}) "
+              f"| {', '.join('`' + c + '`' for c in x['fastest_gcc'])} | {'**yes**' if x['separate'] else 'no'} "
+              f"| {min(x['adv']):.1f}-{max(x['adv']):.1f}x faster | {'yes' if min(x['adv']) > 1 else '**no**'} |")
+    n_series = n_le1 = 0
+    for k in st:
+        gf = summary[k]["gcc_fast"]
+        for r in out:
+            if r["kernel"] == k and r["representation"] in GCC and r["time_ns_all"]:
+                t = ns(r); n_series += 1
+                n_le1 += sum(v <= 1.15 * gf for v in t) <= 1
+    print(f"\nGCC series with at most one of 30 runs within 15% of the kernel's fastest GCC run (this experiment): {n_le1} of {n_series}")
+    for k in st:
+        rows = [r for r in out if r["kernel"] == k]
+        rounds = sorted({r["round"] for r in rows})
+        gf = summary[k]["gcc_fast"]
+        print(f"\n### `{k}`\n\nFastest GCC-column run in this experiment: {ms(gf)} ms.\n")
+        print("| column | overall min (ms) | " + " | ".join(f"round {x}" for x in rounds)
+              + " | worst / best round | runs within 15% of kernel's fastest GCC run | runs within 15% of own fastest | v2 min | v1 min | IPC range |")
+        print("|---|---:|" + "---:|" * len(rounds) + "---:|---:|---:|---:|---:|---|")
+        for rep in ALL6:
+            rr = [r for r in rows if r["representation"] == rep]
+            mins = {r["round"]: int(r["time_ns_min"]) for r in rr if r["time_ns_min"] != ""}
+            allt = [v for r in rr for v in ns(r)]
+            ipcs = [float(r["ipc"]) for r in rr if r["ipc"]]
+            v1 = ns(V1[(k, rep)])
+            print(f"| `{rep}` | {ms(min(allt))} | " + " | ".join(ms(mins.get(x)) for x in rounds)
+                  + f" | {max(mins.values()) / min(mins.values()):.3f}"
+                  + f" | {sum(v <= 1.15 * gf for v in allt) / len(allt):.1%}"
+                  + f" | {sum(v <= 1.15 * min(allt) for v in allt) / len(allt):.1%}"
+                  + f" | {ms(min(ns(V2[(k, rep)])))} | {ms(min(v1)) if v1 else '--'}"
+                  + (f" | {min(ipcs):.2f}-{max(ipcs):.2f} |" if ipcs else " | |"))
+        print()
+        for rd in rounds:
+            rr = sorted([r for r in rows if r["round"] == rd], key=lambda r: int(r["time_ns_min"] or 1e18))
+            order = [r for r in rows if r["round"] == rd]
+            order = sorted(order, key=lambda r: int(r["position"]))
+            print(f"- round {rd} (run order {', '.join(r['representation'] for r in order)}): "
+                  + " < ".join(f"`{r['representation']}` {ms(int(r['time_ns_min']))}" for r in rr))
+        x = st[k]
+        print(f"\nperf: instructions per series vary by at most {max(x['ins_cv'].values()):.2f}% (CV) within a column; "
+              f"cycles:u per counter-second {x['ghz'][0]:.3f}-{x['ghz'][1]:.3f} GHz over all {len(rows)} series. "
+              f"vmstat (GCC series, node-wide, whole series process): Spearman(median time, THP faults) = {x['rho_thp']:.2f}, "
+              f"Spearman(median time, page faults) = {x['rho_pgf']:.2f}; compaction stalls {x['compact_stall']}, page migrations {x['migrations']}.")
+
+
 if __name__ == "__main__":
-    {"minmax": minmax, "s2710": s2710, "unstable": unstable_report, "regmem": regmem}[sys.argv[1]]()
+    {"minmax": minmax, "s2710": s2710, "unstable": unstable_report, "unstable_md": unstable_md, "regmem": regmem}[sys.argv[1]]()

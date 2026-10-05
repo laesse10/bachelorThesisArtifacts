@@ -1,0 +1,2 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+tsvc_2_s1232,2,llr40v10-qwen38-fortran,621385,1,fortran,169.757,6440021a759f92e9b8751d6017966c4315c5e8678c7ed8a53583848988ef5f93,ok,,1,

@@ -76,7 +76,8 @@ incident, with where the evidence is. Nothing in `llr40Matrix/` outside `v2/foll
    experiment-3 units were inside the already-parsed `case` block at the time, and the restored
    bytes are identical to the originals. The new version was then installed as a new file (rename),
    which running shells do not see. The experiment-1 units had ended at 11:25-11:26, before the
-   edit. No unit logged a shell error.
+   edit. No unit logged a shell error, and all five experiment-3 units printed their final
+   `unit ... end` line, which comes after the `case` block, so the restored script resumed correctly.
 9. **Experiment 4's first opt reports were overwritten.** The unchanged and variant cells of a
    kernel share `<kernel>/<column>/` names, and the first layout wrote both into one directory, so
    the variant's files replaced the unchanged cell's. These reports were deleted and regenerated
@@ -92,3 +93,14 @@ incident, with where the evidence is. Nothing in `llr40Matrix/` outside `v2/foll
     a plain fast-forward (`4206fa4..36eb4da`), so `origin/main` had nothing new to rebase onto and
     the pushed history is what the prescribed sequence would have produced. Nothing was forced.
     Later pushes run `git pull --rebase --autostash origin main` and push only if it exits 0.
+
+## Experiment 3
+
+11. **The separation criterion was fixed after part of the data was seen.** It is Kendall's W of
+    the GCC columns' per-round ranks with a permutation p < 0.05, and worst/best GCC minima above
+    the median within-column round-to-round spread. It was written while three to five of the six
+    rounds per kernel were in, and it was not changed once the final rounds arrived. It flags
+    `tsvc_2_s2275` (p = 0.03), which the write-up reports as such rather than reading it away.
+12. **perf and vmstat were recorded for every series**, as the task allows. They added no wall
+    time beyond the fifo round-trips between reps. The vmstat deltas are node-wide and cover the
+    whole series process, not only the timed reps (`unstable_interleaved.md`).
