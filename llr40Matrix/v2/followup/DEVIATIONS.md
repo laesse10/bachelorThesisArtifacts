@@ -82,3 +82,13 @@ incident, with where the evidence is. Nothing in `llr40Matrix/` outside `v2/foll
    the variant's files replaced the unchanged cell's. These reports were deleted and regenerated
    compile-only in job 4982663, with separate subdirectories (`opt_reports/regmem/unchanged/`,
    `opt_reports/regmem/<variant>/`). Timing is unaffected.
+
+## Repository
+
+10. **The experiment-1 push ran without the preceding rebase.** `git pull --rebase origin main`
+    refused to start because a running job had just appended to the tracked `srun_lines.txt`
+    ("cannot pull with rebase: You have unstaged changes"). The command chain did not stop on that,
+    because the pipe into `tail` hid the exit code, and `git push origin main` went ahead. It was
+    a plain fast-forward (`4206fa4..36eb4da`), so `origin/main` had nothing new to rebase onto and
+    the pushed history is what the prescribed sequence would have produced. Nothing was forced.
+    Later pushes run `git pull --rebase --autostash origin main` and push only if it exits 0.

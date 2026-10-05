@@ -1,0 +1,103 @@
+# objdump -d tsvc_2_s2710_fp64.c.o  (functions matching tsvc_2_s2710_fp64*)
+0000000000000000 <tsvc_2_s2710_fp64>:
+   0:	fd4000bf 	ldr	d31, [x5]
+   4:	f10000df 	cmp	x6, #0x0
+   8:	540003ed 	b.le	84 <tsvc_2_s2710_fp64+0x84>
+   c:	1e6023f8 	fcmpe	d31, #0.0
+  10:	540003cc 	b.gt	88 <tsvc_2_s2710_fp64+0x88>
+  14:	d2800005 	mov	x5, #0x0                   	// #0
+  18:	f10028df 	cmp	x6, #0xa
+  1c:	5400086c 	b.gt	128 <tsvc_2_s2710_fp64+0x128>
+  20:	2a0603e7 	mov	w7, w6
+  24:	04e0e3e8 	cntd	x8
+  28:	25e60fe7 	whilelo	p7.d, wzr, w6
+  2c:	2518e3e4 	ptrue	p4.b
+  30:	25f9ce13 	fmov	z19.d, #1.000000000000000000e+00
+  34:	a5e55c05 	ld1d	{z5.d}, p7/z, [x0, x5, lsl #3]
+  38:	a5e55c31 	ld1d	{z17.d}, p7/z, [x1, x5, lsl #3]
+  3c:	65d15cb6 	fcmgt	p6.d, p7/z, z5.d, z17.d
+  40:	a5e55870 	ld1d	{z16.d}, p6/z, [x3, x5, lsl #3]
+  44:	25075ec5 	not	p5.b, p7/z, p6.b
+  48:	0420bcbf 	movprfx	z31, z5
+  4c:	65f1121f 	fmla	z31.d, p4/m, z16.d, z17.d
+  50:	e5e5581f 	st1d	{z31.d}, p6, [x0, x5, lsl #3]
+  54:	a5e55487 	ld1d	{z7.d}, p5/z, [x4, x5, lsl #3]
+  58:	a5e55886 	ld1d	{z6.d}, p6/z, [x4, x5, lsl #3]
+  5c:	65e710e5 	fmla	z5.d, p4/m, z7.d, z7.d
+  60:	e5e55425 	st1d	{z5.d}, p5, [x1, x5, lsl #3]
+  64:	a5e55c52 	ld1d	{z18.d}, p7/z, [x2, x5, lsl #3]
+  68:	65e710f2 	fmla	z18.d, p4/m, z7.d, z7.d
+  6c:	04d13a72 	movprfx	z18.d, p6/m, z19.d
+  70:	65e61a12 	fmla	z18.d, p6/m, z16.d, z6.d
+  74:	e5e55c52 	st1d	{z18.d}, p7, [x2, x5, lsl #3]
+  78:	8b0800a5 	add	x5, x5, x8
+  7c:	25e70ca7 	whilelo	p7.d, w5, w7
+  80:	54fffda1 	b.ne	34 <tsvc_2_s2710_fp64+0x34>  // b.any
+  84:	d65f03c0 	ret
+  88:	f10028df 	cmp	x6, #0xa
+  8c:	5a9fc3e8 	csetm	w8, le
+  90:	d3410108 	lsl	x8, x8, #63
+  94:	2518e3e4 	ptrue	p4.b
+  98:	25f9ce1e 	fmov	z30.d, #1.000000000000000000e+00
+  9c:	d2800005 	mov	x5, #0x0                   	// #0
+  a0:	04e0e3e7 	cntd	x7
+  a4:	25e81fef 	whilelo	p15.d, xzr, x8
+  a8:	f10028df 	cmp	x6, #0xa
+  ac:	5a9fd3e8 	csetm	w8, gt
+  b0:	d3410108 	lsl	x8, x8, #63
+  b4:	25e61fe7 	whilelo	p7.d, xzr, x6
+  b8:	25e81fe2 	whilelo	p2.d, xzr, x8
+  bc:	d503201f 	nop
+  c0:	a5e55c1d 	ld1d	{z29.d}, p7/z, [x0, x5, lsl #3]
+  c4:	a5e55c22 	ld1d	{z2.d}, p7/z, [x1, x5, lsl #3]
+  c8:	65c25fb5 	fcmgt	p5.d, p7/z, z29.d, z2.d
+  cc:	a5e5547b 	ld1d	{z27.d}, p5/z, [x3, x5, lsl #3]
+  d0:	25075ea6 	not	p6.b, p7/z, p5.b
+  d4:	0420bfa1 	movprfx	z1, z29
+  d8:	65fb1041 	fmla	z1.d, p4/m, z2.d, z27.d
+  dc:	250f55e1 	mov	p1.b, p5/z, p15.b
+  e0:	250452a3 	not	p3.b, p4/z, p5.b
+  e4:	e5e55401 	st1d	{z1.d}, p5, [x0, x5, lsl #3]
+  e8:	a5e55880 	ld1d	{z0.d}, p6/z, [x4, x5, lsl #3]
+  ec:	65fd9000 	fmad	z0.d, p4/m, z0.d, z29.d
+  f0:	e5e55820 	st1d	{z0.d}, p6, [x1, x5, lsl #3]
+  f4:	a5e55c5a 	ld1d	{z26.d}, p7/z, [x2, x5, lsl #3]
+  f8:	a5e54499 	ld1d	{z25.d}, p1/z, [x4, x5, lsl #3]
+  fc:	a5e5587c 	ld1d	{z28.d}, p6/z, [x3, x5, lsl #3]
+ 100:	65fe9379 	fmad	z25.d, p4/m, z27.d, z30.d
+ 104:	04d12b59 	movprfx	z25.d, p2/m, z26.d
+ 108:	65fb0b79 	fmla	z25.d, p2/m, z27.d, z27.d
+ 10c:	04d12fb9 	movprfx	z25.d, p3/m, z29.d
+ 110:	65fc0f99 	fmla	z25.d, p3/m, z28.d, z28.d
+ 114:	e5e55c59 	st1d	{z25.d}, p7, [x2, x5, lsl #3]
+ 118:	8b0700a5 	add	x5, x5, x7
+ 11c:	25e61ca7 	whilelo	p7.d, x5, x6
+ 120:	54fffd01 	b.ne	c0 <tsvc_2_s2710_fp64+0xc0>  // b.any
+ 124:	d65f03c0 	ret
+ 128:	04e0e3e7 	cntd	x7
+ 12c:	25e61fe7 	whilelo	p7.d, xzr, x6
+ 130:	2518e3e4 	ptrue	p4.b
+ 134:	d503201f 	nop
+ 138:	d503201f 	nop
+ 13c:	d503201f 	nop
+ 140:	a5e55c03 	ld1d	{z3.d}, p7/z, [x0, x5, lsl #3]
+ 144:	a5e55c37 	ld1d	{z23.d}, p7/z, [x1, x5, lsl #3]
+ 148:	65d75c76 	fcmgt	p6.d, p7/z, z3.d, z23.d
+ 14c:	a5e55876 	ld1d	{z22.d}, p6/z, [x3, x5, lsl #3]
+ 150:	25075ec5 	not	p5.b, p7/z, p6.b
+ 154:	0420bc64 	movprfx	z4, z3
+ 158:	65f612e4 	fmla	z4.d, p4/m, z23.d, z22.d
+ 15c:	e5e55804 	st1d	{z4.d}, p6, [x0, x5, lsl #3]
+ 160:	a5e55495 	ld1d	{z21.d}, p5/z, [x4, x5, lsl #3]
+ 164:	a5e55c54 	ld1d	{z20.d}, p7/z, [x2, x5, lsl #3]
+ 168:	65f512a3 	fmla	z3.d, p4/m, z21.d, z21.d
+ 16c:	e5e55423 	st1d	{z3.d}, p5, [x1, x5, lsl #3]
+ 170:	a5e55c58 	ld1d	{z24.d}, p7/z, [x2, x5, lsl #3]
+ 174:	65f512b8 	fmla	z24.d, p4/m, z21.d, z21.d
+ 178:	04d13a98 	movprfx	z24.d, p6/m, z20.d
+ 17c:	65f61ad8 	fmla	z24.d, p6/m, z22.d, z22.d
+ 180:	e5e55c58 	st1d	{z24.d}, p7, [x2, x5, lsl #3]
+ 184:	8b0700a5 	add	x5, x5, x7
+ 188:	25e61ca7 	whilelo	p7.d, x5, x6
+ 18c:	54fffda1 	b.ne	140 <tsvc_2_s2710_fp64+0x140>  // b.any
+ 190:	d65f03c0 	ret

@@ -1,0 +1,25 @@
+--- a/cpp_backend/tsvc_2_s2710_fp64.c
++++ b/cpp_backend/tsvc_2_s2710_fp64.c
+@@ -1,4 +1,4 @@
+-// hpcagent_bench-autogen -- generated from tsvc_2_s2710_numpy.py; edit the numpy reference and regenerate, or delete this line to keep local edits as a hand override.
++// follow-up variant s2710_hoist (c): autogen marker line replaced so the harness keeps this file as a hand override
+ #define _USE_MATH_DEFINES
+ #include <stdint.h>
+ #include <stdlib.h>
+@@ -176,6 +176,7 @@
+ }
+ 
+ void tsvc_2_s2710_fp64(double *restrict a, double *restrict b, double *restrict c, const double *restrict d, const double *restrict e, const double *restrict x, const int64_t LEN_1D) {
++        const double x0 = x[0];
+         for (int64_t i = 0; i < LEN_1D; ++i) {
+           if ((a[i] > b[i])) {
+             a[i] = (a[i] + (b[i] * d[i]));
+@@ -188,7 +189,7 @@
+           }
+           else {
+             b[i] = (a[i] + (e[i] * e[i]));
+-            if ((x[0] > 0.0)) {
++            if ((x0 > 0.0)) {
+               c[i] = (a[i] + (d[i] * d[i]));
+             }
+             else {
