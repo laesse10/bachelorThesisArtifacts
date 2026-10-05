@@ -1,0 +1,16 @@
+unit MINMAX argmax_with_index node=nid006476 start=2026-10-05T11:23:43+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006476 1 1
+SRUN[MINMAX argmax_with_index]: srun --nodes=1 --ntasks=1 -w nid006476 --exclusive --cpu-bind=cores --hint=nomultithread --time=50 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-finite /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels argmax_with_index --preset M --warmup 5 --reps 30 --out parts/minmax/argmax_with_index.csv --scratch scratch/minmax/argmax_with_index --attempts-out parts/minmax/argmax_with_index.attempts.csv --attempt-logs logs/attempts --reprs c,cpp,fortran,c_reference --flags-variant=-ffinite-math-only --variant ffinite-math-only --emitted-dir emitted_sources/minmax
+[1/1] argmax_with_index
+    c            ok           median 251.276 ms 
+    cpp          ok           median 251.397 ms 
+    fortran      ok           median 251.398 ms 
+    c_reference  ok           median 251.303 ms source=argmax_with_index_reference.c sha256=1cf93d4244fe5cee
+
+wrote 4 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/minmax/argmax_with_index.csv
+SRUN[MINMAX argmax_with_index]: srun --nodes=1 --ntasks=1 -w nid006476 --exclusive --cpu-bind=cores --hint=nomultithread --time=50 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-finite numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/minmax --index parts/minmax/optrep.argmax_with_index.ffinite-math-only.csv --variant ffinite-math-only argmax_with_index:c:c:emitted_sources/minmax/argmax_with_index/argmax_with_index_fp64.c argmax_with_index:cpp:cpp:emitted_sources/minmax/argmax_with_index/argmax_with_index_fp64.cpp argmax_with_index:fortran:fortran:emitted_sources/minmax/argmax_with_index/argmax_with_index_fp64.f90 argmax_with_index:c_reference:c:/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-finite/hpcagent_bench/benchmarks/loop_level_reasoning/argmax_with_index/argmax_with_index_reference.c
+argmax_with_index            c            ok
+argmax_with_index            cpp          ok
+argmax_with_index            fortran      ok
+argmax_with_index            c_reference  ok
+unit MINMAX argmax_with_index node=nid006476 end=2026-10-05T11:25:20+02:00

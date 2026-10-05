@@ -1,0 +1,3 @@
+opt_reports/**/build/
+__pycache__/
+*.pyc

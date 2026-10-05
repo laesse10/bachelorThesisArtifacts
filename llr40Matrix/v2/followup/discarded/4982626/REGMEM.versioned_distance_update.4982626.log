@@ -1,0 +1,12 @@
+unit REGMEM versioned_distance_update node=nid005478 start=2026-10-05T11:21:09+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005478 1 1
+SRUN[REGMEM versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005478 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels versioned_distance_update --preset M --warmup 5 --reps 30 --out parts/regmem/versioned_distance_update.base.csv --scratch scratch/regmem/versioned_distance_update.base --attempts-out parts/regmem/versioned_distance_update.base.attempts.csv --attempt-logs logs/attempts --reprs c,agent --agent-sha 01661d852f138e7e9788a82e7d49fe32d331e275d901a366586f7cbf350f9d1d --perf --emitted-dir emitted_sources/regmem
+[1/1] versioned_distance_update
+    c            ok           median 298.181 ms 
+    agent        ok           median 123.542 ms rank=1 arm=llr40v10-qwen38-fortran job=621385 seq=3 lang=fortran campa
+
+wrote 2 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/regmem/versioned_distance_update.base.csv
+SRUN[REGMEM versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005478 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels versioned_distance_update --preset M --warmup 5 --reps 30 --out parts/regmem/versioned_distance_update.k1scalar.csv --scratch scratch/regmem/versioned_distance_update.k1scalar --attempts-out parts/regmem/versioned_distance_update.k1scalar.attempts.csv --attempt-logs logs/attempts --reprs c --variant vdu_k1_scalar --perf --emitted-dir emitted_sources/regmem --override c=variants/src/versioned_distance_update_fp64.k1scalar.c
+[1/1] versioned_distance_update
+[2026-10-05T11:22:30.689] error: *** STEP 4982626.2 ON nid005478 CANCELLED AT 2026-10-05T11:22:30 DUE to SIGNAL Terminated ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

@@ -1,0 +1,9 @@
+unit UNSTABLE tsvc_2_s1232 node=nid005790 start=2026-10-05T11:21:04+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005790 1 1
+round 1 order c,c_reference,cpp,fortran,numba,agent 2026-10-05T11:21:09+02:00
+SRUN[UNSTABLE tsvc_2_s1232]: srun --nodes=1 --ntasks=1 -w nid005790 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s1232 --preset M --warmup 5 --reps 30 --out parts/unstable/tsvc_2_s1232.round1.csv --scratch scratch/unstable/tsvc_2_s1232.round1 --attempts-out parts/unstable/tsvc_2_s1232.round1.attempts.csv --attempt-logs logs/attempts --reprs c,c_reference,cpp,fortran,numba,agent --ordered --round 1 --variant interleaved_rerun --agent-sha 6440021a759f92e9b8751d6017966c4315c5e8678c7ed8a53583848988ef5f93 --perf --vmstat --emitted-dir emitted_sources/unstable
+[1/1] tsvc_2_s1232
+    c            ok           median 62.488 ms 
+    c_reference  ok           median 49.023 ms source=tsvc_2_s1232_reference.c sha256=455109e4e2c80bee
+[2026-10-05T11:22:30.681] error: *** STEP 4982625.1 ON nid005790 CANCELLED AT 2026-10-05T11:22:30 DUE to SIGNAL Terminated ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

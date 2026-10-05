@@ -1,0 +1,16 @@
+unit MINMAX tsvc_2_s3110 node=nid006372 start=2026-10-05T11:23:43+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006372 1 1
+SRUN[MINMAX tsvc_2_s3110]: srun --nodes=1 --ntasks=1 -w nid006372 --exclusive --cpu-bind=cores --hint=nomultithread --time=50 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-finite /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s3110 --preset M --warmup 5 --reps 30 --out parts/minmax/tsvc_2_s3110.csv --scratch scratch/minmax/tsvc_2_s3110 --attempts-out parts/minmax/tsvc_2_s3110.attempts.csv --attempt-logs logs/attempts --reprs c,cpp,fortran,c_reference --flags-variant=-ffinite-math-only --variant ffinite-math-only --emitted-dir emitted_sources/minmax
+[1/1] tsvc_2_s3110
+    c            ok           median 414.939 ms 
+    cpp          ok           median 415.099 ms 
+    fortran      ok           median 414.993 ms 
+    c_reference  ok           median 414.928 ms source=tsvc_2_s3110_reference.c sha256=f761d4122cc24220
+
+wrote 4 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/minmax/tsvc_2_s3110.csv
+SRUN[MINMAX tsvc_2_s3110]: srun --nodes=1 --ntasks=1 -w nid006372 --exclusive --cpu-bind=cores --hint=nomultithread --time=50 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-finite numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/minmax --index parts/minmax/optrep.tsvc_2_s3110.ffinite-math-only.csv --variant ffinite-math-only tsvc_2_s3110:c:c:emitted_sources/minmax/tsvc_2_s3110/tsvc_2_s3110_fp64.c tsvc_2_s3110:cpp:cpp:emitted_sources/minmax/tsvc_2_s3110/tsvc_2_s3110_fp64.cpp tsvc_2_s3110:fortran:fortran:emitted_sources/minmax/tsvc_2_s3110/tsvc_2_s3110_fp64.f90 tsvc_2_s3110:c_reference:c:/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-finite/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s3110/tsvc_2_s3110_reference.c
+tsvc_2_s3110                 c            ok
+tsvc_2_s3110                 cpp          ok
+tsvc_2_s3110                 fortran      ok
+tsvc_2_s3110                 c_reference  ok
+unit MINMAX tsvc_2_s3110 node=nid006372 end=2026-10-05T11:25:59+02:00

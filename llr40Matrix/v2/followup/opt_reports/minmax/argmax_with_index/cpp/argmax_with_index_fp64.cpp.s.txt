@@ -1,0 +1,27 @@
+# objdump -d argmax_with_index_fp64.cpp.o  (functions matching argmax_with_index_fp64*)
+0000000000000000 <argmax_with_index_fp64>:
+   0:	fd400000 	ldr	d0, [x0]
+   4:	f100047f 	cmp	x3, #0x1
+   8:	5400020d 	b.le	48 <argmax_with_index_fp64+0x48>
+   c:	d2800024 	mov	x4, #0x1                   	// #1
+  10:	d2800005 	mov	x5, #0x0                   	// #0
+  14:	d503201f 	nop
+  18:	d503201f 	nop
+  1c:	d503201f 	nop
+  20:	fc647801 	ldr	d1, [x0, x4, lsl #3]
+  24:	1e612010 	fcmpe	d0, d1
+  28:	9a854085 	csel	x5, x4, x5, mi	// mi = first
+  2c:	91000484 	add	x4, x4, #0x1
+  30:	1e604c20 	fcsel	d0, d1, d0, mi	// mi = first
+  34:	eb04007f 	cmp	x3, x4
+  38:	54ffff41 	b.ne	20 <argmax_with_index_fp64+0x20>  // b.any
+  3c:	f9000025 	str	x5, [x1]
+  40:	fd000040 	str	d0, [x2]
+  44:	d65f03c0 	ret
+  48:	d2800005 	mov	x5, #0x0                   	// #0
+  4c:	fd000040 	str	d0, [x2]
+  50:	f9000025 	str	x5, [x1]
+  54:	d65f03c0 	ret
+
+Disassembly of section .text.startup:
+
