@@ -1,2 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-quasi_affine_reduce_odd,1,llr40v10-qwen38-fortran,621728,1,fortran,10.364,fb86640f50a897ed824091ae38ffa7d2b17e06d8176bb11699a481e57e96fde3,ok,,1,

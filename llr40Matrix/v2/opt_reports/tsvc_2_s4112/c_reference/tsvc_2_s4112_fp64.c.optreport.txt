@@ -1,4 +1,0 @@
-$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-aux/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_s4112/c_reference/tsvc_2_s4112_fp64.c -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/tsvc_2_s4112/c_reference/build/tsvc_2_s4112_fp64.c.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
-[exit 0]
-tsvc_2_s4112_fp64.c:20:25: optimized: loop vectorized using variable length vectors
-tsvc_2_s4112_fp64.c:18:6: missed: statement clobbers memory: vect_patt_43.16_31 = .MASK_GATHER_LOAD (_32, vect__8.15_33, 8, { 0.0, ... }, loop_mask_38);

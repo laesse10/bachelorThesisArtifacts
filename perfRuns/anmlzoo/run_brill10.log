@@ -1,9 +1,0 @@
-Simulation Time: 814187 ms
-Throughput: 0.0122822 MB/s
-[ perf record: Woken up 1370 times to write data ]
-Warning:
-Processed 82383 events and lost 1 chunks!
-
-Check IO/CPU overload!
-
-[ perf record: Captured and wrote 342.341 MB perf_brill10.data (80544 samples) ]

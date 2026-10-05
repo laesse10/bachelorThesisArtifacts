@@ -1,2 +1,0 @@
-dump: s231.c.168t.linterchange, 83 lines
-lines mentioning interchange/consider/loop nest: 0

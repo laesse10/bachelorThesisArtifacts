@@ -1,7 +1,0 @@
-$ /users/lhulsbergen/bin/g++ -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-aux/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c++20 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/wf_diff_skew/cpp/wf_diff_skew_fp64.cpp -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/wf_diff_skew/cpp/build/wf_diff_skew_fp64.cpp.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
-[exit 0]
-wf_diff_skew_fp64.cpp:168:31: missed: couldn't vectorize loop
-wf_diff_skew_fp64.cpp:170:59: missed: not vectorized: complicated access pattern.
-wf_diff_skew_fp64.cpp:169:33: optimized: loop vectorized using 16 byte vectors
-wf_diff_skew_fp64.cpp:169:33: optimized:  loop versioned for vectorization because of possible aliasing
-wf_diff_skew_fp64.cpp:169:33: optimized: loop turned into non-loop; it never loops
