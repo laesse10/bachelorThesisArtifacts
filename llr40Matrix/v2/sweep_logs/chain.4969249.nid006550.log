@@ -1,9 +1,0 @@
-SRUN[MAIN wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006550 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels wf_triangular --preset M --warmup 5 --reps 30 --out results_parts/wf_triangular.csv --scratch scratch/wf_triangular --attempts-out agent_attempts_parts/wf_triangular.csv --attempt-logs agent_attempt_logs
-[1/1] wf_triangular
-    c            ok           median 101.292 ms 
-    cpp          ok           median 100.298 ms 
-    fortran      ok           median 100.490 ms 
-    numba        ok           median 380.490 ms 
-    c_reference  ok           median 100.031 ms source=wf_triangular_reference.c sha256=fef1c39715e90ace
-[2026-10-02T15:41:06.747] error: *** STEP 4969249.0 ON nid006550 CANCELLED AT 2026-10-02T15:41:06 DUE to SIGNAL Terminated ***
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

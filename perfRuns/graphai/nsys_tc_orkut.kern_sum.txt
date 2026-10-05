@@ -1,9 +1,0 @@
-Generating SQLite file nsys_tc_orkut.sqlite from nsys_tc_orkut.nsys-rep
-Processing [nsys_tc_orkut.sqlite] with [/user-environment/linux-neoverse_v2/cuda-12.9.0-xoa4pgkibqtszlbqya7btx255nzg4auq/nsight-systems-2025.1.3/host-linux-armv8/reports/cuda_gpu_kern_sum.py]... 
-
- ** CUDA GPU Kernel Summary (cuda_gpu_kern_sum):
-
- Time (%)  Total Time (ns)  Instances   Avg (ns)    Med (ns)   Min (ns)  Max (ns)  StdDev (ns)                             Name                            
- --------  ---------------  ---------  ----------  ----------  --------  --------  -----------  -----------------------------------------------------------
-    100.0       6833915523        100  68339155.2  68328400.0  67531487  69181759     234745.5  triangle_bs_warp_edge(long, GraphGPU, unsigned long long *)
-

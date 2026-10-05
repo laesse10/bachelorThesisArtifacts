@@ -1,3 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-scatter_accum_dup,1,llr40v10-kimi27sglang-c,621017,3,c,22.974,6bbaaa7607f2b8f977cf110490fb8b033e48be43e5366c0461ed067b77902e6b,build_error,scatter_accum_dup/cpp_backend/scatter_accum_dup_fp64.c:4:10: fatal error: xmmintrin.h: No such file or directory,0,scatter_accum_dup.rank01.6bbaaa7607f2.log
-scatter_accum_dup,2,llr40v10-qwen38-c,621727,5,c,17.737,420c4bdf8babe5c90f4ab9dcacbd4ae1a7c2085eef0037e8b1c6dbb7691a2d68,ok,,1,

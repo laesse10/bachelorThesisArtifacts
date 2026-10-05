@@ -1,4 +1,0 @@
-Simulation Time: 890136 ms
-Throughput: 0.0112342 MB/s
-[ perf record: Woken up 1496 times to write data ]
-[ perf record: Captured and wrote 374.514 MB perf_snort10.data (88110 samples) ]

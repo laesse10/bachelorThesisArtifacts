@@ -1,2 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-tsvc_2_s1244,1,llr40v10-qwen38-c,622265,1,c,5.592,4e6c66640f14417bf3097054dc0ffec3725409c4f1d0928564eb83012935d702,ok,,1,

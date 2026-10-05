@@ -1,4 +1,0 @@
-$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/compact_threshold_pack/fortran/compact_threshold_pack_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/compact_threshold_pack/fortran/build/compact_threshold_pack_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
-[exit 0]
-compact_threshold_pack_fp64.f90:13:13: missed: couldn't vectorize loop
-compact_threshold_pack_fp64.f90:2:38: missed: not vectorized: unsupported use in stmt.

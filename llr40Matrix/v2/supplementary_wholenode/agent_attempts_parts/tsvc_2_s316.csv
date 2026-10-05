@@ -1,2 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-tsvc_2_s316,1,llr40v10-oss120b-fortran,621019,1,fortran,13.831,5db746384e6f0c8f33c3e2c625157314eb2321c32c4b6ccfc76934bf38c80020,ok,,1,

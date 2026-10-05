@@ -1,3 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-compact_threshold_pack,1,llr40v10-kimi27sglang-c,621729,1,c,14.250,b66837e425b7170cfb19ff45f999d7baa40f185e719536f8b43f4fd7788d53d8,build_error,compact_threshold_pack/cpp_backend/compact_threshold_pack_fp64.c:3:10: fatal error: immintrin.h: No such file or directory,0,compact_threshold_pack.rank01.b66837e425b7.log
-compact_threshold_pack,2,llr40v10-qwen38-c,621383,1,c,11.678,c3bbca9bc6710a077f33249a5f14b1ab7d9ad3b6fe967fa98f2e8db81a0027e9,ok,,1,
