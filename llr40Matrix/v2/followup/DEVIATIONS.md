@@ -5,7 +5,7 @@ incident, with where the evidence is. Nothing in `llr40Matrix/` outside `v2/foll
 
 ## Inputs
 
-1. **The v2 tree is no longer on `main`.** Commit `e6d1162` ("Updates from Overleaf", merged into
+1. **The v2 tree was missing from `main` while experiments 1, 2a, 3 and 4 ran.** Commit `e6d1162` ("Updates from Overleaf", merged into
    `main` as `4206fa4` on 2026-10-05) deleted 1583 files, among them 1493 of `llr40Matrix/v2/`.
    They include `summary.md`, `opt_findings.md`, `results.csv`, `opt_reports_index.csv`,
    `srun_lines.txt`, `sweep_variant.py`, `opt_reports.py`, `variants/` and `emitted_sources/`
@@ -18,6 +18,17 @@ incident, with where the evidence is. Nothing in `llr40Matrix/` outside `v2/foll
      `opt_reports_followup.py` reuses `632952d:llr40Matrix/v2/opt_reports.py`'s functions
      verbatim. `agent_picks.json` is copied from `632952d` because the runner reads it from its
      own directory.
+
+   On 2026-10-06, `16f2b66` ("Restore files deleted by the Overleaf sync", not part of this
+   follow-up) restored those files on `main`. The follow-up still cites `632952d`, the commit it
+   actually read.
+
+1a. **Two versions of the task.** Experiments 1, 2a, 3 and 4 were run and pushed under the first
+   version of the task text. Experiment 2a is that version's experiment 2 (files `s2710_hoist.*`).
+   The second version added experiment 2b. It also dropped two sentences: experiment 1's "if it
+   vectorises with something other than the flag, e.g. a GCC version difference, say so" (answered
+   anyway in `minmax_finite_math.md`) and experiment 3's optional perf recording (recorded anyway).
+   Nothing was re-run for the second version.
 
 ## Measurement
 
@@ -104,3 +115,47 @@ incident, with where the evidence is. Nothing in `llr40Matrix/` outside `v2/foll
 12. **perf and vmstat were recorded for every series**, as the task allows. They added no wall
     time beyond the fifo round-trips between reps. The vmstat deltas are node-wide and cover the
     whole series process, not only the timed reps (`unstable_interleaved.md`).
+
+## Experiment 2b
+
+13. **Same-node A/B, plus a C cell.** The task asks for the Fortran column of all 40 kernels with
+    `-fno-protect-parens`, and for kernels whose Fortran min-of-k "moves by more than 5% with the
+    flag". So that the move compares like with like, the unchanged Fortran cell was re-measured on
+    the same node in the same unit, one arm after the other, with the order alternating along
+    `fparens_roster.txt`. For the eight kernels, the unchanged arm also timed the C cell, because
+    the predictions are stated against C and must use perf cycles, not an assumed clock. v2's values
+    are listed beside them in `fortran_parens.csv`.
+14. **Harness database lock: five cells re-measured.** In job 4990019, ten nodes ran against one
+    bench worktree. The harness records every run in an SQLite file there (`hpcagent_bench0.db`),
+    and for five cells finishing within 17 s on five nodes the write failed with `database is
+    locked`. The driver then returned no timings, which the runner records as `build_error`, after
+    the 30 timed reps had run. Both arms of those five kernels (`tsvc_2_s235`, `tsvc_2_s252`,
+    `tsvc_2_s4112`, `tsvc_2_vtvtv`, `wf_triangular`) were moved to `discarded/4990019/` and
+    re-measured together on one node, one kernel after another (job 4990145), so nothing contended
+    for the database. No other cell was affected: all 88 timed rows used are `ok`, apart from
+    `tsvc_2_s115`, which is `incorrect` in both arms as in v2.
+15. **Opt-report indexes regenerated.** In 4990019 every `opt_reports_followup.py` call wrote its
+    reports but failed to write its index, because the index directory (`parts/fparens/<arm>/`) did
+    not exist. The script now creates it. The opt reports of the other 35 kernels were regenerated
+    compile-only in job 4990146 (`FPARENS_OPTREP`). The five re-measured kernels got theirs in
+    4990145.
+16. **The output arrays are not in git.** The four builds' outputs plus the oracle come to 24 GB,
+    for example `s311`'s `sum_out` is 1.76 GB per copy. They are in
+    `/capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/` (the g34 project
+    store, which is not purged). `fortran_parens_outputs.csv` carries the sha256 of every array.
+    The output runs are separate single-rep runs (0 warm-up, 1 rep, `variant=output_dump`,
+    `parts/fparens_dump/`). They capture the harness's first validation call, are not timings, and
+    are not used as such.
+17. **"NumPy" is the harness oracle, which is numba-compiled.** At `26a4f0cf` the oracle is the
+    NumPy reference compiled by `njit_reference` (no fastmath, no parallel). The outputs are
+    compared against exactly that, the arrays the harness validates. At preset S it is bitwise
+    identical to the interpreted reference for all eight kernels (`oracle_njit_check.txt`). It was
+    not checked at preset M, where the interpreted loops would take minutes per kernel.
+18. **Another session wrote to this clone during experiment 2b.** A second Claude Code session
+    (`lhulsbergen-22`, apparently a copy of this one) worked in the same working tree from 13:34
+    on 2026-10-06. It added `MISSED2B` and the `asm_lines_changed_vs_default` column to
+    `analyze_followup.py`, and wrote `check_oracle_njit.py` and an `oracle_njit_check.txt`. On
+    request it stopped writing. Its `analyze_followup.py` edits are kept. `check_oracle_njit.py`
+    duplicates `oracle_njit_check.py` (same result) and is not committed, and
+    `oracle_njit_check.txt` was regenerated with the committed script. The jobs, the cancellations
+    and the moves to `discarded/` were each done once (checked with `sacct` and in the files).

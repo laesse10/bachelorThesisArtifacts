@@ -1,0 +1,8 @@
+unit FPARENS_OPTREP ext_break_capture node=nid005682 start=2026-10-06T13:34:21+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005682 1 1
+PROBE nid005682 1 1
+SRUN[FPARENS_OPTREP ext_break_capture]: srun --nodes=1 --ntasks=1 -w nid005682 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.ext_break_capture.base.csv --variant  ext_break_capture:fortran:fortran:emitted_sources/fparens/ext_break_capture/ext_break_capture_fp64.f90
+ext_break_capture            fortran      ok
+SRUN[FPARENS_OPTREP ext_break_capture]: srun --nodes=1 --ntasks=1 -w nid005682 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.ext_break_capture.fno-protect-parens.csv --variant fno-protect-parens ext_break_capture:fortran:fortran:emitted_sources/fparens/ext_break_capture/ext_break_capture_fp64.f90
+ext_break_capture            fortran      ok
+unit FPARENS_OPTREP ext_break_capture node=nid005682 end=2026-10-06T13:34:23+02:00

@@ -1,0 +1,8 @@
+tsvc_2_s3111                 njit oracle vs interpreted reference, preset S, outputs ['b']: bitwise identical=True; njit used=True
+tsvc_2_s311                  njit oracle vs interpreted reference, preset S, outputs ['sum_out']: bitwise identical=True; njit used=True
+tsvc_2_s319                  njit oracle vs interpreted reference, preset S, outputs ['a', 'b']: bitwise identical=True; njit used=True
+quasi_affine_reduce_odd      njit oracle vs interpreted reference, preset S, outputs ['out']: bitwise identical=True; njit used=True
+segment_reduce_ragged        njit oracle vs interpreted reference, preset S, outputs ['out']: bitwise identical=True; njit used=True
+scan_affine_decay            njit oracle vs interpreted reference, preset S, outputs ['y']: bitwise identical=True; njit used=True
+versioned_distance_update    njit oracle vs interpreted reference, preset S, outputs ['a']: bitwise identical=True; njit used=True
+tsvc_2_s323                  njit oracle vs interpreted reference, preset S, outputs ['a', 'b']: bitwise identical=True; njit used=True

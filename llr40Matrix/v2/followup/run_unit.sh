@@ -9,6 +9,10 @@ EXP=$1; K=$2; NODE=$3; MIN=$4
 PY="${LLR40_PYTHON:-/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python}"
 WT=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu          # 26a4f0cf, no patch
 WTF=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-finite  # 26a4f0cf + variants/finite_math_only.patch
+WTN=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens # 26a4f0cf + variants/fno_protect_parens.patch
+# experiment 2b output arrays: GBs per kernel, so they live in the (unpurged) g34 store, not in git
+DUMP=${FU_DUMP_ROOT:-/capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs}
+EIGHT=" tsvc_2_s3111 tsvc_2_s311 tsvc_2_s319 quasi_affine_reduce_odd segment_reduce_ragged scan_affine_decay versioned_distance_update tsvc_2_s323 "
 LLR=hpcagent_bench/benchmarks/loop_level_reasoning
 mkdir -p parts logs/attempts
 step() {  # $@ = command run on the node
@@ -53,6 +57,15 @@ regmem_optrep() {  # unchanged and variant cells in SEPARATE subdirs (they share
     optrep "$WT" regmem/wf_west_scalar wf_west_scalar "$K:numba:python:$V/${K}_numba_np.westscalar.py"
   fi
 }
+fparens_optrep() {  # default and -fno-protect-parens fortran (+ default c for the eight), separate subdirs
+  if [[ "$EIGHT" == *" $K "* ]]; then
+    optrep "$WT" fparens/default "" "$K:fortran:fortran:emitted_sources/fparens/$K/${K}_fp64.f90" \
+      "$K:c:c:emitted_sources/fparens/$K/${K}_fp64.c"
+  else
+    optrep "$WT" fparens/default "" "$K:fortran:fortran:emitted_sources/fparens/$K/${K}_fp64.f90"
+  fi
+  optrep "$WTN" fparens/noparens fno-protect-parens "$K:fortran:fortran:emitted_sources/fparens/$K/${K}_fp64.f90"
+}
 echo "unit $EXP $K node=$NODE start=$(date -Is) g++=$(command -v g++) gfortran=$(command -v gfortran)"
 case "$EXP" in
   MINMAX)   # experiment 1: harness compile line + -ffinite-math-only
@@ -96,6 +109,28 @@ case "$EXP" in
   REGMEM_OPTREP)  # experiment 4 opt reports only (compile-only; re-run after the base/variant overwrite)
     probe "$WT"
     regmem_optrep ;;
+  FPARENS)  # experiment 2b: fortran column, harness line vs + -fno-protect-parens, same node, A/B
+    probe "$WT"; probe "$WTN"
+    I=$(grep -n -x "$K" fparens_roster.txt | cut -d: -f1)   # arm order alternates with the roster line
+    REPRS_D=fortran; [[ "$EIGHT" == *" $K "* ]] && REPRS_D=c,fortran   # C timed too, for the predictions
+    armD() { sweep "$WT" "fparens/$K.default" --reprs "$REPRS_D" --perf --emitted-dir emitted_sources/fparens; }
+    armN() { sweep "$WTN" "fparens/$K.noparens" --reprs fortran --variant fno-protect-parens \
+               --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens; }
+    if (( I % 2 )); then armD; armN; else armN; armD; fi
+    if [[ "$EIGHT" == *" $K "* ]]; then   # bit for bit: c, cpp, fortran default, fortran -fno-protect-parens
+      sweep "$WT" "fparens_dump/$K.default" --reprs c,cpp,fortran --warmup 0 --reps 1 --variant output_dump \
+        --dump-outputs "$DUMP/default" --dump-oracle "$DUMP/oracle" --emitted-dir emitted_sources/fparens
+      sweep "$WTN" "fparens_dump/$K.noparens" --reprs fortran --warmup 0 --reps 1 --variant output_dump_fno-protect-parens \
+        --flags-variant=-fno-protect-parens --dump-outputs "$DUMP/noparens" --dump-oracle "$DUMP/oracle" \
+        --emitted-dir emitted_sources/fparens
+      mkdir -p parts/fparens_outputs
+      step env LLR40_BENCH="$WT" "$PY" fortran_parens_outputs.py --root "$DUMP" --kernel "$K" \
+        --out "parts/fparens_outputs/$K.csv"
+    fi
+    fparens_optrep ;;
+  FPARENS_OPTREP)  # experiment 2b opt reports only (compile-only; re-run after the missing index dir)
+    probe "$WT"; probe "$WTN"
+    fparens_optrep ;;
   *) echo "unknown EXP $EXP"; exit 2 ;;
 esac
 echo "unit $EXP $K node=$NODE end=$(date -Is)"

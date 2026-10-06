@@ -1,0 +1,36 @@
+unit FPARENS compact_threshold_pack node=nid006373 start=2026-10-06T13:25:05+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006373 1 1
+PROBE nid006373 1 1
+SRUN[FPARENS compact_threshold_pack]: srun --nodes=1 --ntasks=1 -w nid006373 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels compact_threshold_pack --preset M --warmup 5 --reps 30 --out parts/fparens/compact_threshold_pack.noparens.csv --scratch scratch/fparens/compact_threshold_pack.noparens --attempts-out parts/fparens/compact_threshold_pack.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] compact_threshold_pack
+    fortran      ok           median 112.839 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/compact_threshold_pack.noparens.csv
+SRUN[FPARENS compact_threshold_pack]: srun --nodes=1 --ntasks=1 -w nid006373 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels compact_threshold_pack --preset M --warmup 5 --reps 30 --out parts/fparens/compact_threshold_pack.default.csv --scratch scratch/fparens/compact_threshold_pack.default --attempts-out parts/fparens/compact_threshold_pack.default.attempts.csv --attempt-logs logs/attempts --reprs fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] compact_threshold_pack
+    fortran      ok           median 112.716 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/compact_threshold_pack.default.csv
+SRUN[FPARENS compact_threshold_pack]: srun --nodes=1 --ntasks=1 -w nid006373 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.compact_threshold_pack.base.csv --variant  compact_threshold_pack:fortran:fortran:emitted_sources/fparens/compact_threshold_pack/compact_threshold_pack_fp64.f90
+compact_threshold_pack       fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.compact_threshold_pack.base.csv'
+srun: error: nid006373: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.45
+SRUN[FPARENS compact_threshold_pack]: srun --nodes=1 --ntasks=1 -w nid006373 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.compact_threshold_pack.fno-protect-parens.csv --variant fno-protect-parens compact_threshold_pack:fortran:fortran:emitted_sources/fparens/compact_threshold_pack/compact_threshold_pack_fp64.f90
+compact_threshold_pack       fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.compact_threshold_pack.fno-protect-parens.csv'
+srun: error: nid006373: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.46
+unit FPARENS compact_threshold_pack node=nid006373 end=2026-10-06T13:26:25+02:00

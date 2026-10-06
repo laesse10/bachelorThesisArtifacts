@@ -1,0 +1,6 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fno-protect-parens -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/fparens/noparens/tsvc_2_s311/fortran/tsvc_2_s311_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/fparens/noparens/tsvc_2_s311/fortran/build/tsvc_2_s311_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+tsvc_2_s311_fp64.f90:10:13: optimized: loop vectorized using 16 byte vectors
+tsvc_2_s311_fp64.f90:10:13: optimized: loop vectorized using 16 byte vectors
+tsvc_2_s311_fp64.f90:10:13: optimized: loop with 2 iterations completely unrolled (header execution count 51728392)
+tsvc_2_s311_fp64.f90:2:27: optimized: loop with 2 iterations completely unrolled (header execution count 47229784)

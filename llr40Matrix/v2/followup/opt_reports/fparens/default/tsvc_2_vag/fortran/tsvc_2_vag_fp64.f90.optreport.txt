@@ -1,0 +1,4 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/fparens/default/tsvc_2_vag/fortran/tsvc_2_vag_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/fparens/default/tsvc_2_vag/fortran/build/tsvc_2_vag_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+tsvc_2_vag_fp64.f90:10:13: missed: couldn't vectorize loop
+tsvc_2_vag_fp64.f90:10:13: missed: Loop costings may not be worthwhile.

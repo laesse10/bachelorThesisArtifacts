@@ -11,6 +11,8 @@ experiments need, and nothing that changes the measurement path:
   --agent-sha PREFIX     time only the agent candidate whose sha256 starts with PREFIX (v2's pick)
   --perf                 perf stat -e cycles,instructions over the TIMED reps only (perfgate/)
   --vmstat               /proc/vmstat counter deltas around each series (node memory state)
+  --dump-outputs ROOT    save the arrays the harness validates (first call) under ROOT/<k>/<repr>,
+                         and the oracle's once under --dump-oracle/<k> (outdump/)
 
 Identical measurement path to sweep.py.
 
@@ -59,6 +61,7 @@ VMSTAT_KEYS = ("compact_stall", "compact_fail", "compact_success", "pgmigrate_su
                "thp_fault_alloc", "thp_fault_fallback", "thp_collapse_alloc", "numa_pages_migrated",
                "pgfault", "pgmajfault")
 LAST_EXTRA = [{}]   # perf + vmstat columns of the most recent run_framework call
+CUR_REPR = [""]     # the representation being run (names the --dump-outputs directory)
 
 
 def place(src, dst):
@@ -83,6 +86,8 @@ def env_for_run():
     })
     if ARGS.perf:
         e["PYTHONPATH"] = f"{REPO / 'perfgate'}:{e['PYTHONPATH']}"
+    if ARGS.dump_outputs:
+        e["PYTHONPATH"] = f"{REPO / 'outdump'}:{e['PYTHONPATH']}"
     return e
 
 
@@ -131,6 +136,9 @@ def run_framework(kernel, framework, preset, reps, timeout_s):
            "--output", str(out)]
     env = env_for_run()
     LAST_EXTRA[0] = {}
+    if ARGS.dump_outputs:
+        env["FOLLOWUP_DUMP_DIR"] = str(pathlib.Path(ARGS.dump_outputs) / kernel / CUR_REPR[0])
+        env["FOLLOWUP_DUMP_ORACLE_DIR"] = str(pathlib.Path(ARGS.dump_oracle) / kernel)
     if ARGS.perf:
         # perf stat prepends /usr/lib/perf-core:/usr/bin to its child's PATH, where `g++` is GCC 7.5
         # (diagnostics/diagnose_bimodal.py). `env PATH=...` hands the harness the PATH it has
@@ -324,6 +332,7 @@ def main():
                 if any(r["kernel"] == k and r["representation"] == rep for r in rows):
                     print(f"    {rep:<12} already recorded (resume)", flush=True); continue
                 fw, ext = REPRS[rep]
+                CUR_REPR[0] = rep
                 note, compiler = "", {"cc": "gcc", "cpp": "g++", "fortran": "gfortran",
                                       "numba": "numba"}.get(fw, "")
                 # --- restore pristine before every cell, and verify it ---
@@ -433,12 +442,17 @@ if __name__ == "__main__":
     ap.add_argument("--agent-sha", default="", help="only the agent candidate with this sha256 prefix")
     ap.add_argument("--perf", action="store_true", help="perf stat cycles,instructions over the timed reps")
     ap.add_argument("--vmstat", action="store_true", help="/proc/vmstat deltas around each series")
+    ap.add_argument("--dump-outputs", default="", help="save validated outputs under this root")
+    ap.add_argument("--dump-oracle", default="", help="save the oracle outputs under this root")
     ARGS = ap.parse_args()
     # The driver runs with cwd=BENCH, so a relative --scratch would make it write its JSONL under
     # the bench tree while this process looks under its own cwd (first debug job, 4969228: every
     # cell recorded build_error). Resolve every path argument here, once.
     for _a in ("out", "scratch", "attempts_out", "attempt_logs"):
         setattr(ARGS, _a, str(pathlib.Path(getattr(ARGS, _a)).resolve()))
+    # one sitecustomize wins on PYTHONPATH, so the perf gate and the output dump never share a run
+    assert not (ARGS.perf and ARGS.dump_outputs), "--perf and --dump-outputs are separate runs"
+    assert bool(ARGS.dump_outputs) == bool(ARGS.dump_oracle), "--dump-outputs needs --dump-oracle"
     OVERRIDES = {}
     for _o in ARGS.override:
         _r, _p = _o.split("=", 1)

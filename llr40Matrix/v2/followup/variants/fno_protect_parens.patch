@@ -1,0 +1,13 @@
+diff --git a/hpcagent_bench/flags.py b/hpcagent_bench/flags.py
+index 7c9e5d5f2..a4ceb166f 100644
+--- a/hpcagent_bench/flags.py
++++ b/hpcagent_bench/flags.py
+@@ -121,7 +121,7 @@ CPU_BASELINE_GCC = (
+ #: GCC baseline for Fortran: CPU_BASELINE_GCC minus the C decl header, which gfortran rejects (fatal
+ #: under -Werror). gfortran reaches libmvec through the distro driver spec pre-including glibc's
+ #: math-vector-fortran.h, a host property tests/test_vecmath.py checks.
+-CPU_BASELINE_GFORTRAN = f"-O3 {ARCH_NATIVE} -fopenmp {_FP_RELAX} {_FP_ASSOC} {_FP_CONTRACT} -fstrict-aliasing -fPIC"
++CPU_BASELINE_GFORTRAN = f"-O3 {ARCH_NATIVE} -fopenmp {_FP_RELAX} {_FP_ASSOC} {_FP_CONTRACT} -fno-protect-parens -fstrict-aliasing -fPIC"
+ 
+ #: NVHPC baseline for C / C++ / Fortran. ``_FP_RELAX`` and ``_FP_ASSOC`` need no nvc spelling: nvc
+ #: relaxes errno, trapping and signed zeros AND reassociates by default (``-Kieee`` turns that off).

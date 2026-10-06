@@ -1,0 +1,4 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fno-protect-parens -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/fparens/noparens/argmax_with_index/fortran/argmax_with_index_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/fparens/noparens/argmax_with_index/fortran/build/argmax_with_index_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+argmax_with_index_fp64.f90:13:13: missed: couldn't vectorize loop
+argmax_with_index_fp64.f90:2:33: missed: not vectorized: unsupported use in stmt.

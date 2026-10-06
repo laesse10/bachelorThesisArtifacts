@@ -1,0 +1,55 @@
+unit FPARENS versioned_distance_update node=nid005980 start=2026-10-06T13:25:05+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005980 1 1
+PROBE nid005980 1 1
+SRUN[FPARENS versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005980 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels versioned_distance_update --preset M --warmup 5 --reps 30 --out parts/fparens/versioned_distance_update.default.csv --scratch scratch/fparens/versioned_distance_update.default --attempts-out parts/fparens/versioned_distance_update.default.attempts.csv --attempt-logs logs/attempts --reprs c,fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] versioned_distance_update
+    c            ok           median 299.355 ms 
+    fortran      ok           median 330.174 ms 
+
+wrote 2 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/versioned_distance_update.default.csv
+SRUN[FPARENS versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005980 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels versioned_distance_update --preset M --warmup 5 --reps 30 --out parts/fparens/versioned_distance_update.noparens.csv --scratch scratch/fparens/versioned_distance_update.noparens --attempts-out parts/fparens/versioned_distance_update.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] versioned_distance_update
+    fortran      ok           median 299.532 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/versioned_distance_update.noparens.csv
+SRUN[FPARENS versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005980 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels versioned_distance_update --preset M --warmup 5 --reps 30 --out parts/fparens_dump/versioned_distance_update.default.csv --scratch scratch/fparens_dump/versioned_distance_update.default --attempts-out parts/fparens_dump/versioned_distance_update.default.attempts.csv --attempt-logs logs/attempts --reprs c,cpp,fortran --warmup 0 --reps 1 --variant output_dump --dump-outputs /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/default --dump-oracle /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/oracle --emitted-dir emitted_sources/fparens
+[1/1] versioned_distance_update
+    c            ok           median 298.828 ms 
+    cpp          ok           median 298.420 ms 
+    fortran      ok           median 330.822 ms 
+
+wrote 3 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens_dump/versioned_distance_update.default.csv
+SRUN[FPARENS versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005980 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels versioned_distance_update --preset M --warmup 5 --reps 30 --out parts/fparens_dump/versioned_distance_update.noparens.csv --scratch scratch/fparens_dump/versioned_distance_update.noparens --attempts-out parts/fparens_dump/versioned_distance_update.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --warmup 0 --reps 1 --variant output_dump_fno-protect-parens --flags-variant=-fno-protect-parens --dump-outputs /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/noparens --dump-oracle /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/oracle --emitted-dir emitted_sources/fparens
+[1/1] versioned_distance_update
+    fortran      ok           median 299.297 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens_dump/versioned_distance_update.noparens.csv
+SRUN[FPARENS versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005980 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python fortran_parens_outputs.py --root /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs --kernel versioned_distance_update --out parts/fparens_outputs/versioned_distance_update.csv
+versioned_distance_update  a        c                 identical=no  diff=  35120724 max_abs=1.776e-15 max_rel=6.733e-16 max_ulp=4
+versioned_distance_update  a        cpp               identical=no  diff=  35120724 max_abs=1.776e-15 max_rel=6.733e-16 max_ulp=4
+versioned_distance_update  a        fortran_default   identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+versioned_distance_update  a        fortran_noparens  identical=no  diff=  35120724 max_abs=1.776e-15 max_rel=6.733e-16 max_ulp=4
+SRUN[FPARENS versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005980 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.versioned_distance_update.base.csv --variant  versioned_distance_update:fortran:fortran:emitted_sources/fparens/versioned_distance_update/versioned_distance_update_fp64.f90 versioned_distance_update:c:c:emitted_sources/fparens/versioned_distance_update/versioned_distance_update_fp64.c
+versioned_distance_update    fortran      ok
+versioned_distance_update    c            ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.versioned_distance_update.base.csv'
+srun: error: nid005980: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.138
+SRUN[FPARENS versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005980 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.versioned_distance_update.fno-protect-parens.csv --variant fno-protect-parens versioned_distance_update:fortran:fortran:emitted_sources/fparens/versioned_distance_update/versioned_distance_update_fp64.f90
+versioned_distance_update    fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.versioned_distance_update.fno-protect-parens.csv'
+srun: error: nid005980: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.139
+unit FPARENS versioned_distance_update node=nid005980 end=2026-10-06T13:28:12+02:00

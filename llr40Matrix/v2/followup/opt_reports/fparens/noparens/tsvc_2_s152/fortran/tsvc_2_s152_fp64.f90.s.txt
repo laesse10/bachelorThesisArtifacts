@@ -1,0 +1,48 @@
+# objdump -d tsvc_2_s152_fp64.f90.o  (functions matching tsvc_2_s152_fp64*)
+0000000000000000 <tsvc_2_s152_fp64>:
+   0:	f10000bf 	cmp	x5, #0x0
+   4:	540004ed 	b.le	a0 <tsvc_2_s152_fp64+0xa0>
+   8:	d341fca8 	lsr	x8, x5, #1
+   c:	d2800006 	mov	x6, #0x0                   	// #0
+  10:	d2800007 	mov	x7, #0x0                   	// #0
+  14:	f10004bf 	cmp	x5, #0x1
+  18:	54000460 	b.eq	a4 <tsvc_2_s152_fp64+0xa4>  // b.none
+  1c:	d503201f 	nop
+  20:	3ce66860 	ldr	q0, [x3, x6]
+  24:	910004e7 	add	x7, x7, #0x1
+  28:	3ce66881 	ldr	q1, [x4, x6]
+  2c:	6e61dc00 	fmul	v0.2d, v0.2d, v1.2d
+  30:	3ca66820 	str	q0, [x1, x6]
+  34:	910040c6 	add	x6, x6, #0x10
+  38:	eb07011f 	cmp	x8, x7
+  3c:	54ffff21 	b.ne	20 <tsvc_2_s152_fp64+0x20>  // b.any
+  40:	927ff8a6 	and	x6, x5, #0xfffffffffffffffe
+  44:	360000a5 	tbz	w5, #0, 58 <tsvc_2_s152_fp64+0x58>
+  48:	fc667860 	ldr	d0, [x3, x6, lsl #3]
+  4c:	fc667881 	ldr	d1, [x4, x6, lsl #3]
+  50:	1e610800 	fmul	d0, d0, d1
+  54:	fc267820 	str	d0, [x1, x6, lsl #3]
+  58:	d2800003 	mov	x3, #0x0                   	// #0
+  5c:	d2800004 	mov	x4, #0x0                   	// #0
+  60:	3ce36800 	ldr	q0, [x0, x3]
+  64:	91000484 	add	x4, x4, #0x1
+  68:	3ce36822 	ldr	q2, [x1, x3]
+  6c:	3ce36841 	ldr	q1, [x2, x3]
+  70:	4e61cc40 	fmla	v0.2d, v2.2d, v1.2d
+  74:	3ca36800 	str	q0, [x0, x3]
+  78:	91004063 	add	x3, x3, #0x10
+  7c:	eb08009f 	cmp	x4, x8
+  80:	54ffff01 	b.ne	60 <tsvc_2_s152_fp64+0x60>  // b.any
+  84:	eb0600bf 	cmp	x5, x6
+  88:	540000c0 	b.eq	a0 <tsvc_2_s152_fp64+0xa0>  // b.none
+  8c:	fc667800 	ldr	d0, [x0, x6, lsl #3]
+  90:	fc667842 	ldr	d2, [x2, x6, lsl #3]
+  94:	fc667821 	ldr	d1, [x1, x6, lsl #3]
+  98:	1f410040 	fmadd	d0, d2, d1, d0
+  9c:	fc267800 	str	d0, [x0, x6, lsl #3]
+  a0:	d65f03c0 	ret
+  a4:	fd400060 	ldr	d0, [x3]
+  a8:	fd400081 	ldr	d1, [x4]
+  ac:	1e610800 	fmul	d0, d0, d1
+  b0:	fd000020 	str	d0, [x1]
+  b4:	17fffff6 	b	8c <tsvc_2_s152_fp64+0x8c>

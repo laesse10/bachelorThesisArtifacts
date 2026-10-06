@@ -1,0 +1,36 @@
+unit FPARENS fuse_move_ifs node=nid005761 start=2026-10-06T13:26:47+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005761 1 1
+PROBE nid005761 1 1
+SRUN[FPARENS fuse_move_ifs]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels fuse_move_ifs --preset M --warmup 5 --reps 30 --out parts/fparens/fuse_move_ifs.noparens.csv --scratch scratch/fparens/fuse_move_ifs.noparens --attempts-out parts/fparens/fuse_move_ifs.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] fuse_move_ifs
+    fortran      ok           median 67.755 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/fuse_move_ifs.noparens.csv
+SRUN[FPARENS fuse_move_ifs]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels fuse_move_ifs --preset M --warmup 5 --reps 30 --out parts/fparens/fuse_move_ifs.default.csv --scratch scratch/fparens/fuse_move_ifs.default --attempts-out parts/fparens/fuse_move_ifs.default.attempts.csv --attempt-logs logs/attempts --reprs fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] fuse_move_ifs
+    fortran      ok           median 67.763 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/fuse_move_ifs.default.csv
+SRUN[FPARENS fuse_move_ifs]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.fuse_move_ifs.base.csv --variant  fuse_move_ifs:fortran:fortran:emitted_sources/fparens/fuse_move_ifs/fuse_move_ifs_fp64.f90
+fuse_move_ifs                fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.fuse_move_ifs.base.csv'
+srun: error: nid005761: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.102
+SRUN[FPARENS fuse_move_ifs]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.fuse_move_ifs.fno-protect-parens.csv --variant fno-protect-parens fuse_move_ifs:fortran:fortran:emitted_sources/fparens/fuse_move_ifs/fuse_move_ifs_fp64.f90
+fuse_move_ifs                fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.fuse_move_ifs.fno-protect-parens.csv'
+srun: error: nid005761: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.103
+unit FPARENS fuse_move_ifs node=nid005761 end=2026-10-06T13:27:36+02:00

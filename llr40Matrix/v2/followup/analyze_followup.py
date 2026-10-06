@@ -455,6 +455,121 @@ def regmem():
                                  "perf_gated_reps")})
 
 
+# ----------------------------------------------------------------------------- experiment 2b
+EIGHT = ["tsvc_2_s3111", "tsvc_2_s311", "tsvc_2_s319", "quasi_affine_reduce_odd", "segment_reduce_ragged",
+         "scan_affine_decay", "versioned_distance_update", "tsvc_2_s323"]
+ELEM2B = {"tsvc_2_s3111": 200_000_000, "tsvc_2_s311": 220_000_000, "tsvc_2_s319": 57_000_000,
+          "quasi_affine_reduce_odd": 90_000_000,          # i = 1, 3, ..., LEN_1D-1
+          "segment_reduce_ragged": 60_000_000,            # row_ptr[NSEG] - row_ptr[0] at preset M
+          "scan_affine_decay": 95_000_000 - 1, "versioned_distance_update": 95_000_000 - 1,
+          "tsvc_2_s323": 57_000_000 - 1}
+ASM_PATS = {  # mnemonic + operand class, from the kernel's objdump
+    "fmadd": r"\tfmadd\t", "fmsub": r"\tfmsub\t", "fnmadd": r"\tfnmadd\t", "fnmsub": r"\tfnmsub\t",
+    "fmla_vec": r"\tfml[as]\t", "fmad_vec": r"\tfmad\t|\tfmsb\t", "fmul_scalar": r"\tfmul\td\d",
+    "fadd_scalar": r"\tfadd\td\d", "fadd_vector": r"\tfadd\t(v\d+\.2d|z\d+\.d)", "faddp": r"\tfaddp\t",
+    "fadda": r"\tfadda\t"}
+
+
+# experiment 2b: the first SPECIFIC missed line (not "couldn't vectorize loop" / region splitting)
+MISSED2B = re.compile(r"missed: (?!couldn't vectorize loop)(?!splitting region)")
+
+
+def asm_instr(path):
+    """The kernel's instruction stream without addresses/encodings, and the ASM_PATS counts."""
+    txt = pathlib.Path(path).read_text() if path and pathlib.Path(path).is_file() else ""
+    ins = [re.sub(r"<[^>]*>", "", l.split("\t", 2)[-1]).strip() for l in txt.splitlines() if re.match(r"^\s+[0-9a-f]+:\t", l)]
+    ins = [re.sub(r"\s+[0-9a-f]+\s*$", " T", x) if x.startswith(("b", "cb", "tb")) else x for x in ins]
+    counts = {k: len(re.findall(v, txt)) for k, v in ASM_PATS.items()}
+    return ins, counts
+
+
+def fparens():
+    t = [r for r in parts("fparens/*.csv")]
+    opt = {}
+    for arm in ("default", "noparens"):
+        for r in parts(f"fparens/{arm}/optrep.*.csv"):
+            opt[(arm, r["kernel"], r["representation"])] = r
+    rows = []
+    for k in [l.strip() for l in open(HERE / "fparens_roster.txt") if l.strip()]:
+        cells = {(r["representation"], "noparens" if r["variant"] else "default"): r for r in t if r["kernel"] == k}
+        d, n = cells.get(("fortran", "default")), cells.get(("fortran", "noparens"))
+        ev = {}
+        for arm in ("default", "noparens"):
+            o = opt.get((arm, k, "fortran"), {})
+            if o.get("optreport"):
+                lines = report_lines(HERE / o["optreport"])
+                vl, vt = first_match(lines, VEC)
+                ml, mt = first_match(lines, MISSED2B)
+                ins, cnt = asm_instr(HERE / o["asm"]) if o.get("asm") else ([], {})
+                ev[arm] = dict(n_vec=int(o["n_vec_optimized"] or 0), vec=f"{o['optreport']}:{vl}: {vt}" if vl else "",
+                               missed=f"{o['optreport']}:{ml}: {mt}" if ml else "", ins=ins, cnt=cnt, argv=o["compile_argv"])
+        same_code = (ev.get("default", {}).get("ins") == ev.get("noparens", {}).get("ins")) if len(ev) == 2 else ""
+        import difflib
+        n_changed = (sum(1 for l in difflib.ndiff(ev["default"]["ins"], ev["noparens"]["ins"]) if l[:1] in "+-")
+                     if len(ev) == 2 else "")
+        # the same mnemonic sequence = the same code up to register allocation and operand order
+        same_mn = ([x.split()[0] for x in ev["default"]["ins"] if x] == [x.split()[0] for x in ev["noparens"]["ins"] if x]
+                   if len(ev) == 2 else "")
+        td, tn = ns(d) if d else [], ns(n) if n else []
+        for (rep, arm), r in sorted(cells.items(), key=lambda x: ({"c": 0, "fortran": 1}.get(x[0][0], 2), x[0][1])):
+            tt = ns(r)
+            el = ELEM2B.get(k)
+            cyc = int(r["perf_cycles"]) if r.get("perf_cycles") else None
+            ins_n = int(r["perf_instructions"]) if r.get("perf_instructions") else None
+            en = perf_runtime_ns(r.get("perf_raw"))
+            e = ev.get(arm, {}) if rep == "fortran" else {}
+            row = {"kernel": k, "representation": rep, "variant": r["variant"], "flags_variant": r["flags_variant"],
+                   "status": r["status"], "n_reps": len(tt), "time_ns_min": min(tt) if tt else "",
+                   "time_ns_median": int(statistics.median(tt)) if tt else "", "rsd_pct": f"{rsd(tt):.2f}" if tt else "",
+                   "v2_time_ns_min": min(ns(V2[(k, rep)])) if ns(V2[(k, rep)]) else "",
+                   "perf_cycles": cyc or "", "perf_instructions": ins_n or "", "perf_gated_reps": r.get("perf_gated_reps", ""),
+                   "ghz_measured": f"{cyc / en:.4f}" if (cyc and en) else "",
+                   "elements_per_call": el or "",
+                   "cycles_per_element": f"{cyc / (len(tt) * el):.3f}" if (cyc and el and tt) else "",
+                   "instructions_per_element": f"{ins_n / (len(tt) * el):.3f}" if (ins_n and el and tt) else "",
+                   "ipc": f"{ins_n / cyc:.3f}" if (cyc and ins_n) else ""}
+            if rep == "fortran":
+                row.update(noparens_over_default_min=f"{min(tn) / min(td):.4f}" if (td and tn) else "",
+                           moved_gt_5pct=("yes" if abs(min(tn) / min(td) - 1) > 0.05 else "no") if (td and tn) else "",
+                           code_identical_to_default=same_code, asm_lines_changed_vs_default=n_changed,
+                           same_mnemonics_as_default=same_mn,
+                           n_vec_optimized=e.get("n_vec", ""), vec_report=e.get("vec", ""),
+                           first_missed=e.get("missed", "") if not e.get("vec") else "",
+                           asm_counts=fmt_counts({a: b for a, b in e.get("cnt", {}).items() if b}),
+                           compile_argv=e.get("argv", ""))
+            row.update(slurm_job=r["slurm_job"], node=r["node"], compiler_version=r["compiler_version"],
+                       source_sha256=r["source_sha256"], notes=r["notes"], perf_raw=r.get("perf_raw", ""),
+                       time_ns_all=r["time_ns_all"])
+            rows.append(row)
+    fields = ["kernel", "representation", "variant", "flags_variant", "status", "n_reps", "time_ns_min", "time_ns_median",
+              "rsd_pct", "v2_time_ns_min", "noparens_over_default_min", "moved_gt_5pct", "code_identical_to_default",
+              "asm_lines_changed_vs_default", "same_mnemonics_as_default",
+              "n_vec_optimized", "vec_report", "first_missed", "asm_counts", "perf_cycles", "perf_instructions",
+              "perf_gated_reps", "ghz_measured", "elements_per_call", "cycles_per_element", "instructions_per_element",
+              "ipc", "slurm_job", "node", "compiler_version", "source_sha256", "notes", "compile_argv", "perf_raw",
+              "time_ns_all"]
+    write_csv("fortran_parens.csv", rows, fields)
+    for r in rows:
+        if r["kernel"] in EIGHT or r.get("moved_gt_5pct") == "yes" or r["status"] != "ok":
+            print(f"{r['kernel']:28s} {r['representation']:8s} {r['variant'] or 'default':18s} {r['status']:10s} "
+                  f"min={ms(r['time_ns_min'])} v2={ms(r['v2_time_ns_min'])} cyc/el={r['cycles_per_element']} "
+                  f"ipc={r['ipc']} N/D={r.get('noparens_over_default_min', '')} same_code={r.get('code_identical_to_default', '')} "
+                  f"asm_changed={r.get('asm_lines_changed_vs_default', '')} same_mn={r.get('same_mnemonics_as_default', '')}")
+            if r["representation"] == "fortran":
+                print(f"{'':30s} vec={r['n_vec_optimized']} {r['vec_report'] or r['first_missed']}")
+                print(f"{'':30s} asm: {r['asm_counts']}")
+    out = []
+    for f in sorted(glob.glob(str(HERE / "parts/fparens_outputs/*.csv"))):
+        out += list(csv.DictReader(open(f)))
+    if out:
+        write_csv("fortran_parens_outputs.csv", out, list(out[0].keys()))
+        for r in out:
+            print(f"{r['kernel']:26s} {r['output']:8s} {r['build']:17s} identical={r['bitwise_identical']:3s} "
+                  f"diff={r['n_differing']:>10s}/{r['n_elements']} max_abs={r['max_abs_diff']} max_rel={r['max_rel_diff']} "
+                  f"max_ulp={r['max_ulp']} validated={r['harness_validated']} oracle_same={r['oracle_identical_across_runs']}")
+
+
+
 def unstable_md():
     """Markdown tables for unstable_interleaved.md."""
     out, summary = unstable()
@@ -509,4 +624,4 @@ def unstable_md():
 
 
 if __name__ == "__main__":
-    {"minmax": minmax, "s2710": s2710, "unstable": unstable_report, "unstable_md": unstable_md, "regmem": regmem}[sys.argv[1]]()
+    {"minmax": minmax, "s2710": s2710, "unstable": unstable_report, "unstable_md": unstable_md, "regmem": regmem, "fparens": fparens}[sys.argv[1]]()

@@ -1,0 +1,18 @@
+unit FPARENS wf_triangular node=nid006547 start=2026-10-06T13:39:05+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006547 1 1
+PROBE nid006547 1 1
+SRUN[FPARENS wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006547 --exclusive --cpu-bind=cores --hint=nomultithread --time=20 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels wf_triangular --preset M --warmup 5 --reps 30 --out parts/fparens/wf_triangular.noparens.csv --scratch scratch/fparens/wf_triangular.noparens --attempts-out parts/fparens/wf_triangular.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] wf_triangular
+    fortran      ok           median 99.593 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/wf_triangular.noparens.csv
+SRUN[FPARENS wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006547 --exclusive --cpu-bind=cores --hint=nomultithread --time=20 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels wf_triangular --preset M --warmup 5 --reps 30 --out parts/fparens/wf_triangular.default.csv --scratch scratch/fparens/wf_triangular.default --attempts-out parts/fparens/wf_triangular.default.attempts.csv --attempt-logs logs/attempts --reprs fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] wf_triangular
+    fortran      ok           median 99.810 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/wf_triangular.default.csv
+SRUN[FPARENS wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006547 --exclusive --cpu-bind=cores --hint=nomultithread --time=20 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.wf_triangular.base.csv --variant  wf_triangular:fortran:fortran:emitted_sources/fparens/wf_triangular/wf_triangular_fp64.f90
+wf_triangular                fortran      ok
+SRUN[FPARENS wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006547 --exclusive --cpu-bind=cores --hint=nomultithread --time=20 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.wf_triangular.fno-protect-parens.csv --variant fno-protect-parens wf_triangular:fortran:fortran:emitted_sources/fparens/wf_triangular/wf_triangular_fp64.f90
+wf_triangular                fortran      ok
+unit FPARENS wf_triangular node=nid006547 end=2026-10-06T13:40:11+02:00

@@ -1,0 +1,36 @@
+unit FPARENS tsvc_2_s231 node=nid005761 start=2026-10-06T13:27:36+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005761 1 1
+PROBE nid005761 1 1
+SRUN[FPARENS tsvc_2_s231]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s231 --preset M --warmup 5 --reps 30 --out parts/fparens/tsvc_2_s231.noparens.csv --scratch scratch/fparens/tsvc_2_s231.noparens --attempts-out parts/fparens/tsvc_2_s231.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] tsvc_2_s231
+    fortran      ok           median 763.680 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/tsvc_2_s231.noparens.csv
+SRUN[FPARENS tsvc_2_s231]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s231 --preset M --warmup 5 --reps 30 --out parts/fparens/tsvc_2_s231.default.csv --scratch scratch/fparens/tsvc_2_s231.default --attempts-out parts/fparens/tsvc_2_s231.default.attempts.csv --attempt-logs logs/attempts --reprs fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] tsvc_2_s231
+    fortran      ok           median 749.369 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/tsvc_2_s231.default.csv
+SRUN[FPARENS tsvc_2_s231]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.tsvc_2_s231.base.csv --variant  tsvc_2_s231:fortran:fortran:emitted_sources/fparens/tsvc_2_s231/tsvc_2_s231_fp64.f90
+tsvc_2_s231                  fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.tsvc_2_s231.base.csv'
+srun: error: nid005761: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.199
+SRUN[FPARENS tsvc_2_s231]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.tsvc_2_s231.fno-protect-parens.csv --variant fno-protect-parens tsvc_2_s231:fortran:fortran:emitted_sources/fparens/tsvc_2_s231/tsvc_2_s231_fp64.f90
+tsvc_2_s231                  fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.tsvc_2_s231.fno-protect-parens.csv'
+srun: error: nid005761: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.200
+unit FPARENS tsvc_2_s231 node=nid005761 end=2026-10-06T13:29:06+02:00

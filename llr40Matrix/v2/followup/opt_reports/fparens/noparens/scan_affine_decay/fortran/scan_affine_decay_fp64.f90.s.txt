@@ -1,0 +1,14 @@
+# objdump -d scan_affine_decay_fp64.f90.o  (functions matching scan_affine_decay_fp64*)
+0000000000000000 <scan_affine_decay_fp64>:
+   0:	f100047f 	cmp	x3, #0x1
+   4:	5400014d 	b.le	2c <scan_affine_decay_fp64+0x2c>
+   8:	fd400040 	ldr	d0, [x2]
+   c:	d2800024 	mov	x4, #0x1                   	// #1
+  10:	fc647802 	ldr	d2, [x0, x4, lsl #3]
+  14:	fc647821 	ldr	d1, [x1, x4, lsl #3]
+  18:	1f400440 	fmadd	d0, d2, d0, d1
+  1c:	fc247840 	str	d0, [x2, x4, lsl #3]
+  20:	91000484 	add	x4, x4, #0x1
+  24:	eb04007f 	cmp	x3, x4
+  28:	54ffff41 	b.ne	10 <scan_affine_decay_fp64+0x10>  // b.any
+  2c:	d65f03c0 	ret

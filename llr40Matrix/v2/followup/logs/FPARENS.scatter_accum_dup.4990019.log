@@ -1,0 +1,36 @@
+unit FPARENS scatter_accum_dup node=nid005979 start=2026-10-06T13:27:41+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005979 1 1
+PROBE nid005979 1 1
+SRUN[FPARENS scatter_accum_dup]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels scatter_accum_dup --preset M --warmup 5 --reps 30 --out parts/fparens/scatter_accum_dup.noparens.csv --scratch scratch/fparens/scatter_accum_dup.noparens --attempts-out parts/fparens/scatter_accum_dup.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] scatter_accum_dup
+    fortran      ok           median 363.404 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/scatter_accum_dup.noparens.csv
+SRUN[FPARENS scatter_accum_dup]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels scatter_accum_dup --preset M --warmup 5 --reps 30 --out parts/fparens/scatter_accum_dup.default.csv --scratch scratch/fparens/scatter_accum_dup.default --attempts-out parts/fparens/scatter_accum_dup.default.attempts.csv --attempt-logs logs/attempts --reprs fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] scatter_accum_dup
+    fortran      ok           median 363.756 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/scatter_accum_dup.default.csv
+SRUN[FPARENS scatter_accum_dup]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.scatter_accum_dup.base.csv --variant  scatter_accum_dup:fortran:fortran:emitted_sources/fparens/scatter_accum_dup/scatter_accum_dup_fp64.f90
+scatter_accum_dup            fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.scatter_accum_dup.base.csv'
+srun: error: nid005979: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.167
+SRUN[FPARENS scatter_accum_dup]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.scatter_accum_dup.fno-protect-parens.csv --variant fno-protect-parens scatter_accum_dup:fortran:fortran:emitted_sources/fparens/scatter_accum_dup/scatter_accum_dup_fp64.f90
+scatter_accum_dup            fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.scatter_accum_dup.fno-protect-parens.csv'
+srun: error: nid005979: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.169
+unit FPARENS scatter_accum_dup node=nid005979 end=2026-10-06T13:28:38+02:00

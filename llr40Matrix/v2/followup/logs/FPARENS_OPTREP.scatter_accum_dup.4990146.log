@@ -1,0 +1,8 @@
+unit FPARENS_OPTREP scatter_accum_dup node=nid005682 start=2026-10-06T13:34:23+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005682 1 1
+PROBE nid005682 1 1
+SRUN[FPARENS_OPTREP scatter_accum_dup]: srun --nodes=1 --ntasks=1 -w nid005682 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.scatter_accum_dup.base.csv --variant  scatter_accum_dup:fortran:fortran:emitted_sources/fparens/scatter_accum_dup/scatter_accum_dup_fp64.f90
+scatter_accum_dup            fortran      ok
+SRUN[FPARENS_OPTREP scatter_accum_dup]: srun --nodes=1 --ntasks=1 -w nid005682 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.scatter_accum_dup.fno-protect-parens.csv --variant fno-protect-parens scatter_accum_dup:fortran:fortran:emitted_sources/fparens/scatter_accum_dup/scatter_accum_dup_fp64.f90
+scatter_accum_dup            fortran      ok
+unit FPARENS_OPTREP scatter_accum_dup node=nid005682 end=2026-10-06T13:34:25+02:00

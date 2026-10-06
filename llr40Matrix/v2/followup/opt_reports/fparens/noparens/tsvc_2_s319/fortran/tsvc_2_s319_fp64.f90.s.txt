@@ -1,0 +1,78 @@
+# objdump -d tsvc_2_s319_fp64.f90.o  (functions matching tsvc_2_s319_fp64*)
+0000000000000000 <tsvc_2_s319_fp64>:
+   0:	f10000bf 	cmp	x5, #0x0
+   4:	5400086d 	b.le	110 <tsvc_2_s319_fp64+0x110>
+   8:	d10004a6 	sub	x6, x5, #0x1
+   c:	f10008df 	cmp	x6, #0x2
+  10:	54000869 	b.ls	11c <tsvc_2_s319_fp64+0x11c>  // b.plast
+  14:	6f00e407 	movi	v7.2d, #0x0
+  18:	d342fca9 	lsr	x9, x5, #2
+  1c:	d2800207 	mov	x7, #0x10                  	// #16
+  20:	d2800006 	mov	x6, #0x0                   	// #0
+  24:	d2800008 	mov	x8, #0x0                   	// #0
+  28:	4ea71ce6 	mov	v6.16b, v7.16b
+  2c:	3ce66845 	ldr	q5, [x2, x6]
+  30:	91000508 	add	x8, x8, #0x1
+  34:	3ce66861 	ldr	q1, [x3, x6]
+  38:	3ce76844 	ldr	q4, [x2, x7]
+  3c:	3ce66883 	ldr	q3, [x4, x6]
+  40:	3ce76860 	ldr	q0, [x3, x7]
+  44:	4e65d421 	fadd	v1.2d, v1.2d, v5.2d
+  48:	3ce76882 	ldr	q2, [x4, x7]
+  4c:	4e65d463 	fadd	v3.2d, v3.2d, v5.2d
+  50:	4e64d400 	fadd	v0.2d, v0.2d, v4.2d
+  54:	3ca66801 	str	q1, [x0, x6]
+  58:	4e64d442 	fadd	v2.2d, v2.2d, v4.2d
+  5c:	4e63d421 	fadd	v1.2d, v1.2d, v3.2d
+  60:	3ca66823 	str	q3, [x1, x6]
+  64:	910080c6 	add	x6, x6, #0x20
+  68:	3ca76800 	str	q0, [x0, x7]
+  6c:	4e62d400 	fadd	v0.2d, v0.2d, v2.2d
+  70:	3ca76822 	str	q2, [x1, x7]
+  74:	910080e7 	add	x7, x7, #0x20
+  78:	4e61d4c6 	fadd	v6.2d, v6.2d, v1.2d
+  7c:	4e60d4e7 	fadd	v7.2d, v7.2d, v0.2d
+  80:	eb08013f 	cmp	x9, x8
+  84:	54fffd41 	b.ne	2c <tsvc_2_s319_fp64+0x2c>  // b.any
+  88:	4e67d4c6 	fadd	v6.2d, v6.2d, v7.2d
+  8c:	927ef4a6 	and	x6, x5, #0xfffffffffffffffc
+  90:	aa0603e7 	mov	x7, x6
+  94:	7e70d8c2 	faddp	d2, v6.2d
+  98:	eb0600bf 	cmp	x5, x6
+  9c:	54000360 	b.eq	108 <tsvc_2_s319_fp64+0x108>  // b.none
+  a0:	cb0700a5 	sub	x5, x5, x7
+  a4:	f10004bf 	cmp	x5, #0x1
+  a8:	540001e0 	b.eq	e4 <tsvc_2_s319_fp64+0xe4>  // b.none
+  ac:	d37df0e7 	lsl	x7, x7, #3
+  b0:	3ce76841 	ldr	q1, [x2, x7]
+  b4:	3ce76862 	ldr	q2, [x3, x7]
+  b8:	3ce76880 	ldr	q0, [x4, x7]
+  bc:	4e61d442 	fadd	v2.2d, v2.2d, v1.2d
+  c0:	4e61d400 	fadd	v0.2d, v0.2d, v1.2d
+  c4:	3ca76802 	str	q2, [x0, x7]
+  c8:	4e60d442 	fadd	v2.2d, v2.2d, v0.2d
+  cc:	3ca76820 	str	q0, [x1, x7]
+  d0:	4e66d442 	fadd	v2.2d, v2.2d, v6.2d
+  d4:	7e70d842 	faddp	d2, v2.2d
+  d8:	36000185 	tbz	w5, #0, 108 <tsvc_2_s319_fp64+0x108>
+  dc:	927ff8a5 	and	x5, x5, #0xfffffffffffffffe
+  e0:	8b0500c6 	add	x6, x6, x5
+  e4:	fc667841 	ldr	d1, [x2, x6, lsl #3]
+  e8:	fc667860 	ldr	d0, [x3, x6, lsl #3]
+  ec:	fc667883 	ldr	d3, [x4, x6, lsl #3]
+  f0:	1e602820 	fadd	d0, d1, d0
+  f4:	1e632821 	fadd	d1, d1, d3
+  f8:	fc267800 	str	d0, [x0, x6, lsl #3]
+  fc:	1e612800 	fadd	d0, d0, d1
+ 100:	fc267821 	str	d1, [x1, x6, lsl #3]
+ 104:	1e602842 	fadd	d2, d2, d0
+ 108:	fd000022 	str	d2, [x1]
+ 10c:	d65f03c0 	ret
+ 110:	2f00e402 	movi	d2, #0x0
+ 114:	fd000022 	str	d2, [x1]
+ 118:	d65f03c0 	ret
+ 11c:	6f00e406 	movi	v6.2d, #0x0
+ 120:	d2800007 	mov	x7, #0x0                   	// #0
+ 124:	d2800006 	mov	x6, #0x0                   	// #0
+ 128:	1e6040c2 	fmov	d2, d6
+ 12c:	17ffffdd 	b	a0 <tsvc_2_s319_fp64+0xa0>

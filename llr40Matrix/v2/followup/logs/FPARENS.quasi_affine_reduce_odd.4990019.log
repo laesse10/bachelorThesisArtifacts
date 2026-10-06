@@ -1,0 +1,55 @@
+unit FPARENS quasi_affine_reduce_odd node=nid005761 start=2026-10-06T13:25:05+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005761 1 1
+PROBE nid005761 1 1
+SRUN[FPARENS quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels quasi_affine_reduce_odd --preset M --warmup 5 --reps 30 --out parts/fparens/quasi_affine_reduce_odd.noparens.csv --scratch scratch/fparens/quasi_affine_reduce_odd.noparens --attempts-out parts/fparens/quasi_affine_reduce_odd.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] quasi_affine_reduce_odd
+    fortran      ok           median 63.461 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/quasi_affine_reduce_odd.noparens.csv
+SRUN[FPARENS quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels quasi_affine_reduce_odd --preset M --warmup 5 --reps 30 --out parts/fparens/quasi_affine_reduce_odd.default.csv --scratch scratch/fparens/quasi_affine_reduce_odd.default --attempts-out parts/fparens/quasi_affine_reduce_odd.default.attempts.csv --attempt-logs logs/attempts --reprs c,fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] quasi_affine_reduce_odd
+    c            ok           median 63.779 ms 
+    fortran      ok           median 63.561 ms 
+
+wrote 2 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/quasi_affine_reduce_odd.default.csv
+SRUN[FPARENS quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels quasi_affine_reduce_odd --preset M --warmup 5 --reps 30 --out parts/fparens_dump/quasi_affine_reduce_odd.default.csv --scratch scratch/fparens_dump/quasi_affine_reduce_odd.default --attempts-out parts/fparens_dump/quasi_affine_reduce_odd.default.attempts.csv --attempt-logs logs/attempts --reprs c,cpp,fortran --warmup 0 --reps 1 --variant output_dump --dump-outputs /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/default --dump-oracle /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/oracle --emitted-dir emitted_sources/fparens
+[1/1] quasi_affine_reduce_odd
+    c            ok           median 63.727 ms 
+    cpp          ok           median 63.810 ms 
+    fortran      ok           median 63.630 ms 
+
+wrote 3 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens_dump/quasi_affine_reduce_odd.default.csv
+SRUN[FPARENS quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels quasi_affine_reduce_odd --preset M --warmup 5 --reps 30 --out parts/fparens_dump/quasi_affine_reduce_odd.noparens.csv --scratch scratch/fparens_dump/quasi_affine_reduce_odd.noparens --attempts-out parts/fparens_dump/quasi_affine_reduce_odd.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --warmup 0 --reps 1 --variant output_dump_fno-protect-parens --flags-variant=-fno-protect-parens --dump-outputs /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/noparens --dump-oracle /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/oracle --emitted-dir emitted_sources/fparens
+[1/1] quasi_affine_reduce_odd
+    fortran      ok           median 63.650 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens_dump/quasi_affine_reduce_odd.noparens.csv
+SRUN[FPARENS quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python fortran_parens_outputs.py --root /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs --kernel quasi_affine_reduce_odd --out parts/fparens_outputs/quasi_affine_reduce_odd.csv
+quasi_affine_reduce_odd    out      c                 identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+quasi_affine_reduce_odd    out      cpp               identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+quasi_affine_reduce_odd    out      fortran_default   identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+quasi_affine_reduce_odd    out      fortran_noparens  identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+SRUN[FPARENS quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.quasi_affine_reduce_odd.base.csv --variant  quasi_affine_reduce_odd:fortran:fortran:emitted_sources/fparens/quasi_affine_reduce_odd/quasi_affine_reduce_odd_fp64.f90 quasi_affine_reduce_odd:c:c:emitted_sources/fparens/quasi_affine_reduce_odd/quasi_affine_reduce_odd_fp64.c
+quasi_affine_reduce_odd      fortran      ok
+quasi_affine_reduce_odd      c            ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.quasi_affine_reduce_odd.base.csv'
+srun: error: nid005761: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.64
+SRUN[FPARENS quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 -w nid005761 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.quasi_affine_reduce_odd.fno-protect-parens.csv --variant fno-protect-parens quasi_affine_reduce_odd:fortran:fortran:emitted_sources/fparens/quasi_affine_reduce_odd/quasi_affine_reduce_odd_fp64.f90
+quasi_affine_reduce_odd      fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.quasi_affine_reduce_odd.fno-protect-parens.csv'
+srun: error: nid005761: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.66
+unit FPARENS quasi_affine_reduce_odd node=nid005761 end=2026-10-06T13:26:47+02:00

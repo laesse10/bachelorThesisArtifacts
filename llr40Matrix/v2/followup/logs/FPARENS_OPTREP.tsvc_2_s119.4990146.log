@@ -1,0 +1,8 @@
+unit FPARENS_OPTREP tsvc_2_s119 node=nid005750 start=2026-10-06T13:34:23+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005750 1 1
+PROBE nid005750 1 1
+SRUN[FPARENS_OPTREP tsvc_2_s119]: srun --nodes=1 --ntasks=1 -w nid005750 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.tsvc_2_s119.base.csv --variant  tsvc_2_s119:fortran:fortran:emitted_sources/fparens/tsvc_2_s119/tsvc_2_s119_fp64.f90
+tsvc_2_s119                  fortran      ok
+SRUN[FPARENS_OPTREP tsvc_2_s119]: srun --nodes=1 --ntasks=1 -w nid005750 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.tsvc_2_s119.fno-protect-parens.csv --variant fno-protect-parens tsvc_2_s119:fortran:fortran:emitted_sources/fparens/tsvc_2_s119/tsvc_2_s119_fp64.f90
+tsvc_2_s119                  fortran      ok
+unit FPARENS_OPTREP tsvc_2_s119 node=nid005750 end=2026-10-06T13:34:25+02:00

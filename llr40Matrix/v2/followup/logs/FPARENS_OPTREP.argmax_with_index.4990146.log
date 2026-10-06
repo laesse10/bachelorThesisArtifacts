@@ -1,0 +1,8 @@
+unit FPARENS_OPTREP argmax_with_index node=nid005775 start=2026-10-06T13:34:17+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005775 1 1
+PROBE nid005775 1 1
+SRUN[FPARENS_OPTREP argmax_with_index]: srun --nodes=1 --ntasks=1 -w nid005775 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.argmax_with_index.base.csv --variant  argmax_with_index:fortran:fortran:emitted_sources/fparens/argmax_with_index/argmax_with_index_fp64.f90
+argmax_with_index            fortran      ok
+SRUN[FPARENS_OPTREP argmax_with_index]: srun --nodes=1 --ntasks=1 -w nid005775 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.argmax_with_index.fno-protect-parens.csv --variant fno-protect-parens argmax_with_index:fortran:fortran:emitted_sources/fparens/argmax_with_index/argmax_with_index_fp64.f90
+argmax_with_index            fortran      ok
+unit FPARENS_OPTREP argmax_with_index node=nid005775 end=2026-10-06T13:34:20+02:00

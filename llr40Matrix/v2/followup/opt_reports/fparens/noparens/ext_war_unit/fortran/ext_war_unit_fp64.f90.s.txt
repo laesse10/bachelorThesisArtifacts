@@ -1,0 +1,29 @@
+# objdump -d ext_war_unit_fp64.f90.o  (functions matching ext_war_unit_fp64*)
+0000000000000000 <ext_war_unit_fp64>:
+   0:	f100045f 	cmp	x2, #0x1
+   4:	540002ed 	b.le	60 <ext_war_unit_fp64+0x60>
+   8:	d1000443 	sub	x3, x2, #0x1
+   c:	f100085f 	cmp	x2, #0x2
+  10:	540002a0 	b.eq	64 <ext_war_unit_fp64+0x64>  // b.none
+  14:	d341fc66 	lsr	x6, x3, #1
+  18:	91002005 	add	x5, x0, #0x8
+  1c:	d2800002 	mov	x2, #0x0                   	// #0
+  20:	d2800004 	mov	x4, #0x0                   	// #0
+  24:	3ce268a0 	ldr	q0, [x5, x2]
+  28:	91000484 	add	x4, x4, #0x1
+  2c:	3ce26821 	ldr	q1, [x1, x2]
+  30:	4e61d400 	fadd	v0.2d, v0.2d, v1.2d
+  34:	3ca26800 	str	q0, [x0, x2]
+  38:	91004042 	add	x2, x2, #0x10
+  3c:	eb0400df 	cmp	x6, x4
+  40:	54ffff21 	b.ne	24 <ext_war_unit_fp64+0x24>  // b.any
+  44:	927ff862 	and	x2, x3, #0xfffffffffffffffe
+  48:	360000c3 	tbz	w3, #0, 60 <ext_war_unit_fp64+0x60>
+  4c:	8b020c03 	add	x3, x0, x2, lsl #3
+  50:	fc627821 	ldr	d1, [x1, x2, lsl #3]
+  54:	fd400460 	ldr	d0, [x3, #8]
+  58:	1e612800 	fadd	d0, d0, d1
+  5c:	fc227800 	str	d0, [x0, x2, lsl #3]
+  60:	d65f03c0 	ret
+  64:	d2800002 	mov	x2, #0x0                   	// #0
+  68:	17fffff9 	b	4c <ext_war_unit_fp64+0x4c>

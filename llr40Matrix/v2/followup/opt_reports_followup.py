@@ -162,6 +162,7 @@ def main():
             do_compiled(out, k, rep, lang, pathlib.Path(src), rows, a.variant)
         print(f"{k:28s} {rep:12s} {rows[-1]['status']}", flush=True)
     idx = pathlib.Path(a.index)
+    idx.parent.mkdir(parents=True, exist_ok=True)
     old = list(csv.DictReader(open(idx))) if idx.is_file() else []
     with open(idx, "w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=FIELDS); w.writeheader()

@@ -1,0 +1,5 @@
+kernel,output,build,status,harness_validated,rtol,atol,shape,dtype,n_elements,bitwise_identical,n_differing,max_abs_diff,max_rel_diff,max_ulp,n_rel_undefined_oracle_zero,n_nonfinite_mismatch,oracle_identical_across_runs,sha256_build,sha256_oracle
+tsvc_2_s3111,b,c,ok,True,1e-09,1e-11,2,float64,2,yes,0,0.0,0.0,0,0,0,,37681f36cfb8e98023da46186be7d1aea81cf72ad3568b643eb5794a2ec9d086,37681f36cfb8e98023da46186be7d1aea81cf72ad3568b643eb5794a2ec9d086
+tsvc_2_s3111,b,cpp,ok,True,1e-09,1e-11,2,float64,2,yes,0,0.0,0.0,0,0,0,True,37681f36cfb8e98023da46186be7d1aea81cf72ad3568b643eb5794a2ec9d086,37681f36cfb8e98023da46186be7d1aea81cf72ad3568b643eb5794a2ec9d086
+tsvc_2_s3111,b,fortran_default,ok,True,1e-09,1e-11,2,float64,2,yes,0,0.0,0.0,0,0,0,True,37681f36cfb8e98023da46186be7d1aea81cf72ad3568b643eb5794a2ec9d086,37681f36cfb8e98023da46186be7d1aea81cf72ad3568b643eb5794a2ec9d086
+tsvc_2_s3111,b,fortran_noparens,ok,True,1e-09,1e-11,2,float64,2,no,1,0.01214599609375,2.4293181370578174e-13,1592,0,0,True,5f8cbc042485f18f8d0a71f98f4af030d7af29613e625385fb688f9ead030570,37681f36cfb8e98023da46186be7d1aea81cf72ad3568b643eb5794a2ec9d086

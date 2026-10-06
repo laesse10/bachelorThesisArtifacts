@@ -1,0 +1,9 @@
+unit FPARENS_OPTREP scan_affine_decay node=nid005682 start=2026-10-06T13:34:18+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005682 1 1
+PROBE nid005682 1 1
+SRUN[FPARENS_OPTREP scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005682 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.scan_affine_decay.base.csv --variant  scan_affine_decay:fortran:fortran:emitted_sources/fparens/scan_affine_decay/scan_affine_decay_fp64.f90 scan_affine_decay:c:c:emitted_sources/fparens/scan_affine_decay/scan_affine_decay_fp64.c
+scan_affine_decay            fortran      ok
+scan_affine_decay            c            ok
+SRUN[FPARENS_OPTREP scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005682 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.scan_affine_decay.fno-protect-parens.csv --variant fno-protect-parens scan_affine_decay:fortran:fortran:emitted_sources/fparens/scan_affine_decay/scan_affine_decay_fp64.f90
+scan_affine_decay            fortran      ok
+unit FPARENS_OPTREP scan_affine_decay node=nid005682 end=2026-10-06T13:34:21+02:00

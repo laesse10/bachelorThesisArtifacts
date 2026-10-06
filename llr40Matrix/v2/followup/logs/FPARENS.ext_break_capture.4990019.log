@@ -1,0 +1,36 @@
+unit FPARENS ext_break_capture node=nid005527 start=2026-10-06T13:27:22+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005527 1 1
+PROBE nid005527 1 1
+SRUN[FPARENS ext_break_capture]: srun --nodes=1 --ntasks=1 -w nid005527 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels ext_break_capture --preset M --warmup 5 --reps 30 --out parts/fparens/ext_break_capture.default.csv --scratch scratch/fparens/ext_break_capture.default --attempts-out parts/fparens/ext_break_capture.default.attempts.csv --attempt-logs logs/attempts --reprs fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] ext_break_capture
+    fortran      ok           median 67.317 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/ext_break_capture.default.csv
+SRUN[FPARENS ext_break_capture]: srun --nodes=1 --ntasks=1 -w nid005527 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels ext_break_capture --preset M --warmup 5 --reps 30 --out parts/fparens/ext_break_capture.noparens.csv --scratch scratch/fparens/ext_break_capture.noparens --attempts-out parts/fparens/ext_break_capture.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] ext_break_capture
+    fortran      ok           median 67.205 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/ext_break_capture.noparens.csv
+SRUN[FPARENS ext_break_capture]: srun --nodes=1 --ntasks=1 -w nid005527 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.ext_break_capture.base.csv --variant  ext_break_capture:fortran:fortran:emitted_sources/fparens/ext_break_capture/ext_break_capture_fp64.f90
+ext_break_capture            fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.ext_break_capture.base.csv'
+srun: error: nid005527: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.127
+SRUN[FPARENS ext_break_capture]: srun --nodes=1 --ntasks=1 -w nid005527 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.ext_break_capture.fno-protect-parens.csv --variant fno-protect-parens ext_break_capture:fortran:fortran:emitted_sources/fparens/ext_break_capture/ext_break_capture_fp64.f90
+ext_break_capture            fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.ext_break_capture.fno-protect-parens.csv'
+srun: error: nid005527: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.128
+unit FPARENS ext_break_capture node=nid005527 end=2026-10-06T13:27:57+02:00

@@ -1,0 +1,95 @@
+# objdump -d segment_reduce_ragged_fp64.f90.o  (functions matching segment_reduce_ragged_fp64*)
+0000000000000000 <segment_reduce_ragged_fp64>:
+   0:	f100009f 	cmp	x4, #0x0
+   4:	54000aad 	b.le	158 <segment_reduce_ragged_fp64+0x158>
+   8:	d100200d 	sub	x13, x0, #0x8
+   c:	d2800009 	mov	x9, #0x0                   	// #0
+  10:	f8697827 	ldr	x7, [x1, x9, lsl #3]
+  14:	91000529 	add	x9, x9, #0x1
+  18:	f869782c 	ldr	x12, [x1, x9, lsl #3]
+  1c:	eb07019f 	cmp	x12, x7
+  20:	540009ed 	b.le	15c <segment_reduce_ragged_fp64+0x15c>
+  24:	cb070188 	sub	x8, x12, x7
+  28:	aa0703ea 	mov	x10, x7
+  2c:	d1000500 	sub	x0, x8, #0x1
+  30:	f100181f 	cmp	x0, #0x6
+  34:	54000989 	b.ls	164 <segment_reduce_ragged_fp64+0x164>  // b.plast
+  38:	6f00e401 	movi	v1.2d, #0x0
+  3c:	8b070c45 	add	x5, x2, x7, lsl #3
+  40:	d343fd0b 	lsr	x11, x8, #3
+  44:	d2800006 	mov	x6, #0x0                   	// #0
+  48:	8b070c60 	add	x0, x3, x7, lsl #3
+  4c:	4ea11c20 	mov	v0.16b, v1.16b
+  50:	4ea11c23 	mov	v3.16b, v1.16b
+  54:	4ea11c22 	mov	v2.16b, v1.16b
+  58:	d503201f 	nop
+  5c:	d503201f 	nop
+  60:	ad409005 	ldp	q5, q4, [x0, #16]
+  64:	910004c6 	add	x6, x6, #0x1
+  68:	ad40c0a6 	ldp	q6, q16, [x5, #16]
+  6c:	3dc00ca7 	ldr	q7, [x5, #48]
+  70:	4e65ccc3 	fmla	v3.2d, v6.2d, v5.2d
+  74:	3dc00c06 	ldr	q6, [x0, #48]
+  78:	3cc404a5 	ldr	q5, [x5], #64
+  7c:	4e64ce00 	fmla	v0.2d, v16.2d, v4.2d
+  80:	3cc40404 	ldr	q4, [x0], #64
+  84:	4e66cce1 	fmla	v1.2d, v7.2d, v6.2d
+  88:	4e64cca2 	fmla	v2.2d, v5.2d, v4.2d
+  8c:	eb06017f 	cmp	x11, x6
+  90:	54fffe81 	b.ne	60 <segment_reduce_ragged_fp64+0x60>  // b.any
+  94:	927df100 	and	x0, x8, #0xfffffffffffffff8
+  98:	8b0000e7 	add	x7, x7, x0
+  9c:	4e61d400 	fadd	v0.2d, v0.2d, v1.2d
+  a0:	4e63d442 	fadd	v2.2d, v2.2d, v3.2d
+  a4:	4e62d400 	fadd	v0.2d, v0.2d, v2.2d
+  a8:	7e70d801 	faddp	d1, v0.2d
+  ac:	f240091f 	tst	x8, #0x7
+  b0:	540004e0 	b.eq	14c <segment_reduce_ragged_fp64+0x14c>  // b.none
+  b4:	cb000108 	sub	x8, x8, x0
+  b8:	d1000505 	sub	x5, x8, #0x1
+  bc:	f10004bf 	cmp	x5, #0x1
+  c0:	540002e9 	b.ls	11c <segment_reduce_ragged_fp64+0x11c>  // b.plast
+  c4:	8b000140 	add	x0, x10, x0
+  c8:	d341fd06 	lsr	x6, x8, #1
+  cc:	d37df005 	lsl	x5, x0, #3
+  d0:	8b000c4a 	add	x10, x2, x0, lsl #3
+  d4:	8b000c60 	add	x0, x3, x0, lsl #3
+  d8:	3ce56862 	ldr	q2, [x3, x5]
+  dc:	3ce56841 	ldr	q1, [x2, x5]
+  e0:	4e61cc40 	fmla	v0.2d, v2.2d, v1.2d
+  e4:	f10004df 	cmp	x6, #0x1
+  e8:	54000120 	b.eq	10c <segment_reduce_ragged_fp64+0x10c>  // b.none
+  ec:	3dc00401 	ldr	q1, [x0, #16]
+  f0:	3dc00542 	ldr	q2, [x10, #16]
+  f4:	4e61cc40 	fmla	v0.2d, v2.2d, v1.2d
+  f8:	f10008df 	cmp	x6, #0x2
+  fc:	54000080 	b.eq	10c <segment_reduce_ragged_fp64+0x10c>  // b.none
+ 100:	3dc00801 	ldr	q1, [x0, #32]
+ 104:	3dc00942 	ldr	q2, [x10, #32]
+ 108:	4e61cc40 	fmla	v0.2d, v2.2d, v1.2d
+ 10c:	7e70d801 	faddp	d1, v0.2d
+ 110:	360001e8 	tbz	w8, #0, 14c <segment_reduce_ragged_fp64+0x14c>
+ 114:	927ff908 	and	x8, x8, #0xfffffffffffffffe
+ 118:	8b0800e7 	add	x7, x7, x8
+ 11c:	d37df0e0 	lsl	x0, x7, #3
+ 120:	910004e5 	add	x5, x7, #0x1
+ 124:	8b070c46 	add	x6, x2, x7, lsl #3
+ 128:	8b070c67 	add	x7, x3, x7, lsl #3
+ 12c:	fc606842 	ldr	d2, [x2, x0]
+ 130:	fc606860 	ldr	d0, [x3, x0]
+ 134:	1f400441 	fmadd	d1, d2, d0, d1
+ 138:	eb05019f 	cmp	x12, x5
+ 13c:	5400008d 	b.le	14c <segment_reduce_ragged_fp64+0x14c>
+ 140:	fd4004c2 	ldr	d2, [x6, #8]
+ 144:	fd4004e0 	ldr	d0, [x7, #8]
+ 148:	1f400441 	fmadd	d1, d2, d0, d1
+ 14c:	fc2979a1 	str	d1, [x13, x9, lsl #3]
+ 150:	eb04013f 	cmp	x9, x4
+ 154:	54fff5e1 	b.ne	10 <segment_reduce_ragged_fp64+0x10>  // b.any
+ 158:	d65f03c0 	ret
+ 15c:	2f00e401 	movi	d1, #0x0
+ 160:	17fffffb 	b	14c <segment_reduce_ragged_fp64+0x14c>
+ 164:	6f00e400 	movi	v0.2d, #0x0
+ 168:	d2800000 	mov	x0, #0x0                   	// #0
+ 16c:	1e604001 	fmov	d1, d0
+ 170:	17ffffd1 	b	b4 <segment_reduce_ragged_fp64+0xb4>

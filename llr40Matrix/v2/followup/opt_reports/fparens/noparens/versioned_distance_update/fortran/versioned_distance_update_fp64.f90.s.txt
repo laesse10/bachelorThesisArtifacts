@@ -1,0 +1,48 @@
+# objdump -d versioned_distance_update_fp64.f90.o  (functions matching versioned_distance_update_fp64*)
+0000000000000000 <versioned_distance_update_fp64>:
+   0:	eb03009f 	cmp	x4, x3
+   4:	5400022d 	b.le	48 <versioned_distance_update_fp64+0x48>
+   8:	cb030086 	sub	x6, x4, x3
+   c:	f10004df 	cmp	x6, #0x1
+  10:	54000060 	b.eq	1c <versioned_distance_update_fp64+0x1c>  // b.none
+  14:	f100047f 	cmp	x3, #0x1
+  18:	540001a1 	b.ne	4c <versioned_distance_update_fp64+0x4c>  // b.any
+  1c:	1e6d1003 	fmov	d3, #7.500000000000000000e-01
+  20:	cb030c05 	sub	x5, x0, x3, lsl #3
+  24:	fc637840 	ldr	d0, [x2, x3, lsl #3]
+  28:	fc637822 	ldr	d2, [x1, x3, lsl #3]
+  2c:	fc6378a1 	ldr	d1, [x5, x3, lsl #3]
+  30:	1e620800 	fmul	d0, d0, d2
+  34:	1f430020 	fmadd	d0, d1, d3, d0
+  38:	fc237800 	str	d0, [x0, x3, lsl #3]
+  3c:	91000463 	add	x3, x3, #0x1
+  40:	eb03009f 	cmp	x4, x3
+  44:	54ffff01 	b.ne	24 <versioned_distance_update_fp64+0x24>  // b.any
+  48:	d65f03c0 	ret
+  4c:	6f03f501 	fmov	v1.2d, #7.500000000000000000e-01
+  50:	8b030c2a 	add	x10, x1, x3, lsl #3
+  54:	d341fcc9 	lsr	x9, x6, #1
+  58:	d2800004 	mov	x4, #0x0                   	// #0
+  5c:	8b030c48 	add	x8, x2, x3, lsl #3
+  60:	d2800005 	mov	x5, #0x0                   	// #0
+  64:	8b030c07 	add	x7, x0, x3, lsl #3
+  68:	3ce46940 	ldr	q0, [x10, x4]
+  6c:	910004a5 	add	x5, x5, #0x1
+  70:	3ce46903 	ldr	q3, [x8, x4]
+  74:	3ce46802 	ldr	q2, [x0, x4]
+  78:	6e63dc00 	fmul	v0.2d, v0.2d, v3.2d
+  7c:	4e61cc40 	fmla	v0.2d, v2.2d, v1.2d
+  80:	3ca468e0 	str	q0, [x7, x4]
+  84:	91004084 	add	x4, x4, #0x10
+  88:	eb05013f 	cmp	x9, x5
+  8c:	54fffee1 	b.ne	68 <versioned_distance_update_fp64+0x68>  // b.any
+  90:	927ff8c4 	and	x4, x6, #0xfffffffffffffffe
+  94:	8b040063 	add	x3, x3, x4
+  98:	3607fd86 	tbz	w6, #0, 48 <versioned_distance_update_fp64+0x48>
+  9c:	fc637820 	ldr	d0, [x1, x3, lsl #3]
+  a0:	fc637843 	ldr	d3, [x2, x3, lsl #3]
+  a4:	fc647802 	ldr	d2, [x0, x4, lsl #3]
+  a8:	1e630800 	fmul	d0, d0, d3
+  ac:	1f410040 	fmadd	d0, d2, d1, d0
+  b0:	fc237800 	str	d0, [x0, x3, lsl #3]
+  b4:	d65f03c0 	ret

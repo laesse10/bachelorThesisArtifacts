@@ -1,0 +1,8 @@
+unit FPARENS_OPTREP fuse_diamond node=nid005750 start=2026-10-06T13:34:20+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005750 1 1
+PROBE nid005750 1 1
+SRUN[FPARENS_OPTREP fuse_diamond]: srun --nodes=1 --ntasks=1 -w nid005750 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.fuse_diamond.base.csv --variant  fuse_diamond:fortran:fortran:emitted_sources/fparens/fuse_diamond/fuse_diamond_fp64.f90
+fuse_diamond                 fortran      ok
+SRUN[FPARENS_OPTREP fuse_diamond]: srun --nodes=1 --ntasks=1 -w nid005750 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.fuse_diamond.fno-protect-parens.csv --variant fno-protect-parens fuse_diamond:fortran:fortran:emitted_sources/fparens/fuse_diamond/fuse_diamond_fp64.f90
+fuse_diamond                 fortran      ok
+unit FPARENS_OPTREP fuse_diamond node=nid005750 end=2026-10-06T13:34:23+02:00

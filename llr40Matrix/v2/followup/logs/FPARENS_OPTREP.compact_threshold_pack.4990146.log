@@ -1,0 +1,8 @@
+unit FPARENS_OPTREP compact_threshold_pack node=nid005777 start=2026-10-06T13:34:20+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005777 1 1
+PROBE nid005777 1 1
+SRUN[FPARENS_OPTREP compact_threshold_pack]: srun --nodes=1 --ntasks=1 -w nid005777 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.compact_threshold_pack.base.csv --variant  compact_threshold_pack:fortran:fortran:emitted_sources/fparens/compact_threshold_pack/compact_threshold_pack_fp64.f90
+compact_threshold_pack       fortran      ok
+SRUN[FPARENS_OPTREP compact_threshold_pack]: srun --nodes=1 --ntasks=1 -w nid005777 --exclusive --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.compact_threshold_pack.fno-protect-parens.csv --variant fno-protect-parens compact_threshold_pack:fortran:fortran:emitted_sources/fparens/compact_threshold_pack/compact_threshold_pack_fp64.f90
+compact_threshold_pack       fortran      ok
+unit FPARENS_OPTREP compact_threshold_pack node=nid005777 end=2026-10-06T13:34:23+02:00

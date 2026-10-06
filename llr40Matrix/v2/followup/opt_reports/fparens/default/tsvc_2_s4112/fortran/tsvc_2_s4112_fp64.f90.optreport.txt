@@ -1,0 +1,4 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/fparens/default/tsvc_2_s4112/fortran/tsvc_2_s4112_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/fparens/default/tsvc_2_s4112/fortran/build/tsvc_2_s4112_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+tsvc_2_s4112_fp64.f90:10:13: optimized: loop vectorized using variable length vectors
+tsvc_2_s4112_fp64.f90:2:28: missed: statement clobbers memory: vect_patt_35.25_19 = .MASK_GATHER_LOAD (_20, vect__3.24_25, 8, { 0.0, ... }, loop_mask_30);

@@ -1,0 +1,55 @@
+unit FPARENS scan_affine_decay node=nid005979 start=2026-10-06T13:25:05+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005979 1 1
+PROBE nid005979 1 1
+SRUN[FPARENS scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels scan_affine_decay --preset M --warmup 5 --reps 30 --out parts/fparens/scan_affine_decay.noparens.csv --scratch scratch/fparens/scan_affine_decay.noparens --attempts-out parts/fparens/scan_affine_decay.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] scan_affine_decay
+    fortran      ok           median 116.787 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/scan_affine_decay.noparens.csv
+SRUN[FPARENS scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels scan_affine_decay --preset M --warmup 5 --reps 30 --out parts/fparens/scan_affine_decay.default.csv --scratch scratch/fparens/scan_affine_decay.default --attempts-out parts/fparens/scan_affine_decay.default.attempts.csv --attempt-logs logs/attempts --reprs c,fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] scan_affine_decay
+    c            ok           median 116.956 ms 
+    fortran      ok           median 145.518 ms 
+
+wrote 2 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/scan_affine_decay.default.csv
+SRUN[FPARENS scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels scan_affine_decay --preset M --warmup 5 --reps 30 --out parts/fparens_dump/scan_affine_decay.default.csv --scratch scratch/fparens_dump/scan_affine_decay.default --attempts-out parts/fparens_dump/scan_affine_decay.default.attempts.csv --attempt-logs logs/attempts --reprs c,cpp,fortran --warmup 0 --reps 1 --variant output_dump --dump-outputs /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/default --dump-oracle /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/oracle --emitted-dir emitted_sources/fparens
+[1/1] scan_affine_decay
+    c            ok           median 116.541 ms 
+    cpp          ok           median 117.224 ms 
+    fortran      ok           median 183.816 ms 
+
+wrote 3 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens_dump/scan_affine_decay.default.csv
+SRUN[FPARENS scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels scan_affine_decay --preset M --warmup 5 --reps 30 --out parts/fparens_dump/scan_affine_decay.noparens.csv --scratch scratch/fparens_dump/scan_affine_decay.noparens --attempts-out parts/fparens_dump/scan_affine_decay.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --warmup 0 --reps 1 --variant output_dump_fno-protect-parens --flags-variant=-fno-protect-parens --dump-outputs /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/noparens --dump-oracle /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/oracle --emitted-dir emitted_sources/fparens
+[1/1] scan_affine_decay
+    fortran      ok           median 116.702 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens_dump/scan_affine_decay.noparens.csv
+SRUN[FPARENS scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python fortran_parens_outputs.py --root /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs --kernel scan_affine_decay --out parts/fparens_outputs/scan_affine_decay.csv
+scan_affine_decay          y        c                 identical=no  diff=  33543995 max_abs=3.553e-15 max_rel=6.845e-16 max_ulp=5
+scan_affine_decay          y        cpp               identical=no  diff=  33543995 max_abs=3.553e-15 max_rel=6.845e-16 max_ulp=5
+scan_affine_decay          y        fortran_default   identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+scan_affine_decay          y        fortran_noparens  identical=no  diff=  33543995 max_abs=3.553e-15 max_rel=6.845e-16 max_ulp=5
+SRUN[FPARENS scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.scan_affine_decay.base.csv --variant  scan_affine_decay:fortran:fortran:emitted_sources/fparens/scan_affine_decay/scan_affine_decay_fp64.f90 scan_affine_decay:c:c:emitted_sources/fparens/scan_affine_decay/scan_affine_decay_fp64.c
+scan_affine_decay            fortran      ok
+scan_affine_decay            c            ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.scan_affine_decay.base.csv'
+srun: error: nid005979: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.108
+SRUN[FPARENS scan_affine_decay]: srun --nodes=1 --ntasks=1 -w nid005979 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.scan_affine_decay.fno-protect-parens.csv --variant fno-protect-parens scan_affine_decay:fortran:fortran:emitted_sources/fparens/scan_affine_decay/scan_affine_decay_fp64.f90
+scan_affine_decay            fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.scan_affine_decay.fno-protect-parens.csv'
+srun: error: nid005979: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.111
+unit FPARENS scan_affine_decay node=nid005979 end=2026-10-06T13:27:41+02:00

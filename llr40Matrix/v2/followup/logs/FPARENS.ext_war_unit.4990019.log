@@ -1,0 +1,36 @@
+unit FPARENS ext_war_unit node=nid005683 start=2026-10-06T13:28:45+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005683 1 1
+PROBE nid005683 1 1
+SRUN[FPARENS ext_war_unit]: srun --nodes=1 --ntasks=1 -w nid005683 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels ext_war_unit --preset M --warmup 5 --reps 30 --out parts/fparens/ext_war_unit.noparens.csv --scratch scratch/fparens/ext_war_unit.noparens --attempts-out parts/fparens/ext_war_unit.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] ext_war_unit
+    fortran      ok           median 61.258 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/ext_war_unit.noparens.csv
+SRUN[FPARENS ext_war_unit]: srun --nodes=1 --ntasks=1 -w nid005683 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels ext_war_unit --preset M --warmup 5 --reps 30 --out parts/fparens/ext_war_unit.default.csv --scratch scratch/fparens/ext_war_unit.default --attempts-out parts/fparens/ext_war_unit.default.attempts.csv --attempt-logs logs/attempts --reprs fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] ext_war_unit
+    fortran      ok           median 61.437 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/ext_war_unit.default.csv
+SRUN[FPARENS ext_war_unit]: srun --nodes=1 --ntasks=1 -w nid005683 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.ext_war_unit.base.csv --variant  ext_war_unit:fortran:fortran:emitted_sources/fparens/ext_war_unit/ext_war_unit_fp64.f90
+ext_war_unit                 fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.ext_war_unit.base.csv'
+srun: error: nid005683: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.213
+SRUN[FPARENS ext_war_unit]: srun --nodes=1 --ntasks=1 -w nid005683 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.ext_war_unit.fno-protect-parens.csv --variant fno-protect-parens ext_war_unit:fortran:fortran:emitted_sources/fparens/ext_war_unit/ext_war_unit_fp64.f90
+ext_war_unit                 fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.ext_war_unit.fno-protect-parens.csv'
+srun: error: nid005683: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.214
+unit FPARENS ext_war_unit node=nid005683 end=2026-10-06T13:29:39+02:00

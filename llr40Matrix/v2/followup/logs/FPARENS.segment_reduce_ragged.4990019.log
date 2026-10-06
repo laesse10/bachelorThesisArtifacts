@@ -1,0 +1,55 @@
+unit FPARENS segment_reduce_ragged node=nid005776 start=2026-10-06T13:25:05+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005776 1 1
+PROBE nid005776 1 1
+SRUN[FPARENS segment_reduce_ragged]: srun --nodes=1 --ntasks=1 -w nid005776 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels segment_reduce_ragged --preset M --warmup 5 --reps 30 --out parts/fparens/segment_reduce_ragged.default.csv --scratch scratch/fparens/segment_reduce_ragged.default --attempts-out parts/fparens/segment_reduce_ragged.default.attempts.csv --attempt-logs logs/attempts --reprs c,fortran --perf --emitted-dir emitted_sources/fparens
+[1/1] segment_reduce_ragged
+    c            ok           median 38.686 ms 
+    fortran      ok           median 39.532 ms 
+
+wrote 2 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/segment_reduce_ragged.default.csv
+SRUN[FPARENS segment_reduce_ragged]: srun --nodes=1 --ntasks=1 -w nid005776 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels segment_reduce_ragged --preset M --warmup 5 --reps 30 --out parts/fparens/segment_reduce_ragged.noparens.csv --scratch scratch/fparens/segment_reduce_ragged.noparens --attempts-out parts/fparens/segment_reduce_ragged.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --variant fno-protect-parens --flags-variant=-fno-protect-parens --perf --emitted-dir emitted_sources/fparens
+[1/1] segment_reduce_ragged
+    fortran      ok           median 40.646 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens/segment_reduce_ragged.noparens.csv
+SRUN[FPARENS segment_reduce_ragged]: srun --nodes=1 --ntasks=1 -w nid005776 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels segment_reduce_ragged --preset M --warmup 5 --reps 30 --out parts/fparens_dump/segment_reduce_ragged.default.csv --scratch scratch/fparens_dump/segment_reduce_ragged.default --attempts-out parts/fparens_dump/segment_reduce_ragged.default.attempts.csv --attempt-logs logs/attempts --reprs c,cpp,fortran --warmup 0 --reps 1 --variant output_dump --dump-outputs /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/default --dump-oracle /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/oracle --emitted-dir emitted_sources/fparens
+[1/1] segment_reduce_ragged
+    c            ok           median 38.588 ms 
+    cpp          ok           median 38.563 ms 
+    fortran      ok           median 39.558 ms 
+
+wrote 3 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens_dump/segment_reduce_ragged.default.csv
+SRUN[FPARENS segment_reduce_ragged]: srun --nodes=1 --ntasks=1 -w nid005776 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels segment_reduce_ragged --preset M --warmup 5 --reps 30 --out parts/fparens_dump/segment_reduce_ragged.noparens.csv --scratch scratch/fparens_dump/segment_reduce_ragged.noparens --attempts-out parts/fparens_dump/segment_reduce_ragged.noparens.attempts.csv --attempt-logs logs/attempts --reprs fortran --warmup 0 --reps 1 --variant output_dump_fno-protect-parens --flags-variant=-fno-protect-parens --dump-outputs /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/noparens --dump-oracle /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs/oracle --emitted-dir emitted_sources/fparens
+[1/1] segment_reduce_ragged
+    fortran      ok           median 40.594 ms 
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/fparens_dump/segment_reduce_ragged.noparens.csv
+SRUN[FPARENS segment_reduce_ragged]: srun --nodes=1 --ntasks=1 -w nid005776 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python fortran_parens_outputs.py --root /capstor/store/cscs/userlab/g34/lhulsbergen/llr40_followup/fparens_outputs --kernel segment_reduce_ragged --out parts/fparens_outputs/segment_reduce_ragged.csv
+segment_reduce_ragged      out      c                 identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+segment_reduce_ragged      out      cpp               identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+segment_reduce_ragged      out      fortran_default   identical=yes diff=         0 max_abs=0.000e+00 max_rel=0.000e+00 max_ulp=0
+segment_reduce_ragged      out      fortran_noparens  identical=no  diff=   1022002 max_abs=5.093e-11 max_rel=4.551e-15 max_ulp=28
+SRUN[FPARENS segment_reduce_ragged]: srun --nodes=1 --ntasks=1 -w nid005776 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/default --index parts/fparens/default/optrep.segment_reduce_ragged.base.csv --variant  segment_reduce_ragged:fortran:fortran:emitted_sources/fparens/segment_reduce_ragged/segment_reduce_ragged_fp64.f90 segment_reduce_ragged:c:c:emitted_sources/fparens/segment_reduce_ragged/segment_reduce_ragged_fp64.c
+segment_reduce_ragged        fortran      ok
+segment_reduce_ragged        c            ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/default/optrep.segment_reduce_ragged.base.csv'
+srun: error: nid005776: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.54
+SRUN[FPARENS segment_reduce_ragged]: srun --nodes=1 --ntasks=1 -w nid005776 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu-noparens numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/fparens/noparens --index parts/fparens/noparens/optrep.segment_reduce_ragged.fno-protect-parens.csv --variant fno-protect-parens segment_reduce_ragged:fortran:fortran:emitted_sources/fparens/segment_reduce_ragged/segment_reduce_ragged_fp64.f90
+segment_reduce_ragged        fortran      ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/fparens/noparens/optrep.segment_reduce_ragged.fno-protect-parens.csv'
+srun: error: nid005776: task 0: Exited with exit code 1
+srun: Terminating StepId=4990019.55
+unit FPARENS segment_reduce_ragged node=nid005776 end=2026-10-06T13:26:39+02:00
