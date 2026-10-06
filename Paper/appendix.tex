@@ -1,21 +1,19 @@
 \chapter{Full Measurement Results}
 \label{app:results}
 
-\Cref{tab:llr40-matrix} lists every cell of the loop-transformation matrix as the minimum of its
-30 timed runs, in milliseconds, measured as described in \Cref{sec:setup}. The fastest valid
-version of each kernel is set in bold.
+\Cref{tab:llr40-matrix} lists the fastest of 30 runs for every cell of the loop-transformation
+matrix, in milliseconds. The fastest valid version of each kernel is shown in bold.
 
 \begin{table}[p]
   \centering
   \scriptsize
   \setlength{\tabcolsep}{4.5pt}
   \input{figures/llr40_matrix.tex}
-  \caption{The loop-transformation matrix: minimum of 30 runs in milliseconds, preset M,
-    \texttt{float64}, one core of a GH200 node. Bold: fastest valid version. ---: version does
-    not exist. $^\ddagger$: output does not match the NumPy oracle; the time is shown but not
-    used. $^\dagger$: passes validation only vacuously at this size
-    (\Cref{sec:language-comparison}). $^\S$: GCC versions not reproducible between two
-    measurements; their differences are memory-bandwidth noise (\Cref{sec:setup}).}
+  \caption{The loop-transformation matrix: fastest of 30 runs in milliseconds (preset M,
+    \texttt{float64}, one core of a GH200). Bold: fastest valid version. ---: version does not
+    exist. $^\ddagger$: wrong result; shown but not used. $^\dagger$: validation not meaningful
+    at this size (\Cref{sec:language-comparison}). $^\S$: unreliable GCC times
+    (\Cref{sec:setup}).}
   \label{tab:llr40-matrix}
 \end{table}
 
