@@ -44,9 +44,9 @@ graded at momentum_push_type 0 (boris) and geom 3, n_rz_azimuthal_modes 1, the r
 **Time per call outside 10 ms - 60 s, measured at M as instructed and reported as such:** all
 `comet_int4_gemm` (0.16-0.36 ms), `quatrex_rgf` (4.3-7.5 ms), `warpx_boris_push` (2.0-3.8 ms) and
 `warpx_esirkepov_deposition` (2.6-4.4 ms) cells are below 10 ms. `warpx_field_gather` is at 11-12 ms.
-`nfa_frontier` takes 9.2-10.1 s per call, inside the band. RSD is at most 0.8% on the long kernels.
-It reaches 3-8% on boris/esirkepov (2-4 ms calls), 10.7% on comet numba (0.16 ms) and 18.1% on
-esirkepov `numba_hand`.
+`nfa_frontier` takes 9.2-10.1 s per call, inside the band. RSD is at most 0.8% on `spgemm_hash`, `triangle_count`, `nfa_frontier` and `quatrex_rgf`, and 1.1-1.4% on
+`warpx_field_gather`. It reaches 3-8% on boris/esirkepov (2-4 ms calls), 4.8% / 10.7% on comet fortran / numba
+(0.16-0.36 ms) and 18.1% on esirkepov `numba_hand`.
 
 ## Per column: speedup over translated C
 
