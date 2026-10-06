@@ -1,0 +1,27 @@
+# objdump -d argmax_with_index_fp64.f90.o  (functions matching argmax_with_index_fp64*)
+0000000000000000 <argmax_with_index_fp64>:
+   0:	fd400001 	ldr	d1, [x0]
+   4:	f100047f 	cmp	x3, #0x1
+   8:	5400026d 	b.le	54 <argmax_with_index_fp64+0x54>
+   c:	d2800005 	mov	x5, #0x0                   	// #0
+  10:	d2800024 	mov	x4, #0x1                   	// #1
+  14:	d503201f 	nop
+  18:	d503201f 	nop
+  1c:	d503201f 	nop
+  20:	fc647800 	ldr	d0, [x0, x4, lsl #3]
+  24:	1e602030 	fcmpe	d1, d0
+  28:	54000104 	b.mi	48 <argmax_with_index_fp64+0x48>  // b.first
+  2c:	91000484 	add	x4, x4, #0x1
+  30:	eb04007f 	cmp	x3, x4
+  34:	54ffff61 	b.ne	20 <argmax_with_index_fp64+0x20>  // b.any
+  38:	910004a5 	add	x5, x5, #0x1
+  3c:	fd000041 	str	d1, [x2]
+  40:	f9000025 	str	x5, [x1]
+  44:	d65f03c0 	ret
+  48:	1e604001 	fmov	d1, d0
+  4c:	aa0403e5 	mov	x5, x4
+  50:	17fffff7 	b	2c <argmax_with_index_fp64+0x2c>
+  54:	d2800025 	mov	x5, #0x1                   	// #1
+  58:	fd000041 	str	d1, [x2]
+  5c:	f9000025 	str	x5, [x1]
+  60:	d65f03c0 	ret

@@ -1,0 +1,41 @@
+kernel,tsvc_id,optimization_class,description,source_of_label,manifest_category,manifest_optimization
+argmax_with_index,s315,reduction,running max carrying both value and index (TSVC s315),derived,,
+compact_threshold_pack,,packing,stream compaction with a data-dependent write cursor,declared,packing,stream compaction with a data-dependent write cursor
+ext_break_capture,s332,control_flow,find-first with a data-dependent early exit (TSVC s332),derived,,
+ext_war_unit,s121,dependence_distance,a[i]=a[i+1]+b[i]: anti-dependence at distance 1 (TSVC s121),derived,,
+fuse_diamond,,loop_fusion,one producer feeding two consumers across four loops,derived,,
+fuse_move_ifs,,loop_fusion,two nests whose guards block fusion; needs guard hoisting,derived,,
+fuse_stencil_through_transient,,loop_fusion,non-pointwise vertical fusion through a transient,derived,,
+quasi_affine_reduce_odd,,reduction,sum over a strided (quasi-affine) index range,derived,,
+scan_affine_decay,,reduction,scan over a non-trivial combine (affine composition),declared,reductions,scan over a non-trivial combine (affine composition)
+scatter_accum_dup,,indirect_addressing,scatter accumulate -- indexed read-modify-write with conflicts,declared,indirect addressing,scatter accumulate -- indexed read-modify-write with conflicts
+segment_reduce_ragged,,indirect_addressing,segmented reduction with a data-dependent inner trip count,declared,indirect addressing,segmented reduction with a data-dependent inner trip count
+tsvc_2_s115,s115,linear_dependence,triangular loop vectorization,declared,linear dependence,triangular loop vectorization
+tsvc_2_s119,s119,linear_dependence,inner-loop vectorization,declared,linear dependence,inner-loop vectorization
+tsvc_2_s1232,s1232,loop_interchange,loop interchange,declared,loop interchange,loop interchange
+tsvc_2_s1244,s1244,node_splitting,node splitting,declared,node splitting,node splitting
+tsvc_2_s152,s152,interprocedural_dataflow,interprocedural data flow analysis,declared,interprocedural data flow,interprocedural data flow analysis
+tsvc_2_s2233,s2233,loop_interchange,interchange one of two inner loops,declared,loop interchange,interchange one of two inner loops
+tsvc_2_s2275,s2275,loop_distribution,"distribute, then interchange",declared,loop distribution,"distribute, then interchange"
+tsvc_2_s231,s231,loop_interchange,loop interchange with data dependency,declared,loop interchange,loop interchange with data dependency
+tsvc_2_s233,s233,loop_interchange,interchange with one of two inner loops,declared,loop interchange,interchange with one of two inner loops
+tsvc_2_s235,s235,loop_interchange,interchange of imperfectly nested loops,declared,loop interchange,interchange of imperfectly nested loops
+tsvc_2_s252,s252,scalar_expansion,scalar expansion of an ambiguous temporary,declared,scalar and array expansion,scalar expansion of an ambiguous temporary
+tsvc_2_s255,s255,scalar_expansion,"scalar expansion of carry-around variables, 2 levels",declared,scalar and array expansion,"scalar expansion of carry-around variables, 2 levels"
+tsvc_2_s2710,s2710,control_flow,scalar and vector ifs,declared,control flow,scalar and vector ifs
+tsvc_2_s275,s275,control_flow,"if around inner loop, interchanging needed",declared,control flow,"if around inner loop, interchanging needed"
+tsvc_2_s311,s311,reduction,sum reduction,declared,reductions,sum reduction
+tsvc_2_s3110,s3110,reduction,"if to max with index reduction, 2 dimensions",declared,reductions,"if to max with index reduction, 2 dimensions"
+tsvc_2_s3111,s3111,reduction,conditional sum reduction,declared,reductions,conditional sum reduction
+tsvc_2_s3112,s3112,reduction,sum reduction saving running sums,declared,reductions,sum reduction saving running sums
+tsvc_2_s316,s316,reduction,if to min reduction,declared,reductions,if to min reduction
+tsvc_2_s318,s318,reduction,"isamax, max absolute value with stride not equal to 1",declared,reductions,"isamax, max absolute value with stride not equal to 1"
+tsvc_2_s319,s319,reduction,coupled reductions,declared,reductions,coupled reductions
+tsvc_2_s323,s323,recurrence,coupled recurrence,declared,recurrences,coupled recurrence
+tsvc_2_s4112,s4112,indirect_addressing,gather -- indexed load on the right-hand side,declared,indirect addressing,gather -- indexed load on the right-hand side
+tsvc_2_vag,vag,indirect_addressing,gather -- indexed load on the right-hand side,declared,indirect addressing,gather -- indexed load on the right-hand side
+tsvc_2_vpvts,vpvts,control_flow,vector plus vector-times-scalar (axpy / FMA),declared,control flow,vector plus vector-times-scalar (axpy / FMA)
+tsvc_2_vtvtv,vtvtv,control_flow,vector times vector times vector (chained elementwise multiply),declared,control flow,vector times vector times vector (chained elementwise multiply)
+versioned_distance_update,,dependence_distance,multi-versioning on the runtime dependence distance,declared,loop-carried dependence,multi-versioning on the runtime dependence distance
+wf_diff_skew,,wavefront,difference-diagonal wavefront; parallel front is a diagonal,derived,,
+wf_triangular,,wavefront,triangular wavefront; parallel front is the i+j anti-diagonal,derived,,

@@ -1,0 +1,83 @@
+
+;; Function tsvc_2_s231_fp64 (tsvc_2_s231_fp64, funcdef_no=25, decl_uid=6007, cgraph_uid=26, symbol_order=25)
+
+void tsvc_2_s231_fp64 (double * restrict aa, const double * restrict bb, const int64_t LEN_2D)
+{
+  int64_t j;
+  int64_t i;
+  long int _1;
+  long int _2;
+  long int _3;
+  long unsigned int _4;
+  long unsigned int _5;
+  double * _6;
+  double _7;
+  long int _8;
+  long int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  const double * _12;
+  double _13;
+  double * _14;
+  double _15;
+
+  <bb 2> [local count: 14598063]:
+  if (LEN_2D_21(D) > 0)
+    goto <bb 7>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+  <bb 7> [local count: 12992276]:
+  goto <bb 6>; [100.00%]
+
+  <bb 3> [local count: 14598063]:
+  return;
+
+  <bb 8> [local count: 105119324]:
+
+  <bb 4> [local count: 955630224]:
+  # j_32 = PHI <j_26(10), 1(8)>
+  _1 = j_32 + -1;
+  _2 = _1 * LEN_2D_21(D);
+  _3 = _2 + i_31;
+  _4 = (long unsigned int) _3;
+  _5 = _4 * 8;
+  _6 = aa_23(D) + _5;
+  _7 = *_6;
+  _8 = LEN_2D_21(D) * j_32;
+  _9 = _8 + i_31;
+  _10 = (long unsigned int) _9;
+  _11 = _10 * 8;
+  _12 = bb_24(D) + _11;
+  _13 = *_12;
+  _14 = aa_23(D) + _11;
+  _15 = _7 + _13;
+  *_14 = _15;
+  j_26 = j_32 + 1;
+  if (LEN_2D_21(D) > j_26)
+    goto <bb 10>; [89.00%]
+  else
+    goto <bb 5>; [11.00%]
+
+  <bb 10> [local count: 850510900]:
+  goto <bb 4>; [100.00%]
+
+  <bb 5> [local count: 105119324]:
+  i_22 = i_31 + 1;
+  if (LEN_2D_21(D) > i_22)
+    goto <bb 9>; [100.00%]
+  else
+    goto <bb 3>; [0.00%]
+
+  <bb 9> [local count: 105119324]:
+
+  <bb 6> [local count: 118111600]:
+  # i_31 = PHI <i_22(9), 0(7)>
+  if (LEN_2D_21(D) > 1)
+    goto <bb 8>; [89.00%]
+  else
+    goto <bb 3>; [11.00%]
+
+}
+
+

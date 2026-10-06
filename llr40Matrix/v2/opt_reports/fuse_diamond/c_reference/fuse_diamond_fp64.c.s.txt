@@ -1,0 +1,46 @@
+# objdump -d fuse_diamond_fp64.c.o  (functions matching fuse_diamond_fp64*)
+0000000000000000 <fuse_diamond_fp64>:
+   0:	f100005f 	cmp	x2, #0x0
+   4:	5400054d 	b.le	ac <fuse_diamond_fp64+0xac>
+   8:	04a0e3e4 	cntw	x4
+   c:	d1000443 	sub	x3, x2, #0x1
+  10:	d1000485 	sub	x5, x4, #0x1
+  14:	eb05007f 	cmp	x3, x5
+  18:	d2800003 	mov	x3, #0x0                   	// #0
+  1c:	54000343 	b.cc	84 <fuse_diamond_fp64+0x84>  // b.lo, b.ul, b.last
+  20:	cb040047 	sub	x7, x2, x4
+  24:	04205026 	addvl	x6, x0, #1
+  28:	2518e3e7 	ptrue	p7.b
+  2c:	25f9ce1f 	fmov	z31.d, #1.000000000000000000e+00
+  30:	25f9de1e 	fmov	z30.d, #-1.000000000000000000e+00
+  34:	04215025 	addvl	x5, x1, #1
+  38:	d503201f 	nop
+  3c:	d503201f 	nop
+  40:	a5e35c1d 	ld1d	{z29.d}, p7/z, [x0, x3, lsl #3]
+  44:	0420bffb 	movprfx	z27, z31
+  48:	65fd1fbb 	fmla	z27.d, p7/m, z29.d, z29.d
+  4c:	65fe9fbd 	fmad	z29.d, p7/m, z29.d, z30.d
+  50:	65dd0b7d 	fmul	z29.d, z27.d, z29.d
+  54:	e5e35c3d 	st1d	{z29.d}, p7, [x1, x3, lsl #3]
+  58:	a5e35cdc 	ld1d	{z28.d}, p7/z, [x6, x3, lsl #3]
+  5c:	0420bffa 	movprfx	z26, z31
+  60:	65fc1f9a 	fmla	z26.d, p7/m, z28.d, z28.d
+  64:	65fe9f9c 	fmad	z28.d, p7/m, z28.d, z30.d
+  68:	65dc0b5c 	fmul	z28.d, z26.d, z28.d
+  6c:	e5e35cbc 	st1d	{z28.d}, p7, [x5, x3, lsl #3]
+  70:	8b040063 	add	x3, x3, x4
+  74:	eb0300ff 	cmp	x7, x3
+  78:	54fffe42 	b.cs	40 <fuse_diamond_fp64+0x40>  // b.hs, b.nlast
+  7c:	eb03005f 	cmp	x2, x3
+  80:	54000160 	b.eq	ac <fuse_diamond_fp64+0xac>  // b.none
+  84:	1e6e1019 	fmov	d25, #1.000000000000000000e+00
+  88:	1e7e1018 	fmov	d24, #-1.000000000000000000e+00
+  8c:	fc637817 	ldr	d23, [x0, x3, lsl #3]
+  90:	1f5766f6 	fmadd	d22, d23, d23, d25
+  94:	1f5762f7 	fmadd	d23, d23, d23, d24
+  98:	1e760af7 	fmul	d23, d23, d22
+  9c:	fc237837 	str	d23, [x1, x3, lsl #3]
+  a0:	91000463 	add	x3, x3, #0x1
+  a4:	eb03005f 	cmp	x2, x3
+  a8:	54ffff2c 	b.gt	8c <fuse_diamond_fp64+0x8c>
+  ac:	d65f03c0 	ret

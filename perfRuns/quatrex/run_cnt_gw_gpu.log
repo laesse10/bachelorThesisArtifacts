@@ -1,0 +1,219 @@
+WARNING: Kernel address maps (/proc/{kallsyms,modules}) are restricted,
+check /proc/sys/kernel/kptr_restrict and /proc/sys/kernel/perf_event_paranoid.
+
+Samples in kernel functions may not be resolved if a suitable vmlinux
+file is not found in the buildid cache or in the vmlinux path.
+
+Samples in kernel modules won't be resolved at all.
+
+If some relocation was applied (e.g. kexec) symbols may be misresolved
+even with a suitable vmlinux or kallsyms file.
+
+Couldn't record kernel reference relocation symbol
+Symbol resolution may be skewed if relocation was used (e.g. kexec).
+Check /proc/kallsyms permission or run as root.
+/capstor/scratch/cscs/lhulsbergen/quatrex_venv/lib/python3.13/site-packages/cupyx/jit/_interface.py:247: FutureWarning: cupyx.jit.rawkernel is experimental. The interface can change in the future.
+  cupy._util.experimental('cupyx.jit.rawkernel')
+/capstor/scratch/cscs/lhulsbergen/quatrex/src/quatrex/core/config.py:1683: UserWarning: The CPU code will run sequentially which may impact performance.
+  warnings.warn(
+
+                   _                 
+  __ _ _   _  __ _| |_ _ __ _____  __
+ / _` | | | |/ _` | __| '__/ _ \ \/ /
+| (_| | |_| | (_| | |_| | |  __/>  < 
+ \__, |\__,_|\__,_|\__|_|  \___/_/\_\
+    |_|                              
+                        version 0.0.1
+
+[
+    {
+        'user_api': 'openmp',
+        'internal_api': 'openmp',
+        'num_threads': 1,
+        'prefix': 'libgomp',
+        'filepath': 
+'/user-environment/linux-neoverse_v2/gcc-14.2.0-sryzh4kh2l6a5sfawxezxojbc3veopge
+/lib64/libgomp.so.1.0.0',
+        'version': None
+    },
+    {
+        'user_api': 'blas',
+        'internal_api': 'openblas',
+        'num_threads': 1,
+        'prefix': 'libscipy_openblas',
+        'filepath': 
+'/capstor/scratch/cscs/lhulsbergen/quatrex_venv/lib/python3.13/site-packages/num
+py.libs/libscipy_openblas64_-f552eb69.so',
+        'version': '0.3.34.106.0',
+        'threading_layer': 'pthreads',
+        'architecture': 'neoversev2'
+    }
+]
+/capstor/scratch/cscs/lhulsbergen/quatrex_venv/lib/python3.13/site-packages/cupyx/jit/_interface.py:247: FutureWarning: cupyx.jit.rawkernel is experimental. The interface can change in the future.
+  cupy._util.experimental('cupyx.jit.rawkernel')
+Max Interaction Cutoff: 8.0
+Number of connected blocks: 2
+Energy window: -10.0 to 0.0 eV with 100 grid points.
+Resolution is 0.101010 eV.
+comm.stack size: 1, comm.block size: 1
+Each comm.block has 100 grid points.
+No overlap matrix found. Assuming orthogonal basis.
+Left contact band edges:
+  Conduction band edge: -3.5663949761985636 eV
+  Valence band edge: -4.174102256813619 eV
+
+Right contact band edges:
+  Conduction band edge: -3.566394976198563 eV
+  Valence band edge: -4.1741022568136215 eV
+
+Left contact: 
+  Fermi level: -3.600012853 eV
+  Mid-gap energy: -3.870248616506091 eV
+  Conduction band edge - Fermi level: 0.03361787680143635 eV
+Right contact: 
+  Fermi level: -3.600012853 eV
+  Mid-gap energy: -3.8702486165060925 eV
+  Conduction band edge - Fermi level: 0.0336178768014368 eV
+
+/capstor/scratch/cscs/lhulsbergen/quatrex/src/quatrex/device/inputs.py:616: UserWarning: Matrix coulomb_matrix at coordinate (0, 0, 0) is a dense array.
+  warnings.warn(
+Max Interaction Cutoff: 8.0
+Number of connected blocks: 2
+Entering SCBA loop...
+Iteration 0
+Updating conduction band edges: -3.566289, -3.766499
+ Updating Fermi levels: -3.599907, -3.800117
+Free GiB: 93.271, Batches: 1, Batch size: 43824
+------------------- cuFFT plan cache (device 0) -------------------
+cache enabled? True
+current / max size   : 0 / 16 (counts)
+current / max memsize: 0 / (unlimited) (bytes)
+hits / misses: 0 / 0 (counts)
+
+cached plans (most recently used first):
+
+None
+Free GiB: 93.126, Batches: 1, Batch size: 43824
+------------------- cuFFT plan cache (device 0) -------------------
+cache enabled? True
+current / max size   : 1 / 16 (counts)
+current / max memsize: 0 / (unlimited) (bytes)
+hits / misses: 2 / 1 (counts)
+
+cached plans (most recently used first):
+key: (199, 105, 43824, None), plan type: Plan1d, memory usage: 0
+
+None
+Maximum Self-Energy Update: 7.936807373442953
+Contact Current Difference: 3.570060913560269e-15
+Current Conservation abs: 0.0
+Current Conservation rel: 0
+Rank-average device memory usage: 1.5531%
+Max device memory usage: 1.5531%
+Writing output for iteration 0...
+Iteration 1
+Updating conduction band edges: -3.331651, -3.849601
+ Updating Fermi levels: -3.365269, -3.883219
+Free GiB: 93.071, Batches: 1, Batch size: 43824
+------------------- cuFFT plan cache (device 0) -------------------
+cache enabled? True
+current / max size   : 2 / 16 (counts)
+current / max memsize: 0 / (unlimited) (bytes)
+hits / misses: 10 / 2 (counts)
+
+cached plans (most recently used first):
+key: (199, 105, 43824, None), plan type: Plan1d, memory usage: 0
+key: (199, 105, 1, None), plan type: Plan1d, memory usage: 0
+
+None
+Free GiB: 93.028, Batches: 1, Batch size: 43824
+------------------- cuFFT plan cache (device 0) -------------------
+cache enabled? True
+current / max size   : 2 / 16 (counts)
+current / max memsize: 0 / (unlimited) (bytes)
+hits / misses: 13 / 2 (counts)
+
+cached plans (most recently used first):
+key: (199, 105, 43824, None), plan type: Plan1d, memory usage: 0
+key: (199, 105, 1, None), plan type: Plan1d, memory usage: 0
+
+None
+Maximum Self-Energy Update: 4.0303802965317574
+Contact Current Difference: 0.0012025488020820881
+Current Conservation abs: 0.0
+Current Conservation rel: 0
+Rank-average device memory usage: 1.6559%
+Max device memory usage: 1.6559%
+Writing output for iteration 1...
+Iteration 2
+Updating conduction band edges: -3.241652, -3.600782
+ Updating Fermi levels: -3.275270, -3.634400
+Free GiB: 93.095, Batches: 1, Batch size: 43824
+------------------- cuFFT plan cache (device 0) -------------------
+cache enabled? True
+current / max size   : 2 / 16 (counts)
+current / max memsize: 0 / (unlimited) (bytes)
+hits / misses: 22 / 2 (counts)
+
+cached plans (most recently used first):
+key: (199, 105, 43824, None), plan type: Plan1d, memory usage: 0
+key: (199, 105, 1, None), plan type: Plan1d, memory usage: 0
+
+None
+Free GiB: 93.054, Batches: 1, Batch size: 43824
+------------------- cuFFT plan cache (device 0) -------------------
+cache enabled? True
+current / max size   : 2 / 16 (counts)
+current / max memsize: 0 / (unlimited) (bytes)
+hits / misses: 25 / 2 (counts)
+
+cached plans (most recently used first):
+key: (199, 105, 43824, None), plan type: Plan1d, memory usage: 0
+key: (199, 105, 1, None), plan type: Plan1d, memory usage: 0
+
+None
+Maximum Self-Energy Update: 2.0499592270110565
+Contact Current Difference: 0.0037408401741941943
+Current Conservation abs: 0.0
+Current Conservation rel: 0
+Rank-average device memory usage: 1.7690%
+Max device memory usage: 1.7690%
+Writing output for iteration 2...
+Iteration 3
+Updating conduction band edges: -3.205118, -3.565660
+ Updating Fermi levels: -3.238736, -3.599278
+Free GiB: 93.001, Batches: 1, Batch size: 43824
+------------------- cuFFT plan cache (device 0) -------------------
+cache enabled? True
+current / max size   : 2 / 16 (counts)
+current / max memsize: 0 / (unlimited) (bytes)
+hits / misses: 34 / 2 (counts)
+
+cached plans (most recently used first):
+key: (199, 105, 43824, None), plan type: Plan1d, memory usage: 0
+key: (199, 105, 1, None), plan type: Plan1d, memory usage: 0
+
+None
+Free GiB: 92.958, Batches: 1, Batch size: 43824
+------------------- cuFFT plan cache (device 0) -------------------
+cache enabled? True
+current / max size   : 2 / 16 (counts)
+current / max memsize: 0 / (unlimited) (bytes)
+hits / misses: 37 / 2 (counts)
+
+cached plans (most recently used first):
+key: (199, 105, 43824, None), plan type: Plan1d, memory usage: 0
+key: (199, 105, 1, None), plan type: Plan1d, memory usage: 0
+
+None
+Maximum Self-Energy Update: 1.0008436587797855
+Contact Current Difference: 0.000354337351152394
+Current Conservation abs: 0.0
+Current Conservation rel: 0
+Rank-average device memory usage: 2.0095%
+Max device memory usage: 2.0095%
+Writing output for iteration 3...
+SCBA did not converge after 3 iterations.
+Leaving SCBA after: 17.99 s
+[ perf record: Woken up 417 times to write data ]
+[ perf record: Captured and wrote 105.653 MB perf_cnt_gw_gpu.data (24381 samples) ]

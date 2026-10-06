@@ -1,0 +1,4 @@
+kernel,size_symbol,preset_S,preset_M,largest_finite,first_nonfinite,finite_frac_at_first_nonfinite,finite_frac_at_M,nonfinite_below_answer_in_scan,finite_above_answer_in_scan,scan_window,seed,distribution,dtype,bench_commit,n_probes
+tsvc_2_s115,LEN_2D,64,20481,118,119,0.991597,,,121,16,0,uniform,float64,26a4f0cfc1540cead109dfc8d736f1c45263e390,42
+wf_triangular,LEN_2D,64,17409,517,518,0.999974,,,,16,0,uniform,float64,26a4f0cfc1540cead109dfc8d736f1c45263e390,42
+wf_diff_skew,LEN_2D,64,12289,1017,1018,0.999949,,,,16,0,uniform,float64,26a4f0cfc1540cead109dfc8d736f1c45263e390,42

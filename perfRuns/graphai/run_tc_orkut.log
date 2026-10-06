@@ -1,0 +1,57 @@
+WARNING: Kernel address maps (/proc/{kallsyms,modules}) are restricted,
+check /proc/sys/kernel/kptr_restrict and /proc/sys/kernel/perf_event_paranoid.
+
+Samples in kernel functions may not be resolved if a suitable vmlinux
+file is not found in the buildid cache or in the vmlinux path.
+
+Samples in kernel modules won't be resolved at all.
+
+If some relocation was applied (e.g. kexec) symbols may be misresolved
+even with a suitable vmlinux or kallsyms file.
+
+Couldn't record kernel reference relocation symbol
+Symbol resolution may be skewed if relocation was used (e.g. kexec).
+Check /proc/kallsyms permission or run as root.
+Triangle Counting: assuming the neighbor lists are sorted.
+input file prefix: /capstor/scratch/cscs/lhulsbergen/graphaibench/inputs/orkut/graph, graph name: orkut
+Reading graph: |V| 3072441 |E| 234370166
+In-memory vertices
+In-memory edges
+Orientation enabled, generating DAG
+|E| after clean: 117185083
+Generating the new graph in memory
+deleting old graph
+Time on generating the DAG: 0.113348 sec
+|V|: 3072441, |E|: 117185083, Max Degree: 535
+Found 4 devices
+  Device[0]: NVIDIA GH200 120GB
+  Compute capability: 9.0
+  Warp size: 32
+  Total # SM: 132
+Unknown device type
+  Total # CUDA cores: 0
+  Total amount of shared memory per block: 49152 bytes
+  Total # registers per block: 65536
+  Total amount of constant memory: 65536 bytes
+  Total global memory: 95.0 GB
+  Memory Clock Rate: 2.50 GHz
+  Memory Bus Width: 6144 bits
+  Peak Memory Bandwidth: 4022.78 GB/s
+
+  Device[1]: NVIDIA GH200 120GB
+  Device[2]: NVIDIA GH200 120GB
+  Device[3]: NVIDIA GH200 120GB
+Allocating GPU memory for the graph ... Done
+Time on allocating device memory for the graph on GPU0: 0.002078 sec
+Copying graph data to GPU memory ... Done
+Time on copying graph to GPU0: 0.005641 sec
+Time on generating the edgelist: 0.190331 sec
+Using BinarySearch Edge-parallel Warp-centric
+max_blocks_per_SM = 8
+CUDA triangle counting (1056 CTAs, 256 threads/CTA)
+reps = 100, per rep = 0.0687377 sec
+runtime [gpu_warp_ep] = 6.87377 sec
+throughput = 0.0170481 billion Traversed Edges Per Second (TEPS)
+total_num_triangles = 627584181
+[ perf record: Woken up 19 times to write data ]
+[ perf record: Captured and wrote 6.071 MB perf_tc_orkut.data (1389 samples) ]

@@ -1,0 +1,41 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2K of event 'cycles'
+# Event count (approx.): 35245280493
+#
+# Overhead  Shared Object             Symbol                                                                                                                                                                          IPC   [IPC Coverage]
+# ........  ........................  ..............................................................................................................................................................................  ....................
+#
+    20.80%  genomics_metric           [.] comet::set_vectors_analytic_(comet::GMVectors*, int, comet::CEnv*) [clone ._omp_fn.1]                                                                                       -      -            
+    17.86%  [unknown]                 [k] 0xffffa6b83a77be84                                                                                                                                                          -      -            
+     7.09%  [vdso]                    [.] __kernel_clock_gettime                                                                                                                                                      -      -            
+     5.47%  [unknown]                 [k] 0xffffa6b851c20f64                                                                                                                                                          -      -            
+     4.35%  libcuda.so.590.48.01      [.] 0x00000000003cf284                                                                                                                                                          -      -            
+     3.44%  libcuda.so.590.48.01      [.] 0x00000000003cf220                                                                                                                                                          -      -            
+     3.07%  libcuda.so.590.48.01      [.] 0x00000000003cf21c                                                                                                                                                          -      -            
+     3.02%  genomics_metric           [.] comet::perm(unsigned long, unsigned long, unsigned long)                                                                                                                    -      -            
+     2.94%  libcuda.so.590.48.01      [.] 0x00000000003cf224                                                                                                                                                          -      -            
+     1.93%  libcuda.so.590.48.01      [.] 0x00000000003cf218                                                                                                                                                          -      -            
+     1.21%  genomics_metric           [.] void comet::finalize_ccc_duo_<0>(comet::GMMetrics*, comet::CompressedBuf*, comet::VectorSums const*, comet::VectorSums const*, int, bool, comet::CEnv*) [clone ._omp_fn.0]  -      -            
+     1.15%  [unknown]                 [k] 0xffffa6b851c70160                                                                                                                                                          -      -            
+     1.04%  libcuda.so.590.48.01      [.] 0x00000000003cf254                                                                                                                                                          -      -            
+     0.85%  libcuda.so.590.48.01      [.] 0x00000000003cf22c                                                                                                                                                          -      -            
+     0.85%  libcuda.so.590.48.01      [.] 0x0000000000392600                                                                                                                                                          -      -            
+     0.76%  libcuda.so.590.48.01      [.] 0x0000000000392604                                                                                                                                                          -      -            
+     0.73%  libcuda.so.590.48.01      [.] 0x000000000022c7fc                                                                                                                                                          -      -            
+     0.70%  genomics_metric           [.] comet::perm(unsigned long, unsigned long, unsigned long) [clone .constprop.0]                                                                                               -      -            
+     0.66%  libcuda.so.590.48.01      [.] 0x00000000003cf1e0                                                                                                                                                          -      -            
+     0.66%  libcuda.so.590.48.01      [.] 0x00000000003cf270                                                                                                                                                          -      -            
+     0.66%  libcuda.so.590.48.01      [.] 0x00000000003cf360                                                                                                                                                          -      -            
+     0.66%  libcuda.so.590.48.01      [.] 0x0000000000212f90                                                                                                                                                          -      -            
+     0.57%  [unknown]                 [k] 0xffffa6b851c6ff78                                                                                                                                                          -      -            
+     0.56%  [unknown]                 [k] 0xffffa6b851105614                                                                                                                                                          -      -            
+     0.53%  genomics_metric           [.] void comet::finalize_ccc_duo_<0>(comet::GMMetrics*, comet::CompressedBuf*, comet::VectorSums const*, comet::VectorSums const*, int, bool, comet::CEnv*) [clone ._omp_fn.3]  -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

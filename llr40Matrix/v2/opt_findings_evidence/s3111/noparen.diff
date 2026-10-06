@@ -1,0 +1,4 @@
+12c12
+<             sum_val = (sum_val + a((i_l0) + 1))
+---
+>             sum_val = sum_val + a((i_l0) + 1)

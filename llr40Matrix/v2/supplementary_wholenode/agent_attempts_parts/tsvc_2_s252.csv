@@ -1,0 +1,2 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+tsvc_2_s252,1,llr40v10-kimi27sglang-c,621018,2,c,5.216,71abe07e7f72019f2e38136a4ad676701ad3a41355d2ef56e8cc4bd95ff3957f,ok,,1,

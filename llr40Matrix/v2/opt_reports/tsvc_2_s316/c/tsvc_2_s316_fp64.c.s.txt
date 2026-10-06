@@ -1,0 +1,17 @@
+# objdump -d tsvc_2_s316_fp64.c.o  (functions matching tsvc_2_s316_fp64*)
+0000000000000000 <tsvc_2_s316_fp64>:
+   0:	fd40001f 	ldr	d31, [x0]
+   4:	f100045f 	cmp	x2, #0x1
+   8:	5400016d 	b.le	34 <tsvc_2_s316_fp64+0x34>
+   c:	8b020c02 	add	x2, x0, x2, lsl #3
+  10:	91002000 	add	x0, x0, #0x8
+  14:	d503201f 	nop
+  18:	d503201f 	nop
+  1c:	d503201f 	nop
+  20:	fc40841e 	ldr	d30, [x0], #8
+  24:	1e7f23d0 	fcmpe	d30, d31
+  28:	1e7f4fdf 	fcsel	d31, d30, d31, mi	// mi = first
+  2c:	eb00005f 	cmp	x2, x0
+  30:	54ffff81 	b.ne	20 <tsvc_2_s316_fp64+0x20>  // b.any
+  34:	fd00003f 	str	d31, [x1]
+  38:	d65f03c0 	ret

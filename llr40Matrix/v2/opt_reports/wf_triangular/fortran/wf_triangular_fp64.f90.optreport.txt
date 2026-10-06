@@ -1,0 +1,7 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/wf_triangular/fortran/wf_triangular_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts/llr40Matrix/v2/opt_reports/wf_triangular/fortran/build/wf_triangular_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+wf_triangular_fp64.f90:9:17: optimized: loop split
+wf_triangular_fp64.f90:8:13: missed: couldn't vectorize loop
+wf_triangular_fp64.f90:8:13: missed: not vectorized: inner-loop count not invariant.
+wf_triangular_fp64.f90:9:17: missed: couldn't vectorize loop
+wf_triangular_fp64.f90:11:34: missed: not vectorized, possible dependence between data-refs (*a_25(D))[_13] and (*a_25(D))[_5]

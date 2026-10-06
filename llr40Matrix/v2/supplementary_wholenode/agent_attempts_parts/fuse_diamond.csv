@@ -1,0 +1,4 @@
+kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
+fuse_diamond,1,llr40v10-kimi27sglang-c,621017,3,c,88.908,d5da9b5da4b9559c689bc404e0b42638ccd97eed6e127dea1d472309ff59b8f2,build_error,fuse_diamond/cpp_backend/fuse_diamond_fp64.c:2:10: fatal error: immintrin.h: No such file or directory,0,fuse_diamond.rank01.d5da9b5da4b9.log
+fuse_diamond,2,llr40v10-kimi27sglang-c,621017,2,c,64.023,811907d2e59b5a5c7c57a26ceb7beb54dc9d1389584b8f6eef5fc997068070f3,build_error,fuse_diamond/cpp_backend/fuse_diamond_fp64.c:2:10: fatal error: immintrin.h: No such file or directory,0,fuse_diamond.rank02.811907d2e59b.log
+fuse_diamond,3,llr40v10-oss120b-fortran,621019,1,fortran,62.761,1f00f370099f0e484bf53a04aa19ee003163adb6277f4028e1d8f895b133f537,ok,,1,

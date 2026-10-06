@@ -1,0 +1,185 @@
+
+;; Function tsvc_2_s3111_fp64 (tsvc_2_s3111_fp64, funcdef_no=0, decl_uid=2978, cgraph_uid=1, symbol_order=0)
+
+
+Analyzing loop at orig.f90:10
+orig.f90:10:13: note:  === analyze_loop_nest ===
+orig.f90:10:13: note:   === vect_analyze_loop_form ===
+orig.f90:10:13: note:    === get_loop_niters ===
+Analyzing # of iterations of loop 1
+  exit condition [1, + , 1](no_overflow) < len_1d_7(D)
+  bounds on difference of bases: 0 ... 9223372036854775806
+  result:
+    # of iterations (unsigned long) len_1d_7(D) + 18446744073709551615, bounded by 9223372036854775806
+orig.f90:10:13: note:   Symbolic number of iterations is (unsigned long) len_1d_7(D)
+Creating dr for (*a_9(D))[i_l0_15]
+analyze_innermost: success.
+	base_address: a_9(D)
+	offset from base address: 0
+	constant offset from base address: 0
+	step: 8
+	base alignment: 8
+	base misalignment: 0
+	offset alignment: 128
+	step alignment: 8
+	base_object: (*a_9(D))
+	Access function 0: {0, +, 1}_1
+orig.f90:10:13: note:   === vect_analyze_data_refs ===
+orig.f90:10:13: note:   got vectype for stmt: _2 = (*a_9(D))[i_l0_15];
+vector(2) real(kind=8)
+orig.f90:10:13: note:   === vect_analyze_scalar_cycles ===
+orig.f90:10:13: note:   Analyze phi: i_l0_15 = PHI <i_l0_11(8), 0(18)>
+orig.f90:10:13: note:   Access function of PHI: {0, +, 1}_1
+orig.f90:10:13: note:   step: 1,  init: 0
+orig.f90:10:13: note:   Detected induction.
+orig.f90:10:13: note:   Analyze phi: sum_val_16 = PHI <sum_val_6(8), 0.0(18)>
+orig.f90:10:13: note:   Access function of PHI: sum_val_16
+orig.f90:10:13: note:   Analyze phi: sum_val_16 = PHI <sum_val_6(8), 0.0(18)>
+orig.f90:10:13: missed:   reduction used in loop.
+orig.f90:10:13: missed:   Unknown def-use cycle pattern.
+orig.f90:10:13: note:   === vect_determine_precisions ===
+orig.f90:10:13: note:   using boolean precision 64 for _4 = _2 > 0.0;
+orig.f90:10:13: note:   i_l0_11 has range [0x1, 0x7fffffffffffffff]
+orig.f90:10:13: note:   can narrow to unsigned:63 without loss of precision: i_l0_11 = i_l0_15 + 1;
+orig.f90:10:13: note:   === vect_pattern_recog ===
+orig.f90:10:13: note:   vect_is_simple_use: operand i_l0_15 = PHI <i_l0_11(8), 0(18)>, type of def: induction
+orig.f90:10:13: note:   === vect_analyze_data_ref_accesses ===
+orig.f90:10:13: note:   === vect_mark_stmts_to_be_vectorized ===
+orig.f90:10:13: note:   init: phi relevant? i_l0_15 = PHI <i_l0_11(8), 0(18)>
+orig.f90:10:13: note:   init: phi relevant? sum_val_16 = PHI <sum_val_6(8), 0.0(18)>
+orig.f90:10:13: note:   init: stmt relevant? _2 = (*a_9(D))[i_l0_15];
+orig.f90:10:13: note:   init: stmt relevant? _3 = _2 + sum_val_16;
+orig.f90:10:13: note:   init: stmt relevant? sum_val_10 = ((_3));
+orig.f90:10:13: note:   init: stmt relevant? _4 = _2 > 0.0;
+orig.f90:10:13: note:   init: stmt relevant? sum_val_6 = _4 ? sum_val_10 : sum_val_16;
+orig.f90:10:13: note:   vec_stmt_relevant_p: used out of loop.
+orig.f90:10:13: note:   vect_is_simple_use: operand _2 > 0.0, type of def: internal
+orig.f90:10:13: note:   vec_stmt_relevant_p: stmt live but not relevant.
+orig.f90:10:13: note:   mark relevant 1, live 1: sum_val_6 = _4 ? sum_val_10 : sum_val_16;
+orig.f90:10:13: note:   init: stmt relevant? i_l0_11 = i_l0_15 + 1;
+orig.f90:10:13: note:   init: stmt relevant? if (len_1d_7(D) <= i_l0_11)
+orig.f90:10:13: note:   worklist: examine stmt: sum_val_6 = _4 ? sum_val_10 : sum_val_16;
+orig.f90:10:13: note:   vect_is_simple_use: operand _2 > 0.0, type of def: internal
+orig.f90:10:13: note:   mark relevant 1, live 0: _4 = _2 > 0.0;
+orig.f90:10:13: note:   vect_is_simple_use: operand ((_3)), type of def: internal
+orig.f90:10:13: note:   mark relevant 1, live 0: sum_val_10 = ((_3));
+orig.f90:10:13: note:   vect_is_simple_use: operand sum_val_16 = PHI <sum_val_6(8), 0.0(18)>, type of def: unknown
+orig.f90:10:13: missed:   Unsupported pattern.
+orig.f90:2:28: missed:   not vectorized: unsupported use in stmt.
+orig.f90:10:13: missed:  unexpected pattern.
+orig.f90:10:13: note:  ***** Analysis  failed with vector mode V2DF
+orig.f90:10:13: note:  ***** The result for vector mode V16QI would be the same
+orig.f90:10:13: missed: couldn't vectorize loop
+Creating dr for (*a_9(D))[i_l0_15]
+analyze_innermost: success.
+	base_address: a_9(D)
+	offset from base address: (ssizetype) ((sizetype) i_l0_15 * 8)
+	constant offset from base address: 0
+	step: 0
+	base alignment: 8
+	base misalignment: 0
+	offset alignment: 8
+	step alignment: 128
+	base_object: (*a_9(D))[i_l0_15]
+orig.f90:10:13: note:  === vect_slp_analyze_bb ===
+orig.f90:10:13: note:   === vect_analyze_data_refs ===
+orig.f90:10:13: note:   got vectype for stmt: _2 = (*a_9(D))[i_l0_15];
+vector(2) real(kind=8)
+orig.f90:10:13: note:   === vect_analyze_data_ref_accesses ===
+orig.f90:10:13: missed:   not consecutive access _2 = (*a_9(D))[i_l0_15];
+orig.f90:10:13: note:  vect_is_simple_use: operand (*a_9(D))[i_l0_15], type of def: internal
+orig.f90:10:13: note:  vect_is_simple_use: operand sum_val_16 = PHI <sum_val_6(8), 0.0(18)>, type of def: external
+orig.f90:10:13: missed:  not vectorized: no grouped stores in basic block.
+orig.f90:10:13: note: ***** Analysis failed with vector mode V2DF
+orig.f90:10:13: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DF
+orig.f90:2:28: note: vectorized 0 loops in function.
+Removing basic block 3
+;; basic block 3, loop depth 1
+;;  pred:       8
+;;              18
+# i_l0_15 = PHI <i_l0_11(8), 0(18)>
+# sum_val_16 = PHI <sum_val_6(8), 0.0(18)>
+_2 = (*a_9(D))[i_l0_15];
+_3 = _2 + sum_val_16;
+sum_val_10 = ((_3));
+_4 = _2 > 0.0;
+sum_val_6 = _4 ? sum_val_10 : sum_val_16;
+i_l0_11 = i_l0_15 + 1;
+if (len_1d_7(D) <= i_l0_11)
+  goto <bb 11>; [11.00%]
+else
+  goto <bb 8>; [89.00%]
+;;  succ:       11
+;;              8
+
+
+Removing basic block 8
+;; basic block 8, loop depth 1
+;;  pred:      
+;;  succ:      
+
+
+Removing basic block 18
+;; basic block 18, loop depth 0
+;;  pred:      
+;;  succ:      
+
+
+Merging blocks 17 and 19
+fix_loop_structure: fixing up loops for function
+fix_loop_structure: removing loop 1
+__attribute__((fn spec (". r w . ")))
+void tsvc_2_s3111_fp64 (real(kind=8)[0:D.2994] * restrict a, real(kind=8)[2] * restrict b, integer(kind=8) len_1d)
+{
+  real(kind=8) sum_val;
+  integer(kind=8) i_l0;
+  logical(kind=1) _14;
+  real(kind=8) _20;
+  real(kind=8) _21;
+
+  <bb 2> [local count: 118111598]:
+  if (len_1d_7(D) <= 0)
+    goto <bb 6>; [11.00%]
+  else
+    goto <bb 17>; [89.00%]
+
+  <bb 17> [local count: 105119322]:
+  _14 = 0;
+  goto <bb 12>; [100.00%]
+
+  <bb 11> [local count: 105119324]:
+  # sum_val_5 = PHI <sum_val_23(15)>
+  goto <bb 6>; [100.00%]
+
+  <bb 12> [local count: 955630225]:
+  # i_l0_18 = PHI <0(17), i_l0_24(16)>
+  # sum_val_19 = PHI <0.0(17), sum_val_23(16)>
+  _20 = (*a_9(D))[i_l0_18];
+  if (_20 > 0.0)
+    goto <bb 14>; [59.00%]
+  else
+    goto <bb 15>; [41.00%]
+
+  <bb 14> [local count: 563821837]:
+  _21 = _20 + sum_val_19;
+  sum_val_22 = ((_21));
+
+  <bb 15> [local count: 955630226]:
+  # sum_val_23 = PHI <sum_val_19(12), sum_val_22(14)>
+  i_l0_24 = i_l0_18 + 1;
+  if (len_1d_7(D) <= i_l0_24)
+    goto <bb 11>; [11.00%]
+  else
+    goto <bb 16>; [89.00%]
+
+  <bb 16> [local count: 850510902]:
+  goto <bb 12>; [100.00%]
+
+  <bb 6> [local count: 118111600]:
+  # sum_val_17 = PHI <sum_val_5(11), 0.0(2)>
+  (*b_12(D))[0] = sum_val_17;
+  return;
+
+}
+
+

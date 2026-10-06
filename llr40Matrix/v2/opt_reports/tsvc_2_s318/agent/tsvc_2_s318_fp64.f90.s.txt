@@ -1,0 +1,135 @@
+# objdump -d tsvc_2_s318_fp64.f90.o  (functions matching tsvc_2_s318_fp64*)
+000000000000002c <tsvc_2_s318_fp64>:
+  2c:	aa0003e4 	mov	x4, x0
+  30:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+  34:	910003fd 	mov	x29, sp
+  38:	aa0303e6 	mov	x6, x3
+  3c:	910083e5 	add	x5, sp, #0x20
+  40:	90000000 	adrp	x0, 0 <__tsvc_2_s318_mod_MOD___copy_tsvc_2_s318_mod_Maxloc_t>
+  44:	52800003 	mov	w3, #0x0                   	// #0
+  48:	fd400080 	ldr	d0, [x4]
+  4c:	91000000 	add	x0, x0, #0x0
+  50:	f9000bf3 	str	x19, [sp, #16]
+  54:	aa0103f3 	mov	x19, x1
+  58:	9100c3e1 	add	x1, sp, #0x30
+  5c:	a9039be2 	stp	x2, x6, [sp, #56]
+  60:	52800002 	mov	w2, #0x0                   	// #0
+  64:	a90293ff 	stp	xzr, x4, [sp, #40]
+  68:	1e60c000 	fabs	d0, d0
+  6c:	f90027ff 	str	xzr, [sp, #72]
+  70:	f9002be5 	str	x5, [sp, #80]
+  74:	fd0013e0 	str	d0, [sp, #32]
+  78:	b9005bff 	str	wzr, [sp, #88]
+  7c:	94000000 	bl	0 <GOMP_parallel>
+  80:	fd4017e0 	ldr	d0, [sp, #40]
+  84:	fd4013e1 	ldr	d1, [sp, #32]
+  88:	5e61d800 	scvtf	d0, d0
+  8c:	1e612800 	fadd	d0, d0, d1
+  90:	fd000260 	str	d0, [x19]
+  94:	f9400bf3 	ldr	x19, [sp, #16]
+  98:	a8c67bfd 	ldp	x29, x30, [sp], #96
+  9c:	d65f03c0 	ret
+
+
+0000000000000100 <tsvc_2_s318_fp64._omp_fn.0>:
+ 100:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+ 104:	910003fd 	mov	x29, sp
+ 108:	a90153f3 	stp	x19, x20, [sp, #16]
+ 10c:	910103f4 	add	x20, sp, #0x40
+ 110:	f9400813 	ldr	x19, [x0, #16]
+ 114:	f9001bf7 	str	x23, [sp, #48]
+ 118:	f9400417 	ldr	x23, [x0, #8]
+ 11c:	a9025bf5 	stp	x21, x22, [sp, #32]
+ 120:	aa0003f6 	mov	x22, x0
+ 124:	910123f5 	add	x21, sp, #0x48
+ 128:	94000000 	bl	a0 <__tsvc_2_s318_mod_MOD_maxloc_init>
+ 12c:	aa0003e2 	mov	x2, x0
+ 130:	aa0103e3 	mov	x3, x1
+ 134:	aa1503e5 	mov	x5, x21
+ 138:	910006e1 	add	x1, x23, #0x1
+ 13c:	aa1403e4 	mov	x4, x20
+ 140:	d2800040 	mov	x0, #0x2                   	// #2
+ 144:	a9050fe2 	stp	x2, x3, [sp, #80]
+ 148:	d2804003 	mov	x3, #0x200                 	// #512
+ 14c:	d2800022 	mov	x2, #0x1                   	// #1
+ 150:	94000000 	bl	0 <GOMP_loop_nonmonotonic_guided_start>
+ 154:	72001c1f 	tst	w0, #0xff
+ 158:	54000420 	b.eq	1dc <tsvc_2_s318_fp64._omp_fn.0+0xdc>  // b.none
+ 15c:	d37df277 	lsl	x23, x19, #3
+ 160:	f94002c0 	ldr	x0, [x22]
+ 164:	52800004 	mov	w4, #0x0                   	// #0
+ 168:	a9440be1 	ldp	x1, x2, [sp, #64]
+ 16c:	fd402be1 	ldr	d1, [sp, #80]
+ 170:	d1002003 	sub	x3, x0, #0x8
+ 174:	f9402fe5 	ldr	x5, [sp, #88]
+ 178:	f100067f 	cmp	x19, #0x1
+ 17c:	54000060 	b.eq	188 <tsvc_2_s318_fp64._omp_fn.0+0x88>  // b.none
+ 180:	14000032 	b	248 <tsvc_2_s318_fp64._omp_fn.0+0x148>
+ 184:	1e604041 	fmov	d1, d2
+ 188:	fc617860 	ldr	d0, [x3, x1, lsl #3]
+ 18c:	1e60c000 	fabs	d0, d0
+ 190:	1e602030 	fcmpe	d1, d0
+ 194:	1e604002 	fmov	d2, d0
+ 198:	540003c4 	b.mi	210 <tsvc_2_s318_fp64._omp_fn.0+0x110>  // b.first
+ 19c:	1e604022 	fmov	d2, d1
+ 1a0:	91000421 	add	x1, x1, #0x1
+ 1a4:	eb01005f 	cmp	x2, x1
+ 1a8:	54fffeec 	b.gt	184 <tsvc_2_s318_fp64._omp_fn.0+0x84>
+ 1ac:	1e602030 	fcmpe	d1, d0
+ 1b0:	1a9f57e0 	cset	w0, mi	// mi = first
+ 1b4:	fd000ec0 	str	d0, [x22, #24]
+ 1b8:	aa1503e1 	mov	x1, x21
+ 1bc:	b9002ac0 	str	w0, [x22, #40]
+ 1c0:	aa1403e0 	mov	x0, x20
+ 1c4:	f9002fe5 	str	x5, [sp, #88]
+ 1c8:	340002a4 	cbz	w4, 21c <tsvc_2_s318_fp64._omp_fn.0+0x11c>
+ 1cc:	fd002be2 	str	d2, [sp, #80]
+ 1d0:	94000000 	bl	0 <GOMP_loop_nonmonotonic_guided_next>
+ 1d4:	72001c1f 	tst	w0, #0xff
+ 1d8:	54fffc41 	b.ne	160 <tsvc_2_s318_fp64._omp_fn.0+0x60>  // b.any
+ 1dc:	94000000 	bl	0 <GOMP_loop_end_nowait>
+ 1e0:	94000000 	bl	0 <GOMP_atomic_start>
+ 1e4:	f94012d3 	ldr	x19, [x22, #32]
+ 1e8:	910143e1 	add	x1, sp, #0x50
+ 1ec:	aa1303e0 	mov	x0, x19
+ 1f0:	94000000 	bl	ac <__tsvc_2_s318_mod_MOD_maxloc_combine>
+ 1f4:	a9000660 	stp	x0, x1, [x19]
+ 1f8:	94000000 	bl	0 <GOMP_atomic_end>
+ 1fc:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 200:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 204:	f9401bf7 	ldr	x23, [sp, #48]
+ 208:	a8c67bfd 	ldp	x29, x30, [sp], #96
+ 20c:	d65f03c0 	ret
+ 210:	d1000425 	sub	x5, x1, #0x1
+ 214:	52800024 	mov	w4, #0x1                   	// #1
+ 218:	17ffffe2 	b	1a0 <tsvc_2_s318_fp64._omp_fn.0+0xa0>
+ 21c:	94000000 	bl	0 <GOMP_loop_nonmonotonic_guided_next>
+ 220:	72001c1f 	tst	w0, #0xff
+ 224:	54fffdc0 	b.eq	1dc <tsvc_2_s318_fp64._omp_fn.0+0xdc>  // b.none
+ 228:	f94002c0 	ldr	x0, [x22]
+ 22c:	52800004 	mov	w4, #0x0                   	// #0
+ 230:	a9440be1 	ldp	x1, x2, [sp, #64]
+ 234:	fd402be1 	ldr	d1, [sp, #80]
+ 238:	d1002003 	sub	x3, x0, #0x8
+ 23c:	f9402fe5 	ldr	x5, [sp, #88]
+ 240:	f100067f 	cmp	x19, #0x1
+ 244:	54fffa20 	b.eq	188 <tsvc_2_s318_fp64._omp_fn.0+0x88>  // b.none
+ 248:	d1000423 	sub	x3, x1, #0x1
+ 24c:	9b137c63 	mul	x3, x3, x19
+ 250:	8b030c03 	add	x3, x0, x3, lsl #3
+ 254:	14000002 	b	25c <tsvc_2_s318_fp64._omp_fn.0+0x15c>
+ 258:	1e604041 	fmov	d1, d2
+ 25c:	fd400060 	ldr	d0, [x3]
+ 260:	1e60c000 	fabs	d0, d0
+ 264:	1e602030 	fcmpe	d1, d0
+ 268:	1e604002 	fmov	d2, d0
+ 26c:	540000e4 	b.mi	288 <tsvc_2_s318_fp64._omp_fn.0+0x188>  // b.first
+ 270:	1e604022 	fmov	d2, d1
+ 274:	91000421 	add	x1, x1, #0x1
+ 278:	8b170063 	add	x3, x3, x23
+ 27c:	eb01005f 	cmp	x2, x1
+ 280:	54fffecc 	b.gt	258 <tsvc_2_s318_fp64._omp_fn.0+0x158>
+ 284:	17ffffca 	b	1ac <tsvc_2_s318_fp64._omp_fn.0+0xac>
+ 288:	d1000425 	sub	x5, x1, #0x1
+ 28c:	52800024 	mov	w4, #0x1                   	// #1
+ 290:	17fffff9 	b	274 <tsvc_2_s318_fp64._omp_fn.0+0x174>

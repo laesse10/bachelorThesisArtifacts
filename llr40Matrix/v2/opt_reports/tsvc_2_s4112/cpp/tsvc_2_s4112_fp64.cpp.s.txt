@@ -1,0 +1,22 @@
+# objdump -d tsvc_2_s4112_fp64.cpp.o  (functions matching tsvc_2_s4112_fp64*)
+0000000000000000 <tsvc_2_s4112_fp64>:
+   0:	f100007f 	cmp	x3, #0x0
+   4:	540001ed 	b.le	40 <tsvc_2_s4112_fp64+0x40>
+   8:	d2800004 	mov	x4, #0x0                   	// #0
+   c:	04e0e3e5 	cntd	x5
+  10:	25e31fe0 	whilelo	p0.d, xzr, x3
+  14:	2518e3e1 	ptrue	p1.b
+  18:	25f9c002 	fmov	z2.d, #2.000000000000000000e+00
+  1c:	d503201f 	nop
+  20:	a4844040 	ld1sw	{z0.d}, p0/z, [x2, x4, lsl #2]
+  24:	a5e44001 	ld1d	{z1.d}, p0/z, [x0, x4, lsl #3]
+  28:	c5e0c020 	ld1d	{z0.d}, p0/z, [x1, z0.d, lsl #3]
+  2c:	65e18440 	fmad	z0.d, p1/m, z2.d, z1.d
+  30:	e5e44000 	st1d	{z0.d}, p0, [x0, x4, lsl #3]
+  34:	8b050084 	add	x4, x4, x5
+  38:	25e31c80 	whilelo	p0.d, x4, x3
+  3c:	54ffff21 	b.ne	20 <tsvc_2_s4112_fp64+0x20>  // b.any
+  40:	d65f03c0 	ret
+
+Disassembly of section .text.startup:
+

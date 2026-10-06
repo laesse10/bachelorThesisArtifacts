@@ -1,0 +1,446 @@
+=-=-=-=-=-= RUN: Cubool-Multiply =-=-=-=-=-=
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/amazon-2008/amazon-2008.mtx" isUndirected: 0
+                 size: 735323 x 735323 nvals: 5158388
+> Begin experiment: 0 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/amazon-2008/amazon-2008.mtx
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[0] time: 6.60508 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[1] time: 6.14695 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[2] time: 6.15777 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[3] time: 6.16417 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[4] time: 6.13716 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[5] time: 6.16075 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[6] time: 6.17425 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[7] time: 6.13246 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[8] time: 6.16391 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[9] time: 6.17422 ms
+> End experiment: 0
+> Stats: 
+>  iterations   = 10
+>  total        = 62.0167 ms
+>  average      = 6.20167 ms
+>  average (-1) = 6.15685 ms
+>  sd           = 0.14245 ms
+>  min          = 6.13246 ms
+>  max          = 6.60508 ms
+>  samples: 
+>   0: 6.60508 ms
+>   1: 6.14695 ms
+>   2: 6.15777 ms
+>   3: 6.16417 ms
+>   4: 6.13716 ms
+>   5: 6.16075 ms
+>   6: 6.17425 ms
+>   7: 6.13246 ms
+>   8: 6.16391 ms
+>   9: 6.17422 ms
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/web-Google/web-Google.mtx" isUndirected: 0
+                 size: 916428 x 916428 nvals: 5105039
+> Begin experiment: 1 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/web-Google/web-Google.mtx
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[0] time: 9.02937 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[1] time: 8.10078 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[2] time: 8.27937 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[3] time: 8.01695 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[4] time: 8.04037 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[5] time: 8.19195 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[6] time: 8.12098 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[7] time: 8.0971 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[8] time: 8.03957 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[9] time: 8.11525 ms
+> End experiment: 1
+> Stats: 
+>  iterations   = 10
+>  total        = 82.0317 ms
+>  average      = 8.20317 ms
+>  average (-1) = 8.11137 ms
+>  sd           = 0.300499 ms
+>  min          = 8.01695 ms
+>  max          = 9.02937 ms
+>  samples: 
+>   0: 9.02937 ms
+>   1: 8.10078 ms
+>   2: 8.27937 ms
+>   3: 8.01695 ms
+>   4: 8.04037 ms
+>   5: 8.19195 ms
+>   6: 8.12098 ms
+>   7: 8.0971 ms
+>   8: 8.03957 ms
+>   9: 8.11525 ms
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-TX/roadNet-TX.mtx" isUndirected: 1
+                 size: 1393383 x 1393383 nvals: 3843320
+> Begin experiment: 2 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-TX/roadNet-TX.mtx
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[0] time: 7.40436 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[1] time: 7.20161 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[2] time: 7.16542 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[3] time: 7.16148 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[4] time: 7.17486 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[5] time: 7.17118 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[6] time: 7.17726 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[7] time: 7.18449 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[8] time: 7.16609 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[9] time: 7.15204 ms
+> End experiment: 2
+> Stats: 
+>  iterations   = 10
+>  total        = 71.9588 ms
+>  average      = 7.19588 ms
+>  average (-1) = 7.17272 ms
+>  sd           = 0.0744934 ms
+>  min          = 7.15204 ms
+>  max          = 7.40436 ms
+>  samples: 
+>   0: 7.40436 ms
+>   1: 7.20161 ms
+>   2: 7.16542 ms
+>   3: 7.16148 ms
+>   4: 7.17486 ms
+>   5: 7.17118 ms
+>   6: 7.17726 ms
+>   7: 7.18449 ms
+>   8: 7.16609 ms
+>   9: 7.15204 ms
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/belgium_osm/belgium_osm.mtx" isUndirected: 1
+                 size: 1441295 x 1441295 nvals: 3099940
+> Begin experiment: 3 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/belgium_osm/belgium_osm.mtx
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[0] time: 7.5584 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[1] time: 7.33918 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[2] time: 7.34673 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[3] time: 7.32583 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[4] time: 7.2978 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[5] time: 7.32071 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[6] time: 7.33639 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[7] time: 7.34705 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[8] time: 7.30701 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[9] time: 7.34273 ms
+> End experiment: 3
+> Stats: 
+>  iterations   = 10
+>  total        = 73.5218 ms
+>  average      = 7.35218 ms
+>  average (-1) = 7.32927 ms
+>  sd           = 0.0743656 ms
+>  min          = 7.2978 ms
+>  max          = 7.5584 ms
+>  samples: 
+>   0: 7.5584 ms
+>   1: 7.33918 ms
+>   2: 7.34673 ms
+>   3: 7.32583 ms
+>   4: 7.2978 ms
+>   5: 7.32071 ms
+>   6: 7.33639 ms
+>   7: 7.34705 ms
+>   8: 7.30701 ms
+>   9: 7.34273 ms
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-CA/roadNet-CA.mtx" isUndirected: 1
+                 size: 1971281 x 1971281 nvals: 5533214
+> Begin experiment: 4 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-CA/roadNet-CA.mtx
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[0] time: 9.93926 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[1] time: 9.70147 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[2] time: 9.77405 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[3] time: 9.71037 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[4] time: 9.73226 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[5] time: 9.67936 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[6] time: 9.74794 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[7] time: 9.6688 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[8] time: 9.75882 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[9] time: 9.68013 ms
+> End experiment: 4
+> Stats: 
+>  iterations   = 10
+>  total        = 97.3924 ms
+>  average      = 9.73924 ms
+>  average (-1) = 9.71702 ms
+>  sd           = 0.0789003 ms
+>  min          = 9.6688 ms
+>  max          = 9.93926 ms
+>  samples: 
+>   0: 9.93926 ms
+>   1: 9.70147 ms
+>   2: 9.77405 ms
+>   3: 9.71037 ms
+>   4: 9.73226 ms
+>   5: 9.67936 ms
+>   6: 9.74794 ms
+>   7: 9.6688 ms
+>   8: 9.75882 ms
+>   9: 9.68013 ms
+
+=-=-=-=-=-= FINISH: Cubool-Multiply =-=-=-=-=-=
+=-=-=-=-=-= RUN: Cubool-Multiply =-=-=-=-=-=
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/amazon-2008/amazon-2008.mtx" isUndirected: 0
+                 size: 735323 x 735323 nvals: 5158388
+> Begin experiment: 0 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/amazon-2008/amazon-2008.mtx
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[0] time: 6.29604 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[1] time: 5.88635 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[2] time: 5.89371 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[3] time: 5.87563 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[4] time: 5.85138 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[5] time: 5.87605 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[6] time: 5.87998 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[7] time: 5.82792 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[8] time: 5.85423 ms
+   Result matrix: size: 735323 x 735323 nvals: 25366745
+[9] time: 5.86978 ms
+> End experiment: 0
+> Stats: 
+>  iterations   = 10
+>  total        = 59.1111 ms
+>  average      = 5.91111 ms
+>  average (-1) = 5.86834 ms
+>  sd           = 0.136615 ms
+>  min          = 5.82792 ms
+>  max          = 6.29604 ms
+>  samples: 
+>   0: 6.29604 ms
+>   1: 5.88635 ms
+>   2: 5.89371 ms
+>   3: 5.87563 ms
+>   4: 5.85138 ms
+>   5: 5.87605 ms
+>   6: 5.87998 ms
+>   7: 5.82792 ms
+>   8: 5.85423 ms
+>   9: 5.86978 ms
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/web-Google/web-Google.mtx" isUndirected: 0
+                 size: 916428 x 916428 nvals: 5105039
+> Begin experiment: 1 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/web-Google/web-Google.mtx
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[0] time: 8.76557 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[1] time: 7.75551 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[2] time: 7.77779 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[3] time: 7.94997 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[4] time: 7.80591 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[5] time: 7.78726 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[6] time: 7.75523 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[7] time: 7.79174 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[8] time: 7.69878 ms
+   Result matrix: size: 916428 x 916428 nvals: 29713983
+[9] time: 7.86354 ms
+> End experiment: 1
+> Stats: 
+>  iterations   = 10
+>  total        = 78.9513 ms
+>  average      = 7.89513 ms
+>  average (-1) = 7.79841 ms
+>  sd           = 0.313287 ms
+>  min          = 7.69878 ms
+>  max          = 8.76557 ms
+>  samples: 
+>   0: 8.76557 ms
+>   1: 7.75551 ms
+>   2: 7.77779 ms
+>   3: 7.94997 ms
+>   4: 7.80591 ms
+>   5: 7.78726 ms
+>   6: 7.75523 ms
+>   7: 7.79174 ms
+>   8: 7.69878 ms
+>   9: 7.86354 ms
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-TX/roadNet-TX.mtx" isUndirected: 1
+                 size: 1393383 x 1393383 nvals: 3843320
+> Begin experiment: 2 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-TX/roadNet-TX.mtx
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[0] time: 7.21518 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[1] time: 7.01886 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[2] time: 6.98488 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[3] time: 6.99682 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[4] time: 7.01278 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[5] time: 6.97781 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[6] time: 7.03032 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[7] time: 6.97125 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[8] time: 6.97119 ms
+   Result matrix: size: 1393383 x 1393383 nvals: 8903897
+[9] time: 6.9972 ms
+> End experiment: 2
+> Stats: 
+>  iterations   = 10
+>  total        = 70.1763 ms
+>  average      = 7.01763 ms
+>  average (-1) = 6.99568 ms
+>  sd           = 0.0722867 ms
+>  min          = 6.97119 ms
+>  max          = 7.21518 ms
+>  samples: 
+>   0: 7.21518 ms
+>   1: 7.01886 ms
+>   2: 6.98488 ms
+>   3: 6.99682 ms
+>   4: 7.01278 ms
+>   5: 6.97781 ms
+>   6: 7.03032 ms
+>   7: 6.97125 ms
+>   8: 6.97119 ms
+>   9: 6.9972 ms
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/belgium_osm/belgium_osm.mtx" isUndirected: 1
+                 size: 1441295 x 1441295 nvals: 3099940
+> Begin experiment: 3 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/belgium_osm/belgium_osm.mtx
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[0] time: 7.24209 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[1] time: 7.05493 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[2] time: 7.03912 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[3] time: 7.02997 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[4] time: 7.03362 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[5] time: 6.99573 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[6] time: 7.01941 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[7] time: 7.09576 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[8] time: 7.01157 ms
+   Result matrix: size: 1441295 x 1441295 nvals: 5323073
+[9] time: 7.08209 ms
+> End experiment: 3
+> Stats: 
+>  iterations   = 10
+>  total        = 70.6043 ms
+>  average      = 7.06043 ms
+>  average (-1) = 7.04024 ms
+>  sd           = 0.0707933 ms
+>  min          = 6.99573 ms
+>  max          = 7.24209 ms
+>  samples: 
+>   0: 7.24209 ms
+>   1: 7.05493 ms
+>   2: 7.03912 ms
+>   3: 7.02997 ms
+>   4: 7.03362 ms
+>   5: 6.99573 ms
+>   6: 7.01941 ms
+>   7: 7.09576 ms
+>   8: 7.01157 ms
+>   9: 7.08209 ms
+
+>   Load matrix: "/capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-CA/roadNet-CA.mtx" isUndirected: 1
+                 size: 1971281 x 1971281 nvals: 5533214
+> Begin experiment: 4 name: /capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-CA/roadNet-CA.mtx
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[0] time: 9.68487 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[1] time: 9.51351 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[2] time: 9.45924 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[3] time: 9.44353 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[4] time: 9.48119 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[5] time: 9.47598 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[6] time: 9.49041 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[7] time: 9.46033 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[8] time: 9.46935 ms
+   Result matrix: size: 1971281 x 1971281 nvals: 12908450
+[9] time: 9.47098 ms
+> End experiment: 4
+> Stats: 
+>  iterations   = 10
+>  total        = 94.9494 ms
+>  average      = 9.49494 ms
+>  average (-1) = 9.47383 ms
+>  sd           = 0.0693862 ms
+>  min          = 9.44353 ms
+>  max          = 9.68487 ms
+>  samples: 
+>   0: 9.68487 ms
+>   1: 9.51351 ms
+>   2: 9.45924 ms
+>   3: 9.44353 ms
+>   4: 9.48119 ms
+>   5: 9.47598 ms
+>   6: 9.49041 ms
+>   7: 9.46033 ms
+>   8: 9.46935 ms
+>   9: 9.47098 ms
+
+=-=-=-=-=-= FINISH: Cubool-Multiply =-=-=-=-=-=

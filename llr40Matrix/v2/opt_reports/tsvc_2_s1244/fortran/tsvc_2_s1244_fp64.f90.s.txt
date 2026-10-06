@@ -1,0 +1,25 @@
+# objdump -d tsvc_2_s1244_fp64.f90.o  (functions matching tsvc_2_s1244_fp64*)
+0000000000000000 <tsvc_2_s1244_fp64>:
+   0:	f100049f 	cmp	x4, #0x1
+   4:	540002ad 	b.le	58 <tsvc_2_s1244_fp64+0x58>
+   8:	d1002065 	sub	x5, x3, #0x8
+   c:	d1000484 	sub	x4, x4, #0x1
+  10:	d2800003 	mov	x3, #0x0                   	// #0
+  14:	d503201f 	nop
+  18:	d503201f 	nop
+  1c:	d503201f 	nop
+  20:	fc637841 	ldr	d1, [x2, x3, lsl #3]
+  24:	fc637822 	ldr	d2, [x1, x3, lsl #3]
+  28:	1e610820 	fmul	d0, d1, d1
+  2c:	1e620843 	fmul	d3, d2, d2
+  30:	1e622800 	fadd	d0, d0, d2
+  34:	1e632800 	fadd	d0, d0, d3
+  38:	1e612800 	fadd	d0, d0, d1
+  3c:	fc237800 	str	d0, [x0, x3, lsl #3]
+  40:	91000463 	add	x3, x3, #0x1
+  44:	fc637801 	ldr	d1, [x0, x3, lsl #3]
+  48:	1e602820 	fadd	d0, d1, d0
+  4c:	fc2378a0 	str	d0, [x5, x3, lsl #3]
+  50:	eb04007f 	cmp	x3, x4
+  54:	54fffe61 	b.ne	20 <tsvc_2_s1244_fp64+0x20>  // b.any
+  58:	d65f03c0 	ret
