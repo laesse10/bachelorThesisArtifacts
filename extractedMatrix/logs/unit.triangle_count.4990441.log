@@ -1,0 +1,17 @@
+unit triangle_count node=nid006416 start=2026-10-06T14:32:27+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006416 1 1
+SRUN[triangle_count]: srun --nodes=1 --ntasks=1 -w nid006416 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels triangle_count --preset M --warmup 5 --reps 30 --out parts/triangle_count.csv --scratch scratch/triangle_count --logs logs/cells --emitted-dir emitted_sources --db-shard 106
+[1/1] triangle_count
+    c            ok           median 46.112 ms 
+    cpp          ok           median 47.738 ms 
+    fortran      ok           median 47.526 ms 
+    numba        ok           median 32.038 ms 
+    native       unsupported   upstream extraction is CUDA (triangle_count_reference.cu)
+
+wrote 5 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/parts/triangle_count.csv
+SRUN[triangle_count]: srun --nodes=1 --ntasks=1 -w nid006416 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir opt_reports --index parts/optrep.triangle_count.csv triangle_count:c:c:emitted_sources/triangle_count/triangle_count_fp64.c triangle_count:cpp:cpp:emitted_sources/triangle_count/triangle_count_fp64.cpp triangle_count:fortran:fortran:emitted_sources/triangle_count/triangle_count_fp64.f90 triangle_count:numba:python:emitted_sources/triangle_count/triangle_count_numba_np.py
+triangle_count               c            ok
+triangle_count               cpp          ok
+triangle_count               fortran      ok
+triangle_count               numba        ok
+unit triangle_count node=nid006416 end=2026-10-06T14:33:26+02:00

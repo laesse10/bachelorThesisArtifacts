@@ -1,0 +1,17 @@
+unit spgemm_hash node=nid006364 start=2026-10-06T14:32:27+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006364 1 1
+SRUN[spgemm_hash]: srun --nodes=1 --ntasks=1 -w nid006364 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels spgemm_hash --preset M --warmup 5 --reps 30 --out parts/spgemm_hash.csv --scratch scratch/spgemm_hash --logs logs/cells --emitted-dir emitted_sources --db-shard 102
+[1/1] spgemm_hash
+    c            ok           median 263.383 ms 
+    cpp          ok           median 264.308 ms 
+    fortran      ok           median 182.812 ms 
+    numba        ok           median 154.702 ms 
+    native       unsupported   upstream extraction is CUDA (spgemm_hash_reference.cu)
+
+wrote 5 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/parts/spgemm_hash.csv
+SRUN[spgemm_hash]: srun --nodes=1 --ntasks=1 -w nid006364 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir opt_reports --index parts/optrep.spgemm_hash.csv spgemm_hash:c:c:emitted_sources/spgemm_hash/spgemm_hash_fp64.c spgemm_hash:cpp:cpp:emitted_sources/spgemm_hash/spgemm_hash_fp64.cpp spgemm_hash:fortran:fortran:emitted_sources/spgemm_hash/spgemm_hash_fp64.f90 spgemm_hash:numba:python:emitted_sources/spgemm_hash/spgemm_hash_numba_np.py
+spgemm_hash                  c            ok
+spgemm_hash                  cpp          ok
+spgemm_hash                  fortran      ok
+spgemm_hash                  numba        ok
+unit spgemm_hash node=nid006364 end=2026-10-06T14:33:58+02:00

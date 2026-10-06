@@ -1,0 +1,18 @@
+unit warpx_boris_push node=nid006380 start=2026-10-06T14:32:27+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006380 1 1
+SRUN[warpx_boris_push]: srun --nodes=1 --ntasks=1 -w nid006380 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels warpx_boris_push --preset M --warmup 5 --reps 30 --out parts/warpx_boris_push.csv --scratch scratch/warpx_boris_push --logs logs/cells --emitted-dir emitted_sources --db-shard 103
+[1/1] warpx_boris_push
+    c            ok           median 3.388 ms 
+    cpp          ok           median 3.287 ms 
+    fortran      ok           median 3.621 ms 
+    numba        ok           median 2.172 ms 
+    native       ok           median 3.864 ms 
+
+wrote 5 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/parts/warpx_boris_push.csv
+SRUN[warpx_boris_push]: srun --nodes=1 --ntasks=1 -w nid006380 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir opt_reports --index parts/optrep.warpx_boris_push.csv warpx_boris_push:c:c:emitted_sources/warpx_boris_push/warpx_boris_push_fp64.c warpx_boris_push:cpp:cpp:emitted_sources/warpx_boris_push/warpx_boris_push_fp64.cpp warpx_boris_push:fortran:fortran:emitted_sources/warpx_boris_push/warpx_boris_push_fp64.f90 warpx_boris_push:numba:python:emitted_sources/warpx_boris_push/warpx_boris_push_numba_np.py warpx_boris_push:native:cpp:adapters/warpx_boris_push_native.cpp
+warpx_boris_push             c            ok
+warpx_boris_push             cpp          ok
+warpx_boris_push             fortran      ok
+warpx_boris_push             numba        ok
+warpx_boris_push             native       ok
+unit warpx_boris_push node=nid006380 end=2026-10-06T14:33:31+02:00
