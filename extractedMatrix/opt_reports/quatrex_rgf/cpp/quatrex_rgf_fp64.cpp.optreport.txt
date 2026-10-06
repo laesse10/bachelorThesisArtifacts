@@ -1,0 +1,983 @@
+$ /users/lhulsbergen/bin/g++ -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c++20 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/quatrex_rgf/cpp/quatrex_rgf_fp64.cpp -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/quatrex_rgf/cpp/build/quatrex_rgf_fp64.cpp.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+quatrex_rgf_fp64.cpp:291:31: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:291:31: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:699:40: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:699:40: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:1149:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1150:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1150:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1144:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1145:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1145:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1139:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1140:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1131:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1131:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:1132:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3927 = REALPART_EXPR <*_1898>;
+quatrex_rgf_fp64.cpp:1134:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:1126:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1127:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1121:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1123:43: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1122:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1122:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1116:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1118:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1853> = _3959;
+quatrex_rgf_fp64.cpp:1117:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1117:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1110:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1111:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1105:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1106:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1106:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1100:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1101:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1092:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1092:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:1093:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _4013 = REALPART_EXPR <*_1802>;
+quatrex_rgf_fp64.cpp:1095:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:1087:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1088:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1088:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1082:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1084:43: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1083:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1083:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1077:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1079:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1762> = _4040;
+quatrex_rgf_fp64.cpp:1078:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1078:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1071:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1072:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1066:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1067:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1067:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1061:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1063:40: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1062:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1053:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1053:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:1054:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _4098 = REALPART_EXPR <*_1714>;
+quatrex_rgf_fp64.cpp:1056:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:1045:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1045:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:1046:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _1954 = REALPART_EXPR <*_1695>;
+quatrex_rgf_fp64.cpp:1048:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:1037:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1037:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:1038:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2279 = REALPART_EXPR <*_1669>;
+quatrex_rgf_fp64.cpp:1040:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:1032:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1034:45: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1033:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1033:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1024:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1024:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:1025:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _4087 = REALPART_EXPR <*_1640>;
+quatrex_rgf_fp64.cpp:1027:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:1019:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1020:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1014:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1016:43: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1015:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1015:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1009:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1011:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1604> = _1978;
+quatrex_rgf_fp64.cpp:1010:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1010:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:1003:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:1004:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:998:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:1000:40: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:999:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:990:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:990:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:991:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2306 = REALPART_EXPR <*_1575>;
+quatrex_rgf_fp64.cpp:993:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:982:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:982:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:983:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _1994 = REALPART_EXPR <*_1556>;
+quatrex_rgf_fp64.cpp:985:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:974:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:974:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:975:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2004 = REALPART_EXPR <*_1530>;
+quatrex_rgf_fp64.cpp:977:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:969:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:970:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:964:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:966:43: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:965:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:965:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:959:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:961:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1485> = _2010;
+quatrex_rgf_fp64.cpp:960:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:960:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:953:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:954:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:948:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:949:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:949:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:943:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:944:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:935:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:935:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:936:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2022 = REALPART_EXPR <*_1434>;
+quatrex_rgf_fp64.cpp:938:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:930:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:931:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:931:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:925:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:927:43: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:926:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:926:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:920:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:922:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1394> = _2029;
+quatrex_rgf_fp64.cpp:921:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:921:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:914:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:915:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:909:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:910:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:910:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:904:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:906:40: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:905:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:896:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:896:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:897:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2041 = REALPART_EXPR <*_1346>;
+quatrex_rgf_fp64.cpp:899:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:888:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:888:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:889:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2371 = REALPART_EXPR <*_1327>;
+quatrex_rgf_fp64.cpp:891:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:880:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:880:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:881:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2380 = REALPART_EXPR <*_1301>;
+quatrex_rgf_fp64.cpp:883:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:875:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:877:45: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:876:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:876:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:867:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:867:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:868:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2068 = REALPART_EXPR <*_1272>;
+quatrex_rgf_fp64.cpp:870:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:862:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:863:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:857:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:859:43: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:858:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:858:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:852:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:854:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1236> = _2397;
+quatrex_rgf_fp64.cpp:853:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:853:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:846:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:847:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:841:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:843:40: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:842:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:833:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:833:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:834:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2086 = REALPART_EXPR <*_1207>;
+quatrex_rgf_fp64.cpp:836:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:825:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:825:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:826:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2095 = REALPART_EXPR <*_1188>;
+quatrex_rgf_fp64.cpp:828:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:817:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:817:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:818:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2104 = REALPART_EXPR <*_1162>;
+quatrex_rgf_fp64.cpp:820:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:812:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:814:59: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:813:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:813:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:804:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:804:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:805:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2116 = REALPART_EXPR <*_1134>;
+quatrex_rgf_fp64.cpp:807:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:799:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:801:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:800:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:800:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:794:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:796:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1110> = _2120;
+quatrex_rgf_fp64.cpp:795:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:795:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:788:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:789:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:783:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:785:54: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:784:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:784:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:775:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:775:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:776:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2126 = REALPART_EXPR <*_1084>;
+quatrex_rgf_fp64.cpp:778:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:770:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:772:58: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:771:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:771:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:765:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:767:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1058> = _2130;
+quatrex_rgf_fp64.cpp:766:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:766:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:759:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:760:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:754:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:756:48: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:755:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:755:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:746:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:746:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:747:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3567 = REALPART_EXPR <*_1032>;
+quatrex_rgf_fp64.cpp:749:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:741:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:743:58: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:742:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:742:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:736:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:738:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_1001> = _2144;
+quatrex_rgf_fp64.cpp:737:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:737:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:730:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:731:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:725:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:727:48: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:726:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:726:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:717:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:717:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:718:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2151 = REALPART_EXPR <*_975>;
+quatrex_rgf_fp64.cpp:720:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:712:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:714:49: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:713:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:713:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:707:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:709:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_944> = _2155;
+quatrex_rgf_fp64.cpp:708:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:708:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:701:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:702:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:694:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:695:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:695:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:689:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:690:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:684:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:686:41: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:685:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:685:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:679:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:681:44: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_872> = _2480;
+quatrex_rgf_fp64.cpp:680:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:680:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:673:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:674:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:668:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:669:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:663:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:665:41: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:664:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:664:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:658:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:660:44: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_817> = _3544;
+quatrex_rgf_fp64.cpp:659:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:659:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:652:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:653:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:402:33: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:402:33: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:646:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:647:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:647:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:638:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:638:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:639:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2493 = REALPART_EXPR <*_778>;
+quatrex_rgf_fp64.cpp:641:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:630:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:630:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:631:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2182 = REALPART_EXPR <*_759>;
+quatrex_rgf_fp64.cpp:633:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:625:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:626:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:617:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:617:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:618:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3530 = REALPART_EXPR <*_716>;
+quatrex_rgf_fp64.cpp:620:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:609:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:609:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:610:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2205 = REALPART_EXPR <*_697>;
+quatrex_rgf_fp64.cpp:612:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:604:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:606:43: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:605:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:605:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:599:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:601:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_666> = _2210;
+quatrex_rgf_fp64.cpp:600:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:600:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:593:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:594:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:588:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:590:40: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:589:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:589:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:580:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:580:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:581:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2219 = REALPART_EXPR <*_640>;
+quatrex_rgf_fp64.cpp:583:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:575:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:576:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:576:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:567:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:567:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:568:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2548 = REALPART_EXPR <*_604>;
+quatrex_rgf_fp64.cpp:570:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:559:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:559:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:560:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2557 = REALPART_EXPR <*_585>;
+quatrex_rgf_fp64.cpp:562:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:554:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:555:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:546:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:546:39: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:547:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2573 = REALPART_EXPR <*_542>;
+quatrex_rgf_fp64.cpp:549:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:538:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:538:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:539:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _2582 = REALPART_EXPR <*_523>;
+quatrex_rgf_fp64.cpp:541:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:533:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:535:43: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:534:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:534:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:528:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:530:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_492> = _2586;
+quatrex_rgf_fp64.cpp:529:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:529:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:522:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:523:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:517:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:519:40: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:518:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:518:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:509:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:509:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:510:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3793 = REALPART_EXPR <*_466>;
+quatrex_rgf_fp64.cpp:512:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:504:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:506:49: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:505:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:505:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:499:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:501:46: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_438> = _3786;
+quatrex_rgf_fp64.cpp:500:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:500:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:493:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:495:40: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:494:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:488:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:489:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:489:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:483:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:484:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:484:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:453:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:453:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:473:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:473:49: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:476:53: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:469:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:470:90: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:460:49: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:455:61: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported use in stmt.
+quatrex_rgf_fp64.cpp:447:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:448:49: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:441:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:442:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:433:45: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:433:45: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:434:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3555 = REALPART_EXPR <*_312>;
+quatrex_rgf_fp64.cpp:436:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:428:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:430:40: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:429:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:429:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:420:45: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:420:45: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:421:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3613 = REALPART_EXPR <*_282>;
+quatrex_rgf_fp64.cpp:423:49: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:415:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:417:48: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:416:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:416:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:410:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:412:45: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_251> = _3602;
+quatrex_rgf_fp64.cpp:411:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:411:43: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:404:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:33:68: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:405:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:397:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:399:53: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:398:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:398:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:389:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:389:37: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:390:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3829 = REALPART_EXPR <*_217>;
+quatrex_rgf_fp64.cpp:392:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:381:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:381:43: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:382:45: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3869 = REALPART_EXPR <*_198>;
+quatrex_rgf_fp64.cpp:384:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:376:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:378:53: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:377:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:377:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:368:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:368:37: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:369:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3920 = REALPART_EXPR <*_169>;
+quatrex_rgf_fp64.cpp:371:41: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:360:43: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:360:43: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:361:45: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: not suitable for strided load _3968 = REALPART_EXPR <*_150>;
+quatrex_rgf_fp64.cpp:363:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:355:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:357:47: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:356:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:356:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:350:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:352:43: missed: not vectorized: not suitable for strided load REALPART_EXPR <*_123> = _3984;
+quatrex_rgf_fp64.cpp:351:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:351:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:344:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:346:38: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:345:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:339:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:341:53: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:340:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:340:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:334:39: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:335:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:335:41: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:304:45: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:304:45: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:324:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:324:47: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+quatrex_rgf_fp64.cpp:327:51: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:320:47: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:321:86: missed: not vectorized: unsupported data-type complex double
+quatrex_rgf_fp64.cpp:311:47: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:306:59: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: unsupported use in stmt.
+quatrex_rgf_fp64.cpp:298:45: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:299:47: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:292:37: missed: couldn't vectorize loop
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: complicated access pattern.
+quatrex_rgf_fp64.cpp:293:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:293:39: optimized: loop vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:1111:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:1072:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:1004:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:954:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:915:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:847:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:789:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:760:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:731:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:702:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:674:39: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:653:39: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:594:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:523:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:494:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:448:49: optimized: loop with 3 iterations completely unrolled (header execution count 7203827)
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:405:41: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:345:39: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:299:47: optimized: loop with 3 iterations completely unrolled (header execution count 890360)
+quatrex_rgf_fp64.cpp:167:6: optimized: loop turned into non-loop; it never loops
+quatrex_rgf_fp64.cpp:172:58: missed: statement clobbers memory: xr_d_2594 = malloc (_4);
+quatrex_rgf_fp64.cpp:173:15: missed: statement clobbers memory: memset (xr_d_2594, 0, _4);
+quatrex_rgf_fp64.cpp:174:58: missed: statement clobbers memory: xl_d_2597 = malloc (_4);
+quatrex_rgf_fp64.cpp:175:15: missed: statement clobbers memory: memset (xl_d_2597, 0, _4);
+quatrex_rgf_fp64.cpp:176:58: missed: statement clobbers memory: xg_d_2600 = malloc (_4);
+quatrex_rgf_fp64.cpp:177:15: missed: statement clobbers memory: memset (xg_d_2600, 0, _4);
+quatrex_rgf_fp64.cpp:178:55: missed: statement clobbers memory: m_2603 = malloc (_8);
+quatrex_rgf_fp64.cpp:179:15: missed: statement clobbers memory: memset (m_2603, 0, _8);
+quatrex_rgf_fp64.cpp:180:57: missed: statement clobbers memory: dag_2606 = malloc (_8);
+quatrex_rgf_fp64.cpp:181:15: missed: statement clobbers memory: memset (dag_2606, 0, _8);
+quatrex_rgf_fp64.cpp:182:62: missed: statement clobbers memory: a_ji_dag_2609 = malloc (_8);
+quatrex_rgf_fp64.cpp:183:15: missed: statement clobbers memory: memset (a_ji_dag_2609, 0, _8);
+quatrex_rgf_fp64.cpp:184:63: missed: statement clobbers memory: xr_jj_dag_2612 = malloc (_8);
+quatrex_rgf_fp64.cpp:185:15: missed: statement clobbers memory: memset (xr_jj_dag_2612, 0, _8);
+quatrex_rgf_fp64.cpp:186:56: missed: statement clobbers memory: t1_2615 = malloc (_8);
+quatrex_rgf_fp64.cpp:187:15: missed: statement clobbers memory: memset (t1_2615, 0, _8);
+quatrex_rgf_fp64.cpp:188:56: missed: statement clobbers memory: t2_2618 = malloc (_8);
+quatrex_rgf_fp64.cpp:189:15: missed: statement clobbers memory: memset (t2_2618, 0, _8);
+quatrex_rgf_fp64.cpp:190:56: missed: statement clobbers memory: t3_2621 = malloc (_8);
+quatrex_rgf_fp64.cpp:191:15: missed: statement clobbers memory: memset (t3_2621, 0, _8);
+quatrex_rgf_fp64.cpp:192:64: missed: statement clobbers memory: xr_ii_a_ij_2624 = malloc (_8);
+quatrex_rgf_fp64.cpp:193:15: missed: statement clobbers memory: memset (xr_ii_a_ij_2624, 0, _8);
+quatrex_rgf_fp64.cpp:194:64: missed: statement clobbers memory: xr_jj_a_ji_2627 = malloc (_8);
+quatrex_rgf_fp64.cpp:195:15: missed: statement clobbers memory: memset (xr_jj_a_ji_2627, 0, _8);
+quatrex_rgf_fp64.cpp:196:70: missed: statement clobbers memory: xr_ii_a_ij_xr_jj_2630 = malloc (_8);
+quatrex_rgf_fp64.cpp:197:15: missed: statement clobbers memory: memset (xr_ii_a_ij_xr_jj_2630, 0, _8);
+quatrex_rgf_fp64.cpp:198:75: missed: statement clobbers memory: xr_ii_a_ij_xr_jj_a_ji_2633 = malloc (_8);
+quatrex_rgf_fp64.cpp:199:15: missed: statement clobbers memory: memset (xr_ii_a_ij_xr_jj_a_ji_2633, 0, _8);
+quatrex_rgf_fp64.cpp:200:72: missed: statement clobbers memory: a_ij_dag_xr_ii_dag_2636 = malloc (_8);
+quatrex_rgf_fp64.cpp:201:15: missed: statement clobbers memory: memset (a_ij_dag_xr_ii_dag_2636, 0, _8);
+quatrex_rgf_fp64.cpp:202:72: missed: statement clobbers memory: a_ji_dag_xr_jj_dag_2639 = malloc (_8);
+quatrex_rgf_fp64.cpp:203:15: missed: statement clobbers memory: memset (a_ji_dag_xr_jj_dag_2639, 0, _8);
+quatrex_rgf_fp64.cpp:204:82: missed: statement clobbers memory: xr_jj_dag_a_ij_dag_xr_ii_dag_2642 = malloc (_8);
+quatrex_rgf_fp64.cpp:205:15: missed: statement clobbers memory: memset (xr_jj_dag_a_ij_dag_xr_ii_dag_2642, 0, _8);
+quatrex_rgf_fp64.cpp:206:61: missed: statement clobbers memory: temp_1x_2645 = malloc (_8);
+quatrex_rgf_fp64.cpp:207:15: missed: statement clobbers memory: memset (temp_1x_2645, 0, _8);
+quatrex_rgf_fp64.cpp:208:61: missed: statement clobbers memory: temp_2x_2648 = malloc (_8);
+quatrex_rgf_fp64.cpp:209:15: missed: statement clobbers memory: memset (temp_2x_2648, 0, _8);
+quatrex_rgf_fp64.cpp:210:56: missed: statement clobbers memory: cj_2651 = malloc (_8);
+quatrex_rgf_fp64.cpp:211:15: missed: statement clobbers memory: memset (cj_2651, 0, _8);
+quatrex_rgf_fp64.cpp:212:59: missed: statement clobbers memory: __cb1_2654 = malloc (_8);
+quatrex_rgf_fp64.cpp:213:59: missed: statement clobbers memory: __cb2_2656 = malloc (_8);
+quatrex_rgf_fp64.cpp:214:59: missed: statement clobbers memory: __mm3_2658 = malloc (_8);
+quatrex_rgf_fp64.cpp:215:59: missed: statement clobbers memory: __mm4_2660 = malloc (_8);
+quatrex_rgf_fp64.cpp:216:59: missed: statement clobbers memory: __mm5_2662 = malloc (_8);
+quatrex_rgf_fp64.cpp:217:59: missed: statement clobbers memory: __mm6_2664 = malloc (_8);
+quatrex_rgf_fp64.cpp:218:59: missed: statement clobbers memory: __cb7_2666 = malloc (_8);
+quatrex_rgf_fp64.cpp:219:59: missed: statement clobbers memory: __mm8_2668 = malloc (_8);
+quatrex_rgf_fp64.cpp:220:59: missed: statement clobbers memory: __mm9_2670 = malloc (_8);
+quatrex_rgf_fp64.cpp:221:60: missed: statement clobbers memory: __cb10_2672 = malloc (_8);
+quatrex_rgf_fp64.cpp:222:60: missed: statement clobbers memory: __cb11_2674 = malloc (_8);
+quatrex_rgf_fp64.cpp:223:60: missed: statement clobbers memory: __mm12_2676 = malloc (_8);
+quatrex_rgf_fp64.cpp:224:60: missed: statement clobbers memory: __cb13_2678 = malloc (_8);
+quatrex_rgf_fp64.cpp:225:60: missed: statement clobbers memory: __mm14_2680 = malloc (_8);
+quatrex_rgf_fp64.cpp:226:60: missed: statement clobbers memory: __mm15_2682 = malloc (_8);
+quatrex_rgf_fp64.cpp:227:60: missed: statement clobbers memory: __mm16_2684 = malloc (_8);
+quatrex_rgf_fp64.cpp:228:60: missed: statement clobbers memory: __mm17_2686 = malloc (_8);
+quatrex_rgf_fp64.cpp:229:60: missed: statement clobbers memory: __mm18_2688 = malloc (_8);
+quatrex_rgf_fp64.cpp:230:60: missed: statement clobbers memory: __cb19_2690 = malloc (_8);
+quatrex_rgf_fp64.cpp:231:60: missed: statement clobbers memory: __mm20_2692 = malloc (_8);
+quatrex_rgf_fp64.cpp:232:60: missed: statement clobbers memory: __mm21_2694 = malloc (_8);
+quatrex_rgf_fp64.cpp:233:60: missed: statement clobbers memory: __mm22_2696 = malloc (_8);
+quatrex_rgf_fp64.cpp:234:60: missed: statement clobbers memory: __mm23_2698 = malloc (_8);
+quatrex_rgf_fp64.cpp:235:60: missed: statement clobbers memory: __cb24_2700 = malloc (_8);
+quatrex_rgf_fp64.cpp:236:60: missed: statement clobbers memory: __cb25_2702 = malloc (_8);
+quatrex_rgf_fp64.cpp:237:60: missed: statement clobbers memory: __cb26_2704 = malloc (_8);
+quatrex_rgf_fp64.cpp:238:60: missed: statement clobbers memory: __mm27_2706 = malloc (_8);
+quatrex_rgf_fp64.cpp:239:60: missed: statement clobbers memory: __cb28_2708 = malloc (_8);
+quatrex_rgf_fp64.cpp:240:60: missed: statement clobbers memory: __mm29_2710 = malloc (_8);
+quatrex_rgf_fp64.cpp:241:60: missed: statement clobbers memory: __cb30_2712 = malloc (_8);
+quatrex_rgf_fp64.cpp:242:60: missed: statement clobbers memory: __mm31_2714 = malloc (_8);
+quatrex_rgf_fp64.cpp:243:60: missed: statement clobbers memory: __cb32_2716 = malloc (_8);
+quatrex_rgf_fp64.cpp:244:60: missed: statement clobbers memory: __mm33_2718 = malloc (_8);
+quatrex_rgf_fp64.cpp:245:60: missed: statement clobbers memory: __mm34_2720 = malloc (_8);
+quatrex_rgf_fp64.cpp:246:60: missed: statement clobbers memory: __mm35_2722 = malloc (_8);
+quatrex_rgf_fp64.cpp:247:60: missed: statement clobbers memory: __mm36_2724 = malloc (_8);
+quatrex_rgf_fp64.cpp:248:60: missed: statement clobbers memory: __cb37_2726 = malloc (_8);
+quatrex_rgf_fp64.cpp:249:60: missed: statement clobbers memory: __mm38_2728 = malloc (_8);
+quatrex_rgf_fp64.cpp:250:60: missed: statement clobbers memory: __mm39_2730 = malloc (_8);
+quatrex_rgf_fp64.cpp:251:60: missed: statement clobbers memory: __mm40_2732 = malloc (_8);
+quatrex_rgf_fp64.cpp:252:60: missed: statement clobbers memory: __mm41_2734 = malloc (_8);
+quatrex_rgf_fp64.cpp:253:60: missed: statement clobbers memory: __cb42_2736 = malloc (_8);
+quatrex_rgf_fp64.cpp:254:60: missed: statement clobbers memory: __mm43_2738 = malloc (_8);
+quatrex_rgf_fp64.cpp:255:60: missed: statement clobbers memory: __cb44_2740 = malloc (_8);
+quatrex_rgf_fp64.cpp:256:60: missed: statement clobbers memory: __mm45_2742 = malloc (_8);
+quatrex_rgf_fp64.cpp:257:60: missed: statement clobbers memory: __mm46_2744 = malloc (_8);
+quatrex_rgf_fp64.cpp:258:60: missed: statement clobbers memory: __mm47_2746 = malloc (_8);
+quatrex_rgf_fp64.cpp:259:60: missed: statement clobbers memory: __cb48_2748 = malloc (_8);
+quatrex_rgf_fp64.cpp:260:60: missed: statement clobbers memory: __mm49_2750 = malloc (_8);
+quatrex_rgf_fp64.cpp:261:60: missed: statement clobbers memory: __mm50_2752 = malloc (_8);
+quatrex_rgf_fp64.cpp:262:60: missed: statement clobbers memory: __mm51_2754 = malloc (_8);
+quatrex_rgf_fp64.cpp:263:60: missed: statement clobbers memory: __mm52_2756 = malloc (_8);
+quatrex_rgf_fp64.cpp:264:60: missed: statement clobbers memory: __cb53_2758 = malloc (_8);
+quatrex_rgf_fp64.cpp:265:60: missed: statement clobbers memory: __mm54_2760 = malloc (_8);
+quatrex_rgf_fp64.cpp:266:60: missed: statement clobbers memory: __cb55_2762 = malloc (_8);
+quatrex_rgf_fp64.cpp:267:60: missed: statement clobbers memory: __mm56_2764 = malloc (_8);
+quatrex_rgf_fp64.cpp:268:63: missed: statement clobbers memory: __inv_aw0_2766 = malloc (_8);
+quatrex_rgf_fp64.cpp:269:63: missed: statement clobbers memory: __inv_aw1_2768 = malloc (_8);
+quatrex_rgf_fp64.cpp:270:56: missed: statement clobbers memory: xr_2770 = malloc (_8);
+quatrex_rgf_fp64.cpp:271:15: missed: statement clobbers memory: memset (xr_d_2594, 0, _4);
+quatrex_rgf_fp64.cpp:272:15: missed: statement clobbers memory: memset (xl_d_2597, 0, _4);
+quatrex_rgf_fp64.cpp:273:15: missed: statement clobbers memory: memset (xg_d_2600, 0, _4);
+quatrex_rgf_fp64.cpp:274:15: missed: statement clobbers memory: memset (m_2603, 0, _8);
+quatrex_rgf_fp64.cpp:275:15: missed: statement clobbers memory: memset (dag_2606, 0, _8);
+quatrex_rgf_fp64.cpp:276:15: missed: statement clobbers memory: memset (a_ji_dag_2609, 0, _8);
+quatrex_rgf_fp64.cpp:277:15: missed: statement clobbers memory: memset (xr_jj_dag_2612, 0, _8);
+quatrex_rgf_fp64.cpp:278:15: missed: statement clobbers memory: memset (t1_2615, 0, _8);
+quatrex_rgf_fp64.cpp:279:15: missed: statement clobbers memory: memset (t2_2618, 0, _8);
+quatrex_rgf_fp64.cpp:280:15: missed: statement clobbers memory: memset (t3_2621, 0, _8);
+quatrex_rgf_fp64.cpp:281:15: missed: statement clobbers memory: memset (xr_ii_a_ij_2624, 0, _8);
+quatrex_rgf_fp64.cpp:282:15: missed: statement clobbers memory: memset (xr_jj_a_ji_2627, 0, _8);
+quatrex_rgf_fp64.cpp:283:15: missed: statement clobbers memory: memset (xr_ii_a_ij_xr_jj_2630, 0, _8);
+quatrex_rgf_fp64.cpp:284:15: missed: statement clobbers memory: memset (xr_ii_a_ij_xr_jj_a_ji_2633, 0, _8);
+quatrex_rgf_fp64.cpp:285:15: missed: statement clobbers memory: memset (a_ij_dag_xr_ii_dag_2636, 0, _8);
+quatrex_rgf_fp64.cpp:286:15: missed: statement clobbers memory: memset (a_ji_dag_xr_jj_dag_2639, 0, _8);
+quatrex_rgf_fp64.cpp:287:15: missed: statement clobbers memory: memset (xr_jj_dag_a_ij_dag_xr_ii_dag_2642, 0, _8);
+quatrex_rgf_fp64.cpp:288:15: missed: statement clobbers memory: memset (temp_1x_2645, 0, _8);
+quatrex_rgf_fp64.cpp:289:15: missed: statement clobbers memory: memset (temp_2x_2648, 0, _8);
+quatrex_rgf_fp64.cpp:290:15: missed: statement clobbers memory: memset (cj_2651, 0, _8);
+quatrex_rgf_fp64.cpp:301:49: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1956_15331] = .STORE_LANES (vect_array.1958);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1880 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1878_15006]);
+quatrex_rgf_fp64.cpp:346:38: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1884_15014] = .STORE_LANES (vect_array.1886);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1803 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1801_14577]);
+quatrex_rgf_fp64.cpp:406:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1807_14585] = .STORE_LANES (vect_array.1809);
+quatrex_rgf_fp64.cpp:450:52: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1736_14223] = .STORE_LANES (vect_array.1738);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1660 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1658_13880]);
+quatrex_rgf_fp64.cpp:495:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1664_13888] = .STORE_LANES (vect_array.1666);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1600 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1598_13555]);
+quatrex_rgf_fp64.cpp:524:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1604_13563] = .STORE_LANES (vect_array.1606);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1504 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1502_13051]);
+quatrex_rgf_fp64.cpp:595:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1508_13059] = .STORE_LANES (vect_array.1510);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1425 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1423_12635]);
+quatrex_rgf_fp64.cpp:654:38: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1429_12643] = .STORE_LANES (vect_array.1431);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1370 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1368_12361]);
+quatrex_rgf_fp64.cpp:675:38: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1374_12369] = .STORE_LANES (vect_array.1376);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1298 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1296_11973]);
+quatrex_rgf_fp64.cpp:703:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1302_11981] = .STORE_LANES (vect_array.1304);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1238 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1236_11656]);
+quatrex_rgf_fp64.cpp:732:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1242_11664] = .STORE_LANES (vect_array.1244);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1178 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1176_11331]);
+quatrex_rgf_fp64.cpp:761:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1182_11339] = .STORE_LANES (vect_array.1184);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1118 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1116_11006]);
+quatrex_rgf_fp64.cpp:790:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1122_11014] = .STORE_LANES (vect_array.1124);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.1047 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.1045_10625]);
+quatrex_rgf_fp64.cpp:848:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.1051_10633] = .STORE_LANES (vect_array.1053);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.943 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.941_4018]);
+quatrex_rgf_fp64.cpp:916:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.947_1539] = .STORE_LANES (vect_array.949);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.849 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.847_3840]);
+quatrex_rgf_fp64.cpp:955:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.853_3792] = .STORE_LANES (vect_array.855);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.783 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.781_5147]);
+quatrex_rgf_fp64.cpp:1005:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.787_5115] = .STORE_LANES (vect_array.789);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.679 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.677_5984]);
+quatrex_rgf_fp64.cpp:1073:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.683_5976] = .STORE_LANES (vect_array.685);
+quatrex_rgf_fp64.cpp:34:68: missed: not vectorized: more than one data ref in stmt: vect_array.585 = .LOAD_LANES (MEM <double[4]> [(double *)vectp.583_6470]);
+quatrex_rgf_fp64.cpp:1112:40: missed: not vectorized: more than one data ref in stmt: MEM <double[4]> [(double *)vectp.589_6462] = .STORE_LANES (vect_array.591);
+quatrex_rgf_fp64.cpp:1156:13: missed: statement clobbers memory: free (xr_d_2594);
+quatrex_rgf_fp64.cpp:1157:13: missed: statement clobbers memory: free (xl_d_2597);
+quatrex_rgf_fp64.cpp:1158:13: missed: statement clobbers memory: free (xg_d_2600);
+quatrex_rgf_fp64.cpp:1159:13: missed: statement clobbers memory: free (m_2603);
+quatrex_rgf_fp64.cpp:1160:13: missed: statement clobbers memory: free (dag_2606);
+quatrex_rgf_fp64.cpp:1161:13: missed: statement clobbers memory: free (a_ji_dag_2609);
+quatrex_rgf_fp64.cpp:1162:13: missed: statement clobbers memory: free (xr_jj_dag_2612);
+quatrex_rgf_fp64.cpp:1163:13: missed: statement clobbers memory: free (t1_2615);
+quatrex_rgf_fp64.cpp:1164:13: missed: statement clobbers memory: free (t2_2618);
+quatrex_rgf_fp64.cpp:1165:13: missed: statement clobbers memory: free (t3_2621);
+quatrex_rgf_fp64.cpp:1166:13: missed: statement clobbers memory: free (xr_ii_a_ij_2624);
+quatrex_rgf_fp64.cpp:1167:13: missed: statement clobbers memory: free (xr_jj_a_ji_2627);
+quatrex_rgf_fp64.cpp:1168:13: missed: statement clobbers memory: free (xr_ii_a_ij_xr_jj_2630);
+quatrex_rgf_fp64.cpp:1169:13: missed: statement clobbers memory: free (xr_ii_a_ij_xr_jj_a_ji_2633);
+quatrex_rgf_fp64.cpp:1170:13: missed: statement clobbers memory: free (a_ij_dag_xr_ii_dag_2636);
+quatrex_rgf_fp64.cpp:1171:13: missed: statement clobbers memory: free (a_ji_dag_xr_jj_dag_2639);
+quatrex_rgf_fp64.cpp:1172:13: missed: statement clobbers memory: free (xr_jj_dag_a_ij_dag_xr_ii_dag_2642);
+quatrex_rgf_fp64.cpp:1173:13: missed: statement clobbers memory: free (temp_1x_2645);
+quatrex_rgf_fp64.cpp:1174:13: missed: statement clobbers memory: free (temp_2x_2648);
+quatrex_rgf_fp64.cpp:1175:13: missed: statement clobbers memory: free (cj_2651);
+quatrex_rgf_fp64.cpp:1176:13: missed: statement clobbers memory: free (__cb1_2654);
+quatrex_rgf_fp64.cpp:1177:13: missed: statement clobbers memory: free (__cb2_2656);
+quatrex_rgf_fp64.cpp:1178:13: missed: statement clobbers memory: free (__mm3_2658);
+quatrex_rgf_fp64.cpp:1179:13: missed: statement clobbers memory: free (__mm4_2660);
+quatrex_rgf_fp64.cpp:1180:13: missed: statement clobbers memory: free (__mm5_2662);
+quatrex_rgf_fp64.cpp:1181:13: missed: statement clobbers memory: free (__mm6_2664);
+quatrex_rgf_fp64.cpp:1182:13: missed: statement clobbers memory: free (__cb7_2666);
+quatrex_rgf_fp64.cpp:1183:13: missed: statement clobbers memory: free (__mm8_2668);
+quatrex_rgf_fp64.cpp:1184:13: missed: statement clobbers memory: free (__mm9_2670);
+quatrex_rgf_fp64.cpp:1185:13: missed: statement clobbers memory: free (__cb10_2672);
+quatrex_rgf_fp64.cpp:1186:13: missed: statement clobbers memory: free (__cb11_2674);
+quatrex_rgf_fp64.cpp:1187:13: missed: statement clobbers memory: free (__mm12_2676);
+quatrex_rgf_fp64.cpp:1188:13: missed: statement clobbers memory: free (__cb13_2678);
+quatrex_rgf_fp64.cpp:1189:13: missed: statement clobbers memory: free (__mm14_2680);
+quatrex_rgf_fp64.cpp:1190:13: missed: statement clobbers memory: free (__mm15_2682);
+quatrex_rgf_fp64.cpp:1191:13: missed: statement clobbers memory: free (__mm16_2684);
+quatrex_rgf_fp64.cpp:1192:13: missed: statement clobbers memory: free (__mm17_2686);
+quatrex_rgf_fp64.cpp:1193:13: missed: statement clobbers memory: free (__mm18_2688);
+quatrex_rgf_fp64.cpp:1194:13: missed: statement clobbers memory: free (__cb19_2690);
+quatrex_rgf_fp64.cpp:1195:13: missed: statement clobbers memory: free (__mm20_2692);
+quatrex_rgf_fp64.cpp:1196:13: missed: statement clobbers memory: free (__mm21_2694);
+quatrex_rgf_fp64.cpp:1197:13: missed: statement clobbers memory: free (__mm22_2696);
+quatrex_rgf_fp64.cpp:1198:13: missed: statement clobbers memory: free (__mm23_2698);
+quatrex_rgf_fp64.cpp:1199:13: missed: statement clobbers memory: free (__cb24_2700);
+quatrex_rgf_fp64.cpp:1200:13: missed: statement clobbers memory: free (__cb25_2702);
+quatrex_rgf_fp64.cpp:1201:13: missed: statement clobbers memory: free (__cb26_2704);
+quatrex_rgf_fp64.cpp:1202:13: missed: statement clobbers memory: free (__mm27_2706);
+quatrex_rgf_fp64.cpp:1203:13: missed: statement clobbers memory: free (__cb28_2708);
+quatrex_rgf_fp64.cpp:1204:13: missed: statement clobbers memory: free (__mm29_2710);
+quatrex_rgf_fp64.cpp:1205:13: missed: statement clobbers memory: free (__cb30_2712);
+quatrex_rgf_fp64.cpp:1206:13: missed: statement clobbers memory: free (__mm31_2714);
+quatrex_rgf_fp64.cpp:1207:13: missed: statement clobbers memory: free (__cb32_2716);
+quatrex_rgf_fp64.cpp:1208:13: missed: statement clobbers memory: free (__mm33_2718);
+quatrex_rgf_fp64.cpp:1209:13: missed: statement clobbers memory: free (__mm34_2720);
+quatrex_rgf_fp64.cpp:1210:13: missed: statement clobbers memory: free (__mm35_2722);
+quatrex_rgf_fp64.cpp:1211:13: missed: statement clobbers memory: free (__mm36_2724);
+quatrex_rgf_fp64.cpp:1212:13: missed: statement clobbers memory: free (__cb37_2726);
+quatrex_rgf_fp64.cpp:1213:13: missed: statement clobbers memory: free (__mm38_2728);
+quatrex_rgf_fp64.cpp:1214:13: missed: statement clobbers memory: free (__mm39_2730);
+quatrex_rgf_fp64.cpp:1215:13: missed: statement clobbers memory: free (__mm40_2732);
+quatrex_rgf_fp64.cpp:1216:13: missed: statement clobbers memory: free (__mm41_2734);
+quatrex_rgf_fp64.cpp:1217:13: missed: statement clobbers memory: free (__cb42_2736);
+quatrex_rgf_fp64.cpp:1218:13: missed: statement clobbers memory: free (__mm43_2738);
+quatrex_rgf_fp64.cpp:1219:13: missed: statement clobbers memory: free (__cb44_2740);
+quatrex_rgf_fp64.cpp:1220:13: missed: statement clobbers memory: free (__mm45_2742);
+quatrex_rgf_fp64.cpp:1221:13: missed: statement clobbers memory: free (__mm46_2744);
+quatrex_rgf_fp64.cpp:1222:13: missed: statement clobbers memory: free (__mm47_2746);
+quatrex_rgf_fp64.cpp:1223:13: missed: statement clobbers memory: free (__cb48_2748);
+quatrex_rgf_fp64.cpp:1224:13: missed: statement clobbers memory: free (__mm49_2750);
+quatrex_rgf_fp64.cpp:1225:13: missed: statement clobbers memory: free (__mm50_2752);
+quatrex_rgf_fp64.cpp:1226:13: missed: statement clobbers memory: free (__mm51_2754);
+quatrex_rgf_fp64.cpp:1227:13: missed: statement clobbers memory: free (__mm52_2756);
+quatrex_rgf_fp64.cpp:1228:13: missed: statement clobbers memory: free (__cb53_2758);
+quatrex_rgf_fp64.cpp:1229:13: missed: statement clobbers memory: free (__mm54_2760);
+quatrex_rgf_fp64.cpp:1230:13: missed: statement clobbers memory: free (__cb55_2762);
+quatrex_rgf_fp64.cpp:1231:13: missed: statement clobbers memory: free (__mm56_2764);
+quatrex_rgf_fp64.cpp:1232:13: missed: statement clobbers memory: free (__inv_aw0_2766);
+quatrex_rgf_fp64.cpp:1233:13: missed: statement clobbers memory: free (__inv_aw1_2768);
+quatrex_rgf_fp64.cpp:1234:13: missed: statement clobbers memory: free (xr_2770);
+quatrex_rgf_fp64.cpp:321:49: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:322:53: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:329:57: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:346:38: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:406:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:470:52: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:471:55: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:478:59: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:495:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:524:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:595:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:654:38: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:675:38: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:703:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:732:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:761:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:790:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:848:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:916:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:955:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:1005:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:1073:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:1112:40: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: missed: not vectorized: vectorization is not profitable.
+quatrex_rgf_fp64.cpp:167:6: optimized: basic block part vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:167:6: optimized: basic block part vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:167:6: optimized: basic block part vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:167:6: optimized: basic block part vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:167:6: optimized: basic block part vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:167:6: optimized: basic block part vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:167:6: optimized: basic block part vectorized using 16 byte vectors
+quatrex_rgf_fp64.cpp:167:6: optimized: basic block part vectorized using 16 byte vectors

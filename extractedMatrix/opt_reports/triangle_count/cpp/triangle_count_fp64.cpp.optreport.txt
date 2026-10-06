@@ -1,0 +1,24 @@
+$ /users/lhulsbergen/bin/g++ -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c++20 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/triangle_count/cpp/triangle_count_fp64.cpp -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/triangle_count/cpp/build/triangle_count_fp64.cpp.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+triangle_count_fp64.cpp: In function ‘void triangle_count_fp64(const int64_t*, const int64_t*, const int64_t*, int64_t*, int64_t, int64_t)’:
+triangle_count_fp64.cpp:167:193: warning: unused parameter ‘NV’ [-Wunused-parameter]
+  167 | void triangle_count_fp64(const int64_t *__restrict__ colidx, const int64_t *__restrict__ esrc, const int64_t *__restrict__ rowptr, int64_t *__restrict__ total, const int64_t NE, const int64_t NV) {
+      |                                                                                                                                                                                   ~~~~~~~~~~~~~~^~
+triangle_count_fp64.cpp:213:44: optimized: unswitching loop 6 on ‘if’ with condition: _36 < top_90
+triangle_count_fp64.cpp:188:31: missed: couldn't vectorize loop
+triangle_count_fp64.cpp:188:31: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+triangle_count_fp64.cpp:208:35: missed: couldn't vectorize loop
+triangle_count_fp64.cpp:208:35: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+triangle_count_fp64.cpp:229:36: missed: couldn't vectorize loop
+triangle_count_fp64.cpp:229:36: missed: not vectorized: control flow in loop.
+triangle_count_fp64.cpp:229:44: missed: couldn't vectorize loop
+triangle_count_fp64.cpp:229:44: missed: not vectorized: control flow in loop.
+triangle_count_fp64.cpp:213:38: missed: couldn't vectorize loop
+triangle_count_fp64.cpp:213:38: missed: not vectorized: control flow in loop.
+triangle_count_fp64.cpp:213:44: missed: couldn't vectorize loop
+triangle_count_fp64.cpp:213:44: missed: not vectorized: control flow in loop.
+triangle_count_fp64.cpp:213:44: optimized: loop with 1 iterations completely unrolled (header execution count 225320163)
+triangle_count_fp64.cpp:230:34: missed: not vectorized: vectorization is not profitable.
+triangle_count_fp64.cpp:230:34: missed: not vectorized: vectorization is not profitable.
+triangle_count_fp64.cpp:230:34: missed: not vectorized: vectorization is not profitable.
+triangle_count_fp64.cpp:230:34: missed: not vectorized: vectorization is not profitable.

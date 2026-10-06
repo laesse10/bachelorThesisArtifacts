@@ -1,0 +1,3062 @@
+# function _select_bin  signature (int64,)
+	.file	"<string>"
+	.text
+	.globl	_ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	.p2align	4
+	.type	_ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@function
+_ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx:
+	sub	x8, x2, #33
+	sub	x9, x2, #65
+	cmn	x8, #32
+	csetm	x8, lo
+	cmn	x9, #32
+	sub	x9, x2, #129
+	csinc	x8, x8, xzr, lo
+	cmn	x9, #64
+	mov	w9, #2
+	csel	x8, x8, x9, lo
+	sub	x9, x2, #257
+	cmn	x9, #128
+	mov	w9, #3
+	csel	x8, x8, x9, lo
+	sub	x9, x2, #513
+	cmn	x9, #256
+	mov	w9, #4
+	csel	x8, x8, x9, lo
+	sub	x9, x2, #1025
+	cmn	x9, #512
+	mov	w9, #5
+	csel	x8, x8, x9, lo
+	sub	x9, x2, #2049
+	cmn	x9, #1024
+	mov	w9, #6
+	csel	x8, x8, x9, lo
+	mov	x9, #-4097
+	add	x9, x2, x9
+	cmn	x9, #2048
+	mov	w9, #7
+	csel	x8, x8, x9, lo
+	str	x8, [x0]
+	mov	w0, wzr
+	ret
+.Lfunc_end0:
+	.size	_ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx, .Lfunc_end0-_ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+
+	.globl	_ZN7cpython21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	.p2align	4
+	.type	_ZN7cpython21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@function
+_ZN7cpython21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx:
+	.cfi_startproc
+	sub	sp, sp, #48
+	str	x30, [sp, #16]
+	stp	x20, x19, [sp, #32]
+	.cfi_def_cfa_offset 48
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w30, -32
+	mov	x0, x1
+	movz	x1, #:abs_g0_nc:.const._select_bin
+	add	x4, sp, #24
+	mov	w2, #1
+	mov	w3, #1
+	movk	x1, #:abs_g1_nc:.const._select_bin
+	movk	x1, #:abs_g2_nc:.const._select_bin
+	movk	x1, #:abs_g3:.const._select_bin
+	bl	PyArg_UnpackTuple
+	cbz	w0, .LBB1_6
+	adrp	x8, :got:_ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	ldr	x8, [x8, :got_lo12:_ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx]
+	ldr	x8, [x8]
+	cbz	x8, .LBB1_5
+	ldr	x0, [sp, #24]
+	bl	PyNumber_Long
+	cbz	x0, .LBB1_7
+	mov	x20, x0
+	bl	PyLong_AsLongLong
+	mov	x19, x0
+	mov	x0, x20
+	bl	Py_DecRef
+	bl	PyErr_Occurred
+	cbnz	x0, .LBB1_6
+.LBB1_4:
+	add	x0, sp, #8
+	mov	x2, x19
+	bl	_ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	ldr	x0, [sp, #8]
+	bl	PyLong_FromLongLong
+	ldp	x20, x19, [sp, #32]
+	ldr	x30, [sp, #16]
+	add	sp, sp, #48
+	ret
+.LBB1_5:
+	adrp	x0, :got:PyExc_RuntimeError
+	movz	x1, #:abs_g0_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	ldr	x0, [x0, :got_lo12:PyExc_RuntimeError]
+	movk	x1, #:abs_g1_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	movk	x1, #:abs_g2_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	movk	x1, #:abs_g3:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	bl	PyErr_SetString
+.LBB1_6:
+	mov	x0, xzr
+	ldp	x20, x19, [sp, #32]
+	ldr	x30, [sp, #16]
+	add	sp, sp, #48
+	ret
+.LBB1_7:
+	mov	x19, xzr
+	bl	PyErr_Occurred
+	cbz	x0, .LBB1_4
+	b	.LBB1_6
+.Lfunc_end1:
+	.size	_ZN7cpython21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx, .Lfunc_end1-_ZN7cpython21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	.cfi_endproc
+
+	.globl	cfunc._ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	.p2align	4
+	.type	cfunc._ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@function
+cfunc._ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx:
+	str	x30, [sp, #-16]!
+	mov	x2, x0
+	add	x0, sp, #8
+	bl	_ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	ldr	x0, [sp, #8]
+	ldr	x30, [sp], #16
+	ret
+.Lfunc_end2:
+	.size	cfunc._ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx, .Lfunc_end2-cfunc._ZN21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+
+	.type	.const._select_bin,@object
+	.section	.rodata,"a",@progbits
+	.p2align	2, 0x0
+.const._select_bin:
+	.asciz	"_select_bin"
+	.size	.const._select_bin, 12
+
+	.type	_ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@object
+	.comm	_ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,8,8
+	.type	".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx",@object
+	.p2align	4, 0x0
+".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx":
+	.asciz	"missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	.size	".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx", 170
+
+	.section	".note.GNU-stack","",@progbits
+
+
+# function _table_size  signature (int64,)
+	.file	"<string>"
+	.text
+	.globl	_ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	.p2align	4
+	.type	_ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@function
+_ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx:
+	cmp	x2, #1
+	b.lt	.LBB0_3
+	and	x8, x2, #0x3
+	cmp	x2, #4
+	b.hs	.LBB0_4
+	mov	w9, #32
+	b	.LBB0_7
+.LBB0_3:
+	mov	w9, #32
+	str	x9, [x0]
+	mov	w0, wzr
+	ret
+.LBB0_4:
+	and	x9, x2, #0x7ffffffffffffffc
+	neg	x10, x9
+	mov	w9, #32
+	.p2align	5, , 16
+.LBB0_5:
+	lsl	x9, x9, #4
+	adds	x10, x10, #4
+	b.ne	.LBB0_5
+	cbz	x8, .LBB0_8
+	.p2align	5, , 16
+.LBB0_7:
+	lsl	x9, x9, #1
+	subs	x8, x8, #1
+	b.ne	.LBB0_7
+.LBB0_8:
+	str	x9, [x0]
+	mov	w0, wzr
+	ret
+.Lfunc_end0:
+	.size	_ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx, .Lfunc_end0-_ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+
+	.globl	_ZN7cpython21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	.p2align	4
+	.type	_ZN7cpython21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@function
+_ZN7cpython21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx:
+	.cfi_startproc
+	sub	sp, sp, #48
+	str	x30, [sp, #16]
+	stp	x20, x19, [sp, #32]
+	.cfi_def_cfa_offset 48
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w30, -32
+	mov	x0, x1
+	movz	x1, #:abs_g0_nc:.const._table_size
+	add	x4, sp, #24
+	mov	w2, #1
+	mov	w3, #1
+	movk	x1, #:abs_g1_nc:.const._table_size
+	movk	x1, #:abs_g2_nc:.const._table_size
+	movk	x1, #:abs_g3:.const._table_size
+	bl	PyArg_UnpackTuple
+	cbz	w0, .LBB1_6
+	adrp	x8, :got:_ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	ldr	x8, [x8, :got_lo12:_ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx]
+	ldr	x8, [x8]
+	cbz	x8, .LBB1_5
+	ldr	x0, [sp, #24]
+	bl	PyNumber_Long
+	cbz	x0, .LBB1_7
+	mov	x20, x0
+	bl	PyLong_AsLongLong
+	mov	x19, x0
+	mov	x0, x20
+	bl	Py_DecRef
+	bl	PyErr_Occurred
+	cbnz	x0, .LBB1_6
+.LBB1_4:
+	add	x0, sp, #8
+	str	xzr, [sp, #8]
+	mov	x2, x19
+	bl	_ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	ldr	x0, [sp, #8]
+	bl	PyLong_FromLongLong
+	ldp	x20, x19, [sp, #32]
+	ldr	x30, [sp, #16]
+	add	sp, sp, #48
+	ret
+.LBB1_5:
+	adrp	x0, :got:PyExc_RuntimeError
+	movz	x1, #:abs_g0_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	ldr	x0, [x0, :got_lo12:PyExc_RuntimeError]
+	movk	x1, #:abs_g1_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	movk	x1, #:abs_g2_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	movk	x1, #:abs_g3:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	bl	PyErr_SetString
+.LBB1_6:
+	mov	x0, xzr
+	ldp	x20, x19, [sp, #32]
+	ldr	x30, [sp, #16]
+	add	sp, sp, #48
+	ret
+.LBB1_7:
+	mov	x19, xzr
+	bl	PyErr_Occurred
+	cbz	x0, .LBB1_4
+	b	.LBB1_6
+.Lfunc_end1:
+	.size	_ZN7cpython21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx, .Lfunc_end1-_ZN7cpython21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	.cfi_endproc
+
+	.globl	cfunc._ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	.p2align	4
+	.type	cfunc._ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@function
+cfunc._ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx:
+	stp	x30, xzr, [sp, #-16]!
+	mov	x2, x0
+	add	x0, sp, #8
+	bl	_ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+	ldr	x0, [sp, #8]
+	ldr	x30, [sp], #16
+	ret
+.Lfunc_end2:
+	.size	cfunc._ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx, .Lfunc_end2-cfunc._ZN21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx
+
+	.type	.const._table_size,@object
+	.section	.rodata,"a",@progbits
+	.p2align	2, 0x0
+.const._table_size:
+	.asciz	"_table_size"
+	.size	.const._table_size, 12
+
+	.type	_ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@object
+	.comm	_ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,8,8
+	.type	".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx",@object
+	.p2align	4, 0x0
+".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx":
+	.asciz	"missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx"
+	.size	".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx", 170
+
+	.section	".note.GNU-stack","",@progbits
+
+
+# function _bitonic_sort  signature (Array(int64, 1, 'C', False, aligned=True), int64)
+	.file	"<string>"
+	.text
+	.globl	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	.p2align	4
+	.type	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx,@function
+_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx:
+	ldr	x8, [sp, #8]
+	cmp	x8, #3
+	b.lt	.LBB0_9
+	lsr	x9, x8, #1
+	mov	w10, #2
+	b	.LBB0_3
+	.p2align	5, , 16
+.LBB0_2:
+	lsl	x10, x10, #1
+	cmp	x10, x8
+	b.ge	.LBB0_9
+.LBB0_3:
+	lsr	x11, x10, #1
+	asr	x12, x10, #1
+	b	.LBB0_5
+	.p2align	5, , 16
+.LBB0_4:
+	lsr	x11, x11, #1
+	cbz	x11, .LBB0_2
+.LBB0_5:
+	sub	x15, x11, #1
+	add	x16, x6, x11, lsl #3
+	mov	x13, xzr
+	mov	x14, xzr
+	b	.LBB0_7
+	.p2align	5, , 16
+.LBB0_6:
+	add	x14, x14, #1
+	add	x13, x13, #2
+	cmp	x9, x14
+	b.eq	.LBB0_4
+.LBB0_7:
+	sdiv	x3, x14, x12
+	and	x1, x14, x15
+	cmn	x12, #1
+	sub	x2, x13, x1
+	mul	x17, x3, x12
+	ccmp	x14, x17, #4, le
+	and	x17, x7, x2, asr #63
+	add	x2, x2, x11
+	and	x2, x7, x2, asr #63
+	lsl	x17, x17, #3
+	cset	w4, eq
+	lsl	x2, x2, #3
+	sub	x17, x17, x1, lsl #3
+	sub	x1, x2, x1, lsl #3
+	add	x18, x6, x17
+	add	x1, x16, x1
+	ldr	x17, [x18, x13, lsl #3]
+	ldr	x2, [x1, x13, lsl #3]
+	cmp	x17, x2
+	cset	w5, gt
+	eor	w3, w5, w3
+	eor	w3, w3, w4
+	tbnz	w3, #0, .LBB0_6
+	str	x2, [x18, x13, lsl #3]
+	str	x17, [x1, x13, lsl #3]
+	b	.LBB0_6
+.LBB0_9:
+	asr	x8, x8, #1
+	cmp	x8, #1
+	b.lt	.LBB0_16
+	mov	x9, x8
+	b	.LBB0_12
+	.p2align	5, , 16
+.LBB0_11:
+	lsr	x9, x9, #1
+	cbz	x9, .LBB0_16
+.LBB0_12:
+	add	x11, x6, x9, lsl #3
+	mov	x10, xzr
+	mov	x14, xzr
+	mov	x12, x8
+	b	.LBB0_14
+	.p2align	5, , 16
+.LBB0_13:
+	add	x11, x11, #16
+	add	x10, x10, #2
+	subs	x12, x12, #1
+	mov	x14, x13
+	b.eq	.LBB0_11
+.LBB0_14:
+	add	x13, x14, #1
+	sub	x17, x10, x14
+	sub	x16, x6, x14, lsl #3
+	cmp	x13, x9
+	and	x15, x7, x17, asr #63
+	add	x17, x17, x9
+	csinc	x13, xzr, x14, eq
+	add	x16, x16, x15, lsl #3
+	and	x17, x7, x17, asr #63
+	sub	x14, x11, x14, lsl #3
+	ldr	x15, [x16, x10, lsl #3]
+	ldr	x18, [x14, x17, lsl #3]
+	cmp	x15, x18
+	b.le	.LBB0_13
+	str	x18, [x16, x10, lsl #3]
+	str	x15, [x14, x17, lsl #3]
+	b	.LBB0_13
+.LBB0_16:
+	str	xzr, [x0]
+	mov	w0, wzr
+	ret
+.Lfunc_end0:
+	.size	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx, .Lfunc_end0-_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+
+	.globl	_ZN7cpython21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	.p2align	4
+	.type	_ZN7cpython21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx,@function
+_ZN7cpython21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx:
+	.cfi_startproc
+	sub	sp, sp, #160
+	stp	x30, x23, [sp, #112]
+	stp	x22, x21, [sp, #128]
+	stp	x20, x19, [sp, #144]
+	.cfi_def_cfa_offset 160
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w30, -48
+	mov	x0, x1
+	movz	x1, #:abs_g0_nc:.const._bitonic_sort
+	add	x4, sp, #104
+	add	x5, sp, #96
+	mov	w2, #2
+	mov	w3, #2
+	movk	x1, #:abs_g1_nc:.const._bitonic_sort
+	movk	x1, #:abs_g2_nc:.const._bitonic_sort
+	movk	x1, #:abs_g3:.const._bitonic_sort
+	bl	PyArg_UnpackTuple
+	cbz	w0, .LBB1_10
+	adrp	x8, :got:_ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	ldr	x8, [x8, :got_lo12:_ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx]
+	ldr	x8, [x8]
+	cbz	x8, .LBB1_6
+	ldr	x0, [sp, #104]
+	add	x1, sp, #32
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [sp, #32]
+	str	q0, [sp, #64]
+	str	xzr, [sp, #80]
+	bl	NRT_adapt_ndarray_from_python
+	ldr	x8, [sp, #56]
+	cmp	w0, #0
+	ccmp	x8, #8, #0, eq
+	b.ne	.LBB1_7
+	ldr	x0, [sp, #96]
+	ldr	x19, [sp, #32]
+	ldp	x20, x21, [sp, #64]
+	bl	PyNumber_Long
+	cbz	x0, .LBB1_8
+	mov	x23, x0
+	bl	PyLong_AsLongLong
+	mov	x22, x0
+	mov	x0, x23
+	bl	Py_DecRef
+	bl	PyErr_Occurred
+	cbnz	x0, .LBB1_9
+.LBB1_5:
+	add	x0, sp, #24
+	str	x22, [sp, #8]
+	mov	x6, x20
+	mov	x7, x21
+	bl	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	mov	x0, x19
+	bl	NRT_decref
+	adrp	x19, :got:_Py_NoneStruct
+	ldr	x19, [x19, :got_lo12:_Py_NoneStruct]
+	mov	x0, x19
+	bl	Py_IncRef
+	mov	x0, x19
+	ldp	x20, x19, [sp, #144]
+	ldp	x22, x21, [sp, #128]
+	ldp	x30, x23, [sp, #112]
+	add	sp, sp, #160
+	ret
+.LBB1_6:
+	adrp	x0, :got:PyExc_RuntimeError
+	movz	x1, #:abs_g0_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx"
+	ldr	x0, [x0, :got_lo12:PyExc_RuntimeError]
+	movk	x1, #:abs_g1_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx"
+	movk	x1, #:abs_g2_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx"
+	movk	x1, #:abs_g3:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx"
+	bl	PyErr_SetString
+	b	.LBB1_10
+.LBB1_7:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	b	.LBB1_10
+.LBB1_8:
+	mov	x22, xzr
+	bl	PyErr_Occurred
+	cbz	x0, .LBB1_5
+.LBB1_9:
+	mov	x0, x19
+	bl	NRT_decref
+.LBB1_10:
+	mov	x19, xzr
+	mov	x0, x19
+	ldp	x20, x19, [sp, #144]
+	ldp	x22, x21, [sp, #128]
+	ldp	x30, x23, [sp, #112]
+	add	sp, sp, #160
+	ret
+.Lfunc_end1:
+	.size	_ZN7cpython21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx, .Lfunc_end1-_ZN7cpython21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	.cfi_endproc
+
+	.globl	cfunc._ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	.p2align	4
+	.type	cfunc._ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx,@function
+cfunc._ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx:
+	sub	sp, sp, #32
+	add	x0, sp, #24
+	stp	x30, xzr, [sp, #16]
+	str	x7, [sp, #8]
+	mov	x6, x4
+	mov	x7, x5
+	bl	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	ldp	x30, x0, [sp, #16]
+	add	sp, sp, #32
+	ret
+.Lfunc_end2:
+	.size	cfunc._ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx, .Lfunc_end2-cfunc._ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+
+	.weak	NRT_decref
+	.p2align	4
+	.type	NRT_decref,@function
+NRT_decref:
+	.cfi_startproc
+	cbz	x0, .LBB3_2
+	dmb	ish
+	mov	x8, #-1
+	ldadd	x8, x8, [x0]
+	cmp	x8, #1
+	b.eq	.LBB3_3
+.LBB3_2:
+	ret
+.LBB3_3:
+	dmb	ishld
+	b	NRT_MemInfo_call_dtor
+.Lfunc_end3:
+	.size	NRT_decref, .Lfunc_end3-NRT_decref
+	.cfi_endproc
+
+	.type	.const._bitonic_sort,@object
+	.section	.rodata,"a",@progbits
+	.p2align	2, 0x0
+.const._bitonic_sort:
+	.asciz	"_bitonic_sort"
+	.size	.const._bitonic_sort, 14
+
+	.type	_ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx,@object
+	.comm	_ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx,8,8
+	.type	".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx",@object
+	.p2align	4, 0x0
+".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx":
+	.asciz	"missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx"
+	.size	".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx", 204
+
+	.type	".const.can't unbox array from PyObject into native value.  The object maybe of a different type",@object
+	.p2align	4, 0x0
+".const.can't unbox array from PyObject into native value.  The object maybe of a different type":
+	.asciz	"can't unbox array from PyObject into native value.  The object maybe of a different type"
+	.size	".const.can't unbox array from PyObject into native value.  The object maybe of a different type", 89
+
+	.section	".note.GNU-stack","",@progbits
+
+
+# function spgemm_hash  signature (Array(int64, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True), int64, int64, Array(int64, 1, 'C', False, aligned=True), Array(int64, 1, 'C', False, aligned=True))
+	.file	"<string>"
+	.text
+	.globl	_ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.p2align	4
+	.type	_ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@function
+_ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	stp	x29, x30, [sp, #-96]!
+	stp	x28, x27, [sp, #16]
+	stp	x26, x25, [sp, #32]
+	stp	x24, x23, [sp, #48]
+	stp	x22, x21, [sp, #64]
+	stp	x20, x19, [sp, #80]
+	sub	sp, sp, #704
+	.cfi_def_cfa_offset 800
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w25, -56
+	.cfi_offset w26, -64
+	.cfi_offset w27, -72
+	.cfi_offset w28, -80
+	.cfi_offset w30, -88
+	.cfi_offset w29, -96
+	ldr	x23, [sp, #1048]
+	ldr	x22, [sp, #992]
+	ldr	x24, [sp, #984]
+	mov	x27, x7
+	mov	x28, x6
+	mov	x26, x2
+	ldr	x19, [sp, #920]
+	ldr	x21, [sp, #864]
+	ldr	x20, [sp, #808]
+	mov	x25, x1
+	mov	x29, x0
+	mov	x0, x2
+	str	xzr, [sp, #680]
+	str	xzr, [sp, #672]
+	str	xzr, [sp, #640]
+	str	xzr, [sp, #600]
+	str	xzr, [sp, #536]
+	str	xzr, [sp, #528]
+	str	xzr, [sp, #520]
+	str	xzr, [sp, #496]
+	str	xzr, [sp, #464]
+	stp	xzr, xzr, [sp, #408]
+	str	xzr, [sp, #400]
+	str	xzr, [sp, #384]
+	str	xzr, [sp, #360]
+	stp	xzr, xzr, [sp, #320]
+	str	xzr, [sp, #312]
+	str	xzr, [sp, #296]
+	str	xzr, [sp, #272]
+	stp	xzr, xzr, [sp, #232]
+	str	xzr, [sp, #224]
+	bl	NRT_incref
+	mov	x0, x20
+	bl	NRT_incref
+	mov	x0, x21
+	bl	NRT_incref
+	mov	x0, x19
+	bl	NRT_incref
+	str	x22, [sp, #88]
+	mov	x0, x22
+	mov	x22, x24
+	bl	NRT_incref
+	mov	x0, x23
+	bl	NRT_incref
+	tbnz	x24, #63, .LBB0_170
+	lsr	x8, x22, #60
+	cbnz	x8, .LBB0_171
+	str	x25, [sp, #96]
+	lsl	x25, x22, #3
+	mov	w1, #32
+	str	x22, [sp, #200]
+	mov	x0, x25
+	bl	NRT_MemInfo_alloc_aligned
+	movz	x22, #:abs_g0_nc:.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209
+	movk	x22, #:abs_g1_nc:.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209
+	movk	x22, #:abs_g2_nc:.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209
+	movk	x22, #:abs_g3:.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209
+	cbz	x0, .LBB0_172
+	str	x19, [sp, #80]
+	ldr	x19, [x0, #24]
+	mov	w1, #32
+	str	x0, [sp, #184]
+	mov	x0, x25
+	bl	NRT_MemInfo_alloc_aligned
+	cbz	x0, .LBB0_169
+	ldr	x8, [x0, #24]
+	mov	w1, #32
+	mov	x24, x0
+	mov	x0, x25
+	str	x8, [sp, #208]
+	bl	NRT_MemInfo_alloc_aligned
+	cbz	x0, .LBB0_169
+	stp	x0, x25, [sp, #120]
+	ldr	x25, [sp, #200]
+	stp	x24, x21, [sp, #56]
+	ldr	x24, [x0, #24]
+	str	x20, [sp, #72]
+	str	xzr, [sp, #680]
+	sub	x8, x25, #1
+	sub	x9, x25, #1
+	str	x9, [sp, #192]
+	str	x8, [sp, #672]
+	bl	get_num_threads
+	mov	x20, x0
+	bl	get_parallel_chunksize
+	cmp	x20, #1
+	b.lt	.LBB0_173
+	add	x2, sp, #680
+	add	x3, sp, #672
+	mov	w1, #1
+	mov	x21, x0
+	str	x23, [sp, #48]
+	mov	x0, x20
+	bl	get_sched_size
+	mov	x23, x0
+	mov	x0, xzr
+	bl	set_parallel_chunksize
+	lsl	x0, x23, #1
+	bl	allocate_sched
+	mov	x20, x0
+	add	x1, sp, #680
+	add	x2, sp, #672
+	mov	w0, #1
+	mov	x3, x23
+	mov	x4, x20
+	mov	x5, xzr
+	bl	do_scheduling_unsigned
+	ldr	x8, [sp, #208]
+	add	x0, sp, #700
+	str	x20, [sp, #640]
+	str	x19, [sp, #648]
+	str	x24, [sp, #152]
+	str	x24, [sp, #664]
+	str	x23, [sp, #600]
+	str	x25, [sp, #616]
+	str	x25, [sp, #624]
+	str	x25, [sp, #632]
+	str	xzr, [sp, #544]
+	str	xzr, [sp, #560]
+	str	xzr, [sp, #552]
+	str	x8, [sp, #656]
+	mov	w8, #2
+	str	wzr, [sp, #700]
+	str	x8, [sp, #608]
+	mov	w8, #16
+	str	x8, [sp, #536]
+	mov	w8, #8
+	str	x8, [sp, #568]
+	str	x8, [sp, #576]
+	str	x8, [sp, #584]
+	str	x8, [sp, #592]
+	bl	numba_gil_ensure
+	bl	PyEval_SaveThread
+	mov	x23, x0
+	bl	get_num_threads
+	mov	x7, x0
+	adrp	x0, :got:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	add	x1, sp, #640
+	add	x2, sp, #600
+	add	x3, sp, #536
+	mov	w5, #4
+	ldr	x0, [x0, :got_lo12:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE]
+	mov	w6, #4
+	mov	x4, xzr
+	bl	numba_parallel_for
+	mov	x0, x23
+	bl	PyEval_RestoreThread
+	add	x0, sp, #700
+	bl	numba_gil_release
+	mov	x0, x21
+	bl	set_parallel_chunksize
+	mov	x0, x20
+	bl	deallocate_sched
+	mov	w0, #64
+	mov	w1, #32
+	bl	NRT_MemInfo_alloc_aligned
+	cbz	x0, .LBB0_169
+	ldr	x8, [x0, #24]
+	mov	x24, x0
+	mov	w0, #64
+	mov	w1, #32
+	str	x8, [sp, #216]
+	bl	NRT_MemInfo_alloc_aligned
+	cbz	x0, .LBB0_169
+	ldr	x21, [x0, #24]
+	mov	w8, #7
+	mov	x25, x0
+	str	xzr, [sp, #528]
+	str	x8, [sp, #520]
+	bl	get_num_threads
+	mov	x20, x0
+	bl	get_parallel_chunksize
+	cmp	x20, #1
+	b.lt	.LBB0_174
+	add	x2, sp, #528
+	add	x3, sp, #520
+	mov	w1, #1
+	mov	x23, x0
+	str	x26, [sp, #40]
+	mov	x0, x20
+	bl	get_sched_size
+	mov	x26, x0
+	mov	x0, xzr
+	bl	set_parallel_chunksize
+	lsl	x0, x26, #1
+	bl	allocate_sched
+	mov	x20, x0
+	add	x1, sp, #528
+	add	x2, sp, #520
+	mov	w0, #1
+	mov	x3, x26
+	mov	x4, x20
+	mov	x5, xzr
+	bl	do_scheduling_unsigned
+	ldr	x8, [sp, #216]
+	mov	w9, #16
+	add	x0, sp, #700
+	stp	x20, x21, [sp, #496]
+	str	x21, [sp, #144]
+	stp	x9, xzr, [sp, #416]
+	str	wzr, [sp, #700]
+	str	x8, [sp, #512]
+	mov	w8, #2
+	stp	x26, x8, [sp, #464]
+	mov	w8, #8
+	stp	x8, x8, [sp, #480]
+	stp	xzr, x8, [sp, #432]
+	stp	x8, x8, [sp, #448]
+	bl	numba_gil_ensure
+	bl	PyEval_SaveThread
+	mov	x26, x0
+	bl	get_num_threads
+	mov	x7, x0
+	adrp	x0, :got:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	add	x1, sp, #496
+	add	x2, sp, #464
+	add	x3, sp, #416
+	mov	w5, #3
+	ldr	x0, [x0, :got_lo12:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE]
+	mov	w6, #3
+	mov	x4, xzr
+	bl	numba_parallel_for
+	mov	x0, x26
+	bl	PyEval_RestoreThread
+	add	x0, sp, #700
+	bl	numba_gil_release
+	mov	x0, x23
+	bl	set_parallel_chunksize
+	mov	x0, x20
+	bl	deallocate_sched
+	ldr	x0, [sp, #128]
+	mov	w1, #32
+	bl	NRT_MemInfo_alloc_aligned
+	cbz	x0, .LBB0_169
+	ldr	x8, [sp, #192]
+	ldr	x21, [x0, #24]
+	mov	x20, x0
+	str	x29, [sp, #32]
+	stp	x8, xzr, [sp, #400]
+	bl	get_num_threads
+	mov	x29, x0
+	bl	get_parallel_chunksize
+	cmp	x29, #1
+	b.lt	.LBB0_176
+	stp	x25, x24, [sp, #104]
+	ldr	x23, [sp, #976]
+	ldr	x26, [sp, #960]
+	add	x2, sp, #408
+	ldr	x25, [sp, #952]
+	ldr	x24, [sp, #840]
+	add	x3, sp, #400
+	str	x0, [sp, #160]
+	mov	w1, #1
+	str	x20, [sp, #24]
+	mov	x0, x29
+	bl	get_sched_size
+	mov	x20, x0
+	mov	x0, xzr
+	bl	set_parallel_chunksize
+	lsl	x0, x20, #1
+	bl	allocate_sched
+	mov	x29, x0
+	add	x1, sp, #408
+	add	x2, sp, #400
+	mov	w0, #1
+	mov	x3, x20
+	mov	x4, x29
+	mov	x5, xzr
+	bl	do_scheduling_unsigned
+	ldr	x22, [sp, #200]
+	mov	w8, #2
+	add	x0, sp, #700
+	stp	x29, x21, [sp, #384]
+	stp	x20, x8, [sp, #360]
+	mov	w8, #16
+	str	x21, [sp, #192]
+	stp	x8, xzr, [sp, #328]
+	mov	w8, #8
+	str	wzr, [sp, #700]
+	stp	x8, x8, [sp, #344]
+	str	x22, [sp, #376]
+	bl	numba_gil_ensure
+	bl	PyEval_SaveThread
+	mov	x20, x0
+	bl	get_num_threads
+	mov	x7, x0
+	adrp	x0, :got:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	add	x1, sp, #384
+	add	x2, sp, #360
+	add	x3, sp, #328
+	mov	w5, #2
+	ldr	x0, [x0, :got_lo12:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE]
+	mov	w6, #2
+	mov	x4, xzr
+	bl	numba_parallel_for
+	mov	x0, x20
+	bl	PyEval_RestoreThread
+	add	x0, sp, #700
+	bl	numba_gil_release
+	ldr	x0, [sp, #160]
+	bl	set_parallel_chunksize
+	mov	x0, x29
+	bl	deallocate_sched
+	ldr	x21, [sp, #208]
+	cbz	x22, .LBB0_22
+	mov	x8, xzr
+	b	.LBB0_15
+	.p2align	5, , 16
+.LBB0_13:
+	mov	x13, xzr
+.LBB0_14:
+	cmp	x13, x23
+	csel	x9, x13, x23, lt
+	str	x9, [x19, x8, lsl #3]
+	add	x8, x8, #1
+	cmp	x22, x8
+	b.eq	.LBB0_22
+.LBB0_15:
+	add	x10, x24, x8, lsl #3
+	ldp	x9, x10, [x10]
+	sub	x11, x10, x9
+	cmp	x11, #1
+	b.lt	.LBB0_13
+	mov	x13, xzr
+	b.ne	.LBB0_18
+	mov	x10, x9
+	b	.LBB0_21
+	.p2align	5, , 16
+.LBB0_18:
+	and	x12, x11, #0x7ffffffffffffffe
+	mov	x14, xzr
+	add	x10, x9, x12
+	neg	x15, x12
+	.p2align	5, , 16
+.LBB0_19:
+	add	x16, x9, #1
+	and	x17, x27, x9, asr #63
+	and	x16, x27, x16, asr #63
+	add	x17, x28, x17, lsl #3
+	add	x16, x28, x16, lsl #3
+	ldr	x17, [x17, x9, lsl #3]
+	add	x16, x16, x9, lsl #3
+	add	x9, x9, #2
+	ldr	x16, [x16, #8]
+	cmn	x17, #1
+	add	x1, x25, x17, lsl #3
+	and	x17, x26, x17, asr #63
+	csel	x18, x26, xzr, lt
+	ldr	x17, [x1, x17, lsl #3]
+	cmn	x16, #1
+	add	x2, x25, x16, lsl #3
+	add	x18, x1, x18, lsl #3
+	and	x16, x26, x16, asr #63
+	csel	x0, x26, xzr, lt
+	ldr	x18, [x18, #8]
+	ldr	x16, [x2, x16, lsl #3]
+	adds	x15, x15, #2
+	add	x0, x2, x0, lsl #3
+	ldr	x0, [x0, #8]
+	add	x13, x18, x13
+	sub	x13, x13, x17
+	add	x14, x0, x14
+	sub	x14, x14, x16
+	b.ne	.LBB0_19
+	add	x13, x14, x13
+	cmp	x11, x12
+	b.eq	.LBB0_14
+.LBB0_21:
+	and	x9, x27, x10, asr #63
+	add	x10, x28, x10, lsl #3
+	ldr	x9, [x10, x9, lsl #3]
+	cmn	x9, #1
+	add	x11, x25, x9, lsl #3
+	and	x9, x26, x9, asr #63
+	csel	x10, x26, xzr, lt
+	ldr	x9, [x11, x9, lsl #3]
+	add	x10, x11, x10, lsl #3
+	ldr	x10, [x10, #8]
+	add	x10, x10, x13
+	sub	x13, x10, x9
+	b	.LBB0_14
+.LBB0_22:
+	mov	w8, #7
+	stp	x8, xzr, [sp, #312]
+	bl	get_num_threads
+	mov	x29, x0
+	bl	get_parallel_chunksize
+	cmp	x29, #1
+	b.lt	.LBB0_177
+	ldr	x8, [sp, #1080]
+	add	x2, sp, #320
+	add	x3, sp, #312
+	str	x0, [sp, #160]
+	mov	w1, #1
+	mov	x0, x29
+	str	x8, [sp, #136]
+	bl	get_sched_size
+	mov	x20, x0
+	mov	x0, xzr
+	bl	set_parallel_chunksize
+	lsl	x0, x20, #1
+	bl	allocate_sched
+	mov	x29, x0
+	add	x1, sp, #320
+	add	x2, sp, #312
+	mov	w0, #1
+	mov	x3, x20
+	mov	x4, x29
+	mov	x5, xzr
+	bl	do_scheduling_unsigned
+	ldr	x8, [sp, #216]
+	mov	w9, #16
+	add	x0, sp, #700
+	str	wzr, [sp, #700]
+	stp	x9, xzr, [sp, #240]
+	stp	x29, x8, [sp, #296]
+	mov	w8, #2
+	stp	x20, x8, [sp, #272]
+	mov	w8, #8
+	str	x8, [sp, #288]
+	stp	x8, x8, [sp, #256]
+	bl	numba_gil_ensure
+	bl	PyEval_SaveThread
+	mov	x20, x0
+	bl	get_num_threads
+	mov	x7, x0
+	adrp	x0, :got:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	add	x1, sp, #296
+	add	x2, sp, #272
+	add	x3, sp, #240
+	mov	w5, #2
+	ldr	x0, [x0, :got_lo12:__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE]
+	mov	w6, #2
+	mov	x4, xzr
+	bl	numba_parallel_for
+	mov	x0, x20
+	bl	PyEval_RestoreThread
+	add	x0, sp, #700
+	bl	numba_gil_release
+	ldr	x0, [sp, #160]
+	bl	set_parallel_chunksize
+	mov	x0, x29
+	bl	deallocate_sched
+	ldr	x14, [sp, #216]
+	ldr	x0, [sp, #184]
+	cbz	x22, .LBB0_40
+	mov	x8, #-4097
+	mov	x9, x22
+	mov	x10, x21
+	b	.LBB0_26
+	.p2align	5, , 16
+.LBB0_25:
+	add	x19, x19, #8
+	add	x10, x10, #8
+	subs	x9, x9, #1
+	b.eq	.LBB0_40
+.LBB0_26:
+	ldr	x11, [x19]
+	sub	x13, x11, #33
+	sub	x12, x11, #65
+	cmn	x13, #32
+	csetm	x13, lo
+	cmn	x12, #33
+	csinc	x12, x13, xzr, ls
+	sub	x13, x11, #129
+	cmn	x13, #64
+	b.hs	.LBB0_33
+	sub	x13, x11, #257
+	cmn	x13, #128
+	b.hs	.LBB0_34
+.LBB0_28:
+	sub	x13, x11, #513
+	cmn	x13, #256
+	b.hs	.LBB0_35
+.LBB0_29:
+	sub	x13, x11, #1025
+	cmn	x13, #512
+	b.hs	.LBB0_36
+.LBB0_30:
+	sub	x13, x11, #2049
+	cmn	x13, #1024
+	b.hs	.LBB0_37
+.LBB0_31:
+	add	x11, x11, x8
+	cmn	x11, #2048
+	b.hs	.LBB0_38
+.LBB0_32:
+	str	x12, [x10]
+	tbz	x12, #63, .LBB0_39
+	b	.LBB0_25
+	.p2align	5, , 16
+.LBB0_33:
+	mov	w12, #2
+	sub	x13, x11, #257
+	cmn	x13, #128
+	b.lo	.LBB0_28
+.LBB0_34:
+	mov	w12, #3
+	sub	x13, x11, #513
+	cmn	x13, #256
+	b.lo	.LBB0_29
+.LBB0_35:
+	mov	w12, #4
+	sub	x13, x11, #1025
+	cmn	x13, #512
+	b.lo	.LBB0_30
+.LBB0_36:
+	mov	w12, #5
+	sub	x13, x11, #2049
+	cmn	x13, #1024
+	b.lo	.LBB0_31
+.LBB0_37:
+	mov	w12, #6
+	add	x11, x11, x8
+	cmn	x11, #2048
+	b.lo	.LBB0_32
+.LBB0_38:
+	mov	w12, #7
+	str	x12, [x10]
+	tbnz	x12, #63, .LBB0_25
+.LBB0_39:
+	ldr	x11, [x14, x12, lsl #3]
+	add	x11, x11, #1
+	str	x11, [x14, x12, lsl #3]
+	b	.LBB0_25
+.LBB0_40:
+	ldr	x20, [sp, #904]
+	ldr	x29, [sp, #896]
+	bl	NRT_decref
+	ldr	x11, [sp, #144]
+	ldr	x10, [sp, #216]
+	dup	v0.2d, x23
+	str	x24, [sp, #184]
+	str	q0, [sp, #160]
+	str	xzr, [x11]
+	ldr	x8, [x10]
+	str	xzr, [x10]
+	str	x8, [x11, #8]
+	ldr	x9, [x10, #8]
+	add	x8, x9, x8
+	str	xzr, [x10, #8]
+	str	x8, [x11, #16]
+	ldr	x9, [x10, #16]
+	add	x8, x9, x8
+	str	xzr, [x10, #16]
+	str	x8, [x11, #24]
+	ldr	x9, [x10, #24]
+	add	x8, x9, x8
+	str	xzr, [x10, #24]
+	str	x8, [x11, #32]
+	ldr	x9, [x10, #32]
+	add	x8, x9, x8
+	str	xzr, [x10, #32]
+	str	x8, [x11, #40]
+	ldr	x9, [x10, #40]
+	add	x8, x9, x8
+	str	xzr, [x10, #40]
+	str	x8, [x11, #48]
+	ldr	x9, [x10, #48]
+	add	x8, x9, x8
+	str	xzr, [x10, #48]
+	str	x8, [x11, #56]
+	str	xzr, [x10, #56]
+	cbz	x22, .LBB0_92
+	ldr	x19, [sp, #192]
+	ldr	x2, [sp, #128]
+	mov	w1, #255
+	mov	x0, x19
+	bl	memset
+	ldr	x16, [sp, #216]
+	ldr	x13, [sp, #144]
+	mov	x12, x19
+	mov	x8, xzr
+	b	.LBB0_43
+	.p2align	5, , 16
+.LBB0_42:
+	add	x8, x8, #1
+	cmp	x22, x8
+	b.eq	.LBB0_45
+.LBB0_43:
+	ldr	x9, [x21, x8, lsl #3]
+	tbnz	x9, #63, .LBB0_42
+	ldr	x10, [x13, x9, lsl #3]
+	ldr	x11, [x16, x9, lsl #3]
+	add	x10, x11, x10
+	and	x11, x22, x10, asr #63
+	add	x10, x12, x10, lsl #3
+	str	x8, [x10, x11, lsl #3]
+	ldr	x10, [x16, x9, lsl #3]
+	add	x10, x10, #1
+	str	x10, [x16, x9, lsl #3]
+	b	.LBB0_42
+.LBB0_45:
+	mov	w24, #107
+	mov	x19, xzr
+	b	.LBB0_49
+	.p2align	5, , 16
+.LBB0_46:
+	mov	x22, xzr
+.LBB0_47:
+	mov	x21, x17
+	bl	NRT_decref
+	ldr	x8, [sp, #152]
+	ldr	x12, [sp, #192]
+	ldr	x16, [sp, #216]
+	str	x22, [x8, x21, lsl #3]
+	ldp	x22, x21, [sp, #200]
+.LBB0_48:
+	add	x19, x19, #1
+	cmp	x22, x19
+	b.eq	.LBB0_90
+.LBB0_49:
+	ldr	x13, [x12, x19, lsl #3]
+	tbnz	x13, #63, .LBB0_48
+	ldr	x9, [x21, x13, lsl #3]
+	cmp	x9, #1
+	b.lt	.LBB0_53
+	and	x8, x9, #0x3
+	subs	x10, x9, #4
+	b.hs	.LBB0_54
+	mov	x22, x13
+	mov	w21, #32
+	b	.LBB0_61
+	.p2align	5, , 16
+.LBB0_53:
+	mov	x22, x13
+	mov	w21, #32
+	b	.LBB0_62
+.LBB0_54:
+	lsr	x9, x10, #2
+	add	x11, x9, #1
+	and	x9, x11, #0x7
+	cmp	x10, #28
+	b.hs	.LBB0_56
+	mov	w21, #32
+	b	.LBB0_59
+.LBB0_56:
+	and	x10, x11, #0x7ffffffffffffff8
+	mov	w21, #32
+	neg	x10, x10
+	.p2align	5, , 16
+.LBB0_57:
+	lsl	x21, x21, #32
+	adds	x10, x10, #8
+	b.ne	.LBB0_57
+	cbz	x9, .LBB0_60
+	.p2align	5, , 16
+.LBB0_59:
+	lsl	x21, x21, #4
+	subs	x9, x9, #1
+	b.ne	.LBB0_59
+.LBB0_60:
+	mov	x22, x13
+	cbz	x8, .LBB0_62
+	.p2align	5, , 16
+.LBB0_61:
+	lsl	x21, x21, #1
+	subs	x8, x8, #1
+	b.ne	.LBB0_61
+.LBB0_62:
+	mov	w0, #32768
+	mov	w1, #32
+	bl	NRT_MemInfo_alloc_aligned
+	cbz	x0, .LBB0_167
+	ldr	q0, [sp, #160]
+	ldr	x8, [x0, #24]
+	mov	x17, x22
+	cmp	x21, #1
+	b.lt	.LBB0_77
+	b.ne	.LBB0_66
+	mov	x9, xzr
+	b	.LBB0_75
+.LBB0_66:
+	cmp	x21, #8
+	b.hs	.LBB0_68
+	mov	x9, xzr
+	b	.LBB0_72
+.LBB0_68:
+	and	x9, x21, #0x7ffffffffffffff8
+	and	x10, x21, #0x6
+	add	x11, x8, #32
+	neg	x12, x9
+	.p2align	5, , 16
+.LBB0_69:
+	stp	q0, q0, [x11, #-32]
+	adds	x12, x12, #8
+	stp	q0, q0, [x11], #64
+	b.ne	.LBB0_69
+	cmp	x21, x9
+	b.eq	.LBB0_77
+	cbz	x10, .LBB0_75
+.LBB0_72:
+	mov	x11, x9
+	and	x9, x21, #0x7ffffffffffffffe
+	sub	x10, x11, x9
+	add	x11, x8, x11, lsl #3
+	.p2align	5, , 16
+.LBB0_73:
+	str	q0, [x11], #16
+	adds	x10, x10, #2
+	b.ne	.LBB0_73
+	cmp	x21, x9
+	b.eq	.LBB0_77
+.LBB0_75:
+	add	x10, x8, x9, lsl #3
+	sub	x9, x9, x21
+	.p2align	5, , 16
+.LBB0_76:
+	str	x23, [x10], #8
+	adds	x9, x9, #1
+	b.lo	.LBB0_76
+.LBB0_77:
+	ldr	x9, [sp, #184]
+	add	x10, x9, x17, lsl #3
+	ldp	x9, x10, [x10]
+	sub	x10, x10, x9
+	cmp	x10, #1
+	b.lt	.LBB0_46
+	cbz	x21, .LBB0_87
+	mov	x22, xzr
+	b	.LBB0_81
+	.p2align	5, , 16
+.LBB0_80:
+	add	x9, x9, #1
+	cmp	x10, #1
+	sub	x10, x10, #1
+	b.le	.LBB0_47
+.LBB0_81:
+	and	x11, x27, x9, asr #63
+	add	x12, x28, x9, lsl #3
+	ldr	x12, [x12, x11, lsl #3]
+	cmn	x12, #1
+	and	x11, x26, x12, asr #63
+	add	x13, x25, x12, lsl #3
+	csel	x12, x26, xzr, lt
+	ldr	x11, [x13, x11, lsl #3]
+	add	x12, x13, x12, lsl #3
+	ldr	x12, [x12, #8]
+	sub	x12, x12, x11
+	cmp	x12, #1
+	b.ge	.LBB0_84
+	b	.LBB0_80
+	.p2align	5, , 16
+.LBB0_82:
+	add	x14, x8, x14, lsl #3
+	add	x22, x22, #1
+	str	x13, [x14, x15, lsl #3]
+.LBB0_83:
+	add	x11, x11, #1
+	cmp	x12, #1
+	sub	x12, x12, #1
+	b.le	.LBB0_80
+.LBB0_84:
+	and	x13, x20, x11, asr #63
+	add	x14, x29, x11, lsl #3
+	ldr	x13, [x14, x13, lsl #3]
+	mul	x14, x13, x24
+	sdiv	x15, x14, x21
+	msub	x14, x15, x21, x14
+	eor	x15, x14, x21
+	cmp	x15, #0
+	ccmp	x14, #0, #4, mi
+	csel	x15, x21, xzr, ne
+	add	x14, x15, x14
+	lsr	x15, x14, #51
+	add	x16, x8, x14, lsl #3
+	and	x15, x15, #0x1000
+	ldr	x16, [x16, x15, lsl #3]
+	cmp	x16, x13
+	b.eq	.LBB0_83
+	.p2align	5, , 16
+.LBB0_85:
+	cmp	x16, x23
+	b.eq	.LBB0_82
+	add	x15, x14, #1
+	cmp	x15, x21
+	csinc	x14, xzr, x14, eq
+	lsr	x15, x14, #51
+	add	x16, x8, x14, lsl #3
+	and	x15, x15, #0x1000
+	ldr	x16, [x16, x15, lsl #3]
+	cmp	x16, x13
+	b.ne	.LBB0_85
+	b	.LBB0_83
+.LBB0_87:
+	add	x8, x10, #1
+	add	x10, x28, x9, lsl #3
+	.p2align	5, , 16
+.LBB0_88:
+	and	x11, x27, x9, asr #63
+	ldr	x11, [x10, x11, lsl #3]
+	cmn	x11, #1
+	and	x12, x26, x11, asr #63
+	add	x13, x25, x11, lsl #3
+	csel	x11, x26, xzr, lt
+	ldr	x12, [x13, x12, lsl #3]
+	add	x11, x13, x11, lsl #3
+	ldr	x11, [x11, #8]
+	sub	x11, x11, x12
+	cmp	x11, #1
+	b.ge	.LBB0_144
+	add	x10, x10, #8
+	add	x9, x9, #1
+	sub	x8, x8, #1
+	mov	x22, xzr
+	cmp	x8, #1
+	b.gt	.LBB0_88
+	b	.LBB0_47
+.LBB0_90:
+	cmp	x22, #1
+	b.ne	.LBB0_147
+	ldr	x14, [sp, #152]
+	ldr	x15, [sp, #136]
+	mov	x8, xzr
+	mov	x9, xzr
+	b	.LBB0_150
+.LBB0_92:
+	ldr	x8, [sp, #136]
+	movi	v0.2d, #0000000000000000
+	str	xzr, [x8]
+	stp	q0, q0, [x10]
+	stp	q0, q0, [x10, #32]
+.LBB0_93:
+	ldr	x0, [sp, #120]
+	bl	NRT_decref
+	ldr	x11, [sp, #144]
+	ldr	x10, [sp, #216]
+	str	xzr, [x11]
+	ldr	x8, [x10]
+	str	xzr, [x10]
+	str	x8, [x11, #8]
+	ldr	x9, [x10, #8]
+	add	x8, x9, x8
+	str	xzr, [x10, #8]
+	str	x8, [x11, #16]
+	ldr	x9, [x10, #16]
+	add	x8, x9, x8
+	str	xzr, [x10, #16]
+	str	x8, [x11, #24]
+	ldr	x9, [x10, #24]
+	add	x8, x9, x8
+	str	xzr, [x10, #24]
+	str	x8, [x11, #32]
+	ldr	x9, [x10, #32]
+	add	x8, x9, x8
+	str	xzr, [x10, #32]
+	str	x8, [x11, #40]
+	ldr	x9, [x10, #40]
+	add	x8, x9, x8
+	str	xzr, [x10, #40]
+	str	x8, [x11, #48]
+	ldr	x9, [x10, #48]
+	add	x8, x9, x8
+	str	xzr, [x10, #48]
+	str	x8, [x11, #56]
+	str	xzr, [x10, #56]
+	cbz	x22, .LBB0_145
+	ldr	x8, [sp, #1024]
+	ldr	x24, [sp, #192]
+	ldr	x2, [sp, #128]
+	mov	w1, #255
+	mov	x0, x24
+	ldr	x19, [sp, #1032]
+	str	x8, [sp, #120]
+	bl	memset
+	ldr	x13, [sp, #144]
+	ldr	x12, [sp, #216]
+	mov	x8, xzr
+	b	.LBB0_96
+	.p2align	5, , 16
+.LBB0_95:
+	add	x8, x8, #1
+	cmp	x22, x8
+	b.eq	.LBB0_98
+.LBB0_96:
+	ldr	x9, [x21, x8, lsl #3]
+	tbnz	x9, #63, .LBB0_95
+	ldr	x10, [x13, x9, lsl #3]
+	ldr	x11, [x12, x9, lsl #3]
+	add	x10, x11, x10
+	and	x11, x22, x10, asr #63
+	add	x10, x24, x10, lsl #3
+	str	x8, [x10, x11, lsl #3]
+	ldr	x10, [x12, x9, lsl #3]
+	add	x10, x10, #1
+	str	x10, [x12, x9, lsl #3]
+	b	.LBB0_95
+.LBB0_98:
+	ldr	x0, [sp, #112]
+	bl	NRT_decref
+	ldr	x0, [sp, #104]
+	bl	NRT_decref
+	ldr	x8, [sp, #192]
+	mov	w21, #107
+	mov	x9, xzr
+	b	.LBB0_101
+	.p2align	5, , 16
+.LBB0_99:
+	bl	NRT_decref
+	ldp	x8, x22, [sp, #192]
+	ldr	x9, [sp, #152]
+.LBB0_100:
+	add	x9, x9, #1
+	cmp	x22, x9
+	b.eq	.LBB0_146
+.LBB0_101:
+	ldr	x10, [x8, x9, lsl #3]
+	tbnz	x10, #63, .LBB0_100
+	ldr	x8, [sp, #208]
+	str	x9, [sp, #152]
+	str	x10, [sp, #216]
+	ldr	x9, [x8, x10, lsl #3]
+	cmp	x9, #1
+	b.lt	.LBB0_105
+	and	x8, x9, #0x3
+	subs	x10, x9, #4
+	b.hs	.LBB0_106
+	mov	w24, #32
+	b	.LBB0_113
+	.p2align	5, , 16
+.LBB0_105:
+	mov	w24, #32
+	b	.LBB0_114
+.LBB0_106:
+	lsr	x9, x10, #2
+	add	x11, x9, #1
+	and	x9, x11, #0x7
+	cmp	x10, #28
+	b.hs	.LBB0_108
+	mov	w24, #32
+	b	.LBB0_111
+.LBB0_108:
+	and	x10, x11, #0x7ffffffffffffff8
+	mov	w24, #32
+	neg	x10, x10
+	.p2align	5, , 16
+.LBB0_109:
+	lsl	x24, x24, #32
+	adds	x10, x10, #8
+	b.ne	.LBB0_109
+	cbz	x9, .LBB0_112
+	.p2align	5, , 16
+.LBB0_111:
+	lsl	x24, x24, #4
+	subs	x9, x9, #1
+	b.ne	.LBB0_111
+.LBB0_112:
+	cbz	x8, .LBB0_114
+	.p2align	5, , 16
+.LBB0_113:
+	lsl	x24, x24, #1
+	subs	x8, x8, #1
+	b.ne	.LBB0_113
+.LBB0_114:
+	mov	w0, #32768
+	mov	w1, #32
+	bl	NRT_MemInfo_alloc_aligned
+	cbz	x0, .LBB0_167
+	ldr	q0, [sp, #160]
+	ldr	x22, [x0, #24]
+	ldr	x12, [sp, #216]
+	mov	x16, x0
+	cmp	x24, #1
+	b.lt	.LBB0_124
+	cmp	x24, #8
+	b.hs	.LBB0_118
+	mov	x8, xzr
+	b	.LBB0_122
+.LBB0_118:
+	and	x8, x24, #0x7ffffffffffffff8
+	and	x9, x24, #0x6
+	add	x10, x22, #32
+	neg	x11, x8
+	.p2align	5, , 16
+.LBB0_119:
+	stp	q0, q0, [x10, #-32]
+	adds	x11, x11, #8
+	stp	q0, q0, [x10], #64
+	b.ne	.LBB0_119
+	subs	x10, x24, x8
+	b.eq	.LBB0_124
+	cbz	x9, .LBB0_142
+.LBB0_122:
+	add	x9, x22, x8, lsl #3
+	sub	x8, x8, x24
+	.p2align	5, , 16
+.LBB0_123:
+	str	q0, [x9], #16
+	adds	x8, x8, #2
+	b.ne	.LBB0_123
+.LBB0_124:
+	ldr	x9, [sp, #184]
+	add	x17, x12, #1
+	ldr	x8, [x9, x12, lsl #3]
+	ldr	x9, [x9, x17, lsl #3]
+	sub	x9, x9, x8
+	cmp	x9, #1
+	b.ge	.LBB0_130
+.LBB0_125:
+	mov	w8, #8
+	add	x0, sp, #232
+	add	x1, sp, #224
+	mov	w4, #4096
+	mov	w5, #8
+	mov	w7, #4096
+	str	x17, [sp, #144]
+	stp	x8, x24, [sp]
+	mov	x24, x16
+	mov	x2, x16
+	mov	x3, xzr
+	mov	x6, x22
+	bl	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	cbnz	w0, .LBB0_168
+	ldp	x8, x10, [sp, #136]
+	ldr	x9, [sp, #216]
+	ldr	x17, [sp, #120]
+	mov	x0, x24
+	ldr	x9, [x8, x9, lsl #3]
+	ldr	x11, [x8, x10, lsl #3]
+	sub	x10, x11, x9
+	cmp	x10, #1
+	b.lt	.LBB0_99
+	and	x8, x10, #0x3
+	sub	x11, x9, x11
+	cmn	x11, #4
+	b.ls	.LBB0_137
+	mov	x13, xzr
+	b	.LBB0_140
+	.p2align	5, , 16
+.LBB0_129:
+	add	x8, x8, #1
+	cmp	x9, #1
+	sub	x9, x9, #1
+	b.le	.LBB0_125
+.LBB0_130:
+	and	x10, x27, x8, asr #63
+	add	x11, x28, x8, lsl #3
+	ldr	x11, [x11, x10, lsl #3]
+	cmn	x11, #1
+	and	x10, x26, x11, asr #63
+	add	x12, x25, x11, lsl #3
+	csel	x11, x26, xzr, lt
+	ldr	x10, [x12, x10, lsl #3]
+	add	x11, x12, x11, lsl #3
+	ldr	x11, [x11, #8]
+	sub	x11, x11, x10
+	cmp	x11, #1
+	b.lt	.LBB0_129
+	cbnz	x24, .LBB0_134
+	b	.LBB0_144
+	.p2align	5, , 16
+.LBB0_132:
+	add	x13, x22, x13, lsl #3
+	str	x12, [x13, x14, lsl #3]
+.LBB0_133:
+	add	x10, x10, #1
+	cmp	x11, #1
+	sub	x11, x11, #1
+	b.le	.LBB0_129
+.LBB0_134:
+	and	x12, x20, x10, asr #63
+	add	x13, x29, x10, lsl #3
+	ldr	x12, [x13, x12, lsl #3]
+	mul	x13, x12, x21
+	sdiv	x14, x13, x24
+	msub	x13, x14, x24, x13
+	eor	x14, x13, x24
+	cmp	x14, #0
+	ccmp	x13, #0, #4, mi
+	csel	x14, x24, xzr, ne
+	add	x13, x14, x13
+	lsr	x14, x13, #51
+	add	x15, x22, x13, lsl #3
+	and	x14, x14, #0x1000
+	ldr	x15, [x15, x14, lsl #3]
+	cmp	x15, x12
+	b.eq	.LBB0_133
+	.p2align	5, , 16
+.LBB0_135:
+	cmp	x15, x23
+	b.eq	.LBB0_132
+	add	x14, x13, #1
+	cmp	x14, x24
+	csinc	x13, xzr, x13, eq
+	lsr	x14, x13, #51
+	add	x15, x22, x13, lsl #3
+	and	x14, x14, #0x1000
+	ldr	x15, [x15, x14, lsl #3]
+	cmp	x15, x12
+	b.ne	.LBB0_135
+	b	.LBB0_133
+.LBB0_137:
+	and	x10, x10, #0x7ffffffffffffffc
+	add	x11, x17, x9, lsl #3
+	add	x12, x22, #16
+	mov	x13, xzr
+	.p2align	5, , 16
+.LBB0_138:
+	ldur	x14, [x12, #-16]
+	add	x15, x9, x13
+	and	x16, x19, x15, asr #63
+	add	x16, x11, x16, lsl #3
+	str	x14, [x16, x13, lsl #3]
+	add	x16, x15, #1
+	ldur	x14, [x12, #-8]
+	and	x16, x19, x16, asr #63
+	add	x16, x11, x16, lsl #3
+	add	x16, x16, x13, lsl #3
+	str	x14, [x16, #8]
+	add	x16, x15, #2
+	ldr	x14, [x12]
+	and	x16, x19, x16, asr #63
+	add	x16, x11, x16, lsl #3
+	add	x16, x16, x13, lsl #3
+	str	x14, [x16, #16]
+	add	x14, x15, #3
+	ldr	x15, [x12, #8]
+	and	x14, x19, x14, asr #63
+	add	x12, x12, #32
+	add	x14, x11, x14, lsl #3
+	add	x14, x14, x13, lsl #3
+	add	x13, x13, #4
+	str	x15, [x14, #24]
+	cmp	x10, x13
+	b.ne	.LBB0_138
+	cbz	x8, .LBB0_99
+.LBB0_140:
+	add	x9, x13, x9
+	add	x10, x22, x13, lsl #3
+	.p2align	5, , 16
+.LBB0_141:
+	ldr	x11, [x10], #8
+	and	x12, x19, x9, asr #63
+	subs	x8, x8, #1
+	add	x12, x17, x12, lsl #3
+	str	x11, [x12, x9, lsl #3]
+	add	x9, x9, #1
+	b.ne	.LBB0_141
+	b	.LBB0_99
+.LBB0_142:
+	lsr	x8, x24, #3
+	add	x8, x22, x8, lsl #6
+	.p2align	5, , 16
+.LBB0_143:
+	str	x23, [x8], #8
+	subs	x10, x10, #1
+	b.ne	.LBB0_143
+	b	.LBB0_124
+.LBB0_144:
+	movz	x8, #:abs_g0_nc:.const.picklebuf.ffb24196e71d4d5274d7295bceca009ea25a5f9d
+	movk	x8, #:abs_g1_nc:.const.picklebuf.ffb24196e71d4d5274d7295bceca009ea25a5f9d
+	movk	x8, #:abs_g2_nc:.const.picklebuf.ffb24196e71d4d5274d7295bceca009ea25a5f9d
+	movk	x8, #:abs_g3:.const.picklebuf.ffb24196e71d4d5274d7295bceca009ea25a5f9d
+	b	.LBB0_180
+.LBB0_145:
+	ldr	x0, [sp, #112]
+	bl	NRT_decref
+	ldr	x0, [sp, #104]
+	bl	NRT_decref
+.LBB0_146:
+	ldr	x0, [sp, #24]
+	bl	NRT_decref
+	ldr	x0, [sp, #56]
+	bl	NRT_decref
+	ldr	x0, [sp, #48]
+	bl	NRT_decref
+	ldr	x0, [sp, #88]
+	bl	NRT_decref
+	ldr	x0, [sp, #80]
+	bl	NRT_decref
+	ldr	x0, [sp, #64]
+	bl	NRT_decref
+	ldr	x0, [sp, #72]
+	bl	NRT_decref
+	ldr	x0, [sp, #40]
+	bl	NRT_decref
+	ldr	x8, [sp, #32]
+	mov	w0, wzr
+	str	xzr, [x8]
+	b	.LBB0_182
+.LBB0_147:
+	ldr	x15, [sp, #136]
+	ldr	x14, [sp, #152]
+	and	x10, x22, #0xffffffffffffffe
+	mov	x8, xzr
+	mov	x9, xzr
+	add	x11, x15, #8
+	add	x12, x14, #8
+	.p2align	5, , 16
+.LBB0_148:
+	stur	x8, [x11, #-8]
+	add	x9, x9, #2
+	ldur	x13, [x12, #-8]
+	add	x8, x13, x8
+	str	x8, [x11], #16
+	ldr	x13, [x12], #16
+	add	x8, x13, x8
+	cmp	x10, x9
+	b.ne	.LBB0_148
+	tbz	w22, #0, .LBB0_151
+.LBB0_150:
+	str	x8, [x15, x9, lsl #3]
+	ldr	x9, [x14, x9, lsl #3]
+	add	x8, x9, x8
+.LBB0_151:
+	str	x8, [x15, x22, lsl #3]
+	mov	x8, #-4097
+	movi	v0.2d, #0000000000000000
+	mov	x9, x22
+	mov	x10, x21
+	stp	q0, q0, [x16]
+	stp	q0, q0, [x16, #32]
+	b	.LBB0_153
+	.p2align	5, , 16
+.LBB0_152:
+	add	x14, x14, #8
+	add	x10, x10, #8
+	subs	x9, x9, #1
+	b.eq	.LBB0_93
+.LBB0_153:
+	ldr	x11, [x14]
+	sub	x13, x11, #33
+	sub	x12, x11, #65
+	cmn	x13, #32
+	csetm	x13, lo
+	cmn	x12, #33
+	csinc	x12, x13, xzr, ls
+	sub	x13, x11, #129
+	cmn	x13, #64
+	b.hs	.LBB0_160
+	sub	x13, x11, #257
+	cmn	x13, #128
+	b.hs	.LBB0_161
+.LBB0_155:
+	sub	x13, x11, #513
+	cmn	x13, #256
+	b.hs	.LBB0_162
+.LBB0_156:
+	sub	x13, x11, #1025
+	cmn	x13, #512
+	b.hs	.LBB0_163
+.LBB0_157:
+	sub	x13, x11, #2049
+	cmn	x13, #1024
+	b.hs	.LBB0_164
+.LBB0_158:
+	add	x11, x11, x8
+	cmn	x11, #2048
+	b.hs	.LBB0_165
+.LBB0_159:
+	str	x12, [x10]
+	tbz	x12, #63, .LBB0_166
+	b	.LBB0_152
+	.p2align	5, , 16
+.LBB0_160:
+	mov	w12, #2
+	sub	x13, x11, #257
+	cmn	x13, #128
+	b.lo	.LBB0_155
+.LBB0_161:
+	mov	w12, #3
+	sub	x13, x11, #513
+	cmn	x13, #256
+	b.lo	.LBB0_156
+.LBB0_162:
+	mov	w12, #4
+	sub	x13, x11, #1025
+	cmn	x13, #512
+	b.lo	.LBB0_157
+.LBB0_163:
+	mov	w12, #5
+	sub	x13, x11, #2049
+	cmn	x13, #1024
+	b.lo	.LBB0_158
+.LBB0_164:
+	mov	w12, #6
+	add	x11, x11, x8
+	cmn	x11, #2048
+	b.lo	.LBB0_159
+.LBB0_165:
+	mov	w12, #7
+	str	x12, [x10]
+	tbnz	x12, #63, .LBB0_152
+.LBB0_166:
+	ldr	x11, [x16, x12, lsl #3]
+	add	x11, x11, #1
+	str	x11, [x16, x12, lsl #3]
+	b	.LBB0_152
+.LBB0_167:
+	movz	x8, #:abs_g0_nc:.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209.23
+	movk	x8, #:abs_g1_nc:.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209.23
+	movk	x8, #:abs_g2_nc:.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209.23
+	movk	x8, #:abs_g3:.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209.23
+	b	.LBB0_180
+.LBB0_168:
+	ldr	x8, [sp, #96]
+	str	xzr, [x8]
+	b	.LBB0_181
+.LBB0_169:
+	ldr	x8, [sp, #96]
+	str	x22, [x8]
+	b	.LBB0_181
+.LBB0_170:
+	movz	x22, #:abs_g0_nc:.const.picklebuf.331b8563bdb9dac81b38422273052c486fc1706b
+	movk	x22, #:abs_g1_nc:.const.picklebuf.331b8563bdb9dac81b38422273052c486fc1706b
+	movk	x22, #:abs_g2_nc:.const.picklebuf.331b8563bdb9dac81b38422273052c486fc1706b
+	movk	x22, #:abs_g3:.const.picklebuf.331b8563bdb9dac81b38422273052c486fc1706b
+	str	x22, [x25]
+	b	.LBB0_181
+.LBB0_171:
+	movz	x22, #:abs_g0_nc:.const.picklebuf.58e14eccb507b1e0206981740223e685cb8c3c57
+	movk	x22, #:abs_g1_nc:.const.picklebuf.58e14eccb507b1e0206981740223e685cb8c3c57
+	movk	x22, #:abs_g2_nc:.const.picklebuf.58e14eccb507b1e0206981740223e685cb8c3c57
+	movk	x22, #:abs_g3:.const.picklebuf.58e14eccb507b1e0206981740223e685cb8c3c57
+	str	x22, [x25]
+	b	.LBB0_181
+.LBB0_172:
+	ldr	x25, [sp, #96]
+	str	x22, [x25]
+	b	.LBB0_181
+.LBB0_173:
+	movz	x8, #:abs_g0_nc:printf_format
+	movk	x8, #:abs_g1_nc:printf_format
+	movk	x8, #:abs_g2_nc:printf_format
+	movk	x8, #:abs_g3:printf_format
+	b	.LBB0_175
+.LBB0_174:
+	movz	x8, #:abs_g0_nc:printf_format.1
+	movk	x8, #:abs_g1_nc:printf_format.1
+	movk	x8, #:abs_g2_nc:printf_format.1
+	movk	x8, #:abs_g3:printf_format.1
+.LBB0_175:
+	mov	x0, x8
+	mov	x1, x20
+	b	.LBB0_179
+.LBB0_176:
+	movz	x8, #:abs_g0_nc:printf_format.2
+	movk	x8, #:abs_g1_nc:printf_format.2
+	movk	x8, #:abs_g2_nc:printf_format.2
+	movk	x8, #:abs_g3:printf_format.2
+	b	.LBB0_178
+.LBB0_177:
+	movz	x8, #:abs_g0_nc:printf_format.3
+	movk	x8, #:abs_g1_nc:printf_format.3
+	movk	x8, #:abs_g2_nc:printf_format.3
+	movk	x8, #:abs_g3:printf_format.3
+.LBB0_178:
+	mov	x0, x8
+	mov	x1, x29
+.LBB0_179:
+	bl	printf
+	movz	x8, #:abs_g0_nc:.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	movk	x8, #:abs_g1_nc:.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	movk	x8, #:abs_g2_nc:.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	movk	x8, #:abs_g3:.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+.LBB0_180:
+	ldr	x9, [sp, #96]
+	str	x8, [x9]
+.LBB0_181:
+	mov	w0, #1
+.LBB0_182:
+	add	sp, sp, #704
+	ldp	x20, x19, [sp, #80]
+	ldp	x22, x21, [sp, #64]
+	ldp	x24, x23, [sp, #48]
+	ldp	x26, x25, [sp, #32]
+	ldp	x28, x27, [sp, #16]
+	ldp	x29, x30, [sp], #96
+	ret
+.Lfunc_end0:
+	.size	_ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE, .Lfunc_end0-_ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.globl	_ZN7cpython21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.p2align	4
+	.type	_ZN7cpython21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@function
+_ZN7cpython21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	stp	x29, x30, [sp, #-96]!
+	stp	x28, x27, [sp, #16]
+	stp	x26, x25, [sp, #32]
+	mov	x29, sp
+	stp	x24, x23, [sp, #48]
+	stp	x22, x21, [sp, #64]
+	stp	x20, x19, [sp, #80]
+	sub	sp, sp, #832
+	.cfi_def_cfa w29, 96
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w25, -56
+	.cfi_offset w26, -64
+	.cfi_offset w27, -72
+	.cfi_offset w28, -80
+	.cfi_offset w30, -88
+	.cfi_offset w29, -96
+	mov	x0, x1
+	movz	x1, #:abs_g0_nc:.const.spgemm_hash
+	sub	x8, x29, #72
+	sub	x9, x29, #64
+	sub	x4, x29, #16
+	sub	x5, x29, #24
+	movk	x1, #:abs_g1_nc:.const.spgemm_hash
+	stp	x9, x8, [sp, #16]
+	sub	x8, x29, #56
+	sub	x9, x29, #48
+	sub	x6, x29, #32
+	movk	x1, #:abs_g2_nc:.const.spgemm_hash
+	sub	x7, x29, #40
+	mov	w2, #8
+	mov	w3, #8
+	stp	x9, x8, [sp]
+	movk	x1, #:abs_g3:.const.spgemm_hash
+	bl	PyArg_UnpackTuple
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [sp, #448]
+	str	xzr, [sp, #496]
+	str	q0, [sp, #480]
+	stp	q0, q0, [sp, #384]
+	str	q0, [sp, #416]
+	str	xzr, [sp, #432]
+	str	xzr, [sp, #368]
+	cbz	w0, .LBB1_41
+	adrp	x8, :got:_ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	ldr	x8, [x8, :got_lo12:_ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE]
+	ldr	x8, [x8]
+	cbz	x8, .LBB1_24
+	ldur	x0, [x29, #-16]
+	sub	x1, x29, #128
+	stp	q0, q0, [x29, #-128]
+	stur	q0, [x29, #-96]
+	stur	xzr, [x29, #-80]
+	bl	NRT_adapt_ndarray_from_python
+	cbnz	w0, .LBB1_26
+	ldur	x8, [x29, #-104]
+	cmp	x8, #8
+	b.ne	.LBB1_26
+	ldur	x8, [x29, #-128]
+	ldur	x0, [x29, #-24]
+	ldp	x20, x28, [x29, #-96]
+	sub	x1, x29, #192
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [x29, #-192]
+	stur	q0, [x29, #-160]
+	stur	xzr, [x29, #-144]
+	str	x8, [sp, #360]
+	bl	NRT_adapt_ndarray_from_python
+	cbnz	w0, .LBB1_27
+	ldur	x8, [x29, #-168]
+	cmp	x8, #8
+	b.ne	.LBB1_27
+	ldur	x0, [x29, #-32]
+	ldur	x21, [x29, #-192]
+	ldur	x23, [x29, #-160]
+	sub	x1, x29, #256
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [x29, #-256]
+	stur	q0, [x29, #-224]
+	stur	xzr, [x29, #-208]
+	bl	NRT_adapt_ndarray_from_python
+	cbnz	w0, .LBB1_28
+	ldur	x8, [x29, #-232]
+	cmp	x8, #8
+	b.ne	.LBB1_28
+	ldur	x0, [x29, #-40]
+	ldur	x22, [x29, #-256]
+	ldp	x25, x24, [x29, #-224]
+	add	x1, sp, #512
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [sp, #512]
+	str	q0, [sp, #544]
+	str	xzr, [sp, #560]
+	bl	NRT_adapt_ndarray_from_python
+	cbnz	w0, .LBB1_29
+	ldr	x8, [sp, #536]
+	cmp	x8, #8
+	b.ne	.LBB1_29
+	ldr	x8, [sp, #552]
+	ldur	x0, [x29, #-48]
+	ldr	x19, [sp, #512]
+	ldr	x27, [sp, #544]
+	str	x8, [sp, #352]
+	bl	PyNumber_Long
+	cbz	x0, .LBB1_30
+	mov	x26, x0
+	bl	PyLong_AsLongLong
+	str	x0, [sp, #344]
+	mov	x0, x26
+	bl	Py_DecRef
+	bl	PyErr_Occurred
+	cbnz	x0, .LBB1_34
+.LBB1_12:
+	ldur	x0, [x29, #-56]
+	bl	PyNumber_Long
+	cbz	x0, .LBB1_31
+	mov	x26, x0
+	bl	PyLong_AsLongLong
+	str	x0, [sp, #336]
+	mov	x0, x26
+	bl	Py_DecRef
+	bl	PyErr_Occurred
+	cbnz	x0, .LBB1_34
+.LBB1_14:
+	ldur	x0, [x29, #-64]
+	add	x1, sp, #448
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [sp, #448]
+	str	q0, [sp, #480]
+	str	xzr, [sp, #496]
+	bl	NRT_adapt_ndarray_from_python
+	cbnz	w0, .LBB1_32
+	ldr	x8, [sp, #472]
+	cmp	x8, #8
+	b.ne	.LBB1_32
+	ldur	x0, [x29, #-72]
+	stp	x23, x28, [sp, #312]
+	str	x19, [sp, #328]
+	ldr	x26, [sp, #448]
+	ldp	x23, x19, [sp, #480]
+	add	x1, sp, #384
+	movi	v0.2d, #0000000000000000
+	str	q0, [sp, #416]
+	stp	q0, q0, [sp, #384]
+	str	xzr, [sp, #432]
+	bl	NRT_adapt_ndarray_from_python
+	cbnz	w0, .LBB1_33
+	ldr	x8, [sp, #408]
+	cmp	x8, #8
+	b.ne	.LBB1_33
+	ldr	x8, [sp, #416]
+	mov	x6, x20
+	ldr	x20, [sp, #384]
+	stp	x23, x19, [sp, #224]
+	add	x0, sp, #376
+	ldp	x7, x19, [sp, #320]
+	add	x1, sp, #368
+	stp	x25, x24, [sp, #96]
+	str	x22, [sp, #64]
+	str	x21, [sp, #8]
+	str	x8, [sp, #280]
+	ldp	x9, x8, [sp, #336]
+	str	x20, [sp, #248]
+	str	x19, [sp, #120]
+	str	x8, [sp, #176]
+	ldp	x8, x28, [sp, #352]
+	stp	x9, x26, [sp, #184]
+	stp	x27, x8, [sp, #152]
+	ldr	x8, [sp, #312]
+	mov	x2, x28
+	str	x8, [sp, #40]
+	bl	_ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	ldr	x25, [sp, #368]
+	mov	w23, w0
+	mov	x0, x28
+	bl	NRT_decref
+	mov	x0, x21
+	bl	NRT_decref
+	mov	x0, x22
+	bl	NRT_decref
+	mov	x0, x19
+	bl	NRT_decref
+	mov	x0, x26
+	bl	NRT_decref
+	mov	x0, x20
+	bl	NRT_decref
+	cbnz	w23, .LBB1_21
+	adrp	x19, :got:_Py_NoneStruct
+	ldr	x19, [x19, :got_lo12:_Py_NoneStruct]
+	mov	x0, x19
+	bl	Py_IncRef
+.LBB1_20:
+	mov	x0, x19
+	add	sp, sp, #832
+	ldp	x20, x19, [sp, #80]
+	ldp	x22, x21, [sp, #64]
+	ldp	x24, x23, [sp, #48]
+	ldp	x26, x25, [sp, #32]
+	ldp	x28, x27, [sp, #16]
+	ldp	x29, x30, [sp], #96
+	ret
+.LBB1_21:
+	bl	PyErr_Clear
+	ldr	w1, [x25, #8]
+	ldr	x0, [x25]
+	ldr	w8, [x25, #32]
+	cmp	w8, #1
+	b.lt	.LBB1_38
+	sxtw	x1, w1
+	bl	PyBytes_FromStringAndSize
+	mov	x19, x0
+	ldp	x0, x8, [x25, #16]
+	blr	x8
+	cbz	x0, .LBB1_42
+	mov	x1, x0
+	mov	x0, x19
+	bl	numba_runtime_build_excinfo_struct
+	mov	x19, x0
+	mov	x0, x25
+	bl	NRT_Free
+	mov	x0, x19
+	b	.LBB1_39
+.LBB1_24:
+	movz	x1, #:abs_g0_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE"
+	movk	x1, #:abs_g1_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE"
+	movk	x1, #:abs_g2_nc:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE"
+	movk	x1, #:abs_g3:".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE"
+.LBB1_25:
+	adrp	x0, :got:PyExc_RuntimeError
+	ldr	x0, [x0, :got_lo12:PyExc_RuntimeError]
+	bl	PyErr_SetString
+	b	.LBB1_41
+.LBB1_26:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	b	.LBB1_41
+.LBB1_27:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	b	.LBB1_37
+.LBB1_28:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	b	.LBB1_36
+.LBB1_29:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	b	.LBB1_35
+.LBB1_30:
+	str	xzr, [sp, #344]
+	bl	PyErr_Occurred
+	cbz	x0, .LBB1_12
+	b	.LBB1_34
+.LBB1_31:
+	str	xzr, [sp, #336]
+	bl	PyErr_Occurred
+	cbz	x0, .LBB1_14
+	b	.LBB1_34
+.LBB1_32:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	b	.LBB1_34
+.LBB1_33:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	mov	x0, x26
+	bl	NRT_decref
+	ldr	x19, [sp, #328]
+.LBB1_34:
+	mov	x0, x19
+	bl	NRT_decref
+.LBB1_35:
+	mov	x0, x22
+	bl	NRT_decref
+.LBB1_36:
+	mov	x0, x21
+	bl	NRT_decref
+.LBB1_37:
+	ldr	x0, [sp, #360]
+	bl	NRT_decref
+	b	.LBB1_41
+.LBB1_38:
+	ldr	x2, [x25, #16]
+	bl	numba_unpickle
+.LBB1_39:
+	cbz	x0, .LBB1_41
+	bl	numba_do_raise
+.LBB1_41:
+	mov	x19, xzr
+	b	.LBB1_20
+.LBB1_42:
+	movz	x1, #:abs_g0_nc:".const.Error creating Python tuple from runtime exception arguments"
+	movk	x1, #:abs_g1_nc:".const.Error creating Python tuple from runtime exception arguments"
+	movk	x1, #:abs_g2_nc:".const.Error creating Python tuple from runtime exception arguments"
+	movk	x1, #:abs_g3:".const.Error creating Python tuple from runtime exception arguments"
+	b	.LBB1_25
+.Lfunc_end1:
+	.size	_ZN7cpython21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE, .Lfunc_end1-_ZN7cpython21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.globl	cfunc._ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.p2align	4
+	.type	cfunc._ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@function
+cfunc._ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	sub	sp, sp, #384
+	stp	x29, x30, [sp, #336]
+	stp	x28, x21, [sp, #352]
+	stp	x20, x19, [sp, #368]
+	add	x29, sp, #336
+	.cfi_def_cfa w29, 48
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w28, -32
+	.cfi_offset w30, -40
+	.cfi_offset w29, -48
+	ldr	q0, [x29, #208]
+	mov	x2, x0
+	ldr	x0, [x29, #312]
+	ldr	x8, [x29, #72]
+	sub	x1, x29, #16
+	mov	x6, x4
+	ldr	x9, [x29, #96]
+	ldp	x10, x11, [x29, #128]
+	ldr	x12, [x29, #152]
+	ldp	x13, x14, [x29, #184]
+	ldr	x15, [x29, #224]
+	ldp	x16, x17, [x29, #256]
+	ldr	x18, [x29, #280]
+	stp	xzr, xzr, [x29, #-16]
+	str	x7, [sp, #8]
+	mov	x7, x5
+	str	x0, [sp, #280]
+	sub	x0, x29, #8
+	str	x18, [sp, #248]
+	stp	x16, x17, [sp, #224]
+	str	x15, [sp, #192]
+	stp	x13, x14, [sp, #152]
+	str	x12, [sp, #120]
+	stp	x10, x11, [sp, #96]
+	str	q0, [sp, #176]
+	str	x9, [sp, #64]
+	str	x8, [sp, #40]
+	bl	_ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	mov	w8, w0
+	ldp	x19, x0, [x29, #-16]
+	stur	wzr, [x29, #-20]
+	cbnz	w8, .LBB2_2
+	ldp	x20, x19, [sp, #368]
+	ldp	x28, x21, [sp, #352]
+	ldp	x29, x30, [sp, #336]
+	add	sp, sp, #384
+	ret
+.LBB2_2:
+	mov	x21, x0
+	sub	x0, x29, #20
+	bl	numba_gil_ensure
+	bl	PyErr_Clear
+	ldr	w1, [x19, #8]
+	ldr	x0, [x19]
+	ldr	w8, [x19, #32]
+	cmp	w8, #1
+	b.lt	.LBB2_6
+	sxtw	x1, w1
+	bl	PyBytes_FromStringAndSize
+	mov	x20, x0
+	ldp	x0, x8, [x19, #16]
+	blr	x8
+	cbz	x0, .LBB2_9
+	mov	x1, x0
+	mov	x0, x20
+	bl	numba_runtime_build_excinfo_struct
+	mov	x20, x0
+	mov	x0, x19
+	bl	NRT_Free
+	cbz	x20, .LBB2_8
+	mov	x0, x20
+	b	.LBB2_7
+.LBB2_6:
+	ldr	x2, [x19, #16]
+	bl	numba_unpickle
+	cbz	x0, .LBB2_8
+.LBB2_7:
+	bl	numba_do_raise
+.LBB2_8:
+	movz	x0, #:abs_g0_nc:".const.<numba.core.cpu.CPUContext>"
+	movk	x0, #:abs_g1_nc:".const.<numba.core.cpu.CPUContext>"
+	movk	x0, #:abs_g2_nc:".const.<numba.core.cpu.CPUContext>"
+	movk	x0, #:abs_g3:".const.<numba.core.cpu.CPUContext>"
+	bl	PyUnicode_FromString
+	mov	x19, x0
+	bl	PyErr_WriteUnraisable
+	mov	x0, x19
+	bl	Py_DecRef
+	sub	x0, x29, #20
+	bl	numba_gil_release
+	mov	x0, x21
+	ldp	x20, x19, [sp, #368]
+	ldp	x28, x21, [sp, #352]
+	ldp	x29, x30, [sp, #336]
+	add	sp, sp, #384
+	ret
+.LBB2_9:
+	adrp	x0, :got:PyExc_RuntimeError
+	movz	x1, #:abs_g0_nc:".const.Error creating Python tuple from runtime exception arguments.1"
+	ldr	x0, [x0, :got_lo12:PyExc_RuntimeError]
+	movk	x1, #:abs_g1_nc:".const.Error creating Python tuple from runtime exception arguments.1"
+	movk	x1, #:abs_g2_nc:".const.Error creating Python tuple from runtime exception arguments.1"
+	movk	x1, #:abs_g3:".const.Error creating Python tuple from runtime exception arguments.1"
+	bl	PyErr_SetString
+	mov	x0, xzr
+	ldp	x20, x19, [sp, #368]
+	ldp	x28, x21, [sp, #352]
+	ldp	x29, x30, [sp, #336]
+	add	sp, sp, #384
+	ret
+.Lfunc_end2:
+	.size	cfunc._ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE, .Lfunc_end2-cfunc._ZN21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.weak	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.p2align	4
+	.type	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@function
+__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	stp	x29, x30, [sp, #-96]!
+	stp	x28, x27, [sp, #16]
+	stp	x26, x25, [sp, #32]
+	stp	x24, x23, [sp, #48]
+	stp	x22, x21, [sp, #64]
+	stp	x20, x19, [sp, #80]
+	.cfi_def_cfa_offset 96
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w25, -56
+	.cfi_offset w26, -64
+	.cfi_offset w27, -72
+	.cfi_offset w28, -80
+	.cfi_offset w30, -88
+	.cfi_offset w29, -96
+	ldr	x20, [x1]
+	cmp	x20, #1
+	b.lt	.LBB3_5
+	ldp	x8, x27, [x0]
+	ldp	x21, x22, [x2]
+	ldp	x23, x24, [x2, #16]
+	ldp	x26, x25, [x0, #16]
+	add	x28, x8, #8
+	b	.LBB3_3
+	.p2align	5, , 16
+.LBB3_2:
+	add	x28, x28, x21
+	add	x27, x27, x22
+	add	x26, x26, x23
+	add	x25, x25, x24
+	subs	x20, x20, #1
+	b.eq	.LBB3_5
+.LBB3_3:
+	ldp	x29, x8, [x28, #-8]
+	mov	x9, #9223372036854775806
+	sub	x8, x8, x29
+	cmp	x8, x9
+	csinc	x8, xzr, x8, hi
+	cmp	x8, #1
+	b.lt	.LBB3_2
+	lsl	x19, x8, #3
+	add	x0, x27, x29, lsl #3
+	mov	w1, wzr
+	mov	x2, x19
+	bl	memset
+	add	x0, x26, x29, lsl #3
+	mov	w1, wzr
+	mov	x2, x19
+	bl	memset
+	add	x0, x25, x29, lsl #3
+	mov	w1, wzr
+	mov	x2, x19
+	bl	memset
+	b	.LBB3_2
+.LBB3_5:
+	ldp	x20, x19, [sp, #80]
+	ldp	x22, x21, [sp, #64]
+	ldp	x24, x23, [sp, #48]
+	ldp	x26, x25, [sp, #32]
+	ldp	x28, x27, [sp, #16]
+	ldp	x29, x30, [sp], #96
+	ret
+.Lfunc_end3:
+	.size	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE, .Lfunc_end3-__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.weak	NRT_decref
+	.p2align	4
+	.type	NRT_decref,@function
+NRT_decref:
+	.cfi_startproc
+	cbz	x0, .LBB4_2
+	dmb	ish
+	mov	x8, #-1
+	ldadd	x8, x8, [x0]
+	cmp	x8, #1
+	b.eq	.LBB4_3
+.LBB4_2:
+	ret
+.LBB4_3:
+	dmb	ishld
+	b	NRT_MemInfo_call_dtor
+.Lfunc_end4:
+	.size	NRT_decref, .Lfunc_end4-NRT_decref
+	.cfi_endproc
+
+	.weak	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.p2align	4
+	.type	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@function
+__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	str	x30, [sp, #-96]!
+	stp	x28, x27, [sp, #16]
+	stp	x26, x25, [sp, #32]
+	stp	x24, x23, [sp, #48]
+	stp	x22, x21, [sp, #64]
+	stp	x20, x19, [sp, #80]
+	.cfi_def_cfa_offset 96
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w25, -56
+	.cfi_offset w26, -64
+	.cfi_offset w27, -72
+	.cfi_offset w28, -80
+	.cfi_offset w30, -96
+	ldr	x20, [x1]
+	cmp	x20, #1
+	b.lt	.LBB5_5
+	ldr	x8, [x0]
+	ldp	x21, x22, [x2]
+	ldr	x23, [x2, #16]
+	mov	x27, #9223372036854775806
+	add	x26, x8, #8
+	ldp	x25, x24, [x0, #8]
+	b	.LBB5_3
+	.p2align	5, , 16
+.LBB5_2:
+	add	x26, x26, x21
+	add	x25, x25, x22
+	add	x24, x24, x23
+	subs	x20, x20, #1
+	b.eq	.LBB5_5
+.LBB5_3:
+	ldp	x28, x8, [x26, #-8]
+	sub	x8, x8, x28
+	cmp	x8, x27
+	csinc	x8, xzr, x8, hi
+	cmp	x8, #1
+	b.lt	.LBB5_2
+	lsl	x19, x8, #3
+	add	x0, x24, x28, lsl #3
+	mov	w1, wzr
+	mov	x2, x19
+	bl	memset
+	add	x0, x25, x28, lsl #3
+	mov	w1, wzr
+	mov	x2, x19
+	bl	memset
+	b	.LBB5_2
+.LBB5_5:
+	ldp	x20, x19, [sp, #80]
+	ldp	x22, x21, [sp, #64]
+	ldp	x24, x23, [sp, #48]
+	ldp	x26, x25, [sp, #32]
+	ldp	x28, x27, [sp, #16]
+	ldr	x30, [sp], #96
+	ret
+.Lfunc_end5:
+	.size	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE, .Lfunc_end5-__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.weak	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.p2align	4
+	.type	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@function
+__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	str	x30, [sp, #-64]!
+	stp	x24, x23, [sp, #16]
+	stp	x22, x21, [sp, #32]
+	stp	x20, x19, [sp, #48]
+	.cfi_def_cfa_offset 64
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w30, -64
+	ldr	x19, [x1]
+	cmp	x19, #1
+	b.lt	.LBB6_5
+	ldp	x8, x22, [x0]
+	ldp	x20, x21, [x2]
+	mov	x24, #9223372036854775806
+	add	x23, x8, #8
+	b	.LBB6_3
+	.p2align	5, , 16
+.LBB6_2:
+	add	x23, x23, x20
+	add	x22, x22, x21
+	subs	x19, x19, #1
+	b.eq	.LBB6_5
+.LBB6_3:
+	ldp	x8, x9, [x23, #-8]
+	sub	x9, x9, x8
+	cmp	x9, x24
+	csinc	x9, xzr, x9, hi
+	cmp	x9, #1
+	b.lt	.LBB6_2
+	lsl	x2, x9, #3
+	add	x0, x22, x8, lsl #3
+	mov	w1, wzr
+	bl	memset
+	b	.LBB6_2
+.LBB6_5:
+	ldp	x20, x19, [sp, #48]
+	ldp	x22, x21, [sp, #32]
+	ldp	x24, x23, [sp, #16]
+	ldr	x30, [sp], #64
+	ret
+.Lfunc_end6:
+	.size	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE, .Lfunc_end6-__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.weak	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.p2align	4
+	.type	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@function
+__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	str	x30, [sp, #-64]!
+	stp	x24, x23, [sp, #16]
+	stp	x22, x21, [sp, #32]
+	stp	x20, x19, [sp, #48]
+	.cfi_def_cfa_offset 64
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w24, -48
+	.cfi_offset w30, -64
+	ldr	x19, [x1]
+	cmp	x19, #1
+	b.lt	.LBB7_5
+	ldp	x8, x22, [x0]
+	ldp	x20, x21, [x2]
+	mov	x24, #9223372036854775806
+	add	x23, x8, #8
+	b	.LBB7_3
+	.p2align	5, , 16
+.LBB7_2:
+	add	x23, x23, x20
+	add	x22, x22, x21
+	subs	x19, x19, #1
+	b.eq	.LBB7_5
+.LBB7_3:
+	ldp	x8, x9, [x23, #-8]
+	sub	x9, x9, x8
+	cmp	x9, x24
+	csinc	x9, xzr, x9, hi
+	cmp	x9, #1
+	b.lt	.LBB7_2
+	lsl	x2, x9, #3
+	add	x0, x22, x8, lsl #3
+	mov	w1, wzr
+	bl	memset
+	b	.LBB7_2
+.LBB7_5:
+	ldp	x20, x19, [sp, #48]
+	ldp	x22, x21, [sp, #32]
+	ldp	x24, x23, [sp, #16]
+	ldr	x30, [sp], #64
+	ret
+.Lfunc_end7:
+	.size	__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE, .Lfunc_end7-__gufunc__._ZN13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.weak	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+	.p2align	4
+	.type	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx,@function
+_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx:
+	str	x21, [sp, #-32]!
+	ldr	x8, [sp, #40]
+	stp	x20, x19, [sp, #16]
+	cmp	x8, #3
+	b.lt	.LBB8_9
+	lsr	x9, x8, #1
+	lsl	x10, x7, #3
+	mov	w11, #2
+	b	.LBB8_3
+	.p2align	5, , 16
+.LBB8_2:
+	lsl	x11, x11, #1
+	cmp	x11, x8
+	b.ge	.LBB8_9
+.LBB8_3:
+	lsr	x12, x11, #1
+	asr	x13, x11, #1
+	b	.LBB8_5
+	.p2align	5, , 16
+.LBB8_4:
+	lsr	x12, x12, #1
+	cbz	x12, .LBB8_2
+.LBB8_5:
+	sub	x16, x12, #1
+	add	x17, x6, x12, lsl #3
+	mov	x14, xzr
+	mov	x15, xzr
+	mov	x18, x12
+	mov	x1, x6
+	b	.LBB8_7
+	.p2align	5, , 16
+.LBB8_6:
+	add	x15, x15, #1
+	add	x14, x14, #2
+	add	x17, x17, #16
+	add	x1, x1, #16
+	add	x18, x18, #2
+	cmp	x9, x15
+	b.eq	.LBB8_4
+.LBB8_7:
+	sdiv	x19, x15, x13
+	cmn	x13, #1
+	and	x4, x15, x16
+	sub	x5, x18, x4
+	and	x5, x10, x5, asr #63
+	mul	x2, x19, x13
+	ccmp	x15, x2, #4, le
+	cset	w20, eq
+	cmp	x14, x4
+	csel	x2, x10, xzr, lo
+	sub	x2, x2, x4, lsl #3
+	sub	x4, x5, x4, lsl #3
+	ldr	x3, [x1, x2]
+	ldr	x5, [x17, x4]
+	cmp	x3, x5
+	cset	w21, gt
+	eor	w19, w21, w19
+	eor	w19, w19, w20
+	tbnz	w19, #0, .LBB8_6
+	str	x5, [x1, x2]
+	str	x3, [x17, x4]
+	b	.LBB8_6
+.LBB8_9:
+	asr	x8, x8, #1
+	cmp	x8, #1
+	b.lt	.LBB8_16
+	mov	x9, x8
+	b	.LBB8_12
+	.p2align	5, , 16
+.LBB8_11:
+	lsr	x9, x9, #1
+	cbz	x9, .LBB8_16
+.LBB8_12:
+	add	x11, x6, x9, lsl #3
+	mov	x10, xzr
+	mov	x14, xzr
+	mov	x12, x8
+	b	.LBB8_14
+	.p2align	5, , 16
+.LBB8_13:
+	add	x10, x10, #2
+	subs	x12, x12, #1
+	mov	x14, x13
+	b.eq	.LBB8_11
+.LBB8_14:
+	sub	x17, x10, x14
+	add	x13, x14, #1
+	and	x15, x7, x17, asr #63
+	add	x17, x17, x9
+	cmp	x13, x9
+	and	x17, x7, x17, asr #63
+	lsl	x15, x15, #3
+	csinc	x13, xzr, x14, eq
+	lsl	x17, x17, #3
+	sub	x15, x15, x14, lsl #3
+	sub	x14, x17, x14, lsl #3
+	add	x16, x6, x15
+	add	x14, x11, x14
+	ldr	x15, [x16, x10, lsl #3]
+	ldr	x17, [x14, x10, lsl #3]
+	cmp	x15, x17
+	b.le	.LBB8_13
+	str	x17, [x16, x10, lsl #3]
+	str	x15, [x14, x10, lsl #3]
+	b	.LBB8_13
+.LBB8_16:
+	ldp	x20, x19, [sp, #16]
+	str	xzr, [x0]
+	mov	w0, wzr
+	ldr	x21, [sp], #32
+	ret
+.Lfunc_end8:
+	.size	_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx, .Lfunc_end8-_ZN21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx
+
+	.weak	NRT_incref
+	.p2align	4
+	.type	NRT_incref,@function
+NRT_incref:
+	cbz	x0, .LBB9_2
+	mov	w8, #1
+	ldadd	x8, x8, [x0]
+.LBB9_2:
+	ret
+.Lfunc_end9:
+	.size	NRT_incref, .Lfunc_end9-NRT_incref
+
+	.type	printf_format,@object
+	.section	.rodata,"a",@progbits
+	.p2align	4, 0x0
+printf_format:
+	.asciz	"num_threads: %d\n"
+	.size	printf_format, 17
+
+	.type	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a,@object
+	.p2align	4, 0x0
+.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a:
+	.ascii	"\200\004\225e\000\000\000\000\000\000\000\214\bbuiltins\224\214\fRuntimeError\224\223\224\214@Invalid number of threads. This likely indicates a bug in Numba.\224\205\224N\207\224."
+	.size	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a, 112
+
+	.type	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a.sha1,@object
+	.p2align	4, 0x0
+.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a.sha1:
+	.ascii	"\235\213\326\325A\263\3436\375y\027\231I@x\033\306\212:\212"
+	.size	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a.sha1, 20
+
+	.type	.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a,@object
+	.p2align	4, 0x0
+.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a:
+	.xword	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a
+	.word	112
+	.zero	4
+	.xword	.const.pickledata.9d8bd6d541b3e336fd7917994940781bc68a3a8a.sha1
+	.xword	0
+	.word	0
+	.zero	4
+	.size	.const.picklebuf.9d8bd6d541b3e336fd7917994940781bc68a3a8a, 40
+
+	.type	printf_format.1,@object
+	.p2align	4, 0x0
+printf_format.1:
+	.asciz	"num_threads: %d\n"
+	.size	printf_format.1, 17
+
+	.type	printf_format.2,@object
+	.p2align	4, 0x0
+printf_format.2:
+	.asciz	"num_threads: %d\n"
+	.size	printf_format.2, 17
+
+	.type	printf_format.3,@object
+	.p2align	4, 0x0
+printf_format.3:
+	.asciz	"num_threads: %d\n"
+	.size	printf_format.3, 17
+
+	.type	.const.pickledata.ffb24196e71d4d5274d7295bceca009ea25a5f9d,@object
+	.p2align	4, 0x0
+.const.pickledata.ffb24196e71d4d5274d7295bceca009ea25a5f9d:
+	.ascii	"\200\004\225@\000\000\000\000\000\000\000\214\bbuiltins\224\214\021ZeroDivisionError\224\223\224\214\026integer modulo by zero\224\205\224N\207\224."
+	.size	.const.pickledata.ffb24196e71d4d5274d7295bceca009ea25a5f9d, 75
+
+	.type	.const.pickledata.ffb24196e71d4d5274d7295bceca009ea25a5f9d.sha1,@object
+	.p2align	4, 0x0
+.const.pickledata.ffb24196e71d4d5274d7295bceca009ea25a5f9d.sha1:
+	.ascii	"\377\262A\226\347\035MRt\327)[\316\312\000\236\242Z_\235"
+	.size	.const.pickledata.ffb24196e71d4d5274d7295bceca009ea25a5f9d.sha1, 20
+
+	.type	.const.picklebuf.ffb24196e71d4d5274d7295bceca009ea25a5f9d,@object
+	.p2align	4, 0x0
+.const.picklebuf.ffb24196e71d4d5274d7295bceca009ea25a5f9d:
+	.xword	.const.pickledata.ffb24196e71d4d5274d7295bceca009ea25a5f9d
+	.word	75
+	.zero	4
+	.xword	.const.pickledata.ffb24196e71d4d5274d7295bceca009ea25a5f9d.sha1
+	.xword	0
+	.word	0
+	.zero	4
+	.size	.const.picklebuf.ffb24196e71d4d5274d7295bceca009ea25a5f9d, 40
+
+	.type	.const.spgemm_hash,@object
+	.p2align	2, 0x0
+.const.spgemm_hash:
+	.asciz	"spgemm_hash"
+	.size	.const.spgemm_hash, 12
+
+	.type	_ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@object
+	.comm	_ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,8,8
+	.type	".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE",@object
+	.p2align	4, 0x0
+".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE":
+	.asciz	"missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE"
+	.size	".const.missing Environment: _ZN08NumbaEnv21nbk_spgemm_hash_numba11spgemm_hashB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedExx5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE", 357
+
+	.type	".const.can't unbox array from PyObject into native value.  The object maybe of a different type",@object
+	.p2align	4, 0x0
+".const.can't unbox array from PyObject into native value.  The object maybe of a different type":
+	.asciz	"can't unbox array from PyObject into native value.  The object maybe of a different type"
+	.size	".const.can't unbox array from PyObject into native value.  The object maybe of a different type", 89
+
+	.type	".const.Error creating Python tuple from runtime exception arguments",@object
+	.p2align	4, 0x0
+".const.Error creating Python tuple from runtime exception arguments":
+	.asciz	"Error creating Python tuple from runtime exception arguments"
+	.size	".const.Error creating Python tuple from runtime exception arguments", 61
+
+	.type	".const.Error creating Python tuple from runtime exception arguments.1",@object
+	.p2align	4, 0x0
+".const.Error creating Python tuple from runtime exception arguments.1":
+	.asciz	"Error creating Python tuple from runtime exception arguments"
+	.size	".const.Error creating Python tuple from runtime exception arguments.1", 61
+
+	.type	".const.<numba.core.cpu.CPUContext>",@object
+	.p2align	4, 0x0
+".const.<numba.core.cpu.CPUContext>":
+	.asciz	"<numba.core.cpu.CPUContext>"
+	.size	".const.<numba.core.cpu.CPUContext>", 28
+
+	.type	_ZN08NumbaEnv5numba2np8arrayobj11ol_np_empty12_3clocals_3e4implB3v11B42c8tJTIeFIjxB2IKSgI4CrvQClcaMQ5hEEUSJJgA_3dEx16class_28int64_29,@object
+	.comm	_ZN08NumbaEnv5numba2np8arrayobj11ol_np_empty12_3clocals_3e4implB3v11B42c8tJTIeFIjxB2IKSgI4CrvQClcaMQ5hEEUSJJgA_3dEx16class_28int64_29,8,8
+	.type	.const.pickledata.331b8563bdb9dac81b38422273052c486fc1706b,@object
+	.p2align	4, 0x0
+.const.pickledata.331b8563bdb9dac81b38422273052c486fc1706b:
+	.ascii	"\200\004\225B\000\000\000\000\000\000\000\214\bbuiltins\224\214\nValueError\224\223\224\214\037negative dimensions not allowed\224\205\224N\207\224."
+	.size	.const.pickledata.331b8563bdb9dac81b38422273052c486fc1706b, 77
+
+	.type	.const.pickledata.331b8563bdb9dac81b38422273052c486fc1706b.sha1,@object
+	.p2align	4, 0x0
+.const.pickledata.331b8563bdb9dac81b38422273052c486fc1706b.sha1:
+	.ascii	"3\033\205c\275\271\332\310\0338B\"s\005,Ho\301pk"
+	.size	.const.pickledata.331b8563bdb9dac81b38422273052c486fc1706b.sha1, 20
+
+	.type	.const.picklebuf.331b8563bdb9dac81b38422273052c486fc1706b,@object
+	.p2align	4, 0x0
+.const.picklebuf.331b8563bdb9dac81b38422273052c486fc1706b:
+	.xword	.const.pickledata.331b8563bdb9dac81b38422273052c486fc1706b
+	.word	77
+	.zero	4
+	.xword	.const.pickledata.331b8563bdb9dac81b38422273052c486fc1706b.sha1
+	.xword	0
+	.word	0
+	.zero	4
+	.size	.const.picklebuf.331b8563bdb9dac81b38422273052c486fc1706b, 40
+
+	.type	.const.pickledata.58e14eccb507b1e0206981740223e685cb8c3c57,@object
+	.p2align	4, 0x0
+.const.pickledata.58e14eccb507b1e0206981740223e685cb8c3c57:
+	.ascii	"\200\004\225~\000\000\000\000\000\000\000\214\bbuiltins\224\214\nValueError\224\223\224\214[array is too big; `arr.size * arr.dtype.itemsize` is larger than the maximum possible size.\224\205\224N\207\224."
+	.size	.const.pickledata.58e14eccb507b1e0206981740223e685cb8c3c57, 137
+
+	.type	.const.pickledata.58e14eccb507b1e0206981740223e685cb8c3c57.sha1,@object
+	.p2align	4, 0x0
+.const.pickledata.58e14eccb507b1e0206981740223e685cb8c3c57.sha1:
+	.ascii	"X\341N\314\265\007\261\340 i\201t\002#\346\205\313\214<W"
+	.size	.const.pickledata.58e14eccb507b1e0206981740223e685cb8c3c57.sha1, 20
+
+	.type	.const.picklebuf.58e14eccb507b1e0206981740223e685cb8c3c57,@object
+	.p2align	4, 0x0
+.const.picklebuf.58e14eccb507b1e0206981740223e685cb8c3c57:
+	.xword	.const.pickledata.58e14eccb507b1e0206981740223e685cb8c3c57
+	.word	137
+	.zero	4
+	.xword	.const.pickledata.58e14eccb507b1e0206981740223e685cb8c3c57.sha1
+	.xword	0
+	.word	0
+	.zero	4
+	.size	.const.picklebuf.58e14eccb507b1e0206981740223e685cb8c3c57, 40
+
+	.type	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209,@object
+	.p2align	4, 0x0
+.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209:
+	.ascii	"\200\004\225K\000\000\000\000\000\000\000\214\bbuiltins\224\214\013MemoryError\224\223\224\214'Allocation failed (probably too large).\224\205\224N\207\224."
+	.size	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209, 86
+
+	.type	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.sha1,@object
+	.p2align	4, 0x0
+.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.sha1:
+	.ascii	"\272(\235\201\360\\p \363G|\025sH\004\337e\253\342\t"
+	.size	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.sha1, 20
+
+	.type	.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209,@object
+	.p2align	4, 0x0
+.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209:
+	.xword	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209
+	.word	86
+	.zero	4
+	.xword	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.sha1
+	.xword	0
+	.word	0
+	.zero	4
+	.size	.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209, 40
+
+	.type	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@object
+	.comm	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x400050e49d30B3v12B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,8,8
+	.type	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@object
+	.comm	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112030B3v13B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,8,8
+	.type	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@object
+	.comm	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x400051112f30B3v14B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,8,8
+	.type	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,@object
+	.comm	_ZN08NumbaEnv13_3cdynamic_3e36__numba_parfor_gufunc_0x400051113260B3v15B106c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwaUTI24JtBVoOCV2YU4ogSjUBE5ArrayIyLi1E1C7mutable7alignedE5ArrayIxLi1E1C7mutable7alignedE,8,8
+	.type	_ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@object
+	.comm	_ZN08NumbaEnv21nbk_spgemm_hash_numba11_select_binB2v7B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,8,8
+	.type	_ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,@object
+	.comm	_ZN08NumbaEnv21nbk_spgemm_hash_numba11_table_sizeB2v8B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AEx,8,8
+	.type	_ZN08NumbaEnv5numba2np8arrayobj11ol_np_empty12_3clocals_3e4implB2v9B42c8tJTIeFIjxB2IKSgI4CrvQClcaMQ5hEEUSJJgA_3dE8UniTupleIxLi1EE16class_28int64_29,@object
+	.comm	_ZN08NumbaEnv5numba2np8arrayobj11ol_np_empty12_3clocals_3e4implB2v9B42c8tJTIeFIjxB2IKSgI4CrvQClcaMQ5hEEUSJJgA_3dE8UniTupleIxLi1EE16class_28int64_29,8,8
+	.type	_ZN08NumbaEnv5numba2np8arrayobj15_call_allocatorB2v4B42c8tJTC_2fWQA93W1AaAIYBPIqRBFCjDSZRVAJmaQIAEN29typeref_5b_3cclass_20_27numba4core5types8npytypes14Array_27_3e_5dExj,@object
+	.comm	_ZN08NumbaEnv5numba2np8arrayobj15_call_allocatorB2v4B42c8tJTC_2fWQA93W1AaAIYBPIqRBFCjDSZRVAJmaQIAEN29typeref_5b_3cclass_20_27numba4core5types8npytypes14Array_27_3e_5dExj,8,8
+	.type	_ZN08NumbaEnv5numba2np8arrayobj18_ol_array_allocate12_3clocals_3e4implB2v5B42c8tJTIeFIjxB2IKSgI4CrvQClcaMQ5hEEUSJJgA_3dEN29typeref_5b_3cclass_20_27numba4core5types8npytypes14Array_27_3e_5dExj,@object
+	.comm	_ZN08NumbaEnv5numba2np8arrayobj18_ol_array_allocate12_3clocals_3e4implB2v5B42c8tJTIeFIjxB2IKSgI4CrvQClcaMQ5hEEUSJJgA_3dEN29typeref_5b_3cclass_20_27numba4core5types8npytypes14Array_27_3e_5dExj,8,8
+	.type	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.24,@object
+	.p2align	4, 0x0
+.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.24:
+	.ascii	"\200\004\225K\000\000\000\000\000\000\000\214\bbuiltins\224\214\013MemoryError\224\223\224\214'Allocation failed (probably too large).\224\205\224N\207\224."
+	.size	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.24, 86
+
+	.type	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.sha1.25,@object
+	.p2align	4, 0x0
+.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.sha1.25:
+	.ascii	"\272(\235\201\360\\p \363G|\025sH\004\337e\253\342\t"
+	.size	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.sha1.25, 20
+
+	.type	.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209.23,@object
+	.p2align	4, 0x0
+.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209.23:
+	.xword	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.24
+	.word	86
+	.zero	4
+	.xword	.const.pickledata.ba289d81f05c7020f3477c15734804df65abe209.sha1.25
+	.xword	0
+	.word	0
+	.zero	4
+	.size	.const.picklebuf.ba289d81f05c7020f3477c15734804df65abe209.23, 40
+
+	.type	_ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx,@object
+	.comm	_ZN08NumbaEnv21nbk_spgemm_hash_numba13_bitonic_sortB3v10B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIxLi1E1C7mutable7alignedEx,8,8
+	.section	".note.GNU-stack","",@progbits

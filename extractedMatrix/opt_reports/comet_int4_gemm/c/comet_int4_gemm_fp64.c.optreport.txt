@@ -1,0 +1,6 @@
+$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/comet_int4_gemm/c/comet_int4_gemm_fp64.c -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/comet_int4_gemm/c/build/comet_int4_gemm_fp64.c.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 1]
+comet_int4_gemm_fp64.c:177:10: fatal error: cblas.h: No such file or directory
+  177 | #include <cblas.h>
+      |          ^~~~~~~~~
+compilation terminated.
