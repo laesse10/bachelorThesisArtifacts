@@ -1,0 +1,33 @@
+$ numactl --physcpubind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python -m hpcagent_bench.cli run --benchmark tsvc_2_s3110 --framework cc --precision fp64 --preset M --mode single_core --repeat 30 --validate --output /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/scratch/tsvc_2_s3110/tsvc_2_s3110.cc.default.t1.271754.jsonl
+[exit 0]
+--- stdout
+numpyto_c: emitted tsvc_2_s3110_fp64.{c,cpp} + tsvc_2_s3110_fp64_pluto_input.c + tsvc_2_s3110_fp64_binding.json
+numpyto_c: emitted tsvc_2_s3110_fp32.{c,cpp} + tsvc_2_s3110_fp32_pluto_input.c + tsvc_2_s3110_fp32_binding.json
+***** Testing C (gcc) with tsvc_2_s3110 on the M dataset, datatype float64 *****
+Failed to execute the C (gcc) - default implementation.
+agentbench: wrote 1 rows to /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/scratch/tsvc_2_s3110/tsvc_2_s3110.cc.default.t1.271754.jsonl
+
+--- stderr
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s3110/cpp_backend/tsvc_2_s3110_fp64.c:23:10: fatal error: immintrin.h: No such file or directory
+   23 | #include <immintrin.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/frameworks/test.py", line 364, in _execute
+    plan.run()
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/frameworks/framework.py", line 270, in run
+    self.result = self.f.post_call(self.impl(*args, **kwargs))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/cpp_runtime.py", line 382, in call
+    _ensure_loaded()
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/cpp_runtime.py", line 371, in _ensure_loaded
+    so = load_backend_so(wrapper_file, short, framework)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/cpp_runtime.py", line 253, in load_backend_so
+    so = _ensure_built(cpp_backend, short, framework)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/cpp_runtime.py", line 175, in _ensure_built
+    subprocess.check_call(cmd)
+  File "/capstor/scratch/cscs/lhulsbergen/uvpython/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/usr/bin/gcc-14', '-O3', '-march=native', '-fopenmp', '-fno-math-errno', '-fno-trapping-math', '-fno-signed-zeros', '-ffp-contract=fast', '-fstrict-aliasing', '-fPIC', '-include', '/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h', '-Wall', '-Wextra', '-std=c23', '-D_POSIX_C_SOURCE=199309L', '-fPIC', '-c', '/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s3110/cpp_backend/tsvc_2_s3110_fp64.c', '-o', '/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s3110/cpp_backend/build/tsvc_2_s3110_fp64.c.o']' returned non-zero exit status 1.
