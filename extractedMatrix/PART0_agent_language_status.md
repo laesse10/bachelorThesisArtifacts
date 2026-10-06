@@ -13,7 +13,7 @@ result. Part B therefore starts from scratch, and nothing is committed to
 | check | command | result |
 |---|---|---|
 | running or queued jobs | `squeue -u $USER` | none |
-| jobs since 2026-10-01 | `sacct -u $USER -S 2026-10-01 -X` | 35 jobs, all of them `llr40v2-chain`, `llr40v2-optrep-numba`, `fu-*` (the v2 follow-ups) or `perf_*` (the perfRuns profiles). None for the agent-language experiment. |
+| jobs since 2026-10-01 | `sacct -u $USER -S 2026-10-01 -X` | 33 jobs, all of them `llr40v2-chain`, `llr40v2-optrep-numba`, `fu-*` (the v2 follow-ups) or `perf_*` (the perfRuns profiles). None for the agent-language experiment. |
 | work directories | `find /capstor/scratch/cscs/$USER -maxdepth 4 -type d -name agent_language` | none |
 | wider search | `find` to depth 6-7 under scratch, `$HOME` and `/capstor/store/cscs/userlab/g34/lhulsbergen` for `*agent_lang*`, `*agentlang*`, `*language*` (changed since 2026-09-20) and `PILOT.md` | only harness source files (`tests/test_*language*.py`, `docs/adding_benchmarks_containers_languages.md`), no `PILOT.md` |
 | partial CSVs | recent `*.csv` under scratch that mention a `llr40v10-*-fortran` arm, outside the v2 matrix and its follow-ups | none |
