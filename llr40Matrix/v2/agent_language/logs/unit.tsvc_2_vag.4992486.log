@@ -1,0 +1,73 @@
+unit tsvc_2_vag node=nid006563 start=2026-10-06T21:25:06+02:00
+T1 binding:  PROBE nid006563 1 1
+T72 binding: PROBE nid006563 72 72
+SRUN[tsvc_2_vag]: srun --nodes=1 --ntasks=1 -w nid006563 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=15 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel tsvc_2_vag --out parts/tsvc_2_vag.csv --scratch scratch/tsvc_2_vag --logs logs/cells --db-shard 415
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  translated_c c        translator             seq=    default T1   ok             437.476 ms  
+  translated_c c        translator             seq=    default T72  ok             434.978 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   ok             463.876 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   ok             463.733 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T1   ok             454.424 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 gcc14   T1   ok             456.194 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 default T1   ok             479.501 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 gcc14   T1   ok             478.403 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  3 default T1   ok             477.979 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  3 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  0-kimi27sglang-fortran seq=  3 gcc14   T1   ok             478.471 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  4 default T1   ok             468.537 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  4 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  0-kimi27sglang-fortran seq=  4 gcc14   T1   ok             467.852 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  5 default T1   ok             468.037 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  5 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  0-kimi27sglang-fortran seq=  5 gcc14   T1   ok             469.114 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  6 default T1   ok             467.071 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  6 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  0-kimi27sglang-fortran seq=  6 gcc14   T1   ok             468.753 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   ok             440.059 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   ok             438.671 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   ok             436.295 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   ok             432.544 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  2 default T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  c        llr40v10-qwen38-c      seq=  2 gcc14   T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   ok             456.260 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   ok             455.443 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   ok             455.486 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   ok             456.140 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+wrote 43 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/parts/tsvc_2_vag.csv
+unit tsvc_2_vag node=nid006563 end=2026-10-06T21:39:08+02:00

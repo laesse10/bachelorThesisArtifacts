@@ -1,0 +1,65 @@
+unit tsvc_2_s115 node=nid006565 start=2026-10-06T21:19:47+02:00
+T1 binding:  PROBE nid006565 1 1
+T72 binding: PROBE nid006565 72 72
+SRUN[tsvc_2_s115]: srun --nodes=1 --ntasks=1 -w nid006565 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=20 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel tsvc_2_s115 --out parts/tsvc_2_s115.csv --scratch scratch/tsvc_2_s115 --logs logs/cells --db-shard 412
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  translated_c c        translator             seq=    default T1   incorrect       83.801 ms  output did not match the NumPy reference | C (gcc) - default: NaN posi
+  translated_c c        translator             seq=    default T72  incorrect       83.404 ms  output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   incorrect       83.331 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   incorrect       84.060 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   incorrect       87.296 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   incorrect       87.265 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   incorrect       82.627 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   incorrect       82.990 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   incorrect       87.557 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   incorrect       87.602 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   incorrect       83.404 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   incorrect       83.384 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        llr40v10-qwen38-c      seq=  2 default T1   incorrect       87.778 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        llr40v10-qwen38-c      seq=  2 gcc14   T1   incorrect       87.516 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   build_error               other Error: work-sharing region may not be closely nested inside of work-sh
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   build_error               other Error: work-sharing region may not be closely nested inside of work-sh
+  candidate  fortran  r40v10-oss120b-fortran seq=  2 default T1   incorrect       86.985 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  fortran  r40v10-oss120b-fortran seq=  2 gcc14   T1   incorrect       86.667 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   incorrect       82.712 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   incorrect       83.962 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   incorrect       83.220 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   incorrect       82.877 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   incorrect       83.137 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   incorrect       83.587 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T1   incorrect       83.522 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 gcc14   T1   incorrect       82.997 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        lr40v10-kimi27sglang-c seq=  2 default T1   incorrect       87.246 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        lr40v10-kimi27sglang-c seq=  2 gcc14   T1   incorrect       87.237 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        lr40v10-kimi27sglang-c seq=  3 default T1   incorrect       87.821 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  c        lr40v10-kimi27sglang-c seq=  3 gcc14   T1   incorrect       87.321 ms incorrect output did not match the NumPy reference | C (gcc) - default: NaN posi
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T1   incorrect       84.421 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 gcc14   T1   incorrect       84.370 ms incorrect output did not match the NumPy reference | Fortran (gfortran) - defaul
+[2026-10-06T21:40:03.007] error: *** STEP 4992486.35 ON nid006565 CANCELLED AT 2026-10-06T21:40:03 DUE TO TIME LIMIT ***
+srun: error: nid006565: task 0: Terminated
+srun: Terminating StepId=4992486.35
+srun: Force Terminated StepId=4992486.35
+unit tsvc_2_s115 node=nid006565 end=2026-10-06T21:40:44+02:00
