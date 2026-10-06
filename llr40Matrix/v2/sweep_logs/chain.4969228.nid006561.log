@@ -1,6 +1,0 @@
-SRUN[MAIN fuse_stencil_through_transient]: srun --nodes=1 --ntasks=1 -w nid006561 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep.py --kernels fuse_stencil_through_transient --preset M --warmup 5 --reps 30 --out results_parts/fuse_stencil_through_transient.csv --scratch scratch/fuse_stencil_through_transient --attempts-out agent_attempts_parts/fuse_stencil_through_transient.csv --attempt-logs agent_attempt_logs
-[1/1] fuse_stencil_through_transient
-    c            build_error   C (gcc) - default - default - validation: SUCCESS | C (gcc) - default 
-    cpp          build_error   C++ (g++) - default - default - validation: SUCCESS | C++ (g++) - defa
-[2026-10-02T15:24:02.031] error: *** STEP 4969228.5 ON nid006561 CANCELLED AT 2026-10-02T15:24:02 DUE to SIGNAL Terminated ***
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

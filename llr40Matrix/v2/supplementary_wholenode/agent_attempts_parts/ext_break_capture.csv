@@ -1,3 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-ext_break_capture,1,llr40v10-kimi27sglang-c,621729,2,c,14.536,93364bf6fdb3600e383225dc644b4ce6d1991ff21a6d954f399802195aa0cc53,build_error,ext_break_capture/cpp_backend/ext_break_capture_fp64.c:2:10: fatal error: immintrin.h: No such file or directory,0,ext_break_capture.rank01.93364bf6fdb3.log
-ext_break_capture,2,llr40v10-qwen38-c,621383,1,c,9.763,099bb334d19621576b31e76626c7fc754630899481001ae3e7bbf66e14a0ece5,ok,,1,

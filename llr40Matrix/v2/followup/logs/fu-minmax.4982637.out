@@ -1,0 +1,2 @@
+job=4982637 exp=MINMAX nodes=nid006371 nid006372 nid006476 kernels=tsvc_2_s318 tsvc_2_s3110 argmax_with_index start=2026-10-05T11:23:43+02:00
+job=4982637 end=2026-10-05T11:25:59+02:00

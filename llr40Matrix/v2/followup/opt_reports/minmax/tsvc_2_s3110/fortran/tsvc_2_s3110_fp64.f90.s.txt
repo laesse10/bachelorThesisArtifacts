@@ -1,0 +1,36 @@
+# objdump -d tsvc_2_s3110_fp64.f90.o  (functions matching tsvc_2_s3110_fp64*)
+0000000000000000 <tsvc_2_s3110_fp64>:
+   0:	f100005f 	cmp	x2, #0x0
+   4:	fd400000 	ldr	d0, [x0]
+   8:	9a9fa049 	csel	x9, x2, xzr, ge	// ge = tcont
+   c:	5400036d 	b.le	78 <tsvc_2_s3110_fp64+0x78>
+  10:	d37df129 	lsl	x9, x9, #3
+  14:	d1002006 	sub	x6, x0, #0x8
+  18:	d2800004 	mov	x4, #0x0                   	// #0
+  1c:	d2800005 	mov	x5, #0x0                   	// #0
+  20:	d2800008 	mov	x8, #0x0                   	// #0
+  24:	aa0803e7 	mov	x7, x8
+  28:	d2800000 	mov	x0, #0x0                   	// #0
+  2c:	91000508 	add	x8, x8, #0x1
+  30:	aa0003e3 	mov	x3, x0
+  34:	91000400 	add	x0, x0, #0x1
+  38:	fc6078c1 	ldr	d1, [x6, x0, lsl #3]
+  3c:	1e602030 	fcmpe	d1, d0
+  40:	9a84c064 	csel	x4, x3, x4, gt
+  44:	9a85c0e5 	csel	x5, x7, x5, gt
+  48:	1e60cc20 	fcsel	d0, d1, d0, gt
+  4c:	eb00005f 	cmp	x2, x0
+  50:	54ffff01 	b.ne	30 <tsvc_2_s3110_fp64+0x30>  // b.any
+  54:	8b0900c6 	add	x6, x6, x9
+  58:	eb0300ff 	cmp	x7, x3
+  5c:	54fffe41 	b.ne	24 <tsvc_2_s3110_fp64+0x24>  // b.any
+  60:	9e6200a2 	scvtf	d2, x5
+  64:	9e620081 	scvtf	d1, x4
+  68:	1e622800 	fadd	d0, d0, d2
+  6c:	1e612800 	fadd	d0, d0, d1
+  70:	fd000020 	str	d0, [x1]
+  74:	d65f03c0 	ret
+  78:	2f00e401 	movi	d1, #0x0
+  7c:	1e612800 	fadd	d0, d0, d1
+  80:	fd000020 	str	d0, [x1]
+  84:	d65f03c0 	ret

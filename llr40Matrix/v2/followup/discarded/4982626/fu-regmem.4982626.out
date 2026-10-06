@@ -1,0 +1,2 @@
+job=4982626 exp=REGMEM nodes=nid005478 nid006403 kernels=versioned_distance_update start=2026-10-05T11:21:09+02:00
+[2026-10-05T11:22:30.689] error: *** JOB 4982626 ON nid005478 CANCELLED AT 2026-10-05T11:22:30 DUE to SIGNAL Terminated ***

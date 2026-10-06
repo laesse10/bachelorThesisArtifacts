@@ -1,4 +1,0 @@
-Simulation Time: 489505 ms
-Throughput: 0.0204288 MB/s
-[ perf record: Woken up 820 times to write data ]
-[ perf record: Captured and wrote 205.809 MB perf_entity10.data (48413 samples) ]

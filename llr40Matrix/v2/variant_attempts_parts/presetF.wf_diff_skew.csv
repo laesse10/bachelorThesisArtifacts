@@ -1,2 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-wf_diff_skew,1,llr40v10-oss120b-c,621015,1,c,3.469,620a8bb7753cad61dbf8c94ef9f915957303d14a62525ba4fff4b281ebfed2a9,ok,,1,

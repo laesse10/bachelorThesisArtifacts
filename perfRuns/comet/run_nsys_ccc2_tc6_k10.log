@@ -1,10 +1,0 @@
-WARNING: Device-side CUDA Event completion trace is currently enabled.
-         This may increase runtime overhead and the likelihood of false
-         dependencies across CUDA Streams. If you wish to avoid this, please
-         disable the feature with --cuda-event-trace=false.
-ctime 5.703430 ops 1.904929e+14 ops_rate 3.339970e+13 ops_rate/proc 3.339970e+13 gemmrate/proc 4.198623e+13 vcmp 2.895260e+08 cmp 4.632416e+13 ecmp 1.158104e+13 ecmp_rate 2.030540e+12 ecmp_rate/proc 2.030540e+12 ment 1.158104e+09 mentc 1.158104e+09 vctime 0.052606 mctime 0.140702 intime 0.112373 outtime 0.000004 cpumem 2.878151e+10 gpumem 2.124158e+10 tottime 6.021798 prec double build release
-Collecting data...
-Generating '/tmp/nsys-report-8b3d.qdstrm'
-[1/1] [0%                          ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [0%                          ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [=15%                        ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [=17%                        ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [==18%                       ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [==19%                       ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [===22%                      ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [===23%                      ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [=======37%                  ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [===========52%              ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [==============61%           ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [==============63%           ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [=================72%        ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [===================82%      ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [====================83%     ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [====================84%     ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [=======================94%  ] nsys_ccc2_tc6_k10.nsys-rep[1/1] [========================100%] nsys_ccc2_tc6_k10.nsys-rep[1/1] [========================100%] nsys_ccc2_tc6_k10.nsys-rep
-Generated:
-	/capstor/scratch/cscs/lhulsbergen/perf_runs/comet/nsys_ccc2_tc6_k10.nsys-rep

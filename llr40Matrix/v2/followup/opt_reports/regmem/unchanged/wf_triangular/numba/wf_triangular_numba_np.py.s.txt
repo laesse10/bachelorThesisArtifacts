@@ -1,0 +1,268 @@
+# signature (Array(float64, 2, 'C', False, aligned=True), int64)
+	.file	"<string>"
+	.text
+	.globl	_ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+	.p2align	4
+	.type	_ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx,@function
+_ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx:
+	ldr	x8, [sp, #24]
+	sub	x9, x8, #1
+	cmp	x9, #1
+	b.lt	.LBB0_8
+	ldr	x11, [sp]
+	sub	x12, x8, #2
+	mov	w15, #1
+	mov	x16, #9223372036854775807
+	mov	x10, xzr
+	lsl	x13, x11, #3
+	add	x14, x6, x11, lsl #3
+	b	.LBB0_3
+	.p2align	5, , 16
+.LBB0_2:
+	add	x15, x15, #1
+	add	x10, x10, #1
+	add	x14, x14, x13
+	cmp	x15, x8
+	b.eq	.LBB0_8
+.LBB0_3:
+	sub	x17, x8, x15
+	cmp	x17, #1
+	b.lt	.LBB0_2
+	sub	x18, x15, #1
+	mul	x17, x15, x11
+	sub	w2, w9, w10
+	mov	x1, x15
+	mul	x18, x18, x11
+	add	x17, x6, x17, lsl #3
+	add	x18, x6, x18, lsl #3
+	tbz	w2, #0, .LBB0_6
+	and	x2, x11, x15, asr #63
+	cmp	x15, #0
+	csel	x3, xzr, x11, gt
+	add	x4, x17, x15, lsl #3
+	add	x1, x15, #1
+	add	x2, x2, x15
+	add	x3, x4, x3, lsl #3
+	ldr	d0, [x17, x2, lsl #3]
+	ldr	d1, [x18, x2, lsl #3]
+	fadd	d0, d0, d1
+	ldur	d1, [x3, #-8]
+	fadd	d0, d0, d1
+	str	d0, [x17, x2, lsl #3]
+.LBB0_6:
+	cmp	x12, x10
+	b.eq	.LBB0_2
+	.p2align	5, , 16
+.LBB0_7:
+	and	x2, x11, x1, asr #63
+	cmp	x1, #0
+	csel	x3, xzr, x11, gt
+	cmp	x1, x16
+	csel	x4, xzr, x11, lo
+	add	x2, x2, x1
+	add	x3, x14, x3, lsl #3
+	add	x4, x14, x4, lsl #3
+	ldr	d0, [x17, x2, lsl #3]
+	ldr	d1, [x18, x2, lsl #3]
+	add	x3, x3, x1, lsl #3
+	fadd	d0, d0, d1
+	ldur	d1, [x3, #-8]
+	add	x3, x1, #1
+	and	x3, x11, x3, asr #63
+	add	x3, x3, x1
+	lsl	x3, x3, #3
+	add	x3, x3, #8
+	fadd	d0, d0, d1
+	str	d0, [x17, x2, lsl #3]
+	lsl	x2, x1, #3
+	add	x1, x1, #2
+	ldr	d0, [x17, x3]
+	ldr	d1, [x18, x3]
+	fadd	d0, d0, d1
+	ldr	d1, [x4, x2]
+	fadd	d0, d0, d1
+	str	d0, [x17, x3]
+	cmp	x1, x8
+	b.ne	.LBB0_7
+	b	.LBB0_2
+.LBB0_8:
+	str	xzr, [x0]
+	mov	w0, wzr
+	ret
+.Lfunc_end0:
+	.size	_ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx, .Lfunc_end0-_ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+
+	.globl	_ZN7cpython22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+	.p2align	4
+	.type	_ZN7cpython22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx,@function
+_ZN7cpython22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx:
+	.cfi_startproc
+	sub	sp, sp, #192
+	stp	x30, x23, [sp, #144]
+	stp	x22, x21, [sp, #160]
+	stp	x20, x19, [sp, #176]
+	.cfi_def_cfa_offset 192
+	.cfi_offset w19, -8
+	.cfi_offset w20, -16
+	.cfi_offset w21, -24
+	.cfi_offset w22, -32
+	.cfi_offset w23, -40
+	.cfi_offset w30, -48
+	mov	x0, x1
+	movz	x1, #:abs_g0_nc:.const.wf_triangular
+	add	x4, sp, #136
+	add	x5, sp, #128
+	mov	w2, #2
+	mov	w3, #2
+	movk	x1, #:abs_g1_nc:.const.wf_triangular
+	movk	x1, #:abs_g2_nc:.const.wf_triangular
+	movk	x1, #:abs_g3:.const.wf_triangular
+	bl	PyArg_UnpackTuple
+	cbz	w0, .LBB1_11
+	adrp	x8, :got:_ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+	ldr	x8, [x8, :got_lo12:_ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx]
+	ldr	x8, [x8]
+	cbz	x8, .LBB1_7
+	ldr	x0, [sp, #136]
+	add	x1, sp, #48
+	movi	v0.2d, #0000000000000000
+	stp	q0, q0, [sp, #48]
+	stp	q0, q0, [sp, #80]
+	str	xzr, [sp, #112]
+	bl	NRT_adapt_ndarray_from_python
+	ldr	x8, [sp, #72]
+	cmp	w0, #0
+	ccmp	x8, #8, #0, eq
+	cset	w19, ne
+	b.ne	.LBB1_8
+	tbnz	w19, #0, .LBB1_11
+.LBB1_4:
+	ldr	x0, [sp, #128]
+	ldr	x19, [sp, #48]
+	ldr	x20, [sp, #80]
+	ldr	x23, [sp, #96]
+	bl	PyNumber_Long
+	cbz	x0, .LBB1_9
+	mov	x22, x0
+	bl	PyLong_AsLongLong
+	mov	x21, x0
+	mov	x0, x22
+	bl	Py_DecRef
+	bl	PyErr_Occurred
+	cbnz	x0, .LBB1_10
+.LBB1_6:
+	add	x0, sp, #40
+	str	x21, [sp, #24]
+	str	x23, [sp]
+	mov	x6, x20
+	bl	_ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+	mov	x0, x19
+	bl	NRT_decref
+	adrp	x19, :got:_Py_NoneStruct
+	ldr	x19, [x19, :got_lo12:_Py_NoneStruct]
+	mov	x0, x19
+	bl	Py_IncRef
+	mov	x0, x19
+	ldp	x20, x19, [sp, #176]
+	ldp	x22, x21, [sp, #160]
+	ldp	x30, x23, [sp, #144]
+	add	sp, sp, #192
+	ret
+.LBB1_7:
+	adrp	x0, :got:PyExc_RuntimeError
+	movz	x1, #:abs_g0_nc:".const.missing Environment: _ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx"
+	ldr	x0, [x0, :got_lo12:PyExc_RuntimeError]
+	movk	x1, #:abs_g1_nc:".const.missing Environment: _ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx"
+	movk	x1, #:abs_g2_nc:".const.missing Environment: _ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx"
+	movk	x1, #:abs_g3:".const.missing Environment: _ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx"
+	bl	PyErr_SetString
+	b	.LBB1_11
+.LBB1_8:
+	adrp	x0, :got:PyExc_TypeError
+	movz	x1, #:abs_g0_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	ldr	x0, [x0, :got_lo12:PyExc_TypeError]
+	movk	x1, #:abs_g1_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g2_nc:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	movk	x1, #:abs_g3:".const.can't unbox array from PyObject into native value.  The object maybe of a different type"
+	bl	PyErr_SetString
+	tbz	w19, #0, .LBB1_4
+	b	.LBB1_11
+.LBB1_9:
+	mov	x21, xzr
+	bl	PyErr_Occurred
+	cbz	x0, .LBB1_6
+.LBB1_10:
+	mov	x0, x19
+	bl	NRT_decref
+.LBB1_11:
+	mov	x19, xzr
+	mov	x0, x19
+	ldp	x20, x19, [sp, #176]
+	ldp	x22, x21, [sp, #160]
+	ldp	x30, x23, [sp, #144]
+	add	sp, sp, #192
+	ret
+.Lfunc_end1:
+	.size	_ZN7cpython22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx, .Lfunc_end1-_ZN7cpython22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+	.cfi_endproc
+
+	.globl	cfunc._ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+	.p2align	4
+	.type	cfunc._ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx,@function
+cfunc._ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx:
+	sub	sp, sp, #48
+	ldr	x8, [sp, #56]
+	add	x0, sp, #40
+	stp	x30, xzr, [sp, #32]
+	str	x6, [sp]
+	mov	x6, x4
+	str	x8, [sp, #24]
+	bl	_ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+	ldp	x30, x0, [sp, #32]
+	add	sp, sp, #48
+	ret
+.Lfunc_end2:
+	.size	cfunc._ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx, .Lfunc_end2-cfunc._ZN22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx
+
+	.weak	NRT_decref
+	.p2align	4
+	.type	NRT_decref,@function
+NRT_decref:
+	.cfi_startproc
+	cbz	x0, .LBB3_2
+	dmb	ish
+	mov	x8, #-1
+	ldadd	x8, x8, [x0]
+	cmp	x8, #1
+	b.eq	.LBB3_3
+.LBB3_2:
+	ret
+.LBB3_3:
+	dmb	ishld
+	b	NRT_MemInfo_call_dtor
+.Lfunc_end3:
+	.size	NRT_decref, .Lfunc_end3-NRT_decref
+	.cfi_endproc
+
+	.type	.const.wf_triangular,@object
+	.section	.rodata,"a",@progbits
+	.p2align	2, 0x0
+.const.wf_triangular:
+	.asciz	"wf_triangular"
+	.size	.const.wf_triangular, 14
+
+	.type	_ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx,@object
+	.comm	_ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx,8,8
+	.type	".const.missing Environment: _ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx",@object
+	.p2align	4, 0x0
+".const.missing Environment: _ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx":
+	.asciz	"missing Environment: _ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx"
+	.size	".const.missing Environment: _ZN08NumbaEnv22nbk_wf_triangular_base13wf_triangularB2v1B90c8tJTC_2fWQAliW1xhDEoY6EEMEUOEMISPGsAQMVj4QniQ4IXKQEMXwoMGLoQDDVsQR1NHAS2hQ9XgStYwm4ogLE0AE5ArrayIdLi2E1C7mutable7alignedEx", 204
+
+	.type	".const.can't unbox array from PyObject into native value.  The object maybe of a different type",@object
+	.p2align	4, 0x0
+".const.can't unbox array from PyObject into native value.  The object maybe of a different type":
+	.asciz	"can't unbox array from PyObject into native value.  The object maybe of a different type"
+	.size	".const.can't unbox array from PyObject into native value.  The object maybe of a different type", 89
+
+	.section	".note.GNU-stack","",@progbits

@@ -1,2 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-wf_triangular,1,llr40v10-kimi27sglang-c,621730,1,c,13.291,88d2c0e0c018f868c1967eaa9bb2d78d2daeffc2a8adbeb86db574d9799e8480,ok,,1,

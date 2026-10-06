@@ -1,0 +1,20 @@
+unit REGMEM versioned_distance_update node=nid005667 start=2026-10-05T11:23:34+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005667 1 1
+SRUN[REGMEM versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005667 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels versioned_distance_update --preset M --warmup 5 --reps 30 --out parts/regmem/versioned_distance_update.base.csv --scratch scratch/regmem/versioned_distance_update.base --attempts-out parts/regmem/versioned_distance_update.base.attempts.csv --attempt-logs logs/attempts --reprs c,agent --agent-sha 01661d852f138e7e9788a82e7d49fe32d331e275d901a366586f7cbf350f9d1d --perf --emitted-dir emitted_sources/regmem
+[1/1] versioned_distance_update
+    removing leftover non-autogen versioned_distance_update_fp64.c before generation
+    c            ok           median 295.632 ms 
+    agent        ok           median 122.318 ms rank=1 arm=llr40v10-qwen38-fortran job=621385 seq=3 lang=fortran campa
+
+wrote 2 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/regmem/versioned_distance_update.base.csv
+SRUN[REGMEM versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005667 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels versioned_distance_update --preset M --warmup 5 --reps 30 --out parts/regmem/versioned_distance_update.k1scalar.csv --scratch scratch/regmem/versioned_distance_update.k1scalar --attempts-out parts/regmem/versioned_distance_update.k1scalar.attempts.csv --attempt-logs logs/attempts --reprs c --variant vdu_k1_scalar --perf --emitted-dir emitted_sources/regmem --override c=variants/src/versioned_distance_update_fp64.k1scalar.c
+[1/1] versioned_distance_update
+    c            ok           median 117.904 ms source=versioned_distance_update_fp64.k1scalar.c sha256=d32bec0e98d61e
+
+wrote 1 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/regmem/versioned_distance_update.k1scalar.csv
+SRUN[REGMEM versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005667 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/regmem --index parts/regmem/optrep.versioned_distance_update.base.csv --variant  versioned_distance_update:c:c:emitted_sources/regmem/versioned_distance_update/versioned_distance_update_fp64.c versioned_distance_update:agent:fortran:/capstor/scratch/cscs/lhulsbergen/ICLR26Reproducibility/paper_artifacts/experiments/llr40/artifacts/sources/llr40v10-qwen38-fortran/versioned_distance_update/621385.621385.llr40v10-qwen38-fortran.n0.p37.w37/candidate_03_submission.txt
+versioned_distance_update    c            ok
+versioned_distance_update    agent        ok
+SRUN[REGMEM versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid005667 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/regmem --index parts/regmem/optrep.versioned_distance_update.vdu_k1_scalar.csv --variant vdu_k1_scalar versioned_distance_update:c:c:variants/src/versioned_distance_update_fp64.k1scalar.c
+versioned_distance_update    c            ok
+unit REGMEM versioned_distance_update node=nid005667 end=2026-10-05T11:25:18+02:00

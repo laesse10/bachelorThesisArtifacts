@@ -1,0 +1,7 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -ffinite-math-only -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/minmax/tsvc_2_s318/fortran/tsvc_2_s318_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports/minmax/tsvc_2_s318/fortran/build/tsvc_2_s318_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+tsvc_2_s318_fp64.f90:17:13: optimized: versioned this loop for when certain strides are 1
+tsvc_2_s318_fp64.f90:17:13: missed: couldn't vectorize loop
+tsvc_2_s318_fp64.f90:2:27: missed: not vectorized: unsupported use in stmt.
+tsvc_2_s318_fp64.f90:17:13: missed: couldn't vectorize loop
+tsvc_2_s318_fp64.f90:2:27: missed: not vectorized: unsupported use in stmt.

@@ -1,0 +1,69 @@
+unit UNSTABLE tsvc_2_s235 node=nid005901 start=2026-10-05T11:23:58+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid005901 1 1
+round 1 order c,c_reference,cpp,fortran,numba,agent 2026-10-05T11:24:03+02:00
+SRUN[UNSTABLE tsvc_2_s235]: srun --nodes=1 --ntasks=1 -w nid005901 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s235 --preset M --warmup 5 --reps 30 --out parts/unstable/tsvc_2_s235.round1.csv --scratch scratch/unstable/tsvc_2_s235.round1 --attempts-out parts/unstable/tsvc_2_s235.round1.attempts.csv --attempt-logs logs/attempts --reprs c,c_reference,cpp,fortran,numba,agent --ordered --round 1 --variant interleaved_rerun --agent-sha a769df14b4e33607ec3503953f49b6c3523145f75ba30a61d5ea49dcfeecb5d8 --perf --vmstat --emitted-dir emitted_sources/unstable
+[1/1] tsvc_2_s235
+    c            ok           median 705.931 ms 
+    c_reference  ok           median 710.547 ms source=tsvc_2_s235_reference.c sha256=2b951a54990630ee
+    cpp          ok           median 672.688 ms 
+    fortran      ok           median 780.799 ms 
+    numba        ok           median 660.497 ms 
+    agent        ok           median 58.003 ms rank=1 arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/unstable/tsvc_2_s235.round1.csv
+round 2 order c_reference,cpp,fortran,numba,agent,c 2026-10-05T11:28:10+02:00
+SRUN[UNSTABLE tsvc_2_s235]: srun --nodes=1 --ntasks=1 -w nid005901 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s235 --preset M --warmup 5 --reps 30 --out parts/unstable/tsvc_2_s235.round2.csv --scratch scratch/unstable/tsvc_2_s235.round2 --attempts-out parts/unstable/tsvc_2_s235.round2.attempts.csv --attempt-logs logs/attempts --reprs c_reference,cpp,fortran,numba,agent,c --ordered --round 2 --variant interleaved_rerun --agent-sha a769df14b4e33607ec3503953f49b6c3523145f75ba30a61d5ea49dcfeecb5d8 --perf --vmstat --emitted-dir emitted_sources/unstable
+[1/1] tsvc_2_s235
+    c_reference  ok           median 710.698 ms source=tsvc_2_s235_reference.c sha256=2b951a54990630ee
+    cpp          ok           median 659.767 ms 
+    fortran      ok           median 712.763 ms 
+    numba        ok           median 604.720 ms 
+    agent        ok           median 57.563 ms rank=1 arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran
+    c            ok           median 751.070 ms 
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/unstable/tsvc_2_s235.round2.csv
+round 3 order cpp,fortran,numba,agent,c,c_reference 2026-10-05T11:31:47+02:00
+SRUN[UNSTABLE tsvc_2_s235]: srun --nodes=1 --ntasks=1 -w nid005901 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s235 --preset M --warmup 5 --reps 30 --out parts/unstable/tsvc_2_s235.round3.csv --scratch scratch/unstable/tsvc_2_s235.round3 --attempts-out parts/unstable/tsvc_2_s235.round3.attempts.csv --attempt-logs logs/attempts --reprs cpp,fortran,numba,agent,c,c_reference --ordered --round 3 --variant interleaved_rerun --agent-sha a769df14b4e33607ec3503953f49b6c3523145f75ba30a61d5ea49dcfeecb5d8 --perf --vmstat --emitted-dir emitted_sources/unstable
+[1/1] tsvc_2_s235
+    cpp          ok           median 783.896 ms 
+    fortran      ok           median 713.006 ms 
+    numba        ok           median 682.851 ms 
+    agent        ok           median 57.350 ms rank=1 arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran
+    c            ok           median 661.820 ms 
+    c_reference  ok           median 682.048 ms source=tsvc_2_s235_reference.c sha256=2b951a54990630ee
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/unstable/tsvc_2_s235.round3.csv
+round 4 order fortran,numba,agent,c,c_reference,cpp 2026-10-05T11:35:26+02:00
+SRUN[UNSTABLE tsvc_2_s235]: srun --nodes=1 --ntasks=1 -w nid005901 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s235 --preset M --warmup 5 --reps 30 --out parts/unstable/tsvc_2_s235.round4.csv --scratch scratch/unstable/tsvc_2_s235.round4 --attempts-out parts/unstable/tsvc_2_s235.round4.attempts.csv --attempt-logs logs/attempts --reprs fortran,numba,agent,c,c_reference,cpp --ordered --round 4 --variant interleaved_rerun --agent-sha a769df14b4e33607ec3503953f49b6c3523145f75ba30a61d5ea49dcfeecb5d8 --perf --vmstat --emitted-dir emitted_sources/unstable
+[1/1] tsvc_2_s235
+    fortran      ok           median 780.532 ms 
+    numba        ok           median 495.330 ms 
+    agent        ok           median 57.355 ms rank=1 arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran
+    c            ok           median 781.982 ms 
+    c_reference  ok           median 631.824 ms source=tsvc_2_s235_reference.c sha256=2b951a54990630ee
+    cpp          ok           median 787.413 ms 
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/unstable/tsvc_2_s235.round4.csv
+round 5 order numba,agent,c,c_reference,cpp,fortran 2026-10-05T11:39:04+02:00
+SRUN[UNSTABLE tsvc_2_s235]: srun --nodes=1 --ntasks=1 -w nid005901 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s235 --preset M --warmup 5 --reps 30 --out parts/unstable/tsvc_2_s235.round5.csv --scratch scratch/unstable/tsvc_2_s235.round5 --attempts-out parts/unstable/tsvc_2_s235.round5.attempts.csv --attempt-logs logs/attempts --reprs numba,agent,c,c_reference,cpp,fortran --ordered --round 5 --variant interleaved_rerun --agent-sha a769df14b4e33607ec3503953f49b6c3523145f75ba30a61d5ea49dcfeecb5d8 --perf --vmstat --emitted-dir emitted_sources/unstable
+[1/1] tsvc_2_s235
+    numba        ok           median 661.238 ms 
+    agent        ok           median 58.289 ms rank=1 arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran
+    c            ok           median 683.569 ms 
+    c_reference  ok           median 784.267 ms source=tsvc_2_s235_reference.c sha256=2b951a54990630ee
+    cpp          ok           median 757.464 ms 
+    fortran      ok           median 713.421 ms 
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/unstable/tsvc_2_s235.round5.csv
+round 6 order agent,c,c_reference,cpp,fortran,numba 2026-10-05T11:42:49+02:00
+SRUN[UNSTABLE tsvc_2_s235]: srun --nodes=1 --ntasks=1 -w nid005901 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s235 --preset M --warmup 5 --reps 30 --out parts/unstable/tsvc_2_s235.round6.csv --scratch scratch/unstable/tsvc_2_s235.round6 --attempts-out parts/unstable/tsvc_2_s235.round6.attempts.csv --attempt-logs logs/attempts --reprs agent,c,c_reference,cpp,fortran,numba --ordered --round 6 --variant interleaved_rerun --agent-sha a769df14b4e33607ec3503953f49b6c3523145f75ba30a61d5ea49dcfeecb5d8 --perf --vmstat --emitted-dir emitted_sources/unstable
+[1/1] tsvc_2_s235
+    agent        ok           median 57.738 ms rank=1 arm=llr40v10-kimi27sglang-fortran job=621022 seq=2 lang=fortran
+    c            ok           median 784.362 ms 
+    c_reference  ok           median 790.207 ms source=tsvc_2_s235_reference.c sha256=2b951a54990630ee
+    cpp          ok           median 781.066 ms 
+    fortran      ok           median 700.692 ms 
+    numba        ok           median 544.220 ms 
+
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/unstable/tsvc_2_s235.round6.csv
+unit UNSTABLE tsvc_2_s235 node=nid005901 end=2026-10-05T11:46:30+02:00

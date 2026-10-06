@@ -1,4 +1,0 @@
-c_gcc14 fcsel=1 branch_b.gt=0
-c_gcc13 fcsel=0 branch_b.gt=1
-cpp_gxx13 fcsel=0 branch_b.gt=1
-cpp_gxx14 fcsel=1 branch_b.gt=0

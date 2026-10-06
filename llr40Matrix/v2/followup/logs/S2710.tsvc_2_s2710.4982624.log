@@ -1,0 +1,14 @@
+unit S2710 tsvc_2_s2710 node=nid006347 start=2026-10-05T11:21:04+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006347 1 1
+SRUN[S2710 tsvc_2_s2710]: srun --nodes=1 --ntasks=1 -w nid006347 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_followup.py --kernels tsvc_2_s2710 --preset M --warmup 5 --reps 30 --out parts/s2710/tsvc_2_s2710.csv --scratch scratch/s2710/tsvc_2_s2710 --attempts-out parts/s2710/tsvc_2_s2710.attempts.csv --attempt-logs logs/attempts --reprs c,cpp,c_reference --variant hoist_x0 --emitted-dir emitted_sources/s2710 --override c=variants/src/tsvc_2_s2710_fp64.hoist.c --override cpp=variants/src/tsvc_2_s2710_fp64.hoist.cpp --override c_reference=variants/src/tsvc_2_s2710_reference.hoist.c
+[1/1] tsvc_2_s2710
+    c            ok           median 93.777 ms source=tsvc_2_s2710_fp64.hoist.c sha256=8428bbbcbdfcba4a
+    cpp          ok           median 102.915 ms source=tsvc_2_s2710_fp64.hoist.cpp sha256=8a5e13d2bdef813c
+    c_reference  ok           median 101.349 ms source=tsvc_2_s2710_reference.hoist.c sha256=46f6522dfce61cfc
+
+wrote 3 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/parts/s2710/tsvc_2_s2710.csv
+SRUN[S2710 tsvc_2_s2710]: srun --nodes=1 --ntasks=1 -w nid006347 --exclusive --cpu-bind=cores --hint=nomultithread --time=40 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/s2710 --index parts/s2710/optrep.tsvc_2_s2710.hoist_x0.csv --variant hoist_x0 tsvc_2_s2710:c:c:variants/src/tsvc_2_s2710_fp64.hoist.c tsvc_2_s2710:cpp:cpp:variants/src/tsvc_2_s2710_fp64.hoist.cpp tsvc_2_s2710:c_reference:c:variants/src/tsvc_2_s2710_reference.hoist.c
+tsvc_2_s2710                 c            ok
+tsvc_2_s2710                 cpp          ok
+tsvc_2_s2710                 c_reference  ok
+unit S2710 tsvc_2_s2710 node=nid006347 end=2026-10-05T11:22:43+02:00

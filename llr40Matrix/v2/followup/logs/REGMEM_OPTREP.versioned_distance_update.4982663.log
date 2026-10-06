@@ -1,0 +1,26 @@
+unit REGMEM_OPTREP versioned_distance_update node=nid006557 start=2026-10-05T11:32:35+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006557 1 1
+SRUN[REGMEM_OPTREP versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid006557 --exclusive --cpu-bind=cores --hint=nomultithread --time=10 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/regmem/unchanged --index parts/regmem/unchanged/optrep.versioned_distance_update.base.csv --variant  versioned_distance_update:c:c:emitted_sources/regmem/versioned_distance_update/versioned_distance_update_fp64.c versioned_distance_update:agent:fortran:/capstor/scratch/cscs/lhulsbergen/ICLR26Reproducibility/paper_artifacts/experiments/llr40/artifacts/sources/llr40v10-qwen38-fortran/versioned_distance_update/621385.621385.llr40v10-qwen38-fortran.n0.p37.w37/candidate_03_submission.txt
+versioned_distance_update    c            ok
+versioned_distance_update    agent        ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/regmem/unchanged/optrep.versioned_distance_update.base.csv'
+srun: error: nid006557: task 0: Exited with exit code 1
+srun: Terminating StepId=4982663.2
+SRUN[REGMEM_OPTREP versioned_distance_update]: srun --nodes=1 --ntasks=1 -w nid006557 --exclusive --cpu-bind=cores --hint=nomultithread --time=10 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-v2-fu numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_followup.py --out-dir opt_reports/regmem/vdu_k1_scalar --index parts/regmem/vdu_k1_scalar/optrep.versioned_distance_update.vdu_k1_scalar.csv --variant vdu_k1_scalar versioned_distance_update:c:c:variants/src/versioned_distance_update_fp64.k1scalar.c
+versioned_distance_update    c            ok
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 176, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-followup/llr40Matrix/v2/followup/opt_reports_followup.py", line 166, in main
+    with open(idx, "w", newline="") as fh:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'parts/regmem/vdu_k1_scalar/optrep.versioned_distance_update.vdu_k1_scalar.csv'
+srun: error: nid006557: task 0: Exited with exit code 1
+srun: Terminating StepId=4982663.4
+unit REGMEM_OPTREP versioned_distance_update node=nid006557 end=2026-10-05T11:32:43+02:00

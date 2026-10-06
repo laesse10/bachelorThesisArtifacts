@@ -1,0 +1,54 @@
+# objdump -d tsvc_2_s316_fp64.c.o  (functions matching tsvc_2_s316_fp64*)
+0000000000000000 <tsvc_2_s316_fp64>:
+   0:	fd40001f 	ldr	d31, [x0]
+   4:	f100045f 	cmp	x2, #0x1
+   8:	540005cd 	b.le	c0 <tsvc_2_s316_fp64+0xc0>
+   c:	d1000844 	sub	x4, x2, #0x2
+  10:	d1000443 	sub	x3, x2, #0x1
+  14:	f100189f 	cmp	x4, #0x6
+  18:	54000589 	b.ls	c8 <tsvc_2_s316_fp64+0xc8>  // b.plast
+  1c:	4e0807fe 	dup	v30.2d, v31.d[0]
+  20:	d343fc64 	lsr	x4, x3, #3
+  24:	aa0003e2 	mov	x2, x0
+  28:	8b041804 	add	x4, x0, x4, lsl #6
+  2c:	4ebe1fdd 	mov	v29.16b, v30.16b
+  30:	4ebe1fc1 	mov	v1.16b, v30.16b
+  34:	4ebe1fc0 	mov	v0.16b, v30.16b
+  38:	d503201f 	nop
+  3c:	d503201f 	nop
+  40:	91002045 	add	x5, x2, #0x8
+  44:	91010042 	add	x2, x2, #0x40
+  48:	ad400ca4 	ldp	q4, q3, [x5]
+  4c:	ad4168a2 	ldp	q2, q26, [x5, #32]
+  50:	4ee4c7de 	fminnm	v30.2d, v30.2d, v4.2d
+  54:	4ee3c400 	fminnm	v0.2d, v0.2d, v3.2d
+  58:	4ee2c421 	fminnm	v1.2d, v1.2d, v2.2d
+  5c:	4efac7bd 	fminnm	v29.2d, v29.2d, v26.2d
+  60:	eb02009f 	cmp	x4, x2
+  64:	54fffee1 	b.ne	40 <tsvc_2_s316_fp64+0x40>  // b.any
+  68:	4efdc421 	fminnm	v1.2d, v1.2d, v29.2d
+  6c:	927df066 	and	x6, x3, #0xfffffffffffffff8
+  70:	4ee0c7c0 	fminnm	v0.2d, v30.2d, v0.2d
+  74:	4ee0c420 	fminnm	v0.2d, v1.2d, v0.2d
+  78:	7ef0c800 	fminnmp	d0, v0.2d
+  7c:	1e60401f 	fmov	d31, d0
+  80:	f240087f 	tst	x3, #0x7
+  84:	540001e0 	b.eq	c0 <tsvc_2_s316_fp64+0xc0>  // b.none
+  88:	d2800002 	mov	x2, #0x0                   	// #0
+  8c:	04e0e3e5 	cntd	x5
+  90:	052823fc 	mov	z28.d, d31
+  94:	910004c4 	add	x4, x6, #0x1
+  98:	8b040c04 	add	x4, x0, x4, lsl #3
+  9c:	cb060060 	sub	x0, x3, x6
+  a0:	25e01fe7 	whilelo	p7.d, xzr, x0
+  a4:	a5e25c9b 	ld1d	{z27.d}, p7/z, [x4, x2, lsl #3]
+  a8:	8b050042 	add	x2, x2, x5
+  ac:	65c59f7c 	fminnm	z28.d, p7/m, z28.d, z27.d
+  b0:	25e01c47 	whilelo	p7.d, x2, x0
+  b4:	54ffff81 	b.ne	a4 <tsvc_2_s316_fp64+0xa4>  // b.any
+  b8:	2518e3e7 	ptrue	p7.b
+  bc:	65c53f9f 	fminnmv	d31, p7, z28.d
+  c0:	fd00003f 	str	d31, [x1]
+  c4:	d65f03c0 	ret
+  c8:	d2800006 	mov	x6, #0x0                   	// #0
+  cc:	17ffffef 	b	88 <tsvc_2_s316_fp64+0x88>

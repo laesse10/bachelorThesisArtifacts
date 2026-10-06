@@ -1,2 +1,0 @@
-kernel,rank,arm,job,seq,lang,campaign_speedup,sha256,status,first_error_line,chosen,log
-tsvc_2_vtvtv,1,llr40v10-kimi27sglang-fortran,621022,2,fortran,5.321,aa3e23d066d003dd3015c5cef90f610e1bf813762bc96ddf5278d964affc8cf5,ok,,1,

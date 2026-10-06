@@ -1,7 +1,0 @@
-% SpBench cuBool boolean SpGEMM (C = A * A), the 5 SuiteSparse graphs of the original nsys run
-% File name and path | isUndirected | num iteration
-/capstor/scratch/cscs/lhulsbergen/spbench/data/amazon-2008/amazon-2008.mtx   0 10
-/capstor/scratch/cscs/lhulsbergen/spbench/data/web-Google/web-Google.mtx     0 10
-/capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-TX/roadNet-TX.mtx     1 10
-/capstor/scratch/cscs/lhulsbergen/spbench/data/belgium_osm/belgium_osm.mtx   1 10
-/capstor/scratch/cscs/lhulsbergen/spbench/data/roadNet-CA/roadNet-CA.mtx     1 10

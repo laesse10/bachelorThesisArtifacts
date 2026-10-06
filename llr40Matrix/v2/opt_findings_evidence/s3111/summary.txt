@@ -1,3 +1,0 @@
-orig:    vectorized=0 branch_b.gt=1 fadda=0
-noparen: vectorized=2 vector_fadd=10 faddp=3 fadda=0
-65-orig.f90:10:13: note:   mark relevant 1, live 0: sum_val_10 = ((_3));

@@ -1,0 +1,20 @@
+diff --git a/hpcagent_bench/flags.py b/hpcagent_bench/flags.py
+index 7c9e5d5f2..c2eab960a 100644
+--- a/hpcagent_bench/flags.py
++++ b/hpcagent_bench/flags.py
+@@ -115,13 +115,13 @@ CPU_BASELINE_CLANG = (
+ #: GCC baseline for C / C++: -O3 + native arch + OpenMP + vectorized libm (no fast-math).
+ #: The libmvec half arrives as a decl header (``_VECLIB_GCC``), not a flag -- gcc has no -fveclib.
+ CPU_BASELINE_GCC = (
+-    f"-O3 {ARCH_NATIVE} -fopenmp {_FP_RELAX} {_FP_ASSOC} {_FP_CONTRACT} -fstrict-aliasing -fPIC{_VECLIB_GCC}"
++    f"-O3 {ARCH_NATIVE} -fopenmp {_FP_RELAX} {_FP_ASSOC} {_FP_CONTRACT} -ffinite-math-only -fstrict-aliasing -fPIC{_VECLIB_GCC}"
+ )
+ 
+ #: GCC baseline for Fortran: CPU_BASELINE_GCC minus the C decl header, which gfortran rejects (fatal
+ #: under -Werror). gfortran reaches libmvec through the distro driver spec pre-including glibc's
+ #: math-vector-fortran.h, a host property tests/test_vecmath.py checks.
+-CPU_BASELINE_GFORTRAN = f"-O3 {ARCH_NATIVE} -fopenmp {_FP_RELAX} {_FP_ASSOC} {_FP_CONTRACT} -fstrict-aliasing -fPIC"
++CPU_BASELINE_GFORTRAN = f"-O3 {ARCH_NATIVE} -fopenmp {_FP_RELAX} {_FP_ASSOC} {_FP_CONTRACT} -ffinite-math-only -fstrict-aliasing -fPIC"
+ 
+ #: NVHPC baseline for C / C++ / Fortran. ``_FP_RELAX`` and ``_FP_ASSOC`` need no nvc spelling: nvc
+ #: relaxes errno, trapping and signed zeros AND reassociates by default (``-Kieee`` turns that off).
