@@ -47,7 +47,10 @@ Most of the difference sits in five kernels (\texttt{s1232}, \texttt{s231}, \tex
 \texttt{s2275} and \texttt{s275}). They read their arrays with large strides, which makes them
 very sensitive to memory bandwidth, and in most of their series hardly any run reached full
 speed. For these kernels even the fastest run is unreliable, so we mark them in the figures and
-do not compare their GCC versions. (Between the two benchmark versions, C++ also changed from
+do not compare their GCC versions. A second measurement, in which all versions of each of these
+kernels took turns on the same node, confirmed this for four of them: the order of their GCC
+versions changed from round to round, while the agent version was the fastest in every round.
+For \texttt{s2275} the evidence is inconclusive. (Between the two benchmark versions, C++ also changed from
 the C++23 to the C++20 standard, with no measurable effect.) We report the second measurement.
 % Skill evaluation: fresh agent with and without the skill, rubric per scenario.
 
@@ -93,31 +96,53 @@ consistently.
 \paragraph{Large gaps come from single decisions.}
 Where the languages do differ, the cause is one detail of the generated code, not the language
 itself. On \texttt{s3111}, Fortran is 5.8$\times$ slower than C. The translator writes each sum
-as \texttt{sum = (sum + a(i))}. Fortran compilers must respect these parentheses, which stops
-gfortran from recognising the sum; without them, it vectorises the loop. On \texttt{s316}, the
-opposite happens: C is 3.4$\times$ slower than C++ and Fortran, from identical code. Here the
-cause is the compiler version. GCC 14, used for C, replaces a branch with a select instruction
-that makes every iteration wait for the previous one; GCC 13 keeps the branch, which the
-processor predicts almost perfectly. We had expected Fortran to be faster on sums, because
-gfortran may reorder additions; instead, it vectorises none of the ten reductions.
+as \texttt{sum = (sum + a(i))}, and Fortran compilers must respect such parentheses, so gfortran
+cannot recognise the sum as a reduction. Allowed to ignore them (\texttt{-fno-protect-parens}),
+gfortran splits the sum into vector partial sums, and the Fortran version becomes 1.7$\times$
+\emph{faster} than C, because GCC does not reorder a sum in C without
+\texttt{-fassociative-math}. On \texttt{s316}, the opposite happens: C is 3.4$\times$ slower than
+C++ and Fortran, from identical code. Here the cause is the compiler version. GCC 14, used for C,
+replaces a branch with a select instruction that makes every iteration wait for the previous one;
+GCC 13 keeps the branch, which the processor predicts almost perfectly. Four smaller Fortran
+losses of 4--6\% have a different cause, which we did not identify; the different compiler
+versions are the obvious candidate.
+
+\paragraph{The parentheses trade speed for exactness.}
+The same parentheses also keep gfortran from fusing a multiplication and an addition into one
+FMA instruction. This makes Fortran 1.25$\times$ slower on \texttt{scan\_affine\_decay} and
+1.1$\times$ slower on \texttt{versioned\_distance\_update}, where the value carried between
+iterations enters the multiplication, but 3\% faster on \texttt{s323}, where it only enters
+additions. Without the parentheses, gfortran uses FMA like C: it catches up with C on the first
+two kernels and loses its lead on \texttt{s323}. In exchange, the parentheses
+make Fortran exact: on eight affected kernels, the default Fortran results are bit for bit
+identical to NumPy's. C and C++ match NumPy on the sums but not where they use FMA; there,
+between a third and almost all of the elements differ, by at most 5 units in the last place on two kernels but by up to
+$4.5\cdot10^{-7}$ relative on the recurrence \texttt{s323}, where the error accumulates. Once its
+parentheses may be ignored, Fortran produces exactly C's results on the FMA kernels, and its
+reordered sums differ from NumPy by about $2\cdot10^{-13}$ relative. All of these versions pass the benchmark's tolerance.
 
 \paragraph{Numba behaves like its compiler, LLVM.}
 Numba is the most uneven column: faster than C on 8 kernels, slower on 16, and 0.88$\times$ as
 fast overall. It is 2.4$\times$ faster on \texttt{s2710}, a loop full of branches that LLVM
 vectorises and GCC does not. GCC fails on a single line: a test of \texttt{x[0]}, a scalar that
-the translator passes as a one-element array and reads inside the loop. Numba is 2.5 to
-3.6$\times$ slower on four reductions with a conditional update, where LLVM makes the same
-choice as GCC 14 on \texttt{s316}: a select instead of a branch. This choice between branch and
-select is the most common cause of large gaps in the matrix, in both directions.
+the translator passes as a one-element array and reads inside the loop. Moving that read in
+front of the loop, a one-line change, lets GCC vectorise the loop too; the C version then runs
+2.7$\times$ faster and slightly ahead of Numba. Numba is 2.5 to 3.6$\times$ slower on four
+reductions with a conditional update, where LLVM makes the same choice as GCC 14 on
+\texttt{s316}: a select instead of a branch. This choice between branch and select is the most
+common cause of large gaps in the matrix, in both directions, and it depends on how strictly NaNs
+must be handled. Allowed to ignore them (\texttt{-ffinite-math-only}), GCC vectorises the plain
+minimum \texttt{s316}, which then runs 4.0$\times$ faster in C, but turns the three reductions that
+also track an index into selects and makes them 3.4 to 3.7$\times$ slower.
 
 \paragraph{Values passed through memory cost time.}
 A second recurring cause is whether a value carried from one iteration to the next stays in a
-register or goes through memory. In \texttt{versioned\_distance\_update}, the translated C
-version stores a value and reads it back in the next iteration, at 10.4 cycles per element. The
-agent version keeps the value in a register and needs 4.2 cycles, which makes it 2.5$\times$
-faster. In \texttt{wf\_triangular}, the same happens between GCC (2.1 cycles, register) and
-Numba (8.2 cycles, memory). In both cases, the detour through memory adds about six cycles per
-element.
+register or goes through memory. In \texttt{versioned\_distance\_update}, the translated C version
+stores a value and reads it back in the next iteration and needs 10.1 cycles per element; the
+agent version keeps the value in a register and needs 4.2, which makes it 2.4$\times$ faster. In
+\texttt{wf\_triangular}, the same happens between GCC (2.2 cycles, register) and Numba (8.1
+cycles, memory). Changing only how the value is carried removes the difference in both kernels.
+Measured with hardware counters, the detour through memory costs 6.1 and 6.0 cycles per element.
 
 \paragraph{Compilers do not restructure loops; the agents do.}
 In the interchange and distribution kernels, GCC never interchanges or splits a loop. It sees
@@ -179,9 +204,11 @@ outputs stay finite, every version passes and the timings show the same pattern.
 % memory for a loop-carried value (about 6 cycles of store-to-load forwarding) as the second.
 % Translator recommendations: hoist loop-invariant scalars passed as one-element arrays (s2710);
 % do not emit binding parentheses around Fortran accumulations (s3111, scan_affine_decay).
-% Hypothesis to check on daint: GCC refuses every conditional min/max reduction ("unsupported use
-% in stmt") because it may only form MIN/MAX_EXPR when NaNs can be ignored (-ffinite-math-only),
-% which the oracle forbids -- i.e. the grading itself removes this optimisation.
+% Measured (followup 1): -ffinite-math-only vectorises the plain min (s316, 4x for C) but turns
+% the index-carrying reductions into selects, 3.4-3.7x slower; leaving it out helps here overall.
+% Measured (followup 2b): protected Fortran parentheses = bitwise NumPy agreement; dropping them
+% gives reassociated sums 1.7-1.8x faster than C (s3111, s311) at ~2e-13 relative deviation.
+% Still open: four small (4-6%) Fortran-slower gaps (scatter_accum_dup, s252, s4112, vag).
 % What elementwise grading permits: FP contraction as a correctness choice; reassociation only
 % via an explicit reduction clause; vacuous passes on numerically degenerate kernels.
 % Threats to validity: single thread and one machine; GCC is the only C/C++/Fortran compiler
