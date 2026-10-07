@@ -76,10 +76,10 @@ Every way this work departs from the task text or from the LLR-40 v2 protocol, w
    It runs each float cell once through the harness (`cli._run_cell`, preset M, validate on) and
    records, per output, how many elements differ from NumPy and by how much. Job 4996849 forgot
    `PYTHONPATH`, so the harness's emit step failed for the compiled columns; its `numba` rows are valid
-   and kept (`logs/ext-precision.4996849.no-pythonpath.out` on scratch). Job 4996871 has the compiled
-   columns. The SSH certificate expired before its output could be copied, so
-   `precision_probe.partial.csv` holds only what was read from the job's output while it ran:
-   `quatrex_rgf` (all columns), `warpx_boris_push` (c, cpp, fortran) and the `numba` rows of job 4996849.
-   The full file is `extractedMatrix/precision_probe.csv` on scratch; the Esirkepov and field-gather
-   rows are still to be copied. The harness compares every output twice; the two agree, and the
-   partial file keeps one.
+   and kept (`logs/ext-precision.4996849.no-pythonpath.out`). Job 4996871 has the compiled
+   columns (all `ok`). Its output was first read only in part, because the SSH certificate expired;
+   the full `precision_probe.csv` and both job logs (`logs/ext-precision.4996871.out`,
+   `logs/ext-precision.4996849.no-pythonpath.out`) were copied afterwards and agree with the part read
+   earlier. In the CSV the hand-written Numba cells of `quatrex_rgf` and `warpx_esirkepov_deposition`
+   are labelled `numba` (the harness framework name); `warpx_field_gather` `numba` has no data (build
+   error). The harness compares every output twice; the two comparisons agree.

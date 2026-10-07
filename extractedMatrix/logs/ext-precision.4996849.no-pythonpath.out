@@ -1,0 +1,162 @@
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing C (gcc) with quatrex_rgf on the M dataset, datatype float64 *****
+{'kernel': 'quatrex_rgf', 'column': 'c', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error quatrex_rgf: native emit failed for ['c:quatrex_rgf:float32', 'c:quatrex_rgf:fp64'] -- c:quatrex_rgf:float32: fail rc=1; c:quatrex_rgf:fp64: fail rc=1"}
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing C++ (g++) with quatrex_rgf on the M dataset, datatype float64 *****
+{'kernel': 'quatrex_rgf', 'column': 'cpp', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error quatrex_rgf: native emit failed for ['c:quatrex_rgf:float32', 'c:quatrex_rgf:fp64'] -- c:quatrex_rgf:float32: fail rc=1; c:quatrex_rgf:fp64: fail rc=1"}
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing Fortran (gfortran) with quatrex_rgf on the M dataset, datatype float64 *****
+{'kernel': 'quatrex_rgf', 'column': 'fortran', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error quatrex_rgf: native emit failed for ['fortran:quatrex_rgf:float32', 'fortran:quatrex_rgf:fp64'] -- fortran:quatrex_rgf:float32: fail rc=1; fortran:quatrex_rgf:fp64: fail rc=1"}
+***** Testing Numba with quatrex_rgf on the M dataset, datatype float64 *****
+Numba - nopython-mode-parallel - nopython-mode-parallel - validation: SUCCESS
+Numba - nopython-mode-parallel - median: 4.260ms
+Numba - nopython-mode-parallel - nopython-mode-parallel - later-call validation: SUCCESS
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 0, 'validated': True, 'n_elements': 16384, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 1, 'validated': True, 'n_elements': 14336, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 2, 'validated': True, 'n_elements': 14336, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 3, 'validated': True, 'n_elements': 16384, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 4, 'validated': True, 'n_elements': 14336, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 5, 'validated': True, 'n_elements': 14336, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 6, 'validated': True, 'n_elements': 16384, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 7, 'validated': True, 'n_elements': 16384, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 8, 'validated': True, 'n_elements': 14336, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 9, 'validated': True, 'n_elements': 14336, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 10, 'validated': True, 'n_elements': 16384, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 11, 'validated': True, 'n_elements': 14336, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 12, 'validated': True, 'n_elements': 14336, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'quatrex_rgf', 'column': 'numba', 'output_index': 13, 'validated': True, 'n_elements': 16384, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing C (gcc) with warpx_boris_push on the M dataset, datatype float64 *****
+{'kernel': 'warpx_boris_push', 'column': 'c', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_boris_push: native emit failed for ['c:warpx_boris_push:float32', 'c:warpx_boris_push:fp64'] -- c:warpx_boris_push:float32: fail rc=1; c:warpx_boris_push:fp64: fail rc=1"}
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing C++ (g++) with warpx_boris_push on the M dataset, datatype float64 *****
+{'kernel': 'warpx_boris_push', 'column': 'cpp', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_boris_push: native emit failed for ['c:warpx_boris_push:float32', 'c:warpx_boris_push:fp64'] -- c:warpx_boris_push:float32: fail rc=1; c:warpx_boris_push:fp64: fail rc=1"}
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing Fortran (gfortran) with warpx_boris_push on the M dataset, datatype float64 *****
+{'kernel': 'warpx_boris_push', 'column': 'fortran', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_boris_push: native emit failed for ['fortran:warpx_boris_push:float32', 'fortran:warpx_boris_push:fp64'] -- fortran:warpx_boris_push:float32: fail rc=1; fortran:warpx_boris_push:fp64: fail rc=1"}
+***** Testing Numba with warpx_boris_push on the M dataset, datatype float64 *****
+Numba - nopython-mode-parallel - nopython-mode-parallel - validation: SUCCESS
+Numba - nopython-mode-parallel - median: 2.411ms
+Numba - nopython-mode-parallel - nopython-mode-parallel - later-call validation: SUCCESS
+{'kernel': 'warpx_boris_push', 'column': 'numba', 'output_index': 0, 'validated': True, 'n_elements': 262144, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_boris_push', 'column': 'numba', 'output_index': 1, 'validated': True, 'n_elements': 262144, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_boris_push', 'column': 'numba', 'output_index': 2, 'validated': True, 'n_elements': 262144, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_boris_push', 'column': 'numba', 'output_index': 3, 'validated': True, 'n_elements': 262144, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_boris_push', 'column': 'numba', 'output_index': 4, 'validated': True, 'n_elements': 262144, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_boris_push', 'column': 'numba', 'output_index': 5, 'validated': True, 'n_elements': 262144, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing C (gcc) with warpx_esirkepov_deposition on the M dataset, datatype float64 *****
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'c', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_esirkepov_deposition: native emit failed for ['c:warpx_esirkepov_deposition:float32', 'c:warpx_esirkepov_deposition:fp64'] -- c:warpx_esirkepov_deposition:float32: fail rc=1; c:warpx_esirkepov_d"}
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing C++ (g++) with warpx_esirkepov_deposition on the M dataset, datatype float64 *****
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'cpp', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_esirkepov_deposition: native emit failed for ['c:warpx_esirkepov_deposition:float32', 'c:warpx_esirkepov_deposition:fp64'] -- c:warpx_esirkepov_deposition:float32: fail rc=1; c:warpx_esirkepov_d"}
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing Fortran (gfortran) with warpx_esirkepov_deposition on the M dataset, datatype float64 *****
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'fortran', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_esirkepov_deposition: native emit failed for ['fortran:warpx_esirkepov_deposition:float32', 'fortran:warpx_esirkepov_deposition:fp64'] -- fortran:warpx_esirkepov_deposition:float32: fail rc=1; f"}
+***** Testing Numba with warpx_esirkepov_deposition on the M dataset, datatype float64 *****
+Numba - nopython-mode-parallel - nopython-mode-parallel - validation: SUCCESS
+Numba - nopython-mode-parallel - median: 4.427ms
+Numba - nopython-mode-parallel - nopython-mode-parallel - later-call validation: SUCCESS
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'numba', 'output_index': 0, 'validated': True, 'n_elements': 46656, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'numba', 'output_index': 1, 'validated': True, 'n_elements': 46656, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'numba', 'output_index': 2, 'validated': True, 'n_elements': 46656, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'numba', 'output_index': 3, 'validated': True, 'n_elements': 46656, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'numba', 'output_index': 4, 'validated': True, 'n_elements': 46656, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+{'kernel': 'warpx_esirkepov_deposition', 'column': 'numba', 'output_index': 5, 'validated': True, 'n_elements': 46656, 'n_differ_from_numpy': 0, 'frac_differ': '0.0000', 'max_rel_error': '0.000e+00', 'max_ulp': 0}
+njit reference for warpx_field_gather failed to compile on call (Failed in nopython mode pipeline (step: nopython frontend)); using the interpreter
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing C (gcc) with warpx_field_gather on the M dataset, datatype float64 *****
+{'kernel': 'warpx_field_gather', 'column': 'c', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_field_gather: native emit failed for ['c:warpx_field_gather:float32', 'c:warpx_field_gather:fp64'] -- c:warpx_field_gather:float32: fail rc=1; c:warpx_field_gather:fp64: fail rc=1"}
+njit reference for warpx_field_gather failed to compile on call (Failed in nopython mode pipeline (step: nopython frontend)); using the interpreter
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing C++ (g++) with warpx_field_gather on the M dataset, datatype float64 *****
+{'kernel': 'warpx_field_gather', 'column': 'cpp', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_field_gather: native emit failed for ['c:warpx_field_gather:float32', 'c:warpx_field_gather:fp64'] -- c:warpx_field_gather:float32: fail rc=1; c:warpx_field_gather:fp64: fail rc=1"}
+njit reference for warpx_field_gather failed to compile on call (Failed in nopython mode pipeline (step: nopython frontend)); using the interpreter
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python: Error while finding module specification for 'numpyto_common.cli' (ModuleNotFoundError: No module named 'numpyto_common')
+***** Testing Fortran (gfortran) with warpx_field_gather on the M dataset, datatype float64 *****
+{'kernel': 'warpx_field_gather', 'column': 'fortran', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': "no comparison recorded: error warpx_field_gather: native emit failed for ['fortran:warpx_field_gather:float32', 'fortran:warpx_field_gather:fp64'] -- fortran:warpx_field_gather:float32: fail rc=1; fortran:warpx_field_gather:fp64: "}
+njit reference for warpx_field_gather failed to compile on call (Failed in nopython mode pipeline (step: nopython frontend)); using the interpreter
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/frameworks/test.py", line 364, in _execute
+    plan.run()
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/frameworks/framework.py", line 270, in run
+    self.result = self.f.post_call(self.impl(*args, **kwargs))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/lib/python3.12/site-packages/numba/core/dispatcher.py", line 422, in _compile_for_args
+    error_rewrite(e, 'typing')
+  File "/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/lib/python3.12/site-packages/numba/core/dispatcher.py", line 363, in error_rewrite
+    raise e.with_traceback(None)
+numba.core.errors.TypingError: Failed in nopython mode pipeline (step: nopython frontend)
+Failed in nopython mode pipeline (step: nopython frontend)
+Failed in nopython mode pipeline (step: native parfor lowering)
+Failed in full_parfor_gufunc mode pipeline (step: nopython frontend)
+No implementation of function Function(<built-in function getitem>) found for signature:
+ 
+ >>> getitem(array(float64, 2d, C), UniTuple(uint64 x 3))
+ 
+There are 22 candidate implementations:
+ - Of which 20 did not match due to:
+ Overload of function 'getitem': File: <numerous>: Line N/A.
+   With argument(s): '(array(float64, 2d, C), UniTuple(uint64 x 3))':
+  No match.
+ - Of which 2 did not match due to:
+ Overload in function 'GetItemBuffer.generic': File: numba/core/typing/arraydecl.py: Line 196.
+   With argument(s): '(array(float64, 2d, C), UniTuple(uint64 x 3))':
+  Rejected as the implementation raised a specific error:
+    NumbaTypeError: cannot index array(float64, 2d, C) with 3 indices: UniTuple(uint64 x 3)
+  raised from /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/lib/python3.12/site-packages/numba/core/typing/arraydecl.py:118
+
+During: typing of intrinsic-call at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (493)
+
+File "hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py", line 493:
+def _tap3(vol, sf_x, idx_x, sf_y, idx_y, sf_z, idx_z, ntx, nty, ntz, n):
+    <source elided>
+    for __ob0_i in range(sf_x.shape[0]):
+        weight[__ob0_i] = sf_x[__ob0_i] * sf_y[:, None] * sf_z
+        ^
+
+During: Pass nopython_type_inference
+During: lowering "id=4[LoopNest(index_variable = parfor_index.229, range = (0, $1234binary_subscr.12_size0.157, 1)), LoopNest(index_variable = parfor_index.230, range = (0, sf_z_size0.75, 1)), LoopNest(index_variable = parfor_index.231, range = (0, sf_z_size1.76, 1))]{2674: <ir.Block at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (493)>}Var($parfor_index_tuple_var.237, warpx_field_gather_numba_np.py:493)" at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (493)
+During: Pass native_parfor_lowering
+During: resolving callee type: type(CPUDispatcher(<function _tap3 at 0x400052726ac0>))
+During: typing of call at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (373)
+During: typing of call at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (374)
+During: typing of call at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (375)
+During: typing of call at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (376)
+During: typing of call at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (377)
+During: typing of call at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (378)
+
+File "hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py", line 373:
+def _gather_shape_n(xp, yp, zp, Exp, Eyp, Ezp, Bxp, Byp, Bzp, ex_arr, ey_arr, ez_arr, bx_arr, by_arr, bz_arr, ex_type, ey_type, ez_type, bx_type, by_type, bz_type, dinv, xyzmin, lo, n_rz_azimuthal_modes, depos_order, galerkin_interpolation, geom, n):
+    <source elided>
+    else:
+        Exp += _tap3(ex_arr[:, :, :, 0], sx_ex, lox + j_ex, sy_ex, loy + k_ex, sz_ex, loz + l_ex, n_sx_ex, n_sy_ex, n_sz_ex, n)
+        ^
+
+During: Pass nopython_type_inference
+During: resolving callee type: type(CPUDispatcher(<function _gather_shape_n at 0x40005253e520>))
+During: typing of call at /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py (391)
+
+File "hpcagent_bench/benchmarks/scientific_computing/n_body_methods/field_gather/warpx_field_gather_numba_np.py", line 391:
+def warpx_field_gather(Bxp, Byp, Bzp, Exp, Eyp, Ezp, bx_arr, bx_type, by_arr, by_type, bz_arr, bz_type, dinv, ex_arr, ex_type, ey_arr, ey_type, ez_arr, ez_type, lo, xp, xyzmin, yp, zp, depos_order, galerkin_interpolation, geom, n_rz_azimuthal_modes, np_particles):
+    <source elided>
+    nmodes = int(n_rz_azimuthal_modes)
+    _gather_shape_n(xp, yp, zp, Exp, Eyp, Ezp, Bxp, Byp, Bzp, ex_arr, ey_arr, ez_arr, bx_arr, by_arr, bz_arr, ex_type, ey_type, ez_type, bx_type, by_type, bz_type, dinv, xyzmin, lo, nmodes, o, gal, g, np_particles)
+    ^
+
+During: Pass nopython_type_inference
+***** Testing Numba with warpx_field_gather on the M dataset, datatype float64 *****
+Failed to execute the Numba - nopython-mode-parallel implementation.
+{'kernel': 'warpx_field_gather', 'column': 'numba', 'output_index': '', 'validated': False, 'n_elements': '', 'n_differ_from_numpy': '', 'frac_differ': '', 'max_rel_error': '', 'max_ulp': 'no comparison recorded: ok '}

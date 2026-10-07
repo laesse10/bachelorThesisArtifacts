@@ -11,7 +11,7 @@ Fortran gfortran 13.3.1, Numba 0.67. Predictions were pushed before the first ti
 Files: `results.csv` (every timing, v2 layout plus provenance/adapter), `cells.csv`, `columns.csv`,
 `vectorisation.csv`, `opt_reports/` (line 1 = exact argv; `.s.txt` = disassembly / numba
 `inspect_asm()`), `emitted_sources/` (the timed translator output), `adapters/`, `DEVIATIONS.md`,
-`precision_probe.py` + `precision_probe.partial.csv` (how far each float cell is from NumPy).
+`precision_probe.py` + `precision_probe.csv` (how far each float cell is from NumPy).
 
 ## Status
 
@@ -136,15 +136,23 @@ identified either; Fortran has vector FMA there too), `nfa_frontier` c/cpp 1.041
   scatter with an extra pass over the grids; LLVM emits 67 NEON vector instructions against 1330 in C;
   RSD 18%). The cause of the latter is not isolated.
 
-## Precision (precision_probe.partial.csv, DEVIATIONS 11)
+## Precision (precision_probe.csv, DEVIATIONS 11)
 
-All integer cells are bit-exact (the harness compares integers exactly). For the float kernels read so
-far: Numba (translated `warpx_boris_push`, hand-written `quatrex_rgf` and `warpx_esirkepov_deposition`)
-is bit-identical to NumPy on every element. On `warpx_boris_push`, translated C and C++ differ in 24.7%
-of the elements (max relative error 5.7e-12) and Fortran in 52.8% (6.1e-11). Fortran is NOT exact here,
-unlike LLR-40, consistent with its vectorised loops using FMA. On `quatrex_rgf`, all GCC columns differ
-in 98.5% of the elements (max 3.4e-12 C/C++, 3.9e-12 Fortran): they use the translator's own inverse,
-not LAPACK. Everything is well inside rtol 1e-9. Esirkepov and field gather: rows still on scratch.
+All integer cells are bit-exact (the harness compares integers exactly). Float cells, element by
+element against NumPy (one of the harness's two identical comparisons per output):
+
+| kernel | `c` / `cpp` | `fortran` | Numba |
+|---|---|---|---|
+| `warpx_boris_push` | 24.7% differ, max rel 5.7e-12 | 52.8%, 6.1e-11 | 0 (generated) |
+| `warpx_esirkepov_deposition` | 24.1%, 8.9e-6 | 25.2%, 8.9e-6 | 0 (hand-written) |
+| `warpx_field_gather` | 20.8%, 7.6e-13 | 27.7%, 1.7e-12 | build error |
+| `quatrex_rgf` | 98.5%, 3.4e-12 | 98.5%, 3.9e-12 | 0 (hand-written) |
+
+Numba reproduces NumPy exactly. Fortran is NOT exact on any WarpX kernel, unlike LLR-40, consistent
+with its vectorised loops using FMA. The Esirkepov maximum (8.9e-6 in all three GCC columns) is far
+above rtol 1e-9, so it can only pass through the absolute part of the tolerance: those elements are
+small compared with the largest current. QuaTrEx's GCC columns use the translator's own inverse, not
+LAPACK, so their deviation is not FMA alone. All cells pass.
 
 ## Prediction against outcome
 
@@ -188,7 +196,7 @@ order of magnitude, except `nfa_frontier`, predicted at 1-5 s and measured at 9-
   not appear: the largest cpp-vs-c difference is 4%.
 - **Fortran parentheses blocking FMA: not the explanation here.** Scalar Fortran code has no FMA, but
   the vectorised loops do. Fortran is 8-10% slower on the three WarpX kernels for a reason we did not
-  find, and it is not bit-exact against NumPy (boris).
+  find, and it is not bit-exact against NumPy on any of them.
 - **Numba the most uneven column: holds,** in a different direction. In LLR-40 Numba trailed GCC
   (0.88x). Here translated Numba is 1.44-1.71x faster on three kernels and 0.44x / 0.94x on two; it
   fails to type on one (field gather) and needed hand-written overrides on two.
