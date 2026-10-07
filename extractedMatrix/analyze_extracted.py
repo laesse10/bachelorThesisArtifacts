@@ -47,10 +47,15 @@ with open(HERE / "cells.csv", "w", newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=list(out[0].keys())); w.writeheader(); w.writerows(out)
 
 cols = []
-for col in ["cpp", "fortran", "numba", "numba_hand", "native", "numba+numba_hand"]:
-    members = col.split("+")
-    sp = [float(o["speedup_over_c"]) for o in out if o["column"] in members and o["speedup_over_c"]]
-    kernels = [o["kernel"] for o in out if o["column"] in members and o["speedup_over_c"]]
+# "<col>-comet_int4_gemm": the same mean without CoMet, the one kernel whose translated C/C++ calls a
+# BLAS library (cblas_dgemm) where Fortran and Numba get loops (DEVIATIONS 9).
+for col in ["cpp", "fortran", "numba", "numba_hand", "native", "numba+numba_hand",
+            "cpp-comet_int4_gemm", "fortran-comet_int4_gemm", "numba-comet_int4_gemm"]:
+    col_part, _, excluded = col.partition("-")
+    members = col_part.split("+")
+    sp = [float(o["speedup_over_c"]) for o in out
+          if o["column"] in members and o["speedup_over_c"] and o["kernel"] != excluded]
+    kernels = [o["kernel"] for o in out if o["column"] in members and o["speedup_over_c"] and o["kernel"] != excluded]
     n = len(sp)
     if n == 0:
         cols.append({"column": col, "n": 0}); continue

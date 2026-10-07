@@ -1,9 +1,9 @@
 kernel,column,status,provenance,adapter,n_reps,min_ms,median_ms,rsd_pct,speedup_over_c,below_10ms_per_call,notes
-comet_int4_gemm,c,build_error,autogen,,0,,,,,,/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/dense_linear_algebra/comet_int4_gemm/cpp_backend/comet_int4_gemm_fp64.c:177:10: fatal error: cblas.h: No such file or directory
-comet_int4_gemm,cpp,build_error,autogen,,0,,,,,,/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/dense_linear_algebra/comet_int4_gemm/cpp_backend/comet_int4_gemm_fp64.cpp:166:10: fatal error: cblas.h: No such file or directory
-comet_int4_gemm,fortran,ok,autogen,,30,0.3585,0.3605,4.76,,yes,
-comet_int4_gemm,numba,ok,autogen,,30,0.1552,0.1574,10.67,,yes,
-comet_int4_gemm,native,build_error,hand,extractedMatrix/adapters/comet_int4_gemm_native.cpp,0,,,,,,/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_computing/dense_linear_algebra/comet_int4_gemm/cpp_backend/comet_int4_gemm_fp32.cpp:166:10: fatal error: cblas.h: No such file or directory
+comet_int4_gemm,c,ok,autogen,,30,0.0680,0.0696,3.76,1.000,yes,
+comet_int4_gemm,cpp,ok,autogen,,30,0.0686,0.0704,3.07,0.992,yes,
+comet_int4_gemm,fortran,ok,autogen,,30,0.3585,0.3605,4.76,0.190,yes,
+comet_int4_gemm,numba,ok,autogen,,30,0.1552,0.1574,10.67,0.438,yes,
+comet_int4_gemm,native,ok,hand,extractedMatrix/adapters/comet_int4_gemm_native.cpp,30,0.0684,0.0700,1.86,0.993,yes,
 quatrex_rgf,c,ok,autogen,,30,7.4257,7.4805,0.49,1.000,yes,
 quatrex_rgf,cpp,ok,autogen,,30,7.4500,7.5066,0.66,0.997,yes,
 quatrex_rgf,fortran,ok,autogen,,30,6.4975,6.5288,0.67,1.143,yes,

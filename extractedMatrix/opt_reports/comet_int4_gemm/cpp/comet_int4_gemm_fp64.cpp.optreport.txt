@@ -1,6 +1,109 @@
-$ /users/lhulsbergen/bin/g++ -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c++20 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/comet_int4_gemm/cpp/comet_int4_gemm_fp64.cpp -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/comet_int4_gemm/cpp/build/comet_int4_gemm_fp64.cpp.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
-[exit 1]
-comet_int4_gemm_fp64.cpp:166:10: fatal error: cblas.h: No such file or directory
-  166 | #include <cblas.h>
-      |          ^~~~~~~~~
-compilation terminated.
+$ /users/lhulsbergen/bin/g++ -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/envs/vecmath.h -Wall -Wextra -I/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/include -std=c++20 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/comet_int4_gemm/cpp/comet_int4_gemm_fp64.cpp -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/comet_int4_gemm/cpp/build/comet_int4_gemm_fp64.cpp.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+comet_int4_gemm_fp64.cpp:238:37: optimized: Guard hoisted
+comet_int4_gemm_fp64.cpp:226:37: optimized: Guard hoisted
+comet_int4_gemm_fp64.cpp:214:37: optimized: Guard hoisted
+comet_int4_gemm_fp64.cpp:202:37: optimized: Guard hoisted
+comet_int4_gemm_fp64.cpp:196:37: optimized: Guard hoisted
+comet_int4_gemm_fp64.cpp:191:37: optimized: Guard hoisted
+comet_int4_gemm_fp64.cpp:186:37: optimized: Guard hoisted
+comet_int4_gemm_fp64.cpp:181:37: optimized: Guard hoisted
+comet_int4_gemm_fp64.cpp:244:35: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:246:103: missed: not vectorized: complicated access pattern.
+comet_int4_gemm_fp64.cpp:245:37: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:238:37: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:240:49: missed: not vectorized: not suitable for strided load *_122 = _123;
+comet_int4_gemm_fp64.cpp:239:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:232:35: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:234:103: missed: not vectorized: complicated access pattern.
+comet_int4_gemm_fp64.cpp:233:37: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:226:37: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:228:49: missed: not vectorized: not suitable for strided load *_99 = _100;
+comet_int4_gemm_fp64.cpp:227:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:220:35: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:222:103: missed: not vectorized: complicated access pattern.
+comet_int4_gemm_fp64.cpp:221:37: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:214:37: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:216:49: missed: not vectorized: not suitable for strided load *_78 = _79;
+comet_int4_gemm_fp64.cpp:215:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:208:35: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:210:103: missed: not vectorized: complicated access pattern.
+comet_int4_gemm_fp64.cpp:209:37: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:202:37: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:204:49: missed: not vectorized: not suitable for strided load *_56 = _57;
+comet_int4_gemm_fp64.cpp:203:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:196:37: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:198:84: missed: not vectorized: complicated access pattern.
+comet_int4_gemm_fp64.cpp:197:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:197:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:191:37: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:193:46: missed: not vectorized: complicated access pattern.
+comet_int4_gemm_fp64.cpp:192:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:192:39: optimized: loop vectorized using variable length vectors
+comet_int4_gemm_fp64.cpp:186:37: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:188:84: missed: not vectorized: complicated access pattern.
+comet_int4_gemm_fp64.cpp:187:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:187:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:181:37: missed: couldn't vectorize loop
+comet_int4_gemm_fp64.cpp:183:46: missed: not vectorized: complicated access pattern.
+comet_int4_gemm_fp64.cpp:182:39: optimized: loop vectorized using 16 byte vectors
+comet_int4_gemm_fp64.cpp:182:39: optimized: loop vectorized using variable length vectors
+comet_int4_gemm_fp64.cpp:245:37: optimized: loop with 2 iterations completely unrolled (header execution count 72506056)
+comet_int4_gemm_fp64.cpp:239:39: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:233:37: optimized: loop with 2 iterations completely unrolled (header execution count 72506056)
+comet_int4_gemm_fp64.cpp:227:39: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:221:37: optimized: loop with 2 iterations completely unrolled (header execution count 72506056)
+comet_int4_gemm_fp64.cpp:215:39: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:209:37: optimized: loop with 2 iterations completely unrolled (header execution count 72506056)
+comet_int4_gemm_fp64.cpp:203:39: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:197:39: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:168:6: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:168:6: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:187:39: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:168:6: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:168:6: optimized: loop turned into non-loop; it never loops
+comet_int4_gemm_fp64.cpp:169:41: missed: statement clobbers memory: __cb1_189 = malloc (_3);
+comet_int4_gemm_fp64.cpp:170:41: missed: statement clobbers memory: __mm2_191 = malloc (_6);
+comet_int4_gemm_fp64.cpp:171:41: missed: statement clobbers memory: __cb3_193 = malloc (_3);
+comet_int4_gemm_fp64.cpp:172:41: missed: statement clobbers memory: __mm4_195 = malloc (_6);
+comet_int4_gemm_fp64.cpp:173:41: missed: statement clobbers memory: __cb5_197 = malloc (_3);
+comet_int4_gemm_fp64.cpp:174:41: missed: statement clobbers memory: __mm6_199 = malloc (_6);
+comet_int4_gemm_fp64.cpp:175:41: missed: statement clobbers memory: __cb7_201 = malloc (_3);
+comet_int4_gemm_fp64.cpp:176:41: missed: statement clobbers memory: __mm8_203 = malloc (_6);
+comet_int4_gemm_fp64.cpp:177:39: missed: statement clobbers memory: li1_205 = malloc (_3);
+comet_int4_gemm_fp64.cpp:178:39: missed: statement clobbers memory: li0_207 = malloc (_3);
+comet_int4_gemm_fp64.cpp:179:39: missed: statement clobbers memory: rj1_209 = malloc (_3);
+comet_int4_gemm_fp64.cpp:180:39: missed: statement clobbers memory: rj0_211 = malloc (_3);
+comet_int4_gemm_fp64.cpp:207:20: missed: statement clobbers memory: cblas_dgemm (101, 111, 111, _58, _58, _59, 1.0e+0, li0_207, _59, __cb1_189, _58, 0.0, __mm2_191, _58);
+comet_int4_gemm_fp64.cpp:219:20: missed: statement clobbers memory: cblas_dgemm (101, 111, 111, _58, _58, _59, 1.0e+0, li0_207, _59, __cb3_193, _58, 0.0, __mm4_195, _58);
+comet_int4_gemm_fp64.cpp:231:20: missed: statement clobbers memory: cblas_dgemm (101, 111, 111, _58, _58, _59, 1.0e+0, li1_205, _59, __cb5_197, _58, 0.0, __mm6_199, _58);
+comet_int4_gemm_fp64.cpp:243:20: missed: statement clobbers memory: cblas_dgemm (101, 111, 111, _58, _58, _59, 1.0e+0, li1_205, _59, __cb7_201, _58, 0.0, __mm8_203, _58);
+comet_int4_gemm_fp64.cpp:219:20: missed: statement clobbers memory: cblas_dgemm (101, 111, 111, _58, _58, _59, 1.0e+0, li0_207, _59, __cb3_193, _58, 0.0, __mm4_195, _58);
+comet_int4_gemm_fp64.cpp:231:20: missed: statement clobbers memory: cblas_dgemm (101, 111, 111, _58, _58, _59, 1.0e+0, li1_205, _59, __cb5_197, _58, 0.0, __mm6_199, _58);
+comet_int4_gemm_fp64.cpp:243:20: missed: statement clobbers memory: cblas_dgemm (101, 111, 111, _58, _58, _59, 1.0e+0, li1_205, _59, __cb7_201, _58, 0.0, __mm8_203, _58);
+comet_int4_gemm_fp64.cpp:249:13: missed: statement clobbers memory: free (__cb1_189);
+comet_int4_gemm_fp64.cpp:250:13: missed: statement clobbers memory: free (__mm2_191);
+comet_int4_gemm_fp64.cpp:251:13: missed: statement clobbers memory: free (__cb3_193);
+comet_int4_gemm_fp64.cpp:252:13: missed: statement clobbers memory: free (__mm4_195);
+comet_int4_gemm_fp64.cpp:253:13: missed: statement clobbers memory: free (__cb5_197);
+comet_int4_gemm_fp64.cpp:254:13: missed: statement clobbers memory: free (__mm6_199);
+comet_int4_gemm_fp64.cpp:255:13: missed: statement clobbers memory: free (__cb7_201);
+comet_int4_gemm_fp64.cpp:256:13: missed: statement clobbers memory: free (__mm8_203);
+comet_int4_gemm_fp64.cpp:257:13: missed: statement clobbers memory: free (li1_205);
+comet_int4_gemm_fp64.cpp:258:13: missed: statement clobbers memory: free (li0_207);
+comet_int4_gemm_fp64.cpp:259:13: missed: statement clobbers memory: free (rj1_209);
+comet_int4_gemm_fp64.cpp:260:13: missed: statement clobbers memory: free (rj0_211);
+comet_int4_gemm_fp64.cpp: In function ‘void comet_int4_gemm_fp64(const int8_t*, const int8_t*, int32_t*, int64_t, int64_t)’:
+comet_int4_gemm_fp64.cpp:207:20: warning: ‘li0’ may be used uninitialized [-Wmaybe-uninitialized]
+  207 |         cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, (blasint)(num_vector), (blasint)(num_vector), (blasint)(num_field), 1.0, li0, (blasint)(num_field), __cb1, (blasint)(num_vector), 0.0, __mm2, (blasint)(num_vector));
+      |         ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from comet_int4_gemm_fp64.cpp:166:
+/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/include/cblas.h:300:6: note: by argument 8 of type ‘const double*’ to ‘void cblas_dgemm(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, blasint, blasint, blasint, double, const double*, blasint, const double*, blasint, double, double*, blasint)’ declared here
+  300 | void cblas_dgemm(OPENBLAS_CONST enum CBLAS_ORDER Order, OPENBLAS_CONST enum CBLAS_TRANSPOSE TransA, OPENBLAS_CONST enum CBLAS_TRANSPOSE TransB, OPENBLAS_CONST blasint M, OPENBLAS_CONST blasint N, OPENBLAS_CONST blasint K,
+      |      ^~~~~~~~~~~
+comet_int4_gemm_fp64.cpp:207:20: warning: ‘__cb1’ may be used uninitialized [-Wmaybe-uninitialized]
+  207 |         cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, (blasint)(num_vector), (blasint)(num_vector), (blasint)(num_field), 1.0, li0, (blasint)(num_field), __cb1, (blasint)(num_vector), 0.0, __mm2, (blasint)(num_vector));
+      |         ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/include/cblas.h:300:6: note: by argument 10 of type ‘const double*’ to ‘void cblas_dgemm(CBLAS_ORDER, CBLAS_TRANSPOSE, CBLAS_TRANSPOSE, blasint, blasint, blasint, double, const double*, blasint, const double*, blasint, double, double*, blasint)’ declared here
+  300 | void cblas_dgemm(OPENBLAS_CONST enum CBLAS_ORDER Order, OPENBLAS_CONST enum CBLAS_TRANSPOSE TransA, OPENBLAS_CONST enum CBLAS_TRANSPOSE TransB, OPENBLAS_CONST blasint M, OPENBLAS_CONST blasint N, OPENBLAS_CONST blasint K,
+      |      ^~~~~~~~~~~

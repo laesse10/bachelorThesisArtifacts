@@ -44,3 +44,42 @@ Every way this work departs from the task text or from the LLR-40 v2 protocol, w
 8. **Partition `normal`**, one kernel per exclusive node (job 4990441, 8 nodes), with v2's step
    geometry and geometry probe. That is not v2's chained debug jobs. Every srun line is in
    `srun_lines.txt`.
+9. **`comet_int4_gemm` `c`, `cpp` and `native` re-measured with OpenBLAS from a uenv (job 4996043,
+   2026-10-07, nid005778).** Items 4 and 5 recorded them as `build_error`: bare-metal daint has no
+   `cblas.h` and no `openblas.pc`. The CSCS uenv `prgenv-gnu/25.6:v2` ships OpenBLAS 0.3.29 (spack,
+   `threads=openmp`, DYNAMIC_ARCH) with both. It was mounted WITHOUT a view (`sbatch --uenv=prgenv-gnu/25.6:v2`),
+   and only its OpenBLAS package was put on `PKG_CONFIG_PATH`
+   (`/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/lib/pkgconfig`).
+   The harness resolves BLAS through `pkg-config openblas` and adds `-I`, `-L`, `-lopenblas` and an rpath
+   (`languages.library_tokens`). Nothing else changed: the compilers are still `/usr/bin/gcc-14`,
+   `~/bin/g++` 13.3.1 and `~/bin/gfortran` 13.3.1 (logged by the unit), FFTW still does not resolve, same
+   benchmark commit 26a4f0cf, same scripts (`extracted.sbatch`, `run_extracted.sh`, `sweep_extracted.py`
+   unchanged), preset M, validated, 5 warm-up + 30 timed, one exclusive node, one core. A debug job
+   (4995938) checked first that the uenv mount and `PKG_CONFIG_PATH` reach the srun steps and that
+   OpenBLAS runs one thread there (`openblas_get_num_threads() = 1`, affinity 1 core, `OMP_NUM_THREADS=1`).
+   Only the three failed cells were re-run: the job-4990441 `fortran` and `numba` rows were kept in
+   `parts/comet_int4_gemm.csv`, so the sweep's resume skipped them. The superseded rows and logs are in
+   `parts/superseded_4990441/` and `logs/cells/superseded_4990441/`. The emitted sources are
+   byte-identical to the ones from job 4990441 (sha256 in `results.csv`). The opt-report index
+   `parts/optrep.comet_int4_gemm.csv` holds both runs, as `opt_reports_extracted.py` appends;
+   `analyze_extracted.py` keeps the last row per cell. All three cells validate (bit-exact) and run in
+   0.068-0.069 ms. Their BLAS is a library the other columns do not use, so `columns.csv` also reports
+   each mean without `comet_int4_gemm`.
+10. **Correction to item 6: the `warpx_field_gather` `numba` failure is on the graded path.** Item 6 and
+   the first summary said the typing error lies in a configuration branch that never runs. It does
+   not: the failing statement is in `_tap3` (line 493 of the emitted file), which the `GEOM_3D` branch
+   calls, and the graded configuration is `geom=3` = `GEOM_3D`. The translator lowers the 4-D
+   broadcast `sf_x[:, None, None, :] * sf_y[None, :, None, :] * sf_z[None, None, :, :]` to
+   `sf_x[i] * sf_y[:, None] * sf_z`, which drops axes, and Numba rejects the assignment into a 3-D
+   slice ("cannot index array(float64, 2d, C) with 3 indices"). The status is unchanged.
+11. **Precision probe (not a timing): `precision_probe.py`, jobs 4996849 and 4996871 (debug partition).**
+   It runs each float cell once through the harness (`cli._run_cell`, preset M, validate on) and
+   records, per output, how many elements differ from NumPy and by how much. Job 4996849 forgot
+   `PYTHONPATH`, so the harness's emit step failed for the compiled columns; its `numba` rows are valid
+   and kept (`logs/ext-precision.4996849.no-pythonpath.out` on scratch). Job 4996871 has the compiled
+   columns. The SSH certificate expired before its output could be copied, so
+   `precision_probe.partial.csv` holds only what was read from the job's output while it ran:
+   `quatrex_rgf` (all columns), `warpx_boris_push` (c, cpp, fortran) and the `numba` rows of job 4996849.
+   The full file is `extractedMatrix/precision_probe.csv` on scratch; the Esirkepov and field-gather
+   rows are still to be copied. The harness compares every output twice; the two agree, and the
+   partial file keeps one.
