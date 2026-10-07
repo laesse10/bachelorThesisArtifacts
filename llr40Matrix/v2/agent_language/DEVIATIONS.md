@@ -18,15 +18,24 @@ Every way this experiment departs from the task text or from the LLR-40 v2 proto
    affinity count, which is 72, the value the task asks for. `OMP_PLACES=cores` and
    `OMP_PROC_BIND=close` are set explicitly. Submissions that set their own thread count are flagged
    (`sets_thread_count`) and not patched.
-4. **T72 times the library that default/T1 built and validated.** The harness rebuilds only when a
-   source is newer than `lib<k>_<fw>.so`. Nothing touches the source between the two runs, so no
-   T72-binding flags (e.g. gfortran's `-ftree-parallelize-loops=72`) ever enter a build. Each T72 row
-   records the library's sha256, and the runner refuses to time a T72 cell whose library mtime or hash
-   changed. **Pilot exception:** the pilot (job 4992464, `tsvc_2_s3110`) ran with an earlier runner
-   version that wrote the pristine sources back and re-placed the submission before T72, which can
-   trigger a rebuild under the 72-core binding. In all its T72 rows the library is byte-identical to the
-   default/T1 one (sha256), so the timed binary is the T1 binary, and the pilot's rows are kept. The
-   runner was fixed before the full sweep.
+4. **T72 and the T1 binary: the harness rebuilds on every run, so byte identity is recorded.** The
+   plan was for T72 to time the library default/T1 built, because the harness reuses
+   `lib<k>_<fw>.so` while it is newer than every source. That does not happen: every `cli run`
+   re-emits the kernel's generated fp32 sibling (`<k>_fp32.c`/`.f90`, part of the same library), so
+   the library is rebuilt at the start of every run, T72 included, under the 72-core binding
+   (mtimes in the bench tree: `_fp32.c` 21:22:52, library 21:22:53). What CAN be checked, and is
+   recorded, is whether the T72 library is byte-identical to the default/T1 library
+   (`t72_binary_equals_t1`, sha256): if it is, T72 timed exactly the binary T1 validated.
+   - **Chain job 4992486 and the units of job 4992611 that started before 21:44** ran a runner
+     version that REFUSED any T72 cell whose library mtime changed. It therefore recorded all their
+     T72 cells as `build_error` ("library rebuilt between default/T1 and default/T72; not timed") and
+     dropped those timings. `sweep_agents.py` was replaced at 21:44 (new file, never edited in place;
+     each unit loads it at start) to record identity instead of refusing. The refused cells were
+     re-timed in a separate pass (`agents_redo.sbatch`, `sweep_agents.py --redo-t72`), with the
+     source placed again, the harness's normal rebuild at T72 and the same binding. The replaced
+     rows carry a note saying so.
+   - The pilot (job 4992464) ran an even earlier version that re-placed the source before T72. Its
+     11 T72 libraries are all byte-identical to their T1 libraries.
 5. **Translated C is timed at T1 as well as T72** (once per kernel each) in the same unit, so that the
    GH200 speedup over translated C at T1 uses a same-node reference. The task asks for T72 only. The v2
    matrix's `c` cell is the cross-job alternative.
@@ -37,7 +46,9 @@ Every way this experiment departs from the task text or from the LLR-40 v2 proto
    Every candidate is built and validated with it, and timed at T1.
 7. **T72 times VALID candidates only** (valid = default/T1 validated). Every T72 run is validated
    again, so a race at 72 threads shows up as `incorrect`.
-8. **Debug-partition chain.** The full sweep runs as chained 30-minute, 10-node debug jobs
+8. **Debug-partition chain, and steps 2 and 3 together.** Building/validating (step 2) and timing
+   (step 3) run candidate by candidate in one pass, as in the pilot, and are pushed after each chain
+   job, not as separate step-2 and step-3 pushes. The full sweep runs as chained 30-minute, 10-node debug jobs
    (`agents_chain.sbatch`, as v2's `chain_debug.sbatch`), because normal-partition starts were
    estimated hours away. A unit cut at the wall limit resumes in the next job. Candidates are written
    ATOMICALLY (all of a candidate's rows at once), so a cut candidate is redone from default/T1, and
@@ -52,4 +63,5 @@ Every way this experiment departs from the task text or from the LLR-40 v2 proto
     step finished, it resumed in the edited file and stopped with a syntax error. By then the sweep step
     had written all 41 rows ("wrote 41 rows" precedes the error). The only losses are the unit's final
     `end` line and its done marker. The chain reaches `tsvc_2_s3110`, skips its recorded candidates
-    and marks it done. No script was changed while the chain was running.
+    and marks it done. Afterwards no bash script was changed while a job ran. The one Python change
+    during the chain (item 4) was installed as a new file.
