@@ -90,11 +90,16 @@ def stat_value(kernel, model, lang, stat, build, threads, k_first):
         return None, 0
     def t(c):
         # timed only if valid in its own build: default T72 needs default/T1 valid; gcc14 its gcc14/T1
-        if build == "default" and threads == "72":
+        thr = threads.split("/")[0]
+        if build == "default" and thr == "72":
             v = by.get((kernel, c["sha256"], "default", "1"))
             if not v or v["status"] != "ok":
                 return None
-        return tmin(by.get((kernel, c["sha256"], build, threads)))
+            if threads.endswith("/identical"):
+                r72 = by.get((kernel, c["sha256"], "default", "72"))
+                if not r72 or not same_binary(v, r72):
+                    return None
+        return tmin(by.get((kernel, c["sha256"], build, thr)))
     times = [t(c) for c in ss]
     valid = [x for x in times if x is not None]
     if stat == "best":
@@ -136,7 +141,15 @@ def summarize(pairs):
             "within_10pct": sum(abs(x) <= math.log(1.1) for x in lr)}
 
 
-settings = [("default", "1"), ("default", "72"), ("gcc14", "1")]
+def same_binary(r1, r72):
+    """T72 library byte-identical to default/T1's (pilot rows predate the column: compare hashes)."""
+    flag = r72.get("t72_binary_equals_t1", "")
+    if flag:
+        return flag == "yes"
+    return bool(r72["lib_sha256"]) and r72["lib_sha256"] == r1["lib_sha256"]
+
+
+settings = [("default", "1"), ("default", "72"), ("default", "72/identical"), ("gcc14", "1")]
 models = sorted({c["arm"].split("-")[1] for v in picks.values() for c in v})
 stats_rows = []
 for build, threads in settings:
@@ -154,7 +167,7 @@ for build, threads in settings:
                     continue
                 pairs.append({"kernel": kernel, "model": model, "n_c": nc, "n_fortran": nf, "k": kf,
                               "t_c_ns": int(tc), "t_fortran_ns": int(tf), "ratio_f_over_c": tf / tc})
-        with open(HERE / f"paired_{stat}_{build}_t{threads}.csv", "w", newline="") as fh:
+        with open(HERE / f"paired_{stat}_{build}_t{threads.replace('/', '_')}.csv", "w", newline="") as fh:
             fields = ["kernel", "model", "n_c", "n_fortran", "k", "t_c_ns", "t_fortran_ns", "ratio_f_over_c"]
             w = csv.DictWriter(fh, fieldnames=fields); w.writeheader(); w.writerows(pairs)
         for model in ["pooled"] + models:

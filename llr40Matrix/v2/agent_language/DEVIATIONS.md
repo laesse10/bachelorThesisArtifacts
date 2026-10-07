@@ -65,3 +65,11 @@ Every way this experiment departs from the task text or from the LLR-40 v2 proto
     `end` line and its done marker. The chain reaches `tsvc_2_s3110`, skips its recorded candidates
     and marks it done. Afterwards no bash script was changed while a job ran. The one Python change
     during the chain (item 4) was installed as a new file.
+12. **One T72 cell misclassified.** `tsvc_2_s1232`, kimi27sglang-c seq 4, default/T72 is recorded as
+    `build_error` with no timings and an empty error text, but its harness log
+    (`logs/cells/tsvc_2_s1232.0239b6bdc9d2.default.t72.log`) shows a validated run, median 0.933 ms.
+    The runner's reading of the driver output failed for this one run, and the cause is not
+    identified. The row is kept as recorded and excluded from the T72 statistics (1 of 442 T72 cells).
+13. **`tsvc_2_s2710` needed the normal partition.** Its qwen38-c submission (job 621016, seq 1) runs
+    past any 30-minute debug job. It was finished in job 4995283 (normal, 2.5 h), where it reached
+    the protocol's 1800 s `timeout` with both compilers.

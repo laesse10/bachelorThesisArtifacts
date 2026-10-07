@@ -1,0 +1,70 @@
+unit tsvc_2_s2710 node=nid005691 start=2026-10-07T10:21:31+02:00
+T1 binding:  PROBE nid005691 1 1
+T72 binding: PROBE nid005691 72 72
+SRUN[tsvc_2_s2710]: srun --nodes=1 --ntasks=1 -w nid005691 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=145 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel tsvc_2_s2710 --out parts/tsvc_2_s2710.csv --scratch scratch/tsvc_2_s2710 --logs logs/cells --db-shard 700
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  removing leftover non-autogen tsvc_2_s2710_fp64.c before generation
+  candidate llr40v10-oss120b-c seq=1 already recorded (resume)
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   timeout                   timeout exceeded 1800s wall budget
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   timeout                   timeout exceeded 1800s wall budget
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T1   ok              77.390 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok               8.880 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 gcc14   T1   ok              77.808 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   ok             216.594 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok               8.760 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   ok             213.581 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T1   ok              94.963 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T72  ok               8.862 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 gcc14   T1   ok              94.712 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 default T1   ok              84.859 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 default T72  ok               8.781 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 gcc14   T1   ok              84.921 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  4 default T1   ok              79.187 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  4 default T72  ok               8.769 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  4 gcc14   T1   ok              81.122 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  5 default T1   ok              83.402 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  5 default T72  ok               8.746 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  5 gcc14   T1   ok              83.682 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  6 default T1   ok              78.209 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  6 default T72  ok               8.815 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  6 gcc14   T1   ok              78.166 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   ok             125.073 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok               8.745 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   ok             102.643 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   ok             217.690 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok               8.814 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   ok             219.549 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   ok              79.141 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok               8.914 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   ok              78.199 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   ok             209.658 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok               8.824 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   ok             213.246 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T1   ok              78.666 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok               8.757 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 gcc14   T1   ok              78.757 ms  
+wrote 43 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/parts/tsvc_2_s2710.csv
+unit tsvc_2_s2710 node=nid005691 end=2026-10-07T11:34:27+02:00
