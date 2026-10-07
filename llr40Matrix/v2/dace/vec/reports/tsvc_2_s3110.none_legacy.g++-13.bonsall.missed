@@ -1,0 +1,4 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3110/none_legacy/src/cpu/canon_cpu.cpp:38:20: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3110/none_legacy/src/cpu/canon_cpu.cpp:42:22: missed: not vectorized: complicated access pattern.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3110/none_legacy/src/cpu/canon_cpu.cpp:40:24: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3110/none_legacy/src/cpu/canon_cpu.cpp:46:13: missed: not vectorized: unsupported use in stmt.

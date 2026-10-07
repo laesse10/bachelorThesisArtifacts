@@ -1,0 +1,15 @@
+numpyto_c: emitted tsvc_2_s3110_fp64.{c,cpp} + tsvc_2_s3110_fp64_pluto_input.c + tsvc_2_s3110_fp64_binding.json
+numpyto_c: emitted tsvc_2_s3110_fp32.{c,cpp} + tsvc_2_s3110_fp32_pluto_input.c + tsvc_2_s3110_fp32_binding.json
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s3110/cpp_backend/tsvc_2_s3110_fp64.cpp: In function ‘void tsvc_2_s3110_fp64(const double*, double*, int64_t)’:
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s3110/cpp_backend/tsvc_2_s3110_fp64.cpp:185:16: warning: variable ‘tmp2’ set but not used [-Wunused-but-set-variable]
+  185 |         double tmp2;
+      |                ^~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s3110/cpp_backend/tsvc_2_s3110_fp32.cpp: In function ‘void tsvc_2_s3110_fp32(const float*, float*, int64_t)’:
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s3110/cpp_backend/tsvc_2_s3110_fp32.cpp:185:15: warning: variable ‘tmp2’ set but not used [-Wunused-but-set-variable]
+  185 |         float tmp2;
+      |               ^~~~
+***** Testing C++ (g++) with loop_level_reasoning/tsvc_2_s3110/tsvc_2_s3110 on the M dataset, datatype float64 *****
+C++ (g++) - default - default - validation: SUCCESS
+C++ (g++) - default - median: 103.688ms
+C++ (g++) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "tsvc_2_s3110", "pipeline": "cpp", "codegen": "", "column": "cpp", "preset": "M", "warmup": 5, "reps": 30, "node": "nid005656", "cpus": 1, "omp_num_threads": "1", "slurm_job": "4992725", "timestamp": "2026-10-06T22:07:26+0200", "status": "ok", "wall_s": 16.3}

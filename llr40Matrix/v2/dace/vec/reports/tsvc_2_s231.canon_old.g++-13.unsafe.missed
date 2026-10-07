@@ -1,0 +1,8 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s231/canon_old/src/cpu/canon_cpu.cpp:19:62: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s231/canon_old/src/cpu/canon_cpu.cpp:19:62: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s231/canon_old/src/cpu/canon_cpu.cpp:15:38: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s231/canon_old/src/cpu/canon_cpu.cpp:15:38: missed: not vectorized: control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s231/canon_old/src/cpu/canon_cpu.cpp:19:108: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s231/canon_old/src/cpu/canon_cpu.cpp:19:108: missed: not vectorized: control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s231/canon_old/src/cpu/canon_cpu.cpp:15:38: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s231/canon_old/src/cpu/canon_cpu.cpp:15:38: missed: not vectorized: control flow in loop.

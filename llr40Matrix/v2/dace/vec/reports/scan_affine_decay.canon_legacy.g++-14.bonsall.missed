@@ -1,0 +1,12 @@
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:284:32: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:284:32: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:344:23: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:345:32: missed: not vectorized: unsupported use in stmt.
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:292:30: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:322:39: missed: not vectorized: unsupported use in stmt.
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:330:23: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:332:14: missed: not vectorized: unsupported use in stmt.
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:344:23: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:345:32: missed: not vectorized: unsupported use in stmt.
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:344:23: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:345:32: missed: not vectorized: unsupported use in stmt.

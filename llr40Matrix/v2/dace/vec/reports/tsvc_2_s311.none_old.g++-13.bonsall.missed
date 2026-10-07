@@ -1,0 +1,2 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s311/none_old/src/cpu/canon_cpu.cpp:31:20: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s311/none_old/src/cpu/canon_cpu.cpp:61:28: missed: not vectorized: complicated access pattern.

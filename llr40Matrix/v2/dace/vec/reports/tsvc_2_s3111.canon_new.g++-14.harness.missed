@@ -1,0 +1,6 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3111/canon_new/src/cpu/canon_cpu.cpp:35:46: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3111/canon_new/src/cpu/canon_cpu.cpp:35:17: missed: not vectorized: number of iterations cannot be computed.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3111/canon_new/src/cpu/canon_cpu.cpp:35:17: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3111/canon_new/src/cpu/canon_cpu.cpp:35:17: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3111/canon_new/src/cpu/canon_cpu.cpp:35:17: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3111/canon_new/src/cpu/canon_cpu.cpp:35:17: missed: not vectorized: vectorization is not profitable.

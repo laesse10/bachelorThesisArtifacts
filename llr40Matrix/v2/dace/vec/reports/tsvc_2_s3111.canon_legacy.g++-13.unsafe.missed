@@ -1,0 +1,2 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3111/canon_legacy/src/cpu/canon_cpu.cpp:44:50: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3111/canon_legacy/src/cpu/canon_cpu.cpp:44:21: missed: not vectorized: number of iterations cannot be computed.

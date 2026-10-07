@@ -1,0 +1,3 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s275/none_old/src/cpu/canon_cpu.cpp:21:20: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s275/none_old/src/cpu/canon_cpu.cpp:21:20: missed: not vectorized: unsupported outerloop form.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s275/none_old/src/cpu/canon_cpu.cpp:27:28: missed: couldn't vectorize loop

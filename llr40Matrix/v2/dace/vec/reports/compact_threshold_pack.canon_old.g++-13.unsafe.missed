@@ -1,0 +1,8 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/compact_threshold_pack/canon_old/src/cpu/canon_cpu.cpp:88:61: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/compact_threshold_pack/canon_old/src/cpu/canon_cpu.cpp:30:74: missed: not vectorized: data ref analysis failed: *_29 = __out_28;
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/compact_threshold_pack/canon_old/src/cpu/canon_cpu.cpp:41:21: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/compact_threshold_pack/canon_old/src/cpu/canon_cpu.cpp:41:21: missed: not vectorized: control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:284:32: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:284:32: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:292:30: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:427:33: missed: not vectorized: unsupported use in stmt.

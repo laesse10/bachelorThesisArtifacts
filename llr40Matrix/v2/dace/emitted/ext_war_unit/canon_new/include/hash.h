@@ -1,0 +1,1 @@
+#define __HASH_canon_cpu "33bb0a4381e90444911597ce092ff2895dad182c0d7fa91927336ac37387ebb8"

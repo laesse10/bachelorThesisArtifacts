@@ -1,0 +1,6 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/segment_reduce_ragged/canon_new/src/cpu/canon_cpu.cpp:23:29: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/segment_reduce_ragged/canon_new/src/cpu/canon_cpu.cpp:23:29: missed: not vectorized: unsupported outerloop form.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/segment_reduce_ragged/canon_new/src/cpu/canon_cpu.cpp:73:13: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/segment_reduce_ragged/canon_new/src/cpu/canon_cpu.cpp:73:13: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/segment_reduce_ragged/canon_new/src/cpu/canon_cpu.cpp:73:13: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/segment_reduce_ragged/canon_new/src/cpu/canon_cpu.cpp:73:13: missed: not vectorized: vectorization is not profitable.

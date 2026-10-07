@@ -1,0 +1,482 @@
+[
+ {
+  "kernel": "loop_level_reasoning/argmax_with_index/argmax_with_index",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/argmax_with_index/argmax_with_index",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/compact_threshold_pack/compact_threshold_pack",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/compact_threshold_pack/compact_threshold_pack",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/ext_break_capture/ext_break_capture",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/ext_break_capture/ext_break_capture",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/ext_war_unit/ext_war_unit",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/ext_war_unit/ext_war_unit",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/fuse_diamond/fuse_diamond",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/fuse_diamond/fuse_diamond",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/fuse_move_ifs/fuse_move_ifs",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/fuse_move_ifs/fuse_move_ifs",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/fuse_stencil_through_transient/fuse_stencil_through_transient",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/fuse_stencil_through_transient/fuse_stencil_through_transient",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/quasi_affine_reduce_odd/quasi_affine_reduce_odd",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/quasi_affine_reduce_odd/quasi_affine_reduce_odd",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/scan_affine_decay/scan_affine_decay",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/scan_affine_decay/scan_affine_decay",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/scatter_accum_dup/scatter_accum_dup",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/scatter_accum_dup/scatter_accum_dup",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/segment_reduce_ragged/segment_reduce_ragged",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/segment_reduce_ragged/segment_reduce_ragged",
+  "language": "hip",
+  "rendered": false,
+  "detail": "view /opt/node-shm/ybudanaz/dcc-670199/cpf-view-gpu entry segment_reduce_ragged_fp64_cpf.hip.json has no dropin (verdict 'fail', key 12570fc12c0b67386a5d53c48c61635ed6c7d2fa95c3dac053b979630fcdcd70): RuntimeError: CPF rendered segment_reduce_ragged_fp64 with a DaCe runtime symbol ('dace::'), so the "
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s115/tsvc_2_s115",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s115/tsvc_2_s115",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s119/tsvc_2_s119",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s119/tsvc_2_s119",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s1232/tsvc_2_s1232",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s1232/tsvc_2_s1232",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s1244/tsvc_2_s1244",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s1244/tsvc_2_s1244",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s152/tsvc_2_s152",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s152/tsvc_2_s152",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s2233/tsvc_2_s2233",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s2233/tsvc_2_s2233",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s2275/tsvc_2_s2275",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s2275/tsvc_2_s2275",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s231/tsvc_2_s231",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s231/tsvc_2_s231",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s233/tsvc_2_s233",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s233/tsvc_2_s233",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s235/tsvc_2_s235",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s235/tsvc_2_s235",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s252/tsvc_2_s252",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s252/tsvc_2_s252",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s255/tsvc_2_s255",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s255/tsvc_2_s255",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s2710/tsvc_2_s2710",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s2710/tsvc_2_s2710",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s275/tsvc_2_s275",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s275/tsvc_2_s275",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s311/tsvc_2_s311",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s311/tsvc_2_s311",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s3110/tsvc_2_s3110",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s3110/tsvc_2_s3110",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s3111/tsvc_2_s3111",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s3111/tsvc_2_s3111",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s3112/tsvc_2_s3112",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s3112/tsvc_2_s3112",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s316/tsvc_2_s316",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s316/tsvc_2_s316",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s318/tsvc_2_s318",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s318/tsvc_2_s318",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s319/tsvc_2_s319",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s319/tsvc_2_s319",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s323/tsvc_2_s323",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s323/tsvc_2_s323",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s4112/tsvc_2_s4112",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_s4112/tsvc_2_s4112",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_vag/tsvc_2_vag",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_vag/tsvc_2_vag",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_vpvts/tsvc_2_vpvts",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_vpvts/tsvc_2_vpvts",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_vtvtv/tsvc_2_vtvtv",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/tsvc_2_vtvtv/tsvc_2_vtvtv",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/versioned_distance_update/versioned_distance_update",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/versioned_distance_update/versioned_distance_update",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/wf_diff_skew/wf_diff_skew",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/wf_diff_skew/wf_diff_skew",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/wf_triangular/wf_triangular",
+  "language": "cpp",
+  "rendered": true,
+  "detail": ""
+ },
+ {
+  "kernel": "loop_level_reasoning/wf_triangular/wf_triangular",
+  "language": "hip",
+  "rendered": true,
+  "detail": ""
+ }
+]

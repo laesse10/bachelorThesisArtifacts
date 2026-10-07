@@ -1,0 +1,15 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:113:36: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:113:36: missed: not vectorized: unsupported control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:13:43: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:13:43: missed: not vectorized: unsupported control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:13:81: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:13:81: missed: not vectorized: unsupported outerloop form.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:14:80: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:148:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:148:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:148:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:148:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:148:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:148:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:148:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_old/src/cpu/canon_cpu.cpp:148:21: missed: not vectorized: vectorization is not profitable.

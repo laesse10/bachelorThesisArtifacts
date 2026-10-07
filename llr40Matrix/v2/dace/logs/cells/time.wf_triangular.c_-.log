@@ -1,0 +1,7 @@
+numpyto_c: emitted wf_triangular_fp64.{c,cpp} + wf_triangular_fp64_pluto_input.c + wf_triangular_fp64_binding.json
+numpyto_c: emitted wf_triangular_fp32.{c,cpp} + wf_triangular_fp32_pluto_input.c + wf_triangular_fp32_binding.json
+***** Testing C (gcc) with loop_level_reasoning/wf_triangular/wf_triangular on the M dataset, datatype float64 *****
+C (gcc) - default - default - validation: SUCCESS
+C (gcc) - default - median: 622.074ms
+C (gcc) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "wf_triangular", "pipeline": "c", "codegen": "", "column": "cc", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006326", "cpus": 1, "omp_num_threads": "1", "slurm_job": "4992604", "timestamp": "2026-10-06T21:44:57+0200", "status": "ok", "wall_s": 44.8}

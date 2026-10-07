@@ -1,0 +1,3 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s275/none_new/src/cpu/canon_cpu.cpp:24:23: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s275/none_new/src/cpu/canon_cpu.cpp:24:23: missed: not vectorized: control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s275/none_new/src/cpu/canon_cpu.cpp:28:36: missed: couldn't vectorize loop

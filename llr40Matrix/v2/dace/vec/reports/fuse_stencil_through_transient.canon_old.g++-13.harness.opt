@@ -1,0 +1,2 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/fuse_stencil_through_transient/canon_old/src/cpu/canon_cpu.cpp:36:39: optimized: loop vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/fuse_stencil_through_transient/canon_old/src/cpu/canon_cpu.cpp:36:39: optimized:  loop versioned for vectorization because of possible aliasing

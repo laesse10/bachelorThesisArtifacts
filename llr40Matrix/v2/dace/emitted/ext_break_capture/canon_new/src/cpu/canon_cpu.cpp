@@ -1,0 +1,81 @@
+/* DaCe AUTO-GENERATED FILE. DO NOT MODIFY */
+#include <dace/dace.h>
+#include "../../include/hash.h"
+
+struct canon_cpu_state_t {
+
+};
+
+static DACE_HDFI constexpr int64_t out_index_idx(int64_t __d0) { return __d0; }
+static DACE_HDFI constexpr int64_t out_value_idx(int64_t __d0) { return __d0; }
+static DACE_HDFI constexpr int64_t a_idx(int64_t __d0) { return __d0; }
+void __program_canon_cpu_internal(canon_cpu_state_t*__state, double * __restrict__ a, int64_t * __restrict__ out_index, double * __restrict__ out_value, int64_t LEN_1D)
+{
+    double a_index;
+
+    {
+
+        {  // check_assumption_0
+            if ((LEN_1D < 0)) {
+                std::abort();
+            }
+        }
+
+    }
+    {
+
+        out_index[out_index_idx(0)] = -1;  // assign_18_4
+        out_value[out_value_idx(0)] = -1.0;  // assign_19_4
+
+    }
+
+    for (int64_t _loop_it_0 = 0; (_loop_it_0 < LEN_1D); _loop_it_0 = (_loop_it_0 + 1)) {
+
+        a_index = a[_loop_it_0];
+
+        if ((a_index > 1)) {
+            {
+
+                out_index[out_index_idx(0)] = _loop_it_0;  // assign_22_12
+                out_value[out_value_idx(0)] = a[a_idx(_loop_it_0)];  // _assign_a_to_out_value
+
+            }
+            break;
+        }
+
+
+    }
+
+}
+
+DACE_EXPORTED void __program_canon_cpu(canon_cpu_state_t *__state, double * __restrict__ a, int64_t * __restrict__ out_index, double * __restrict__ out_value, int64_t LEN_1D)
+{
+    __program_canon_cpu_internal(__state, a, out_index, out_value, LEN_1D);
+}
+
+DACE_EXPORTED canon_cpu_state_t *__dace_init_canon_cpu(int64_t LEN_1D)
+{
+
+    int __result = 0;
+    canon_cpu_state_t *__state = new canon_cpu_state_t();
+
+    if (__result) {
+        delete __state;
+        return nullptr;
+    }
+
+    if (__result) {
+        delete __state;
+        return nullptr;
+    }
+
+    return __state;
+}
+
+DACE_EXPORTED int __dace_exit_canon_cpu(canon_cpu_state_t *__state)
+{
+
+    int __err = 0;
+    delete __state;
+    return __err;
+}

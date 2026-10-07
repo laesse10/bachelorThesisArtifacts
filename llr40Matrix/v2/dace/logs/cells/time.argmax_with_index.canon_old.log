@@ -1,0 +1,7 @@
+***** Testing DaCe CPU canonicalize with loop_level_reasoning/argmax_with_index/argmax_with_index on the M dataset, datatype float64 *****
+DaCe optimize: loaded base SDFG from cache .cache/argmax_with_index_cpu.sdfgz
+DaCe optimize: selected 'canon_cpu', the only compiled variant
+DaCe CPU canonicalize - dace - dace - validation: SUCCESS
+DaCe CPU canonicalize - dace - median: 72.138ms
+DaCe CPU canonicalize - dace - dace - later-call validation: SUCCESS
+TIME {"kernel": "argmax_with_index", "pipeline": "canon", "codegen": "old", "column": "dace_cpu_canonicalize", "preset": "M", "warmup": 5, "reps": 30, "node": "nid005415", "cpus": 1, "omp_num_threads": "1", "slurm_job": "4992662", "timestamp": "2026-10-06T21:58:03+0200", "status": "ok", "implementation": "legacy", "emit_tree_reductions": false, "explicit_copy": false, "cxx_args": "-march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/envs/vecmath.h -Wall -Wextra", "wall_s": 18.5}

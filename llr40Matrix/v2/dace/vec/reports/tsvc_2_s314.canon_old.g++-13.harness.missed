@@ -1,0 +1,4 @@
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/reduction.h:1020:42: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/reduction.h:1020:9: missed: not vectorized: number of iterations cannot be computed.
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/reduction.h:1021:77: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/reduction.h:1020:9: missed: not vectorized: unsupported use in stmt.

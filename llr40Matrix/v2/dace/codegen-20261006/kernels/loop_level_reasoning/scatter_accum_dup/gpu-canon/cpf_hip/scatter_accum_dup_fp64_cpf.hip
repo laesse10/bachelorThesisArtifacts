@@ -1,0 +1,185 @@
+// Rendered by DaCe CPF (canonical parallel form): self-contained, no DaCe runtime.
+// Already parallelized, with basic heuristics applied. Every loop names its class first:
+//   parallel, sequential -- settled; their parallelism needs no further reasoning.
+//   unsure               -- open; the only loops whose parallelism is worth reasoning about.
+// Spend the effort on heuristic optimizations and restructuring.
+#include <cstdint>
+#include <cmath>
+#include <cstring>
+#include <cstdlib>
+#include <algorithm>
+#include <cassert>
+#include <complex>
+#include <numeric>
+#include <new>
+#include <type_traits>
+#include <hip/hip_runtime.h>
+#include <hipcub/hipcub.hpp>
+#include <utility>
+
+// What dace/dace.h would define for the device side.
+using gpuStream_t = hipStream_t;
+using gpuEvent_t = hipEvent_t;
+using gpuError_t = hipError_t;
+static constexpr gpuError_t gpuSuccess = hipSuccess;
+static constexpr gpuError_t gpuErrorMemoryAllocation = hipErrorOutOfMemory;
+
+//: A failed GPU call ends the program, naming the call site.
+static inline void cpf_gpu_check(gpuError_t status, const char *file = __builtin_FILE(), int line = __builtin_LINE()) {
+    if (status != gpuSuccess) {
+        fprintf(stderr, "%s:%d: GPU error %d (%s)\n", file, line, (int)status, hipGetErrorString(status));
+        abort();
+    }
+}
+
+//: The one stream canon offloads onto, in the shape the generated frame indexes.
+struct cpf_gpu_context {
+    gpuStream_t streams[1];
+    gpuEvent_t events[1];
+    gpuError_t lasterror;
+};
+
+//: A failed kernel launch ends the program, naming the kernel and its launch geometry.
+static inline void cpf_kernel_launch_check(gpuError_t err, const char *name, long long gx, long long gy, long long gz,
+                                           long long bx, long long by, long long bz) {
+    if (err != gpuSuccess) {
+        fprintf(stderr, "%s launch failed (grid %lld,%lld,%lld block %lld,%lld,%lld): %s\n", name, gx, gy, gz, bx, by,
+                bz, hipGetErrorString(err));
+        abort();
+    }
+}
+
+//: The backend cub, under the name the code generator writes -- what gpucub.cuh aliases. hipCUB
+//: keeps the functor structs CCCL 3 dropped, and a unit built by hipcc is never built against CCCL.
+namespace gpucub = hipcub;
+
+//: A conflicting accumulation, applied atomically under any binary operator.
+//:
+//: HIP spells only a few operator/type pairs as an intrinsic (atomicAdd on the arithmetic types,
+//: atomicMin/atomicMax on the integers), and an SDFG's write-conflict resolution is any of nine
+//: reductions over any element type, so one CAS loop covers the set where a table of intrinsics
+//: would leave holes. On a tree-reduced accumulator this runs ONCE PER BLOCK, after
+//: gpucub::BlockReduce has folded the block's partials, so the loop is off the per-element path.
+template <typename T, typename V, typename Op>
+__device__ inline void cpf_gpu_atomic(T *address, V value, Op op) {
+    using cpf_atomic_word =
+        typename std::conditional<sizeof(T) == sizeof(unsigned int), unsigned int, unsigned long long>::type;
+    static_assert(sizeof(T) == sizeof(cpf_atomic_word), "no atomic word as wide as the accumulator");
+    cpf_atomic_word *word = reinterpret_cast<cpf_atomic_word *>(address);
+    cpf_atomic_word old = *word;
+    cpf_atomic_word assumed;
+    do {
+        assumed = old;
+        T updated = op(__builtin_bit_cast(T, assumed), static_cast<T>(value));
+        old = atomicCAS(word, assumed, __builtin_bit_cast(cpf_atomic_word, updated));
+    } while (assumed != old);
+}
+
+
+// Functions the DaCe runtime headers would otherwise provide.
+template <typename T>
+static constexpr inline T cpf_min(const T& value) {
+    return value;
+}
+template <typename T, typename... Ts>
+static constexpr inline typename std::common_type<T, Ts...>::type cpf_min(const T& a, const Ts&... rest) {
+    return (cpf_min(rest...) < a) ? cpf_min(rest...) : a;
+}
+template <typename T, typename U, typename R = decltype(std::declval<T>() / std::declval<U>())>
+static constexpr inline R int_ceil(const T& numerator, const U& denominator) {
+    return (numerator + denominator - 1) / denominator;
+}
+
+struct scatter_accum_dup_fp64_state_t {
+    cpf_gpu_context *gpu_context;
+};
+
+void __cpf_runkernel_scatter_accum_dup_fp64_single_state_body_map_0_1_8(scatter_accum_dup_fp64_state_t *__state, double * __restrict__ bins, const int * __restrict__ ip, const double * __restrict__ src, int64_t LEN_1D, gpuStream_t gpu_stream);
+static constexpr inline int64_t src_idx(int64_t __d0) { return __d0; }
+static constexpr inline int64_t gpu_streams_idx(int64_t __d0) { return __d0; }
+extern "C" void scatter_accum_dup_fp64(double * __restrict__ bins, const int * __restrict__ ip, const double * __restrict__ src, int64_t LEN_1D, const uint8_t * __restrict__ workspace, int64_t workspace_size)
+{
+    // The device handshake, which a single entry point has nowhere else to put.
+    cpf_gpu_context __cpf_context{};
+    __cpf_context.streams[0] = nullptr;
+    scatter_accum_dup_fp64_state_t __cpf_state{&__cpf_context};
+    scatter_accum_dup_fp64_state_t *__state = &__cpf_state;
+    struct __cpf_drain {
+        ~__cpf_drain() { cpf_gpu_check(hipDeviceSynchronize()); }
+    } __cpf_drain_guard;
+    gpuStream_t* gpu_streams = __state->gpu_context->streams;
+
+    {
+
+        {  // check_assumption_0
+            if ((LEN_1D < 0)) {
+                std::abort();
+            }
+        }
+
+    }
+
+    {
+        gpuStream_t __cpf_current_stream = gpu_streams[0];
+        __cpf_runkernel_scatter_accum_dup_fp64_single_state_body_map_0_1_8(__state, bins, ip, src, LEN_1D, __cpf_current_stream);
+    }
+    {
+
+        {  // gpu_streams_synchronization
+            cpf_gpu_check(hipStreamSynchronize(gpu_streams[gpu_streams_idx(0)]));
+        }
+
+    }
+    gpu_streams = nullptr;
+}
+
+
+static inline __device__ __forceinline__ void loop_body_0_1_0(const int* __restrict__ ip, const double* __restrict__ src, double* __restrict__ bins, int64_t _loop_it_0) {
+    int ip_index;
+
+
+    ip_index = ip[_loop_it_0];
+    {
+        double _wcr_priv__Add____out;
+
+        _wcr_priv__Add____out = src[src_idx(_loop_it_0)];  // _Add_
+        // conflicting accumulation on bins[ip_index] -- NOT parallel-reduced: the writers can collide, so this serializes.
+        // Reducing it into a tree is an optimization the canonicalization did not find.
+        cpf_gpu_atomic(bins + ip_index, *(&_wcr_priv__Add____out), [] (const double &__cpf_acc, const double &__cpf_val) { return __cpf_acc + (__cpf_val); });
+
+    }
+}
+
+
+// parallel -- kernel: one GPU launch; the iterations of this map make up the launch grid (blockIdx)
+// proven parallel; settled -- focus: block size, tiling, memory access pattern
+__global__ void __launch_bounds__(256) scatter_accum_dup_fp64_single_state_body_map_0_1_8(double * __restrict__ bins, const int * __restrict__ ip, const double * __restrict__ src, int64_t LEN_1D) {
+    int64_t b__loop_it_0 = (256 * static_cast<int64_t>(blockIdx.x));
+    // parallel -- thread block: the iterations of this map run on the threads of one block (threadIdx), one each
+    // proven parallel; settled -- a thread past the bounds of a trailing block is masked off
+    // parallel -- the iterations are independent
+    // settled: proven, no need to re-check; focus: schedule, tiling, vectorization, fusion, data layout
+    {
+        int64_t _loop_it_0 = (threadIdx.x + b__loop_it_0);
+        if (_loop_it_0 >= b__loop_it_0 && _loop_it_0 < (cpf_min((LEN_1D - 1), (b__loop_it_0 + 255)) + 1)) {
+            loop_body_0_1_0(&ip[0], &src[0], &bins[0], _loop_it_0);
+        }
+    }
+}
+
+
+void __cpf_runkernel_scatter_accum_dup_fp64_single_state_body_map_0_1_8(scatter_accum_dup_fp64_state_t *__state, double * __restrict__ bins, const int * __restrict__ ip, const double * __restrict__ src, int64_t LEN_1D, gpuStream_t gpu_stream);
+void __cpf_runkernel_scatter_accum_dup_fp64_single_state_body_map_0_1_8(scatter_accum_dup_fp64_state_t *__state, double * __restrict__ bins, const int * __restrict__ ip, const double * __restrict__ src, int64_t LEN_1D, gpuStream_t gpu_stream)
+
+{
+
+    if (((int_ceil(LEN_1D, 256)) <= 0)) {
+
+        return;
+    }
+
+    void  *scatter_accum_dup_fp64_single_state_body_map_0_1_8_args[] = { (void *)&bins, (void *)&ip, (void *)&src, (void *)&LEN_1D };
+    gpuError_t __err = hipLaunchKernel((void*)scatter_accum_dup_fp64_single_state_body_map_0_1_8, dim3(int_ceil(LEN_1D, 256), 1, 1), dim3(256, 1, 1), scatter_accum_dup_fp64_single_state_body_map_0_1_8_args, 0, gpu_stream);
+
+    cpf_kernel_launch_check(__err, "scatter_accum_dup_fp64_single_state_body_map_0_1_8", int_ceil(LEN_1D, 256), 1, 1, 256, 1, 1);
+}

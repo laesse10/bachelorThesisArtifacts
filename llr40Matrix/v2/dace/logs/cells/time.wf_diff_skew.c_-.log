@@ -1,0 +1,7 @@
+numpyto_c: emitted wf_diff_skew_fp64.{c,cpp} + wf_diff_skew_fp64_pluto_input.c + wf_diff_skew_fp64_binding.json
+numpyto_c: emitted wf_diff_skew_fp32.{c,cpp} + wf_diff_skew_fp32_pluto_input.c + wf_diff_skew_fp32_binding.json
+***** Testing C (gcc) with loop_level_reasoning/wf_diff_skew/wf_diff_skew on the M dataset, datatype float64 *****
+C (gcc) - default - default - validation: SUCCESS
+C (gcc) - default - median: 59.470ms
+C (gcc) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "wf_diff_skew", "pipeline": "c", "codegen": "", "column": "cc", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006020", "cpus": 1, "omp_num_threads": "1", "slurm_job": "4992604", "timestamp": "2026-10-06T21:44:54+0200", "status": "ok", "wall_s": 14.5}

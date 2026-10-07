@@ -1,0 +1,2 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s152/none_legacy/src/cpu/canon_cpu.cpp:76:20: optimized: loop vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s152/none_legacy/src/cpu/canon_cpu.cpp:22:20: optimized: loop vectorized using 16 byte vectors

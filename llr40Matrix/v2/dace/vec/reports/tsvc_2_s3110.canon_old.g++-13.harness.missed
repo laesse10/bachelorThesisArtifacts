@@ -1,0 +1,4 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3110/canon_old/src/cpu/canon_cpu.cpp:47:40: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3110/canon_old/src/cpu/canon_cpu.cpp:48:17: missed: not vectorized: unsupported use in stmt.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3110/canon_old/src/cpu/canon_cpu.cpp:42:36: missed: not vectorized: more than one data ref in stmt: __ar_best = *_11;
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s3110/canon_old/src/cpu/canon_cpu.cpp:41:21: missed: not vectorized: more than one data ref in stmt: *_39 = MEM[(const struct __ar_pair &)iftmp.1_4];

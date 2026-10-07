@@ -1,0 +1,1 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/quasi_affine_reduce_odd/none_new/src/cpu/canon_cpu.cpp:27:21: missed: not vectorized: more than one data ref in stmt: vect_array.25 = .LOAD_LANES (MEM <double[4]> [(double *)vectp_a.23_50]);

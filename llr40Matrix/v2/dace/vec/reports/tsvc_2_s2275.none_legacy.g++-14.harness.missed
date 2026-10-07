@@ -1,0 +1,3 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s2275/none_legacy/src/cpu/canon_cpu.cpp:25:20: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s2275/none_legacy/src/cpu/canon_cpu.cpp:31:28: missed: not vectorized: not suitable for strided load _cpy_in_32 = *_5;
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s2275/none_legacy/src/cpu/canon_cpu.cpp:27:24: missed: couldn't vectorize loop

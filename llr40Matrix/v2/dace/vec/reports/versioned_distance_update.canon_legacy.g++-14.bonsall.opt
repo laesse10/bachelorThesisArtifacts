@@ -1,0 +1,16 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:89:56: optimized: loop vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:89:56: optimized:  loop versioned for vectorization because of possible aliasing
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:86:25: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:24:46: optimized: loop vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:24:46: optimized:  loop versioned for vectorization because of possible aliasing
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:277:9: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:277:9: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:277:9: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:132:42: optimized: loop vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:86:25: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:86:25: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/canon_legacy/src/cpu/canon_cpu.cpp:86:25: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:670:9: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:670:9: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:609:26: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/scan.hpp:609:26: optimized: basic block part vectorized using 16 byte vectors

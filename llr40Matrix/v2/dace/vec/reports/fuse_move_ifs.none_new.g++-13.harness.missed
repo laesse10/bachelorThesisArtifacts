@@ -1,0 +1,4 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/fuse_move_ifs/none_new/src/cpu/canon_cpu.cpp:48:24: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/fuse_move_ifs/none_new/src/cpu/canon_cpu.cpp:53:33: missed: not vectorized: complicated access pattern.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/fuse_move_ifs/none_new/src/cpu/canon_cpu.cpp:23:20: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/fuse_move_ifs/none_new/src/cpu/canon_cpu.cpp:23:20: missed: not vectorized: control flow in loop.

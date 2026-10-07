@@ -1,0 +1,7 @@
+numpyto_c: emitted quasi_affine_reduce_odd_fp64.{c,cpp} + quasi_affine_reduce_odd_fp64_pluto_input.c + quasi_affine_reduce_odd_fp64_binding.json
+numpyto_c: emitted quasi_affine_reduce_odd_fp32.{c,cpp} + quasi_affine_reduce_odd_fp32_pluto_input.c + quasi_affine_reduce_odd_fp32_binding.json
+***** Testing C (gcc) with loop_level_reasoning/quasi_affine_reduce_odd/quasi_affine_reduce_odd on the M dataset, datatype float64 *****
+C (gcc) - default - default - validation: SUCCESS
+C (gcc) - default - median: 63.626ms
+C (gcc) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "quasi_affine_reduce_odd", "pipeline": "c", "codegen": "", "column": "cc", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006333", "cpus": 1, "omp_num_threads": "1", "slurm_job": "4992604", "timestamp": "2026-10-06T21:37:32+0200", "status": "ok", "wall_s": 27.1}

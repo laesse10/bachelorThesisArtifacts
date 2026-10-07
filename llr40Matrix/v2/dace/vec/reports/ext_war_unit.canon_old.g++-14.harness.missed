@@ -1,0 +1,15 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:15:108: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:15:108: missed: not vectorized: unsupported outerloop form.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:127:92: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:127:92: missed: not vectorized: unsupported control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:127:92: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:124:21: missed: not vectorized: number of iterations cannot be computed.
+/capstor/scratch/cscs/lhulsbergen/venv_dace5cf/lib/python3.12/site-packages/dace/runtime/include/dace/copy.h:345:25: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:112:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:124:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:112:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:124:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:112:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:124:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:112:21: missed: not vectorized: vectorization is not profitable.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_old/src/cpu/canon_cpu.cpp:124:21: missed: not vectorized: vectorization is not profitable.

@@ -1,0 +1,133 @@
+/* DaCe AUTO-GENERATED FILE. DO NOT MODIFY */
+#include <dace/dace.h>
+#include "../../include/hash.h"
+#include "dace/cub_scratch.cuh"
+
+struct canon_gpu_state_t {
+    dace::cuda::Context *gpu_context;
+};
+
+DACE_EXPORTED gpuError_t __dace_argreduce_canon_gpu_1_6(const double *__ar_in, long long __ar_stride, double *__ar_val, long long *__ar_idx, long long __ar_items, gpuStream_t __ar_stream);
+void __program_canon_gpu_internal(canon_gpu_state_t*__state, double * __restrict__ a, double * __restrict__ result, int64_t LEN_1D, int64_t inc)
+{
+    double *_argfi_val_for_20;
+    _argfi_val_for_20 = new (std::align_val_t(64)) double[1];
+    int64_t *_argfi_idx_for_20;
+    _argfi_idx_for_20 = new (std::align_val_t(64)) int64_t[1];
+    double scal_result;
+    double result_host;
+    double maxv;
+    int64_t index;
+
+    {
+
+        DACE_GPU_CHECK(hipMemcpyAsync(&scal_result, result, 1 * sizeof(double), hipMemcpyDeviceToHost, nullptr));
+        DACE_GPU_CHECK(hipStreamSynchronize(nullptr));
+
+        dace::CopyND<double, 1, false, 1>::template ConstDst<1>::Copy(
+        &scal_result, &result_host, 1);
+        {
+            double* __restrict__ _in = &a[0];
+            double _out_val;
+            int64_t _out_idx;
+
+            ///////////////////
+            hipStream_t __dace_current_stream = nullptr;
+            double __ar_val;
+            long long __ar_idx;
+            DACE_GPU_CHECK(__dace_argreduce_canon_gpu_1_6(_in, (long long)(inc), &__ar_val, &__ar_idx, (long long)(LEN_1D), __dace_current_stream));
+            _out_val = __ar_val;
+            _out_idx = (int64_t)__ar_idx;
+            ///////////////////
+
+            _argfi_val_for_20[0] = _out_val;
+            _argfi_idx_for_20[0] = _out_idx;
+        }
+
+    }
+    maxv = _argfi_val_for_20[0];
+    index = _argfi_idx_for_20[0];
+    {
+        double float_index;
+
+        {
+            double __out;
+
+            ///////////////////
+            // Tasklet code (_convert_to_float64_)
+            __out = double(index);
+            ///////////////////
+
+            float_index = __out;
+        }
+        {
+            double __in2 = float_index;
+            double __out;
+
+            ///////////////////
+            // Tasklet code (_Add_)
+            __out = (maxv + __in2);
+            ///////////////////
+
+            result_host = __out;
+        }
+
+        dace::CopyND<double, 1, false, 1>::template ConstDst<1>::Copy(
+        &result_host, &scal_result, 1);
+        DACE_GPU_CHECK(hipMemcpyAsync(result, &scal_result, 1 * sizeof(double), hipMemcpyHostToDevice, nullptr));
+
+    }
+    static_assert(std::is_trivially_destructible<double>::value, "aligned heap deallocation skips destructors");
+    ::operator delete[](_argfi_val_for_20, std::align_val_t(64));
+    static_assert(std::is_trivially_destructible<int64_t>::value, "aligned heap deallocation skips destructors");
+    ::operator delete[](_argfi_idx_for_20, std::align_val_t(64));
+}
+
+DACE_EXPORTED void __dace_gpu_drain_error(canon_gpu_state_t *__state);
+DACE_EXPORTED void __program_canon_gpu(canon_gpu_state_t *__state, double * __restrict__ a, double * __restrict__ result, int64_t LEN_1D, int64_t inc)
+{
+    __dace_gpu_drain_error(__state);
+    __program_canon_gpu_internal(__state, a, result, LEN_1D, inc);
+}
+DACE_EXPORTED int __dace_init_cuda(canon_gpu_state_t *__state, int64_t LEN_1D, int64_t inc);
+DACE_EXPORTED int __dace_exit_cuda(canon_gpu_state_t *__state);
+
+DACE_EXPORTED canon_gpu_state_t *__dace_init_canon_gpu(int64_t LEN_1D, int64_t inc)
+{
+
+    int __result = 0;
+    canon_gpu_state_t *__state = new canon_gpu_state_t();
+    __result |= __dace_init_cuda(__state, LEN_1D, inc);
+
+    if (__result) {
+        delete __state;
+        return nullptr;
+    }
+    {  // Environment: DetectScratch
+        ::dace::cub::get_scratch<::dace::cub::DetectFlagTag>(sizeof(unsigned long long), 0);
+    }
+
+    if (__result) {
+        delete __state;
+        return nullptr;
+    }
+
+    return __state;
+}
+
+DACE_EXPORTED int __dace_exit_canon_gpu(canon_gpu_state_t *__state)
+{
+
+    int __err = 0;
+
+    int __err_cuda = __dace_exit_cuda(__state);
+    if (__err_cuda) {
+        __err = __err_cuda;
+    }
+    {  // Environment: DetectScratch
+        ::dace::cub::release_scratch<::dace::cub::DetectFlagTag>();
+        ::dace::cub::release_scratch<::dace::cub::DetectOwnerTag>();
+    }
+    delete __state;
+    return __err;
+}

@@ -1,0 +1,2 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s252/none_old/src/cpu/canon_cpu.cpp:34:20: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s252/none_old/src/cpu/canon_cpu.cpp:9:6: missed: not vectorized: relevant phi not supported: t_25 = PHI <__out_13(6), 0.0(5)>

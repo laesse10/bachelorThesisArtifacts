@@ -1,0 +1,3 @@
+stage=vec job=4992631 nodes=nid005984 bench=5cfcb4f2fcc5a79f4c9b27e516a2682b304c85bc dace=2.0.0a10
+1584 rows -> /capstor/scratch/cscs/lhulsbergen/llr40_dace/vec/vec_reports.csv
+done 2026-10-06T21:53:36+02:00

@@ -1,0 +1,4 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/none_old/src/cpu/canon_cpu.cpp:20:20: optimized: loop vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/none_old/src/cpu/canon_cpu.cpp:20:20: optimized:  loop versioned for vectorization because of possible aliasing
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/none_old/src/cpu/canon_cpu.cpp:62:23: optimized: basic block part vectorized using 16 byte vectors
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/versioned_distance_update/none_old/src/cpu/canon_cpu.cpp:62:23: optimized: basic block part vectorized using 16 byte vectors

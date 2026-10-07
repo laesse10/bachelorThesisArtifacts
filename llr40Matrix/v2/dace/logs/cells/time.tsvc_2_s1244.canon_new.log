@@ -1,0 +1,7 @@
+***** Testing DaCe CPU canonicalize with loop_level_reasoning/tsvc_2_s1244/tsvc_2_s1244 on the M dataset, datatype float64 *****
+DaCe optimize: loaded base SDFG from cache .cache/tsvc_2_s1244_cpu.sdfgz
+DaCe optimize: selected 'canon_cpu', the only compiled variant
+DaCe CPU canonicalize - dace - dace - validation: SUCCESS
+DaCe CPU canonicalize - dace - median: 53.309ms
+DaCe CPU canonicalize - dace - dace - later-call validation: SUCCESS
+TIME {"kernel": "tsvc_2_s1244", "pipeline": "canon", "codegen": "new", "column": "dace_cpu_canonicalize", "preset": "M", "warmup": 5, "reps": 30, "node": "nid005368", "cpus": 1, "omp_num_threads": "1", "slurm_job": "4992604", "timestamp": "2026-10-06T21:41:13+0200", "status": "ok", "implementation": "experimental_readable", "emit_tree_reductions": true, "explicit_copy": true, "cxx_args": "-march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/envs/vecmath.h -Wall -Wextra", "wall_s": 26.9}

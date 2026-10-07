@@ -1,0 +1,6 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_new/src/cpu/canon_cpu.cpp:36:116: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_new/src/cpu/canon_cpu.cpp:36:116: missed: not vectorized: unsupported outerloop form.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_new/src/cpu/canon_cpu.cpp:98:80: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_new/src/cpu/canon_cpu.cpp:98:80: missed: not vectorized: unsupported control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_new/src/cpu/canon_cpu.cpp:98:80: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/ext_war_unit/canon_new/src/cpu/canon_cpu.cpp:96:13: missed: not vectorized: number of iterations cannot be computed.

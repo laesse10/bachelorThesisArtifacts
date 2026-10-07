@@ -1,0 +1,2 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s453/none_new/src/cpu/canon_cpu.cpp:24:28: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/tsvc_2_s453/none_new/src/cpu/canon_cpu.cpp:27:24: missed: not vectorized: unsupported use in stmt.

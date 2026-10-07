@@ -1,0 +1,1 @@
+#define __HASH_canon_gpu "1995a71efa1279f242d2e94b5c37e94d78b1e17ccc955067c0979a9b33f12342"

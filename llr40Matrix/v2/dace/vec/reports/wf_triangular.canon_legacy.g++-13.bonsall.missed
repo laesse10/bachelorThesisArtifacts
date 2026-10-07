@@ -1,0 +1,7 @@
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_legacy/src/cpu/canon_cpu.cpp:113:36: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_legacy/src/cpu/canon_cpu.cpp:113:36: missed: not vectorized: multiple nested loops.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_legacy/src/cpu/canon_cpu.cpp:13:43: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_legacy/src/cpu/canon_cpu.cpp:13:43: missed: not vectorized: multiple nested loops.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_legacy/src/cpu/canon_cpu.cpp:13:81: missed: couldn't vectorize loop
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_legacy/src/cpu/canon_cpu.cpp:13:81: missed: not vectorized: control flow in loop.
+/capstor/scratch/cscs/lhulsbergen/llr40_dace/emit/wf_triangular/canon_legacy/src/cpu/canon_cpu.cpp:14:80: missed: couldn't vectorize loop
