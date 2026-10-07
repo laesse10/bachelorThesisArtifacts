@@ -37,7 +37,7 @@ LANG_FW = {"c": ("cc", ".c"), "fortran": ("fortran", ".f90")}
 FIELDS = ["kernel", "role", "model", "language", "arm", "job", "seq", "rank", "sha256", "campaign_speedup",
           "build", "threads", "status", "failure_class", "first_error", "time_ns_min", "time_ns_median",
           "time_ns_all", "n_warmup", "n_reps", "compiler", "compiler_version", "flags", "lib_sha256",
-          "lib_rebuilt", "uses_x86_intrinsics", "sets_thread_count", "notes", "node", "slurm_job", "timestamp"]
+          "lib_rebuilt", "t72_binary_equals_t1", "uses_x86_intrinsics", "sets_thread_count", "notes", "node", "slurm_job", "timestamp"]
 INTRINSICS = re.compile(r"#\s*include\s*<(immintrin|xmmintrin|emmintrin|pmmintrin|smmintrin|nmmintrin|x86intrin|"
                         r"avxintrin|tmmintrin|wmmintrin)\.h>|\b_mm(256|512)?_\w+\s*\(|\b__m(128|256|512)[di]?\b")
 THREADS = re.compile(r"omp_set_num_threads|num_threads\s*\(", re.I)
@@ -179,7 +179,7 @@ def main():
     # 0./1./2. as v2's sweep: drop a leftover non-autogen source, generate, snapshot the pristine lowering
     for ext in (".c", ".cpp", ".f90"):
         f = backend / f"{k}_fp64{ext}"
-        if f.is_file() and MARK not in f.read_text().splitlines()[0]:
+        if f.is_file() and MARK not in (f.read_text().splitlines() or [""])[0]:   # empty = cut copy
             print(f"  removing leftover non-autogen {f.name} before generation", flush=True); f.unlink()
     gen = subprocess.run([PY, "-c", "import sys,hpcagent_bench.autogen as A;A.ensure_native(sys.argv[1])",
                           f"loop_level_reasoning/{k}"], cwd=BENCH, env=base_env(), capture_output=True, text=True)
@@ -213,6 +213,10 @@ def main():
                       lib_sha256=after, lib_rebuilt="" if threads == 1 else str(before != after).lower()), samples, log)
         flush_pending()
 
+        t1_lib = {}
+        if ARGS.redo_t72:
+            redo_t72(k, picks, rows, backend, flush_pending, emit, restore)
+            return
         cands = sorted(picks, key=lambda c: (int(c["job"]), int(c["seq"])))
         if ARGS.limit:
             cands = cands[:ARGS.limit]
@@ -242,8 +246,9 @@ def main():
                     restore()                               # pristine lowerings, then this candidate
                     place(c["path"], target)
                 elif build == "default" and threads == 72:
-                    # NOTHING is placed or restored: the source stays untouched since default/T1 built
-                    # the library, so the harness reuses that exact library (mtime rule)
+                    # nothing is placed or restored. The harness still rebuilds: every `cli run`
+                    # re-emits the generated fp32 sibling, which makes it newer than the library. What
+                    # matters is whether the T72 library is BYTE-IDENTICAL to default/T1's (recorded).
                     assert sha(target) == c["sha256"]
                 else:
                     place(c["path"], target)               # touched: gcc14 must rebuild
@@ -253,25 +258,65 @@ def main():
                 st, samples, note, log = run_cell(k, fw, build, threads, ARGS.timeout)
                 after = sha(lib) if lib.is_file() else ""
                 after_mt = lib.stat().st_mtime_ns if lib.is_file() else 0
-                if build == "default" and threads == 72 and (after_mt != before_mt or after != before):
-                    # never time a rebuilt library at T72: it must be default/T1's
-                    st, samples, note = "build_error", [], "library rebuilt between default/T1 and default/T72; not timed"
+                t72_same = ""
+                if build == "default" and threads == 72:
+                    t72_same = "yes" if (after and after == t1_lib.get(c["sha256"])) else "no"
                 if sha(target) != c["sha256"]:
                     st, samples, note = "build_error", [], f"source in place changed during the run ({target.name})"
                 if build == "default" and threads == 1:
                     valid = st == "ok"
+                    t1_lib[c["sha256"]] = after
                 if st == "build_error":
                     after = ""                              # no library of this candidate exists
                 emit(dict(meta, build=build, threads=threads, status=st, first_error=note,
                           failure_class=failure_class(st, note, text), compiler=comp,
                           compiler_version=VERSIONS[build][comp], flags=FLAGS[build][lang], lib_sha256=after,
-                          lib_rebuilt=str(before_mt != after_mt).lower(),
+                          lib_rebuilt=str(before_mt != after_mt).lower(), t72_binary_equals_t1=t72_same,
                           notes="submission sets its own thread count (not patched)" if meta["sets_thread_count"] == "yes" else ""),
                      samples, log)
             flush_pending()
     finally:
         restore()
     print(f"wrote {len(rows)} rows -> {ARGS.out}")
+
+
+def redo_t72(k, picks, rows, backend, flush_pending, emit, restore):
+    """Re-time default/T72 for every valid candidate whose T72 row is missing or was refused by the
+    earlier mtime rule ("library rebuilt ..."). The refused rows are replaced, and T1/gcc14 rows are
+    left as they are. The harness rebuilds at T72 in any case (see the T72 branch). Whether that
+    library is byte-identical to the recorded default/T1 library is recorded."""
+    t1 = {r["sha256"]: r for r in rows if r["role"] == "candidate" and r["build"] == "default" and r["threads"] == "1"}
+    for c in sorted(picks, key=lambda c: (int(c["job"]), int(c["seq"]))):
+        r1 = t1.get(c["sha256"])
+        if not r1 or r1["status"] != "ok":
+            continue
+        old = [r for r in rows if r["role"] == "candidate" and r["sha256"] == c["sha256"] and r["build"] == "default"
+               and r["threads"] == "72"]
+        if old and "library rebuilt" not in old[-1]["first_error"]:
+            continue
+        lang = c["language"]; fw, ext = LANG_FW[lang]
+        target = backend / f"{k}_fp64{ext}"
+        restore(); place(c["path"], target)
+        lib = lib_path(k, fw)
+        before_mt = lib.stat().st_mtime_ns if lib.is_file() else 0
+        st, samples, note, log = run_cell(k, fw, "default", 72, ARGS.timeout)
+        after = sha(lib) if lib.is_file() and st != "build_error" else ""
+        after_mt = lib.stat().st_mtime_ns if lib.is_file() else 0
+        for r in old:
+            rows.remove(r)
+        text = pathlib.Path(c["path"]).read_text(errors="replace")
+        meta = {k2: r1[k2] for k2 in ("kernel", "role", "model", "language", "arm", "job", "seq", "rank", "sha256",
+                                       "campaign_speedup", "uses_x86_intrinsics", "sets_thread_count")}
+        emit(dict(meta, build="default", threads=72, status=st, first_error=note,
+                  failure_class=failure_class(st, note, text), compiler=r1["compiler"],
+                  compiler_version=r1["compiler_version"], flags=r1["flags"], lib_sha256=after,
+                  lib_rebuilt=str(before_mt != after_mt).lower(),
+                  t72_binary_equals_t1="yes" if (after and after == r1["lib_sha256"]) else "no",
+                  notes=("re-timed in a separate T72 pass (the first T72 run was refused by an mtime rule); "
+                         + ("submission sets its own thread count (not patched)" if meta["sets_thread_count"] == "yes" else ""))),
+             samples, log)
+        flush_pending()
+    restore()
 
 
 def probe(build):
@@ -296,6 +341,7 @@ if __name__ == "__main__":
     ap.add_argument("--timeout", type=int, default=1800)
     ap.add_argument("--preset", default="M", help="M for every recorded run (S only for plumbing tests)")
     ap.add_argument("--limit", type=int, default=0, help="first N candidates only (plumbing tests)")
+    ap.add_argument("--redo-t72", action="store_true", help="only re-time refused/missing default T72 cells")
     ARGS = ap.parse_args()
     for _a in ("out", "scratch", "logs"):
         setattr(ARGS, _a, str(pathlib.Path(getattr(ARGS, _a)).resolve()))

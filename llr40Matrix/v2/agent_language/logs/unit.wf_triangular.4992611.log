@@ -1,0 +1,59 @@
+unit wf_triangular node=nid006550 start=2026-10-06T21:48:23+02:00
+T1 binding:  PROBE nid006550 1 1
+T72 binding: PROBE nid006550 72 72
+SRUN[wf_triangular]: srun --nodes=1 --ntasks=1 -w nid006550 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=21 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel wf_triangular --out parts/wf_triangular.csv --scratch scratch/wf_triangular --logs logs/cells --db-shard 418
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  translated_c c        translator             seq=    default T1   ok              99.743 ms  
+  translated_c c        translator             seq=    default T72  ok              99.993 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   ok             768.891 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok             191.758 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   ok             766.929 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T1   ok             770.026 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok             186.021 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 gcc14   T1   ok             767.185 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   ok             772.601 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok             190.972 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   ok             771.802 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   ok             100.231 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok              99.856 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   ok              99.108 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   ok             767.470 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok             177.669 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   ok             772.840 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   ok             770.555 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok             174.676 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   ok             771.873 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   ok             103.312 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok             105.660 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   ok             106.083 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   ok             105.419 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok             101.003 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   ok              99.048 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T1   ok             151.050 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok              12.205 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 gcc14   T1   ok             151.280 ms  
+wrote 29 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/parts/wf_triangular.csv
+unit wf_triangular node=nid006550 end=2026-10-06T22:06:08+02:00

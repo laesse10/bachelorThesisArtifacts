@@ -1,0 +1,2 @@
+job=4995282 nodes=nid006546 nid006550 nid006552 nid006553 nid006554 nid006555 nid006556 nid006557 nid006558 nid006559 kernels=argmax_with_index ext_break_capture ext_war_unit fuse_diamond fuse_move_ifs fuse_stencil_through_transient quasi_affine_reduce_odd scatter_accum_dup segment_reduce_ragged tsvc_2_s1232 tsvc_2_s1244 tsvc_2_s152 tsvc_2_s2275 tsvc_2_s231 tsvc_2_s233 tsvc_2_s252 tsvc_2_s255 tsvc_2_s311 tsvc_2_s3111 tsvc_2_s316 tsvc_2_s318 tsvc_2_s319 tsvc_2_vag tsvc_2_vtvtv start=2026-10-07T10:21:28+02:00
+job=4995282 end=2026-10-07T10:32:11+02:00

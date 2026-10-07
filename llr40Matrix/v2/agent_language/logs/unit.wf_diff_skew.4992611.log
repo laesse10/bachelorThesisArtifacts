@@ -1,0 +1,58 @@
+unit wf_diff_skew node=nid006553 start=2026-10-06T21:47:42+02:00
+T1 binding:  PROBE nid006553 1 1
+T72 binding: PROBE nid006553 72 72
+SRUN[wf_diff_skew]: srun --nodes=1 --ntasks=1 -w nid006553 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=22 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel wf_diff_skew --out parts/wf_diff_skew.csv --scratch scratch/wf_diff_skew --logs logs/cells --db-shard 417
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  translated_c c        translator             seq=    default T1   ok              59.412 ms  
+  translated_c c        translator             seq=    default T72  ok              59.397 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   ok              61.641 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok              64.273 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   ok              61.674 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 gcc14   T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   ok              63.844 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok              67.956 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   ok              61.886 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T1   ok              59.343 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok              59.343 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 gcc14   T1   ok              59.372 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T1   ok              59.365 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T72  ok              59.313 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 gcc14   T1   ok              59.452 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 default T1   ok              59.419 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 default T72  ok              59.389 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 gcc14   T1   ok              59.369 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  3 default T1   ok              63.575 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  3 default T72  ok              68.053 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  3 gcc14   T1   ok              61.839 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   ok              59.434 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok              59.351 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   ok              59.307 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   ok              63.811 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok              63.835 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   ok              61.732 ms  
+wrote 28 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/parts/wf_diff_skew.csv
+unit wf_diff_skew node=nid006553 end=2026-10-06T21:54:12+02:00

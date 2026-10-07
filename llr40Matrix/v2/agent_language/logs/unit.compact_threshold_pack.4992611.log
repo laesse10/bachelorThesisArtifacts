@@ -1,0 +1,44 @@
+unit compact_threshold_pack node=nid006547 start=2026-10-06T21:55:15+02:00
+T1 binding:  PROBE nid006547 1 1
+T72 binding: PROBE nid006547 72 72
+SRUN[compact_threshold_pack]: srun --nodes=1 --ntasks=1 -w nid006547 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=14 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel compact_threshold_pack --out parts/compact_threshold_pack.csv --scratch scratch/compact_threshold_pack --logs logs/cells --db-shard 422
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  translated_c c        translator             seq=    default T1   ok             111.148 ms  
+  translated_c c        translator             seq=    default T72  ok             110.516 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T1   build_error               other driver wrote no row for this framework
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 gcc14   T1   build_error               other driver wrote no row for this framework
+  candidate  c        lr40v10-kimi27sglang-c seq=  3 default T1   build_error               other driver wrote no row for this framework
+  candidate  c        lr40v10-kimi27sglang-c seq=  3 gcc14   T1   build_error               other driver wrote no row for this framework
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   ok             143.122 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok               6.541 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   ok             142.968 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   ok             110.728 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok             111.085 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   ok             111.214 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 gcc14   T1   build_error               x86_intrinsics /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_be
+wrote 14 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/parts/compact_threshold_pack.csv
+unit compact_threshold_pack node=nid006547 end=2026-10-06T21:58:27+02:00

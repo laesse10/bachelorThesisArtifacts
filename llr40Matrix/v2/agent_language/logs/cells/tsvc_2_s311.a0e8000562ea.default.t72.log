@@ -1,0 +1,22 @@
+$ numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python -m hpcagent_bench.cli run --benchmark tsvc_2_s311 --framework fortran --precision fp64 --preset M --mode multi_core --repeat 30 --validate --output /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/scratch/tsvc_2_s311/tsvc_2_s311.fortran.default.t72.101122.jsonl
+[exit 0]
+--- stdout
+numpyto_fortran: emitted tsvc_2_s311_fp64.f90
+numpyto_fortran: emitted tsvc_2_s311_fp32.f90
+***** Testing Fortran (gfortran) with tsvc_2_s311 on the M dataset, datatype float64 *****
+Fortran (gfortran) - default - default - validation: SUCCESS
+Fortran (gfortran) - default - median: 4.243ms
+Fortran (gfortran) - default - default - later-call validation: SUCCESS
+agentbench: wrote 1 rows to /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/scratch/tsvc_2_s311/tsvc_2_s311.fortran.default.t72.101122.jsonl
+
+--- stderr
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s311/cpp_backend/tsvc_2_s311_fp64.f90:1:57:
+
+    1 | subroutine tsvc_2_s311_fp64(a, sum_out, LEN_1D, workspace, workspace_bytes) bind(C, name="tsvc_2_s311_fp64")
+      |                                                         1
+Warning: Unused dummy argument ‘workspace’ at (1) [-Wunused-dummy-argument]
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s311/cpp_backend/tsvc_2_s311_fp64.f90:1:74:
+
+    1 | subroutine tsvc_2_s311_fp64(a, sum_out, LEN_1D, workspace, workspace_bytes) bind(C, name="tsvc_2_s311_fp64")
+      |                                                                          1
+Warning: Unused dummy argument ‘workspace_bytes’ at (1) [-Wunused-dummy-argument]

@@ -1,0 +1,51 @@
+job=4992611 nodes=nid006545 nid006546 nid006547 nid006548 nid006550 nid006551 nid006552 nid006553 nid006554 nid006555 start=2026-10-06T21:41:01+02:00 done=15 todo=24
+2026-10-06T21:41:01+02:00 nid006545 START tsvc_2_s115 (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006546 START scatter_accum_dup (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006550 START tsvc_2_s233 (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006551 START tsvc_2_s2710 (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006548 START tsvc_2_s311 (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006547 START tsvc_2_s316 (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006555 START tsvc_2_s1244 (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006552 START tsvc_2_s252 (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006554 START argmax_with_index (budget 28 min)
+2026-10-06T21:41:01+02:00 nid006553 START ext_break_capture (budget 28 min)
+2026-10-06T21:41:10+02:00 nid006545 END   tsvc_2_s115 rc=0
+2026-10-06T21:41:10+02:00 nid006545 START tsvc_2_vtvtv (budget 28 min)
+2026-10-06T21:43:38+02:00 nid006550 END   tsvc_2_s233 rc=0
+2026-10-06T21:43:38+02:00 nid006550 START segment_reduce_ragged (budget 26 min)
+2026-10-06T21:44:54+02:00 nid006547 END   tsvc_2_s316 rc=0
+2026-10-06T21:44:54+02:00 nid006547 START tsvc_2_vpvts (budget 25 min)
+2026-10-06T21:45:24+02:00 nid006555 END   tsvc_2_s1244 rc=0
+2026-10-06T21:45:24+02:00 nid006555 START tsvc_2_s235 (budget 24 min)
+2026-10-06T21:45:32+02:00 nid006546 END   scatter_accum_dup rc=0
+2026-10-06T21:45:32+02:00 nid006546 START tsvc_2_s4112 (budget 24 min)
+2026-10-06T21:47:23+02:00 nid006554 END   argmax_with_index rc=0
+2026-10-06T21:47:23+02:00 nid006554 START versioned_distance_update (budget 22 min)
+2026-10-06T21:47:42+02:00 nid006553 END   ext_break_capture rc=0
+2026-10-06T21:47:42+02:00 nid006553 START wf_diff_skew (budget 22 min)
+2026-10-06T21:48:23+02:00 nid006550 END   segment_reduce_ragged rc=0
+2026-10-06T21:48:23+02:00 nid006550 START wf_triangular (budget 21 min)
+2026-10-06T21:51:34+02:00 nid006548 END   tsvc_2_s311 rc=0
+2026-10-06T21:51:34+02:00 nid006548 START tsvc_2_s275 (budget 18 min)
+2026-10-06T21:53:20+02:00 nid006545 END   tsvc_2_vtvtv rc=0
+2026-10-06T21:53:20+02:00 nid006545 START tsvc_2_s119 (budget 16 min)
+2026-10-06T21:54:12+02:00 nid006553 END   wf_diff_skew rc=0
+2026-10-06T21:54:12+02:00 nid006553 START scan_affine_decay (budget 15 min)
+2026-10-06T21:55:15+02:00 nid006547 END   tsvc_2_vpvts rc=0
+2026-10-06T21:55:15+02:00 nid006547 START compact_threshold_pack (budget 14 min)
+2026-10-06T21:55:45+02:00 nid006552 END   tsvc_2_s252 rc=0
+2026-10-06T21:55:45+02:00 nid006552 START tsvc_2_s3112 (budget 14 min)
+2026-10-06T21:55:52+02:00 nid006546 END   tsvc_2_s4112 rc=0
+2026-10-06T21:55:52+02:00 nid006546 START tsvc_2_s323 (budget 14 min)
+2026-10-06T21:56:48+02:00 nid006555 END   tsvc_2_s235 rc=0
+2026-10-06T21:58:19+02:00 nid006554 END   versioned_distance_update rc=0
+2026-10-06T21:58:27+02:00 nid006547 END   compact_threshold_pack rc=0
+2026-10-06T22:00:03+02:00 nid006553 END   scan_affine_decay rc=0
+2026-10-06T22:01:09+02:00 nid006552 END   tsvc_2_s3112 rc=0
+2026-10-06T22:01:18+02:00 nid006546 END   tsvc_2_s323 rc=0
+2026-10-06T22:02:02+02:00 nid006545 END   tsvc_2_s119 rc=0
+2026-10-06T22:06:08+02:00 nid006550 END   wf_triangular rc=0
+2026-10-06T22:08:24+02:00 nid006548 END   tsvc_2_s275 rc=0
+2026-10-06T22:09:35+02:00 nid006551 END   tsvc_2_s2710 rc=0
+end=2026-10-06T22:09:35+02:00 done=15->37 kernels_left=2
+Submitted batch job 4992794

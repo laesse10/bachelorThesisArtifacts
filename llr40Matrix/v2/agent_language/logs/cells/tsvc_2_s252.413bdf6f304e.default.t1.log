@@ -1,0 +1,7 @@
+$ numactl --physcpubind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python -m hpcagent_bench.cli run --benchmark tsvc_2_s252 --framework fortran --precision fp64 --preset M --mode single_core --repeat 30 --validate --output /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/scratch/tsvc_2_s252/tsvc_2_s252.fortran.default.t1.54980.jsonl
+[exit -11]
+--- stdout
+numpyto_fortran: emitted tsvc_2_s252_fp64.f90
+numpyto_fortran: emitted tsvc_2_s252_fp32.f90
+
+--- stderr

@@ -1,0 +1,40 @@
+redo-t72 unit segment_reduce_ragged node=nid006558 start=2026-10-07T10:21:28+02:00
+T1 binding:  PROBE nid006558 1 1
+T72 binding: PROBE nid006558 72 72
+SRUN[segment_reduce_ragged]: srun --nodes=1 --ntasks=1 -w nid006558 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel segment_reduce_ragged --out parts/segment_reduce_ragged.csv --scratch scratch/segment_reduce_ragged --logs logs/cells --db-shard 608 --redo-t72
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok               2.503 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  2 default T72  ok               2.503 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  4 default T72  ok               2.533 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  7 default T72  ok               2.542 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok               2.519 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok               2.553 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  2 default T72  ok               2.630 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok               2.527 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok               2.547 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  2 default T72  ok               2.509 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  3 default T72  ok               2.587 ms  
+redo-t72 unit segment_reduce_ragged node=nid006558 end=2026-10-07T10:23:12+02:00
