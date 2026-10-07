@@ -6,6 +6,7 @@ Fourteen solver kernels, and the preconditioning skill written against them.
 |---|---|
 | [`kernels/`](kernels/) | the fourteen kernels: a NumPy reference, an input generator and a manifest each |
 | [`skills/`](skills/) | the preconditioning skill, in three successive versions |
+| [`checks/`](checks/) | two further measurements quoted in the thesis chapter on the skill |
 
 ## The kernels
 
