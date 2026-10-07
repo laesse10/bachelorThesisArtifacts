@@ -1,0 +1,45 @@
+redo-t72 unit tsvc_2_s3111 node=nid006558 start=2026-10-07T10:23:12+02:00
+T1 binding:  PROBE nid006558 1 1
+T72 binding: PROBE nid006558 72 72
+SRUN[tsvc_2_s3111]: srun --nodes=1 --ntasks=1 -w nid006558 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel tsvc_2_s3111 --out parts/tsvc_2_s3111.csv --scratch scratch/tsvc_2_s3111 --logs logs/cells --db-shard 618 --redo-t72
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok               4.280 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok               4.215 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok               3.819 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok               3.827 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok              72.647 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T72  ok               3.870 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  2 default T72  ok               5.438 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok               5.661 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok               4.240 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok               3.860 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok               3.815 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok             123.000 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  2 default T72  ok               4.287 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok               4.004 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok               4.189 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok               4.228 ms  
+redo-t72 unit tsvc_2_s3111 node=nid006558 end=2026-10-07T10:25:51+02:00

@@ -1,0 +1,2 @@
+job=4990441 nodes=nid006359 nid006360 nid006364 nid006380 nid006405 nid006411 nid006416 nid006431 kernels=comet_int4_gemm quatrex_rgf spgemm_hash warpx_boris_push warpx_esirkepov_deposition warpx_field_gather triangle_count nfa_frontier start=2026-10-06T14:32:27+02:00
+job=4990441 end=2026-10-06T14:57:51+02:00

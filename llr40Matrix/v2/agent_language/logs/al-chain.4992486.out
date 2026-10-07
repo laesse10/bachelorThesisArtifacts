@@ -1,0 +1,47 @@
+job=4992486 nodes=nid006546 nid006547 nid006557 nid006559 nid006561 nid006562 nid006563 nid006564 nid006565 nid006566 start=2026-10-06T21:11:13+02:00 done=0 todo=39
+2026-10-06T21:11:13+02:00 nid006561 START tsvc_2_s1232 (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006547 START tsvc_2_s2275 (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006546 START tsvc_2_s152 (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006557 START tsvc_2_s231 (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006562 START tsvc_2_s3111 (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006559 START ext_war_unit (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006563 START fuse_stencil_through_transient (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006564 START fuse_diamond (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006566 START fuse_move_ifs (budget 28 min)
+2026-10-06T21:11:13+02:00 nid006565 START quasi_affine_reduce_odd (budget 28 min)
+2026-10-06T21:19:04+02:00 nid006564 END   fuse_diamond rc=0
+2026-10-06T21:19:04+02:00 nid006564 START tsvc_2_s318 (budget 21 min)
+2026-10-06T21:19:47+02:00 nid006565 END   quasi_affine_reduce_odd rc=0
+2026-10-06T21:19:47+02:00 nid006565 START tsvc_2_s115 (budget 20 min)
+2026-10-06T21:23:03+02:00 nid006562 END   tsvc_2_s3111 rc=0
+2026-10-06T21:23:03+02:00 nid006562 START tsvc_2_s255 (budget 17 min)
+2026-10-06T21:24:45+02:00 nid006546 END   tsvc_2_s152 rc=0
+2026-10-06T21:24:45+02:00 nid006546 START tsvc_2_s319 (budget 15 min)
+2026-10-06T21:25:06+02:00 nid006563 END   fuse_stencil_through_transient rc=0
+2026-10-06T21:25:06+02:00 nid006563 START tsvc_2_vag (budget 15 min)
+2026-10-06T21:25:47+02:00 nid006559 END   ext_war_unit rc=0
+2026-10-06T21:25:47+02:00 nid006559 START scatter_accum_dup (budget 14 min)
+2026-10-06T21:28:57+02:00 nid006566 END   fuse_move_ifs rc=0
+2026-10-06T21:28:57+02:00 nid006566 START tsvc_2_s233 (budget 11 min)
+2026-10-06T21:29:53+02:00 nid006564 END   tsvc_2_s318 rc=0
+2026-10-06T21:29:53+02:00 nid006564 START tsvc_2_s2710 (budget 10 min)
+2026-10-06T21:30:45+02:00 nid006547 END   tsvc_2_s2275 rc=0
+2026-10-06T21:30:45+02:00 nid006547 START tsvc_2_s311 (budget 9 min)
+2026-10-06T21:31:55+02:00 nid006561 END   tsvc_2_s1232 rc=0
+2026-10-06T21:31:55+02:00 nid006561 START tsvc_2_s3110 (budget 8 min)
+2026-10-06T21:31:59+02:00 nid006561 END   tsvc_2_s3110 rc=0
+2026-10-06T21:31:59+02:00 nid006561 START tsvc_2_s316 (budget 8 min)
+2026-10-06T21:34:09+02:00 nid006557 END   tsvc_2_s231 rc=0
+2026-10-06T21:34:09+02:00 nid006557 START tsvc_2_s1244 (budget 6 min)
+2026-10-06T21:37:14+02:00 nid006562 END   tsvc_2_s255 rc=0
+2026-10-06T21:39:08+02:00 nid006563 END   tsvc_2_vag rc=0
+2026-10-06T21:39:32+02:00 nid006546 END   tsvc_2_s319 rc=0
+2026-10-06T21:40:04+02:00 nid006564 END   tsvc_2_s2710 rc=0
+2026-10-06T21:40:04+02:00 nid006547 END   tsvc_2_s311 rc=0
+2026-10-06T21:40:04+02:00 nid006566 END   tsvc_2_s233 rc=0
+2026-10-06T21:40:04+02:00 nid006561 END   tsvc_2_s316 rc=0
+2026-10-06T21:40:04+02:00 nid006559 END   scatter_accum_dup rc=0
+2026-10-06T21:40:33+02:00 nid006557 END   tsvc_2_s1244 rc=0
+2026-10-06T21:40:44+02:00 nid006565 END   tsvc_2_s115 rc=0
+end=2026-10-06T21:40:44+02:00 done=0->15 kernels_left=24
+Submitted batch job 4992611

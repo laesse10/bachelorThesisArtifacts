@@ -1,0 +1,203 @@
+# objdump -d comet_int4_gemm_fp64.cpp.o  (all functions)
+0000000000000000 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0>:
+   0:	a9b97bfd 	stp	x29, x30, [sp, #-112]!
+   4:	910003fd 	mov	x29, sp
+   8:	a90153f3 	stp	x19, x20, [sp, #16]
+   c:	29450413 	ldp	w19, w1, [x0, #40]
+  10:	a9025bf5 	stp	x21, x22, [sp, #32]
+  14:	a90363f7 	stp	x23, x24, [sp, #48]
+  18:	a9405c18 	ldp	x24, x23, [x0]
+  1c:	a9046bf9 	stp	x25, x26, [sp, #64]
+  20:	aa0003fa 	mov	x26, x0
+  24:	f9400819 	ldr	x25, [x0, #16]
+  28:	f9002bfb 	str	x27, [sp, #80]
+  2c:	b940301b 	ldr	w27, [x0, #48]
+  30:	7100003f 	cmp	w1, #0x0
+  34:	540010cd 	b.le	24c <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x24c>
+  38:	7100037f 	cmp	w27, #0x0
+  3c:	5400108d 	b.le	24c <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x24c>
+  40:	9b3b7c21 	smull	x1, w1, w27
+  44:	93407f74 	sxtw	x20, w27
+  48:	9101a3f6 	add	x22, sp, #0x68
+  4c:	910183f5 	add	x21, sp, #0x60
+  50:	d2800023 	mov	x3, #0x1                   	// #1
+  54:	aa1603e5 	mov	x5, x22
+  58:	aa1503e4 	mov	x4, x21
+  5c:	aa0303e2 	mov	x2, x3
+  60:	d2800000 	mov	x0, #0x0                   	// #0
+  64:	94000000 	bl	0 <GOMP_loop_nonmonotonic_dynamic_start>
+  68:	370001a0 	tbnz	w0, #0, 9c <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x9c>
+  6c:	94000000 	bl	0 <GOMP_loop_end_nowait>
+  70:	a94153f3 	ldp	x19, x20, [sp, #16]
+  74:	a9425bf5 	ldp	x21, x22, [sp, #32]
+  78:	a94363f7 	ldp	x23, x24, [sp, #48]
+  7c:	a9446bf9 	ldp	x25, x26, [sp, #64]
+  80:	f9402bfb 	ldr	x27, [sp, #80]
+  84:	a8c77bfd 	ldp	x29, x30, [sp], #112
+  88:	d65f03c0 	ret
+  8c:	aa1603e1 	mov	x1, x22
+  90:	aa1503e0 	mov	x0, x21
+  94:	94000000 	bl	0 <GOMP_loop_nonmonotonic_dynamic_next>
+  98:	3607fea0 	tbz	w0, #0, 6c <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x6c>
+  9c:	a9463fec 	ldp	x12, x15, [sp, #96]
+  a0:	04a0e3e3 	cntw	x3
+  a4:	93407e66 	sxtw	x6, w19
+  a8:	25b30fe2 	whilelo	p2.s, wzr, w19
+  ac:	2518e3e1 	ptrue	p1.b
+  b0:	a941a34e 	ldp	x14, x8, [x26, #24]
+  b4:	9ad40d8a 	sdiv	x10, x12, x20
+  b8:	2a0a03ed 	mov	w13, w10
+  bc:	1b14b14a 	msub	w10, w10, w20, w12
+  c0:	531961ab 	lsl	w11, w13, #7
+  c4:	b9400104 	ldr	w4, [x8]
+  c8:	11020160 	add	w0, w11, #0x80
+  cc:	6b04001f 	cmp	w0, w4
+  d0:	54000a0c 	b.gt	210 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x210>
+  d4:	b94001c1 	ldr	w1, [x14]
+  d8:	53185d42 	lsl	w2, w10, #8
+  dc:	11040044 	add	w4, w2, #0x100
+  e0:	6b04003f 	cmp	w1, w4
+  e4:	54000a4b 	b.lt	22c <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x22c>  // b.tstop
+  e8:	93407c45 	sxtw	x5, w2
+  ec:	93407d69 	sxtw	x9, w11
+  f0:	4b020084 	sub	w4, w4, w2
+  f4:	4b0b0000 	sub	w0, w0, w11
+  f8:	9b0560c2 	madd	x2, x6, x5, x24
+  fc:	8b050090 	add	x16, x4, x5
+ 100:	8b090007 	add	x7, x0, x9
+ 104:	9b095cd1 	madd	x17, x6, x9, x23
+ 108:	aa1103e1 	mov	x1, x17
+ 10c:	aa0903e4 	mov	x4, x9
+ 110:	7100027f 	cmp	w19, #0x0
+ 114:	5400098d 	b.le	244 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x244>
+ 118:	d2800000 	mov	x0, #0x0                   	// #0
+ 11c:	2538c004 	mov	z4.b, #0
+ 120:	25824840 	mov	p0.b, p2.b
+ 124:	04643085 	mov	z5.d, z4.d
+ 128:	04643086 	mov	z6.d, z4.d
+ 12c:	04643083 	mov	z3.d, z4.d
+ 130:	a4404040 	ld1b	{z0.s}, p0/z, [x2, x0]
+ 134:	05800600 	and	z0.b, z0.b, #0x1
+ 138:	0490a400 	sxtb	z0.s, p1/m, z0.s
+ 13c:	a5a04041 	ld1sb	{z1.s}, p0/z, [x2, x0]
+ 140:	a4404022 	ld1b	{z2.s}, p0/z, [x1, x0]
+ 144:	047f9421 	lsr	z1.s, z1.s, #1
+ 148:	05800602 	and	z2.b, z2.b, #0x1
+ 14c:	05800001 	and	z1.s, z1.s, #0x1
+ 150:	0490a442 	sxtb	z2.s, p1/m, z2.s
+ 154:	04a00021 	add	z1.s, z1.s, z0.s
+ 158:	a5a04020 	ld1sb	{z0.s}, p0/z, [x1, x0]
+ 15c:	0420bc27 	movprfx	z7, z1
+ 160:	25a3c047 	subr	z7.s, z7.s, #2
+ 164:	8b030000 	add	x0, x0, x3
+ 168:	047f9400 	lsr	z0.s, z0.s, #1
+ 16c:	05800000 	and	z0.s, z0.s, #0x1
+ 170:	04a20000 	add	z0.s, z0.s, z2.s
+ 174:	04874006 	mla	z6.s, p0/m, z0.s, z7.s
+ 178:	04814004 	mla	z4.s, p0/m, z0.s, z1.s
+ 17c:	25a3c040 	subr	z0.s, z0.s, #2
+ 180:	04874003 	mla	z3.s, p0/m, z0.s, z7.s
+ 184:	04814005 	mla	z5.s, p0/m, z0.s, z1.s
+ 188:	25b30c00 	whilelo	p0.s, w0, w19
+ 18c:	54fffd21 	b.ne	130 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x130>  // b.any
+ 190:	048124c6 	uaddv	d6, p1, z6.s
+ 194:	04812463 	uaddv	d3, p1, z3.s
+ 198:	6e0c04c3 	mov	v3.s[1], v6.s[0]
+ 19c:	048124a5 	uaddv	d5, p1, z5.s
+ 1a0:	04812484 	uaddv	d4, p1, z4.s
+ 1a4:	6e1404a3 	mov	v3.s[2], v5.s[0]
+ 1a8:	6e1c0483 	mov	v3.s[3], v4.s[0]
+ 1ac:	b9800100 	ldrsw	x0, [x8]
+ 1b0:	8b060021 	add	x1, x1, x6
+ 1b4:	9b051000 	madd	x0, x0, x5, x4
+ 1b8:	91000484 	add	x4, x4, #0x1
+ 1bc:	d37cec00 	lsl	x0, x0, #4
+ 1c0:	3ca06b23 	str	q3, [x25, x0]
+ 1c4:	eb0400ff 	cmp	x7, x4
+ 1c8:	54fffa41 	b.ne	110 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x110>  // b.any
+ 1cc:	910004a5 	add	x5, x5, #0x1
+ 1d0:	8b060042 	add	x2, x2, x6
+ 1d4:	eb1000bf 	cmp	x5, x16
+ 1d8:	54fff981 	b.ne	108 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x108>  // b.any
+ 1dc:	9100058c 	add	x12, x12, #0x1
+ 1e0:	eb0c01ff 	cmp	x15, x12
+ 1e4:	54fff54d 	b.le	8c <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x8c>
+ 1e8:	1100054a 	add	w10, w10, #0x1
+ 1ec:	6b0a037f 	cmp	w27, w10
+ 1f0:	54fff6ac 	b.gt	c4 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0xc4>
+ 1f4:	b9400104 	ldr	w4, [x8]
+ 1f8:	110005ad 	add	w13, w13, #0x1
+ 1fc:	5280000a 	mov	w10, #0x0                   	// #0
+ 200:	531961ab 	lsl	w11, w13, #7
+ 204:	11020160 	add	w0, w11, #0x80
+ 208:	6b04001f 	cmp	w0, w4
+ 20c:	54fff64d 	b.le	d4 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0xd4>
+ 210:	b94001c5 	ldr	w5, [x14]
+ 214:	53185d42 	lsl	w2, w10, #8
+ 218:	2a0403e0 	mov	w0, w4
+ 21c:	11040041 	add	w1, w2, #0x100
+ 220:	6b05003f 	cmp	w1, w5
+ 224:	5400008d 	b.le	234 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x234>
+ 228:	2a0503e1 	mov	w1, w5
+ 22c:	6b02003f 	cmp	w1, w2
+ 230:	54fffd6d 	b.le	1dc <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x1dc>
+ 234:	6b00017f 	cmp	w11, w0
+ 238:	54fffd2a 	b.ge	1dc <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x1dc>  // b.tcont
+ 23c:	2a0103e4 	mov	w4, w1
+ 240:	17ffffaa 	b	e8 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0xe8>
+ 244:	4f000403 	movi	v3.4s, #0x0
+ 248:	17ffffd9 	b	1ac <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x1ac>
+ 24c:	d2800001 	mov	x1, #0x0                   	// #0
+ 250:	17ffff7e 	b	48 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0+0x48>
+ 254:	d503201f 	nop
+ 258:	d503201f 	nop
+ 25c:	d503201f 	nop
+
+
+0000000000000260 <comet_int4_gemm_ref>:
+ 260:	f100003f 	cmp	x1, #0x0
+ 264:	fa401844 	ccmp	x2, #0x0, #0x4, ne	// ne = any
+ 268:	fa401804 	ccmp	x0, #0x0, #0x4, ne	// ne = any
+ 26c:	54000400 	b.eq	2ec <comet_int4_gemm_ref+0x8c>  // b.none
+ 270:	7100009f 	cmp	w4, #0x0
+ 274:	aa0203e6 	mov	x6, x2
+ 278:	7a40c8a4 	ccmp	w5, #0x0, #0x4, gt
+ 27c:	aa0003e2 	mov	x2, x0
+ 280:	7a40c864 	ccmp	w3, #0x0, #0x4, gt
+ 284:	52800040 	mov	w0, #0x2                   	// #2
+ 288:	5400030d 	b.le	2e8 <comet_int4_gemm_ref+0x88>
+ 28c:	a9bb7bfd 	stp	x29, x30, [sp, #-80]!
+ 290:	1103fc67 	add	w7, w3, #0xff
+ 294:	910003fd 	mov	x29, sp
+ 298:	1101fc88 	add	w8, w4, #0x7f
+ 29c:	910043e9 	add	x9, sp, #0x10
+ 2a0:	13087ce7 	asr	w7, w7, #8
+ 2a4:	13077d08 	asr	w8, w8, #7
+ 2a8:	90000000 	adrp	x0, 0 <_ZN12_GLOBAL__N_117tc_int4_gemm_implEPKaS1_Piiii._omp_fn.0>
+ 2ac:	290213e3 	stp	w3, w4, [sp, #16]
+ 2b0:	910053e4 	add	x4, sp, #0x14
+ 2b4:	91000000 	add	x0, x0, #0x0
+ 2b8:	52800003 	mov	w3, #0x0                   	// #0
+ 2bc:	a90187e2 	stp	x2, x1, [sp, #24]
+ 2c0:	910063e1 	add	x1, sp, #0x18
+ 2c4:	52800002 	mov	w2, #0x0                   	// #0
+ 2c8:	a902a7e6 	stp	x6, x9, [sp, #40]
+ 2cc:	f9001fe4 	str	x4, [sp, #56]
+ 2d0:	290823e5 	stp	w5, w8, [sp, #64]
+ 2d4:	b9004be7 	str	w7, [sp, #72]
+ 2d8:	94000000 	bl	0 <GOMP_parallel>
+ 2dc:	52800000 	mov	w0, #0x0                   	// #0
+ 2e0:	a8c57bfd 	ldp	x29, x30, [sp], #80
+ 2e4:	d65f03c0 	ret
+ 2e8:	d65f03c0 	ret
+ 2ec:	52800020 	mov	w0, #0x1                   	// #1
+ 2f0:	d65f03c0 	ret
+ 2f4:	d503201f 	nop
+ 2f8:	d503201f 	nop
+ 2fc:	d503201f 	nop
+
+
+0000000000000300 <comet_int4_gemm_fp64>:
+ 300:	2a0303e5 	mov	w5, w3
+ 304:	2a0403e3 	mov	w3, w4
+ 308:	14000000 	b	260 <comet_int4_gemm_ref>

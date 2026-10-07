@@ -1,0 +1,110 @@
+$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/warpx_boris_push/c/warpx_boris_push_fp64.c -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/warpx_boris_push/c/build/warpx_boris_push_fp64.c.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+warpx_boris_push_fp64.c:241:39: optimized: Loop 12 distributed: split to 0 loops and 1 library calls.
+warpx_boris_push_fp64.c:250:39: optimized: Loop 14 distributed: split to 0 loops and 1 library calls.
+warpx_boris_push_fp64.c:306:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:303:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:300:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:296:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:293:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:290:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:287:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:284:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:281:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:278:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:275:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:272:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:269:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:259:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:256:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:253:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:246:39: missed: couldn't vectorize loop
+warpx_boris_push_fp64.c:180:6: missed: not vectorized: relevant stmt not supported: patt_1298 = (<signed-boolean:8>) _117;
+warpx_boris_push_fp64.c:237:39: missed: couldn't vectorize loop
+warpx_boris_push_fp64.c:180:6: missed: not vectorized: relevant stmt not supported: patt_1324 = (<signed-boolean:8>) _105;
+warpx_boris_push_fp64.c:232:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:228:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:223:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:220:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:217:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:214:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:211:37: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:205:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:202:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:199:39: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.c:306:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:303:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:300:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:296:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:293:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:290:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:287:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:284:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:281:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:278:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:275:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:272:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:269:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:259:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:256:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:253:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:228:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:223:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:220:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:217:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:214:37: optimized: loop with 2 iterations completely unrolled (header execution count 36207767)
+warpx_boris_push_fp64.c:211:37: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:205:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:202:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:199:39: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.c:180:6: missed: splitting region at dont-vectorize loop 32 entry at bb126
+warpx_boris_push_fp64.c:184:35: missed: statement clobbers memory: __cb1_386 = malloc (_2);
+warpx_boris_push_fp64.c:185:46: missed: statement clobbers memory: __inl1_inv_gamma_388 = malloc (_2);
+warpx_boris_push_fp64.c:186:39: missed: statement clobbers memory: __inl1_tx_390 = malloc (_2);
+warpx_boris_push_fp64.c:187:39: missed: statement clobbers memory: __inl1_ty_392 = malloc (_2);
+warpx_boris_push_fp64.c:188:39: missed: statement clobbers memory: __inl1_tz_394 = malloc (_2);
+warpx_boris_push_fp64.c:189:41: missed: statement clobbers memory: __inl1_tsqi_396 = malloc (_2);
+warpx_boris_push_fp64.c:190:39: missed: statement clobbers memory: __inl1_sx_398 = malloc (_2);
+warpx_boris_push_fp64.c:191:39: missed: statement clobbers memory: __inl1_sy_400 = malloc (_2);
+warpx_boris_push_fp64.c:192:39: missed: statement clobbers memory: __inl1_sz_402 = malloc (_2);
+warpx_boris_push_fp64.c:193:41: missed: statement clobbers memory: __inl1_ux_p_404 = malloc (_2);
+warpx_boris_push_fp64.c:194:41: missed: statement clobbers memory: __inl1_uy_p_406 = malloc (_2);
+warpx_boris_push_fp64.c:195:41: missed: statement clobbers memory: __inl1_uz_p_408 = malloc (_2);
+warpx_boris_push_fp64.c:227:42: missed: statement clobbers memory: __inl1_tsq_371 = malloc (_2);
+warpx_boris_push_fp64.c:231:44: missed: statement clobbers memory: __inl1_has_field_372 = malloc (np_particles.0_1);
+warpx_boris_push_fp64.c:235:37: missed: statement clobbers memory: __cb2_342 = malloc (_2);
+warpx_boris_push_fp64.c:240:47: missed: statement clobbers memory: __inl1_safe_tsq_375 = malloc (_2);
+warpx_boris_push_fp64.c:244:37: missed: statement clobbers memory: __cb3_345 = malloc (_2);
+warpx_boris_push_fp64.c:249:45: missed: statement clobbers memory: __inl1_factor_378 = malloc (_2);
+warpx_boris_push_fp64.c:227:42: missed: statement clobbers memory: __inl1_tsq_426 = malloc (_2);
+warpx_boris_push_fp64.c:231:44: missed: statement clobbers memory: __inl1_has_field_428 = malloc (np_particles.0_1);
+warpx_boris_push_fp64.c:235:37: missed: statement clobbers memory: __cb2_430 = malloc (_2);
+warpx_boris_push_fp64.c:235:37: missed: splitting region at dont-vectorize loop 31 entry at bb119
+warpx_boris_push_fp64.c:240:47: missed: statement clobbers memory: __inl1_safe_tsq_432 = malloc (_2);
+warpx_boris_push_fp64.c:242:35: missed: statement clobbers memory: __builtin_memcpy (__inl1_safe_tsq_432, __cb2_430, _2);
+warpx_boris_push_fp64.c:244:37: missed: statement clobbers memory: __cb3_434 = malloc (_2);
+warpx_boris_push_fp64.c:244:37: missed: splitting region at dominance boundary bb35
+warpx_boris_push_fp64.c:249:45: missed: statement clobbers memory: __inl1_factor_436 = malloc (_2);
+warpx_boris_push_fp64.c:251:33: missed: statement clobbers memory: __builtin_memcpy (__inl1_factor_436, __cb3_434, _2);
+warpx_boris_push_fp64.c:260:29: missed: splitting region at dominance boundary bb36
+warpx_boris_push_fp64.c:262:11: missed: statement clobbers memory: free (__inl1_tsq_336);
+warpx_boris_push_fp64.c:263:11: missed: statement clobbers memory: free (__inl1_has_field_332);
+warpx_boris_push_fp64.c:264:11: missed: statement clobbers memory: free (__cb2_361);
+warpx_boris_push_fp64.c:265:11: missed: statement clobbers memory: free (__inl1_safe_tsq_327);
+warpx_boris_push_fp64.c:266:11: missed: statement clobbers memory: free (__cb3_324);
+warpx_boris_push_fp64.c:267:11: missed: statement clobbers memory: free (__inl1_factor_322);
+warpx_boris_push_fp64.c:267:11: missed: splitting region at dominance boundary bb38
+warpx_boris_push_fp64.c:269:37: missed: splitting region at dominance boundary bb65
+warpx_boris_push_fp64.c:269:37: missed: splitting region at dominance boundary bb39
+warpx_boris_push_fp64.c:310:9: missed: statement clobbers memory: free (__cb1_386);
+warpx_boris_push_fp64.c:311:9: missed: statement clobbers memory: free (__inl1_inv_gamma_388);
+warpx_boris_push_fp64.c:312:9: missed: statement clobbers memory: free (__inl1_tx_390);
+warpx_boris_push_fp64.c:313:9: missed: statement clobbers memory: free (__inl1_ty_392);
+warpx_boris_push_fp64.c:314:9: missed: statement clobbers memory: free (__inl1_tz_394);
+warpx_boris_push_fp64.c:315:9: missed: statement clobbers memory: free (__inl1_tsqi_396);
+warpx_boris_push_fp64.c:316:9: missed: statement clobbers memory: free (__inl1_sx_398);
+warpx_boris_push_fp64.c:317:9: missed: statement clobbers memory: free (__inl1_sy_400);
+warpx_boris_push_fp64.c:318:9: missed: statement clobbers memory: free (__inl1_sz_402);
+warpx_boris_push_fp64.c:319:9: missed: statement clobbers memory: free (__inl1_ux_p_404);
+warpx_boris_push_fp64.c:320:9: missed: statement clobbers memory: free (__inl1_uy_p_406);
+warpx_boris_push_fp64.c:321:9: missed: statement clobbers memory: free (__inl1_uz_p_408);

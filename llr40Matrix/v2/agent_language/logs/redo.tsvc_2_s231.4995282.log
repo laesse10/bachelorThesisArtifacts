@@ -1,0 +1,50 @@
+redo-t72 unit tsvc_2_s231 node=nid006553 start=2026-10-07T10:23:50+02:00
+T1 binding:  PROBE nid006553 1 1
+T72 binding: PROBE nid006553 72 72
+SRUN[tsvc_2_s231]: srun --nodes=1 --ntasks=1 -w nid006553 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=26 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel tsvc_2_s231 --out parts/tsvc_2_s231.csv --scratch scratch/tsvc_2_s231 --logs logs/cells --db-shard 613 --redo-t72
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok              53.005 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok              69.275 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  2 default T72  ok               6.111 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok              14.707 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  2 default T72  ok              53.560 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok              14.695 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok              68.745 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T72  ok              13.956 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  ok               6.077 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok              69.360 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  2 default T72  ok              11.530 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  3 default T72  ok              10.444 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  4 default T72  ok               6.695 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  ok              14.725 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok              14.735 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok               6.164 ms  
+  candidate  fortran  lr40v10-qwen38-fortran seq=  1 default T72  ok               9.734 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  1 default T72  ok               6.089 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  2 default T72  ok               5.933 ms  
+  candidate  c        lr40v10-kimi27sglang-c seq=  3 default T72  ok               5.937 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  ok               6.110 ms  
+redo-t72 unit tsvc_2_s231 node=nid006553 end=2026-10-07T10:28:45+02:00

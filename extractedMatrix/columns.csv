@@ -1,0 +1,7 @@
+column,n,geomean_speedup_over_c,ci95_low,ci95_high,faster,within_3pct,slower,kernels
+cpp,7,1.002,0.976,1.028,2,4,1,quatrex_rgf spgemm_hash warpx_boris_push warpx_esirkepov_deposition warpx_field_gather triangle_count nfa_frontier
+fortran,7,1.030,0.881,1.204,2,2,3,quatrex_rgf spgemm_hash warpx_boris_push warpx_esirkepov_deposition warpx_field_gather triangle_count nfa_frontier
+numba,4,1.362,0.908,2.042,3,0,1,spgemm_hash warpx_boris_push triangle_count nfa_frontier
+numba_hand,2,1.027,0.001,755.982,1,0,1,quatrex_rgf warpx_esirkepov_deposition
+native,1,0.790,,,0,0,1,warpx_boris_push
+numba+numba_hand,6,1.240,0.806,1.906,4,0,2,quatrex_rgf spgemm_hash warpx_boris_push warpx_esirkepov_deposition triangle_count nfa_frontier

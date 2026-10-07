@@ -1,0 +1,5 @@
+$ numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python -m hpcagent_bench.cli run --benchmark tsvc_2_s1232 --framework cc --precision fp64 --preset M --mode multi_core --repeat 30 --validate --output /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/scratch/tsvc_2_s1232/tsvc_2_s1232.cc.default.t72.18139.jsonl
+[exit -11]
+--- stdout
+
+--- stderr

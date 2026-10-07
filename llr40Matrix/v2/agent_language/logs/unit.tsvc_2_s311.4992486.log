@@ -1,0 +1,52 @@
+unit tsvc_2_s311 node=nid006547 start=2026-10-06T21:30:45+02:00
+T1 binding:  PROBE nid006547 1 1
+T72 binding: PROBE nid006547 72 72
+SRUN[tsvc_2_s311]: srun --nodes=1 --ntasks=1 -w nid006547 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=9 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_agents.py --kernel tsvc_2_s311 --out parts/tsvc_2_s311.csv --scratch scratch/tsvc_2_s311 --logs logs/cells --db-shard 419
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  },
+  "gcc14": {
+   "gcc": "gcc (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gcc]",
+   "g++": "g++ (Spack GCC) 14.2.0 [/user-environment/env/default/bin/g++]",
+   "gfortran": "GNU Fortran (Spack GCC) 14.2.0 [/user-environment/env/default/bin/gfortran]"
+  }
+ },
+ "flags": {
+  "default": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  },
+  "gcc14": {
+   "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+   "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+  }
+ }
+}
+  translated_c c        translator             seq=    default T1   ok             135.516 ms  
+  translated_c c        translator             seq=    default T72  ok             135.429 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   ok             135.460 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  c        llr40v10-oss120b-c     seq=  1 gcc14   T1   ok             135.499 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T1   ok             135.481 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  c        llr40v10-qwen38-c      seq=  1 gcc14   T1   ok             135.594 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  2 default T1   ok             135.808 ms  
+  candidate  c        llr40v10-qwen38-c      seq=  2 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  c        llr40v10-qwen38-c      seq=  2 gcc14   T1   ok             135.853 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T1   ok              75.157 ms  
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  r40v10-oss120b-fortran seq=  1 gcc14   T1   ok              76.366 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T1   ok              75.735 ms  
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+  candidate  fortran  0-kimi27sglang-fortran seq=  1 gcc14   T1   ok              76.287 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T1   ok             135.523 ms  
+  candidate  c        llr40v10-oss120b-c     seq=  1 default T72  build_error               other library rebuilt between default/T1 and default/T72; not timed
+[2026-10-06T21:40:03.007] error: *** STEP 4992486.56 ON nid006547 CANCELLED AT 2026-10-06T21:40:03 DUE TO TIME LIMIT ***
+srun: error: nid006547: task 0: Terminated
+srun: Terminating StepId=4992486.56
+srun: Force Terminated StepId=4992486.56
+unit tsvc_2_s311 node=nid006547 end=2026-10-06T21:40:04+02:00

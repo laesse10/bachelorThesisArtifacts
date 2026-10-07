@@ -1,0 +1,116 @@
+$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/spgemm_hash/c/spgemm_hash_fp64.c -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/spgemm_hash/c/build/spgemm_hash_fp64.c.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+spgemm_hash_fp64.c: In function ‘spgemm_hash_fp64’:
+spgemm_hash_fp64.c:274:232: warning: unused parameter ‘K’ [-Wunused-parameter]
+  274 | void spgemm_hash_fp64(const int64_t *restrict A_indices, const int64_t *restrict A_indptr, const int64_t *restrict B_indices, const int64_t *restrict B_indptr, int64_t *restrict C_indices, int64_t *restrict C_indptr, const int64_t K, const int64_t M, const int64_t N, const int64_t nnz_A, const int64_t nnz_B, const int64_t nnz_C_cap) {
+      |                                                                                                                                                                                                                          ~~~~~~~~~~~~~~^
+spgemm_hash_fp64.c:274:283: warning: unused parameter ‘nnz_A’ [-Wunused-parameter]
+  274 | void spgemm_hash_fp64(const int64_t *restrict A_indices, const int64_t *restrict A_indptr, const int64_t *restrict B_indices, const int64_t *restrict B_indptr, int64_t *restrict C_indices, int64_t *restrict C_indptr, const int64_t K, const int64_t M, const int64_t N, const int64_t nnz_A, const int64_t nnz_B, const int64_t nnz_C_cap) {
+      |                                                                                                                                                                                                                                                                             ~~~~~~~~~~~~~~^~~~~
+spgemm_hash_fp64.c:274:304: warning: unused parameter ‘nnz_B’ [-Wunused-parameter]
+  274 | void spgemm_hash_fp64(const int64_t *restrict A_indices, const int64_t *restrict A_indptr, const int64_t *restrict B_indices, const int64_t *restrict B_indptr, int64_t *restrict C_indices, int64_t *restrict C_indptr, const int64_t K, const int64_t M, const int64_t N, const int64_t nnz_A, const int64_t nnz_B, const int64_t nnz_C_cap) {
+      |                                                                                                                                                                                                                                                                                                  ~~~~~~~~~~~~~~^~~~~
+spgemm_hash_fp64.c:274:325: warning: unused parameter ‘nnz_C_cap’ [-Wunused-parameter]
+  274 | void spgemm_hash_fp64(const int64_t *restrict A_indices, const int64_t *restrict A_indptr, const int64_t *restrict B_indices, const int64_t *restrict B_indptr, int64_t *restrict C_indices, int64_t *restrict C_indptr, const int64_t K, const int64_t M, const int64_t N, const int64_t nnz_A, const int64_t nnz_B, const int64_t nnz_C_cap) {
+      |                                                                                                                                                                                                                                                                                                                       ~~~~~~~~~~~~~~^~~~~~~~~
+spgemm_hash_fp64.c:264:27: optimized: loop with 8 iterations completely unrolled (header execution count 3392851)
+spgemm_hash_fp64.c:190:27: optimized: loop with 8 iterations completely unrolled (header execution count 3392848)
+spgemm_hash_fp64.c:334:31: optimized: Loop 5 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.c:386:31: optimized: Loop 9 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.c:402:31: optimized: Loop 12 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.c:446:35: optimized: Loop 17 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.c:412:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:412:31: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+spgemm_hash_fp64.c:243:20: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:243:20: missed: not vectorized: number of iterations cannot be computed.
+spgemm_hash_fp64.c:244:33: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:274:6: missed: possible alias involving gather/scatter between *_229 and *_229
+spgemm_hash_fp64.c:218:18: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:218:18: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+spgemm_hash_fp64.c:220:22: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:220:22: missed: not vectorized: number of iterations cannot be computed.
+spgemm_hash_fp64.c:221:35: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:274:6: missed: possible alias involving gather/scatter between *_788 and *_788
+spgemm_hash_fp64.c:419:47: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:419:47: missed: not vectorized: multiple nested loops.
+spgemm_hash_fp64.c:421:51: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:421:51: missed: not vectorized: multiple nested loops.
+spgemm_hash_fp64.c:427:22: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:427:22: missed: not vectorized: could not determine main exit from loop with multiple exits.
+spgemm_hash_fp64.c:427:22: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:426:24: missed: can't safely apply code motion to dependencies of held_240 = table[slot_143];
+ to vectorize the early exit.
+spgemm_hash_fp64.c:416:35: optimized: loop vectorized using 16 byte vectors
+spgemm_hash_fp64.c:203:27: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:274:6: missed: not vectorized: relevant phi not supported: ts_552 = PHI <ts_326(134), 32(108)>
+spgemm_hash_fp64.c:405:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:274:6: missed: possible alias involving gather/scatter between MEM[(long int *)_726] and MEM[(long int *)_726]
+spgemm_hash_fp64.c:397:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:398:25: missed: not vectorized: unsupported use in stmt.
+spgemm_hash_fp64.c:389:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:389:31: missed: not vectorized: unsupported control flow in loop.
+spgemm_hash_fp64.c:381:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:383:19: missed: not vectorized: unsupported use in stmt.
+spgemm_hash_fp64.c:344:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:344:31: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+spgemm_hash_fp64.c:352:47: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:352:47: missed: not vectorized: multiple nested loops.
+spgemm_hash_fp64.c:354:51: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:354:51: missed: not vectorized: multiple nested loops.
+spgemm_hash_fp64.c:360:22: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:360:22: missed: not vectorized: could not determine main exit from loop with multiple exits.
+spgemm_hash_fp64.c:360:22: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:359:24: missed: can't safely apply code motion to dependencies of held_279 = table[slot_142];
+ to vectorize the early exit.
+spgemm_hash_fp64.c:348:35: optimized: loop vectorized using 16 byte vectors
+spgemm_hash_fp64.c:203:27: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:274:6: missed: not vectorized: relevant phi not supported: ts_549 = PHI <ts_310(147), 32(116)>
+spgemm_hash_fp64.c:337:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:274:6: missed: possible alias involving gather/scatter between MEM[(long int *)_693] and MEM[(long int *)_693]
+spgemm_hash_fp64.c:329:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:330:25: missed: not vectorized: unsupported use in stmt.
+spgemm_hash_fp64.c:321:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:321:31: missed: not vectorized: unsupported control flow in loop.
+spgemm_hash_fp64.c:307:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:307:31: missed: not vectorized: unsupported outerloop form.
+spgemm_hash_fp64.c:309:43: missed: couldn't vectorize loop
+spgemm_hash_fp64.c:309:43: missed: Loop costings may not be worthwhile.
+spgemm_hash_fp64.c:416:35: optimized: loop with 7 iterations completely unrolled (header execution count 319260)
+spgemm_hash_fp64.c:397:31: optimized: loop with 7 iterations completely unrolled (header execution count 419342)
+spgemm_hash_fp64.c:348:35: optimized: loop with 7 iterations completely unrolled (header execution count 319260)
+spgemm_hash_fp64.c:329:31: optimized: loop with 7 iterations completely unrolled (header execution count 419341)
+spgemm_hash_fp64.c:274:6: missed: splitting region at dont-vectorize loop 45 entry at bb207
+spgemm_hash_fp64.c:288:36: missed: statement clobbers memory: prod_195 = malloc (_2);
+spgemm_hash_fp64.c:289:9: missed: statement clobbers memory: memset (prod_195, 0, _2);
+spgemm_hash_fp64.c:290:39: missed: statement clobbers memory: row_bin_198 = malloc (_2);
+spgemm_hash_fp64.c:291:9: missed: statement clobbers memory: memset (row_bin_198, 0, _2);
+spgemm_hash_fp64.c:292:39: missed: statement clobbers memory: row_nnz_201 = malloc (_2);
+spgemm_hash_fp64.c:293:9: missed: statement clobbers memory: memset (row_nnz_201, 0, _2);
+spgemm_hash_fp64.c:298:44: missed: statement clobbers memory: rows_in_bins_204 = malloc (_2);
+spgemm_hash_fp64.c:299:9: missed: statement clobbers memory: memset (rows_in_bins_204, 0, _2);
+spgemm_hash_fp64.c:301:9: missed: statement clobbers memory: memset (prod_195, 0, _2);
+spgemm_hash_fp64.c:302:9: missed: statement clobbers memory: memset (row_bin_198, 0, _2);
+spgemm_hash_fp64.c:303:9: missed: statement clobbers memory: memset (row_nnz_201, 0, _2);
+spgemm_hash_fp64.c:304:9: missed: statement clobbers memory: memset (&bin_size, 0, 64);
+spgemm_hash_fp64.c:305:9: missed: statement clobbers memory: memset (&bin_offset, 0, 64);
+spgemm_hash_fp64.c:306:9: missed: statement clobbers memory: memset (rows_in_bins_204, 0, _2);
+spgemm_hash_fp64.c:335:27: missed: statement clobbers memory: __builtin_memset (rows_in_bins_204, 255, _2);
+spgemm_hash_fp64.c:331:19: missed: not vectorized: vectorization is not profitable.
+spgemm_hash_fp64.c:332:23: optimized: basic block part vectorized using 16 byte vectors
+spgemm_hash_fp64.c:331:19: missed: splitting region at dominance boundary bb45
+spgemm_hash_fp64.c:383:19: missed: splitting region at dont-vectorize loop 44 entry at bb200
+spgemm_hash_fp64.c:387:23: missed: statement clobbers memory: __builtin_memset (&bin_size, 0, 64);
+spgemm_hash_fp64.c:403:27: missed: statement clobbers memory: __builtin_memset (rows_in_bins_204, 255, _2);
+spgemm_hash_fp64.c:399:19: missed: not vectorized: vectorization is not profitable.
+spgemm_hash_fp64.c:400:23: optimized: basic block part vectorized using 16 byte vectors
+spgemm_hash_fp64.c:399:19: missed: splitting region at dont-vectorize loop 42 entry at bb183
+spgemm_hash_fp64.c:151:80: missed: splitting region at loop 35 exit at bb104
+spgemm_hash_fp64.c:218:18: missed: splitting region at dont-vectorize loop 39 entry at bb166
+spgemm_hash_fp64.c:218:18: missed: splitting region at dominance boundary bb70
+spgemm_hash_fp64.c:447:37: missed: statement clobbers memory: __builtin_memcpy (_822, &table, _825);
+spgemm_hash_fp64.c:447:37: missed: splitting region at loop 14 exit at bb158
+spgemm_hash_fp64.c:412:31: missed: splitting region at dominance boundary bb64
+spgemm_hash_fp64.c:451:9: missed: statement clobbers memory: free (prod_195);
+spgemm_hash_fp64.c:452:9: missed: statement clobbers memory: free (row_bin_198);
+spgemm_hash_fp64.c:453:9: missed: statement clobbers memory: free (row_nnz_201);
+spgemm_hash_fp64.c:454:9: missed: statement clobbers memory: free (rows_in_bins_204);

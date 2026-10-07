@@ -1,0 +1,17 @@
+unit warpx_esirkepov_deposition node=nid006405 start=2026-10-06T14:32:27+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006405 1 1
+SRUN[warpx_esirkepov_deposition]: srun --nodes=1 --ntasks=1 -w nid006405 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels warpx_esirkepov_deposition --preset M --warmup 5 --reps 30 --out parts/warpx_esirkepov_deposition.csv --scratch scratch/warpx_esirkepov_deposition --logs logs/cells --emitted-dir emitted_sources --db-shard 104
+[1/1] warpx_esirkepov_deposition
+    c            ok           median 2.739 ms 
+    cpp          ok           median 2.717 ms 
+    fortran      ok           median 2.931 ms 
+    numba_hand   ok           median 4.434 ms 
+    native       unsupported   warpx_esirkepov_deposition_original needs the grid extents n1, n2, ncomp, m1, m2, which th
+
+wrote 5 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/parts/warpx_esirkepov_deposition.csv
+SRUN[warpx_esirkepov_deposition]: srun --nodes=1 --ntasks=1 -w nid006405 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir opt_reports --index parts/optrep.warpx_esirkepov_deposition.csv warpx_esirkepov_deposition:c:c:emitted_sources/warpx_esirkepov_deposition/warpx_esirkepov_deposition_fp64.c warpx_esirkepov_deposition:cpp:cpp:emitted_sources/warpx_esirkepov_deposition/warpx_esirkepov_deposition_fp64.cpp warpx_esirkepov_deposition:fortran:fortran:emitted_sources/warpx_esirkepov_deposition/warpx_esirkepov_deposition_fp64.f90 warpx_esirkepov_deposition:numba_hand:python:emitted_sources/warpx_esirkepov_deposition/warpx_esirkepov_deposition_numba_np.py
+warpx_esirkepov_deposition   c            ok
+warpx_esirkepov_deposition   cpp          ok
+warpx_esirkepov_deposition   fortran      ok
+warpx_esirkepov_deposition   numba_hand   ok
+unit warpx_esirkepov_deposition node=nid006405 end=2026-10-06T14:36:22+02:00

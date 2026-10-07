@@ -1,0 +1,17 @@
+unit warpx_field_gather node=nid006411 start=2026-10-06T14:32:27+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006411 1 1
+SRUN[warpx_field_gather]: srun --nodes=1 --ntasks=1 -w nid006411 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels warpx_field_gather --preset M --warmup 5 --reps 30 --out parts/warpx_field_gather.csv --scratch scratch/warpx_field_gather --logs logs/cells --emitted-dir emitted_sources --db-shard 105
+[1/1] warpx_field_gather
+    c            ok           median 11.526 ms 
+    cpp          ok           median 11.855 ms 
+    fortran      ok           median 12.609 ms 
+    numba        incorrect     output did not match the NumPy reference | 
+    native       unsupported   warpx_field_gather_original needs the grid extents n0, n1, n2, ncomp (arithmetic from ncel
+
+wrote 5 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/parts/warpx_field_gather.csv
+SRUN[warpx_field_gather]: srun --nodes=1 --ntasks=1 -w nid006411 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir opt_reports --index parts/optrep.warpx_field_gather.csv warpx_field_gather:c:c:emitted_sources/warpx_field_gather/warpx_field_gather_fp64.c warpx_field_gather:cpp:cpp:emitted_sources/warpx_field_gather/warpx_field_gather_fp64.cpp warpx_field_gather:fortran:fortran:emitted_sources/warpx_field_gather/warpx_field_gather_fp64.f90 warpx_field_gather:numba:python:emitted_sources/warpx_field_gather/warpx_field_gather_numba_np.py
+warpx_field_gather           c            ok
+warpx_field_gather           cpp          ok
+warpx_field_gather           fortran      ok
+warpx_field_gather           numba        numba_error
+unit warpx_field_gather node=nid006411 end=2026-10-06T14:36:45+02:00

@@ -1,0 +1,12 @@
+$ numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python -m hpcagent_bench.cli run --benchmark tsvc_2_vtvtv --framework cc --precision fp64 --preset M --mode multi_core --repeat 30 --validate --output /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/scratch/tsvc_2_vtvtv/tsvc_2_vtvtv.cc.default.t72.272499.jsonl
+[exit 0]
+--- stdout
+numpyto_c: emitted tsvc_2_vtvtv_fp64.{c,cpp} + tsvc_2_vtvtv_fp64_pluto_input.c + tsvc_2_vtvtv_fp64_binding.json
+numpyto_c: emitted tsvc_2_vtvtv_fp32.{c,cpp} + tsvc_2_vtvtv_fp32_pluto_input.c + tsvc_2_vtvtv_fp32_binding.json
+***** Testing C (gcc) with tsvc_2_vtvtv on the M dataset, datatype float64 *****
+C (gcc) - default - default - validation: SUCCESS
+C (gcc) - default - median: 7.755ms
+C (gcc) - default - default - later-call validation: SUCCESS
+agentbench: wrote 1 rows to /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/scratch/tsvc_2_vtvtv/tsvc_2_vtvtv.cc.default.t72.272499.jsonl
+
+--- stderr

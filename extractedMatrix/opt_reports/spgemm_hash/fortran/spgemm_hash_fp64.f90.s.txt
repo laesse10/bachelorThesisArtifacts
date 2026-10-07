@@ -1,0 +1,645 @@
+# objdump -d spgemm_hash_fp64.f90.o  (functions matching spgemm_hash_fp64*)
+0000000000000000 <spgemm_hash_fp64>:
+   0:	d290220c 	mov	x12, #0x8110                	// #33040
+   4:	f10000ff 	cmp	x7, #0x0
+   8:	cb2c63ff 	sub	sp, sp, x12
+   c:	a9007bfd 	stp	x29, x30, [sp]
+  10:	910003fd 	mov	x29, sp
+  14:	a9046bf9 	stp	x25, x26, [sp, #64]
+  18:	aa0003fa 	mov	x26, x0
+  1c:	d2900600 	mov	x0, #0x8030                	// #32816
+  20:	8b2063e0 	add	x0, sp, x0
+  24:	aa0303f9 	mov	x25, x3
+  28:	a90573fb 	stp	x27, x28, [sp, #80]
+  2c:	9a9fa0fc 	csel	x28, x7, xzr, ge	// ge = tcont
+  30:	d37df39c 	lsl	x28, x28, #3
+  34:	f100039f 	cmp	x28, #0x0
+  38:	9a9f179c 	csinc	x28, x28, xzr, ne	// ne = any
+  3c:	a90363f7 	stp	x23, x24, [sp, #48]
+  40:	aa0203f8 	mov	x24, x2
+  44:	f9407017 	ldr	x23, [x0, #224]
+  48:	aa1c03e0 	mov	x0, x28
+  4c:	a90153f3 	stp	x19, x20, [sp, #16]
+  50:	aa0103f4 	mov	x20, x1
+  54:	a9025bf5 	stp	x21, x22, [sp, #32]
+  58:	a90613e5 	stp	x5, x4, [sp, #96]
+  5c:	f9003be7 	str	x7, [sp, #112]
+  60:	94000000 	bl	0 <malloc>
+  64:	aa0003f5 	mov	x21, x0
+  68:	aa1c03e0 	mov	x0, x28
+  6c:	94000000 	bl	0 <malloc>
+  70:	aa0003fb 	mov	x27, x0
+  74:	aa1c03e0 	mov	x0, x28
+  78:	94000000 	bl	0 <malloc>
+  7c:	aa0003f3 	mov	x19, x0
+  80:	aa1c03e0 	mov	x0, x28
+  84:	94000000 	bl	0 <malloc>
+  88:	f9403be7 	ldr	x7, [sp, #112]
+  8c:	aa0003fc 	mov	x28, x0
+  90:	f10000ff 	cmp	x7, #0x0
+  94:	54004b2d 	b.le	9f8 <spgemm_hash_fp64+0x9f8>
+  98:	d37df0e2 	lsl	x2, x7, #3
+  9c:	52800001 	mov	w1, #0x0                   	// #0
+  a0:	aa1503e0 	mov	x0, x21
+  a4:	910243f6 	add	x22, sp, #0x90
+  a8:	a9071fe2 	stp	x2, x7, [sp, #112]
+  ac:	94000000 	bl	0 <memset>
+  b0:	f9403be2 	ldr	x2, [sp, #112]
+  b4:	52800001 	mov	w1, #0x0                   	// #0
+  b8:	aa1b03e0 	mov	x0, x27
+  bc:	94000000 	bl	0 <memset>
+  c0:	f9403be2 	ldr	x2, [sp, #112]
+  c4:	52800001 	mov	w1, #0x0                   	// #0
+  c8:	aa1303e0 	mov	x0, x19
+  cc:	94000000 	bl	0 <memset>
+  d0:	4f000400 	movi	v0.4s, #0x0
+  d4:	910343e3 	add	x3, sp, #0xd0
+  d8:	f9403be2 	ldr	x2, [sp, #112]
+  dc:	aa1c03e0 	mov	x0, x28
+  e0:	52800001 	mov	w1, #0x0                   	// #0
+  e4:	ad0002c0 	stp	q0, q0, [x22]
+  e8:	ad000060 	stp	q0, q0, [x3]
+  ec:	ad0102c0 	stp	q0, q0, [x22, #32]
+  f0:	ad010060 	stp	q0, q0, [x3, #32]
+  f4:	94000000 	bl	0 <memset>
+  f8:	f9403fe7 	ldr	x7, [sp, #120]
+  fc:	d10022a9 	sub	x9, x21, #0x8
+ 100:	d2800008 	mov	x8, #0x0                   	// #0
+ 104:	d2800002 	mov	x2, #0x0                   	// #0
+ 108:	f8687a80 	ldr	x0, [x20, x8, lsl #3]
+ 10c:	91000508 	add	x8, x8, #0x1
+ 110:	f8687a85 	ldr	x5, [x20, x8, lsl #3]
+ 114:	eb0000bf 	cmp	x5, x0
+ 118:	5400016d 	b.le	144 <spgemm_hash_fp64+0x144>
+ 11c:	d503201f 	nop
+ 120:	f8607b41 	ldr	x1, [x26, x0, lsl #3]
+ 124:	91000400 	add	x0, x0, #0x1
+ 128:	8b010f24 	add	x4, x25, x1, lsl #3
+ 12c:	f8617b23 	ldr	x3, [x25, x1, lsl #3]
+ 130:	f9400481 	ldr	x1, [x4, #8]
+ 134:	cb030021 	sub	x1, x1, x3
+ 138:	8b010042 	add	x2, x2, x1
+ 13c:	eb0000bf 	cmp	x5, x0
+ 140:	54ffff01 	b.ne	120 <spgemm_hash_fp64+0x120>  // b.any
+ 144:	eb0202ff 	cmp	x23, x2
+ 148:	9a82d2e2 	csel	x2, x23, x2, le
+ 14c:	f8287922 	str	x2, [x9, x8, lsl #3]
+ 150:	eb07011f 	cmp	x8, x7
+ 154:	54fffd81 	b.ne	104 <spgemm_hash_fp64+0x104>  // b.any
+ 158:	d2e80801 	mov	x1, #0x4040000000000000    	// #4629700416936869888
+ 15c:	d2e80a08 	mov	x8, #0x4050000000000000    	// #4634204016564240384
+ 160:	d2e80e05 	mov	x5, #0x4070000000000000    	// #4643211215818981376
+ 164:	d2e81004 	mov	x4, #0x4080000000000000    	// #4647714815446351872
+ 168:	9e670030 	fmov	d16, x1
+ 16c:	d2e81203 	mov	x3, #0x4090000000000000    	// #4652218415073722368
+ 170:	d2e81402 	mov	x2, #0x40a0000000000000    	// #4656722014701092864
+ 174:	d2e81601 	mov	x1, #0x40b0000000000000    	// #4661225614328463360
+ 178:	9e670107 	fmov	d7, x8
+ 17c:	d2e80c00 	mov	x0, #0x4060000000000000    	// #4638707616191610880
+ 180:	9e6700a5 	fmov	d5, x5
+ 184:	9e670084 	fmov	d4, x4
+ 188:	9e670063 	fmov	d3, x3
+ 18c:	9e670042 	fmov	d2, x2
+ 190:	9e670021 	fmov	d1, x1
+ 194:	9e670006 	fmov	d6, x0
+ 198:	d2800000 	mov	x0, #0x0                   	// #0
+ 19c:	fc607aa0 	ldr	d0, [x21, x0, lsl #3]
+ 1a0:	5e61d800 	scvtf	d0, d0
+ 1a4:	1e602018 	fcmpe	d0, #0.0
+ 1a8:	5400172c 	b.gt	48c <spgemm_hash_fp64+0x48c>
+ 1ac:	92800001 	mov	x1, #0xffffffffffffffff    	// #-1
+ 1b0:	f8207b61 	str	x1, [x27, x0, lsl #3]
+ 1b4:	91000400 	add	x0, x0, #0x1
+ 1b8:	eb0000ff 	cmp	x7, x0
+ 1bc:	54ffff01 	b.ne	19c <spgemm_hash_fp64+0x19c>  // b.any
+ 1c0:	a94913e0 	ldp	x0, x4, [sp, #144]
+ 1c4:	4f000400 	movi	v0.4s, #0x0
+ 1c8:	a94a0be3 	ldp	x3, x2, [sp, #160]
+ 1cc:	8b040004 	add	x4, x0, x4
+ 1d0:	a90d03ff 	stp	xzr, x0, [sp, #208]
+ 1d4:	8b030083 	add	x3, x4, x3
+ 1d8:	f9405be1 	ldr	x1, [sp, #176]
+ 1dc:	8b020062 	add	x2, x3, x2
+ 1e0:	ad0483e0 	stp	q0, q0, [sp, #144]
+ 1e4:	f9405fe0 	ldr	x0, [sp, #184]
+ 1e8:	3d802fe0 	str	q0, [sp, #176]
+ 1ec:	f94063e5 	ldr	x5, [sp, #192]
+ 1f0:	8b010041 	add	x1, x2, x1
+ 1f4:	3d8033e0 	str	q0, [sp, #192]
+ 1f8:	a90f07e2 	stp	x2, x1, [sp, #240]
+ 1fc:	8b000020 	add	x0, x1, x0
+ 200:	8b0000a2 	add	x2, x5, x0
+ 204:	a90e0fe4 	stp	x4, x3, [sp, #224]
+ 208:	a9100be0 	stp	x0, x2, [sp, #256]
+ 20c:	f10000ff 	cmp	x7, #0x0
+ 210:	54003e8d 	b.le	9e0 <spgemm_hash_fp64+0x9e0>
+ 214:	d37df0e2 	lsl	x2, x7, #3
+ 218:	52801fe1 	mov	w1, #0xff                  	// #255
+ 21c:	aa1c03e0 	mov	x0, x28
+ 220:	f9003be7 	str	x7, [sp, #112]
+ 224:	94000000 	bl	0 <memset>
+ 228:	f9403be7 	ldr	x7, [sp, #112]
+ 22c:	910343e2 	add	x2, sp, #0xd0
+ 230:	d280000d 	mov	x13, #0x0                   	// #0
+ 234:	14000002 	b	23c <spgemm_hash_fp64+0x23c>
+ 238:	aa1103ed 	mov	x13, x17
+ 23c:	f86d7b60 	ldr	x0, [x27, x13, lsl #3]
+ 240:	910005b1 	add	x17, x13, #0x1
+ 244:	b7f80100 	tbnz	x0, #63, 264 <spgemm_hash_fp64+0x264>
+ 248:	d37df000 	lsl	x0, x0, #3
+ 24c:	f8606ac1 	ldr	x1, [x22, x0]
+ 250:	f8606844 	ldr	x4, [x2, x0]
+ 254:	91000423 	add	x3, x1, #0x1
+ 258:	8b040021 	add	x1, x1, x4
+ 25c:	f8206ac3 	str	x3, [x22, x0]
+ 260:	f8217b8d 	str	x13, [x28, x1, lsl #3]
+ 264:	eb1100ff 	cmp	x7, x17
+ 268:	54fffe81 	b.ne	238 <spgemm_hash_fp64+0x238>  // b.any
+ 26c:	4e080ee0 	dup	v0.2d, x23
+ 270:	d280000e 	mov	x14, #0x0                   	// #0
+ 274:	910443e4 	add	x4, sp, #0x110
+ 278:	14000005 	b	28c <spgemm_hash_fp64+0x28c>
+ 27c:	910005c0 	add	x0, x14, #0x1
+ 280:	eb0d01df 	cmp	x14, x13
+ 284:	54000940 	b.eq	3ac <spgemm_hash_fp64+0x3ac>  // b.none
+ 288:	aa0003ee 	mov	x14, x0
+ 28c:	f86e7b8f 	ldr	x15, [x28, x14, lsl #3]
+ 290:	b7ffff6f 	tbnz	x15, #63, 27c <spgemm_hash_fp64+0x27c>
+ 294:	f86f7b61 	ldr	x1, [x27, x15, lsl #3]
+ 298:	f100003f 	cmp	x1, #0x0
+ 29c:	540037ed 	b.le	998 <spgemm_hash_fp64+0x998>
+ 2a0:	d2800405 	mov	x5, #0x20                  	// #32
+ 2a4:	d2800000 	mov	x0, #0x0                   	// #0
+ 2a8:	91000400 	add	x0, x0, #0x1
+ 2ac:	d37ff8a5 	lsl	x5, x5, #1
+ 2b0:	eb00003f 	cmp	x1, x0
+ 2b4:	54ffffa1 	b.ne	2a8 <spgemm_hash_fp64+0x2a8>  // b.any
+ 2b8:	f10000bf 	cmp	x5, #0x0
+ 2bc:	5400016d 	b.le	2e8 <spgemm_hash_fp64+0x2e8>
+ 2c0:	aa0503e0 	mov	x0, x5
+ 2c4:	f10020bf 	cmp	x5, #0x8
+ 2c8:	5400130d 	b.le	528 <spgemm_hash_fp64+0x528>
+ 2cc:	d342fc01 	lsr	x1, x0, #2
+ 2d0:	910443e0 	add	x0, sp, #0x110
+ 2d4:	8b011401 	add	x1, x0, x1, lsl #5
+ 2d8:	ad000000 	stp	q0, q0, [x0]
+ 2dc:	91008000 	add	x0, x0, #0x20
+ 2e0:	eb00003f 	cmp	x1, x0
+ 2e4:	54ffffa1 	b.ne	2d8 <spgemm_hash_fp64+0x2d8>  // b.any
+ 2e8:	8b0f0e80 	add	x0, x20, x15, lsl #3
+ 2ec:	f86f7a8c 	ldr	x12, [x20, x15, lsl #3]
+ 2f0:	d2800008 	mov	x8, #0x0                   	// #0
+ 2f4:	f9400410 	ldr	x16, [x0, #8]
+ 2f8:	eb0c021f 	cmp	x16, x12
+ 2fc:	5400050d 	b.le	39c <spgemm_hash_fp64+0x39c>
+ 300:	f86c7b40 	ldr	x0, [x26, x12, lsl #3]
+ 304:	8b000f21 	add	x1, x25, x0, lsl #3
+ 308:	f8607b29 	ldr	x9, [x25, x0, lsl #3]
+ 30c:	f940042b 	ldr	x11, [x1, #8]
+ 310:	eb09017f 	cmp	x11, x9
+ 314:	540003ed 	b.le	390 <spgemm_hash_fp64+0x390>
+ 318:	d503201f 	nop
+ 31c:	d503201f 	nop
+ 320:	f8697b03 	ldr	x3, [x24, x9, lsl #3]
+ 324:	8b030460 	add	x0, x3, x3, lsl #1
+ 328:	8b000c00 	add	x0, x0, x0, lsl #3
+ 32c:	d37ef401 	lsl	x1, x0, #2
+ 330:	cb030021 	sub	x1, x1, x3
+ 334:	b7f80a25 	tbnz	x5, #63, 478 <spgemm_hash_fp64+0x478>
+ 338:	b7f808c1 	tbnz	x1, #63, 450 <spgemm_hash_fp64+0x450>
+ 33c:	9ac50c20 	sdiv	x0, x1, x5
+ 340:	9b058400 	msub	x0, x0, x5, x1
+ 344:	d37df002 	lsl	x2, x0, #3
+ 348:	91000400 	add	x0, x0, #0x1
+ 34c:	f8626881 	ldr	x1, [x4, x2]
+ 350:	eb01007f 	cmp	x3, x1
+ 354:	54000180 	b.eq	384 <spgemm_hash_fp64+0x384>  // b.none
+ 358:	d503201f 	nop
+ 35c:	d503201f 	nop
+ 360:	eb0102ff 	cmp	x23, x1
+ 364:	540007e0 	b.eq	460 <spgemm_hash_fp64+0x460>  // b.none
+ 368:	eb0000bf 	cmp	x5, x0
+ 36c:	9a9f1000 	csel	x0, x0, xzr, ne	// ne = any
+ 370:	d37df002 	lsl	x2, x0, #3
+ 374:	f8626881 	ldr	x1, [x4, x2]
+ 378:	91000400 	add	x0, x0, #0x1
+ 37c:	eb01007f 	cmp	x3, x1
+ 380:	54ffff01 	b.ne	360 <spgemm_hash_fp64+0x360>  // b.any
+ 384:	91000529 	add	x9, x9, #0x1
+ 388:	eb09017f 	cmp	x11, x9
+ 38c:	54fffca1 	b.ne	320 <spgemm_hash_fp64+0x320>  // b.any
+ 390:	9100058c 	add	x12, x12, #0x1
+ 394:	eb0c021f 	cmp	x16, x12
+ 398:	54fffb41 	b.ne	300 <spgemm_hash_fp64+0x300>  // b.any
+ 39c:	f82f7a68 	str	x8, [x19, x15, lsl #3]
+ 3a0:	910005c0 	add	x0, x14, #0x1
+ 3a4:	eb0d01df 	cmp	x14, x13
+ 3a8:	54fff701 	b.ne	288 <spgemm_hash_fp64+0x288>  // b.any
+ 3ac:	d2800001 	mov	x1, #0x0                   	// #0
+ 3b0:	d2800000 	mov	x0, #0x0                   	// #0
+ 3b4:	f94033e4 	ldr	x4, [sp, #96]
+ 3b8:	eb0001bf 	cmp	x13, x0
+ 3bc:	f8607a63 	ldr	x3, [x19, x0, lsl #3]
+ 3c0:	f8207881 	str	x1, [x4, x0, lsl #3]
+ 3c4:	91000400 	add	x0, x0, #0x1
+ 3c8:	8b030021 	add	x1, x1, x3
+ 3cc:	54ffff41 	b.ne	3b4 <spgemm_hash_fp64+0x3b4>  // b.any
+ 3d0:	d2e80802 	mov	x2, #0x4040000000000000    	// #4629700416936869888
+ 3d4:	d2e80a08 	mov	x8, #0x4050000000000000    	// #4634204016564240384
+ 3d8:	f8317881 	str	x1, [x4, x17, lsl #3]
+ 3dc:	4f000400 	movi	v0.4s, #0x0
+ 3e0:	d2e80e05 	mov	x5, #0x4070000000000000    	// #4643211215818981376
+ 3e4:	d2e81004 	mov	x4, #0x4080000000000000    	// #4647714815446351872
+ 3e8:	9e670050 	fmov	d16, x2
+ 3ec:	d2e81203 	mov	x3, #0x4090000000000000    	// #4652218415073722368
+ 3f0:	d2e81402 	mov	x2, #0x40a0000000000000    	// #4656722014701092864
+ 3f4:	d2e81601 	mov	x1, #0x40b0000000000000    	// #4661225614328463360
+ 3f8:	9e670107 	fmov	d7, x8
+ 3fc:	d2e80c00 	mov	x0, #0x4060000000000000    	// #4638707616191610880
+ 400:	9e6700a5 	fmov	d5, x5
+ 404:	9e670084 	fmov	d4, x4
+ 408:	9e670063 	fmov	d3, x3
+ 40c:	9e670042 	fmov	d2, x2
+ 410:	9e670021 	fmov	d1, x1
+ 414:	9e670006 	fmov	d6, x0
+ 418:	d2800000 	mov	x0, #0x0                   	// #0
+ 41c:	ad0002c0 	stp	q0, q0, [x22]
+ 420:	ad0102c0 	stp	q0, q0, [x22, #32]
+ 424:	fc607a60 	ldr	d0, [x19, x0, lsl #3]
+ 428:	5e61d800 	scvtf	d0, d0
+ 42c:	1e602018 	fcmpe	d0, #0.0
+ 430:	54000aec 	b.gt	58c <spgemm_hash_fp64+0x58c>
+ 434:	92800001 	mov	x1, #0xffffffffffffffff    	// #-1
+ 438:	f8207b61 	str	x1, [x27, x0, lsl #3]
+ 43c:	91000401 	add	x1, x0, #0x1
+ 440:	eb0001bf 	cmp	x13, x0
+ 444:	54000d80 	b.eq	5f4 <spgemm_hash_fp64+0x5f4>  // b.none
+ 448:	aa0103e0 	mov	x0, x1
+ 44c:	17fffff6 	b	424 <spgemm_hash_fp64+0x424>
+ 450:	91000420 	add	x0, x1, #0x1
+ 454:	9ac50c00 	sdiv	x0, x0, x5
+ 458:	d1000400 	sub	x0, x0, #0x1
+ 45c:	17ffffb9 	b	340 <spgemm_hash_fp64+0x340>
+ 460:	91000529 	add	x9, x9, #0x1
+ 464:	f8226883 	str	x3, [x4, x2]
+ 468:	91000508 	add	x8, x8, #0x1
+ 46c:	eb09017f 	cmp	x11, x9
+ 470:	54fff581 	b.ne	320 <spgemm_hash_fp64+0x320>  // b.any
+ 474:	17ffffc7 	b	390 <spgemm_hash_fp64+0x390>
+ 478:	d1000420 	sub	x0, x1, #0x1
+ 47c:	f100003f 	cmp	x1, #0x0
+ 480:	54fffeac 	b.gt	454 <spgemm_hash_fp64+0x454>
+ 484:	9ac50c20 	sdiv	x0, x1, x5
+ 488:	17ffffae 	b	340 <spgemm_hash_fp64+0x340>
+ 48c:	1e702010 	fcmpe	d0, d16
+ 490:	54000489 	b.ls	520 <spgemm_hash_fp64+0x520>  // b.plast
+ 494:	1e672010 	fcmpe	d0, d7
+ 498:	54000409 	b.ls	518 <spgemm_hash_fp64+0x518>  // b.plast
+ 49c:	1e662010 	fcmpe	d0, d6
+ 4a0:	54000389 	b.ls	510 <spgemm_hash_fp64+0x510>  // b.plast
+ 4a4:	1e652010 	fcmpe	d0, d5
+ 4a8:	54000309 	b.ls	508 <spgemm_hash_fp64+0x508>  // b.plast
+ 4ac:	1e642010 	fcmpe	d0, d4
+ 4b0:	54000289 	b.ls	500 <spgemm_hash_fp64+0x500>  // b.plast
+ 4b4:	1e632010 	fcmpe	d0, d3
+ 4b8:	54000209 	b.ls	4f8 <spgemm_hash_fp64+0x4f8>  // b.plast
+ 4bc:	1e622010 	fcmpe	d0, d2
+ 4c0:	54000629 	b.ls	584 <spgemm_hash_fp64+0x584>  // b.plast
+ 4c4:	1e612010 	fcmpe	d0, d1
+ 4c8:	54000049 	b.ls	4d0 <spgemm_hash_fp64+0x4d0>  // b.plast
+ 4cc:	17ffff38 	b	1ac <spgemm_hash_fp64+0x1ac>
+ 4d0:	d28000e1 	mov	x1, #0x7                   	// #7
+ 4d4:	d37df022 	lsl	x2, x1, #3
+ 4d8:	f8207b61 	str	x1, [x27, x0, lsl #3]
+ 4dc:	91000400 	add	x0, x0, #0x1
+ 4e0:	f8626ac1 	ldr	x1, [x22, x2]
+ 4e4:	91000421 	add	x1, x1, #0x1
+ 4e8:	f8226ac1 	str	x1, [x22, x2]
+ 4ec:	eb0000ff 	cmp	x7, x0
+ 4f0:	54ffe561 	b.ne	19c <spgemm_hash_fp64+0x19c>  // b.any
+ 4f4:	17ffff33 	b	1c0 <spgemm_hash_fp64+0x1c0>
+ 4f8:	d28000a1 	mov	x1, #0x5                   	// #5
+ 4fc:	17fffff6 	b	4d4 <spgemm_hash_fp64+0x4d4>
+ 500:	d2800081 	mov	x1, #0x4                   	// #4
+ 504:	17fffff4 	b	4d4 <spgemm_hash_fp64+0x4d4>
+ 508:	d2800061 	mov	x1, #0x3                   	// #3
+ 50c:	17fffff2 	b	4d4 <spgemm_hash_fp64+0x4d4>
+ 510:	d2800041 	mov	x1, #0x2                   	// #2
+ 514:	17fffff0 	b	4d4 <spgemm_hash_fp64+0x4d4>
+ 518:	d2800021 	mov	x1, #0x1                   	// #1
+ 51c:	17ffffee 	b	4d4 <spgemm_hash_fp64+0x4d4>
+ 520:	d2800001 	mov	x1, #0x0                   	// #0
+ 524:	17ffffec 	b	4d4 <spgemm_hash_fp64+0x4d4>
+ 528:	f9008bf7 	str	x23, [sp, #272]
+ 52c:	f10004bf 	cmp	x5, #0x1
+ 530:	54ffedcd 	b.le	2e8 <spgemm_hash_fp64+0x2e8>
+ 534:	f9008ff7 	str	x23, [sp, #280]
+ 538:	f10008bf 	cmp	x5, #0x2
+ 53c:	54ffed6d 	b.le	2e8 <spgemm_hash_fp64+0x2e8>
+ 540:	f90093f7 	str	x23, [sp, #288]
+ 544:	f1000cbf 	cmp	x5, #0x3
+ 548:	54ffed0d 	b.le	2e8 <spgemm_hash_fp64+0x2e8>
+ 54c:	f90097f7 	str	x23, [sp, #296]
+ 550:	f10010bf 	cmp	x5, #0x4
+ 554:	54ffecad 	b.le	2e8 <spgemm_hash_fp64+0x2e8>
+ 558:	f9009bf7 	str	x23, [sp, #304]
+ 55c:	f10014bf 	cmp	x5, #0x5
+ 560:	54ffec4d 	b.le	2e8 <spgemm_hash_fp64+0x2e8>
+ 564:	f9009ff7 	str	x23, [sp, #312]
+ 568:	f10018bf 	cmp	x5, #0x6
+ 56c:	54ffebed 	b.le	2e8 <spgemm_hash_fp64+0x2e8>
+ 570:	f900a3f7 	str	x23, [sp, #320]
+ 574:	f1001cbf 	cmp	x5, #0x7
+ 578:	54ffeb8d 	b.le	2e8 <spgemm_hash_fp64+0x2e8>
+ 57c:	f900a7f7 	str	x23, [sp, #328]
+ 580:	17ffff5a 	b	2e8 <spgemm_hash_fp64+0x2e8>
+ 584:	d28000c1 	mov	x1, #0x6                   	// #6
+ 588:	17ffffd3 	b	4d4 <spgemm_hash_fp64+0x4d4>
+ 58c:	1e702010 	fcmpe	d0, d16
+ 590:	54001d69 	b.ls	93c <spgemm_hash_fp64+0x93c>  // b.plast
+ 594:	1e672010 	fcmpe	d0, d7
+ 598:	54001ce9 	b.ls	934 <spgemm_hash_fp64+0x934>  // b.plast
+ 59c:	1e662010 	fcmpe	d0, d6
+ 5a0:	54001c69 	b.ls	92c <spgemm_hash_fp64+0x92c>  // b.plast
+ 5a4:	1e652010 	fcmpe	d0, d5
+ 5a8:	54001be9 	b.ls	924 <spgemm_hash_fp64+0x924>  // b.plast
+ 5ac:	1e642010 	fcmpe	d0, d4
+ 5b0:	54001b69 	b.ls	91c <spgemm_hash_fp64+0x91c>  // b.plast
+ 5b4:	1e632010 	fcmpe	d0, d3
+ 5b8:	54001ae9 	b.ls	914 <spgemm_hash_fp64+0x914>  // b.plast
+ 5bc:	1e622010 	fcmpe	d0, d2
+ 5c0:	54001c29 	b.ls	944 <spgemm_hash_fp64+0x944>  // b.plast
+ 5c4:	1e612010 	fcmpe	d0, d1
+ 5c8:	54000049 	b.ls	5d0 <spgemm_hash_fp64+0x5d0>  // b.plast
+ 5cc:	17ffff9a 	b	434 <spgemm_hash_fp64+0x434>
+ 5d0:	d28000e1 	mov	x1, #0x7                   	// #7
+ 5d4:	d37df022 	lsl	x2, x1, #3
+ 5d8:	f8207b61 	str	x1, [x27, x0, lsl #3]
+ 5dc:	f8626ac1 	ldr	x1, [x22, x2]
+ 5e0:	91000421 	add	x1, x1, #0x1
+ 5e4:	f8226ac1 	str	x1, [x22, x2]
+ 5e8:	91000401 	add	x1, x0, #0x1
+ 5ec:	eb0001bf 	cmp	x13, x0
+ 5f0:	54fff2c1 	b.ne	448 <spgemm_hash_fp64+0x448>  // b.any
+ 5f4:	a94913e0 	ldp	x0, x4, [sp, #144]
+ 5f8:	4f000400 	movi	v0.4s, #0x0
+ 5fc:	a94a0be3 	ldp	x3, x2, [sp, #160]
+ 600:	8b040004 	add	x4, x0, x4
+ 604:	ad0483e0 	stp	q0, q0, [sp, #144]
+ 608:	f9405be1 	ldr	x1, [sp, #176]
+ 60c:	8b030083 	add	x3, x4, x3
+ 610:	a90d93e0 	stp	x0, x4, [sp, #216]
+ 614:	8b020062 	add	x2, x3, x2
+ 618:	f9405fe0 	ldr	x0, [sp, #184]
+ 61c:	8b010041 	add	x1, x2, x1
+ 620:	a90e8be3 	stp	x3, x2, [sp, #232]
+ 624:	f94063e5 	ldr	x5, [sp, #192]
+ 628:	8b000020 	add	x0, x1, x0
+ 62c:	3d802fe0 	str	q0, [sp, #176]
+ 630:	3d8033e0 	str	q0, [sp, #192]
+ 634:	f9007fe1 	str	x1, [sp, #248]
+ 638:	8b0000a2 	add	x2, x5, x0
+ 63c:	a9100be0 	stp	x0, x2, [sp, #256]
+ 640:	f10000ff 	cmp	x7, #0x0
+ 644:	5400148d 	b.le	8d4 <spgemm_hash_fp64+0x8d4>
+ 648:	d37df0e2 	lsl	x2, x7, #3
+ 64c:	52801fe1 	mov	w1, #0xff                  	// #255
+ 650:	aa1c03e0 	mov	x0, x28
+ 654:	f9003be7 	str	x7, [sp, #112]
+ 658:	94000000 	bl	0 <memset>
+ 65c:	f9403be7 	ldr	x7, [sp, #112]
+ 660:	910343e3 	add	x3, sp, #0xd0
+ 664:	d2800004 	mov	x4, #0x0                   	// #0
+ 668:	14000002 	b	670 <spgemm_hash_fp64+0x670>
+ 66c:	aa0103e4 	mov	x4, x1
+ 670:	f8647b60 	ldr	x0, [x27, x4, lsl #3]
+ 674:	91000481 	add	x1, x4, #0x1
+ 678:	b7f80100 	tbnz	x0, #63, 698 <spgemm_hash_fp64+0x698>
+ 67c:	d37df000 	lsl	x0, x0, #3
+ 680:	f8606ac2 	ldr	x2, [x22, x0]
+ 684:	f8606868 	ldr	x8, [x3, x0]
+ 688:	91000445 	add	x5, x2, #0x1
+ 68c:	8b080042 	add	x2, x2, x8
+ 690:	f8206ac5 	str	x5, [x22, x0]
+ 694:	f8227b84 	str	x4, [x28, x2, lsl #3]
+ 698:	eb0100ff 	cmp	x7, x1
+ 69c:	54fffe81 	b.ne	66c <spgemm_hash_fp64+0x66c>  // b.any
+ 6a0:	4e080ee0 	dup	v0.2d, x23
+ 6a4:	d2800005 	mov	x5, #0x0                   	// #0
+ 6a8:	910443f6 	add	x22, sp, #0x110
+ 6ac:	14000005 	b	6c0 <spgemm_hash_fp64+0x6c0>
+ 6b0:	910004a0 	add	x0, x5, #0x1
+ 6b4:	eb0400bf 	cmp	x5, x4
+ 6b8:	540010e0 	b.eq	8d4 <spgemm_hash_fp64+0x8d4>  // b.none
+ 6bc:	aa0003e5 	mov	x5, x0
+ 6c0:	f8657b8a 	ldr	x10, [x28, x5, lsl #3]
+ 6c4:	b7ffff6a 	tbnz	x10, #63, 6b0 <spgemm_hash_fp64+0x6b0>
+ 6c8:	f86a7b62 	ldr	x2, [x27, x10, lsl #3]
+ 6cc:	d2800408 	mov	x8, #0x20                  	// #32
+ 6d0:	f100005f 	cmp	x2, #0x0
+ 6d4:	5400180d 	b.le	9d4 <spgemm_hash_fp64+0x9d4>
+ 6d8:	d2800000 	mov	x0, #0x0                   	// #0
+ 6dc:	91000400 	add	x0, x0, #0x1
+ 6e0:	aa0803e9 	mov	x9, x8
+ 6e4:	d37ff908 	lsl	x8, x8, #1
+ 6e8:	eb00005f 	cmp	x2, x0
+ 6ec:	54ffff81 	b.ne	6dc <spgemm_hash_fp64+0x6dc>  // b.any
+ 6f0:	f100011f 	cmp	x8, #0x0
+ 6f4:	5400162d 	b.le	9b8 <spgemm_hash_fp64+0x9b8>
+ 6f8:	aa0803e0 	mov	x0, x8
+ 6fc:	f100211f 	cmp	x8, #0x8
+ 700:	5400152d 	b.le	9a4 <spgemm_hash_fp64+0x9a4>
+ 704:	d342fc02 	lsr	x2, x0, #2
+ 708:	910443e0 	add	x0, sp, #0x110
+ 70c:	8b021402 	add	x2, x0, x2, lsl #5
+ 710:	ad000000 	stp	q0, q0, [x0]
+ 714:	91008000 	add	x0, x0, #0x20
+ 718:	eb02001f 	cmp	x0, x2
+ 71c:	54ffffa1 	b.ne	710 <spgemm_hash_fp64+0x710>  // b.any
+ 720:	8b0a0e80 	add	x0, x20, x10, lsl #3
+ 724:	f86a7a8e 	ldr	x14, [x20, x10, lsl #3]
+ 728:	9100054b 	add	x11, x10, #0x1
+ 72c:	f940040f 	ldr	x15, [x0, #8]
+ 730:	eb0e01ff 	cmp	x15, x14
+ 734:	5400046d 	b.le	7c0 <spgemm_hash_fp64+0x7c0>
+ 738:	f86e7b40 	ldr	x0, [x26, x14, lsl #3]
+ 73c:	8b000f22 	add	x2, x25, x0, lsl #3
+ 740:	f8607b2c 	ldr	x12, [x25, x0, lsl #3]
+ 744:	f940044d 	ldr	x13, [x2, #8]
+ 748:	eb0c01bf 	cmp	x13, x12
+ 74c:	5400030d 	b.le	7ac <spgemm_hash_fp64+0x7ac>
+ 750:	f86c7b07 	ldr	x7, [x24, x12, lsl #3]
+ 754:	8b0704e0 	add	x0, x7, x7, lsl #1
+ 758:	8b000c00 	add	x0, x0, x0, lsl #3
+ 75c:	d37ef402 	lsl	x2, x0, #2
+ 760:	cb070042 	sub	x2, x2, x7
+ 764:	b7f810c8 	tbnz	x8, #63, 97c <spgemm_hash_fp64+0x97c>
+ 768:	b7f80f22 	tbnz	x2, #63, 94c <spgemm_hash_fp64+0x94c>
+ 76c:	9ac80c40 	sdiv	x0, x2, x8
+ 770:	9b088800 	msub	x0, x0, x8, x2
+ 774:	8b000ec2 	add	x2, x22, x0, lsl #3
+ 778:	14000006 	b	790 <spgemm_hash_fp64+0x790>
+ 77c:	eb0302ff 	cmp	x23, x3
+ 780:	54000f00 	b.eq	960 <spgemm_hash_fp64+0x960>  // b.none
+ 784:	91000400 	add	x0, x0, #0x1
+ 788:	eb00011f 	cmp	x8, x0
+ 78c:	54000f40 	b.eq	974 <spgemm_hash_fp64+0x974>  // b.none
+ 790:	f9400043 	ldr	x3, [x2]
+ 794:	91002042 	add	x2, x2, #0x8
+ 798:	eb0300ff 	cmp	x7, x3
+ 79c:	54ffff01 	b.ne	77c <spgemm_hash_fp64+0x77c>  // b.any
+ 7a0:	9100058c 	add	x12, x12, #0x1
+ 7a4:	eb0c01bf 	cmp	x13, x12
+ 7a8:	54fffd41 	b.ne	750 <spgemm_hash_fp64+0x750>  // b.any
+ 7ac:	910005ce 	add	x14, x14, #0x1
+ 7b0:	eb0e01ff 	cmp	x15, x14
+ 7b4:	54fffc2c 	b.gt	738 <spgemm_hash_fp64+0x738>
+ 7b8:	f100091f 	cmp	x8, #0x2
+ 7bc:	5400068d 	b.le	88c <spgemm_hash_fp64+0x88c>
+ 7c0:	d280004f 	mov	x15, #0x2                   	// #2
+ 7c4:	9341fdee 	asr	x14, x15, #1
+ 7c8:	f10005ff 	cmp	x15, #0x1
+ 7cc:	54000e2d 	b.le	990 <spgemm_hash_fp64+0x990>
+ 7d0:	aa0e03ec 	mov	x12, x14
+ 7d4:	d503201f 	nop
+ 7d8:	d503201f 	nop
+ 7dc:	d503201f 	nop
+ 7e0:	d2800002 	mov	x2, #0x0                   	// #0
+ 7e4:	9acc0840 	udiv	x0, x2, x12
+ 7e8:	9ace0c47 	sdiv	x7, x2, x14
+ 7ec:	9b0c0800 	madd	x0, x0, x12, x2
+ 7f0:	91000442 	add	x2, x2, #0x1
+ 7f4:	8b000183 	add	x3, x12, x0
+ 7f8:	d37df000 	lsl	x0, x0, #3
+ 7fc:	d37df063 	lsl	x3, x3, #3
+ 800:	f8606acd 	ldr	x13, [x22, x0]
+ 804:	f8636ad0 	ldr	x16, [x22, x3]
+ 808:	eb0d021f 	cmp	x16, x13
+ 80c:	1a9fa7f1 	cset	w17, lt	// lt = tstop
+ 810:	f24000ff 	tst	x7, #0x1
+ 814:	1a9f17e7 	cset	w7, eq	// eq = none
+ 818:	6b07023f 	cmp	w17, w7
+ 81c:	54000061 	b.ne	828 <spgemm_hash_fp64+0x828>  // b.any
+ 820:	f8206ad0 	str	x16, [x22, x0]
+ 824:	f8236acd 	str	x13, [x22, x3]
+ 828:	eb02013f 	cmp	x9, x2
+ 82c:	54fffdcc 	b.gt	7e4 <spgemm_hash_fp64+0x7e4>
+ 830:	9341fd8c 	asr	x12, x12, #1
+ 834:	b5fffd6c 	cbnz	x12, 7e0 <spgemm_hash_fp64+0x7e0>
+ 838:	d37ff9ef 	lsl	x15, x15, #1
+ 83c:	eb0801ff 	cmp	x15, x8
+ 840:	54fffc2b 	b.lt	7c4 <spgemm_hash_fp64+0x7c4>  // b.tstop
+ 844:	aa0903e7 	mov	x7, x9
+ 848:	d2800002 	mov	x2, #0x0                   	// #0
+ 84c:	9ac70840 	udiv	x0, x2, x7
+ 850:	9b070800 	madd	x0, x0, x7, x2
+ 854:	91000442 	add	x2, x2, #0x1
+ 858:	8b070003 	add	x3, x0, x7
+ 85c:	d37df000 	lsl	x0, x0, #3
+ 860:	d37df063 	lsl	x3, x3, #3
+ 864:	f8606ac8 	ldr	x8, [x22, x0]
+ 868:	f8636acc 	ldr	x12, [x22, x3]
+ 86c:	eb08019f 	cmp	x12, x8
+ 870:	5400006a 	b.ge	87c <spgemm_hash_fp64+0x87c>  // b.tcont
+ 874:	f8206acc 	str	x12, [x22, x0]
+ 878:	f8236ac8 	str	x8, [x22, x3]
+ 87c:	eb02013f 	cmp	x9, x2
+ 880:	54fffe6c 	b.gt	84c <spgemm_hash_fp64+0x84c>
+ 884:	9341fce7 	asr	x7, x7, #1
+ 888:	b5fffe07 	cbnz	x7, 848 <spgemm_hash_fp64+0x848>
+ 88c:	f94033e1 	ldr	x1, [sp, #96]
+ 890:	f86a7820 	ldr	x0, [x1, x10, lsl #3]
+ 894:	f86b7822 	ldr	x2, [x1, x11, lsl #3]
+ 898:	cb000042 	sub	x2, x2, x0
+ 89c:	f100005f 	cmp	x2, #0x0
+ 8a0:	54fff08d 	b.le	6b0 <spgemm_hash_fp64+0x6b0>
+ 8a4:	f94037e1 	ldr	x1, [sp, #104]
+ 8a8:	d37df042 	lsl	x2, x2, #3
+ 8ac:	a90713e5 	stp	x5, x4, [sp, #112]
+ 8b0:	3d8023e0 	str	q0, [sp, #128]
+ 8b4:	8b000c20 	add	x0, x1, x0, lsl #3
+ 8b8:	aa1603e1 	mov	x1, x22
+ 8bc:	94000000 	bl	0 <memcpy>
+ 8c0:	a94713e5 	ldp	x5, x4, [sp, #112]
+ 8c4:	3dc023e0 	ldr	q0, [sp, #128]
+ 8c8:	910004a0 	add	x0, x5, #0x1
+ 8cc:	eb0400bf 	cmp	x5, x4
+ 8d0:	54ffef61 	b.ne	6bc <spgemm_hash_fp64+0x6bc>  // b.any
+ 8d4:	aa1c03e0 	mov	x0, x28
+ 8d8:	94000000 	bl	0 <free>
+ 8dc:	aa1303e0 	mov	x0, x19
+ 8e0:	94000000 	bl	0 <free>
+ 8e4:	aa1b03e0 	mov	x0, x27
+ 8e8:	94000000 	bl	0 <free>
+ 8ec:	d290220c 	mov	x12, #0x8110                	// #33040
+ 8f0:	a9407bfd 	ldp	x29, x30, [sp]
+ 8f4:	aa1503e0 	mov	x0, x21
+ 8f8:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 8fc:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 900:	a94363f7 	ldp	x23, x24, [sp, #48]
+ 904:	a9446bf9 	ldp	x25, x26, [sp, #64]
+ 908:	a94573fb 	ldp	x27, x28, [sp, #80]
+ 90c:	8b2c63ff 	add	sp, sp, x12
+ 910:	14000000 	b	0 <free>
+ 914:	d28000a1 	mov	x1, #0x5                   	// #5
+ 918:	17ffff2f 	b	5d4 <spgemm_hash_fp64+0x5d4>
+ 91c:	d2800081 	mov	x1, #0x4                   	// #4
+ 920:	17ffff2d 	b	5d4 <spgemm_hash_fp64+0x5d4>
+ 924:	d2800061 	mov	x1, #0x3                   	// #3
+ 928:	17ffff2b 	b	5d4 <spgemm_hash_fp64+0x5d4>
+ 92c:	d2800041 	mov	x1, #0x2                   	// #2
+ 930:	17ffff29 	b	5d4 <spgemm_hash_fp64+0x5d4>
+ 934:	d2800021 	mov	x1, #0x1                   	// #1
+ 938:	17ffff27 	b	5d4 <spgemm_hash_fp64+0x5d4>
+ 93c:	d2800001 	mov	x1, #0x0                   	// #0
+ 940:	17ffff25 	b	5d4 <spgemm_hash_fp64+0x5d4>
+ 944:	d28000c1 	mov	x1, #0x6                   	// #6
+ 948:	17ffff23 	b	5d4 <spgemm_hash_fp64+0x5d4>
+ 94c:	91000440 	add	x0, x2, #0x1
+ 950:	9ac80c00 	sdiv	x0, x0, x8
+ 954:	d1000400 	sub	x0, x0, #0x1
+ 958:	9b088800 	msub	x0, x0, x8, x2
+ 95c:	17ffff86 	b	774 <spgemm_hash_fp64+0x774>
+ 960:	9100058c 	add	x12, x12, #0x1
+ 964:	f8207ac7 	str	x7, [x22, x0, lsl #3]
+ 968:	eb0c01bf 	cmp	x13, x12
+ 96c:	54ffef21 	b.ne	750 <spgemm_hash_fp64+0x750>  // b.any
+ 970:	17ffff8f 	b	7ac <spgemm_hash_fp64+0x7ac>
+ 974:	d2800000 	mov	x0, #0x0                   	// #0
+ 978:	17ffff7f 	b	774 <spgemm_hash_fp64+0x774>
+ 97c:	d1000440 	sub	x0, x2, #0x1
+ 980:	f100005f 	cmp	x2, #0x0
+ 984:	54fffe6c 	b.gt	950 <spgemm_hash_fp64+0x950>
+ 988:	9ac80c40 	sdiv	x0, x2, x8
+ 98c:	17ffff79 	b	770 <spgemm_hash_fp64+0x770>
+ 990:	d37ff9ef 	lsl	x15, x15, #1
+ 994:	17ffff8c 	b	7c4 <spgemm_hash_fp64+0x7c4>
+ 998:	d2800400 	mov	x0, #0x20                  	// #32
+ 99c:	aa0003e5 	mov	x5, x0
+ 9a0:	17fffe4b 	b	2cc <spgemm_hash_fp64+0x2cc>
+ 9a4:	f9008bf7 	str	x23, [sp, #272]
+ 9a8:	f100051f 	cmp	x8, #0x1
+ 9ac:	54ffebad 	b.le	720 <spgemm_hash_fp64+0x720>
+ 9b0:	f9008ff7 	str	x23, [sp, #280]
+ 9b4:	17ffff5b 	b	720 <spgemm_hash_fp64+0x720>
+ 9b8:	8b0a0e80 	add	x0, x20, x10, lsl #3
+ 9bc:	f86a7a8e 	ldr	x14, [x20, x10, lsl #3]
+ 9c0:	9100054b 	add	x11, x10, #0x1
+ 9c4:	f940040f 	ldr	x15, [x0, #8]
+ 9c8:	eb0e01ff 	cmp	x15, x14
+ 9cc:	54ffeb6c 	b.gt	738 <spgemm_hash_fp64+0x738>
+ 9d0:	17ffffaf 	b	88c <spgemm_hash_fp64+0x88c>
+ 9d4:	d2800209 	mov	x9, #0x10                  	// #16
+ 9d8:	aa0803e0 	mov	x0, x8
+ 9dc:	17ffff4a 	b	704 <spgemm_hash_fp64+0x704>
+ 9e0:	f94033e0 	ldr	x0, [sp, #96]
+ 9e4:	4f000400 	movi	v0.4s, #0x0
+ 9e8:	ad0002c0 	stp	q0, q0, [x22]
+ 9ec:	f827781f 	str	xzr, [x0, x7, lsl #3]
+ 9f0:	ad0102c0 	stp	q0, q0, [x22, #32]
+ 9f4:	17ffff00 	b	5f4 <spgemm_hash_fp64+0x5f4>
+ 9f8:	4f000400 	movi	v0.4s, #0x0
+ 9fc:	910243f6 	add	x22, sp, #0x90
+ a00:	ad0002c0 	stp	q0, q0, [x22]
+ a04:	ad0102c0 	stp	q0, q0, [x22, #32]
+ a08:	17fffdee 	b	1c0 <spgemm_hash_fp64+0x1c0>

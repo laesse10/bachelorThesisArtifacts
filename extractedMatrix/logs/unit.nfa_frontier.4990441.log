@@ -1,0 +1,17 @@
+unit nfa_frontier node=nid006431 start=2026-10-06T14:32:27+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006431 1 1
+SRUN[nfa_frontier]: srun --nodes=1 --ntasks=1 -w nid006431 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels nfa_frontier --preset M --warmup 5 --reps 30 --out parts/nfa_frontier.csv --scratch scratch/nfa_frontier --logs logs/cells --emitted-dir emitted_sources --db-shard 107
+[1/1] nfa_frontier
+    c            ok           median 9643.318 ms 
+    cpp          ok           median 9265.468 ms 
+    fortran      ok           median 9530.484 ms 
+    numba        ok           median 10182.220 ms 
+    native       unsupported   nfa_frontier_reference.cpp is an excerpt of VASim's Automata class methods, not a function
+
+wrote 5 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/parts/nfa_frontier.csv
+SRUN[nfa_frontier]: srun --nodes=1 --ntasks=1 -w nid006431 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir opt_reports --index parts/optrep.nfa_frontier.csv nfa_frontier:c:c:emitted_sources/nfa_frontier/nfa_frontier_fp64.c nfa_frontier:cpp:cpp:emitted_sources/nfa_frontier/nfa_frontier_fp64.cpp nfa_frontier:fortran:fortran:emitted_sources/nfa_frontier/nfa_frontier_fp64.f90 nfa_frontier:numba:python:emitted_sources/nfa_frontier/nfa_frontier_numba_np.py
+nfa_frontier                 c            ok
+nfa_frontier                 cpp          ok
+nfa_frontier                 fortran      ok
+nfa_frontier                 numba        ok
+unit nfa_frontier node=nid006431 end=2026-10-06T14:57:51+02:00

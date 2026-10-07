@@ -1,0 +1,17 @@
+unit quatrex_rgf node=nid006360 start=2026-10-06T14:32:27+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006360 1 1
+SRUN[quatrex_rgf]: srun --nodes=1 --ntasks=1 -w nid006360 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels quatrex_rgf --preset M --warmup 5 --reps 30 --out parts/quatrex_rgf.csv --scratch scratch/quatrex_rgf --logs logs/cells --emitted-dir emitted_sources --db-shard 101
+[1/1] quatrex_rgf
+    c            ok           median 7.481 ms 
+    cpp          ok           median 7.507 ms 
+    fortran      ok           median 6.529 ms 
+    numba_hand   ok           median 4.322 ms 
+    native       unsupported   upstream extraction is Python (quatrex_rgf_reference.py), not a C-ABI function
+
+wrote 5 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/parts/quatrex_rgf.csv
+SRUN[quatrex_rgf]: srun --nodes=1 --ntasks=1 -w nid006360 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir opt_reports --index parts/optrep.quatrex_rgf.csv quatrex_rgf:c:c:emitted_sources/quatrex_rgf/quatrex_rgf_fp64.c quatrex_rgf:cpp:cpp:emitted_sources/quatrex_rgf/quatrex_rgf_fp64.cpp quatrex_rgf:fortran:fortran:emitted_sources/quatrex_rgf/quatrex_rgf_fp64.f90 quatrex_rgf:numba_hand:python:emitted_sources/quatrex_rgf/quatrex_rgf_numba_np.py
+quatrex_rgf                  c            ok
+quatrex_rgf                  cpp          ok
+quatrex_rgf                  fortran      ok
+quatrex_rgf                  numba_hand   ok
+unit quatrex_rgf node=nid006360 end=2026-10-06T14:35:13+02:00

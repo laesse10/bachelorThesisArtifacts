@@ -1,0 +1,88 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/spgemm_hash/fortran/spgemm_hash_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/opt_reports/spgemm_hash/fortran/build/spgemm_hash_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+spgemm_hash_fp64.f90:283:21: optimized: loop with 8 iterations completely unrolled (header execution count 2596793)
+spgemm_hash_fp64.f90:197:21: optimized: loop with 8 iterations completely unrolled (header execution count 2596781)
+spgemm_hash_fp64.f90:39:12: optimized: Loop 1 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.f90:40:15: optimized: Loop 2 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.f90:41:15: optimized: Loop 3 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.f90:44:20: optimized: Loop 4 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.f90:72:13: optimized: Loop 10 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.f90:122:14: optimized: Loop 18 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.f90:138:14: optimized: Loop 21 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.f90:180:22: optimized: Loop 28 distributed: split to 0 loops and 1 library calls.
+spgemm_hash_fp64.f90:148:14: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:148:14: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+spgemm_hash_fp64.f90:259:22: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:259:22: missed: not vectorized: number of iterations cannot be computed.
+spgemm_hash_fp64.f90:260:27: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:2:27: missed: possible alias involving gather/scatter between MEM[(integer(kind=8)[4096] *)&table][pos_278] and *_14
+spgemm_hash_fp64.f90:233:22: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:233:22: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+spgemm_hash_fp64.f90:235:26: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:235:26: missed: not vectorized: number of iterations cannot be computed.
+spgemm_hash_fp64.f90:236:31: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:2:27: missed: possible alias involving gather/scatter between MEM[(integer(kind=8)[4096] *)&table][pos_314] and *_392
+spgemm_hash_fp64.f90:155:22: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:155:22: missed: not vectorized: multiple nested loops.
+spgemm_hash_fp64.f90:157:28: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:157:28: missed: not vectorized: multiple nested loops.
+spgemm_hash_fp64.f90:2:27: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:2:27: missed: not vectorized: control flow in loop.
+spgemm_hash_fp64.f90:162:48: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:162:48: missed: not vectorized: control flow in loop.
+spgemm_hash_fp64.f90:152:22: optimized: loop vectorized using 16 byte vectors
+spgemm_hash_fp64.f90:214:21: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:2:27: missed: not vectorized: relevant phi not supported: ts_458 = PHI <ts_275(148), 32(119)>
+spgemm_hash_fp64.f90:141:14: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:2:27: missed: possible alias involving gather/scatter between *_352 and *_352
+spgemm_hash_fp64.f90:133:14: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:134:41: missed: not vectorized: unsupported use in stmt.
+spgemm_hash_fp64.f90:125:14: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:125:14: missed: not vectorized: control flow in loop.
+spgemm_hash_fp64.f90:117:14: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:119:50: missed: not vectorized: unsupported use in stmt.
+spgemm_hash_fp64.f90:82:13: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:82:13: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+spgemm_hash_fp64.f90:90:21: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:90:21: missed: not vectorized: multiple nested loops.
+spgemm_hash_fp64.f90:92:28: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:92:28: missed: not vectorized: multiple nested loops.
+spgemm_hash_fp64.f90:96:30: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:96:30: missed: not vectorized: control flow in loop.
+spgemm_hash_fp64.f90:96:30: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:96:30: missed: not vectorized: control flow in loop.
+spgemm_hash_fp64.f90:86:21: optimized: loop vectorized using 16 byte vectors
+spgemm_hash_fp64.f90:214:21: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:2:27: missed: not vectorized: relevant phi not supported: ts_454 = PHI <ts_261(160), 32(127)>
+spgemm_hash_fp64.f90:75:13: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:2:27: missed: possible alias involving gather/scatter between *_290 and *_290
+spgemm_hash_fp64.f90:67:13: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:68:40: missed: not vectorized: unsupported use in stmt.
+spgemm_hash_fp64.f90:59:13: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:59:13: missed: not vectorized: control flow in loop.
+spgemm_hash_fp64.f90:45:13: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:45:13: missed: not vectorized: control flow in loop.
+spgemm_hash_fp64.f90:47:17: missed: couldn't vectorize loop
+spgemm_hash_fp64.f90:47:17: missed: Loop costings may not be worthwhile.
+spgemm_hash_fp64.f90:152:22: optimized: loop with 7 iterations completely unrolled (header execution count 275225)
+spgemm_hash_fp64.f90:133:14: optimized: loop with 7 iterations completely unrolled (header execution count 320952)
+spgemm_hash_fp64.f90:86:21: optimized: loop with 7 iterations completely unrolled (header execution count 275225)
+spgemm_hash_fp64.f90:67:13: optimized: loop with 7 iterations completely unrolled (header execution count 320950)
+spgemm_hash_fp64.f90:32:33: missed: statement clobbers memory: _144 = __builtin_malloc (_8);
+spgemm_hash_fp64.f90:33:36: missed: statement clobbers memory: _148 = __builtin_malloc (_8);
+spgemm_hash_fp64.f90:34:36: missed: statement clobbers memory: _151 = __builtin_malloc (_8);
+spgemm_hash_fp64.f90:37:41: missed: statement clobbers memory: _154 = __builtin_malloc (_8);
+spgemm_hash_fp64.f90:39:12: missed: statement clobbers memory: __builtin_memset (_144, 0, _494);
+spgemm_hash_fp64.f90:40:15: missed: statement clobbers memory: __builtin_memset (_148, 0, _494);
+spgemm_hash_fp64.f90:41:15: missed: statement clobbers memory: __builtin_memset (_151, 0, _494);
+spgemm_hash_fp64.f90:44:20: missed: statement clobbers memory: __builtin_memset (_154, 0, _494);
+spgemm_hash_fp64.f90:73:39: missed: statement clobbers memory: __builtin_memset (_154, 255, _486);
+spgemm_hash_fp64.f90:123:33: missed: statement clobbers memory: __builtin_memset (&bin_size, 0, 64);
+spgemm_hash_fp64.f90:139:40: missed: statement clobbers memory: __builtin_memset (_154, 255, _484);
+spgemm_hash_fp64.f90:181:68: missed: statement clobbers memory: __builtin_memcpy (_479, &table, _482);
+spgemm_hash_fp64.f90:37:41: missed: statement clobbers memory: __builtin_free (_154);
+spgemm_hash_fp64.f90:34:36: missed: statement clobbers memory: __builtin_free (_151);
+spgemm_hash_fp64.f90:33:36: missed: statement clobbers memory: __builtin_free (_148);
+spgemm_hash_fp64.f90:32:33: missed: statement clobbers memory: __builtin_free (_144);
+spgemm_hash_fp64.f90:136:33: optimized: basic block part vectorized using 16 byte vectors
+spgemm_hash_fp64.f90:136:33: optimized: basic block part vectorized using 16 byte vectors

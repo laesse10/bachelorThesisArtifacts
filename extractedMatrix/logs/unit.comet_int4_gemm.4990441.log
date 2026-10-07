@@ -1,0 +1,18 @@
+unit comet_int4_gemm node=nid006359 start=2026-10-06T14:32:27+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006359 1 1
+SRUN[comet_int4_gemm]: srun --nodes=1 --ntasks=1 -w nid006359 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels comet_int4_gemm --preset M --warmup 5 --reps 30 --out parts/comet_int4_gemm.csv --scratch scratch/comet_int4_gemm --logs logs/cells --emitted-dir emitted_sources --db-shard 100
+[1/1] comet_int4_gemm
+    c            build_error   /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_
+    cpp          build_error   /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_
+    fortran      ok           median 0.361 ms 
+    numba        ok           median 0.157 ms 
+    native       build_error   /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/benchmarks/scientific_
+
+wrote 5 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/parts/comet_int4_gemm.csv
+SRUN[comet_int4_gemm]: srun --nodes=1 --ntasks=1 -w nid006359 --exclusive --cpu-bind=cores --hint=nomultithread --time=150 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir opt_reports --index parts/optrep.comet_int4_gemm.csv comet_int4_gemm:c:c:emitted_sources/comet_int4_gemm/comet_int4_gemm_fp64.c comet_int4_gemm:cpp:cpp:emitted_sources/comet_int4_gemm/comet_int4_gemm_fp64.cpp comet_int4_gemm:fortran:fortran:emitted_sources/comet_int4_gemm/comet_int4_gemm_fp64.f90 comet_int4_gemm:numba:python:emitted_sources/comet_int4_gemm/comet_int4_gemm_numba_np.py comet_int4_gemm:native:cpp:adapters/comet_int4_gemm_native.cpp
+comet_int4_gemm              c            build_error
+comet_int4_gemm              cpp          build_error
+comet_int4_gemm              fortran      ok
+comet_int4_gemm              numba        ok
+comet_int4_gemm              native       ok
+unit comet_int4_gemm node=nid006359 end=2026-10-06T14:33:30+02:00
