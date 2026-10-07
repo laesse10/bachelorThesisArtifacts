@@ -1,0 +1,32 @@
+unit cometN kernel=comet_int4_gemm bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006550 start=2026-10-07T14:55:41+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006550 1 1
+SRUN[cometN]: srun --nodes=1 --ntasks=1 -w nid006550 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel comet_int4_gemm --cells c cpp native=cpp:src=variants/comet_int4_gemm_native_fp64.cpp native32=cpp:src=variants/comet_int4_gemm_native_fp64.cpp:src32=variants/comet_int4_gemm_native_fp32.cpp --rounds 3 --perf --record-reps 3000 --out parts/cometN.csv --scratch scratch/cometN --db-shard 200
+pristine comet_int4_gemm_fp64.c c83275c6544d7fb4
+pristine comet_int4_gemm_fp64.cpp 03e5bfa63ed36cf7
+pristine comet_int4_gemm_fp64.f90 3fe78aeb1a82db23
+pristine comet_int4_gemm_fp32.c 221dec81903cc55e
+pristine comet_int4_gemm_fp32.cpp 192e8f32c52a4dc1
+pristine comet_int4_gemm_fp32.f90 14d8a8a787c8d425
+pristine comet_int4_gemm_numba_np.py 4f0802f89f2e1a5c
+cell c: c src=- bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- bin=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell native: cpp src=variants/comet_int4_gemm_native_fp64.cpp bin=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell native32: cpp src=variants/comet_int4_gemm_native_fp64.cpp bin=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+  [1] c                ok           min 0.085 ms 
+  [1] cpp              ok           min 0.086 ms 
+  [1] native           ok           min 0.085 ms 
+  [1] native32         ok           min 0.151 ms 
+  [2] native32         ok           min 0.152 ms 
+  [2] native           ok           min 0.084 ms 
+  [2] cpp              ok           min 0.087 ms 
+  [2] c                ok           min 0.085 ms 
+  [3] c                ok           min 0.085 ms 
+  [3] cpp              ok           min 0.086 ms 
+  [3] native           ok           min 0.086 ms 
+  [3] native32         ok           min 0.149 ms 
+  [record] c                ok           min 0.099 ms 
+  [record] cpp              ok           min 0.099 ms 
+  [record] native           ok           min 0.098 ms 
+  [record] native32         ok           min 0.171 ms 
+wrote 16 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/cometN.csv
+unit cometN node=nid006550 end=2026-10-07T14:58:06+02:00

@@ -1,0 +1,27 @@
+########## tsvc_2_s4112_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s4112_cc.so for cycles:u (141063 samples, percent: local period)
+-----------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <tsvc_2_s4112_fp64>:
+         : 6   tsvc_2_s4112_fp64():
+    0.00 :   640:    cmp     x3, #0x0
+    0.00 :   644:    b.le    680 <tsvc_2_s4112_fp64+0x40>
+    0.00 :   648:    mov     x4, #0x0                        // #0
+    0.00 :   64c:    cntd    x5
+    0.00 :   650:    whilelo p7.d, xzr, x3
+    0.00 :   654:    ptrue   p6.b
+    0.00 :   658:    fmov    z31.d, #2.000000000000000000e+00
+    0.00 :   65c:    nop
+    0.24 :   660:    ld1sw   {z29.d}, p7/z, [x2, x4, lsl #2]
+    0.25 :   664:    ld1d    {z30.d}, p7/z, [x0, x4, lsl #3]
+    0.23 :   668:    ld1d    {z28.d}, p7/z, [x1, z29.d, lsl #3]
+   98.39 :   66c:    fmad    z28.d, p6/m, z31.d, z30.d
+    0.20 :   670:    st1d    {z28.d}, p7, [x0, x4, lsl #3]
+    0.22 :   674:    add     x4, x4, x5
+    0.23 :   678:    whilelo p7.d, x4, x3
+    0.23 :   67c:    b.ne    660 <tsvc_2_s4112_fp64+0x20>  // b.any
+    0.00 :   680:    ret

@@ -1,0 +1,23 @@
+########## scatter_accum_dup_fp64
+ Percent |	Source code & Disassembly of libscatter_accum_dup_cc.so for cycles:u (109094 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <scatter_accum_dup_fp64>:
+         : 6   scatter_accum_dup_fp64():
+    0.00 :   640:    cmp     x3, #0x0
+    0.00 :   644:    b.le    670 <scatter_accum_dup_fp64+0x30>
+    0.00 :   648:    mov     x4, #0x0                        // #0
+    0.62 :   64c:    ldrsw   x5, [x1, x4, lsl #2]
+    0.61 :   650:    ldr     d30, [x2, x4, lsl #3]
+    0.01 :   654:    add     x4, x4, #0x1
+    0.68 :   658:    lsl     x5, x5, #3
+    0.60 :   65c:    ldr     d31, [x0, x5]
+   96.36 :   660:    fadd    d30, d31, d30
+    0.55 :   664:    str     d30, [x0, x5]
+    0.57 :   668:    cmp     x3, x4
+    0.00 :   66c:    b.ne    64c <scatter_accum_dup_fp64+0xc>  // b.any
+    0.00 :   670:    ret

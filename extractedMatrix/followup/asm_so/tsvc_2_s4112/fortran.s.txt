@@ -1,0 +1,27 @@
+# objdump -d libtsvc_2_s4112_fortran.so, functions matching tsvc_2_s4112_fp64* (sha256 aea263bd3d27906f)
+
+0000000000000660 <tsvc_2_s4112_fp64>:    # address mod 64 = 32
+ 660:	f100007f 	cmp	x3, #0x0
+ 664:	540001ed 	b.le	6a0 <tsvc_2_s4112_fp64+0x40>
+ 668:	d1002024 	sub	x4, x1, #0x8
+ 66c:	04e0e3e5 	cntd	x5
+ 670:	25e31fe0 	whilelo	p0.d, xzr, x3
+ 674:	2518e3e1 	ptrue	p1.b
+ 678:	25f9c002 	fmov	z2.d, #2.000000000000000000e+00
+ 67c:	d2800001 	mov	x1, #0x0                   	// #0
+ 680:	a4814040 	ld1sw	{z0.d}, p0/z, [x2, x1, lsl #2]
+ 684:	a5e14001 	ld1d	{z1.d}, p0/z, [x0, x1, lsl #3]
+ 688:	c5e0c080 	ld1d	{z0.d}, p0/z, [x4, z0.d, lsl #3]
+ 68c:	65e18440 	fmad	z0.d, p1/m, z2.d, z1.d
+ 690:	e5e14000 	st1d	{z0.d}, p0, [x0, x1, lsl #3]
+ 694:	8b050021 	add	x1, x1, x5
+ 698:	25e31c20 	whilelo	p0.d, x1, x3
+ 69c:	54ffff21 	b.ne	680 <tsvc_2_s4112_fp64+0x20>  // b.any
+ 6a0:	d65f03c0 	ret
+ 6a4:	d503201f 	nop
+ 6a8:	d503201f 	nop
+ 6ac:	d503201f 	nop
+ 6b0:	d503201f 	nop
+ 6b4:	d503201f 	nop
+ 6b8:	d503201f 	nop
+ 6bc:	d503201f 	nop

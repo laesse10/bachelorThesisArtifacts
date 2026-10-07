@@ -1,0 +1,26 @@
+unit tri kernel=triangle_count bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006550 start=2026-10-07T14:26:57+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006550 1 1
+SRUN[tri]: srun --nodes=1 --ntasks=1 -w nid006550 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel triangle_count --cells c cshift=c:src=variants/triangle_count_cshift.c numba --rounds 3 --perf --record-reps 30 --out parts/tri.csv --scratch scratch/tri --db-shard 200
+pristine triangle_count_fp64.c 47caf48afda29ebe
+pristine triangle_count_fp64.cpp 6ac7a5055aa82f05
+pristine triangle_count_fp64.f90 3ebecf2937af020b
+pristine triangle_count_numba_np.py bb32988217abc626
+cell c: c src=- bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cshift: c src=variants/triangle_count_cshift.c bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- bin=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 46.953 ms 
+  [1] cshift           ok           min 46.912 ms 
+  [1] numba            ok           min 32.520 ms 
+  [2] numba            ok           min 32.511 ms 
+  [2] cshift           ok           min 46.802 ms 
+  [2] c                ok           min 46.903 ms 
+  [3] c                ok           min 47.033 ms 
+  [3] cshift           ok           min 46.806 ms 
+  [3] numba            ok           min 32.474 ms 
+  [record] c                ok           min 47.685 ms 
+  [record] cshift           ok           min 47.605 ms 
+  [record] numba            ok           min 33.098 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/tri.csv
+SRUN[tri]: srun --nodes=1 --ntasks=1 -w nid006550 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.tri.csv --out-dir opt_reports/cshift --variant cshift triangle_count:c:c:variants/triangle_count_cshift.c
+triangle_count               c            ok
+unit tri node=nid006550 end=2026-10-07T14:28:30+02:00

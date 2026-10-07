@@ -1,0 +1,27 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c nfa_frontier_fp32.f90 -o x.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized (compile only, login node, Neoverse-V2)
+nfa_frontier_fp32.f90:31:15: optimized: Loop 1 distributed: split to 0 loops and 1 library calls.
+nfa_frontier_fp32.f90:32:16: optimized: Loop 2 distributed: split to 0 loops and 1 library calls.
+nfa_frontier_fp32.f90:33:15: optimized: Loop 3 distributed: split to 0 loops and 1 library calls.
+nfa_frontier_fp32.f90:34:15: missed: couldn't vectorize loop
+nfa_frontier_fp32.f90:34:15: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+nfa_frontier_fp32.f90:45:19: missed: couldn't vectorize loop
+nfa_frontier_fp32.f90:45:19: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+nfa_frontier_fp32.f90:77:21: missed: couldn't vectorize loop
+nfa_frontier_fp32.f90:2:28: missed: not vectorized: unsupported use in stmt.
+nfa_frontier_fp32.f90:66:21: missed: couldn't vectorize loop
+nfa_frontier_fp32.f90:66:21: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+nfa_frontier_fp32.f90:68:25: missed: couldn't vectorize loop
+nfa_frontier_fp32.f90:2:28: missed: not vectorized: unsupported use in stmt.
+nfa_frontier_fp32.f90:53:21: missed: couldn't vectorize loop
+nfa_frontier_fp32.f90:2:28: missed: not vectorized: unsupported use in stmt.
+nfa_frontier_fp32.f90:36:17: missed: couldn't vectorize loop
+nfa_frontier_fp32.f90:2:28: missed: not vectorized: unsupported use in stmt.
+nfa_frontier_fp32.f90:28:37: missed: statement clobbers memory: _94 = __builtin_malloc (_6);
+nfa_frontier_fp32.f90:29:38: missed: statement clobbers memory: _96 = __builtin_malloc (_6);
+nfa_frontier_fp32.f90:30:37: missed: statement clobbers memory: _98 = __builtin_malloc (_6);
+nfa_frontier_fp32.f90:31:15: missed: statement clobbers memory: __builtin_memset (_94, 0, _162);
+nfa_frontier_fp32.f90:32:16: missed: statement clobbers memory: __builtin_memset (_96, 0, _160);
+nfa_frontier_fp32.f90:33:15: missed: statement clobbers memory: __builtin_memset (_98, 0, _156);
+nfa_frontier_fp32.f90:30:37: missed: statement clobbers memory: __builtin_free (_98);
+nfa_frontier_fp32.f90:29:38: missed: statement clobbers memory: __builtin_free (_96);
+nfa_frontier_fp32.f90:28:37: missed: statement clobbers memory: __builtin_free (_94);

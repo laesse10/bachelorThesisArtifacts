@@ -1,0 +1,15 @@
+$ /usr/bin/gcc-14 -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext/hpcagent_bench/envs/vecmath.h -Wall -Wextra -std=c23 -D_POSIX_C_SOURCE=199309L -fPIC -c triangle_count_cshift_fp32.c -o x.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized (compile only, login node, Neoverse-V2)
+triangle_count_cshift_fp32.c: In function ‘triangle_count_fp32’:
+triangle_count_cshift_fp32.c:180:177: warning: unused parameter ‘NV’ [-Wunused-parameter]
+  180 | void triangle_count_fp32(const int64_t *restrict colidx, const int64_t *restrict esrc, const int64_t *restrict rowptr, int64_t *restrict total, const int64_t NE, const int64_t NV) {
+      |                                                                                                                                                                   ~~~~~~~~~~~~~~^~
+triangle_count_cshift_fp32.c:201:31: missed: couldn't vectorize loop
+triangle_count_cshift_fp32.c:201:31: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+triangle_count_cshift_fp32.c:221:35: missed: couldn't vectorize loop
+triangle_count_cshift_fp32.c:221:35: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+triangle_count_cshift_fp32.c:242:36: missed: couldn't vectorize loop
+triangle_count_cshift_fp32.c:242:36: missed: not vectorized: could not determine main exit from loop with multiple exits.
+triangle_count_cshift_fp32.c:226:44: missed: couldn't vectorize loop
+triangle_count_cshift_fp32.c:226:44: missed: not vectorized: could not determine main exit from loop with multiple exits.
+triangle_count_cshift_fp32.c:226:44: missed: couldn't vectorize loop
+triangle_count_cshift_fp32.c:226:44: missed: not vectorized: could not determine main exit from loop with multiple exits.

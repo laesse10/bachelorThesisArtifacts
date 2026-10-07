@@ -1,0 +1,21 @@
+########## tsvc_2_vag_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_vag_fortran.so for cycles:u (142567 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000660 <tsvc_2_vag_fp64>:
+         : 6   tsvc_2_vag_fp64():
+    0.00 :   660:    cmp     x3, #0x0
+    0.00 :   664:    b.le    688 <tsvc_2_vag_fp64+0x28>
+    0.00 :   668:    mov     x4, #0x0                        // #0
+    0.45 :   66c:    ldrsw   x5, [x2, x4, lsl #2]
+    0.10 :   670:    sub     x5, x5, #0x1
+    0.47 :   674:    ldr     d0, [x1, x5, lsl #3]
+   98.10 :   678:    str     d0, [x0, x4, lsl #3]
+    0.43 :   67c:    add     x4, x4, #0x1
+    0.45 :   680:    cmp     x3, x4
+    0.00 :   684:    b.ne    66c <tsvc_2_vag_fp64+0xc>  // b.any
+    0.00 :   688:    ret

@@ -1,0 +1,17 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 29K of event 'cycles:u'
+# Event count (approx.): 2957400000
+#
+# Overhead  Shared Object                                       Symbol                                 
+# ........  ..................................................  .......................................
+#
+    99.78%  libtriangle_count_cc.so                             [.] triangle_count_fp32
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

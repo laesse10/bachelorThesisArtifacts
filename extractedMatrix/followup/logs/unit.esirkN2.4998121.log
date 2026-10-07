@@ -1,0 +1,61 @@
+unit esirkN2 kernel=warpx_esirkepov_deposition bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 node=nid006559 start=2026-10-07T14:43:20+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006559 1 1
+SRUN[esirkN2]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_esirkepov_deposition --cells c numba nbnort=numba:src=variants/warpx_esirkepov_deposition_nbnort.py --rounds 3 --perf --record-reps 300 --out parts/esirkN2.csv --scratch scratch/esirkN2 --db-shard 200
+pristine warpx_esirkepov_deposition_fp64.c c5f15acdea3e5f52
+pristine warpx_esirkepov_deposition_fp64.cpp e1fa1f19a7e16349
+pristine warpx_esirkepov_deposition_fp64.f90 20108e3825dcaab3
+pristine warpx_esirkepov_deposition_fp32.c 1dd6909fa3e58d56
+pristine warpx_esirkepov_deposition_fp32.cpp 59e55ff7024d69e4
+pristine warpx_esirkepov_deposition_fp32.f90 bfdc4dc64d9c4186
+pristine warpx_esirkepov_deposition_numba_np.py 7c2b893cfb1e7b7b
+cell c: c src=- bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- bin=- -> ('numba', 'numba 0.67.0')
+cell nbnort: numba src=variants/warpx_esirkepov_deposition_nbnort.py bin=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 2.823 ms 
+  [1] numba            ok           min 4.321 ms 
+  [1] nbnort           ok           min 2.916 ms 
+  [2] nbnort           ok           min 2.912 ms 
+  [2] numba            ok           min 4.357 ms 
+  [2] c                ok           min 2.815 ms 
+  [3] c                ok           min 2.805 ms 
+  [3] numba            ok           min 4.363 ms 
+  [3] nbnort           ok           min 2.922 ms 
+  [record] c                ok           min 3.049 ms 
+  [record] numba            ok           min 4.500 ms 
+  [record] nbnort           ok           min 3.005 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/esirkN2.csv
+SRUN[esirkN2]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.esirkN2.csv --out-dir opt_reports/nbnort warpx_esirkepov_deposition:numba_hand:python:variants/warpx_esirkepov_deposition_nbnort.py
+warpx_esirkepov_deposition   numba_hand   ok
+SRUN[esirkN2]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 OMP_NUM_THREADS=1 NUMBA_NUM_THREADS=1 numactl --cpunodebind=0 --membind=0 perf record -e cycles:u -c 100000 -o scratch/esirkN2/probe.numba.data -- /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python nrt_probe.py /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/esirkepov_deposition/warpx_esirkepov_deposition_numba_np.py 1000 profiles/nrt_probe/numba.addresses.txt
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/nrt_probe.py", line 49, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/nrt_probe.py", line 44, in main
+    out.write_text("\n".join(lines) + "\n")
+  File "/capstor/scratch/cscs/lhulsbergen/uvpython/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/pathlib.py", line 1047, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/capstor/scratch/cscs/lhulsbergen/uvpython/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'profiles/nrt_probe/numba.addresses.txt'
+[ perf record: Woken up 36 times to write data ]
+[ perf record: Captured and wrote 8.764 MB scratch/esirkN2/probe.numba.data (286357 samples) ]
+srun: error: nid006559: task 0: Exited with exit code 1
+srun: Terminating StepId=4998121.3
+SRUN[esirkN2]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 OMP_NUM_THREADS=1 NUMBA_NUM_THREADS=1 numactl --cpunodebind=0 --membind=0 perf record -e cycles:u -c 100000 -o scratch/esirkN2/probe.nbnort.data -- /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python nrt_probe.py variants/warpx_esirkepov_deposition_nbnort.py 1000 profiles/nrt_probe/nbnort.addresses.txt
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/nrt_probe.py", line 49, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/nrt_probe.py", line 29, in main
+    mod = importlib.util.module_from_spec(sp); sp.loader.exec_module(mod)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1132, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1190, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2/variants/warpx_esirkepov_deposition_nbnort.py'
+[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.203 MB scratch/esirkN2/probe.nbnort.data (6126 samples) ]
+srun: error: nid006559: task 0: Exited with exit code 1
+srun: Terminating StepId=4998121.5
+unit esirkN2 node=nid006559 end=2026-10-07T14:48:59+02:00

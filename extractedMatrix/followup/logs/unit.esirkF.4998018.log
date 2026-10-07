@@ -1,0 +1,30 @@
+unit esirkF kernel=warpx_esirkepov_deposition bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006559 start=2026-10-07T14:26:57+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006559 1 1
+SRUN[esirkF]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_esirkepov_deposition --cells c fortran fortran14=fortran:bin=bin14 --rounds 3 --perf --record-reps 300 --out parts/esirkF.csv --scratch scratch/esirkF --db-shard 203
+pristine warpx_esirkepov_deposition_fp64.c c5f15acdea3e5f52
+pristine warpx_esirkepov_deposition_fp64.cpp e1fa1f19a7e16349
+pristine warpx_esirkepov_deposition_fp64.f90 20108e3825dcaab3
+pristine warpx_esirkepov_deposition_numba_np.py 7c2b893cfb1e7b7b
+cell c: c src=- bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- bin=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- bin=bin14 -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 2.810 ms 
+  [1] fortran          ok           min 2.936 ms 
+  [1] fortran14        ok           min 2.916 ms 
+  [2] fortran14        ok           min 2.911 ms 
+  [2] fortran          ok           min 2.942 ms 
+  [2] c                ok           min 2.816 ms 
+  [3] c                ok           min 2.824 ms 
+  [3] fortran          ok           min 2.933 ms 
+  [3] fortran14        ok           min 2.927 ms 
+  [record] c                ok           min 3.034 ms 
+  [record] fortran          ok           min 3.306 ms 
+  [record] fortran14        ok           min 3.253 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/esirkF.csv
+SRUN[esirkF]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env PATH=/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin14:/users/lhulsbergen/.local/bin:/users/lhulsbergen/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.esirkF.csv --out-dir opt_reports/gfortran14 --variant gfortran14 warpx_esirkepov_deposition:fortran:fortran:emitted_sources/warpx_esirkepov_deposition/warpx_esirkepov_deposition_fp64.f90
+warpx_esirkepov_deposition   fortran      ok
+SRUN[esirkF]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.esirkF.csv --out-dir opt_reports/gfortran13 --variant gfortran13 warpx_esirkepov_deposition:fortran:fortran:emitted_sources/warpx_esirkepov_deposition/warpx_esirkepov_deposition_fp64.f90
+warpx_esirkepov_deposition   fortran      ok
+SRUN[esirkF]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.esirkF.csv --out-dir opt_reports/gcc14 --variant gcc14 warpx_esirkepov_deposition:c:c:emitted_sources/warpx_esirkepov_deposition/warpx_esirkepov_deposition_fp64.c
+warpx_esirkepov_deposition   c            ok
+unit esirkF node=nid006559 end=2026-10-07T14:34:00+02:00

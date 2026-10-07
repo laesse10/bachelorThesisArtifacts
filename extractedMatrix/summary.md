@@ -13,6 +13,13 @@ Files: `results.csv` (every timing, v2 layout plus provenance/adapter), `cells.c
 `inspect_asm()`), `emitted_sources/` (the timed translator output), `adapters/`, `DEVIATIONS.md`,
 `precision_probe.py` + `precision_probe.csv` (how far each float cell is from NumPy).
 
+> **Corrections (2026-10-07, `followup/README.md`, `DEVIATIONS.md` item 12).** The integer-only kernels ran
+> their fp32 functions: CoMet's C/C++ call `cblas_sgemm` on float32 copies, not `cblas_dgemm`. The `native`
+> CoMet cell timed the translated code; the hand-written code is 0.565x of C. The `warpx_boris_push` and
+> `warpx_field_gather` Fortran losses come from a separate loop counter in gfortran's vector loops; the
+> `triangle_count` gap is the floor-division helper (shifts: C 1.55x faster); the hand-written Numba deposition
+> loses a third of its time to NRT reference counting. The text below is as first written.
+
 ## Status
 
 **33 ok, 1 build_error, 6 unsupported, 0 incorrect, 0 timeout.** x = speedup over translated C (`c`).

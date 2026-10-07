@@ -1,0 +1,30 @@
+unit scat kernel=scatter_accum_dup bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006566 start=2026-10-07T14:26:57+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006566 1 1
+SRUN[scat]: srun --nodes=1 --ntasks=1 -w nid006566 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel scatter_accum_dup --cells c fortran fortran14=fortran:bin=bin14 --rounds 3 --perf --record-reps 10 --out parts/scat.csv --scratch scratch/scat --db-shard 208
+pristine scatter_accum_dup_fp64.c cf2aa44e921cb2b4
+pristine scatter_accum_dup_fp64.cpp f294ffa18fafd07d
+pristine scatter_accum_dup_fp64.f90 d608176efc4d4559
+pristine scatter_accum_dup_numba_np.py 56740cc99b5e3791
+cell c: c src=- bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- bin=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- bin=bin14 -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 338.567 ms 
+  [1] fortran          ok           min 352.217 ms 
+  [1] fortran14        ok           min 353.407 ms 
+  [2] fortran14        ok           min 353.221 ms 
+  [2] fortran          ok           min 351.867 ms 
+  [2] c                ok           min 332.720 ms 
+  [3] c                ok           min 342.683 ms 
+  [3] fortran          ok           min 352.211 ms 
+  [3] fortran14        ok           min 363.161 ms 
+  [record] c                ok           min 343.553 ms 
+  [record] fortran          ok           min 362.413 ms 
+  [record] fortran14        ok           min 362.381 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/scat.csv
+SRUN[scat]: srun --nodes=1 --ntasks=1 -w nid006566 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env PATH=/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin14:/users/lhulsbergen/.local/bin:/users/lhulsbergen/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.scat.csv --out-dir opt_reports/gfortran14 --variant gfortran14 scatter_accum_dup:fortran:fortran:emitted_sources/scatter_accum_dup/scatter_accum_dup_fp64.f90
+scatter_accum_dup            fortran      ok
+SRUN[scat]: srun --nodes=1 --ntasks=1 -w nid006566 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.scat.csv --out-dir opt_reports/gfortran13 --variant gfortran13 scatter_accum_dup:fortran:fortran:emitted_sources/scatter_accum_dup/scatter_accum_dup_fp64.f90
+scatter_accum_dup            fortran      ok
+SRUN[scat]: srun --nodes=1 --ntasks=1 -w nid006566 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.scat.csv --out-dir opt_reports/gcc14 --variant gcc14 scatter_accum_dup:c:c:emitted_sources/scatter_accum_dup/scatter_accum_dup_fp64.c
+scatter_accum_dup            c            ok
+unit scat node=nid006566 end=2026-10-07T14:31:59+02:00

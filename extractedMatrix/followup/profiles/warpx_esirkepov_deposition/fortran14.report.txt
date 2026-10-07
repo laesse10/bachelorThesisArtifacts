@@ -1,0 +1,35 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 24K of event 'cycles:u'
+# Event count (approx.): 2481200000
+#
+# Overhead  Shared Object                                       Symbol                                                             
+# ........  ..................................................  ...................................................................
+#
+    75.20%  libwarpx_esirkepov_deposition_fortran.so            [.] warpx_esirkepov_deposition_fp64
+     5.38%  libc.so.6                                           [.] malloc
+     4.32%  libc.so.6                                           [.] _int_free
+     3.24%  libc.so.6                                           [.] __GI___memcpy_sve
+     2.78%  libc.so.6                                           [.] cfree@GLIBC_2.17
+     2.18%  libc.so.6                                           [.] __GI___memset_generic
+     1.15%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.57%  libwarpx_esirkepov_deposition_fortran.so            [.] memset@plt
+     0.56%  [unknown]                                           [k] 0xffffa4554ea5b908
+     0.29%  python3.12                                          [.] PyDict_GetItemWithError
+     0.29%  python3.12                                          [.] _PyObject_Malloc
+     0.25%  libwarpx_esirkepov_deposition_fortran.so            [.] free@plt
+     0.23%  libwarpx_esirkepov_deposition_fortran.so            [.] memcpy@plt
+     0.20%  libwarpx_esirkepov_deposition_fortran.so            [.] malloc@plt
+     0.18%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+     0.17%  python3.12                                          [.] _PyObject_Free
+     0.14%  [unknown]                                           [k] 0xffffa4554db89ebc
+     0.11%  python3.12                                          [.] PyObject_GenericGetAttr
+     0.10%  python3.12                                          [.] _PyObject_LookupAttr
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

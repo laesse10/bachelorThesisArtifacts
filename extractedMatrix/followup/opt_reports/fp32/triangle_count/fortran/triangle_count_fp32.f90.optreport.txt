@@ -1,0 +1,25 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c triangle_count_fp32.f90 -o x.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized (compile only, login node, Neoverse-V2)
+triangle_count_fp32.f90:70:30: optimized: unswitching loop 5 on ‘if’ with condition: _66 != 0
+triangle_count_fp32.f90:70:30: optimized: unswitching loop 5 on ‘if’ with condition: _109 < 0
+triangle_count_fp32.f90:55:26: optimized: unswitching loop 6 on ‘if’ with condition: _13 >= top_67
+triangle_count_fp32.f90:31:13: missed: couldn't vectorize loop
+triangle_count_fp32.f90:31:13: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+triangle_count_fp32.f90:50:21: missed: couldn't vectorize loop
+triangle_count_fp32.f90:50:21: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+triangle_count_fp32.f90:71:90: missed: couldn't vectorize loop
+triangle_count_fp32.f90:71:90: missed: not vectorized: loop nest containing two or more consecutive inner loops cannot be vectorized
+triangle_count_fp32.f90:70:30: missed: couldn't vectorize loop
+triangle_count_fp32.f90:70:30: missed: not vectorized: control flow in loop.
+triangle_count_fp32.f90:70:30: missed: couldn't vectorize loop
+triangle_count_fp32.f90:70:30: missed: not vectorized: control flow in loop.
+triangle_count_fp32.f90:70:30: missed: couldn't vectorize loop
+triangle_count_fp32.f90:70:30: missed: not vectorized: control flow in loop.
+triangle_count_fp32.f90:55:26: missed: couldn't vectorize loop
+triangle_count_fp32.f90:55:26: missed: not vectorized: control flow in loop.
+triangle_count_fp32.f90:55:26: missed: couldn't vectorize loop
+triangle_count_fp32.f90:55:26: missed: not vectorized: control flow in loop.
+triangle_count_fp32.f90:55:26: optimized: loop with 1 iterations completely unrolled (header execution count 225320163)
+triangle_count_fp32.f90:71:90: missed: not vectorized: vectorization is not profitable.
+triangle_count_fp32.f90:71:90: missed: not vectorized: vectorization is not profitable.
+triangle_count_fp32.f90:71:90: missed: not vectorized: vectorization is not profitable.
+triangle_count_fp32.f90:71:90: missed: not vectorized: vectorization is not profitable.

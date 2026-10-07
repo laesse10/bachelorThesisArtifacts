@@ -83,3 +83,22 @@ Every way this work departs from the task text or from the LLR-40 v2 protocol, w
    earlier. In the CSV the hand-written Numba cells of `quatrex_rgf` and `warpx_esirkepov_deposition`
    are labelled `numba` (the harness framework name); `warpx_field_gather` `numba` has no data (build
    error). The harness compares every output twice; the two comparisons agree.
+12. **Integer-only kernels run the fp32 symbol; the hand-written CoMet cell timed translated code
+   (found in `followup/`, 2026-10-07).** The harness's native wrapper (`cpp_runtime.wrap_kernel.call`)
+   calls `<k>_fp64` only if some argument is a float64 or complex128 array, else `<k>_fp32`, whatever
+   `--precision` says. `comet_int4_gemm`, `spgemm_hash`, `triangle_count` and `nfa_frontier` have integer
+   arguments only, so the c, cpp and fortran cells timed `<k>_fp32`, while `opt_reports/` and `summary.md`
+   analyse the fp64 functions. The fp32 sources equal the fp64 ones for `triangle_count` and `nfa_frontier`;
+   `spgemm_hash`'s differ in `_select_bin(float)` only, with the same nine integer divisions
+   (`followup/opt_reports/fp32/`). `comet_int4_gemm`'s fp32 C/C++ call **`cblas_sgemm`** on float32 copies
+   (not `cblas_dgemm`, as item 4 and `summary.md` say), and its fp32 Fortran loops read the transposed copy
+   with a stride of 32 float32 values; they vectorise the same way, from single-lane loads. The timings
+   stand; the descriptions are corrected in the thesis. The **`native` cell of `comet_int4_gemm` is wrong**:
+   the adapter replaces only `comet_int4_gemm_fp64.cpp`, so the harness called the translator's
+   `comet_int4_gemm_fp32` in the same library (the profile of `followup` unit `cometN`, cell `native`:
+   `comet_int4_gemm_fp32` + OpenBLAS `sgemm_small_kernel`). Its recorded 0.068 ms ("ties with C") is the
+   translated C++ code. With the adapter over both files (`native32`), the hand-written code runs
+   (profile: `tc_int4_gemm_impl`) at 0.565x of C on the same node (0.149 against 0.085 ms; job 4998244).
+   The `native` row in `results.csv` is left as recorded; use `followup/` for this cell. `warpx_boris_push`'s
+   `native` cell is unaffected (float64 arguments). No LLR-40 kernel is affected: each has a float64 argument.
+

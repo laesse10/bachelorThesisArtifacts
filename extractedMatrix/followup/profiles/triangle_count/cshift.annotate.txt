@@ -1,0 +1,94 @@
+########## triangle_count_fp32
+ Percent |	Source code & Disassembly of libtriangle_count_cc.so for cycles:u (29510 samples, percent: local period)
+------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   00000000000007a0 <triangle_count_fp32>:
+         : 6   triangle_count_fp32():
+    0.00 :   7a0:    cmp     x4, #0x0
+    0.00 :   7a4:    b.le    8e4 <triangle_count_fp32+0x144>
+    0.00 :   7a8:    mov     x14, #0x0                       // #0
+    0.00 :   7ac:    mov     x6, #0x0                        // #0
+    0.00 :   7b0:    b       7c0 <triangle_count_fp32+0x20>
+    0.04 :   7b4:    add     x14, x14, #0x1
+    0.04 :   7b8:    cmp     x4, x14
+    0.00 :   7bc:    b.eq    8c0 <triangle_count_fp32+0x120>  // b.none
+    0.37 :   7c0:    ldr     x5, [x1, x14, lsl #3]
+    0.48 :   7c4:    ldr     x7, [x0, x14, lsl #3]
+    0.01 :   7c8:    lsl     x5, x5, #3
+    0.05 :   7cc:    add     x8, x2, x5
+    0.02 :   7d0:    ldr     x12, [x2, x5]
+    0.06 :   7d4:    lsl     x7, x7, #3
+    0.75 :   7d8:    ldr     x5, [x8, #8]
+    0.02 :   7dc:    add     x8, x2, x7
+    0.15 :   7e0:    ldr     x9, [x2, x7]
+    0.25 :   7e4:    ldr     x15, [x8, #8]
+    0.00 :   7e8:    sub     x5, x5, x12
+    0.11 :   7ec:    cmp     x5, #0x0
+    0.00 :   7f0:    sub     x15, x15, x9
+    0.03 :   7f4:    ccmp    x15, #0x0, #0x4, gt
+    0.02 :   7f8:    b.le    7b4 <triangle_count_fp32+0x14>
+    0.73 :   7fc:    cmp     x5, x15
+    0.00 :   800:    b.le    81c <triangle_count_fp32+0x7c>
+    0.06 :   804:    mov     x8, x5
+    0.01 :   808:    mov     x7, x12
+    0.02 :   80c:    mov     x5, x15
+    0.01 :   810:    mov     x12, x9
+    0.01 :   814:    mov     x15, x8
+    0.02 :   818:    mov     x9, x7
+    0.02 :   81c:    add     x5, x5, x12
+    0.08 :   820:    add     x12, x0, x12, lsl #3
+    0.03 :   824:    add     x13, x0, x5, lsl #3
+    3.42 :   828:    ldr     x10, [x12]
+    1.34 :   82c:    mov     x5, #0x20                       // #32
+    2.73 :   830:    mov     x7, #0x0                        // #0
+    5.67 :   834:    add     x16, x7, #0x1
+    0.39 :   838:    add     x8, x5, x7
+    1.43 :   83c:    cmp     x5, x16
+    0.04 :   840:    b.le    870 <triangle_count_fp32+0xd0>
+    6.07 :   844:    asr     x8, x8, #1
+    0.37 :   848:    mul     x11, x15, x8
+    2.21 :   84c:    add     x11, x9, x11, asr #5
+    2.29 :   850:    ldr     x11, [x0, x11, lsl #3]
+   19.41 :   854:    cmp     x10, x11
+    0.00 :   858:    b.eq    8a4 <triangle_count_fp32+0x104>  // b.none
+    6.93 :   85c:    b.ge    8dc <triangle_count_fp32+0x13c>  // b.tcont
+   11.46 :   860:    mov     x5, x8
+    1.05 :   864:    add     x8, x5, x7
+    1.40 :   868:    cmp     x5, x16
+    0.00 :   86c:    b.gt    844 <triangle_count_fp32+0xa4>
+    1.64 :   870:    mul     x8, x15, x5
+    0.08 :   874:    mul     x7, x15, x7
+    0.28 :   878:    asr     x8, x8, #5
+    0.10 :   87c:    sub     x8, x8, #0x1
+    0.30 :   880:    asr     x11, x7, #5
+    0.39 :   884:    add     x5, x11, x8
+    0.62 :   888:    cmp     x11, x8
+    0.00 :   88c:    b.gt    8a8 <triangle_count_fp32+0x108>
+    2.16 :   890:    asr     x5, x5, #1
+    0.08 :   894:    add     x7, x9, x5
+    0.33 :   898:    ldr     x7, [x0, x7, lsl #3]
+    3.70 :   89c:    cmp     x10, x7
+    0.00 :   8a0:    b.ne    8c8 <triangle_count_fp32+0x128>  // b.any
+    0.12 :   8a4:    add     x6, x6, #0x1
+    1.28 :   8a8:    add     x12, x12, #0x8
+    0.96 :   8ac:    cmp     x13, x12
+    0.00 :   8b0:    b.ne    828 <triangle_count_fp32+0x88>  // b.any
+    0.17 :   8b4:    add     x14, x14, #0x1
+    0.13 :   8b8:    cmp     x4, x14
+    0.00 :   8bc:    b.ne    7c0 <triangle_count_fp32+0x20>  // b.any
+    0.00 :   8c0:    str     x6, [x3]
+    0.00 :   8c4:    ret
+    1.55 :   8c8:    b.ge    8d4 <triangle_count_fp32+0x134>  // b.tcont
+    0.04 :   8cc:    sub     x8, x5, #0x1
+    0.00 :   8d0:    b       884 <triangle_count_fp32+0xe4>
+    3.77 :   8d4:    add     x11, x5, #0x1
+    0.14 :   8d8:    b       884 <triangle_count_fp32+0xe4>
+    8.21 :   8dc:    mov     x7, x8
+    4.35 :   8e0:    b       834 <triangle_count_fp32+0x94>
+    0.00 :   8e4:    mov     x6, #0x0                        // #0
+    0.00 :   8e8:    str     x6, [x3]
+    0.00 :   8ec:    ret

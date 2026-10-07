@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 115K of event 'cycles:u'
+# Event count (approx.): 11574900000
+#
+# Overhead  Shared Object                                       Symbol                                                                                                                                       
+# ........  ..................................................  .............................................................................................................................................
+#
+    94.66%  libscatter_accum_dup_fortran.so                     [.] scatter_accum_dup_fp64
+     2.63%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] INT_subtract
+     2.63%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] INT_add
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

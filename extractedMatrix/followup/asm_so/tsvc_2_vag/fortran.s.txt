@@ -1,0 +1,19 @@
+# objdump -d libtsvc_2_vag_fortran.so, functions matching tsvc_2_vag_fp64* (sha256 a9b2459ae4c35741)
+
+0000000000000660 <tsvc_2_vag_fp64>:    # address mod 64 = 32
+ 660:	f100007f 	cmp	x3, #0x0
+ 664:	5400012d 	b.le	688 <tsvc_2_vag_fp64+0x28>
+ 668:	d2800004 	mov	x4, #0x0                   	// #0
+ 66c:	b8a47845 	ldrsw	x5, [x2, x4, lsl #2]
+ 670:	d10004a5 	sub	x5, x5, #0x1
+ 674:	fc657820 	ldr	d0, [x1, x5, lsl #3]
+ 678:	fc247800 	str	d0, [x0, x4, lsl #3]
+ 67c:	91000484 	add	x4, x4, #0x1
+ 680:	eb04007f 	cmp	x3, x4
+ 684:	54ffff41 	b.ne	66c <tsvc_2_vag_fp64+0xc>  // b.any
+ 688:	d65f03c0 	ret
+ 68c:	d503201f 	nop
+ 690:	d503201f 	nop
+ 694:	d503201f 	nop
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop

@@ -1,0 +1,123 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/opt_reports/gfortran13/warpx_boris_push/fortran/warpx_boris_push_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/opt_reports/gfortran13/warpx_boris_push/fortran/build/warpx_boris_push_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+warpx_boris_push_fp64.f90:93:20: optimized: Loop 12 distributed: split to 0 loops and 1 library calls.
+warpx_boris_push_fp64.f90:106:20: optimized: Loop 14 distributed: split to 0 loops and 1 library calls.
+warpx_boris_push_fp64.f90:164:20: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:161:20: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:158:20: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:153:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:149:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:145:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:141:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:137:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:133:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:130:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:127:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:124:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:119:16: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:115:20: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:112:20: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:109:20: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:97:20: missed: couldn't vectorize loop
+warpx_boris_push_fp64.f90:100:48: missed: not vectorized: relevant stmt not supported: _86 = .MASK_LOAD (_1104, 64B, _85);
+warpx_boris_push_fp64.f90:85:20: missed: couldn't vectorize loop
+warpx_boris_push_fp64.f90:87:52: missed: not vectorized: relevant stmt not supported: x_ifexp0_367 = .MASK_LOAD (_1093, 64B, _83);
+warpx_boris_push_fp64.f90:81:19: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:77:19: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:73:15: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:70:15: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:67:15: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:64:15: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:64:15: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:60:15: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:54:19: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:51:19: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:48:19: optimized: loop vectorized using 16 byte vectors
+warpx_boris_push_fp64.f90:164:20: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:161:20: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:158:20: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:153:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:149:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:145:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:141:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:137:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:133:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:130:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:127:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:124:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:119:16: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:115:20: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:112:20: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:109:20: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:77:19: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:73:15: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:70:15: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:67:15: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:64:15: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:2:32: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:60:15: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:54:19: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:51:19: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:48:19: optimized: loop turned into non-loop; it never loops
+warpx_boris_push_fp64.f90:27:41: missed: statement clobbers memory: _299 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:28:41: missed: statement clobbers memory: _301 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:29:41: missed: statement clobbers memory: _303 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:37:49: missed: statement clobbers memory: _305 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:35:53: missed: statement clobbers memory: _307 = __builtin_malloc (_6);
+warpx_boris_push_fp64.f90:30:52: missed: statement clobbers memory: _309 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:36:51: missed: statement clobbers memory: _311 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:39:45: missed: statement clobbers memory: _313 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:40:45: missed: statement clobbers memory: _315 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:41:45: missed: statement clobbers memory: _317 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:34:46: missed: statement clobbers memory: _319 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:38:47: missed: statement clobbers memory: _321 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:31:45: missed: statement clobbers memory: _323 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:32:45: missed: statement clobbers memory: _325 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:33:45: missed: statement clobbers memory: _327 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:42:47: missed: statement clobbers memory: _329 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:43:47: missed: statement clobbers memory: _331 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:44:47: missed: statement clobbers memory: _333 = __builtin_malloc (_5);
+warpx_boris_push_fp64.f90:94:65: missed: statement clobbers memory: __builtin_memcpy (_311, _301, _1117);
+warpx_boris_push_fp64.f90:107:63: missed: statement clobbers memory: __builtin_memcpy (_305, _303, _1117);
+warpx_boris_push_fp64.f90:44:47: missed: statement clobbers memory: __builtin_free (_333);
+warpx_boris_push_fp64.f90:43:47: missed: statement clobbers memory: __builtin_free (_331);
+warpx_boris_push_fp64.f90:42:47: missed: statement clobbers memory: __builtin_free (_329);
+warpx_boris_push_fp64.f90:33:45: missed: statement clobbers memory: __builtin_free (_327);
+warpx_boris_push_fp64.f90:32:45: missed: statement clobbers memory: __builtin_free (_325);
+warpx_boris_push_fp64.f90:31:45: missed: statement clobbers memory: __builtin_free (_323);
+warpx_boris_push_fp64.f90:38:47: missed: statement clobbers memory: __builtin_free (_321);
+warpx_boris_push_fp64.f90:34:46: missed: statement clobbers memory: __builtin_free (_319);
+warpx_boris_push_fp64.f90:41:45: missed: statement clobbers memory: __builtin_free (_317);
+warpx_boris_push_fp64.f90:40:45: missed: statement clobbers memory: __builtin_free (_315);
+warpx_boris_push_fp64.f90:39:45: missed: statement clobbers memory: __builtin_free (_313);
+warpx_boris_push_fp64.f90:36:51: missed: statement clobbers memory: __builtin_free (_311);
+warpx_boris_push_fp64.f90:30:52: missed: statement clobbers memory: __builtin_free (_309);
+warpx_boris_push_fp64.f90:35:53: missed: statement clobbers memory: __builtin_free (_307);
+warpx_boris_push_fp64.f90:37:49: missed: statement clobbers memory: __builtin_free (_305);
+warpx_boris_push_fp64.f90:29:41: missed: statement clobbers memory: __builtin_free (_303);
+warpx_boris_push_fp64.f90:28:41: missed: statement clobbers memory: __builtin_free (_301);
+warpx_boris_push_fp64.f90:27:41: missed: statement clobbers memory: __builtin_free (_299);
+warpx_boris_push_fp64.f90:62:87: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:62:87: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:79:98: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:79:98: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:122:36: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:122:36: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:62:87: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:62:87: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:79:98: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:79:98: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:122:36: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:122:36: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:62:87: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:62:87: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:79:98: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:79:98: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:122:36: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:122:36: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:62:87: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:62:87: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:79:98: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:79:98: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:122:36: missed: not vectorized: vectorization is not profitable.
+warpx_boris_push_fp64.f90:122:36: missed: not vectorized: vectorization is not profitable.

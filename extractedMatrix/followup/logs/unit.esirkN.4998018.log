@@ -1,0 +1,40 @@
+unit esirkN kernel=warpx_esirkepov_deposition bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 node=nid006562 start=2026-10-07T14:26:57+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006562 1 1
+SRUN[esirkN]: srun --nodes=1 --ntasks=1 -w nid006562 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_esirkepov_deposition --cells c numba nbserial=numba:src=variants/warpx_esirkepov_deposition_nbserial.py nbnoviews=numba:src=variants/warpx_esirkepov_deposition_nbnoviews.py nbfastmath=numba:src=variants/warpx_esirkepov_deposition_nbfastmath.py --rounds 3 --perf --record-reps 300 --out parts/esirkN.csv --scratch scratch/esirkN --db-shard 204
+pristine warpx_esirkepov_deposition_fp64.c c5f15acdea3e5f52
+pristine warpx_esirkepov_deposition_fp64.cpp e1fa1f19a7e16349
+pristine warpx_esirkepov_deposition_fp64.f90 20108e3825dcaab3
+pristine warpx_esirkepov_deposition_numba_np.py 7c2b893cfb1e7b7b
+cell c: c src=- bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- bin=- -> ('numba', 'numba 0.67.0')
+cell nbserial: numba src=variants/warpx_esirkepov_deposition_nbserial.py bin=- -> ('numba', 'numba 0.67.0')
+cell nbnoviews: numba src=variants/warpx_esirkepov_deposition_nbnoviews.py bin=- -> ('numba', 'numba 0.67.0')
+cell nbfastmath: numba src=variants/warpx_esirkepov_deposition_nbfastmath.py bin=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 2.677 ms 
+  [1] numba            ok           min 4.398 ms 
+  [1] nbserial         ok           min 5.096 ms 
+  [1] nbnoviews        ok           min 7.266 ms 
+  [1] nbfastmath       ok           min 7.038 ms 
+  [2] nbfastmath       ok           min 7.086 ms 
+  [2] nbnoviews        ok           min 7.311 ms 
+  [2] nbserial         ok           min 5.136 ms 
+  [2] numba            ok           min 4.381 ms 
+  [2] c                ok           min 2.845 ms 
+  [3] c                ok           min 2.819 ms 
+  [3] numba            ok           min 4.373 ms 
+  [3] nbserial         ok           min 5.086 ms 
+  [3] nbnoviews        ok           min 7.304 ms 
+  [3] nbfastmath       ok           min 7.056 ms 
+  [record] c                ok           min 3.065 ms 
+  [record] numba            ok           min 4.590 ms 
+  [record] nbserial         ok           min 5.280 ms 
+  [record] nbnoviews        ok           min 7.442 ms 
+  [record] nbfastmath       ok           min 7.227 ms 
+wrote 20 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/esirkN.csv
+SRUN[esirkN]: srun --nodes=1 --ntasks=1 -w nid006562 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.esirkN.csv --out-dir opt_reports/nbserial warpx_esirkepov_deposition:numba_hand:python:variants/warpx_esirkepov_deposition_nbserial.py
+warpx_esirkepov_deposition   numba_hand   ok
+SRUN[esirkN]: srun --nodes=1 --ntasks=1 -w nid006562 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.esirkN.csv --out-dir opt_reports/nbnoviews warpx_esirkepov_deposition:numba_hand:python:variants/warpx_esirkepov_deposition_nbnoviews.py
+warpx_esirkepov_deposition   numba_hand   ok
+SRUN[esirkN]: srun --nodes=1 --ntasks=1 -w nid006562 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.esirkN.csv --out-dir opt_reports/nbfastmath warpx_esirkepov_deposition:numba_hand:python:variants/warpx_esirkepov_deposition_nbfastmath.py
+warpx_esirkepov_deposition   numba_hand   ok
+unit esirkN node=nid006562 end=2026-10-07T14:32:49+02:00

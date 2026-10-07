@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 146K of event 'cycles:u'
+# Event count (approx.): 14604800000
+#
+# Overhead  Shared Object                                       Symbol                                                                                                                                       
+# ........  ..................................................  .............................................................................................................................................
+#
+    95.79%  libtsvc_2_s4112_fortran.so                          [.] tsvc_2_s4112_fp64
+     2.09%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] INT_add
+     2.07%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] INT_subtract
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

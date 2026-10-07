@@ -1,0 +1,1063 @@
+########## comet_int4_gemm_fp32
+ Percent |	Source code & Disassembly of libcomet_int4_gemm_cpp.so for cycles:u (1937 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000000d20 <comet_int4_gemm_fp32>:
+         : 6    comet_int4_gemm_fp32():
+    0.26 :    d20:    sub     sp, sp, #0xf0
+    0.00 :    d24:    stp     x29, x30, [sp, #32]
+    0.00 :    d28:    add     x29, sp, #0x20
+    0.00 :    d2c:    stp     x19, x20, [sp, #48]
+    0.00 :    d30:    mov     x19, x4
+    0.00 :    d34:    mov     x20, x3
+    0.00 :    d38:    stp     x21, x22, [sp, #64]
+    0.00 :    d3c:    mul     x21, x3, x4
+    0.10 :    d40:    mul     x22, x19, x19
+    0.00 :    d44:    lsl     x21, x21, #2
+    0.00 :    d48:    stp     x27, x28, [sp, #112]
+    0.00 :    d4c:    mov     x27, x0
+    0.00 :    d50:    mov     x0, x21
+    0.00 :    d54:    lsl     x22, x22, #2
+    0.00 :    d58:    stp     x23, x24, [sp, #80]
+    0.00 :    d5c:    mov     x24, x2
+    0.00 :    d60:    mov     x23, x1
+    0.00 :    d64:    stp     x25, x26, [sp, #96]
+    0.00 :    d68:    bl      8b0 <malloc@plt>
+    0.00 :    d6c:    str     x0, [sp, #144]
+    0.00 :    d70:    mov     x0, x22
+    0.00 :    d74:    bl      8b0 <malloc@plt>
+    0.00 :    d78:    mov     x10, x0
+    0.00 :    d7c:    mov     x0, x21
+    0.00 :    d80:    str     x10, [sp, #200]
+    0.00 :    d84:    bl      8b0 <malloc@plt>
+    0.00 :    d88:    mov     x1, x0
+    0.00 :    d8c:    mov     x0, x22
+    0.00 :    d90:    str     x1, [sp, #152]
+    0.00 :    d94:    bl      8b0 <malloc@plt>
+    0.00 :    d98:    mov     x11, x0
+    0.00 :    d9c:    mov     x0, x21
+    0.00 :    da0:    str     x11, [sp, #192]
+    0.00 :    da4:    bl      8b0 <malloc@plt>
+    0.00 :    da8:    mov     x1, x0
+    0.00 :    dac:    mov     x0, x22
+    0.00 :    db0:    str     x1, [sp, #160]
+    0.00 :    db4:    bl      8b0 <malloc@plt>
+    0.00 :    db8:    mov     x12, x0
+    0.00 :    dbc:    mov     x0, x21
+    0.00 :    dc0:    str     x12, [sp, #184]
+    0.00 :    dc4:    bl      8b0 <malloc@plt>
+    0.00 :    dc8:    mov     x1, x0
+    0.00 :    dcc:    mov     x0, x22
+    0.00 :    dd0:    str     x1, [sp, #168]
+    0.00 :    dd4:    bl      8b0 <malloc@plt>
+    0.00 :    dd8:    mov     x13, x0
+    0.00 :    ddc:    mov     x0, x21
+    0.00 :    de0:    str     x13, [sp, #176]
+    0.00 :    de4:    bl      8b0 <malloc@plt>
+    0.00 :    de8:    mov     x28, x0
+    0.00 :    dec:    mov     x0, x21
+    0.00 :    df0:    bl      8b0 <malloc@plt>
+    0.00 :    df4:    mov     x1, x0
+    0.00 :    df8:    mov     x0, x21
+    0.00 :    dfc:    str     x1, [sp, #136]
+    0.00 :    e00:    bl      8b0 <malloc@plt>
+    0.00 :    e04:    mov     x25, x0
+    0.00 :    e08:    mov     x0, x21
+    0.00 :    e0c:    bl      8b0 <malloc@plt>
+    0.00 :    e10:    cmp     x19, #0x0
+    0.00 :    e14:    ldp     x13, x12, [sp, #176]
+    0.00 :    e18:    mov     x26, x0
+    0.00 :    e1c:    ldp     x11, x10, [sp, #192]
+    0.00 :    e20:    b.le    1bdc <comet_int4_gemm_fp32+0xebc>
+    0.00 :    e24:    lsl     x21, x19, #4
+    0.00 :    e28:    cmp     x20, #0x0
+    0.00 :    e2c:    b.le    111c <comet_int4_gemm_fp32+0x3fc>
+    0.00 :    e30:    mov     x5, x27
+    0.00 :    e34:    mov     x9, x28
+    0.00 :    e38:    movi    v4.16b, #0x1
+    0.00 :    e3c:    ptrue   p0.b
+    0.00 :    e40:    and     x7, x20, #0xfffffffffffffff0
+    0.00 :    e44:    sub     x1, x20, #0x1
+    0.00 :    e48:    lsl     x4, x20, #2
+    0.00 :    e4c:    mov     x6, #0x0                        // #0
+    0.00 :    e50:    mov     x8, #0x0                        // #0
+    0.00 :    e54:    add     x3, x7, x5
+    0.00 :    e58:    mov     x0, x9
+    0.00 :    e5c:    mov     x2, x5
+    0.00 :    e60:    cmp     x1, #0xe
+    0.00 :    e64:    b.ls    f74 <comet_int4_gemm_fp32+0x254>  // b.plast
+    0.10 :    e68:    ldr     q1, [x2], #16
+    3.67 :    e6c:    sshr    v0.16b, v1.16b, #1
+    0.05 :    e70:    and     v1.16b, v1.16b, v4.16b
+    0.05 :    e74:    and     v0.16b, v0.16b, v4.16b
+    0.05 :    e78:    add     v0.16b, v0.16b, v1.16b
+    0.05 :    e7c:    uxtl    v1.8h, v0.8b
+    0.21 :    e80:    uxtl2   v0.8h, v0.16b
+    0.05 :    e84:    uxtl    v3.4s, v1.4h
+    0.05 :    e88:    uxtl    v2.4s, v0.4h
+    0.10 :    e8c:    uxtl2   v1.4s, v1.8h
+    0.05 :    e90:    uxtl2   v0.4s, v0.8h
+    0.05 :    e94:    scvtf   v3.4s, v3.4s
+    0.00 :    e98:    scvtf   v2.4s, v2.4s
+    0.21 :    e9c:    scvtf   v1.4s, v1.4s
+    0.05 :    ea0:    scvtf   v0.4s, v0.4s
+    0.21 :    ea4:    stp     q3, q1, [x0]
+    1.76 :    ea8:    stp     q2, q0, [x0, #32]
+    0.15 :    eac:    add     x0, x0, #0x40
+    0.05 :    eb0:    cmp     x3, x2
+    0.00 :    eb4:    b.ne    e68 <comet_int4_gemm_fp32+0x148>  // b.any
+    0.00 :    eb8:    cmp     x7, x20
+    0.00 :    ebc:    b.eq    f44 <comet_int4_gemm_fp32+0x224>  // b.none
+    0.00 :    ec0:    mov     x0, x7
+    0.00 :    ec4:    add     x3, x6, x0
+    0.00 :    ec8:    sub     x0, x20, x0
+    0.00 :    ecc:    whilelo p1.b, xzr, x0
+    0.00 :    ed0:    ld1b    {z1.b}, p1/z, [x27, x3]
+    0.00 :    ed4:    asr     z0.b, z1.b, #1
+    0.00 :    ed8:    mov     x14, x0
+    0.00 :    edc:    and     z1.b, z1.b, #0x1
+    0.00 :    ee0:    uqdecw  x14
+    0.00 :    ee4:    add     x2, x28, x3, lsl #2
+    0.00 :    ee8:    whilelo p4.s, xzr, x0
+    0.00 :    eec:    whilelo p3.s, xzr, x14
+    0.00 :    ef0:    and     z0.b, z0.b, #0x1
+    0.00 :    ef4:    mov     x14, x0
+    0.00 :    ef8:    add     z0.b, z0.b, z1.b
+    0.00 :    efc:    uqdech  x14
+    0.00 :    f00:    uunpklo z1.h, z0.b
+    0.00 :    f04:    uqdecw  x0, all, mul #3
+    0.00 :    f08:    uunpkhi z0.h, z0.b
+    0.00 :    f0c:    uunpklo z3.s, z1.h
+    0.00 :    f10:    uunpklo z2.s, z0.h
+    0.00 :    f14:    uunpkhi z1.s, z1.h
+    0.00 :    f18:    scvtf   z3.s, p0/m, z3.s
+    0.00 :    f1c:    scvtf   z1.s, p0/m, z1.s
+    0.00 :    f20:    uunpkhi z0.s, z0.h
+    0.00 :    f24:    scvtf   z2.s, p0/m, z2.s
+    0.00 :    f28:    scvtf   z0.s, p0/m, z0.s
+    0.00 :    f2c:    whilelo p2.s, xzr, x14
+    0.00 :    f30:    whilelo p1.s, xzr, x0
+    0.00 :    f34:    st1w    {z3.s}, p4, [x28, x3, lsl #2]
+    0.00 :    f38:    st1w    {z1.s}, p3, [x2, #1, mul vl]
+    0.00 :    f3c:    st1w    {z2.s}, p2, [x2, #2, mul vl]
+    0.00 :    f40:    st1w    {z0.s}, p1, [x2, #3, mul vl]
+    0.00 :    f44:    add     x0, x8, #0x1
+    0.00 :    f48:    add     x6, x6, x20
+    0.00 :    f4c:    add     x5, x5, x20
+    0.00 :    f50:    add     x9, x9, x4
+    0.00 :    f54:    cmp     x19, x0
+    0.00 :    f58:    b.eq    1268 <comet_int4_gemm_fp32+0x548>  // b.none
+    0.05 :    f5c:    mov     x8, x0
+    0.00 :    f60:    add     x3, x7, x5
+    0.00 :    f64:    mov     x0, x9
+    0.00 :    f68:    mov     x2, x5
+    0.00 :    f6c:    cmp     x1, #0xe
+    0.00 :    f70:    b.hi    e68 <comet_int4_gemm_fp32+0x148>  // b.pmore
+    0.00 :    f74:    mov     x0, #0x0                        // #0
+    0.00 :    f78:    b       ec4 <comet_int4_gemm_fp32+0x1a4>
+    0.00 :    f7c:    fmov    v2.4s, #2.000000000000000000e+00
+    0.00 :    f80:    lsl     x5, x5, #5
+    0.00 :    f84:    add     x3, x25, #0x10
+    0.00 :    f88:    fmov    z3.s, #2.000000000000000000e+00
+    0.00 :    f8c:    add     x2, x26, #0x10
+    0.00 :    f90:    mov     x14, #0x0                       // #0
+    0.00 :    f94:    mov     x8, #0x0                        // #0
+    0.00 :    f98:    cntw    x15
+    0.00 :    f9c:    nop
+    0.00 :    fa0:    sub     x7, x3, #0x10
+    0.00 :    fa4:    sub     x6, x2, #0x10
+    0.05 :    fa8:    mov     x0, #0x0                        // #0
+    0.00 :    fac:    cmp     x1, #0x6
+    0.00 :    fb0:    b.ls    148c <comet_int4_gemm_fp32+0x76c>  // b.plast
+    0.00 :    fb4:    nop
+    0.00 :    fb8:    nop
+    0.00 :    fbc:    nop
+    0.52 :    fc0:    ldr     q1, [x7, x0]
+    0.93 :    fc4:    ldr     q0, [x3, x0]
+    0.36 :    fc8:    fsub    v1.4s, v2.4s, v1.4s
+    0.10 :    fcc:    fsub    v0.4s, v2.4s, v0.4s
+    0.21 :    fd0:    str     q1, [x6, x0]
+    0.52 :    fd4:    str     q0, [x2, x0]
+    0.36 :    fd8:    add     x0, x0, #0x20
+    0.10 :    fdc:    cmp     x5, x0
+    0.00 :    fe0:    b.ne    fc0 <comet_int4_gemm_fp32+0x2a0>  // b.any
+    0.00 :    fe4:    cmp     x20, x9
+    0.00 :    fe8:    b.eq    1024 <comet_int4_gemm_fp32+0x304>  // b.none
+    0.00 :    fec:    mov     x0, x9
+    0.00 :    ff0:    sub     x6, x20, x0
+    0.00 :    ff4:    add     x0, x14, x0
+    0.00 :    ff8:    whilelo p0.s, xzr, x6
+    0.00 :    ffc:    ld1w    {z0.s}, p0/z, [x25, x0, lsl #2]
+    0.00 :   1000:   fsub    z0.s, z3.s, z0.s
+    0.00 :   1004:   st1w    {z0.s}, p0, [x26, x0, lsl #2]
+    0.00 :   1008:   add     x7, x25, x0, lsl #2
+    0.00 :   100c:   whilelo p0.s, x15, x6
+    0.00 :   1010:   add     x0, x26, x0, lsl #2
+    0.00 :   1014:   b.eq    1024 <comet_int4_gemm_fp32+0x304>  // b.none
+    0.00 :   1018:   ld1w    {z0.s}, p0/z, [x7, #1, mul vl]
+    0.00 :   101c:   fsub    z0.s, z3.s, z0.s
+    0.00 :   1020:   st1w    {z0.s}, p0, [x0, #1, mul vl]
+    0.00 :   1024:   add     x8, x8, #0x1
+    0.00 :   1028:   add     x3, x3, x4
+    0.00 :   102c:   add     x2, x2, x4
+    0.00 :   1030:   add     x14, x14, x20
+    0.00 :   1034:   cmp     x19, x8
+    0.00 :   1038:   b.ne    fa0 <comet_int4_gemm_fp32+0x280>  // b.any
+    0.00 :   103c:   ldr     x16, [sp, #144]
+    0.10 :   1040:   add     x3, x19, x19, lsl #1
+    0.00 :   1044:   lsr     x15, x20, #2
+    0.00 :   1048:   mov     x8, x26
+    0.00 :   104c:   lsl     x15, x15, #4
+    0.00 :   1050:   lsl     x21, x19, #4
+    0.00 :   1054:   lsl     x3, x3, #2
+    0.00 :   1058:   lsl     x5, x19, #3
+    0.00 :   105c:   and     x14, x20, #0xfffffffffffffffc
+    0.00 :   1060:   mov     x7, #0x0                        // #0
+    0.00 :   1064:   mov     x6, #0x0                        // #0
+    0.00 :   1068:   mov     x9, x16
+    0.05 :   106c:   add     x17, x8, x15
+    0.00 :   1070:   mov     x2, x9
+    0.05 :   1074:   mov     x0, x8
+    0.00 :   1078:   cmp     x1, #0x2
+    0.00 :   107c:   b.ls    1484 <comet_int4_gemm_fp32+0x764>  // b.plast
+    0.52 :   1080:   ldp     s2, s1, [x0, #4]
+    0.46 :   1084:   ldr     s0, [x0, #12]
+    0.36 :   1088:   ldr     s3, [x0], #16
+    0.77 :   108c:   str     s3, [x2]
+    2.89 :   1090:   str     s2, [x2, x19, lsl #2]
+    3.82 :   1094:   str     s1, [x2, x5]
+    4.28 :   1098:   str     s0, [x2, x3]
+    4.65 :   109c:   add     x2, x2, x21
+    0.36 :   10a0:   cmp     x17, x0
+    0.00 :   10a4:   b.ne    1080 <comet_int4_gemm_fp32+0x360>  // b.any
+    0.00 :   10a8:   mov     x0, x14
+    0.00 :   10ac:   cmp     x20, x14
+    0.00 :   10b0:   b.eq    1104 <comet_int4_gemm_fp32+0x3e4>  // b.none
+    0.00 :   10b4:   add     x18, x7, x0
+    0.00 :   10b8:   mul     x2, x19, x0
+    0.00 :   10bc:   add     x17, x0, #0x1
+    0.00 :   10c0:   ldr     s0, [x26, x18, lsl #2]
+    0.00 :   10c4:   add     x18, x2, x6
+    0.00 :   10c8:   str     s0, [x16, x18, lsl #2]
+    0.00 :   10cc:   cmp     x17, x20
+    0.00 :   10d0:   b.ge    1104 <comet_int4_gemm_fp32+0x3e4>  // b.tcont
+    0.00 :   10d4:   add     x17, x7, x17
+    0.00 :   10d8:   add     x2, x19, x2
+    0.00 :   10dc:   add     x2, x6, x2
+    0.00 :   10e0:   add     x0, x0, #0x2
+    0.00 :   10e4:   ldr     s0, [x26, x17, lsl #2]
+    0.00 :   10e8:   str     s0, [x16, x2, lsl #2]
+    0.00 :   10ec:   cmp     x20, x0
+    0.00 :   10f0:   b.le    1104 <comet_int4_gemm_fp32+0x3e4>
+    0.00 :   10f4:   add     x0, x7, x0
+    0.00 :   10f8:   add     x2, x2, x19
+    0.00 :   10fc:   ldr     s0, [x26, x0, lsl #2]
+    0.00 :   1100:   str     s0, [x16, x2, lsl #2]
+    0.00 :   1104:   add     x6, x6, #0x1
+    0.00 :   1108:   add     x7, x7, x20
+    0.00 :   110c:   add     x8, x8, x4
+    0.00 :   1110:   add     x9, x9, #0x4
+    0.05 :   1114:   cmp     x19, x6
+    0.00 :   1118:   b.ne    106c <comet_int4_gemm_fp32+0x34c>  // b.any
+    0.00 :   111c:   ldp     x6, x0, [sp, #136]
+    0.00 :   1120:   mov     w2, #0x6f                       // #111
+    0.00 :   1124:   mov     w5, w20
+    0.00 :   1128:   movi    v1.2s, #0x0
+    0.00 :   112c:   fmov    s0, #1.000000000000000000e+00
+    0.00 :   1130:   mov     w1, w2
+    0.00 :   1134:   mov     w3, w19
+    0.00 :   1138:   mov     w7, w20
+    0.00 :   113c:   mov     w4, w19
+    0.00 :   1140:   str     w19, [sp, #8]
+    0.00 :   1144:   and     x27, x19, #0xfffffffffffffffc
+    0.00 :   1148:   mov     x23, #0x0                       // #0
+    0.00 :   114c:   str     x10, [sp, #16]
+    0.00 :   1150:   str     x0, [sp]
+    0.00 :   1154:   mov     w0, #0x65                       // #101
+    0.00 :   1158:   str     w19, [sp, #24]
+    0.00 :   115c:   stp     x10, x11, [sp, #184]
+    0.00 :   1160:   stp     x12, x13, [sp, #200]
+    0.00 :   1164:   bl      890 <cblas_sgemm@plt>
+    0.00 :   1168:   ldp     x10, x11, [sp, #184]
+    0.00 :   116c:   lsr     x0, x19, #2
+    0.00 :   1170:   sub     x8, x19, #0x1
+    0.00 :   1174:   lsl     x9, x19, #2
+    0.00 :   1178:   lsl     x14, x0, #4
+    0.00 :   117c:   mov     x5, x24
+    0.00 :   1180:   mov     x2, #0x0                        // #0
+    0.00 :   1184:   str     x0, [sp, #176]
+    0.00 :   1188:   ldp     x12, x13, [sp, #200]
+    0.00 :   118c:   mov     x3, x10
+    0.00 :   1190:   cmp     x8, #0x2
+    0.00 :   1194:   b.ls    1260 <comet_int4_gemm_fp32+0x540>  // b.plast
+    0.00 :   1198:   nop
+    0.00 :   119c:   nop
+    0.00 :   11a0:   add     x15, x3, x14
+    0.00 :   11a4:   mov     x0, x5
+    0.00 :   11a8:   mov     x7, x3
+    0.26 :   11ac:   ldr     q0, [x7], #16
+    0.21 :   11b0:   mov     x6, x0
+    0.00 :   11b4:   add     x4, x0, #0x20
+    0.05 :   11b8:   add     x1, x0, #0x30
+    0.05 :   11bc:   add     x0, x0, #0x40
+    0.05 :   11c0:   fcvtzs  v0.4s, v0.4s
+    0.10 :   11c4:   str     s0, [x6], #16
+    1.29 :   11c8:   st1     {v0.s}[1], [x6]
+    0.15 :   11cc:   st1     {v0.s}[2], [x4]
+    0.62 :   11d0:   st1     {v0.s}[3], [x1]
+    0.15 :   11d4:   cmp     x15, x7
+    0.00 :   11d8:   b.ne    11ac <comet_int4_gemm_fp32+0x48c>  // b.any
+    0.10 :   11dc:   mov     x0, x27
+    0.00 :   11e0:   cmp     x19, x27
+    0.00 :   11e4:   b.eq    123c <comet_int4_gemm_fp32+0x51c>  // b.none
+    0.00 :   11e8:   add     x4, x2, x0
+    0.00 :   11ec:   add     x1, x0, #0x1
+    0.00 :   11f0:   lsl     x6, x4, #4
+    0.00 :   11f4:   ldr     s0, [x10, x4, lsl #2]
+    0.00 :   11f8:   fcvtzs  s0, s0
+    0.00 :   11fc:   str     s0, [x24, x6]
+    0.00 :   1200:   cmp     x1, x19
+    0.00 :   1204:   b.ge    123c <comet_int4_gemm_fp32+0x51c>  // b.tcont
+    0.00 :   1208:   add     x1, x2, x1
+    0.00 :   120c:   add     x0, x0, #0x2
+    0.00 :   1210:   lsl     x4, x1, #4
+    0.00 :   1214:   ldr     s0, [x10, x1, lsl #2]
+    0.00 :   1218:   fcvtzs  s0, s0
+    0.00 :   121c:   str     s0, [x24, x4]
+    0.00 :   1220:   cmp     x0, x19
+    0.00 :   1224:   b.ge    123c <comet_int4_gemm_fp32+0x51c>  // b.tcont
+    0.00 :   1228:   add     x0, x2, x0
+    0.00 :   122c:   lsl     x1, x0, #4
+    0.00 :   1230:   ldr     s0, [x10, x0, lsl #2]
+    0.00 :   1234:   fcvtzs  s0, s0
+    0.00 :   1238:   str     s0, [x24, x1]
+    0.00 :   123c:   add     x22, x23, #0x1
+    0.00 :   1240:   add     x2, x2, x19
+    0.00 :   1244:   add     x3, x3, x9
+    0.00 :   1248:   add     x5, x5, x21
+    0.00 :   124c:   cmp     x19, x22
+    0.00 :   1250:   b.eq    1494 <comet_int4_gemm_fp32+0x774>  // b.none
+    0.05 :   1254:   mov     x23, x22
+    0.00 :   1258:   cmp     x8, #0x2
+    0.05 :   125c:   b.hi    11a0 <comet_int4_gemm_fp32+0x480>  // b.pmore
+    0.00 :   1260:   mov     x0, #0x0                        // #0
+    0.00 :   1264:   b       11e8 <comet_int4_gemm_fp32+0x4c8>
+    0.31 :   1268:   ldr     x21, [sp, #136]
+    0.00 :   126c:   lsr     x5, x20, #3
+    0.00 :   1270:   add     x3, x28, #0x10
+    0.00 :   1274:   fmov    v2.4s, #2.000000000000000000e+00
+    0.00 :   1278:   fmov    z3.s, #2.000000000000000000e+00
+    0.00 :   127c:   lsl     x6, x5, #5
+    0.00 :   1280:   and     x9, x20, #0xfffffffffffffff8
+    0.00 :   1284:   mov     x15, #0x0                       // #0
+    0.00 :   1288:   mov     x14, #0x0                       // #0
+    0.00 :   128c:   cntw    x16
+    0.00 :   1290:   sub     x18, x3, #0x10
+    0.00 :   1294:   mov     x0, #0x0                        // #0
+    0.00 :   1298:   add     x2, x21, #0x10
+    0.00 :   129c:   sub     x17, x2, #0x10
+    0.00 :   12a0:   cmp     x1, #0x6
+    0.00 :   12a4:   b.ls    133c <comet_int4_gemm_fp32+0x61c>  // b.plast
+    0.21 :   12a8:   ldr     q1, [x18, x0]
+    1.60 :   12ac:   ldr     q0, [x3, x0]
+    0.83 :   12b0:   fsub    v1.4s, v2.4s, v1.4s
+    0.00 :   12b4:   fsub    v0.4s, v2.4s, v0.4s
+    0.10 :   12b8:   str     q1, [x17, x0]
+    0.15 :   12bc:   str     q0, [x2, x0]
+    0.26 :   12c0:   add     x0, x0, #0x20
+    0.26 :   12c4:   cmp     x6, x0
+    0.00 :   12c8:   b.ne    12a8 <comet_int4_gemm_fp32+0x588>  // b.any
+    0.00 :   12cc:   cmp     x20, x9
+    0.00 :   12d0:   b.eq    130c <comet_int4_gemm_fp32+0x5ec>  // b.none
+    0.00 :   12d4:   mov     x0, x9
+    0.00 :   12d8:   sub     x17, x20, x0
+    0.00 :   12dc:   add     x0, x15, x0
+    0.00 :   12e0:   whilelo p0.s, xzr, x17
+    0.00 :   12e4:   ld1w    {z0.s}, p0/z, [x28, x0, lsl #2]
+    0.00 :   12e8:   fsub    z0.s, z3.s, z0.s
+    0.00 :   12ec:   st1w    {z0.s}, p0, [x21, x0, lsl #2]
+    0.00 :   12f0:   add     x18, x28, x0, lsl #2
+    0.00 :   12f4:   whilelo p0.s, x16, x17
+    0.00 :   12f8:   add     x0, x21, x0, lsl #2
+    0.00 :   12fc:   b.eq    130c <comet_int4_gemm_fp32+0x5ec>  // b.none
+    0.00 :   1300:   ld1w    {z0.s}, p0/z, [x18, #1, mul vl]
+    0.00 :   1304:   fsub    z0.s, z3.s, z0.s
+    0.00 :   1308:   st1w    {z0.s}, p0, [x0, #1, mul vl]
+    0.00 :   130c:   add     x3, x3, x4
+    0.00 :   1310:   add     x2, x2, x4
+    0.00 :   1314:   add     x15, x15, x20
+    0.00 :   1318:   add     x0, x14, #0x1
+    0.00 :   131c:   cmp     x8, x14
+    0.00 :   1320:   b.eq    1344 <comet_int4_gemm_fp32+0x624>  // b.none
+    0.00 :   1324:   mov     x14, x0
+    0.00 :   1328:   sub     x18, x3, #0x10
+    0.00 :   132c:   sub     x17, x2, #0x10
+    0.00 :   1330:   mov     x0, #0x0                        // #0
+    0.00 :   1334:   cmp     x1, #0x6
+    0.00 :   1338:   b.hi    12a8 <comet_int4_gemm_fp32+0x588>  // b.pmore
+    0.00 :   133c:   mov     x0, #0x0                        // #0
+    0.00 :   1340:   b       12d8 <comet_int4_gemm_fp32+0x5b8>
+    0.00 :   1344:   mov     x3, x23
+    0.00 :   1348:   mov     x14, x25
+    0.00 :   134c:   movi    v4.16b, #0x1
+    0.00 :   1350:   ptrue   p0.b
+    0.00 :   1354:   mov     x6, #0x0                        // #0
+    0.00 :   1358:   mov     x15, #0x0                       // #0
+    0.00 :   135c:   add     x16, x3, x7
+    0.00 :   1360:   mov     x0, x14
+    0.00 :   1364:   mov     x2, x3
+    0.00 :   1368:   cmp     x1, #0xe
+    0.00 :   136c:   b.ls    147c <comet_int4_gemm_fp32+0x75c>  // b.plast
+    0.15 :   1370:   ldr     q1, [x2], #16
+    2.89 :   1374:   sshr    v0.16b, v1.16b, #1
+    0.15 :   1378:   and     v1.16b, v1.16b, v4.16b
+    0.00 :   137c:   and     v0.16b, v0.16b, v4.16b
+    0.10 :   1380:   add     v0.16b, v0.16b, v1.16b
+    0.00 :   1384:   uxtl    v1.8h, v0.8b
+    0.21 :   1388:   uxtl2   v0.8h, v0.16b
+    0.05 :   138c:   uxtl    v3.4s, v1.4h
+    0.00 :   1390:   uxtl    v2.4s, v0.4h
+    0.15 :   1394:   uxtl2   v1.4s, v1.8h
+    0.00 :   1398:   uxtl2   v0.4s, v0.8h
+    0.15 :   139c:   scvtf   v3.4s, v3.4s
+    0.00 :   13a0:   scvtf   v2.4s, v2.4s
+    0.00 :   13a4:   scvtf   v1.4s, v1.4s
+    0.00 :   13a8:   scvtf   v0.4s, v0.4s
+    0.31 :   13ac:   stp     q3, q1, [x0]
+    2.12 :   13b0:   stp     q2, q0, [x0, #32]
+    0.15 :   13b4:   add     x0, x0, #0x40
+    0.15 :   13b8:   cmp     x16, x2
+    0.00 :   13bc:   b.ne    1370 <comet_int4_gemm_fp32+0x650>  // b.any
+    0.05 :   13c0:   cmp     x7, x20
+    0.00 :   13c4:   b.eq    144c <comet_int4_gemm_fp32+0x72c>  // b.none
+    0.00 :   13c8:   mov     x0, x7
+    0.00 :   13cc:   add     x16, x6, x0
+    0.00 :   13d0:   sub     x0, x20, x0
+    0.00 :   13d4:   whilelo p2.b, xzr, x0
+    0.00 :   13d8:   whilelo p1.s, xzr, x0
+    0.00 :   13dc:   ld1b    {z1.b}, p2/z, [x23, x16]
+    0.00 :   13e0:   asr     z0.b, z1.b, #1
+    0.00 :   13e4:   and     z1.b, z1.b, #0x1
+    0.00 :   13e8:   add     x2, x25, x16, lsl #2
+    0.00 :   13ec:   and     z0.b, z0.b, #0x1
+    0.00 :   13f0:   add     z0.b, z0.b, z1.b
+    0.00 :   13f4:   uunpklo z1.h, z0.b
+    0.00 :   13f8:   uunpklo z3.s, z1.h
+    0.00 :   13fc:   scvtf   z3.s, p0/m, z3.s
+    0.00 :   1400:   st1w    {z3.s}, p1, [x25, x16, lsl #2]
+    0.00 :   1404:   mov     x16, x0
+    0.00 :   1408:   uqdecw  x16
+    0.00 :   140c:   whilelo p1.s, xzr, x16
+    0.00 :   1410:   uunpkhi z0.h, z0.b
+    0.00 :   1414:   uunpkhi z1.s, z1.h
+    0.00 :   1418:   uunpklo z2.s, z0.h
+    0.00 :   141c:   mov     x16, x0
+    0.00 :   1420:   scvtf   z1.s, p0/m, z1.s
+    0.00 :   1424:   uunpkhi z0.s, z0.h
+    0.00 :   1428:   scvtf   z2.s, p0/m, z2.s
+    0.00 :   142c:   scvtf   z0.s, p0/m, z0.s
+    0.00 :   1430:   uqdech  x16
+    0.00 :   1434:   st1w    {z1.s}, p1, [x2, #1, mul vl]
+    0.00 :   1438:   uqdecw  x0, all, mul #3
+    0.00 :   143c:   whilelo p2.s, xzr, x16
+    0.00 :   1440:   whilelo p1.s, xzr, x0
+    0.00 :   1444:   st1w    {z2.s}, p2, [x2, #2, mul vl]
+    0.00 :   1448:   st1w    {z0.s}, p1, [x2, #3, mul vl]
+    0.00 :   144c:   add     x6, x6, x20
+    0.00 :   1450:   add     x3, x3, x20
+    0.00 :   1454:   add     x14, x14, x4
+    0.00 :   1458:   add     x0, x15, #0x1
+    0.00 :   145c:   cmp     x8, x15
+    0.00 :   1460:   b.eq    f7c <comet_int4_gemm_fp32+0x25c>  // b.none
+    0.05 :   1464:   mov     x15, x0
+    0.00 :   1468:   add     x16, x3, x7
+    0.00 :   146c:   mov     x0, x14
+    0.05 :   1470:   mov     x2, x3
+    0.05 :   1474:   cmp     x1, #0xe
+    0.00 :   1478:   b.hi    1370 <comet_int4_gemm_fp32+0x650>  // b.pmore
+    0.00 :   147c:   mov     x0, #0x0                        // #0
+    0.00 :   1480:   b       13cc <comet_int4_gemm_fp32+0x6ac>
+    0.00 :   1484:   mov     x0, #0x0                        // #0
+    0.00 :   1488:   b       10b4 <comet_int4_gemm_fp32+0x394>
+    0.00 :   148c:   mov     x0, #0x0                        // #0
+    0.00 :   1490:   b       ff0 <comet_int4_gemm_fp32+0x2d0>
+    0.00 :   1494:   cmp     x20, #0x0
+    0.00 :   1498:   b.le    15b4 <comet_int4_gemm_fp32+0x894>
+    0.00 :   149c:   lsr     x0, x20, #2
+    0.00 :   14a0:   add     x2, x19, x19, lsl #1
+    0.00 :   14a4:   mov     x6, x25
+    0.00 :   14a8:   stp     x10, x11, [sp, #184]
+    0.10 :   14ac:   lsl     x1, x0, #4
+    0.00 :   14b0:   sub     x17, x20, #0x1
+    0.00 :   14b4:   mov     x11, x1
+    0.00 :   14b8:   lsl     x18, x20, #2
+    0.00 :   14bc:   ldr     x0, [sp, #152]
+    0.00 :   14c0:   lsl     x2, x2, #2
+    0.00 :   14c4:   lsl     x3, x19, #3
+    0.00 :   14c8:   and     x16, x20, #0xfffffffffffffffc
+    0.00 :   14cc:   mov     x5, #0x0                        // #0
+    0.00 :   14d0:   mov     x4, #0x0                        // #0
+    0.00 :   14d4:   add     x7, x6, x11
+    0.00 :   14d8:   mov     x15, x0
+    0.00 :   14dc:   mov     x10, x0
+    0.00 :   14e0:   mov     x1, x15
+    0.00 :   14e4:   mov     x0, x6
+    0.00 :   14e8:   cmp     x17, #0x2
+    0.00 :   14ec:   b.ls    15a8 <comet_int4_gemm_fp32+0x888>  // b.plast
+    0.41 :   14f0:   ldp     s2, s1, [x0, #4]
+    0.41 :   14f4:   ldr     s0, [x0, #12]
+    0.62 :   14f8:   ldr     s3, [x0], #16
+    0.67 :   14fc:   str     s3, [x1]
+    2.99 :   1500:   str     s2, [x1, x19, lsl #2]
+    4.59 :   1504:   str     s1, [x1, x3]
+    3.92 :   1508:   str     s0, [x1, x2]
+    4.96 :   150c:   add     x1, x1, x21
+    0.41 :   1510:   cmp     x7, x0
+    0.00 :   1514:   b.ne    14f0 <comet_int4_gemm_fp32+0x7d0>  // b.any
+    0.00 :   1518:   mov     x0, x16
+    0.00 :   151c:   cmp     x20, x16
+    0.00 :   1520:   b.eq    1578 <comet_int4_gemm_fp32+0x858>  // b.none
+    0.00 :   1524:   add     x30, x5, x0
+    0.00 :   1528:   mul     x1, x22, x0
+    0.00 :   152c:   add     x7, x0, #0x1
+    0.00 :   1530:   ldr     s0, [x25, x30, lsl #2]
+    0.00 :   1534:   add     x30, x1, x4
+    0.00 :   1538:   str     s0, [x10, x30, lsl #2]
+    0.00 :   153c:   cmp     x7, x20
+    0.00 :   1540:   b.ge    1578 <comet_int4_gemm_fp32+0x858>  // b.tcont
+    0.00 :   1544:   add     x7, x7, x5
+    0.00 :   1548:   add     x1, x1, x22
+    0.00 :   154c:   add     x30, x1, x4
+    0.00 :   1550:   add     x0, x0, #0x2
+    0.00 :   1554:   ldr     s0, [x25, x7, lsl #2]
+    0.00 :   1558:   str     s0, [x10, x30, lsl #2]
+    0.00 :   155c:   cmp     x0, x20
+    0.00 :   1560:   b.ge    1578 <comet_int4_gemm_fp32+0x858>  // b.tcont
+    0.00 :   1564:   add     x0, x5, x0
+    0.00 :   1568:   add     x1, x1, x22
+    0.00 :   156c:   add     x1, x1, x4
+    0.00 :   1570:   ldr     s0, [x25, x0, lsl #2]
+    0.00 :   1574:   str     s0, [x10, x1, lsl #2]
+    0.05 :   1578:   add     x5, x5, x20
+    0.00 :   157c:   add     x6, x6, x18
+    0.05 :   1580:   add     x15, x15, #0x4
+    0.00 :   1584:   add     x0, x4, #0x1
+    0.00 :   1588:   cmp     x23, x4
+    0.00 :   158c:   b.eq    15b0 <comet_int4_gemm_fp32+0x890>  // b.none
+    0.00 :   1590:   mov     x4, x0
+    0.00 :   1594:   add     x7, x6, x11
+    0.00 :   1598:   mov     x1, x15
+    0.00 :   159c:   mov     x0, x6
+    0.00 :   15a0:   cmp     x17, #0x2
+    0.00 :   15a4:   b.hi    14f0 <comet_int4_gemm_fp32+0x7d0>  // b.pmore
+    0.00 :   15a8:   mov     x0, #0x0                        // #0
+    0.00 :   15ac:   b       1524 <comet_int4_gemm_fp32+0x804>
+    0.00 :   15b0:   ldp     x10, x11, [sp, #184]
+    0.00 :   15b4:   mov     w2, #0x6f                       // #111
+    0.00 :   15b8:   mov     w7, w20
+    0.00 :   15bc:   movi    v1.2s, #0x0
+    0.00 :   15c0:   fmov    s0, #1.000000000000000000e+00
+    0.00 :   15c4:   mov     w1, w2
+    0.00 :   15c8:   mov     w5, w20
+    0.00 :   15cc:   mov     w4, w19
+    0.00 :   15d0:   mov     w3, w19
+    0.00 :   15d4:   str     w19, [sp, #8]
+    0.00 :   15d8:   ldr     x0, [sp, #152]
+    0.00 :   15dc:   str     x11, [sp, #16]
+    0.00 :   15e0:   ldr     x6, [sp, #136]
+    0.00 :   15e4:   str     w19, [sp, #24]
+    0.00 :   15e8:   stp     x11, x10, [sp, #184]
+    0.00 :   15ec:   str     x0, [sp]
+    0.00 :   15f0:   mov     w0, #0x65                       // #101
+    0.00 :   15f4:   stp     x12, x13, [sp, #200]
+    0.00 :   15f8:   stp     x9, x14, [sp, #216]
+    0.00 :   15fc:   str     x8, [sp, #232]
+    0.00 :   1600:   bl      890 <cblas_sgemm@plt>
+    0.00 :   1604:   ldp     x11, x10, [sp, #184]
+    0.00 :   1608:   add     x6, x24, #0x4
+    0.00 :   160c:   mov     x2, #0x0                        // #0
+    0.00 :   1610:   mov     x7, #0x0                        // #0
+    0.00 :   1614:   ldp     x12, x13, [sp, #200]
+    0.00 :   1618:   mov     x5, x11
+    0.00 :   161c:   ldp     x9, x14, [sp, #216]
+    0.00 :   1620:   ldr     x8, [sp, #232]
+    0.00 :   1624:   cmp     x8, #0x2
+    0.00 :   1628:   b.ls    16f4 <comet_int4_gemm_fp32+0x9d4>  // b.plast
+    0.00 :   162c:   add     x16, x14, x5
+    0.00 :   1630:   mov     x0, x6
+    0.00 :   1634:   mov     x15, x5
+    0.00 :   1638:   nop
+    0.00 :   163c:   nop
+    0.00 :   1640:   ldr     q0, [x15], #16
+    0.26 :   1644:   mov     x4, x0
+    0.00 :   1648:   add     x3, x0, #0x20
+    0.15 :   164c:   add     x1, x0, #0x30
+    0.10 :   1650:   add     x0, x0, #0x40
+    0.05 :   1654:   fcvtzs  v0.4s, v0.4s
+    0.10 :   1658:   str     s0, [x4], #16
+    0.10 :   165c:   st1     {v0.s}[1], [x4]
+    0.41 :   1660:   st1     {v0.s}[2], [x3]
+    0.15 :   1664:   st1     {v0.s}[3], [x1]
+    0.52 :   1668:   cmp     x16, x15
+    0.00 :   166c:   b.ne    1640 <comet_int4_gemm_fp32+0x920>  // b.any
+    0.00 :   1670:   mov     x0, x27
+    0.05 :   1674:   cmp     x19, x27
+    0.00 :   1678:   b.eq    16d0 <comet_int4_gemm_fp32+0x9b0>  // b.none
+    0.00 :   167c:   add     x1, x2, x0
+    0.00 :   1680:   add     x3, x0, #0x1
+    0.00 :   1684:   ldr     s0, [x11, x1, lsl #2]
+    0.00 :   1688:   add     x1, x24, x1, lsl #4
+    0.00 :   168c:   fcvtzs  s0, s0
+    0.00 :   1690:   str     s0, [x1, #4]
+    0.00 :   1694:   cmp     x23, x0
+    0.00 :   1698:   b.le    16d0 <comet_int4_gemm_fp32+0x9b0>
+    0.00 :   169c:   add     x1, x2, x3
+    0.00 :   16a0:   add     x0, x0, #0x2
+    0.00 :   16a4:   add     x3, x24, x1, lsl #4
+    0.00 :   16a8:   ldr     s0, [x11, x1, lsl #2]
+    0.00 :   16ac:   fcvtzs  s0, s0
+    0.00 :   16b0:   str     s0, [x3, #4]
+    0.00 :   16b4:   cmp     x0, x22
+    0.00 :   16b8:   b.ge    16d0 <comet_int4_gemm_fp32+0x9b0>  // b.tcont
+    0.00 :   16bc:   add     x0, x0, x2
+    0.00 :   16c0:   add     x1, x24, x0, lsl #4
+    0.00 :   16c4:   ldr     s0, [x11, x0, lsl #2]
+    0.00 :   16c8:   fcvtzs  s0, s0
+    0.00 :   16cc:   str     s0, [x1, #4]
+    0.00 :   16d0:   add     x2, x2, x19
+    0.00 :   16d4:   add     x5, x5, x9
+    0.00 :   16d8:   add     x6, x6, x21
+    0.00 :   16dc:   add     x0, x7, #0x1
+    0.00 :   16e0:   cmp     x23, x7
+    0.00 :   16e4:   b.eq    16fc <comet_int4_gemm_fp32+0x9dc>  // b.none
+    0.05 :   16e8:   mov     x7, x0
+    0.00 :   16ec:   cmp     x8, #0x2
+    0.00 :   16f0:   b.hi    162c <comet_int4_gemm_fp32+0x90c>  // b.pmore
+    0.00 :   16f4:   mov     x0, #0x0                        // #0
+    0.00 :   16f8:   b       167c <comet_int4_gemm_fp32+0x95c>
+    0.00 :   16fc:   cmp     x20, #0x0
+    0.00 :   1700:   b.le    1820 <comet_int4_gemm_fp32+0xb00>
+    0.00 :   1704:   lsr     x0, x20, #2
+    0.00 :   1708:   add     x1, x19, x19, lsl #1
+    0.00 :   170c:   mov     x6, x26
+    0.00 :   1710:   stp     x10, x11, [sp, #184]
+    0.00 :   1714:   lsl     x30, x0, #4
+    0.00 :   1718:   and     x4, x20, #0xfffffffffffffffc
+    0.00 :   171c:   sub     x15, x20, #0x1
+    0.00 :   1720:   mov     x11, x4
+    0.00 :   1724:   ldr     x0, [sp, #160]
+    0.00 :   1728:   lsl     x16, x20, #2
+    0.00 :   172c:   lsl     x1, x1, #2
+    0.00 :   1730:   lsl     x2, x19, #3
+    0.00 :   1734:   mov     x5, #0x0                        // #0
+    0.00 :   1738:   mov     x3, #0x0                        // #0
+    0.00 :   173c:   and     x17, x20, #0x3
+    0.00 :   1740:   add     x7, x6, x30
+    0.00 :   1744:   mov     x4, x6
+    0.00 :   1748:   mov     x14, x0
+    0.05 :   174c:   mov     x10, x0
+    0.00 :   1750:   mov     x0, x14
+    0.00 :   1754:   cmp     x15, #0x2
+    0.00 :   1758:   b.ls    1814 <comet_int4_gemm_fp32+0xaf4>  // b.plast
+    0.00 :   175c:   nop
+    0.26 :   1760:   ldp     s2, s1, [x4, #4]
+    0.36 :   1764:   ldr     s0, [x4, #12]
+    0.36 :   1768:   ldr     s3, [x4], #16
+    0.62 :   176c:   str     s3, [x0]
+    2.37 :   1770:   str     s2, [x0, x19, lsl #2]
+    3.82 :   1774:   str     s1, [x0, x2]
+    3.98 :   1778:   str     s0, [x0, x1]
+    3.87 :   177c:   add     x0, x0, x21
+    0.21 :   1780:   cmp     x7, x4
+    0.00 :   1784:   b.ne    1760 <comet_int4_gemm_fp32+0xa40>  // b.any
+    0.00 :   1788:   mov     x0, x11
+    0.00 :   178c:   cbz     x17, 17e4 <comet_int4_gemm_fp32+0xac4>
+    0.00 :   1790:   add     x18, x5, x0
+    0.00 :   1794:   mul     x4, x22, x0
+    0.00 :   1798:   add     x7, x0, #0x1
+    0.00 :   179c:   ldr     s0, [x26, x18, lsl #2]
+    0.00 :   17a0:   add     x18, x4, x3
+    0.00 :   17a4:   str     s0, [x10, x18, lsl #2]
+    0.00 :   17a8:   cmp     x20, x7
+    0.00 :   17ac:   b.le    17e4 <comet_int4_gemm_fp32+0xac4>
+    0.00 :   17b0:   add     x7, x5, x7
+    0.00 :   17b4:   add     x4, x4, x22
+    0.00 :   17b8:   add     x18, x3, x4
+    0.00 :   17bc:   add     x0, x0, #0x2
+    0.00 :   17c0:   ldr     s0, [x26, x7, lsl #2]
+    0.00 :   17c4:   str     s0, [x10, x18, lsl #2]
+    0.00 :   17c8:   cmp     x0, x20
+    0.00 :   17cc:   b.ge    17e4 <comet_int4_gemm_fp32+0xac4>  // b.tcont
+    0.00 :   17d0:   add     x0, x0, x5
+    0.00 :   17d4:   add     x7, x22, x3
+    0.00 :   17d8:   add     x7, x7, x4
+    0.00 :   17dc:   ldr     s0, [x26, x0, lsl #2]
+    0.00 :   17e0:   str     s0, [x10, x7, lsl #2]
+    0.00 :   17e4:   add     x5, x5, x20
+    0.00 :   17e8:   add     x6, x6, x16
+    0.00 :   17ec:   add     x14, x14, #0x4
+    0.00 :   17f0:   add     x0, x3, #0x1
+    0.00 :   17f4:   cmp     x23, x3
+    0.00 :   17f8:   b.eq    181c <comet_int4_gemm_fp32+0xafc>  // b.none
+    0.00 :   17fc:   mov     x3, x0
+    0.00 :   1800:   add     x7, x6, x30
+    0.00 :   1804:   mov     x4, x6
+    0.05 :   1808:   mov     x0, x14
+    0.00 :   180c:   cmp     x15, #0x2
+    0.00 :   1810:   b.hi    1760 <comet_int4_gemm_fp32+0xa40>  // b.pmore
+    0.00 :   1814:   mov     x0, #0x0                        // #0
+    0.00 :   1818:   b       1790 <comet_int4_gemm_fp32+0xa70>
+    0.00 :   181c:   ldp     x10, x11, [sp, #184]
+    0.00 :   1820:   mov     w2, #0x6f                       // #111
+    0.00 :   1824:   mov     x6, x28
+    0.00 :   1828:   movi    v1.2s, #0x0
+    0.00 :   182c:   fmov    s0, #1.000000000000000000e+00
+    0.00 :   1830:   mov     w1, w2
+    0.00 :   1834:   mov     w5, w20
+    0.00 :   1838:   mov     w4, w19
+    0.00 :   183c:   mov     w7, w20
+    0.00 :   1840:   str     w19, [sp, #8]
+    0.00 :   1844:   ldr     x0, [sp, #160]
+    0.00 :   1848:   mov     w3, w19
+    0.00 :   184c:   str     x12, [sp, #16]
+    0.00 :   1850:   str     w19, [sp, #24]
+    0.00 :   1854:   stp     x12, x10, [sp, #184]
+    0.00 :   1858:   str     x0, [sp]
+    0.00 :   185c:   mov     w0, #0x65                       // #101
+    0.00 :   1860:   stp     x11, x13, [sp, #200]
+    0.00 :   1864:   stp     x9, x8, [sp, #216]
+    0.00 :   1868:   bl      890 <cblas_sgemm@plt>
+    0.00 :   186c:   ldp     x0, x12, [sp, #176]
+    0.00 :   1870:   add     x4, x24, #0x8
+    0.00 :   1874:   mov     x1, #0x0                        // #0
+    0.00 :   1878:   mov     x6, #0x0                        // #0
+    0.00 :   187c:   ldp     x10, x11, [sp, #192]
+    0.00 :   1880:   lsl     x14, x0, #6
+    0.00 :   1884:   mov     x5, x12
+    0.00 :   1888:   ldp     x13, x9, [sp, #208]
+    0.00 :   188c:   ldr     x8, [sp, #224]
+    0.00 :   1890:   cmp     x8, #0x2
+    0.00 :   1894:   b.ls    1960 <comet_int4_gemm_fp32+0xc40>  // b.plast
+    0.00 :   1898:   nop
+    0.00 :   189c:   nop
+    0.00 :   18a0:   add     x16, x4, x14
+    0.00 :   18a4:   mov     x3, x5
+    0.05 :   18a8:   mov     x0, x4
+    0.05 :   18ac:   ldr     q0, [x3], #16
+    0.31 :   18b0:   mov     x2, x0
+    0.00 :   18b4:   add     x15, x0, #0x20
+    0.05 :   18b8:   add     x7, x0, #0x30
+    0.00 :   18bc:   add     x0, x0, #0x40
+    0.00 :   18c0:   fcvtzs  v0.4s, v0.4s
+    0.05 :   18c4:   str     s0, [x2], #16
+    0.21 :   18c8:   st1     {v0.s}[1], [x2]
+    0.10 :   18cc:   st1     {v0.s}[2], [x15]
+    0.15 :   18d0:   st1     {v0.s}[3], [x7]
+    0.57 :   18d4:   cmp     x16, x0
+    0.00 :   18d8:   b.ne    18ac <comet_int4_gemm_fp32+0xb8c>  // b.any
+    0.00 :   18dc:   mov     x0, x27
+    0.00 :   18e0:   cmp     x19, x27
+    0.00 :   18e4:   b.eq    193c <comet_int4_gemm_fp32+0xc1c>  // b.none
+    0.00 :   18e8:   add     x2, x1, x0
+    0.00 :   18ec:   add     x3, x0, #0x1
+    0.00 :   18f0:   add     x7, x24, x2, lsl #4
+    0.00 :   18f4:   ldr     s0, [x12, x2, lsl #2]
+    0.00 :   18f8:   fcvtzs  s0, s0
+    0.00 :   18fc:   str     s0, [x7, #8]
+    0.00 :   1900:   cmp     x23, x0
+    0.00 :   1904:   b.le    193c <comet_int4_gemm_fp32+0xc1c>
+    0.00 :   1908:   add     x2, x1, x3
+    0.00 :   190c:   add     x0, x0, #0x2
+    0.00 :   1910:   add     x3, x24, x2, lsl #4
+    0.00 :   1914:   ldr     s0, [x12, x2, lsl #2]
+    0.00 :   1918:   fcvtzs  s0, s0
+    0.00 :   191c:   str     s0, [x3, #8]
+    0.00 :   1920:   cmp     x0, x22
+    0.00 :   1924:   b.ge    193c <comet_int4_gemm_fp32+0xc1c>  // b.tcont
+    0.00 :   1928:   add     x0, x0, x1
+    0.00 :   192c:   add     x2, x24, x0, lsl #4
+    0.00 :   1930:   ldr     s0, [x12, x0, lsl #2]
+    0.00 :   1934:   fcvtzs  s0, s0
+    0.00 :   1938:   str     s0, [x2, #8]
+    0.00 :   193c:   add     x1, x1, x19
+    0.00 :   1940:   add     x5, x5, x9
+    0.00 :   1944:   add     x4, x4, x21
+    0.00 :   1948:   add     x0, x6, #0x1
+    0.00 :   194c:   cmp     x23, x6
+    0.00 :   1950:   b.eq    1968 <comet_int4_gemm_fp32+0xc48>  // b.none
+    0.00 :   1954:   mov     x6, x0
+    0.00 :   1958:   cmp     x8, #0x2
+    0.00 :   195c:   b.hi    18a0 <comet_int4_gemm_fp32+0xb80>  // b.pmore
+    0.00 :   1960:   mov     x0, #0x0                        // #0
+    0.00 :   1964:   b       18e8 <comet_int4_gemm_fp32+0xbc8>
+    0.00 :   1968:   cmp     x20, #0x0
+    0.00 :   196c:   b.le    1a94 <comet_int4_gemm_fp32+0xd74>
+    0.00 :   1970:   lsr     x1, x20, #2
+    0.00 :   1974:   add     x0, x19, x19, lsl #1
+    0.00 :   1978:   mov     x6, x25
+    0.00 :   197c:   stp     x10, x11, [sp, #176]
+    0.00 :   1980:   lsl     x4, x1, #4
+    0.00 :   1984:   and     x7, x20, #0xfffffffffffffffc
+    0.00 :   1988:   mov     x11, x4
+    0.00 :   198c:   sub     x16, x20, #0x1
+    0.00 :   1990:   ldr     x1, [sp, #168]
+    0.00 :   1994:   lsl     x17, x20, #2
+    0.00 :   1998:   lsl     x0, x0, #2
+    0.00 :   199c:   str     x12, [sp, #192]
+    0.00 :   19a0:   lsl     x2, x19, #3
+    0.00 :   19a4:   mov     x12, x7
+    0.00 :   19a8:   mov     x5, #0x0                        // #0
+    0.00 :   19ac:   mov     x3, #0x0                        // #0
+    0.00 :   19b0:   and     x18, x20, #0x3
+    0.00 :   19b4:   add     x7, x6, x11
+    0.00 :   19b8:   mov     x4, x6
+    0.00 :   19bc:   mov     x15, x1
+    0.00 :   19c0:   mov     x10, x1
+    0.00 :   19c4:   mov     x1, x15
+    0.00 :   19c8:   cmp     x16, #0x2
+    0.00 :   19cc:   b.ls    1a84 <comet_int4_gemm_fp32+0xd64>  // b.plast
+    0.26 :   19d0:   ldp     s2, s1, [x4, #4]
+    0.26 :   19d4:   ldr     s0, [x4, #12]
+    0.41 :   19d8:   ldr     s3, [x4], #16
+    0.57 :   19dc:   str     s3, [x1]
+    3.05 :   19e0:   str     s2, [x1, x19, lsl #2]
+    3.67 :   19e4:   str     s1, [x1, x2]
+    4.96 :   19e8:   str     s0, [x1, x0]
+    4.59 :   19ec:   add     x1, x1, x21
+    0.21 :   19f0:   cmp     x7, x4
+    0.00 :   19f4:   b.ne    19d0 <comet_int4_gemm_fp32+0xcb0>  // b.any
+    0.00 :   19f8:   mov     x1, x12
+    0.00 :   19fc:   cbz     x18, 1a54 <comet_int4_gemm_fp32+0xd34>
+    0.00 :   1a00:   add     x30, x5, x1
+    0.00 :   1a04:   mul     x4, x22, x1
+    0.00 :   1a08:   add     x7, x1, #0x1
+    0.00 :   1a0c:   ldr     s0, [x25, x30, lsl #2]
+    0.00 :   1a10:   add     x30, x4, x3
+    0.00 :   1a14:   str     s0, [x10, x30, lsl #2]
+    0.00 :   1a18:   cmp     x7, x20
+    0.00 :   1a1c:   b.ge    1a54 <comet_int4_gemm_fp32+0xd34>  // b.tcont
+    0.00 :   1a20:   add     x7, x7, x5
+    0.00 :   1a24:   add     x4, x4, x22
+    0.00 :   1a28:   add     x30, x3, x4
+    0.00 :   1a2c:   add     x1, x1, #0x2
+    0.00 :   1a30:   ldr     s0, [x25, x7, lsl #2]
+    0.00 :   1a34:   str     s0, [x10, x30, lsl #2]
+    0.00 :   1a38:   cmp     x1, x20
+    0.00 :   1a3c:   b.ge    1a54 <comet_int4_gemm_fp32+0xd34>  // b.tcont
+    0.00 :   1a40:   add     x1, x1, x5
+    0.00 :   1a44:   add     x7, x22, x3
+    0.00 :   1a48:   add     x7, x7, x4
+    0.00 :   1a4c:   ldr     s0, [x25, x1, lsl #2]
+    0.00 :   1a50:   str     s0, [x10, x7, lsl #2]
+    0.00 :   1a54:   add     x5, x5, x20
+    0.00 :   1a58:   add     x6, x6, x17
+    0.00 :   1a5c:   add     x15, x15, #0x4
+    0.00 :   1a60:   add     x1, x3, #0x1
+    0.00 :   1a64:   cmp     x23, x3
+    0.00 :   1a68:   b.eq    1a8c <comet_int4_gemm_fp32+0xd6c>  // b.none
+    0.00 :   1a6c:   mov     x3, x1
+    0.00 :   1a70:   add     x7, x6, x11
+    0.05 :   1a74:   mov     x4, x6
+    0.00 :   1a78:   mov     x1, x15
+    0.05 :   1a7c:   cmp     x16, #0x2
+    0.00 :   1a80:   b.hi    19d0 <comet_int4_gemm_fp32+0xcb0>  // b.pmore
+    0.00 :   1a84:   mov     x1, #0x0                        // #0
+    0.00 :   1a88:   b       1a00 <comet_int4_gemm_fp32+0xce0>
+    0.00 :   1a8c:   ldp     x10, x11, [sp, #176]
+    0.00 :   1a90:   ldr     x12, [sp, #192]
+    0.00 :   1a94:   mov     w2, #0x6f                       // #111
+    0.00 :   1a98:   mov     w5, w20
+    0.00 :   1a9c:   movi    v1.2s, #0x0
+    0.00 :   1aa0:   fmov    s0, #1.000000000000000000e+00
+    0.00 :   1aa4:   str     w19, [sp, #8]
+    0.00 :   1aa8:   ldr     x0, [sp, #168]
+    0.00 :   1aac:   mov     w1, w2
+    0.00 :   1ab0:   mov     x6, x28
+    0.00 :   1ab4:   mov     w4, w19
+    0.00 :   1ab8:   mov     w7, w20
+    0.00 :   1abc:   str     x13, [sp, #16]
+    0.00 :   1ac0:   mov     w3, w19
+    0.00 :   1ac4:   str     w19, [sp, #24]
+    0.00 :   1ac8:   stp     x13, x10, [sp, #176]
+    0.00 :   1acc:   str     x0, [sp]
+    0.00 :   1ad0:   mov     w0, #0x65                       // #101
+    0.00 :   1ad4:   stp     x11, x12, [sp, #192]
+    0.00 :   1ad8:   stp     x9, x8, [sp, #208]
+    0.00 :   1adc:   str     x14, [sp, #224]
+    0.00 :   1ae0:   bl      890 <cblas_sgemm@plt>
+    0.00 :   1ae4:   ldp     x13, x10, [sp, #176]
+    0.00 :   1ae8:   add     x4, x24, #0xc
+    0.00 :   1aec:   mov     x1, #0x0                        // #0
+    0.00 :   1af0:   mov     x6, #0x0                        // #0
+    0.00 :   1af4:   ldp     x9, x8, [sp, #208]
+    0.00 :   1af8:   mov     x5, x13
+    0.00 :   1afc:   ldp     x11, x12, [sp, #192]
+    0.00 :   1b00:   ldr     x14, [sp, #224]
+    0.00 :   1b04:   cmp     x8, #0x2
+    0.00 :   1b08:   b.ls    1bd4 <comet_int4_gemm_fp32+0xeb4>  // b.plast
+    0.00 :   1b0c:   add     x16, x14, x4
+    0.00 :   1b10:   mov     x3, x5
+    0.00 :   1b14:   mov     x0, x4
+    0.00 :   1b18:   nop
+    0.00 :   1b1c:   nop
+    0.10 :   1b20:   ldr     q0, [x3], #16
+    0.10 :   1b24:   mov     x2, x0
+    0.00 :   1b28:   add     x15, x0, #0x20
+    0.05 :   1b2c:   add     x7, x0, #0x30
+    0.00 :   1b30:   add     x0, x0, #0x40
+    0.00 :   1b34:   fcvtzs  v0.4s, v0.4s
+    0.10 :   1b38:   str     s0, [x2], #16
+    0.05 :   1b3c:   st1     {v0.s}[1], [x2]
+    0.05 :   1b40:   st1     {v0.s}[2], [x15]
+    0.10 :   1b44:   st1     {v0.s}[3], [x7]
+    0.15 :   1b48:   cmp     x16, x0
+    0.00 :   1b4c:   b.ne    1b20 <comet_int4_gemm_fp32+0xe00>  // b.any
+    0.00 :   1b50:   mov     x0, x27
+    0.00 :   1b54:   cmp     x19, x27
+    0.00 :   1b58:   b.eq    1bb0 <comet_int4_gemm_fp32+0xe90>  // b.none
+    0.00 :   1b5c:   add     x2, x1, x0
+    0.00 :   1b60:   add     x3, x0, #0x1
+    0.00 :   1b64:   add     x7, x24, x2, lsl #4
+    0.00 :   1b68:   ldr     s0, [x13, x2, lsl #2]
+    0.00 :   1b6c:   fcvtzs  s0, s0
+    0.00 :   1b70:   str     s0, [x7, #12]
+    0.00 :   1b74:   cmp     x23, x0
+    0.00 :   1b78:   b.le    1bb0 <comet_int4_gemm_fp32+0xe90>
+    0.00 :   1b7c:   add     x2, x1, x3
+    0.00 :   1b80:   add     x0, x0, #0x2
+    0.00 :   1b84:   add     x3, x24, x2, lsl #4
+    0.00 :   1b88:   ldr     s0, [x13, x2, lsl #2]
+    0.00 :   1b8c:   fcvtzs  s0, s0
+    0.00 :   1b90:   str     s0, [x3, #12]
+    0.00 :   1b94:   cmp     x22, x0
+    0.00 :   1b98:   b.le    1bb0 <comet_int4_gemm_fp32+0xe90>
+    0.00 :   1b9c:   add     x0, x1, x0
+    0.00 :   1ba0:   add     x2, x24, x0, lsl #4
+    0.00 :   1ba4:   ldr     s0, [x13, x0, lsl #2]
+    0.00 :   1ba8:   fcvtzs  s0, s0
+    0.00 :   1bac:   str     s0, [x2, #12]
+    0.00 :   1bb0:   add     x1, x1, x19
+    0.00 :   1bb4:   add     x5, x5, x9
+    0.00 :   1bb8:   add     x4, x4, x21
+    0.00 :   1bbc:   add     x0, x6, #0x1
+    0.00 :   1bc0:   cmp     x23, x6
+    0.00 :   1bc4:   b.eq    1d00 <comet_int4_gemm_fp32+0xfe0>  // b.none
+    0.00 :   1bc8:   mov     x6, x0
+    0.00 :   1bcc:   cmp     x8, #0x2
+    0.00 :   1bd0:   b.hi    1b0c <comet_int4_gemm_fp32+0xdec>  // b.pmore
+    0.00 :   1bd4:   mov     x0, #0x0                        // #0
+    0.00 :   1bd8:   b       1b5c <comet_int4_gemm_fp32+0xe3c>
+    0.00 :   1bdc:   ldp     x21, x0, [sp, #136]
+    0.00 :   1be0:   mov     w2, #0x6f                       // #111
+    0.00 :   1be4:   movi    v1.2s, #0x0
+    0.00 :   1be8:   fmov    s0, #1.000000000000000000e+00
+    0.00 :   1bec:   mov     w7, w20
+    0.00 :   1bf0:   mov     w1, w2
+    0.00 :   1bf4:   mov     w5, w20
+    0.00 :   1bf8:   mov     w4, w19
+    0.00 :   1bfc:   mov     w3, w19
+    0.00 :   1c00:   str     w19, [sp, #8]
+    0.00 :   1c04:   str     x10, [sp, #16]
+    0.00 :   1c08:   mov     x6, x21
+    0.00 :   1c0c:   str     x0, [sp]
+    0.00 :   1c10:   mov     w0, #0x65                       // #101
+    0.00 :   1c14:   str     w19, [sp, #24]
+    0.00 :   1c18:   stp     x11, x12, [sp, #176]
+    0.00 :   1c1c:   stp     x10, x13, [sp, #200]
+    0.00 :   1c20:   bl      890 <cblas_sgemm@plt>
+    0.00 :   1c24:   ldr     x0, [sp, #152]
+    0.00 :   1c28:   mov     w2, #0x6f                       // #111
+    0.00 :   1c2c:   movi    v1.2s, #0x0
+    0.00 :   1c30:   fmov    s0, #1.000000000000000000e+00
+    0.00 :   1c34:   mov     w7, w20
+    0.00 :   1c38:   mov     w1, w2
+    0.00 :   1c3c:   mov     x6, x21
+    0.00 :   1c40:   str     w19, [sp, #8]
+    0.00 :   1c44:   ldr     x11, [sp, #176]
+    0.00 :   1c48:   mov     w5, w20
+    0.00 :   1c4c:   mov     w4, w19
+    0.00 :   1c50:   mov     w3, w19
+    0.00 :   1c54:   str     w19, [sp, #24]
+    0.00 :   1c58:   str     x0, [sp]
+    0.00 :   1c5c:   mov     w0, #0x65                       // #101
+    0.00 :   1c60:   str     x11, [sp, #16]
+    0.00 :   1c64:   str     x11, [sp, #192]
+    0.00 :   1c68:   bl      890 <cblas_sgemm@plt>
+    0.00 :   1c6c:   ldr     x0, [sp, #160]
+    0.00 :   1c70:   mov     w2, #0x6f                       // #111
+    0.00 :   1c74:   movi    v1.2s, #0x0
+    0.00 :   1c78:   fmov    s0, #1.000000000000000000e+00
+    0.00 :   1c7c:   mov     w7, w20
+    0.00 :   1c80:   mov     w1, w2
+    0.00 :   1c84:   mov     x6, x28
+    0.00 :   1c88:   str     w19, [sp, #8]
+    0.00 :   1c8c:   ldr     x12, [sp, #184]
+    0.00 :   1c90:   mov     w5, w20
+    0.00 :   1c94:   mov     w4, w19
+    0.00 :   1c98:   mov     w3, w19
+    0.00 :   1c9c:   str     w19, [sp, #24]
+    0.00 :   1ca0:   str     x0, [sp]
+    0.00 :   1ca4:   mov     w0, #0x65                       // #101
+    0.00 :   1ca8:   str     x12, [sp, #16]
+    0.00 :   1cac:   bl      890 <cblas_sgemm@plt>
+    0.00 :   1cb0:   ldr     x0, [sp, #168]
+    0.00 :   1cb4:   mov     w2, #0x6f                       // #111
+    0.00 :   1cb8:   movi    v1.2s, #0x0
+    0.00 :   1cbc:   fmov    s0, #1.000000000000000000e+00
+    0.00 :   1cc0:   mov     w7, w20
+    0.00 :   1cc4:   mov     w5, w20
+    0.00 :   1cc8:   mov     x6, x28
+    0.00 :   1ccc:   str     w19, [sp, #8]
+    0.00 :   1cd0:   ldr     x13, [sp, #208]
+    0.00 :   1cd4:   mov     w4, w19
+    0.00 :   1cd8:   mov     w3, w19
+    0.00 :   1cdc:   mov     w1, w2
+    0.00 :   1ce0:   str     w19, [sp, #24]
+    0.00 :   1ce4:   str     x0, [sp]
+    0.00 :   1ce8:   mov     w0, #0x65                       // #101
+    0.00 :   1cec:   str     x13, [sp, #16]
+    0.00 :   1cf0:   str     x13, [sp, #176]
+    0.00 :   1cf4:   bl      890 <cblas_sgemm@plt>
+    0.00 :   1cf8:   ldp     x13, x12, [sp, #176]
+    0.00 :   1cfc:   ldp     x11, x10, [sp, #192]
+    0.00 :   1d00:   stp     x10, x11, [sp, #176]
+    0.00 :   1d04:   ldr     x0, [sp, #144]
+    0.00 :   1d08:   stp     x12, x13, [sp, #192]
+    0.00 :   1d0c:   bl      860 <free@plt>
+    0.00 :   1d10:   ldr     x10, [sp, #176]
+    0.00 :   1d14:   mov     x0, x10
+    0.00 :   1d18:   bl      860 <free@plt>
+    0.00 :   1d1c:   ldr     x0, [sp, #152]
+    0.00 :   1d20:   bl      860 <free@plt>
+    0.00 :   1d24:   ldr     x11, [sp, #184]
+    0.00 :   1d28:   mov     x0, x11
+    0.00 :   1d2c:   bl      860 <free@plt>
+    0.00 :   1d30:   ldr     x0, [sp, #160]
+    0.00 :   1d34:   bl      860 <free@plt>
+    0.00 :   1d38:   ldr     x12, [sp, #192]
+    0.00 :   1d3c:   mov     x0, x12
+    0.00 :   1d40:   bl      860 <free@plt>
+    0.00 :   1d44:   ldr     x0, [sp, #168]
+    0.00 :   1d48:   bl      860 <free@plt>
+    0.00 :   1d4c:   ldr     x13, [sp, #200]
+    0.00 :   1d50:   mov     x0, x13
+    0.00 :   1d54:   bl      860 <free@plt>
+    0.00 :   1d58:   mov     x0, x28
+    0.00 :   1d5c:   bl      860 <free@plt>
+    0.00 :   1d60:   ldr     x0, [sp, #136]
+    0.00 :   1d64:   bl      860 <free@plt>
+    0.00 :   1d68:   mov     x0, x25
+    0.00 :   1d6c:   bl      860 <free@plt>
+    0.00 :   1d70:   ldp     x29, x30, [sp, #32]
+    0.00 :   1d74:   mov     x0, x26
+    0.00 :   1d78:   ldp     x19, x20, [sp, #48]
+    0.00 :   1d7c:   ldp     x21, x22, [sp, #64]
+    0.00 :   1d80:   ldp     x23, x24, [sp, #80]
+    0.00 :   1d84:   ldp     x25, x26, [sp, #96]
+    0.00 :   1d88:   ldp     x27, x28, [sp, #112]
+    0.00 :   1d8c:   add     sp, sp, #0xf0
+    0.00 :   1d90:   b       860 <free@plt>

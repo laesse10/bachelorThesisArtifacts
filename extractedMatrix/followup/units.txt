@@ -1,0 +1,13 @@
+# UNIT | KERNEL | BENCH WORKTREE (suffix of HPCAgent-Bench-) | RECORD_REPS | CELLS
+tri    | triangle_count             | ext  | 30  | c cshift=c:src=variants/triangle_count_cshift.c:src32=variants/triangle_count_cshift_fp32.c numba
+fgath  | warpx_field_gather         | ext  | 60  | c fortran fortran14=fortran:bin=bin14
+boris  | warpx_boris_push           | ext  | 300 | c fortran fortran14=fortran:bin=bin14
+esirkF | warpx_esirkepov_deposition | ext  | 300 | c fortran fortran14=fortran:bin=bin14
+esirkN | warpx_esirkepov_deposition | ext2 | 300 | c numba nbserial=numba:src=variants/warpx_esirkepov_deposition_nbserial.py nbnoviews=numba:src=variants/warpx_esirkepov_deposition_nbnoviews.py nbfastmath=numba:src=variants/warpx_esirkepov_deposition_nbfastmath.py
+s252   | tsvc_2_s252                | ext  | 30  | c fortran fortran14=fortran:bin=bin14
+s4112  | tsvc_2_s4112               | ext  | 10  | c fortran fortran14=fortran:bin=bin14
+vag    | tsvc_2_vag                 | ext  | 10  | c fortran fortran14=fortran:bin=bin14
+scat   | scatter_accum_dup          | ext  | 10  | c fortran fortran14=fortran:bin=bin14
+tri2   | triangle_count             | ext  | 30  | c cshift=c:src=variants/triangle_count_cshift.c:src32=variants/triangle_count_cshift_fp32.c numba
+esirkN2 | warpx_esirkepov_deposition | ext2 | 300 | c numba nbnort=numba:src=variants/warpx_esirkepov_deposition_nbnort.py
+cometN  | comet_int4_gemm            | ext  | 3000 | c cpp native=cpp:src=variants/comet_int4_gemm_native_fp64.cpp native32=cpp:src=variants/comet_int4_gemm_native_fp64.cpp:src32=variants/comet_int4_gemm_native_fp32.cpp

@@ -1,0 +1,19 @@
+# objdump -d tsvc_2_s4112_fp64.f90.o  (functions matching tsvc_2_s4112_fp64*)
+0000000000000000 <tsvc_2_s4112_fp64>:
+   0:	f100007f 	cmp	x3, #0x0
+   4:	540001ed 	b.le	40 <tsvc_2_s4112_fp64+0x40>
+   8:	d2800004 	mov	x4, #0x0                   	// #0
+   c:	d1002021 	sub	x1, x1, #0x8
+  10:	25e31fe7 	whilelo	p7.d, xzr, x3
+  14:	2518e3e6 	ptrue	p6.b
+  18:	25f9c01f 	fmov	z31.d, #2.000000000000000000e+00
+  1c:	04e0e3e5 	cntd	x5
+  20:	a4845c5d 	ld1sw	{z29.d}, p7/z, [x2, x4, lsl #2]
+  24:	a5e45c1e 	ld1d	{z30.d}, p7/z, [x0, x4, lsl #3]
+  28:	c5fddc3c 	ld1d	{z28.d}, p7/z, [x1, z29.d, lsl #3]
+  2c:	65fe9bfc 	fmad	z28.d, p6/m, z31.d, z30.d
+  30:	e5e45c1c 	st1d	{z28.d}, p7, [x0, x4, lsl #3]
+  34:	8b050084 	add	x4, x4, x5
+  38:	25e31c87 	whilelo	p7.d, x4, x3
+  3c:	54ffff21 	b.ne	20 <tsvc_2_s4112_fp64+0x20>  // b.any
+  40:	d65f03c0 	ret

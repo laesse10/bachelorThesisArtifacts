@@ -1,0 +1,30 @@
+unit s4112 kernel=tsvc_2_s4112 bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006564 start=2026-10-07T14:26:57+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006564 1 1
+SRUN[s4112]: srun --nodes=1 --ntasks=1 -w nid006564 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel tsvc_2_s4112 --cells c fortran fortran14=fortran:bin=bin14 --rounds 3 --perf --record-reps 10 --out parts/s4112.csv --scratch scratch/s4112 --db-shard 206
+pristine tsvc_2_s4112_fp64.c 13f0f07f3db7cf80
+pristine tsvc_2_s4112_fp64.cpp db6e5c69db428151
+pristine tsvc_2_s4112_fp64.f90 a43d7591754a337b
+pristine tsvc_2_s4112_numba_np.py cc751acf0ab5b161
+cell c: c src=- bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- bin=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- bin=bin14 -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 431.357 ms 
+  [1] fortran          ok           min 449.584 ms 
+  [1] fortran14        ok           min 447.210 ms 
+  [2] fortran14        ok           min 447.229 ms 
+  [2] fortran          ok           min 452.704 ms 
+  [2] c                ok           min 433.409 ms 
+  [3] c                ok           min 427.450 ms 
+  [3] fortran          ok           min 449.388 ms 
+  [3] fortran14        ok           min 447.583 ms 
+  [record] c                ok           min 445.272 ms 
+  [record] fortran          ok           min 462.742 ms 
+  [record] fortran14        ok           min 460.965 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/s4112.csv
+SRUN[s4112]: srun --nodes=1 --ntasks=1 -w nid006564 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env PATH=/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin14:/users/lhulsbergen/.local/bin:/users/lhulsbergen/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.s4112.csv --out-dir opt_reports/gfortran14 --variant gfortran14 tsvc_2_s4112:fortran:fortran:emitted_sources/tsvc_2_s4112/tsvc_2_s4112_fp64.f90
+tsvc_2_s4112                 fortran      ok
+SRUN[s4112]: srun --nodes=1 --ntasks=1 -w nid006564 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.s4112.csv --out-dir opt_reports/gfortran13 --variant gfortran13 tsvc_2_s4112:fortran:fortran:emitted_sources/tsvc_2_s4112/tsvc_2_s4112_fp64.f90
+tsvc_2_s4112                 fortran      ok
+SRUN[s4112]: srun --nodes=1 --ntasks=1 -w nid006564 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.s4112.csv --out-dir opt_reports/gcc14 --variant gcc14 tsvc_2_s4112:c:c:emitted_sources/tsvc_2_s4112/tsvc_2_s4112_fp64.c
+tsvc_2_s4112                 c            ok
+unit s4112 node=nid006564 end=2026-10-07T14:32:28+02:00

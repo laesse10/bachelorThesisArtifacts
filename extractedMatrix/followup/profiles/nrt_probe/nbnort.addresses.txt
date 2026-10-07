@@ -1,0 +1,5 @@
+NRT_incref 0x4000162b0050
+NRT_decref 0x4000162b0060
+nrt_atomic_add 0x4000162b0000
+nrt_atomic_sub 0x4000162b0010
+NRT_MemInfo_call_dtor 0x0

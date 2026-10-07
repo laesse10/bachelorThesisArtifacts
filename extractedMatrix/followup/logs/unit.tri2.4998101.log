@@ -1,0 +1,43 @@
+unit tri2 kernel=triangle_count bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006562 start=2026-10-07T14:40:35+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006562 1 1
+SRUN[tri2]: srun --nodes=1 --ntasks=1 -w nid006562 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel triangle_count --cells c cshift=c:src=variants/triangle_count_cshift.c:src32=variants/triangle_count_cshift_fp32.c numba --rounds 3 --perf --record-reps 30 --out parts/tri2.csv --scratch scratch/tri2 --db-shard 200
+pristine triangle_count_fp64.c 47caf48afda29ebe
+pristine triangle_count_fp64.cpp 6ac7a5055aa82f05
+pristine triangle_count_fp64.f90 3ebecf2937af020b
+pristine triangle_count_fp32.c 73e60f8fd10acab6
+pristine triangle_count_fp32.cpp cba340f11f3523b8
+pristine triangle_count_fp32.f90 94369ab1f5d52ebc
+pristine triangle_count_numba_np.py bb32988217abc626
+cell c: c src=- bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cshift: c src=variants/triangle_count_cshift.c bin=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- bin=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 46.760 ms 
+  [1] cshift           ok           min 30.210 ms 
+  [1] numba            ok           min 32.402 ms 
+  [2] numba            ok           min 32.372 ms 
+  [2] cshift           ok           min 30.309 ms 
+  [2] c                ok           min 46.817 ms 
+  [3] c                ok           min 46.770 ms 
+  [3] cshift           ok           min 30.364 ms 
+  [3] numba            ok           min 32.498 ms 
+  [record] c                ok           min 47.548 ms 
+  [record] cshift           ok           min 30.823 ms 
+  [record] numba            ok           min 32.990 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/tri2.csv
+SRUN[tri2]: srun --nodes=1 --ntasks=1 -w nid006562 --exclusive --cpu-bind=cores --hint=nomultithread --time=27 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.tri2.csv --out-dir opt_reports/cshift --variant cshift triangle_count:c:c:variants/triangle_count_cshift.c:src32=variants/triangle_count_cshift_fp32.c
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/../opt_reports_extracted.py", line 208, in <module>
+    main()
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/../opt_reports_extracted.py", line 193, in main
+    do_compiled(out, k, rep, lang, pathlib.Path(src), rows, a.variant)
+  File "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/../opt_reports_extracted.py", line 105, in do_compiled
+    shutil.copy2(src_in, src)
+  File "/capstor/scratch/cscs/lhulsbergen/uvpython/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/shutil.py", line 475, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/capstor/scratch/cscs/lhulsbergen/uvpython/cpython-3.12.13-linux-aarch64-gnu/lib/python3.12/shutil.py", line 260, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'variants/triangle_count_cshift.c:src32=variants/triangle_count_cshift_fp32.c'
+srun: error: nid006562: task 0: Exited with exit code 1
+srun: Terminating StepId=4998101.2
+unit tri2 node=nid006562 end=2026-10-07T14:42:35+02:00

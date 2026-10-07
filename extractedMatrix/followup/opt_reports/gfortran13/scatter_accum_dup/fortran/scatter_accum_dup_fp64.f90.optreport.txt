@@ -1,0 +1,4 @@
+$ /users/lhulsbergen/bin/gfortran -O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra -ffree-form -ffree-line-length-none -std=f2018 -fPIC -c /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/opt_reports/gfortran13/scatter_accum_dup/fortran/scatter_accum_dup_fp64.f90 -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/opt_reports/gfortran13/scatter_accum_dup/fortran/build/scatter_accum_dup_fp64.f90.o -fopt-info-vec-optimized -fopt-info-vec-missed -fopt-info-loop-optimized
+[exit 0]
+scatter_accum_dup_fp64.f90:10:13: missed: couldn't vectorize loop
+scatter_accum_dup_fp64.f90:2:33: missed: possible alias involving gather/scatter between (*bins_13(D))[_3] and (*bins_13(D))[_3]

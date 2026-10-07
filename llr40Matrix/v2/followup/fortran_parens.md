@@ -170,3 +170,9 @@ direction, in both v1 and v2. `tsvc_2_s1232` (1.61, 1.42) is excluded as bandwid
 The four unexplained Fortran-slower gaps are small (4-6%), and their cause was not investigated
 here. The C columns are built by gcc 14.2.0 and Fortran by gfortran 13.3.1, so a code-generation
 difference between the two front ends or versions is the obvious candidate.
+
+**Resolved later (2026-10-07, `extractedMatrix/followup/README.md`, section 4).** Not the compiler
+version: gfortran 14.2.0 is as slow. `s4112`, `vag` and `scatter_accum_dup`: the harness adds 1 to the
+index array before every Fortran call and subtracts it afterwards, inside the timed bracket
+(`cpp_runtime.wrap_kernel`); that is 4-5% of Fortran's time, and without it Fortran is within 0.8% of C.
+`s252`: identical instructions; over three alternating rounds on one node the C and Fortran times overlap.
