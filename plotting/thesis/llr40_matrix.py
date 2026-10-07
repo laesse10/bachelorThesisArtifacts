@@ -4,7 +4,8 @@
 
 Reads ``llr40Matrix/v2/results.csv`` (preset M, no flag variant) and ``labels.csv``, and the first
 measurement ``llr40Matrix/results.csv`` to flag kernels whose GCC cells did not reproduce, and writes, under
-``Paper/figures/``:
+the thesis repository's ``Paper/figures/`` (github.com/laesse10/BachelorthesisPaper, by default checked out
+next to this one; ``$THESIS_FIGURES`` overrides the directory):
 
 * ``llr40_speedup.{pdf,png}``  per-kernel speedup of every column over the translated C column,
   grouped by transformation class, with a geomean summary per column;
@@ -19,6 +20,7 @@ legend below, print type sizes, drawn at the width it is placed at.
 
 import csv
 import math
+import os
 import pathlib
 
 import matplotlib
@@ -33,7 +35,7 @@ from hpcagent_bench.stats import palette, style, summary  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DATA = ROOT / "llr40Matrix" / "v2"
-OUT = ROOT / "Paper" / "figures"
+OUT = pathlib.Path(os.environ.get("THESIS_FIGURES", ROOT.parent / "BachelorthesisPaper" / "Paper" / "figures"))
 
 #: Thesis \textwidth (369pt, memoir a4 11pt), the width the figure is placed at.
 TEXT_WIDTH_IN = 369.0 / 72.27

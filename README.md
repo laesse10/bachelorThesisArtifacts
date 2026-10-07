@@ -1,5 +1,12 @@
 # Bachelor thesis artifacts
 
+The thesis itself (LaTeX sources, figures, bibliography) lives in its own repository,
+**[laesse10/BachelorthesisPaper](https://github.com/laesse10/BachelorthesisPaper)**, which is the one
+linked to Overleaf. It used to be `Paper/` here; it moved because Overleaf's GitHub sync holds at most
+2000 files per project, so syncing this repository dropped the data the thesis did not need.
+`plotting/thesis/llr40_matrix.py` writes its figure and tables into that repository's `Paper/figures/`
+(checked out next to this one, or wherever `$THESIS_FIGURES` points).
+
 Four independent artifacts.
 
 | directory | what |
