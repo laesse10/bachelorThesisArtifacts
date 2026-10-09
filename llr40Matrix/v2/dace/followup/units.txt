@@ -1,0 +1,27 @@
+# UNIT | KERNEL | CELLS: LABEL=PIPELINE[:cpp=VARIANT][:src=VARIANT]   (pipeline canon = DaCe column canon/new; cpp = translated C++)
+compact | compact_threshold_pack          | cpp=cpp canon=canon dseq=canon:cpp=variants/compact_threshold_pack_dseq.cpp dnolib=canon:cpp=variants/compact_threshold_pack_dnolib.cpp
+s323    | tsvc_2_s323                     | cpp=cpp canon=canon dseq=canon:cpp=variants/tsvc_2_s323_dseq.cpp dnolib=canon:cpp=variants/tsvc_2_s323_dnolib.cpp
+s3112   | tsvc_2_s3112                    | cpp=cpp canon=canon dnolib=canon:cpp=variants/tsvc_2_s3112_dnolib.cpp
+scat    | scatter_accum_dup               | cpp=cpp canon=canon dnoatomic=canon:cpp=variants/scatter_accum_dup_dnoatomic.cpp
+s115    | tsvc_2_s115                     | cpp=cpp canon=canon dnoomp=canon:cpp=variants/tsvc_2_s115_dnoomp.cpp
+wfd     | wf_diff_skew                    | cpp=cpp canon=canon dnoomp=canon:cpp=variants/wf_diff_skew_dnoomp.cpp
+fmi     | fuse_move_ifs                   | cpp=cpp canon=canon dnoomp=canon:cpp=variants/fuse_move_ifs_dnoomp.cpp
+s311    | tsvc_2_s311                     | cpp=cpp canon=canon dinorder=canon:cpp=variants/tsvc_2_s311_dinorder.cpp
+s453    | tsvc_2_s453                     | cpp=cpp canon=canon cppclosed=cpp:src=variants/tsvc_2_s453_cppclosed_fp64.cpp
+s2233   | tsvc_2_s2233                    | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s2233_cppinter_fp64.cpp
+s231    | tsvc_2_s231                     | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s231_cppinter_fp64.cpp
+s235    | tsvc_2_s235                     | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s235_cppinter_fp64.cpp
+s2275   | tsvc_2_s2275                    | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s2275_cppinter_fp64.cpp
+s1232   | tsvc_2_s1232                    | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s1232_cppinter_fp64.cpp
+s275    | tsvc_2_s275                     | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s275_cppinter_fp64.cpp
+fdiam   | fuse_diamond                    | cpp=cpp canon=canon cppfused=cpp:src=variants/fuse_diamond_cppfused_fp64.cpp
+fsten   | fuse_stencil_through_transient  | cpp=cpp canon=canon cppfused=cpp:src=variants/fuse_stencil_through_transient_cppfused_fp64.cpp
+s119    | tsvc_2_s119                     | cpp=cpp canon=canon dnoomp=canon:cpp=variants/tsvc_2_s119_dnoomp.cpp cppomp=cpp:src=variants/tsvc_2_s119_cppomp_fp64.cpp
+s152    | tsvc_2_s152                     | cpp=cpp canon=canon cppfused=cpp:src=variants/tsvc_2_s152_cppfused_fp64.cpp
+s233    | tsvc_2_s233                     | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s233_cppinter_fp64.cpp
+s255    | tsvc_2_s255                     | cpp=cpp canon=canon cppremat=cpp:src=variants/tsvc_2_s255_cppremat_fp64.cpp
+vdu     | versioned_distance_update       | cpp=cpp canon=canon dnolib=canon:cpp=variants/versioned_distance_update_dnolib.cpp
+wft     | wf_triangular                   | cpp=cpp canon=canon duntiled=canon:cpp=variants/wf_triangular_duntiled.cpp
+s2233b  | tsvc_2_s2233                    | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s2233_cppinter_fp64.cpp cppinterfused=cpp:src=variants/tsvc_2_s2233_cppinterfused_fp64.cpp
+fmib    | fuse_move_ifs                   | cpp=cpp canon=canon dnoomp=canon:cpp=variants/fuse_move_ifs_dnoomp.cpp cppfused=cpp:src=variants/fuse_move_ifs_cppfused_fp64.cpp
+s275b   | tsvc_2_s275                     | cpp=cpp canon=canon cppinter=cpp:src=variants/tsvc_2_s275_cppinter_fp64.cpp dhoist=canon:cpp=variants/tsvc_2_s275_dhoist.cpp dnoomp=canon:cpp=variants/tsvc_2_s275_dnoomp.cpp

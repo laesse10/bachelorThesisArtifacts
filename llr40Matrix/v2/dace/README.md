@@ -127,6 +127,11 @@ pipeline's restructuring: interchange and distribution (`s2233` 11.7x, `s231` 10
 `scatter_accum_dup` 0.68x (an atomic scatter in every configuration), `s3112` 0.78x, and 0.94-0.95x on
 `s115`, `wf_diff_skew` and `fuse_move_ifs`; 18 kernels are within 3%.
 
+**6. Every one of these differences is explained by an experiment** that changes one thing, in DaCe's
+generated code or in the translated C++: [followup/README.md](followup/README.md). Gains are restructurings
+(also on `s119`, `s152`, `s233`, `s255`, `versioned_distance_update` and `wf_triangular`, which item 5 does not
+list), losses are parallel forms on one thread.
+
 ## Layout
 
 | path | what |

@@ -1,0 +1,11 @@
+numpyto_fortran: emitted tsvc_2_s453_fp64.f90
+numpyto_fortran: emitted tsvc_2_s453_fp32.f90
+numpyto_c: emitted tsvc_2_s453_fp64.{c,cpp} + tsvc_2_s453_fp64_pluto_input.c + tsvc_2_s453_fp64_binding.json
+numpyto_c: emitted tsvc_2_s453_fp32.{c,cpp} + tsvc_2_s453_fp32_pluto_input.c + tsvc_2_s453_fp32_binding.json
+numpyto_c: emitted tsvc_2_s453_fp64.{c,cpp} + tsvc_2_s453_fp64_pluto_input.c + tsvc_2_s453_fp64_binding.json
+numpyto_c: emitted tsvc_2_s453_fp32.{c,cpp} + tsvc_2_s453_fp32_pluto_input.c + tsvc_2_s453_fp32_binding.json
+***** Testing C++ (g++) with loop_level_reasoning/tsvc_2_s453/tsvc_2_s453 on the M dataset, datatype float64 *****
+C++ (g++) - default - default - validation: SUCCESS
+C++ (g++) - default - median: 65.470ms
+C++ (g++) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "tsvc_2_s453", "label": "cppclosed", "round": "1", "pipeline": "cpp", "codegen": "", "column": "cpp", "override": "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/dace/followup/variants/tsvc_2_s453_cppclosed_fp64.cpp", "override_sha256": "48a8dfc5b1d3176cd2dda08ce9eb2f61952654b5d2e75ba61ff65a76c3183a3d", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006556", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5011984", "timestamp": "2026-10-09T13:49:58+0200", "status": "ok", "wall_s": 17.8}

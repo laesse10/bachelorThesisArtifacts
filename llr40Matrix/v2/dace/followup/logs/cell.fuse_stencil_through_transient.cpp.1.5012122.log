@@ -1,0 +1,7 @@
+numpyto_c: emitted fuse_stencil_through_transient_fp64.{c,cpp} + fuse_stencil_through_transient_fp64_pluto_input.c + fuse_stencil_through_transient_fp64_binding.json
+numpyto_c: emitted fuse_stencil_through_transient_fp32.{c,cpp} + fuse_stencil_through_transient_fp32_pluto_input.c + fuse_stencil_through_transient_fp32_binding.json
+***** Testing C++ (g++) with loop_level_reasoning/fuse_stencil_through_transient/fuse_stencil_through_transient on the M dataset, datatype float64 *****
+C++ (g++) - default - default - validation: SUCCESS
+C++ (g++) - default - median: 120.897ms
+C++ (g++) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "fuse_stencil_through_transient", "label": "cpp", "round": "1", "pipeline": "cpp", "codegen": "", "column": "cpp", "override": "", "override_sha256": "", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006567", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5012122", "timestamp": "2026-10-09T14:01:01+0200", "status": "ok", "wall_s": 31.3}

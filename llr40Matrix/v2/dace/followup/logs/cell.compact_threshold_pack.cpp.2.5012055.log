@@ -1,0 +1,7 @@
+numpyto_c: emitted compact_threshold_pack_fp64.{c,cpp} + compact_threshold_pack_fp64_pluto_input.c + compact_threshold_pack_fp64_binding.json
+numpyto_c: emitted compact_threshold_pack_fp32.{c,cpp} + compact_threshold_pack_fp32_pluto_input.c + compact_threshold_pack_fp32_binding.json
+***** Testing C++ (g++) with loop_level_reasoning/compact_threshold_pack/compact_threshold_pack on the M dataset, datatype float64 *****
+C++ (g++) - default - default - validation: SUCCESS
+C++ (g++) - default - median: 102.733ms
+C++ (g++) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "compact_threshold_pack", "label": "cpp", "round": "2", "pipeline": "cpp", "codegen": "", "column": "cpp", "override": "", "override_sha256": "", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006555", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5012055", "timestamp": "2026-10-09T13:58:18+0200", "status": "ok", "wall_s": 17.7}

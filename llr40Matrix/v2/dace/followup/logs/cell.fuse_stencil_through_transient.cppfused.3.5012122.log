@@ -1,0 +1,11 @@
+numpyto_c: emitted fuse_stencil_through_transient_fp64.{c,cpp} + fuse_stencil_through_transient_fp64_pluto_input.c + fuse_stencil_through_transient_fp64_binding.json
+numpyto_c: emitted fuse_stencil_through_transient_fp32.{c,cpp} + fuse_stencil_through_transient_fp32_pluto_input.c + fuse_stencil_through_transient_fp32_binding.json
+numpyto_fortran: emitted fuse_stencil_through_transient_fp64.f90
+numpyto_fortran: emitted fuse_stencil_through_transient_fp32.f90
+numpyto_c: emitted fuse_stencil_through_transient_fp64.{c,cpp} + fuse_stencil_through_transient_fp64_pluto_input.c + fuse_stencil_through_transient_fp64_binding.json
+numpyto_c: emitted fuse_stencil_through_transient_fp32.{c,cpp} + fuse_stencil_through_transient_fp32_pluto_input.c + fuse_stencil_through_transient_fp32_binding.json
+***** Testing C++ (g++) with loop_level_reasoning/fuse_stencil_through_transient/fuse_stencil_through_transient on the M dataset, datatype float64 *****
+C++ (g++) - default - default - validation: SUCCESS
+C++ (g++) - default - median: 48.007ms
+C++ (g++) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "fuse_stencil_through_transient", "label": "cppfused", "round": "3", "pipeline": "cpp", "codegen": "", "column": "cpp", "override": "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/dace/followup/variants/fuse_stencil_through_transient_cppfused_fp64.cpp", "override_sha256": "568ae82683ead2808e6ab0fbe293607bfdadd3d3a784532b9749bbc88597bda8", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006567", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5012122", "timestamp": "2026-10-09T14:04:41+0200", "status": "ok", "wall_s": 13.5}

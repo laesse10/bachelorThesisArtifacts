@@ -1,0 +1,8 @@
+***** Testing DaCe CPU canonicalize with loop_level_reasoning/tsvc_2_s115/tsvc_2_s115 on the M dataset, datatype float64 *****
+dace: ninja not found -- CMake falls back to Make and compiler.command_cache cannot replay, so every SDFG pays a full configure. Install ninja.
+DaCe optimize: loaded base SDFG from cache .cache/tsvc_2_s115_cpu.sdfgz
+DaCe optimize: selected 'canon_cpu', the only compiled variant
+DaCe CPU canonicalize - dace - dace - validation: SUCCESS
+DaCe CPU canonicalize - dace - median: 53.126ms
+DaCe CPU canonicalize - dace - dace - later-call validation: SUCCESS
+TIME {"kernel": "tsvc_2_s115", "label": "dnoomp", "round": "2", "pipeline": "canon", "codegen": "new", "column": "dace_cpu_canonicalize", "override": "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/dace/followup/variants/tsvc_2_s115_dnoomp.cpp", "override_sha256": "5222b4cd9cac2f27934d96a67353446882ea7b571cc96fd5544686dc6e3fcf0c", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006561", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5012055", "timestamp": "2026-10-09T13:55:58+0200", "status": "ok", "replaced": ["/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/dace/followup/out/build/tsvc_2_s115.dnoomp/dacecache_rank0/canon_cpu/src/cpu/canon_cpu.cpp"], "implementation": "experimental_readable", "cxx_args": "-march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/envs/vecmath.h -Wall -Wextra", "wall_s": 19.3}

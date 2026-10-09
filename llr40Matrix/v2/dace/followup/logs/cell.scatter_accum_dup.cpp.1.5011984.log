@@ -1,0 +1,7 @@
+numpyto_c: emitted scatter_accum_dup_fp64.{c,cpp} + scatter_accum_dup_fp64_pluto_input.c + scatter_accum_dup_fp64_binding.json
+numpyto_c: emitted scatter_accum_dup_fp32.{c,cpp} + scatter_accum_dup_fp32_pluto_input.c + scatter_accum_dup_fp32_binding.json
+***** Testing C++ (g++) with loop_level_reasoning/scatter_accum_dup/scatter_accum_dup on the M dataset, datatype float64 *****
+C++ (g++) - default - default - validation: SUCCESS
+C++ (g++) - default - median: 344.720ms
+C++ (g++) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "scatter_accum_dup", "label": "cpp", "round": "1", "pipeline": "cpp", "codegen": "", "column": "cpp", "override": "", "override_sha256": "", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006555", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5011984", "timestamp": "2026-10-09T13:48:04+0200", "status": "ok", "wall_s": 37.5}

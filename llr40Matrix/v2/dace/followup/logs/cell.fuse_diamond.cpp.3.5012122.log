@@ -1,0 +1,7 @@
+numpyto_c: emitted fuse_diamond_fp64.{c,cpp} + fuse_diamond_fp64_pluto_input.c + fuse_diamond_fp64_binding.json
+numpyto_c: emitted fuse_diamond_fp32.{c,cpp} + fuse_diamond_fp32_pluto_input.c + fuse_diamond_fp32_binding.json
+***** Testing C++ (g++) with loop_level_reasoning/fuse_diamond/fuse_diamond on the M dataset, datatype float64 *****
+C++ (g++) - default - default - validation: SUCCESS
+C++ (g++) - default - median: 188.437ms
+C++ (g++) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "fuse_diamond", "label": "cpp", "round": "3", "pipeline": "cpp", "codegen": "", "column": "cpp", "override": "", "override_sha256": "", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006557", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5012122", "timestamp": "2026-10-09T14:03:31+0200", "status": "ok", "wall_s": 16.7}

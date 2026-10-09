@@ -1,0 +1,7 @@
+numpyto_c: emitted tsvc_2_s275_fp64.{c,cpp} + tsvc_2_s275_fp64_pluto_input.c + tsvc_2_s275_fp64_binding.json
+numpyto_c: emitted tsvc_2_s275_fp32.{c,cpp} + tsvc_2_s275_fp32_pluto_input.c + tsvc_2_s275_fp32_binding.json
+***** Testing C++ (g++) with loop_level_reasoning/tsvc_2_s275/tsvc_2_s275 on the M dataset, datatype float64 *****
+C++ (g++) - default - default - validation: SUCCESS
+C++ (g++) - default - median: 436.540ms
+C++ (g++) - default - default - later-call validation: SUCCESS
+TIME {"kernel": "tsvc_2_s275", "label": "cpp", "round": "2", "pipeline": "cpp", "codegen": "", "column": "cpp", "override": "", "override_sha256": "", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006554", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5012122", "timestamp": "2026-10-09T14:04:18+0200", "status": "ok", "wall_s": 31.1}

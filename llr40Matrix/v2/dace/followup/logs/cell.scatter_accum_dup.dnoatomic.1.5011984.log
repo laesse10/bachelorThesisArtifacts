@@ -1,0 +1,8 @@
+***** Testing DaCe CPU canonicalize with loop_level_reasoning/scatter_accum_dup/scatter_accum_dup on the M dataset, datatype float64 *****
+dace: ninja not found -- CMake falls back to Make and compiler.command_cache cannot replay, so every SDFG pays a full configure. Install ninja.
+DaCe optimize: loaded base SDFG from cache .cache/scatter_accum_dup_cpu.sdfgz
+DaCe optimize: selected 'canon_cpu', the only compiled variant
+DaCe CPU canonicalize - dace - dace - validation: SUCCESS
+DaCe CPU canonicalize - dace - median: 346.452ms
+DaCe CPU canonicalize - dace - dace - later-call validation: SUCCESS
+TIME {"kernel": "scatter_accum_dup", "label": "dnoatomic", "round": "1", "pipeline": "canon", "codegen": "new", "column": "dace_cpu_canonicalize", "override": "/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/dace/followup/variants/scatter_accum_dup_dnoatomic.cpp", "override_sha256": "34fc293ce59c4ea578378ab37fd38c2516506c1675399081d91776f74f233555", "preset": "M", "warmup": 5, "reps": 30, "node": "nid006555", "cpus": 1, "omp_num_threads": "1", "slurm_job": "5011984", "timestamp": "2026-10-09T13:49:57+0200", "status": "ok", "replaced": ["/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/dace/followup/out/build/scatter_accum_dup.dnoatomic/dacecache_rank0/canon_cpu/src/cpu/canon_cpu.cpp"], "implementation": "experimental_readable", "cxx_args": "-march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros -ffp-contract=fast -fstrict-aliasing -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/envs/vecmath.h -Wall -Wextra", "wall_s": 31.6}
