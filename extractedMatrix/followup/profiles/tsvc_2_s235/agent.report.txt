@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 18K of event 'cycles:u'
+# Event count (approx.): 1864500000
+#
+# Overhead  Shared Object                                       Symbol                                              
+# ........  ..................................................  ....................................................
+#
+    94.97%  libtsvc_2_s235_fortran.so                           [.] tsvc_2_s235_fp64._omp_fn.0
+     3.27%  libgomp.so.1.0.0                                    [.] 0x000000000003dbf0
+     1.22%  [unknown]                                           [k] 0xffffa1b919429ebc
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

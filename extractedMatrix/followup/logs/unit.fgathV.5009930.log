@@ -1,0 +1,32 @@
+unit fgathV kernel=warpx_field_gather bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 node=nid006559 start=2026-10-09T10:20:03+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006559 1 1
+SRUN[fgathV]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_field_gather --cells c cvla=c:src=variants/warpx_field_gather_cvla.c fortran fortnp=fortran:bin=bin_noparens --rounds 3 --perf --record-reps 60 --out parts/fgathV.csv --scratch scratch/fgathV --db-shard 205
+pristine warpx_field_gather_fp64.c a9cd07ab2ad51509
+pristine warpx_field_gather_fp64.cpp ecfc884ae77c7857
+pristine warpx_field_gather_fp64.f90 65f9a50f18a58642
+pristine warpx_field_gather_fp32.c ccaa4bd464005c99
+pristine warpx_field_gather_fp32.cpp a0f748f376b93e18
+pristine warpx_field_gather_fp32.f90 54afef5b5819cfd3
+pristine warpx_field_gather_numba_np.py 43555889e7428c62
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cvla: c src=variants/warpx_field_gather_cvla.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortnp: fortran src=- src32=- bin=bin_noparens env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin_noparens/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+  [1] c                ok           min 11.547 ms 
+  [1] cvla             ok           min 11.659 ms 
+  [1] fortran          ok           min 12.732 ms 
+  [1] fortnp           ok           min 12.760 ms 
+  [2] fortnp           ok           min 12.814 ms 
+  [2] fortran          ok           min 12.859 ms 
+  [2] cvla             ok           min 11.632 ms 
+  [2] c                ok           min 11.597 ms 
+  [3] c                ok           min 11.561 ms 
+  [3] cvla             ok           min 11.598 ms 
+  [3] fortran          ok           min 12.749 ms 
+  [3] fortnp           ok           min 12.836 ms 
+  [record] c                ok           min 12.699 ms 
+  [record] cvla             ok           min 12.692 ms 
+  [record] fortran          ok           min 13.773 ms 
+  [record] fortnp           ok           min 13.775 ms 
+wrote 16 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/fgathV.csv
+unit fgathV node=nid006559 end=2026-10-09T10:30:40+02:00

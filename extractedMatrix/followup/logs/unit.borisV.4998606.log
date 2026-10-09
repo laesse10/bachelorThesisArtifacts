@@ -1,0 +1,46 @@
+unit borisV kernel=warpx_boris_push bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006553 start=2026-10-07T16:07:46+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006553 1 1
+SRUN[borisV]: srun --nodes=1 --ntasks=1 -w nid006553 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_boris_push --cells c cvla=c:src=variants/warpx_boris_push_cvla.c fortran numba nbnofuse=numba:src=variants/warpx_boris_push_nbnofuse.py nbnofusenovec=numba:src=variants/warpx_boris_push_nbnofuse.py:env=NUMBA_LOOP_VECTORIZE=0:env=NUMBA_SLP_VECTORIZE=0 --rounds 3 --perf --record-reps 300 --out parts/borisV.csv --scratch scratch/borisV --db-shard 204
+pristine warpx_boris_push_fp64.c 4df974435c75288a
+pristine warpx_boris_push_fp64.cpp 735afa550f3e31aa
+pristine warpx_boris_push_fp64.f90 49cae026e972751d
+pristine warpx_boris_push_fp32.c dfb4904c9ea7f7c3
+pristine warpx_boris_push_fp32.cpp 5325c09787509d1c
+pristine warpx_boris_push_fp32.f90 8bf89db8ccd34c11
+pristine warpx_boris_push_numba_np.py 5b74c30bace6d710
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cvla: c src=variants/warpx_boris_push_cvla.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+cell nbnofuse: numba src=variants/warpx_boris_push_nbnofuse.py src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+cell nbnofusenovec: numba src=variants/warpx_boris_push_nbnofuse.py src32=- bin=- env={'NUMBA_LOOP_VECTORIZE': '0', 'NUMBA_SLP_VECTORIZE': '0'} -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 2.985 ms 
+  [1] cvla             ok           min 3.011 ms 
+  [1] fortran          ok           min 3.335 ms 
+  [1] numba            ok           min 2.069 ms 
+  [1] nbnofuse         ok           min 3.557 ms 
+  [1] nbnofusenovec    ok           min 3.627 ms 
+  [2] nbnofusenovec    ok           min 3.627 ms 
+  [2] nbnofuse         ok           min 3.534 ms 
+  [2] numba            ok           min 2.067 ms 
+  [2] fortran          ok           min 3.359 ms 
+  [2] cvla             ok           min 3.013 ms 
+  [2] c                ok           min 3.017 ms 
+  [3] c                ok           min 3.008 ms 
+  [3] cvla             ok           min 3.002 ms 
+  [3] fortran          ok           min 3.357 ms 
+  [3] numba            ok           min 2.056 ms 
+  [3] nbnofuse         ok           min 3.538 ms 
+  [3] nbnofusenovec    ok           min 3.619 ms 
+  [record] c                ok           min 3.133 ms 
+  [record] cvla             ok           min 3.119 ms 
+  [record] fortran          ok           min 3.464 ms 
+  [record] numba            ok           min 2.126 ms 
+  [record] nbnofuse         ok           min 3.656 ms 
+  [record] nbnofusenovec    ok           min 3.724 ms 
+wrote 24 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/borisV.csv
+SRUN[borisV]: srun --nodes=1 --ntasks=1 -w nid006553 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.borisV.csv --out-dir opt_reports/nbnofuse warpx_boris_push:numba_hand:python:variants/warpx_boris_push_nbnofuse.py
+warpx_boris_push             numba_hand   ok
+SRUN[borisV]: srun --nodes=1 --ntasks=1 -w nid006553 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.borisV.csv --out-dir opt_reports/nbnofusenovec warpx_boris_push:numba_hand:python:variants/warpx_boris_push_nbnofuse.py
+warpx_boris_push             numba_hand   ok
+unit borisV node=nid006553 end=2026-10-07T16:12:33+02:00

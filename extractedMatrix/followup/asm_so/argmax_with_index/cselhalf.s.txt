@@ -1,0 +1,51 @@
+# objdump -d libargmax_with_index_cc.so, functions matching argmax_with_index_fp64* (sha256 14187f10b5583a54)
+
+0000000000000640 <argmax_with_index_fp64>:    # address mod 64 = 0
+ 640:	fd40001f 	ldr	d31, [x0]
+ 644:	f100087f 	cmp	x3, #0x2
+ 648:	5400048d 	b.le	6d8 <argmax_with_index_fp64+0x98>
+ 64c:	d1000c65 	sub	x5, x3, #0x3
+ 650:	d2800024 	mov	x4, #0x1                   	// #1
+ 654:	927ff8a5 	and	x5, x5, #0xfffffffffffffffe
+ 658:	d2800006 	mov	x6, #0x0                   	// #0
+ 65c:	91002007 	add	x7, x0, #0x8
+ 660:	91000ca5 	add	x5, x5, #0x3
+ 664:	fc64781e 	ldr	d30, [x0, x4, lsl #3]
+ 668:	1e7e23f0 	fcmpe	d31, d30
+ 66c:	54000284 	b.mi	6bc <argmax_with_index_fp64+0x7c>  // b.first
+ 670:	1e6043fe 	fmov	d30, d31
+ 674:	fc6478e1 	ldr	d1, [x7, x4, lsl #3]
+ 678:	1e6123d0 	fcmpe	d30, d1
+ 67c:	540001c4 	b.mi	6b4 <argmax_with_index_fp64+0x74>  // b.first
+ 680:	1e6123d0 	fcmpe	d30, d1
+ 684:	91000884 	add	x4, x4, #0x2
+ 688:	1e7e4c3f 	fcsel	d31, d1, d30, mi	// mi = first
+ 68c:	eb0400bf 	cmp	x5, x4
+ 690:	54fffea1 	b.ne	664 <argmax_with_index_fp64+0x24>  // b.any
+ 694:	eb05007f 	cmp	x3, x5
+ 698:	5400008d 	b.le	6a8 <argmax_with_index_fp64+0x68>
+ 69c:	fc657800 	ldr	d0, [x0, x5, lsl #3]
+ 6a0:	1e7f2010 	fcmpe	d0, d31
+ 6a4:	5400010c 	b.gt	6c4 <argmax_with_index_fp64+0x84>
+ 6a8:	f9000026 	str	x6, [x1]
+ 6ac:	fd00005f 	str	d31, [x2]
+ 6b0:	d65f03c0 	ret
+ 6b4:	91000486 	add	x6, x4, #0x1
+ 6b8:	17fffff2 	b	680 <argmax_with_index_fp64+0x40>
+ 6bc:	aa0403e6 	mov	x6, x4
+ 6c0:	17ffffed 	b	674 <argmax_with_index_fp64+0x34>
+ 6c4:	1e60401f 	fmov	d31, d0
+ 6c8:	aa0503e6 	mov	x6, x5
+ 6cc:	f9000026 	str	x6, [x1]
+ 6d0:	fd00005f 	str	d31, [x2]
+ 6d4:	d65f03c0 	ret
+ 6d8:	d2800006 	mov	x6, #0x0                   	// #0
+ 6dc:	54fffe61 	b.ne	6a8 <argmax_with_index_fp64+0x68>  // b.any
+ 6e0:	fd40041d 	ldr	d29, [x0, #8]
+ 6e4:	1e7f23b0 	fcmpe	d29, d31
+ 6e8:	5400004c 	b.gt	6f0 <argmax_with_index_fp64+0xb0>
+ 6ec:	17ffffef 	b	6a8 <argmax_with_index_fp64+0x68>
+ 6f0:	1e6043bf 	fmov	d31, d29
+ 6f4:	d2800026 	mov	x6, #0x1                   	// #1
+ 6f8:	17ffffec 	b	6a8 <argmax_with_index_fp64+0x68>
+ 6fc:	d503201f 	nop

@@ -1,0 +1,39 @@
+########## tsvc_2_s1232_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s1232_cc.so for cycles:u (3793 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <tsvc_2_s1232_fp64>:
+         : 6   tsvc_2_s1232_fp64():
+    0.00 :   640:    cmp     x3, #0x0
+    0.00 :   644:    b.le    6b0 <tsvc_2_s1232_fp64+0x70>
+    0.00 :   648:    mov     x8, x1
+    0.00 :   64c:    mov     x7, x2
+    0.00 :   650:    mov     x5, #0x0                        // #0
+    0.00 :   654:    mov     x6, x0
+    0.00 :   658:    lsl     x9, x3, #3
+    0.00 :   65c:    nop
+    0.00 :   660:    mov     x1, x4
+    0.00 :   664:    mov     x0, #0x0                        // #0
+    0.00 :   668:    b       678 <tsvc_2_s1232_fp64+0x38>
+    3.03 :   66c:    cmp     x1, x5
+    0.00 :   670:    b.gt    698 <tsvc_2_s1232_fp64+0x58>
+    3.93 :   674:    mov     x1, x2
+    2.93 :   678:    ldr     d31, [x8, x0, lsl #3]
+    7.80 :   67c:    add     x2, x1, x4
+   36.44 :   680:    ldr     d30, [x7, x0, lsl #3]
+   28.63 :   684:    fadd    d30, d31, d30
+    2.82 :   688:    str     d30, [x6, x0, lsl #3]
+   10.78 :   68c:    add     x0, x0, #0x1
+    3.59 :   690:    cmp     x3, x0
+    0.00 :   694:    b.ne    66c <tsvc_2_s1232_fp64+0x2c>  // b.any
+    0.00 :   698:    add     x5, x5, #0x1
+    0.00 :   69c:    add     x8, x8, x9
+    0.00 :   6a0:    add     x7, x7, x9
+    0.00 :   6a4:    add     x6, x6, x9
+    0.05 :   6a8:    cmp     x3, x5
+    0.00 :   6ac:    b.ne    660 <tsvc_2_s1232_fp64+0x20>  // b.any
+    0.00 :   6b0:    ret

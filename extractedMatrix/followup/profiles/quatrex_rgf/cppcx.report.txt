@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 11K of event 'cycles:u'
+# Event count (approx.): 1190600000
+#
+# Overhead  Shared Object                                       Symbol                                               
+# ........  ..................................................  .....................................................
+#
+    98.16%  libquatrex_rgf_cpp.so                               [.] quatrex_rgf_fp64
+     0.46%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.15%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

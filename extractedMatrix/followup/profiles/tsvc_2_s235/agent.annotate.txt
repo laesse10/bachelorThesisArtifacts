@@ -1,0 +1,135 @@
+########## tsvc_2_s235_fp64._omp_fn.0
+ Percent |	Source code & Disassembly of libtsvc_2_s235_fortran.so for cycles:u (17708 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000800 <tsvc_2_s235_fp64._omp_fn.0>:
+         : 6   tsvc_2_s235_fp64._omp_fn.0():
+    0.00 :   800:    stp     x29, x30, [sp, #-160]!
+    0.00 :   804:    mov     x29, sp
+    0.00 :   808:    stp     x21, x22, [sp, #32]
+    0.00 :   80c:    stp     x27, x28, [sp, #80]
+    0.00 :   810:    ldp     x22, x27, [x0, #40]
+    0.00 :   814:    stp     x25, x26, [sp, #64]
+    0.00 :   818:    ldp     x26, x21, [x0, #24]
+    0.00 :   81c:    str     x27, [sp, #96]
+    0.00 :   820:    ldr     x25, [x0, #56]
+    0.00 :   824:    cmp     x26, #0x1
+    0.00 :   828:    b.le    9d4 <tsvc_2_s235_fp64._omp_fn.0+0x1d4>
+    0.00 :   82c:    stp     x19, x20, [sp, #16]
+    0.00 :   830:    add     x25, x25, x27, lsl #1
+    0.00 :   834:    add     x22, x22, x21
+    0.00 :   838:    stp     x23, x24, [sp, #48]
+    0.00 :   83c:    mov     x23, x0
+    0.00 :   840:    mov     x24, #0x2                       // #2
+    0.00 :   844:    bl      6a0 <omp_get_num_threads@plt>
+    0.00 :   848:    sxtw    x20, w0
+    0.00 :   84c:    bl      6d0 <omp_get_thread_num@plt>
+    0.00 :   850:    sdiv    x19, x26, x20
+    0.00 :   854:    sxtw    x6, w0
+    0.00 :   858:    add     x0, x26, #0x1
+    0.00 :   85c:    str     x0, [sp, #128]
+    0.00 :   860:    add     x0, x21, #0x1
+    0.00 :   864:    str     x0, [sp, #152]
+    0.00 :   868:    nop
+    0.00 :   86c:    msub    x20, x19, x20, x26
+    0.00 :   870:    cmp     x6, x20
+    0.00 :   874:    cset    w0, lt  // lt = tstop
+    0.00 :   878:    cmp     w0, #0x0
+    0.00 :   87c:    cinc    x19, x19, ne    // ne = any
+    0.00 :   880:    mul     x6, x19, x6
+    0.00 :   884:    and     x0, x19, #0xfffffffffffffffe
+    0.00 :   888:    lsr     x27, x19, #1
+    0.00 :   88c:    str     x0, [sp, #136]
+    0.00 :   890:    add     x20, x20, x6
+    0.00 :   894:    csel    x28, x6, x20, ne        // ne = any
+    0.00 :   898:    add     x0, x28, #0x1
+    0.00 :   89c:    add     x20, x19, x28
+    0.00 :   8a0:    str     x0, [sp, #112]
+    0.00 :   8a4:    add     x0, x19, x0
+    0.00 :   8a8:    str     x0, [sp, #120]
+    0.00 :   8ac:    lsl     x0, x28, #3
+    0.00 :   8b0:    str     x0, [sp, #144]
+    0.00 :   8b4:    b       8d4 <tsvc_2_s235_fp64._omp_fn.0+0xd4>
+    0.00 :   8b8:    bl      6e0 <GOMP_barrier@plt>
+    0.00 :   8bc:    ldr     x0, [sp, #96]
+    0.00 :   8c0:    add     x24, x24, #0x1
+    0.00 :   8c4:    add     x22, x22, x21
+    0.00 :   8c8:    add     x25, x25, x0
+    0.00 :   8cc:    cmp     x26, x24
+    0.00 :   8d0:    b.lt    9cc <tsvc_2_s235_fp64._omp_fn.0+0x1cc>  // b.tstop
+    0.00 :   8d4:    cmp     x20, x28
+    0.00 :   8d8:    b.le    8b8 <tsvc_2_s235_fp64._omp_fn.0+0xb8>
+    0.00 :   8dc:    ldp     x15, x13, [x23]
+    0.00 :   8e0:    add     x16, x22, x28
+    0.00 :   8e4:    ldr     x14, [x23, #16]
+    0.00 :   8e8:    cmp     x19, #0x1
+    0.00 :   8ec:    b.eq    9e8 <tsvc_2_s235_fp64._omp_fn.0+0x1e8>  // b.none
+    0.00 :   8f0:    mov     x1, #0x0                        // #0
+    0.00 :   8f4:    mov     x2, #0x0                        // #0
+    0.00 :   8f8:    ldr     x0, [sp, #112]
+    0.00 :   8fc:    ldr     x17, [sp, #152]
+    0.00 :   900:    add     x9, x22, x0
+    0.00 :   904:    add     x8, x25, x0
+    0.00 :   908:    ldr     x0, [sp, #144]
+    0.00 :   90c:    add     x9, x13, x9, lsl #3
+    0.00 :   910:    add     x7, x17, x16
+    0.00 :   914:    add     x8, x14, x8, lsl #3
+    0.00 :   918:    add     x7, x13, x7, lsl #3
+    0.00 :   91c:    add     x0, x15, x0
+    6.88 :   920:    ldr     q2, [x8, x1]
+    4.60 :   924:    add     x2, x2, #0x1
+   28.03 :   928:    ldr     q1, [x0, x1]
+   19.23 :   92c:    ldr     q0, [x9, x1]
+   25.90 :   930:    fmla    v0.2d, v2.2d, v1.2d
+    3.82 :   934:    str     q0, [x7, x1]
+    7.36 :   938:    add     x1, x1, #0x10
+    4.01 :   93c:    cmp     x27, x2
+    0.03 :   940:    b.ne    920 <tsvc_2_s235_fp64._omp_fn.0+0x120>  // b.any
+    0.00 :   944:    ldr     x0, [sp, #136]
+    0.06 :   948:    cmp     x19, x0
+    0.00 :   94c:    b.eq    990 <tsvc_2_s235_fp64._omp_fn.0+0x190>  // b.none
+    0.01 :   950:    ldr     x3, [sp, #112]
+    0.00 :   954:    add     x2, x22, x0
+    0.00 :   958:    add     x1, x25, x0
+    0.01 :   95c:    ptrue   p1.b
+    0.00 :   960:    add     x17, x17, x16
+    0.00 :   964:    sub     x7, x19, x0
+    0.00 :   968:    whilelo p0.d, xzr, x7
+    0.00 :   96c:    add     x17, x17, x0
+    0.00 :   970:    add     x0, x0, x28
+    0.00 :   974:    ld1d    {z1.d}, p0/z, [x15, x0, lsl #3]
+    0.02 :   978:    add     x2, x2, x3
+    0.00 :   97c:    add     x1, x1, x3
+    0.00 :   980:    ld1d    {z2.d}, p0/z, [x13, x2, lsl #3]
+    0.01 :   984:    ld1d    {z0.d}, p0/z, [x14, x1, lsl #3]
+    0.01 :   988:    fmad    z0.d, p1/m, z1.d, z2.d
+    0.01 :   98c:    st1d    {z0.d}, p0, [x13, x17, lsl #3]
+    0.00 :   990:    ldp     x1, x0, [sp, #120]
+    0.00 :   994:    cmp     x1, x0
+    0.00 :   998:    ldr     x1, [sp, #104]
+    0.02 :   99c:    csel    x0, x1, x0, ne  // ne = any
+    0.00 :   9a0:    str     x0, [sp, #104]
+    0.00 :   9a4:    cmp     x26, x20
+    0.00 :   9a8:    b.ne    8b8 <tsvc_2_s235_fp64._omp_fn.0+0xb8>  // b.any
+    0.00 :   9ac:    str     x0, [x23, #64]
+    0.01 :   9b0:    add     x24, x24, #0x1
+    0.00 :   9b4:    add     x22, x22, x21
+    0.00 :   9b8:    bl      6e0 <GOMP_barrier@plt>
+    0.00 :   9bc:    ldr     x0, [sp, #96]
+    0.00 :   9c0:    add     x25, x25, x0
+    0.00 :   9c4:    cmp     x26, x24
+    0.00 :   9c8:    b.ge    8d4 <tsvc_2_s235_fp64._omp_fn.0+0xd4>  // b.tcont
+    0.00 :   9cc:    ldp     x19, x20, [sp, #16]
+    0.00 :   9d0:    ldp     x23, x24, [sp, #48]
+    0.00 :   9d4:    ldp     x21, x22, [sp, #32]
+    0.00 :   9d8:    ldp     x25, x26, [sp, #64]
+    0.00 :   9dc:    ldp     x27, x28, [sp, #80]
+    0.00 :   9e0:    ldp     x29, x30, [sp], #160
+    0.00 :   9e4:    ret
+    0.00 :   9e8:    mov     x0, #0x0                        // #0
+    0.00 :   9ec:    add     x17, x21, #0x1
+    0.00 :   9f0:    b       950 <tsvc_2_s235_fp64._omp_fn.0+0x150>

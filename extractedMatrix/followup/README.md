@@ -44,7 +44,10 @@ replaced only `triangle_count_fp64.c`, but the harness runs `triangle_count_fp32
 the unchanged code and tied with `c`. `tri2` replaces both files (`src32=`); its profile shows the shifts in
 the function that ran (`profiles/triangle_count/cshift.annotate.txt`).
 
-### 2. WarpX, Fortran: an extra loop counter in every vectorised loop
+### 2. WarpX, Fortran: fresh memory for the temporaries (Boris push, field gather) and parentheses (deposition)
+
+**Superseded.** The first version of this section (and of the thesis paragraph, commit `acf7653`) blamed an
+extra loop counter. Round 2 (below) tested that and found it does not cost time. What round 1 measured:
 
 | kernel | Fortran / C time | gfortran 14 / C | Fortran / C instructions | IPC C, Fortran |
 |---|---:|---:|---:|---:|
@@ -52,17 +55,14 @@ the function that ran (`profiles/triangle_count/cshift.annotate.txt`).
 | `warpx_field_gather` | 0.915 | 0.924 | 1.083 | 2.23, 2.25 |
 | `warpx_esirkepov_deposition` | 0.958 | 0.965 | 0.980 | 4.68, 4.47 |
 
-- **Not the compiler version**: gfortran 14.2.0 (`bin14/gfortran -> /usr/bin/gfortran-14`, the same SUSE GCC
-  14.2.0 as the C column) is as slow as gfortran 13.3.1 on all three.
-- **Boris push and field gather: Fortran executes 13% and 8% more instructions at the same IPC.**
-  `loop_shares.py` splits each profiled function at its backward branches. The loops correspond one to one,
-  and each vectorised Fortran loop carries an iteration counter beside the address offset (`add x2, x2, #1;
-  cmp x2, x11`), where C compares the offset with a precomputed end (`cmp x0, x1`): one instruction more per
-  vector iteration, in loops of 7 to 14 instructions. Count of innermost vector loops with such a separate
-  counter (from the annotated profiles): C 0 of 26 / 0 of 417 / 0 of 351; Fortran 25 of 26 (99.9% of the
-  samples), 387 of 443 (35.5% of the samples) and 216 of 354 (14.7%) for Boris push, field gather, deposition.
-- **Deposition: not explained.** The counter is there, but Fortran executes 2% fewer instructions overall
-  and loses 4% through a lower IPC. That is within the noise of this 2.8 ms kernel (`../summary.md`).
+- Not the compiler version: gfortran 14.2.0 (`bin14/gfortran`) is as slow as gfortran 13.3.1 on all three.
+- gfortran keeps an iteration counter beside the address offset in its vectorised loops (`add x2, x2, #1;
+  cmp x2, x11`; C: `cmp x0, x1` against a precomputed end). C gets the same counters when its arrays are
+  reached through pointers to variable-length arrays, the way gfortran represents an array argument (checked
+  in a test file: the counter appears with `double (*a)[n]` and in every Fortran spelling, including
+  `do while` and `do concurrent`, and no GCC flag removes it). The `cvla` variants (round 2) execute up to
+  10% more instructions than C and are not slower. **The counter is not the cause.**
+- The causes (round 2, units `borisM`, `fgathM`, `esirkV`): see the table there.
 
 ### 3. Hand-written Numba deposition: reference counting
 
@@ -150,6 +150,96 @@ The hand-written code is 0.57x of C and executes 2.1x the instructions. C takes 
 in the matrix (another node, perf counters on); the ratio is taken on one node. (`warpx_boris_push`'s `native` cell is not affected: its arguments are
 float64.)
 
+## Round 2 (2026-10-07 to 2026-10-09): every explanation in the evaluation chapter, tested
+
+Goal: every speed difference that the evaluation chapter explains, or that the extracted-kernel table shows
+beyond noise, is backed by an experiment that changes only the suspected cause. Jobs (debug partition):
+4998574 (batch A), 4998606 (B1), 5009929 (`cometL`, uenv OpenBLAS), 5009930 (B2a), 5009993 (B2b), 5010073 (C).
+Same protocol as round 1; `perf stat` also counts page faults from round B2a on. Every cell validated (`ok`).
+
+How a cell changes one thing (`sweep_gap.py` cell syntax, `units.txt`):
+- `src=` / `src32=`: a source variant in `variants/` (each file's header states its one edit; diff it
+  against `emitted_sources/<k>/`, or `../emitted_sources/<k>/` for the extracted kernels);
+- `bin=`: a compiler wrapper directory first on PATH: `bin14` (gfortran 14.2.0), `bin_gxx14` (g++ 14.2.0),
+  `bin_cx` (gcc 14 / g++ 13 with `-fcx-fortran-rules`), `bin_noparens` (gfortran 13 with `-fno-protect-parens`);
+- `env=`: an environment variable for the harness run (`NUMBA_LOOP_VECTORIZE=0`, `NUMBA_SLP_VECTORIZE=0`;
+  glibc's `MALLOC_MMAP_THRESHOLD_=33554432` and `MALLOC_TRIM_THRESHOLD_=68719476736`).
+
+| unit | kernel | cell: min of k over all rounds (ms), speedup over the unit's `c` |
+|---|---|---|
+| `s316c` | `tsvc_2_s316` | `c` 274 (1.00); `cpp` 79.1 (3.46); `cpp14` 274 (1.00); `fortran` 79.2 (3.46); `fortran14` 274 (1.00); `numba` 122 (2.24) |
+| `qtx` | `quatrex_rgf` | `c` 7.16 (1.00); `ccx` 6.06 (1.18); `cpp` 7.18 (1.00); `cppcx` 6 (1.19); `fortran` 6.28 (1.14) |
+| `borisnb` | `warpx_boris_push` | `c` 3.03 (1.00); `numba` 2.08 (1.45); `nbnovec` 2.59 (1.17) |
+| `tri3` | `triangle_count` | `c` 46.8 (1.00); `cpp` 48.3 (0.97); `cpp14` 46.6 (1.00) |
+| `nfa` | `nfa_frontier` | `c` 9.74e+03 (1.00); `cpp` 9.37e+03 (1.04); `cpp14` 9.76e+03 (1.00); `numba` 1.04e+04 (0.94) |
+| `s318r` | `tsvc_2_s318` | `c` 79 (1.00); `csel` 284 (0.28); `numba` 284 (0.28) |
+| `s3110r` | `tsvc_2_s3110` | `c` 118 (1.00); `csel` 417 (0.28); `numba` 314 (0.38) |
+| `argmr` | `argmax_with_index` | `c` 71.6 (1.00); `csel` 248 (0.29); `numba` 180 (0.40) |
+| `s3111r` | `tsvc_2_s3111` | `c` 123 (1.00); `novec` 712 (0.17); `novecsel` 462 (0.27); `numba` 308 (0.40) |
+| `argh` | `argmax_with_index` | `c` 71.4 (1.00); `csel` 250 (0.29); `cselhalf` 206 (0.35); `numba` 181 (0.40) |
+| `s3110h` | `tsvc_2_s3110` | `c` 119 (1.00); `csel` 417 (0.29); `cselhalf` 302 (0.40); `numba` 314 (0.38) |
+| `borisV` | `warpx_boris_push` | `c` 2.99 (1.00); `cvla` 3 (0.99); `fortran` 3.33 (0.90); `numba` 2.06 (1.45); `nbnofuse` 3.53 (0.84); `nbnofusenovec` 3.62 (0.82) |
+| `spg` | `spgemm_hash` | `c` 256 (1.00); `cmod1` 186 (1.38); `cmask` 130 (1.97); `fortran` 178 (1.44); `numba` 151 (1.70) |
+| `cometL` | `comet_int4_gemm` | `c` 0.0833 (1.00); `cloops` 0.593 (0.14); `cloopsT` 0.548 (0.15); `fortran` 0.378 (0.22); `numba` 0.167 (0.50); `native32` 0.151 (0.55); `native32noomp` 0.129 (0.65) |
+| `borisH` | `warpx_boris_push` | `c` 3.03 (1.00); `fortran` 3.38 (0.90); `native` 3.84 (0.79); `nativenoomp` 3.19 (0.95); `fortnp` 3.39 (0.90) |
+| `qtxN` | `quatrex_rgf` | `c` 7.26 (1.00); `numba` 4.17 (1.74); `nbnoblas` 7.43 (0.98) |
+| `agscat` | `scatter_accum_dup` | `c` 343 (1.00); `agent` 931 (0.37); `agent1t` 924 (0.37); `agent1tplain` 471 (0.73); `catomic` 517 (0.66); `catomicomp` 506 (0.68) |
+| `agscan` | `scan_affine_decay` | `c` 117 (1.00); `agent` 232 (0.50); `agent3p` 347 (0.34) |
+| `agscat2` | `scatter_accum_dup` | `c` 333 (1.00); `agent1tplain` 454 (0.73); `agent1tnostage` 333 (1.00) |
+| `esirkV` | `warpx_esirkepov_deposition` | `c` 2.69 (1.00); `cvla` 2.66 (1.01); `fortran` 2.96 (0.91); `fortnp` 2.85 (0.95) |
+| `fgathV` | `warpx_field_gather` | `c` 11.5 (1.00); `cvla` 11.6 (1.00); `fortran` 12.7 (0.91); `fortnp` 12.8 (0.90) |
+| `borisM` | `warpx_boris_push` | `c` 3.04 (1.00); `fortran` 3.41 (0.89); `cmal` 2.9 (1.05); `fmal` 2.9 (1.05) |
+| `fgathM` | `warpx_field_gather` | `c` 11.4 (1.00); `fortran` 12.1 (0.95); `cmal` 7.61 (1.50); `fmal` 7.83 (1.46) |
+| `fuseD` | `fuse_diamond` | `c` 168 (1.00); `cstatic` 145 (1.16); `cfused` 29.3 (5.74); `hand` 29.4 (5.73); `agent` 29.4 (5.71) |
+| `fuseS` | `fuse_stencil_through_transient` | `c` 112 (1.00); `cstatic` 96.3 (1.16); `cfused` 46.9 (2.38); `hand` 47 (2.37); `agent` 47 (2.37) |
+| `i231` | `tsvc_2_s231` | `c` 656 (1.00); `cinter` 68.2 (9.61); `agent` 68.3 (9.61) |
+| `i2233` | `tsvc_2_s2233` | `c` 421 (1.00); `cinter` 66 (6.38) |
+| `i235` | `tsvc_2_s235` | `c` 535 (1.00); `cinter` 68.2 (7.84); `agent` 56.8 (9.42) |
+| `i2275` | `tsvc_2_s2275` | `c` 684 (1.00); `cinter` 73.2 (9.35); `agent` 73.8 (9.27) |
+| `i1232` | `tsvc_2_s1232` | `c` 38.5 (1.00); `cinter` 11.9 (3.24); `agent` 11.9 (3.23) |
+| `nfaU` | `nfa_frontier` | `c` 9.69e+03 (1.00); `numba` 1.03e+04 (0.94); `nbuidx` 8e+03 (1.21) |
+
+What each unit shows (the thesis states these, evaluation chapter):
+
+| difference | experiment | outcome |
+|---|---|---|
+| s316: C 3.4x slower than C++/Fortran | C++ and Fortran built by GCC 14 (`s316c`) | as slow as C: the compiler version |
+| QuaTrEx: C 14% slower than Fortran | `-fcx-fortran-rules` (`qtx`) | C 1.18x, C++ 1.19x: C's complex rules |
+| QuaTrEx: hand Numba 1.73x | 37 products and 2 inverses as loops (`qtxN`) | 0.98x of C: BLAS/LAPACK |
+| triangle / NFA: C++ 0.97x / 1.04x | C++ built by g++ 14 (`tri3`, `nfa`) | 1.00x both: the compiler version |
+| SpGEMM: Fortran 1.44x, Numba 1.70x | one division per remainder; bit masks (`spg`) | C 1.38x; C 1.97x: the divisions |
+| CoMet: Fortran 0.22x, Numba 0.50x, hand 0.55x | C with the loop nest instead of BLAS (`cometL`) | C 0.14x (unvectorised); contiguous operand only 0.15x: the library call, not the stride |
+| CoMet hand-written | no OpenMP pragma | 0.55x -> 0.65x: the region costs 15%, the rest is OpenBLAS |
+| s318 Numba 0.28x | C with selects (`s318r`) | 284 ms = Numba 284 ms |
+| argmax / s3110 Numba 0.40x / 0.38x | C with a select on every second element (`argh`, `s3110h`) | 0.35x / 0.40x (all selects: 0.29x): Numba selects on half the elements |
+| s3111 Numba 0.40x | C unvectorised (`s3111r`) | 0.17x (branch mispredicted half the time): C's lead is SVE's ordered vector reduction |
+| Boris push Numba 1.45x | Numba without vectorisation; without parfor fusion (`borisnb`, `borisV`) | 1.17x; 0.84x: fusion, then vectorisation |
+| NFA Numba 0.94x | all indices `np.uint64` (`nfaU`, no wraparound guards) | 1.21x: the guards |
+| Boris push / field gather Fortran 0.89x / 0.91x | glibc keeps freed memory (`borisM`, `fgathM`) | no page faults; Fortran = C (2.90 ms) / within 3%; C itself 1.05x / 1.50x faster |
+| same | C with gfortran's counters (`cvla`); `-fno-protect-parens` | not slower; no change: neither is the cause |
+| deposition Fortran 0.91x | `-fno-protect-parens` (`esirkV`) | 2.85 ms vs 2.97; C 2.69-2.84 ms: the parentheses |
+| hand Boris push 0.79x | no OpenMP pragma (`borisH`) | 0.95x (tie), 43% fewer instructions |
+| agent scan 0.50x | pass 1 twice (`agscan`) | 0.34x: each pass costs one C run |
+| agent scatter 0.37x | 1 thread; plain add; no staging copies (`agscat`, `agscat2`) | 0.37x; 0.73x; 1.00x: atomics and copies, not the thread override |
+| DaCe scatter 0.68x | C with `#pragma omp atomic` per element (`agscat`) | 0.66x (0.68x inside an OpenMP loop) |
+| agents 3-10x (interchange kernels) | translated C interchanged/distributed only (`i231`..`i1232`) | equal to the agent on s231, s2275, s1232; s2233 6.4x; s235 agent 1.2x faster still |
+| hand C fuse 5.6x / 2.3x | translated C fused; temporaries kept instead (`fuseD`, `fuseS`) | equal to hand and agent; 1.16x only |
+
+Not explained: DaCe's `compact_threshold_pack` (0.44x) and `s323` (0.50x), which the thesis only names.
+
+Incidents and notes (round 2):
+- `nfa` (job 4998574): both timed rounds complete; the profile pass hit the step's time limit after `c` and `cpp`.
+  `nfaU` re-measured C and Numba (2 rounds of 10 reps for this 10 s kernel, as `nfa`).
+- `s3111_novecsel`: GCC turns every C spelling of the select back into a branch, so the select is one line of
+  inline assembly (`fcmp` + `fcsel`), the instruction pattern of Numba's loop.
+- A Numba-side test of the select (LLVM `-two-entry-phi-node-folding-threshold=0`,
+  `-aarch64-enable-early-ifcvt=false`) was tried on the login node: the select is already in Numba's IR, and
+  neither option removes it. So the select was tested from the C side.
+- `units.txt` held `borisH` twice for a while (merged before B2a started); `borisH` gained `fortran` and
+  `fortnp` cells before the job started.
+- `opt_reports/fp32/`, the `cvla` codegen checks and the Fortran loop-form tests were compiled on the login node
+  (same Neoverse V2 CPU, harness argv), not timed.
+
 ## Files
 
 | path | what |
@@ -157,16 +247,17 @@ float64.)
 | `sweep_gap.py` | the sweep (cells, rounds, perf gate, perf record, `src=`/`src32=`/`bin=`) |
 | `run_gap.sh`, `gap.sbatch`, `units.txt` | one unit per exclusive node; the units |
 | `make_variants.py`, `variants/` | the source variants, generated from `../emitted_sources` with asserted edits |
-| `bin14/gfortran` | symlink to `/usr/bin/gfortran-14` (SUSE GCC 14.2.0) |
+| `bin14/`, `bin_gxx14/`, `bin_cx/`, `bin_noparens/` | compiler wrappers (round 2) |
 | `perfgate/sitecustomize.py` | the LLR-40 follow-up's perf gate, byte-identical |
 | `analyze_gap.py` -> `summary_table.md` | the table of every cell |
 | `loop_shares.py`, `nrt_share.py` | per-loop sample shares; samples in NRT_incref/decref |
 | `nrt_probe.py`, `probe.sbatch` | names the JIT addresses of Numba's runtime functions |
 | `parts/` | raw rows per unit (all timings, perf counters); `superseded/`: the invalid `tri` run |
-| `profiles/` | perf reports and annotations; `nrt_probe/` |
+| `profiles/` | perf reports and annotations, one per (kernel, cell label): a later unit with the same label overwrites the earlier one (same build, newer run); `nrt_probe/` |
 | `opt_reports/` | opt reports + disassembly of the new builds: `gfortran14`, `gfortran13`, `gcc14` (same argv, for comparison), `cshift`, `nb*` (Numba asm), `fp32` (compile only, login node, same CPU) |
 | `asm_so/` | the built libraries' kernel functions with load addresses (fp64 symbols only, so not for the integer kernels) |
 | `emitted_sources/` | the emitted sources each unit started from |
+| `scratch_src/` | sources the round-2 variants were made from: LLR-40 emitted C (same as `emitted_sources/`), the fp32 files of CoMet and SpGEMM, the hand-written originals of the Boris push and CoMet |
 | `logs/`, `srun_lines.txt` | Slurm and unit logs; every srun line |
 
 Incidents: in job 4998101 the `esirkN2` unit did not start (`units.txt` line format) and was run as job 4998121.

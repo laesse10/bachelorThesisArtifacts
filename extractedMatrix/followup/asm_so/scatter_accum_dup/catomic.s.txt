@@ -1,0 +1,27 @@
+# objdump -d libscatter_accum_dup_cc.so, functions matching scatter_accum_dup_fp64* (sha256 8c4cc7472b1cb3ee)
+
+0000000000000640 <scatter_accum_dup_fp64>:    # address mod 64 = 0
+ 640:	f100007f 	cmp	x3, #0x0
+ 644:	5400020d 	b.le	684 <scatter_accum_dup_fp64+0x44>
+ 648:	d2800005 	mov	x5, #0x0                   	// #0
+ 64c:	b8a57824 	ldrsw	x4, [x1, x5, lsl #2]
+ 650:	fc65785f 	ldr	d31, [x2, x5, lsl #3]
+ 654:	8b040c04 	add	x4, x0, x4, lsl #3
+ 658:	f9400086 	ldr	x6, [x4]
+ 65c:	9e6700de 	fmov	d30, x6
+ 660:	aa0603e7 	mov	x7, x6
+ 664:	1e7e2bfe 	fadd	d30, d31, d30
+ 668:	9e6603c8 	fmov	x8, d30
+ 66c:	c8a77c88 	cas	x7, x8, [x4]
+ 670:	eb0700df 	cmp	x6, x7
+ 674:	540000a1 	b.ne	688 <scatter_accum_dup_fp64+0x48>  // b.any
+ 678:	910004a5 	add	x5, x5, #0x1
+ 67c:	eb05007f 	cmp	x3, x5
+ 680:	54fffe61 	b.ne	64c <scatter_accum_dup_fp64+0xc>  // b.any
+ 684:	d65f03c0 	ret
+ 688:	aa0703e6 	mov	x6, x7
+ 68c:	17fffff4 	b	65c <scatter_accum_dup_fp64+0x1c>
+ 690:	d503201f 	nop
+ 694:	d503201f 	nop
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop

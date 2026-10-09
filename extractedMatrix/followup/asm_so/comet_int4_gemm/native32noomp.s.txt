@@ -1,0 +1,7 @@
+# objdump -d libcomet_int4_gemm_cpp.so, functions matching comet_int4_gemm_fp64* (sha256 f1a7fa7ea2c810c2)
+
+0000000000000930 <comet_int4_gemm_fp64>:    # address mod 64 = 48
+ 930:	2a0303e5 	mov	w5, w3
+ 934:	2a0403e3 	mov	w3, w4
+ 938:	17ffff36 	b	610 <comet_int4_gemm_ref@plt>
+ 93c:	d503201f 	nop

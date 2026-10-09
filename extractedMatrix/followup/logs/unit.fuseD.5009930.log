@@ -1,0 +1,37 @@
+unit fuseD kernel=fuse_diamond bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006561 start=2026-10-09T10:20:03+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006561 1 1
+SRUN[fuseD]: srun --nodes=1 --ntasks=1 -w nid006561 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel fuse_diamond --cells c cstatic=c:src=variants/fuse_diamond_cstatic.c cfused=c:src=variants/fuse_diamond_cfused.c hand=c:src=variants/fuse_diamond_hand.c agent=fortran:src=variants/fuse_diamond_agent.f90 --rounds 3 --perf --record-reps 10 --out parts/fuseD.csv --scratch scratch/fuseD --db-shard 206
+pristine fuse_diamond_fp64.c 0e733926ca6c514d
+pristine fuse_diamond_fp64.cpp e5c99a7f757aa143
+pristine fuse_diamond_fp64.f90 1cdc65122276f426
+pristine fuse_diamond_fp32.c 61c773d67b02293b
+pristine fuse_diamond_fp32.cpp 8e5c60ba99210e7b
+pristine fuse_diamond_fp32.f90 c60ece32bf620186
+pristine fuse_diamond_numba_np.py 3ffaae46e23a09fe
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cstatic: c src=variants/fuse_diamond_cstatic.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cfused: c src=variants/fuse_diamond_cfused.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell hand: c src=variants/fuse_diamond_hand.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell agent: fortran src=variants/fuse_diamond_agent.f90 src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+  [1] c                ok           min 171.815 ms 
+  [1] cstatic          ok           min 145.372 ms 
+  [1] cfused           ok           min 29.383 ms 
+  [1] hand             ok           min 30.665 ms 
+  [1] agent            ok           min 29.450 ms 
+  [2] agent            ok           min 30.628 ms 
+  [2] hand             ok           min 29.537 ms 
+  [2] cfused           ok           min 29.325 ms 
+  [2] cstatic          ok           min 145.825 ms 
+  [2] c                ok           min 171.659 ms 
+  [3] c                ok           min 168.226 ms 
+  [3] cstatic          ok           min 145.262 ms 
+  [3] cfused           ok           min 29.561 ms 
+  [3] hand             ok           min 29.382 ms 
+  [3] agent            ok           min 30.599 ms 
+  [record] c                ok           min 167.012 ms 
+  [record] cstatic          ok           min 135.685 ms 
+  [record] cfused           ok           min 28.961 ms 
+  [record] hand             ok           min 28.877 ms 
+  [record] agent            ok           min 29.229 ms 
+wrote 20 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/fuseD.csv
+unit fuseD node=nid006561 end=2026-10-09T10:24:21+02:00

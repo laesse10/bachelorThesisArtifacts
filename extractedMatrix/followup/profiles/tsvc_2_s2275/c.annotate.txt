@@ -1,0 +1,39 @@
+########## tsvc_2_s2275_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s2275_cc.so for cycles:u (259557 samples, percent: local period)
+-----------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <tsvc_2_s2275_fp64>:
+         : 6   tsvc_2_s2275_fp64():
+    0.00 :   640:    cmp     x7, #0x0
+    0.00 :   644:    b.le    6b0 <tsvc_2_s2275_fp64+0x70>
+    0.00 :   648:    lsl     x11, x7, #3
+    0.00 :   64c:    mov     x12, #0x0                       // #0
+    0.00 :   650:    lsl     x8, x12, #3
+    0.00 :   654:    mov     x9, #0x0                        // #0
+    0.00 :   658:    nop
+    0.00 :   65c:    nop
+    0.34 :   660:    ldr     d29, [x1, x8]
+    0.05 :   664:    mov     x10, x9
+   16.33 :   668:    add     x9, x9, #0x1
+    0.34 :   66c:    ldr     d31, [x3, x8]
+   42.27 :   670:    ldr     d30, [x5, x8]
+   39.52 :   674:    fmadd   d29, d31, d30, d29
+    0.41 :   678:    str     d29, [x1, x8]
+    0.35 :   67c:    add     x8, x8, x11
+    0.32 :   680:    cmp     x7, x9
+    0.00 :   684:    b.ne    660 <tsvc_2_s2275_fp64+0x20>  // b.any
+    0.00 :   688:    ldr     d28, [x4, x12, lsl #3]
+    0.03 :   68c:    add     x8, x12, #0x1
+    0.00 :   690:    ldr     d27, [x6, x12, lsl #3]
+    0.02 :   694:    ldr     d26, [x2, x12, lsl #3]
+    0.01 :   698:    fmadd   d26, d28, d27, d26
+    0.00 :   69c:    str     d26, [x0, x12, lsl #3]
+    0.00 :   6a0:    cmp     x12, x10
+    0.00 :   6a4:    b.eq    6b0 <tsvc_2_s2275_fp64+0x70>  // b.none
+    0.00 :   6a8:    mov     x12, x8
+    0.00 :   6ac:    b       650 <tsvc_2_s2275_fp64+0x10>
+    0.00 :   6b0:    ret

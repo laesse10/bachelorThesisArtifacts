@@ -1,0 +1,27 @@
+unit i231 kernel=tsvc_2_s231 bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006545 start=2026-10-09T10:33:22+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006545 1 1
+SRUN[i231]: srun --nodes=1 --ntasks=1 -w nid006545 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel tsvc_2_s231 --cells c cinter=c:src=variants/tsvc_2_s231_cinter.c agent=c:src=variants/tsvc_2_s231_agent.c --rounds 3 --perf --record-reps 10 --out parts/i231.csv --scratch scratch/i231 --db-shard 200
+pristine tsvc_2_s231_fp64.c 9d2dc3fe6a50c7c0
+pristine tsvc_2_s231_fp64.cpp f0256a4aa23d59e0
+pristine tsvc_2_s231_fp64.f90 430d9061eca4f58d
+pristine tsvc_2_s231_fp32.c c0a909a18a155651
+pristine tsvc_2_s231_fp32.cpp cf05768396f26f5d
+pristine tsvc_2_s231_fp32.f90 e2a34bbcb9d068ec
+pristine tsvc_2_s231_numba_np.py 667903b0aced6892
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cinter: c src=variants/tsvc_2_s231_cinter.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell agent: c src=variants/tsvc_2_s231_agent.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+  [1] c                ok           min 714.927 ms 
+  [1] cinter           ok           min 68.232 ms 
+  [1] agent            ok           min 68.401 ms 
+  [2] agent            ok           min 68.355 ms 
+  [2] cinter           ok           min 68.489 ms 
+  [2] c                ok           min 700.620 ms 
+  [3] c                ok           min 655.740 ms 
+  [3] cinter           ok           min 68.568 ms 
+  [3] agent            ok           min 68.252 ms 
+  [record] c                ok           min 799.074 ms 
+  [record] cinter           ok           min 58.309 ms 
+  [record] agent            ok           min 57.898 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/i231.csv
+unit i231 node=nid006545 end=2026-10-09T10:38:28+02:00

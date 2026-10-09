@@ -1,0 +1,37 @@
+unit borisH kernel=warpx_boris_push bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006545 start=2026-10-09T10:20:03+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006545 1 1
+SRUN[borisH]: srun --nodes=1 --ntasks=1 -w nid006545 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_boris_push --cells c fortran native=cpp:src=../adapters/warpx_boris_push_native.cpp nativenoomp=cpp:src=variants/warpx_boris_push_native_noomp.cpp fortnp=fortran:bin=bin_noparens --rounds 3 --perf --record-reps 300 --out parts/borisH.csv --scratch scratch/borisH --db-shard 200
+pristine warpx_boris_push_fp64.c 4df974435c75288a
+pristine warpx_boris_push_fp64.cpp 735afa550f3e31aa
+pristine warpx_boris_push_fp64.f90 49cae026e972751d
+pristine warpx_boris_push_fp32.c dfb4904c9ea7f7c3
+pristine warpx_boris_push_fp32.cpp 5325c09787509d1c
+pristine warpx_boris_push_fp32.f90 8bf89db8ccd34c11
+pristine warpx_boris_push_numba_np.py 5b74c30bace6d710
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell native: cpp src=../adapters/warpx_boris_push_native.cpp src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell nativenoomp: cpp src=variants/warpx_boris_push_native_noomp.cpp src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortnp: fortran src=- src32=- bin=bin_noparens env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin_noparens/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+  [1] c                ok           min 3.038 ms 
+  [1] fortran          ok           min 3.380 ms 
+  [1] native           ok           min 3.840 ms 
+  [1] nativenoomp      ok           min 3.191 ms 
+  [1] fortnp           ok           min 3.385 ms 
+  [2] fortnp           ok           min 3.391 ms 
+  [2] nativenoomp      ok           min 3.202 ms 
+  [2] native           ok           min 3.847 ms 
+  [2] fortran          ok           min 3.389 ms 
+  [2] c                ok           min 3.046 ms 
+  [3] c                ok           min 3.032 ms 
+  [3] fortran          ok           min 3.382 ms 
+  [3] native           ok           min 3.848 ms 
+  [3] nativenoomp      ok           min 3.201 ms 
+  [3] fortnp           ok           min 3.394 ms 
+  [record] c                ok           min 3.146 ms 
+  [record] fortran          ok           min 3.447 ms 
+  [record] native           ok           min 3.934 ms 
+  [record] nativenoomp      ok           min 3.254 ms 
+  [record] fortnp           ok           min 3.499 ms 
+wrote 20 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/borisH.csv
+unit borisH node=nid006545 end=2026-10-09T10:21:57+02:00

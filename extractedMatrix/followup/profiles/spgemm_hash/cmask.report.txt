@@ -1,0 +1,18 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 42K of event 'cycles:u'
+# Event count (approx.): 4280600000
+#
+# Overhead  Shared Object                                       Symbol                                                  
+# ........  ..................................................  ........................................................
+#
+    99.71%  libspgemm_hash_cc.so                                [.] spgemm_hash_fp32
+     0.21%  libc.so.6                                           [.] __GI___memcpy_sve
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

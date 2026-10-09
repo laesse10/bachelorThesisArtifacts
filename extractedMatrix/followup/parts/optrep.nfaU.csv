@@ -1,0 +1,2 @@
+kernel,representation,variant,lang,compiler,source,source_sha256,optreport,asm,status,n_vec_optimized,n_vec_missed,n_loop_optimized,kernel_functions,error,compile_argv
+nfa_frontier,numba_hand,,python,numba,followup/opt_reports/nbuidx/nfa_frontier/numba_hand/nfa_frontier_numba_np.py,ce4110d5ca86ef58c4276a7a67e7526b1777682c4bccb26d7e3ea7c523851ca4,,followup/opt_reports/nbuidx/nfa_frontier/numba_hand/nfa_frontier_numba_np.py.s.txt,ok,,,,nfa_frontier,,"@nb.njit(parallel=True, cache=True); inspect_asm()"

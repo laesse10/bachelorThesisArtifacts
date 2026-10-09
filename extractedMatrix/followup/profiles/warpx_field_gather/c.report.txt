@@ -4,20 +4,19 @@
 # Total Lost Samples: 0
 #
 # Samples: 14K of event 'cycles:u'
-# Event count (approx.): 1475900000
+# Event count (approx.): 1478600000
 #
 # Overhead  Shared Object                                       Symbol                                                  
 # ........  ..................................................  ........................................................
 #
     91.71%  libwarpx_field_gather_cc.so                         [.] warpx_field_gather_fp64
-     2.54%  libc.so.6                                           [.] __GI___memcpy_sve
-     1.84%  [unknown]                                           [k] 0xffffb26a308bb908
-     0.67%  libc.so.6                                           [.] __GI___memset_generic
-     0.58%  python3.12                                          [.] _PyEval_EvalFrameDefault
-     0.21%  python3.12                                          [.] _PyObject_Malloc
-     0.18%  python3.12                                          [.] PyDict_GetItemWithError
-     0.13%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
-     0.13%  [unknown]                                           [k] 0xffffb26a2f9e9ebc
+     2.49%  libc.so.6                                           [.] __GI___memcpy_sve
+     2.02%  [unknown]                                           [k] 0xffffb3894b7bb908
+     0.64%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.55%  libc.so.6                                           [.] __GI___memset_generic
+     0.23%  python3.12                                          [.] _PyObject_Malloc
+     0.14%  python3.12                                          [.] PyDict_GetItemWithError
+     0.12%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
      0.11%  python3.12                                          [.] deduce_unreachable
 
 

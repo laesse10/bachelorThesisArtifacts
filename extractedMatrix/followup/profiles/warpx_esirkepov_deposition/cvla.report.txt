@@ -1,0 +1,33 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 25K of event 'cycles:u'
+# Event count (approx.): 2559400000
+#
+# Overhead  Shared Object                                       Symbol                                                  
+# ........  ..................................................  ........................................................
+#
+    65.76%  libwarpx_esirkepov_deposition_cc.so                 [.] warpx_esirkepov_deposition_fp64
+    10.80%  libc.so.6                                           [.] malloc
+     8.46%  libc.so.6                                           [.] _int_free
+     5.19%  libc.so.6                                           [.] cfree@GLIBC_2.17
+     2.47%  libc.so.6                                           [.] __GI___memcpy_sve
+     1.14%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     1.09%  libc.so.6                                           [.] __GI___memset_generic
+     0.43%  libwarpx_esirkepov_deposition_cc.so                 [.] malloc@plt
+     0.42%  [unknown]                                           [k] 0xffffdc4f055db908
+     0.31%  libwarpx_esirkepov_deposition_cc.so                 [.] free@plt
+     0.29%  python3.12                                          [.] PyDict_GetItemWithError
+     0.25%  python3.12                                          [.] _PyObject_Malloc
+     0.23%  libwarpx_esirkepov_deposition_cc.so                 [.] memcpy@plt
+     0.19%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+     0.12%  python3.12                                          [.] _PyObject_LookupAttr
+     0.12%  python3.12                                          [.] PyObject_GenericGetAttr
+     0.12%  python3.12                                          [.] _PyObject_Free
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

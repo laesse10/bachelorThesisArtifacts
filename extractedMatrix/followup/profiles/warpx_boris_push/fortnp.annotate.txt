@@ -1,0 +1,1056 @@
+########## warpx_boris_push_fp64
+ Percent |	Source code & Disassembly of libwarpx_boris_push_fortran.so for cycles:u (26298 samples, percent: local period)
+-------------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000000740 <warpx_boris_push_fp64>:
+         : 6    warpx_boris_push_fp64():
+    0.00 :    740:    stp     x29, x30, [sp, #-272]!
+    0.00 :    744:    mov     x29, sp
+    0.00 :    748:    mov     x15, x0
+    0.00 :    74c:    stp     x21, x22, [sp, #32]
+    0.00 :    750:    mov     x21, x7
+    0.00 :    754:    ldr     x22, [sp, #288]
+    0.00 :    758:    stp     x19, x20, [sp, #16]
+    0.00 :    75c:    mov     x19, x6
+    0.00 :    760:    ldp     x20, x0, [sp, #272]
+    0.00 :    764:    cmp     x22, #0x0
+    0.00 :    768:    stp     d8, d9, [sp, #96]
+    0.00 :    76c:    fmov    d9, d0
+    0.00 :    770:    fmov    d8, d1
+    0.00 :    774:    stp     x23, x24, [sp, #48]
+    0.00 :    778:    csel    x23, x22, xzr, ge       // ge = tcont
+    0.00 :    77c:    mov     x24, #0x1                       // #1
+    0.00 :    780:    stp     x25, x26, [sp, #64]
+    0.00 :    784:    lsl     x26, x23, #3
+    0.00 :    788:    cmp     x26, #0x0
+    0.00 :    78c:    csel    x26, x26, x24, ne       // ne = any
+    0.00 :    790:    str     x0, [sp, #120]
+    0.00 :    794:    mov     x0, x26
+    0.00 :    798:    stp     x27, x28, [sp, #80]
+    0.00 :    79c:    str     x4, [sp, #152]
+    0.00 :    7a0:    stp     x5, x3, [sp, #232]
+    0.00 :    7a4:    stp     x2, x1, [sp, #248]
+    0.00 :    7a8:    str     x15, [sp, #264]
+    0.00 :    7ac:    bl      620 <malloc@plt>
+    0.00 :    7b0:    mov     x12, x0
+    0.00 :    7b4:    mov     x0, x26
+    0.00 :    7b8:    str     x12, [sp, #224]
+    0.00 :    7bc:    bl      620 <malloc@plt>
+    0.00 :    7c0:    mov     x4, x0
+    0.00 :    7c4:    mov     x0, x26
+    0.00 :    7c8:    str     x4, [sp, #136]
+    0.00 :    7cc:    bl      620 <malloc@plt>
+    0.00 :    7d0:    mov     x4, x0
+    0.00 :    7d4:    mov     x0, x26
+    0.00 :    7d8:    str     x4, [sp, #144]
+    0.00 :    7dc:    bl      620 <malloc@plt>
+    0.00 :    7e0:    mov     x13, x0
+    0.00 :    7e4:    cmp     x23, #0x0
+    0.00 :    7e8:    csel    x0, x23, x24, ne        // ne = any
+    0.00 :    7ec:    str     x13, [sp, #216]
+    0.00 :    7f0:    bl      620 <malloc@plt>
+    0.00 :    7f4:    mov     x4, x0
+    0.00 :    7f8:    mov     x0, x26
+    0.00 :    7fc:    str     x4, [sp, #128]
+    0.00 :    800:    bl      620 <malloc@plt>
+    0.00 :    804:    mov     x27, x0
+    0.00 :    808:    mov     x0, x26
+    0.00 :    80c:    bl      620 <malloc@plt>
+    0.00 :    810:    mov     x4, x0
+    0.00 :    814:    mov     x0, x26
+    0.00 :    818:    str     x4, [sp, #160]
+    0.00 :    81c:    bl      620 <malloc@plt>
+    0.00 :    820:    mov     x8, x0
+    0.00 :    824:    mov     x0, x26
+    0.00 :    828:    str     x8, [sp, #208]
+    0.00 :    82c:    bl      620 <malloc@plt>
+    0.00 :    830:    mov     x9, x0
+    0.00 :    834:    mov     x0, x26
+    0.00 :    838:    str     x9, [sp, #200]
+    0.00 :    83c:    bl      620 <malloc@plt>
+    0.00 :    840:    mov     x10, x0
+    0.00 :    844:    mov     x0, x26
+    0.00 :    848:    str     x10, [sp, #192]
+    0.00 :    84c:    bl      620 <malloc@plt>
+    0.00 :    850:    mov     x14, x0
+    0.00 :    854:    mov     x0, x26
+    0.00 :    858:    str     x14, [sp, #184]
+    0.00 :    85c:    bl      620 <malloc@plt>
+    0.00 :    860:    mov     x28, x0
+    0.00 :    864:    mov     x0, x26
+    0.00 :    868:    bl      620 <malloc@plt>
+    0.00 :    86c:    mov     x24, x0
+    0.00 :    870:    mov     x0, x26
+    0.00 :    874:    bl      620 <malloc@plt>
+    0.00 :    878:    mov     x23, x0
+    0.00 :    87c:    mov     x0, x26
+    0.00 :    880:    bl      620 <malloc@plt>
+    0.00 :    884:    mov     x25, x0
+    0.00 :    888:    mov     x0, x26
+    0.00 :    88c:    bl      620 <malloc@plt>
+    0.00 :    890:    mov     x4, x0
+    0.00 :    894:    mov     x0, x26
+    0.00 :    898:    str     x4, [sp, #176]
+    0.00 :    89c:    bl      620 <malloc@plt>
+    0.00 :    8a0:    mov     x6, x0
+    0.00 :    8a4:    mov     x0, x26
+    0.00 :    8a8:    str     x6, [sp, #168]
+    0.00 :    8ac:    bl      620 <malloc@plt>
+    0.00 :    8b0:    adrp    x1, 2000 <warpx_boris_push_fp32+0x860>
+    0.00 :    8b4:    mov     x7, x0
+    0.00 :    8b8:    ldr     x0, [sp, #120]
+    0.00 :    8bc:    ldp     x6, x4, [sp, #168]
+    0.00 :    8c0:    ldp     x14, x10, [sp, #184]
+    0.00 :    8c4:    ldp     x9, x8, [sp, #200]
+    0.00 :    8c8:    ldp     x13, x12, [sp, #216]
+    0.00 :    8cc:    ldp     x5, x3, [sp, #232]
+    0.00 :    8d0:    ldr     d0, [x1, #2176]
+    0.00 :    8d4:    ldp     x2, x1, [sp, #248]
+    0.00 :    8d8:    ldr     x15, [sp, #264]
+    0.00 :    8dc:    fmul    d8, d8, d0
+    0.00 :    8e0:    fdiv    d8, d8, d9
+    0.00 :    8e4:    cmp     x0, #0x1
+    0.00 :    8e8:    b.ls    9d4 <warpx_boris_push_fp64+0x294>  // b.plast
+    0.00 :    8ec:    cmp     x22, #0x0
+    0.00 :    8f0:    b.gt    1740 <warpx_boris_push_fp64+0x1000>
+    0.00 :    8f4:    mov     x0, x7
+    0.00 :    8f8:    str     x12, [sp, #120]
+    0.00 :    8fc:    str     x13, [sp, #152]
+    0.00 :    900:    stp     x8, x9, [sp, #168]
+    0.00 :    904:    stp     x10, x14, [sp, #184]
+    0.00 :    908:    stp     x4, x6, [sp, #200]
+    0.00 :    90c:    bl      630 <free@plt>
+    0.00 :    910:    ldr     x6, [sp, #208]
+    0.00 :    914:    mov     x0, x6
+    0.00 :    918:    bl      630 <free@plt>
+    0.00 :    91c:    ldr     x4, [sp, #200]
+    0.00 :    920:    mov     x0, x4
+    0.00 :    924:    bl      630 <free@plt>
+    0.00 :    928:    mov     x0, x25
+    0.00 :    92c:    bl      630 <free@plt>
+    0.00 :    930:    mov     x0, x23
+    0.00 :    934:    bl      630 <free@plt>
+    0.00 :    938:    mov     x0, x24
+    0.00 :    93c:    bl      630 <free@plt>
+    0.00 :    940:    mov     x0, x28
+    0.00 :    944:    bl      630 <free@plt>
+    0.00 :    948:    ldr     x14, [sp, #192]
+    0.00 :    94c:    mov     x0, x14
+    0.00 :    950:    bl      630 <free@plt>
+    0.00 :    954:    ldr     x10, [sp, #184]
+    0.00 :    958:    mov     x0, x10
+    0.00 :    95c:    bl      630 <free@plt>
+    0.00 :    960:    ldr     x9, [sp, #176]
+    0.00 :    964:    mov     x0, x9
+    0.00 :    968:    bl      630 <free@plt>
+    0.00 :    96c:    ldr     x8, [sp, #168]
+    0.00 :    970:    mov     x0, x8
+    0.00 :    974:    bl      630 <free@plt>
+    0.00 :    978:    ldr     x0, [sp, #160]
+    0.00 :    97c:    bl      630 <free@plt>
+    0.00 :    980:    mov     x0, x27
+    0.00 :    984:    bl      630 <free@plt>
+    0.00 :    988:    ldr     x0, [sp, #128]
+    0.00 :    98c:    bl      630 <free@plt>
+    0.00 :    990:    ldr     x13, [sp, #152]
+    0.00 :    994:    mov     x0, x13
+    0.00 :    998:    bl      630 <free@plt>
+    0.00 :    99c:    ldr     x0, [sp, #144]
+    0.00 :    9a0:    bl      630 <free@plt>
+    0.00 :    9a4:    ldr     x0, [sp, #136]
+    0.00 :    9a8:    bl      630 <free@plt>
+    0.00 :    9ac:    ldr     x12, [sp, #120]
+    0.00 :    9b0:    ldp     x19, x20, [sp, #16]
+    0.00 :    9b4:    ldp     x21, x22, [sp, #32]
+    0.00 :    9b8:    mov     x0, x12
+    0.00 :    9bc:    ldp     x23, x24, [sp, #48]
+    0.00 :    9c0:    ldp     x25, x26, [sp, #64]
+    0.00 :    9c4:    ldp     x27, x28, [sp, #80]
+    0.00 :    9c8:    ldp     d8, d9, [sp, #96]
+    0.00 :    9cc:    ldp     x29, x30, [sp], #272
+    0.00 :    9d0:    b       630 <free@plt>
+    0.00 :    9d4:    cmp     x22, #0x0
+    0.00 :    9d8:    b.le    8f4 <warpx_boris_push_fp64+0x1b4>
+    0.00 :    9dc:    mov     x26, x22
+    0.00 :    9e0:    cmp     x22, #0x1
+    0.00 :    9e4:    b.eq    16b0 <warpx_boris_push_fp64+0xf70>  // b.none
+    0.00 :    9e8:    dup     v1.2d, v8.d[0]
+    0.00 :    9ec:    lsr     x17, x22, #1
+    0.00 :    9f0:    mov     x0, #0x0                        // #0
+    0.00 :    9f4:    mov     x11, #0x0                       // #0
+    0.00 :    9f8:    nop
+    0.00 :    9fc:    nop
+    0.23 :    a00:    ldr     q0, [x19, x0]
+    0.09 :    a04:    add     x11, x11, #0x1
+    0.79 :    a08:    ldr     q2, [x3, x0]
+    0.89 :    a0c:    fmla    v0.2d, v2.2d, v1.2d
+    0.21 :    a10:    str     q0, [x19, x0]
+    0.18 :    a14:    add     x0, x0, #0x10
+    0.17 :    a18:    cmp     x11, x17
+    0.00 :    a1c:    b.ne    a00 <warpx_boris_push_fp64+0x2c0>  // b.any
+    0.00 :    a20:    and     x11, x22, #0xfffffffffffffffe
+    0.00 :    a24:    tbz     w22, #0, a38 <warpx_boris_push_fp64+0x2f8>
+    0.00 :    a28:    ldr     d0, [x19, x11, lsl #3]
+    0.00 :    a2c:    ldr     d2, [x3, x11, lsl #3]
+    0.00 :    a30:    fmadd   d0, d8, d2, d0
+    0.00 :    a34:    str     d0, [x19, x11, lsl #3]
+    0.00 :    a38:    ldr     x18, [sp, #152]
+    0.00 :    a3c:    mov     x0, #0x0                        // #0
+    0.00 :    a40:    mov     x16, #0x0                       // #0
+    0.38 :    a44:    add     x16, x16, #0x1
+    0.21 :    a48:    ldr     q0, [x21, x0]
+    0.73 :    a4c:    ldr     q2, [x18, x0]
+    0.84 :    a50:    fmla    v0.2d, v2.2d, v1.2d
+    0.17 :    a54:    str     q0, [x21, x0]
+    0.20 :    a58:    add     x0, x0, #0x10
+    0.17 :    a5c:    cmp     x16, x17
+    0.00 :    a60:    b.ne    a44 <warpx_boris_push_fp64+0x304>  // b.any
+    0.00 :    a64:    cmp     x22, x11
+    0.00 :    a68:    b.eq    a80 <warpx_boris_push_fp64+0x340>  // b.none
+    0.00 :    a6c:    ldr     x0, [sp, #152]
+    0.00 :    a70:    ldr     d0, [x21, x11, lsl #3]
+    0.00 :    a74:    ldr     d2, [x0, x11, lsl #3]
+    0.00 :    a78:    fmadd   d0, d8, d2, d0
+    0.00 :    a7c:    str     d0, [x21, x11, lsl #3]
+    0.00 :    a80:    mov     x0, #0x0                        // #0
+    0.00 :    a84:    mov     x16, #0x0                       // #0
+    0.24 :    a88:    ldr     q0, [x20, x0]
+    0.14 :    a8c:    add     x16, x16, #0x1
+    0.82 :    a90:    ldr     q2, [x5, x0]
+    0.78 :    a94:    fmla    v0.2d, v2.2d, v1.2d
+    0.21 :    a98:    str     q0, [x20, x0]
+    0.22 :    a9c:    add     x0, x0, #0x10
+    0.16 :    aa0:    cmp     x16, x17
+    0.00 :    aa4:    b.ne    a88 <warpx_boris_push_fp64+0x348>  // b.any
+    0.00 :    aa8:    and     x18, x22, #0x1
+    0.00 :    aac:    tbz     w22, #0, ac4 <warpx_boris_push_fp64+0x384>
+    0.00 :    ab0:    ldr     d0, [x20, x11, lsl #3]
+    0.00 :    ab4:    mov     x26, x22
+    0.00 :    ab8:    ldr     d1, [x5, x11, lsl #3]
+    0.00 :    abc:    fmadd   d0, d8, d1, d0
+    0.00 :    ac0:    str     d0, [x20, x11, lsl #3]
+    0.00 :    ac4:    adrp    x0, 2000 <warpx_boris_push_fp32+0x860>
+    0.00 :    ac8:    fmov    v3.2d, #1.000000000000000000e+00
+    0.00 :    acc:    mov     x16, #0x0                       // #0
+    0.00 :    ad0:    ldr     q4, [x0, #2192]
+    0.00 :    ad4:    mov     x0, #0x0                        // #0
+    0.00 :    ad8:    nop
+    0.00 :    adc:    nop
+    0.25 :    ae0:    add     x16, x16, #0x1
+    0.21 :    ae4:    ldr     q0, [x21, x0]
+    5.64 :    ae8:    ldr     q2, [x19, x0]
+    2.21 :    aec:    ldr     q1, [x20, x0]
+    1.18 :    af0:    fmul    v0.2d, v0.2d, v0.2d
+    0.21 :    af4:    fmla    v0.2d, v2.2d, v2.2d
+    0.00 :    af8:    fmla    v0.2d, v1.2d, v1.2d
+    0.24 :    afc:    mov     v1.16b, v3.16b
+    0.21 :    b00:    fmla    v1.2d, v0.2d, v4.2d
+    0.02 :    b04:    fsqrt   v0.2d, v1.2d
+    0.24 :    b08:    str     q0, [x12, x0]
+    0.86 :    b0c:    add     x0, x0, #0x10
+    0.19 :    b10:    cmp     x17, x16
+    0.00 :    b14:    b.ne    ae0 <warpx_boris_push_fp64+0x3a0>  // b.any
+    0.00 :    b18:    mov     x17, x18
+    0.00 :    b1c:    mov     x0, x11
+    0.00 :    b20:    cbz     x18, 1270 <warpx_boris_push_fp64+0xb30>
+    0.00 :    b24:    ldr     d3, [x21, x0, lsl #3]
+    0.00 :    b28:    adrp    x11, 2000 <warpx_boris_push_fp32+0x860>
+    0.00 :    b2c:    fmov    d0, #1.000000000000000000e+00
+    0.00 :    b30:    sub     x16, x22, #0x1
+    0.00 :    b34:    ldr     d2, [x19, x0, lsl #3]
+    0.00 :    b38:    ldr     d1, [x20, x0, lsl #3]
+    0.00 :    b3c:    fmul    d3, d3, d3
+    0.00 :    b40:    ldr     d4, [x11, #2192]
+    0.00 :    b44:    fmadd   d2, d2, d2, d3
+    0.00 :    b48:    fmadd   d1, d1, d1, d2
+    0.00 :    b4c:    fmadd   d0, d1, d4, d0
+    0.00 :    b50:    fsqrt   d0, d0
+    0.00 :    b54:    str     d0, [x12, x0, lsl #3]
+    0.00 :    b58:    cmp     x16, #0x2
+    0.00 :    b5c:    b.ls    1230 <warpx_boris_push_fp64+0xaf0>  // b.plast
+    0.00 :    b60:    fmov    v2.2d, #1.000000000000000000e+00
+    0.00 :    b64:    lsr     x30, x26, #2
+    0.00 :    b68:    mov     x11, #0x0                       // #0
+    0.00 :    b6c:    mov     x0, #0x0                        // #0
+    0.00 :    b70:    add     x18, x12, #0x10
+    0.00 :    b74:    add     x17, x27, #0x10
+    0.00 :    b78:    nop
+    0.00 :    b7c:    nop
+    0.11 :    b80:    ldr     q1, [x12, x11]
+    0.02 :    b84:    add     x0, x0, #0x1
+    0.20 :    b88:    ldr     q0, [x18, x11]
+    0.24 :    b8c:    fdiv    v1.2d, v2.2d, v1.2d
+    0.03 :    b90:    fdiv    v0.2d, v2.2d, v0.2d
+    0.09 :    b94:    str     q1, [x27, x11]
+    4.85 :    b98:    str     q0, [x17, x11]
+    1.83 :    b9c:    add     x11, x11, #0x20
+    0.12 :    ba0:    cmp     x0, x30
+    0.00 :    ba4:    b.ne    b80 <warpx_boris_push_fp64+0x440>  // b.any
+    0.00 :    ba8:    and     x17, x26, #0xfffffffffffffffc
+    0.00 :    bac:    mov     x0, x17
+    0.00 :    bb0:    tst     x26, #0x3
+    0.00 :    bb4:    b.eq    15b4 <warpx_boris_push_fp64+0xe74>  // b.none
+    0.00 :    bb8:    sub     x11, x26, x17
+    0.00 :    bbc:    cmp     x11, #0x1
+    0.00 :    bc0:    b.eq    be4 <warpx_boris_push_fp64+0x4a4>  // b.none
+    0.00 :    bc4:    lsl     x17, x17, #3
+    0.00 :    bc8:    fmov    v0.2d, #1.000000000000000000e+00
+    0.00 :    bcc:    ldr     q1, [x12, x17]
+    0.00 :    bd0:    fdiv    v0.2d, v0.2d, v1.2d
+    0.00 :    bd4:    str     q0, [x27, x17]
+    0.00 :    bd8:    tbz     w11, #0, bf4 <warpx_boris_push_fp64+0x4b4>
+    0.00 :    bdc:    and     x11, x11, #0xfffffffffffffffe
+    0.00 :    be0:    add     x0, x0, x11
+    0.00 :    be4:    ldr     d1, [x12, x0, lsl #3]
+    0.00 :    be8:    fmov    d0, #1.000000000000000000e+00
+    0.00 :    bec:    fdiv    d0, d0, d1
+    0.00 :    bf0:    str     d0, [x27, x0, lsl #3]
+    0.00 :    bf4:    cmp     x22, #0x1
+    0.00 :    bf8:    b.eq    1610 <warpx_boris_push_fp64+0xed0>  // b.none
+    0.00 :    bfc:    dup     v1.2d, v8.d[0]
+    0.00 :    c00:    lsr     x11, x26, #1
+    0.00 :    c04:    mov     x0, #0x0                        // #0
+    0.00 :    c08:    mov     x17, #0x0                       // #0
+    0.23 :    c0c:    ldr     q0, [x15, x0]
+    0.00 :    c10:    add     x17, x17, #0x1
+    1.27 :    c14:    ldr     q2, [x27, x0]
+    0.84 :    c18:    fmul    v0.2d, v0.2d, v2.2d
+    0.02 :    c1c:    fmul    v0.2d, v0.2d, v1.2d
+    0.14 :    c20:    str     q0, [x24, x0]
+    0.22 :    c24:    add     x0, x0, #0x10
+    0.22 :    c28:    cmp     x11, x17
+    0.00 :    c2c:    b.ne    c0c <warpx_boris_push_fp64+0x4cc>  // b.any
+    0.00 :    c30:    and     x0, x26, #0xfffffffffffffffe
+    0.00 :    c34:    and     x17, x26, #0x1
+    0.00 :    c38:    mov     x30, x0
+    0.00 :    c3c:    tbz     w26, #0, c5c <warpx_boris_push_fp64+0x51c>
+    0.00 :    c40:    ldr     d0, [x27, x0, lsl #3]
+    0.00 :    c44:    ldr     d2, [x15, x0, lsl #3]
+    0.00 :    c48:    fmul    d0, d0, d2
+    0.00 :    c4c:    fmul    d0, d0, d8
+    0.00 :    c50:    str     d0, [x24, x0, lsl #3]
+    0.00 :    c54:    cmp     x22, #0x1
+    0.00 :    c58:    b.eq    1678 <warpx_boris_push_fp64+0xf38>  // b.none
+    0.00 :    c5c:    mov     x15, #0x0                       // #0
+    0.00 :    c60:    mov     x18, #0x0                       // #0
+    0.20 :    c64:    ldr     q0, [x1, x15]
+    0.00 :    c68:    add     x18, x18, #0x1
+    1.11 :    c6c:    ldr     q2, [x27, x15]
+    0.80 :    c70:    fmul    v0.2d, v0.2d, v2.2d
+    0.00 :    c74:    fmul    v0.2d, v0.2d, v1.2d
+    0.18 :    c78:    str     q0, [x23, x15]
+    0.27 :    c7c:    add     x15, x15, #0x10
+    0.18 :    c80:    cmp     x18, x11
+    0.00 :    c84:    b.ne    c64 <warpx_boris_push_fp64+0x524>  // b.any
+    0.00 :    c88:    cbz     x17, ca8 <warpx_boris_push_fp64+0x568>
+    0.00 :    c8c:    ldr     d0, [x27, x0, lsl #3]
+    0.00 :    c90:    ldr     d2, [x1, x0, lsl #3]
+    0.00 :    c94:    fmul    d0, d0, d2
+    0.00 :    c98:    fmul    d0, d0, d8
+    0.00 :    c9c:    str     d0, [x23, x0, lsl #3]
+    0.00 :    ca0:    cmp     x22, #0x1
+    0.00 :    ca4:    b.eq    1670 <warpx_boris_push_fp64+0xf30>  // b.none
+    0.00 :    ca8:    mov     x1, #0x0                        // #0
+    0.00 :    cac:    mov     x15, #0x0                       // #0
+    0.22 :    cb0:    ldr     q0, [x2, x1]
+    0.00 :    cb4:    add     x15, x15, #0x1
+    0.98 :    cb8:    ldr     q2, [x27, x1]
+    0.81 :    cbc:    fmul    v0.2d, v0.2d, v2.2d
+    0.21 :    cc0:    fmul    v0.2d, v0.2d, v1.2d
+    0.19 :    cc4:    str     q0, [x25, x1]
+    0.23 :    cc8:    add     x1, x1, #0x10
+    0.18 :    ccc:    cmp     x15, x11
+    0.00 :    cd0:    b.ne    cb0 <warpx_boris_push_fp64+0x570>  // b.any
+    0.00 :    cd4:    cbz     x17, 123c <warpx_boris_push_fp64+0xafc>
+    0.00 :    cd8:    ldr     d0, [x27, x0, lsl #3]
+    0.00 :    cdc:    ldr     d1, [x2, x0, lsl #3]
+    0.00 :    ce0:    ldr     x1, [sp, #120]
+    0.00 :    ce4:    fmul    d0, d0, d1
+    0.00 :    ce8:    sub     x1, x1, #0x1
+    0.00 :    cec:    fmul    d0, d0, d8
+    0.00 :    cf0:    str     d0, [x25, x0, lsl #3]
+    0.00 :    cf4:    cmp     x1, #0x1
+    0.00 :    cf8:    b.ls    1284 <warpx_boris_push_fp64+0xb44>  // b.plast
+    0.00 :    cfc:    cmp     x22, #0x1
+    0.00 :    d00:    b.eq    15e0 <warpx_boris_push_fp64+0xea0>  // b.none
+    0.00 :    d04:    fmov    v5.2d, #1.000000000000000000e+00
+    0.00 :    d08:    fmov    v3.2d, #2.000000000000000000e+00
+    0.00 :    d0c:    mov     x1, #0x0                        // #0
+    0.00 :    d10:    mov     x2, #0x0                        // #0
+    0.00 :    d14:    nop
+    0.00 :    d18:    nop
+    0.00 :    d1c:    nop
+    0.16 :    d20:    ldr     q0, [x23, x1]
+    2.56 :    d24:    mov     v1.16b, v5.16b
+    0.00 :    d28:    add     x2, x2, #0x1
+    0.20 :    d2c:    ldr     q2, [x24, x1]
+    2.37 :    d30:    ldr     q4, [x25, x1]
+    2.12 :    d34:    fmul    v0.2d, v0.2d, v0.2d
+    0.00 :    d38:    fmla    v1.2d, v4.2d, v4.2d
+    0.22 :    d3c:    fmla    v0.2d, v2.2d, v2.2d
+    0.23 :    d40:    fadd    v0.2d, v1.2d, v0.2d
+    0.10 :    d44:    fdiv    v0.2d, v3.2d, v0.2d
+    0.24 :    d48:    str     q0, [x28, x1]
+    0.46 :    d4c:    add     x1, x1, #0x10
+    0.18 :    d50:    cmp     x11, x2
+    0.00 :    d54:    b.ne    d20 <warpx_boris_push_fp64+0x5e0>  // b.any
+    0.00 :    d58:    cbz     x17, d88 <warpx_boris_push_fp64+0x648>
+    0.00 :    d5c:    ldr     d2, [x23, x0, lsl #3]
+    0.00 :    d60:    ldr     d1, [x24, x0, lsl #3]
+    0.00 :    d64:    ldr     d0, [x25, x0, lsl #3]
+    0.00 :    d68:    fmul    d2, d2, d2
+    0.00 :    d6c:    fmadd   d0, d0, d0, d5
+    0.00 :    d70:    fmadd   d1, d1, d1, d2
+    0.00 :    d74:    fadd    d0, d0, d1
+    0.00 :    d78:    fdiv    d3, d3, d0
+    0.00 :    d7c:    str     d3, [x28, x0, lsl #3]
+    0.00 :    d80:    cmp     x22, #0x1
+    0.00 :    d84:    b.eq    11d8 <warpx_boris_push_fp64+0xa98>  // b.none
+    0.00 :    d88:    mov     x1, #0x0                        // #0
+    0.00 :    d8c:    mov     x2, #0x0                        // #0
+    0.20 :    d90:    ldr     q0, [x24, x1]
+    0.12 :    d94:    add     x2, x2, #0x1
+    1.05 :    d98:    ldr     q1, [x28, x1]
+    1.13 :    d9c:    fmul    v0.2d, v0.2d, v1.2d
+    0.14 :    da0:    str     q0, [x8, x1]
+    0.25 :    da4:    add     x1, x1, #0x10
+    0.19 :    da8:    cmp     x11, x2
+    0.00 :    dac:    b.ne    d90 <warpx_boris_push_fp64+0x650>  // b.any
+    0.00 :    db0:    mov     x1, x0
+    0.00 :    db4:    cbz     x17, dd0 <warpx_boris_push_fp64+0x690>
+    0.00 :    db8:    ldr     d0, [x24, x0, lsl #3]
+    0.00 :    dbc:    ldr     d1, [x28, x0, lsl #3]
+    0.00 :    dc0:    fmul    d0, d0, d1
+    0.00 :    dc4:    str     d0, [x8, x0, lsl #3]
+    0.00 :    dc8:    cmp     x22, #0x1
+    0.00 :    dcc:    b.eq    1660 <warpx_boris_push_fp64+0xf20>  // b.none
+    0.00 :    dd0:    mov     x2, #0x0                        // #0
+    0.00 :    dd4:    mov     x15, #0x0                       // #0
+    0.00 :    dd8:    nop
+    0.00 :    ddc:    nop
+    0.21 :    de0:    ldr     q0, [x23, x2]
+    0.11 :    de4:    add     x15, x15, #0x1
+    0.93 :    de8:    ldr     q1, [x28, x2]
+    1.17 :    dec:    fmul    v0.2d, v0.2d, v1.2d
+    0.22 :    df0:    str     q0, [x9, x2]
+    0.26 :    df4:    add     x2, x2, #0x10
+    0.16 :    df8:    cmp     x15, x11
+    0.00 :    dfc:    b.ne    de0 <warpx_boris_push_fp64+0x6a0>  // b.any
+    0.00 :    e00:    cbz     x17, e14 <warpx_boris_push_fp64+0x6d4>
+    0.00 :    e04:    ldr     d0, [x23, x0, lsl #3]
+    0.00 :    e08:    ldr     d1, [x28, x0, lsl #3]
+    0.00 :    e0c:    fmul    d0, d0, d1
+    0.00 :    e10:    str     d0, [x9, x0, lsl #3]
+    0.00 :    e14:    mov     x2, #0x0                        // #0
+    0.00 :    e18:    mov     x15, #0x0                       // #0
+    0.00 :    e1c:    cmp     x22, #0x1
+    0.00 :    e20:    b.le    1734 <warpx_boris_push_fp64+0xff4>
+    0.32 :    e24:    ldr     q0, [x25, x2]
+    0.01 :    e28:    add     x15, x15, #0x1
+    0.80 :    e2c:    ldr     q1, [x28, x2]
+    0.91 :    e30:    fmul    v0.2d, v0.2d, v1.2d
+    0.19 :    e34:    str     q0, [x10, x2]
+    0.27 :    e38:    add     x2, x2, #0x10
+    0.19 :    e3c:    cmp     x15, x11
+    0.00 :    e40:    b.ne    e24 <warpx_boris_push_fp64+0x6e4>  // b.any
+    0.00 :    e44:    cbz     x17, e58 <warpx_boris_push_fp64+0x718>
+    0.00 :    e48:    ldr     d0, [x28, x0, lsl #3]
+    0.00 :    e4c:    ldr     d1, [x25, x0, lsl #3]
+    0.00 :    e50:    fmul    d0, d0, d1
+    0.00 :    e54:    str     d0, [x10, x0, lsl #3]
+    0.00 :    e58:    mov     x0, #0x0                        // #0
+    0.00 :    e5c:    mov     x2, #0x0                        // #0
+    0.16 :    e60:    ldr     q3, [x21, x0]
+    0.00 :    e64:    add     x2, x2, #0x1
+    1.02 :    e68:    ldr     q0, [x19, x0]
+    1.20 :    e6c:    ldr     q4, [x25, x0]
+    1.27 :    e70:    ldr     q1, [x20, x0]
+    1.22 :    e74:    ldr     q2, [x23, x0]
+    1.17 :    e78:    fmla    v0.2d, v4.2d, v3.2d
+    0.03 :    e7c:    fmls    v0.2d, v2.2d, v1.2d
+    0.18 :    e80:    str     q0, [x4, x0]
+    0.19 :    e84:    add     x0, x0, #0x10
+    0.22 :    e88:    cmp     x2, x11
+    0.00 :    e8c:    b.ne    e60 <warpx_boris_push_fp64+0x720>  // b.any
+    0.00 :    e90:    cbz     x17, ec4 <warpx_boris_push_fp64+0x784>
+    0.00 :    e94:    ldr     d4, [x25, x1, lsl #3]
+    0.00 :    e98:    ldr     d3, [x21, x1, lsl #3]
+    0.00 :    e9c:    ldr     d0, [x19, x1, lsl #3]
+    0.00 :    ea0:    ldr     d2, [x23, x1, lsl #3]
+    0.00 :    ea4:    ldr     d1, [x20, x1, lsl #3]
+    0.00 :    ea8:    fmadd   d0, d4, d3, d0
+    0.00 :    eac:    fmsub   d0, d2, d1, d0
+    0.00 :    eb0:    str     d0, [x4, x1, lsl #3]
+    0.00 :    eb4:    cmp     x22, #0x1
+    0.00 :    eb8:    b.le    1228 <warpx_boris_push_fp64+0xae8>
+    0.00 :    ebc:    lsr     x11, x26, #1
+    0.00 :    ec0:    and     x17, x26, #0x1
+    0.00 :    ec4:    mov     x0, #0x0                        // #0
+    0.00 :    ec8:    mov     x1, #0x0                        // #0
+    0.15 :    ecc:    ldr     q3, [x20, x0]
+    0.00 :    ed0:    add     x1, x1, #0x1
+    1.28 :    ed4:    ldr     q0, [x21, x0]
+    0.99 :    ed8:    ldr     q4, [x24, x0]
+    1.22 :    edc:    ldr     q1, [x19, x0]
+    1.13 :    ee0:    ldr     q2, [x25, x0]
+    1.08 :    ee4:    fmla    v0.2d, v4.2d, v3.2d
+    0.06 :    ee8:    fmls    v0.2d, v2.2d, v1.2d
+    0.21 :    eec:    str     q0, [x6, x0]
+    0.21 :    ef0:    add     x0, x0, #0x10
+    0.17 :    ef4:    cmp     x1, x11
+    0.00 :    ef8:    b.ne    ecc <warpx_boris_push_fp64+0x78c>  // b.any
+    0.00 :    efc:    and     x0, x26, #0xfffffffffffffffe
+    0.00 :    f00:    cbz     x17, f34 <warpx_boris_push_fp64+0x7f4>
+    0.00 :    f04:    ldr     d4, [x24, x0, lsl #3]
+    0.00 :    f08:    ldr     d3, [x20, x0, lsl #3]
+    0.00 :    f0c:    ldr     d0, [x21, x0, lsl #3]
+    0.00 :    f10:    ldr     d2, [x25, x0, lsl #3]
+    0.00 :    f14:    ldr     d1, [x19, x0, lsl #3]
+    0.00 :    f18:    fmadd   d0, d4, d3, d0
+    0.00 :    f1c:    fmsub   d0, d2, d1, d0
+    0.00 :    f20:    str     d0, [x6, x0, lsl #3]
+    0.00 :    f24:    cmp     x22, #0x1
+    0.00 :    f28:    b.le    1208 <warpx_boris_push_fp64+0xac8>
+    0.00 :    f2c:    lsr     x11, x26, #1
+    0.00 :    f30:    and     x17, x26, #0x1
+    0.00 :    f34:    mov     x0, #0x0                        // #0
+    0.00 :    f38:    mov     x1, #0x0                        // #0
+    0.00 :    f3c:    nop
+    0.17 :    f40:    ldr     q3, [x19, x0]
+    0.00 :    f44:    add     x1, x1, #0x1
+    1.08 :    f48:    ldr     q0, [x20, x0]
+    1.31 :    f4c:    ldr     q4, [x23, x0]
+    1.30 :    f50:    ldr     q1, [x21, x0]
+    0.94 :    f54:    ldr     q2, [x24, x0]
+    1.11 :    f58:    fmla    v0.2d, v4.2d, v3.2d
+    0.03 :    f5c:    fmls    v0.2d, v2.2d, v1.2d
+    0.22 :    f60:    str     q0, [x7, x0]
+    0.19 :    f64:    add     x0, x0, #0x10
+    0.16 :    f68:    cmp     x1, x11
+    0.00 :    f6c:    b.ne    f40 <warpx_boris_push_fp64+0x800>  // b.any
+    0.00 :    f70:    and     x0, x26, #0xfffffffffffffffe
+    0.00 :    f74:    cbz     x17, fa8 <warpx_boris_push_fp64+0x868>
+    0.00 :    f78:    ldr     d4, [x23, x0, lsl #3]
+    0.00 :    f7c:    ldr     d3, [x19, x0, lsl #3]
+    0.00 :    f80:    ldr     d0, [x20, x0, lsl #3]
+    0.00 :    f84:    ldr     d2, [x24, x0, lsl #3]
+    0.00 :    f88:    ldr     d1, [x21, x0, lsl #3]
+    0.00 :    f8c:    fmadd   d0, d4, d3, d0
+    0.00 :    f90:    fmsub   d0, d2, d1, d0
+    0.00 :    f94:    str     d0, [x7, x0, lsl #3]
+    0.00 :    f98:    cmp     x22, #0x1
+    0.00 :    f9c:    b.le    1210 <warpx_boris_push_fp64+0xad0>
+    0.00 :    fa0:    lsr     x11, x26, #1
+    0.00 :    fa4:    and     x17, x26, #0x1
+    0.00 :    fa8:    mov     x0, #0x0                        // #0
+    0.00 :    fac:    mov     x1, #0x0                        // #0
+    0.17 :    fb0:    ldr     q0, [x19, x0]
+    0.00 :    fb4:    add     x1, x1, #0x1
+    0.97 :    fb8:    ldr     q4, [x10, x0]
+    1.02 :    fbc:    ldr     q3, [x6, x0]
+    1.24 :    fc0:    ldr     q1, [x7, x0]
+    1.12 :    fc4:    ldr     q2, [x9, x0]
+    1.15 :    fc8:    fmla    v0.2d, v4.2d, v3.2d
+    0.04 :    fcc:    fmls    v0.2d, v2.2d, v1.2d
+    0.24 :    fd0:    str     q0, [x19, x0]
+    0.21 :    fd4:    add     x0, x0, #0x10
+    0.17 :    fd8:    cmp     x1, x11
+    0.00 :    fdc:    b.ne    fb0 <warpx_boris_push_fp64+0x870>  // b.any
+    0.00 :    fe0:    and     x0, x26, #0xfffffffffffffffe
+    0.00 :    fe4:    cbz     x17, 1018 <warpx_boris_push_fp64+0x8d8>
+    0.00 :    fe8:    ldr     d0, [x19, x0, lsl #3]
+    0.00 :    fec:    ldr     d4, [x10, x0, lsl #3]
+    0.00 :    ff0:    ldr     d3, [x6, x0, lsl #3]
+    0.00 :    ff4:    ldr     d1, [x7, x0, lsl #3]
+    0.00 :    ff8:    ldr     d2, [x9, x0, lsl #3]
+    0.00 :    ffc:    fmadd   d0, d4, d3, d0
+    0.00 :   1000:   fmsub   d0, d2, d1, d0
+    0.00 :   1004:   str     d0, [x19, x0, lsl #3]
+    0.00 :   1008:   cmp     x22, #0x1
+    0.00 :   100c:   b.le    1218 <warpx_boris_push_fp64+0xad8>
+    0.00 :   1010:   lsr     x11, x26, #1
+    0.00 :   1014:   and     x17, x26, #0x1
+    0.00 :   1018:   mov     x0, #0x0                        // #0
+    0.00 :   101c:   mov     x1, #0x0                        // #0
+    0.20 :   1020:   ldr     q0, [x21, x0]
+    0.00 :   1024:   add     x1, x1, #0x1
+    1.00 :   1028:   ldr     q4, [x8, x0]
+    1.00 :   102c:   ldr     q3, [x7, x0]
+    1.03 :   1030:   ldr     q1, [x4, x0]
+    1.42 :   1034:   ldr     q2, [x10, x0]
+    1.06 :   1038:   fmla    v0.2d, v4.2d, v3.2d
+    0.04 :   103c:   fmls    v0.2d, v2.2d, v1.2d
+    0.17 :   1040:   str     q0, [x21, x0]
+    0.22 :   1044:   add     x0, x0, #0x10
+    0.22 :   1048:   cmp     x1, x11
+    0.00 :   104c:   b.ne    1020 <warpx_boris_push_fp64+0x8e0>  // b.any
+    0.00 :   1050:   and     x0, x26, #0xfffffffffffffffe
+    0.00 :   1054:   cbz     x17, 1088 <warpx_boris_push_fp64+0x948>
+    0.00 :   1058:   ldr     d0, [x21, x0, lsl #3]
+    0.00 :   105c:   ldr     d4, [x8, x0, lsl #3]
+    0.00 :   1060:   ldr     d3, [x7, x0, lsl #3]
+    0.00 :   1064:   ldr     d1, [x4, x0, lsl #3]
+    0.00 :   1068:   ldr     d2, [x10, x0, lsl #3]
+    0.00 :   106c:   fmadd   d0, d4, d3, d0
+    0.00 :   1070:   fmsub   d0, d2, d1, d0
+    0.00 :   1074:   str     d0, [x21, x0, lsl #3]
+    0.00 :   1078:   cmp     x22, #0x1
+    0.00 :   107c:   b.le    1220 <warpx_boris_push_fp64+0xae0>
+    0.00 :   1080:   lsr     x11, x26, #1
+    0.00 :   1084:   and     x17, x26, #0x1
+    0.00 :   1088:   mov     x0, #0x0                        // #0
+    0.00 :   108c:   mov     x1, #0x0                        // #0
+    0.17 :   1090:   ldr     q0, [x20, x0]
+    0.00 :   1094:   add     x1, x1, #0x1
+    0.87 :   1098:   ldr     q4, [x9, x0]
+    1.13 :   109c:   ldr     q3, [x4, x0]
+    1.07 :   10a0:   ldr     q1, [x6, x0]
+    1.35 :   10a4:   ldr     q2, [x8, x0]
+    1.22 :   10a8:   fmla    v0.2d, v4.2d, v3.2d
+    0.03 :   10ac:   fmls    v0.2d, v2.2d, v1.2d
+    0.19 :   10b0:   str     q0, [x20, x0]
+    0.18 :   10b4:   add     x0, x0, #0x10
+    0.16 :   10b8:   cmp     x1, x11
+    0.00 :   10bc:   b.ne    1090 <warpx_boris_push_fp64+0x950>  // b.any
+    0.00 :   10c0:   and     x0, x26, #0xfffffffffffffffe
+    0.00 :   10c4:   cbz     x17, 1260 <warpx_boris_push_fp64+0xb20>
+    0.00 :   10c8:   ldr     d0, [x20, x0, lsl #3]
+    0.00 :   10cc:   ldr     d4, [x9, x0, lsl #3]
+    0.00 :   10d0:   ldr     d3, [x4, x0, lsl #3]
+    0.00 :   10d4:   ldr     d1, [x6, x0, lsl #3]
+    0.00 :   10d8:   ldr     d2, [x8, x0, lsl #3]
+    0.00 :   10dc:   fmadd   d0, d4, d3, d0
+    0.00 :   10e0:   ldr     x1, [sp, #120]
+    0.00 :   10e4:   fmsub   d0, d2, d1, d0
+    0.00 :   10e8:   ands    x1, x1, #0xfffffffffffffffd
+    0.00 :   10ec:   str     d0, [x20, x0, lsl #3]
+    0.00 :   10f0:   b.ne    8f4 <warpx_boris_push_fp64+0x1b4>  // b.any
+    0.00 :   10f4:   lsr     x11, x26, #1
+    0.00 :   10f8:   and     x17, x26, #0x1
+    0.00 :   10fc:   cmp     x22, #0x1
+    0.00 :   1100:   b.le    1680 <warpx_boris_push_fp64+0xf40>
+    0.00 :   1104:   dup     v1.2d, v8.d[0]
+    0.00 :   1108:   mov     x0, #0x0                        // #0
+    0.00 :   110c:   mov     x1, #0x0                        // #0
+    0.11 :   1110:   ldr     q0, [x19, x0]
+    0.10 :   1114:   add     x1, x1, #0x1
+    0.77 :   1118:   ldr     q2, [x3, x0]
+    1.23 :   111c:   fmla    v0.2d, v1.2d, v2.2d
+    0.20 :   1120:   str     q0, [x19, x0]
+    0.21 :   1124:   add     x0, x0, #0x10
+    0.20 :   1128:   cmp     x11, x1
+    0.00 :   112c:   b.ne    1110 <warpx_boris_push_fp64+0x9d0>  // b.any
+    0.00 :   1130:   and     x1, x26, #0xfffffffffffffffe
+    0.00 :   1134:   cbz     x17, 1148 <warpx_boris_push_fp64+0xa08>
+    0.00 :   1138:   ldr     d0, [x19, x1, lsl #3]
+    0.00 :   113c:   ldr     d2, [x3, x1, lsl #3]
+    0.00 :   1140:   fmadd   d0, d8, d2, d0
+    0.00 :   1144:   str     d0, [x19, x1, lsl #3]
+    0.00 :   1148:   ldr     x3, [sp, #152]
+    0.00 :   114c:   mov     x0, #0x0                        // #0
+    0.00 :   1150:   mov     x2, #0x0                        // #0
+    0.00 :   1154:   nop
+    0.00 :   1158:   nop
+    0.00 :   115c:   nop
+    0.15 :   1160:   add     x2, x2, #0x1
+    0.17 :   1164:   ldr     q0, [x21, x0]
+    0.78 :   1168:   ldr     q2, [x3, x0]
+    1.04 :   116c:   fmla    v0.2d, v1.2d, v2.2d
+    0.16 :   1170:   str     q0, [x21, x0]
+    0.23 :   1174:   add     x0, x0, #0x10
+    0.17 :   1178:   cmp     x11, x2
+    0.00 :   117c:   b.ne    1160 <warpx_boris_push_fp64+0xa20>  // b.any
+    0.00 :   1180:   cbz     x17, 1198 <warpx_boris_push_fp64+0xa58>
+    0.00 :   1184:   ldr     x0, [sp, #152]
+    0.00 :   1188:   ldr     d0, [x21, x1, lsl #3]
+    0.00 :   118c:   ldr     d2, [x0, x1, lsl #3]
+    0.00 :   1190:   fmadd   d0, d8, d2, d0
+    0.00 :   1194:   str     d0, [x21, x1, lsl #3]
+    0.00 :   1198:   mov     x0, #0x0                        // #0
+    0.00 :   119c:   mov     x2, #0x0                        // #0
+    0.21 :   11a0:   ldr     q0, [x20, x0]
+    0.09 :   11a4:   add     x2, x2, #0x1
+    0.77 :   11a8:   ldr     q2, [x5, x0]
+    1.15 :   11ac:   fmla    v0.2d, v1.2d, v2.2d
+    0.19 :   11b0:   str     q0, [x20, x0]
+    0.17 :   11b4:   add     x0, x0, #0x10
+    0.18 :   11b8:   cmp     x2, x11
+    0.00 :   11bc:   b.ne    11a0 <warpx_boris_push_fp64+0xa60>  // b.any
+    0.00 :   11c0:   cbz     x17, 8f4 <warpx_boris_push_fp64+0x1b4>
+    0.00 :   11c4:   ldr     d0, [x20, x1, lsl #3]
+    0.00 :   11c8:   ldr     d1, [x5, x1, lsl #3]
+    0.00 :   11cc:   fmadd   d0, d8, d1, d0
+    0.00 :   11d0:   str     d0, [x20, x1, lsl #3]
+    0.00 :   11d4:   b       8f4 <warpx_boris_push_fp64+0x1b4>
+    0.00 :   11d8:   ldr     d1, [x23]
+    0.00 :   11dc:   ldr     d2, [x24]
+    0.00 :   11e0:   ldr     d0, [x25]
+    0.00 :   11e4:   ldr     d3, [x28]
+    0.00 :   11e8:   fmul    d2, d2, d3
+    0.00 :   11ec:   str     d2, [x8]
+    0.00 :   11f0:   fmul    d1, d1, d3
+    0.00 :   11f4:   str     d1, [x9]
+    0.00 :   11f8:   fmul    d0, d0, d3
+    0.00 :   11fc:   mov     x1, #0x0                        // #0
+    0.00 :   1200:   str     d0, [x10]
+    0.00 :   1204:   b       e94 <warpx_boris_push_fp64+0x754>
+    0.00 :   1208:   mov     x0, #0x0                        // #0
+    0.00 :   120c:   b       f78 <warpx_boris_push_fp64+0x838>
+    0.00 :   1210:   mov     x0, #0x0                        // #0
+    0.00 :   1214:   b       fe8 <warpx_boris_push_fp64+0x8a8>
+    0.00 :   1218:   mov     x0, #0x0                        // #0
+    0.00 :   121c:   b       1058 <warpx_boris_push_fp64+0x918>
+    0.00 :   1220:   mov     x0, #0x0                        // #0
+    0.00 :   1224:   b       10c8 <warpx_boris_push_fp64+0x988>
+    0.00 :   1228:   mov     x0, #0x0                        // #0
+    0.00 :   122c:   b       f04 <warpx_boris_push_fp64+0x7c4>
+    0.00 :   1230:   mov     x17, #0x0                       // #0
+    0.00 :   1234:   mov     x0, #0x0                        // #0
+    0.00 :   1238:   b       bb8 <warpx_boris_push_fp64+0x478>
+    0.00 :   123c:   ldr     x1, [sp, #120]
+    0.00 :   1240:   sub     x1, x1, #0x1
+    0.00 :   1244:   cmp     x1, #0x1
+    0.00 :   1248:   b.ls    15bc <warpx_boris_push_fp64+0xe7c>  // b.plast
+    0.00 :   124c:   mov     x26, x0
+    0.00 :   1250:   lsr     x11, x0, #1
+    0.00 :   1254:   and     x17, x30, #0x1
+    0.00 :   1258:   and     x0, x0, #0xfffffffffffffffe
+    0.00 :   125c:   b       d04 <warpx_boris_push_fp64+0x5c4>
+    0.00 :   1260:   ldr     x0, [sp, #120]
+    0.00 :   1264:   tst     x0, #0xfffffffffffffffd
+    0.00 :   1268:   b.ne    8f4 <warpx_boris_push_fp64+0x1b4>  // b.any
+    0.00 :   126c:   b       1104 <warpx_boris_push_fp64+0x9c4>
+    0.01 :   1270:   sub     x16, x11, #0x1
+    0.00 :   1274:   cmp     x16, #0x2
+    0.00 :   1278:   b.ls    1724 <warpx_boris_push_fp64+0xfe4>  // b.plast
+    0.00 :   127c:   mov     x26, x11
+    0.00 :   1280:   b       b60 <warpx_boris_push_fp64+0x420>
+    0.00 :   1284:   cmp     x22, #0x1
+    0.00 :   1288:   b.eq    16a8 <warpx_boris_push_fp64+0xf68>  // b.none
+    0.00 :   128c:   mov     x0, #0x0                        // #0
+    0.00 :   1290:   mov     x1, #0x0                        // #0
+    0.00 :   1294:   nop
+    0.00 :   1298:   nop
+    0.00 :   129c:   nop
+    0.00 :   12a0:   ldr     q0, [x23, x0]
+    0.00 :   12a4:   add     x1, x1, #0x1
+    0.00 :   12a8:   ldr     q2, [x24, x0]
+    0.00 :   12ac:   ldr     q1, [x25, x0]
+    0.00 :   12b0:   fmul    v0.2d, v0.2d, v0.2d
+    0.00 :   12b4:   fmla    v0.2d, v2.2d, v2.2d
+    0.00 :   12b8:   fmla    v0.2d, v1.2d, v1.2d
+    0.00 :   12bc:   str     q0, [x14, x0]
+    0.00 :   12c0:   add     x0, x0, #0x10
+    0.00 :   12c4:   cmp     x11, x1
+    0.00 :   12c8:   b.ne    12a0 <warpx_boris_push_fp64+0xb60>  // b.any
+    0.00 :   12cc:   and     x0, x26, #0xfffffffffffffffe
+    0.00 :   12d0:   cbz     x17, 12f0 <warpx_boris_push_fp64+0xbb0>
+    0.00 :   12d4:   ldr     d2, [x23, x0, lsl #3]
+    0.00 :   12d8:   ldr     d1, [x24, x0, lsl #3]
+    0.00 :   12dc:   ldr     d0, [x25, x0, lsl #3]
+    0.00 :   12e0:   fmul    d2, d2, d2
+    0.00 :   12e4:   fmadd   d1, d1, d1, d2
+    0.00 :   12e8:   fmadd   d0, d0, d0, d1
+    0.00 :   12ec:   str     d0, [x14, x0, lsl #3]
+    0.00 :   12f0:   cmp     x16, #0x11
+    0.00 :   12f4:   b.ls    16ec <warpx_boris_push_fp64+0xfac>  // b.plast
+    0.00 :   12f8:   ldr     x2, [sp, #128]
+    0.00 :   12fc:   adrp    x0, 2000 <warpx_boris_push_fp32+0x860>
+    0.00 :   1300:   and     x1, x26, #0xfffffffffffffff0
+    0.00 :   1304:   ldr     q2, [x0, #2208]
+    0.00 :   1308:   mov     x0, x14
+    0.00 :   130c:   add     x11, x1, x2
+    0.00 :   1310:   ldp     q5, q3, [x0, #16]
+    0.00 :   1314:   ldp     q16, q1, [x0, #48]
+    0.00 :   1318:   ldp     q7, q4, [x0, #80]
+    0.00 :   131c:   ldr     q6, [x0, #112]
+    0.00 :   1320:   ldr     q0, [x0], #128
+    0.00 :   1324:   fcmgt   v5.2d, v5.2d, #0.0
+    0.00 :   1328:   fcmgt   v3.2d, v3.2d, #0.0
+    0.00 :   132c:   fcmgt   v16.2d, v16.2d, #0.0
+    0.00 :   1330:   fcmgt   v1.2d, v1.2d, #0.0
+    0.00 :   1334:   fcmgt   v7.2d, v7.2d, #0.0
+    0.00 :   1338:   fcmgt   v4.2d, v4.2d, #0.0
+    0.00 :   133c:   fcmgt   v6.2d, v6.2d, #0.0
+    0.00 :   1340:   fcmgt   v0.2d, v0.2d, #0.0
+    0.00 :   1344:   and     v5.16b, v2.16b, v5.16b
+    0.00 :   1348:   and     v3.16b, v2.16b, v3.16b
+    0.00 :   134c:   and     v16.16b, v2.16b, v16.16b
+    0.00 :   1350:   and     v1.16b, v2.16b, v1.16b
+    0.00 :   1354:   and     v7.16b, v2.16b, v7.16b
+    0.00 :   1358:   and     v4.16b, v2.16b, v4.16b
+    0.00 :   135c:   and     v6.16b, v2.16b, v6.16b
+    0.00 :   1360:   and     v0.16b, v2.16b, v0.16b
+    0.00 :   1364:   uzp1    v3.4s, v3.4s, v16.4s
+    0.00 :   1368:   uzp1    v1.4s, v1.4s, v7.4s
+    0.00 :   136c:   uzp1    v4.4s, v4.4s, v6.4s
+    0.00 :   1370:   uzp1    v0.4s, v0.4s, v5.4s
+    0.00 :   1374:   uzp1    v1.8h, v1.8h, v4.8h
+    0.00 :   1378:   uzp1    v0.8h, v0.8h, v3.8h
+    0.00 :   137c:   uzp1    v0.16b, v0.16b, v1.16b
+    0.00 :   1380:   str     q0, [x2], #16
+    0.00 :   1384:   cmp     x11, x2
+    0.00 :   1388:   b.ne    1310 <warpx_boris_push_fp64+0xbd0>  // b.any
+    0.00 :   138c:   mov     x0, x1
+    0.00 :   1390:   cmp     x1, x26
+    0.00 :   1394:   b.eq    13bc <warpx_boris_push_fp64+0xc7c>  // b.none
+    0.00 :   1398:   ldr     x2, [sp, #128]
+    0.00 :   139c:   nop
+    0.00 :   13a0:   ldr     d0, [x14, x0, lsl #3]
+    0.00 :   13a4:   fcmpe   d0, #0.0
+    0.00 :   13a8:   cset    w1, gt
+    0.00 :   13ac:   strb    w1, [x2, x0]
+    0.00 :   13b0:   add     x0, x0, #0x1
+    0.00 :   13b4:   cmp     x22, x0
+    0.00 :   13b8:   b.gt    13a0 <warpx_boris_push_fp64+0xc60>
+    0.00 :   13bc:   fmov    d0, #1.000000000000000000e+00
+    0.00 :   13c0:   mov     x0, #0x0                        // #0
+    0.00 :   13c4:   ldr     x1, [sp, #128]
+    0.00 :   13c8:   ldrb    w1, [x1, x0]
+    0.00 :   13cc:   tbz     w1, #0, 159c <warpx_boris_push_fp64+0xe5c>
+    0.00 :   13d0:   ldr     d1, [x14, x0, lsl #3]
+    0.00 :   13d4:   ldr     x1, [sp, #136]
+    0.00 :   13d8:   str     d1, [x1, x0, lsl #3]
+    0.00 :   13dc:   add     x0, x0, #0x1
+    0.00 :   13e0:   cmp     x0, x22
+    0.00 :   13e4:   b.ne    13c4 <warpx_boris_push_fp64+0xc84>  // b.any
+    0.00 :   13e8:   lsl     x2, x26, #3
+    0.00 :   13ec:   ldr     x1, [sp, #136]
+    0.00 :   13f0:   stp     x13, x8, [sp, #184]
+    0.00 :   13f4:   ldr     x0, [sp, #160]
+    0.00 :   13f8:   stp     x2, x12, [sp, #168]
+    0.00 :   13fc:   stp     x9, x10, [sp, #200]
+    0.00 :   1400:   stp     x14, x4, [sp, #216]
+    0.00 :   1404:   stp     x6, x7, [sp, #232]
+    0.00 :   1408:   stp     x3, x5, [sp, #248]
+    0.00 :   140c:   bl      600 <memcpy@plt>
+    0.00 :   1410:   ldp     x2, x12, [sp, #168]
+    0.00 :   1414:   fmov    d3, #5.000000000000000000e-01
+    0.00 :   1418:   fmov    d1, #1.000000000000000000e+00
+    0.00 :   141c:   mov     x0, #0x0                        // #0
+    0.00 :   1420:   ldp     x13, x8, [sp, #184]
+    0.00 :   1424:   ldp     x9, x10, [sp, #200]
+    0.00 :   1428:   ldp     x14, x4, [sp, #216]
+    0.00 :   142c:   ldp     x6, x7, [sp, #232]
+    0.00 :   1430:   ldp     x3, x5, [sp, #248]
+    0.00 :   1434:   nop
+    0.00 :   1438:   nop
+    0.00 :   143c:   nop
+    0.00 :   1440:   ldr     x1, [sp, #128]
+    0.00 :   1444:   ldrb    w1, [x1, x0]
+    0.00 :   1448:   tbz     w1, #0, 1584 <warpx_boris_push_fp64+0xe44>
+    0.00 :   144c:   ldr     d0, [x14, x0, lsl #3]
+    0.00 :   1450:   ldr     x1, [sp, #160]
+    0.00 :   1454:   fadd    d0, d0, d1
+    0.00 :   1458:   ldr     d2, [x1, x0, lsl #3]
+    0.00 :   145c:   ldr     x1, [sp, #144]
+    0.00 :   1460:   fsqrt   d0, d0
+    0.00 :   1464:   fsub    d0, d0, d1
+    0.00 :   1468:   fdiv    d0, d0, d2
+    0.00 :   146c:   str     d0, [x1, x0, lsl #3]
+    0.00 :   1470:   add     x0, x0, #0x1
+    0.00 :   1474:   cmp     x22, x0
+    0.00 :   1478:   b.ne    1440 <warpx_boris_push_fp64+0xd00>  // b.any
+    0.00 :   147c:   ldr     x1, [sp, #144]
+    0.00 :   1480:   mov     x0, x13
+    0.00 :   1484:   stp     x12, x8, [sp, #168]
+    0.00 :   1488:   stp     x9, x10, [sp, #184]
+    0.00 :   148c:   stp     x14, x4, [sp, #200]
+    0.00 :   1490:   stp     x6, x7, [sp, #216]
+    0.00 :   1494:   stp     x3, x5, [sp, #232]
+    0.00 :   1498:   bl      600 <memcpy@plt>
+    0.00 :   149c:   cmp     x22, #0x1
+    0.00 :   14a0:   ldp     x12, x8, [sp, #168]
+    0.00 :   14a4:   mov     x13, x0
+    0.00 :   14a8:   lsr     x11, x26, #1
+    0.00 :   14ac:   mov     x0, #0x0                        // #0
+    0.00 :   14b0:   mov     x1, #0x0                        // #0
+    0.00 :   14b4:   ldp     x9, x10, [sp, #184]
+    0.00 :   14b8:   ldp     x14, x4, [sp, #200]
+    0.00 :   14bc:   ldp     x6, x7, [sp, #216]
+    0.00 :   14c0:   ldp     x3, x5, [sp, #232]
+    0.00 :   14c4:   b.eq    16f8 <warpx_boris_push_fp64+0xfb8>  // b.none
+    0.00 :   14c8:   add     x1, x1, #0x1
+    0.00 :   14cc:   ldr     q0, [x24, x0]
+    0.00 :   14d0:   ldr     q1, [x13, x0]
+    0.00 :   14d4:   fmul    v0.2d, v0.2d, v1.2d
+    0.00 :   14d8:   str     q0, [x24, x0]
+    0.00 :   14dc:   add     x0, x0, #0x10
+    0.00 :   14e0:   cmp     x11, x1
+    0.00 :   14e4:   b.ne    14c8 <warpx_boris_push_fp64+0xd88>  // b.any
+    0.00 :   14e8:   and     x0, x26, #0xfffffffffffffffe
+    0.00 :   14ec:   and     x17, x26, #0x1
+    0.00 :   14f0:   mov     x2, x0
+    0.00 :   14f4:   tbz     w26, #0, 1508 <warpx_boris_push_fp64+0xdc8>
+    0.00 :   14f8:   ldr     d0, [x24, x0, lsl #3]
+    0.00 :   14fc:   ldr     d1, [x13, x0, lsl #3]
+    0.00 :   1500:   fmul    d0, d0, d1
+    0.00 :   1504:   str     d0, [x24, x0, lsl #3]
+    0.00 :   1508:   mov     x1, #0x0                        // #0
+    0.00 :   150c:   mov     x15, #0x0                       // #0
+    0.00 :   1510:   ldr     q0, [x23, x1]
+    0.00 :   1514:   add     x15, x15, #0x1
+    0.00 :   1518:   ldr     q1, [x13, x1]
+    0.00 :   151c:   fmul    v0.2d, v0.2d, v1.2d
+    0.00 :   1520:   str     q0, [x23, x1]
+    0.00 :   1524:   add     x1, x1, #0x10
+    0.00 :   1528:   cmp     x11, x15
+    0.00 :   152c:   b.ne    1510 <warpx_boris_push_fp64+0xdd0>  // b.any
+    0.00 :   1530:   cbz     x17, 1544 <warpx_boris_push_fp64+0xe04>
+    0.00 :   1534:   ldr     d0, [x23, x0, lsl #3]
+    0.00 :   1538:   ldr     d1, [x13, x0, lsl #3]
+    0.00 :   153c:   fmul    d0, d0, d1
+    0.00 :   1540:   str     d0, [x23, x0, lsl #3]
+    0.00 :   1544:   mov     x1, #0x0                        // #0
+    0.00 :   1548:   mov     x15, #0x0                       // #0
+    0.00 :   154c:   ldr     q0, [x25, x1]
+    0.00 :   1550:   add     x15, x15, #0x1
+    0.00 :   1554:   ldr     q1, [x13, x1]
+    0.00 :   1558:   fmul    v0.2d, v0.2d, v1.2d
+    0.00 :   155c:   str     q0, [x25, x1]
+    0.00 :   1560:   add     x1, x1, #0x10
+    0.00 :   1564:   cmp     x11, x15
+    0.00 :   1568:   b.ne    154c <warpx_boris_push_fp64+0xe0c>  // b.any
+    0.00 :   156c:   cbz     x17, 15cc <warpx_boris_push_fp64+0xe8c>
+    0.00 :   1570:   ldr     d0, [x25, x0, lsl #3]
+    0.00 :   1574:   ldr     d1, [x13, x0, lsl #3]
+    0.00 :   1578:   fmul    d0, d0, d1
+    0.00 :   157c:   str     d0, [x25, x0, lsl #3]
+    0.00 :   1580:   b       d04 <warpx_boris_push_fp64+0x5c4>
+    0.00 :   1584:   ldr     x1, [sp, #144]
+    0.00 :   1588:   str     d3, [x1, x0, lsl #3]
+    0.00 :   158c:   add     x0, x0, #0x1
+    0.00 :   1590:   cmp     x22, x0
+    0.00 :   1594:   b.ne    1440 <warpx_boris_push_fp64+0xd00>  // b.any
+    0.00 :   1598:   b       147c <warpx_boris_push_fp64+0xd3c>
+    0.00 :   159c:   ldr     x1, [sp, #136]
+    0.00 :   15a0:   str     d0, [x1, x0, lsl #3]
+    0.00 :   15a4:   add     x0, x0, #0x1
+    0.00 :   15a8:   cmp     x22, x0
+    0.00 :   15ac:   b.ne    13c4 <warpx_boris_push_fp64+0xc84>  // b.any
+    0.00 :   15b0:   b       13e8 <warpx_boris_push_fp64+0xca8>
+    0.00 :   15b4:   mov     x26, x17
+    0.00 :   15b8:   b       bfc <warpx_boris_push_fp64+0x4bc>
+    0.00 :   15bc:   mov     x26, x0
+    0.00 :   15c0:   lsr     x11, x0, #1
+    0.00 :   15c4:   and     x17, x0, #0x1
+    0.00 :   15c8:   b       128c <warpx_boris_push_fp64+0xb4c>
+    0.00 :   15cc:   mov     x26, x0
+    0.00 :   15d0:   lsr     x11, x0, #1
+    0.00 :   15d4:   and     x17, x2, #0x1
+    0.00 :   15d8:   and     x0, x0, #0xfffffffffffffffe
+    0.00 :   15dc:   b       d04 <warpx_boris_push_fp64+0x5c4>
+    0.00 :   15e0:   ldr     d1, [x23]
+    0.00 :   15e4:   ldr     d2, [x24]
+    0.00 :   15e8:   ldr     d0, [x25]
+    0.00 :   15ec:   fmul    d3, d1, d1
+    0.00 :   15f0:   fmov    d5, #1.000000000000000000e+00
+    0.00 :   15f4:   fmov    d4, #2.000000000000000000e+00
+    0.00 :   15f8:   fmadd   d5, d0, d0, d5
+    0.00 :   15fc:   fmadd   d3, d2, d2, d3
+    0.00 :   1600:   fadd    d3, d3, d5
+    0.00 :   1604:   fdiv    d3, d4, d3
+    0.00 :   1608:   str     d3, [x28]
+    0.00 :   160c:   b       11e4 <warpx_boris_push_fp64+0xaa4>
+    0.00 :   1610:   ldr     d1, [x15]
+    0.00 :   1614:   ldr     d0, [x27]
+    0.00 :   1618:   fmul    d1, d0, d1
+    0.00 :   161c:   fmul    d1, d1, d8
+    0.00 :   1620:   str     d1, [x24]
+    0.00 :   1624:   ldr     d1, [x1]
+    0.00 :   1628:   fmul    d1, d0, d1
+    0.00 :   162c:   fmul    d1, d1, d8
+    0.00 :   1630:   str     d1, [x23]
+    0.00 :   1634:   ldr     d1, [x2]
+    0.00 :   1638:   ldr     x0, [sp, #120]
+    0.00 :   163c:   fmul    d0, d0, d1
+    0.00 :   1640:   sub     x0, x0, #0x1
+    0.00 :   1644:   fmul    d0, d0, d8
+    0.00 :   1648:   str     d0, [x25]
+    0.00 :   164c:   cmp     x0, #0x1
+    0.00 :   1650:   b.ls    16a8 <warpx_boris_push_fp64+0xf68>  // b.plast
+    0.00 :   1654:   ldr     d1, [x23]
+    0.00 :   1658:   ldr     d2, [x24]
+    0.00 :   165c:   b       15ec <warpx_boris_push_fp64+0xeac>
+    0.00 :   1660:   ldr     d1, [x23]
+    0.00 :   1664:   ldr     d0, [x25]
+    0.00 :   1668:   ldr     d3, [x28]
+    0.00 :   166c:   b       11f0 <warpx_boris_push_fp64+0xab0>
+    0.00 :   1670:   ldr     d0, [x27]
+    0.00 :   1674:   b       1634 <warpx_boris_push_fp64+0xef4>
+    0.00 :   1678:   ldr     d0, [x27]
+    0.00 :   167c:   b       1624 <warpx_boris_push_fp64+0xee4>
+    0.00 :   1680:   ldr     x0, [sp, #152]
+    0.00 :   1684:   ldr     d1, [x19]
+    0.00 :   1688:   ldr     d0, [x21]
+    0.00 :   168c:   ldr     d3, [x3]
+    0.00 :   1690:   ldr     d2, [x0]
+    0.00 :   1694:   fmadd   d1, d8, d3, d1
+    0.00 :   1698:   fmadd   d0, d8, d2, d0
+    0.00 :   169c:   str     d1, [x19]
+    0.00 :   16a0:   str     d0, [x21]
+    0.00 :   16a4:   b       11c4 <warpx_boris_push_fp64+0xa84>
+    0.00 :   16a8:   mov     x0, #0x0                        // #0
+    0.00 :   16ac:   b       12d4 <warpx_boris_push_fp64+0xb94>
+    0.00 :   16b0:   ldr     d0, [x3]
+    0.00 :   16b4:   mov     x0, #0x0                        // #0
+    0.00 :   16b8:   ldr     d2, [x19]
+    0.00 :   16bc:   ldr     x11, [sp, #152]
+    0.00 :   16c0:   ldr     d1, [x21]
+    0.00 :   16c4:   ldr     d3, [x5]
+    0.00 :   16c8:   fmadd   d2, d0, d8, d2
+    0.00 :   16cc:   ldr     d4, [x11]
+    0.00 :   16d0:   ldr     d0, [x20]
+    0.00 :   16d4:   fmadd   d1, d8, d4, d1
+    0.00 :   16d8:   fmadd   d0, d8, d3, d0
+    0.00 :   16dc:   str     d2, [x19]
+    0.00 :   16e0:   str     d1, [x21]
+    0.00 :   16e4:   str     d0, [x20]
+    0.00 :   16e8:   b       b24 <warpx_boris_push_fp64+0x3e4>
+    0.00 :   16ec:   ldr     x2, [sp, #128]
+    0.00 :   16f0:   mov     x0, #0x0                        // #0
+    0.00 :   16f4:   b       13a0 <warpx_boris_push_fp64+0xc60>
+    0.00 :   16f8:   ldr     d3, [x13]
+    0.00 :   16fc:   ldr     d1, [x23]
+    0.00 :   1700:   ldr     d2, [x24]
+    0.00 :   1704:   ldr     d0, [x25]
+    0.00 :   1708:   fmul    d1, d1, d3
+    0.00 :   170c:   fmul    d2, d2, d3
+    0.00 :   1710:   fmul    d0, d0, d3
+    0.00 :   1714:   str     d1, [x23]
+    0.00 :   1718:   str     d2, [x24]
+    0.00 :   171c:   str     d0, [x25]
+    0.00 :   1720:   b       15ec <warpx_boris_push_fp64+0xeac>
+    0.00 :   1724:   mov     x26, #0x2                       // #2
+    0.00 :   1728:   mov     x0, #0x0                        // #0
+    0.00 :   172c:   mov     x11, x26
+    0.00 :   1730:   b       bc4 <warpx_boris_push_fp64+0x484>
+    0.00 :   1734:   ldr     d0, [x25]
+    0.00 :   1738:   ldr     d3, [x28]
+    0.00 :   173c:   b       11f8 <warpx_boris_push_fp64+0xab8>
+    0.00 :   1740:   mov     x26, x22
+    0.00 :   1744:   cmp     x22, #0x1
+    0.00 :   1748:   b.eq    175c <warpx_boris_push_fp64+0x101c>  // b.none
+    0.00 :   174c:   lsr     x17, x22, #1
+    0.00 :   1750:   and     x11, x22, #0xfffffffffffffffe
+    0.00 :   1754:   and     x18, x22, #0x1
+    0.00 :   1758:   b       ac4 <warpx_boris_push_fp64+0x384>
+    0.00 :   175c:   ldr     d3, [x21]
+    0.00 :   1760:   adrp    x11, 2000 <warpx_boris_push_fp32+0x860>
+    0.00 :   1764:   fmov    d0, #1.000000000000000000e+00
+    0.00 :   1768:   mov     x16, #0x0                       // #0
+    0.00 :   176c:   mov     x0, #0x0                        // #0
+    0.00 :   1770:   ldr     d2, [x19]
+    0.00 :   1774:   ldr     d1, [x20]
+    0.00 :   1778:   fmul    d3, d3, d3
+    0.00 :   177c:   ldr     d4, [x11, #2192]
+    0.00 :   1780:   fmadd   d2, d2, d2, d3
+    0.00 :   1784:   fmadd   d1, d1, d1, d2
+    0.00 :   1788:   fmadd   d0, d1, d4, d0
+    0.00 :   178c:   fsqrt   d0, d0
+    0.00 :   1790:   str     d0, [x12]
+    0.00 :   1794:   b       be4 <warpx_boris_push_fp64+0x4a4>

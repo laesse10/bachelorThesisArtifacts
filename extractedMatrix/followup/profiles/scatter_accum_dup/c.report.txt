@@ -3,13 +3,13 @@
 #
 # Total Lost Samples: 0
 #
-# Samples: 109K of event 'cycles:u'
-# Event count (approx.): 10915000000
+# Samples: 107K of event 'cycles:u'
+# Event count (approx.): 10753300000
 #
-# Overhead  Shared Object                                       Symbol                                              
-# ........  ..................................................  ....................................................
+# Overhead  Shared Object                                       Symbol                                           
+# ........  ..................................................  .................................................
 #
-    99.95%  libscatter_accum_dup_cc.so                          [.] scatter_accum_dup_fp64
+    99.94%  libscatter_accum_dup_cc.so                          [.] scatter_accum_dup_fp64
 
 
 #

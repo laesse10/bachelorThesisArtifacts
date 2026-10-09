@@ -1,0 +1,27 @@
+unit borisnb kernel=warpx_boris_push bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006561 start=2026-10-07T15:38:54+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006561 1 1
+SRUN[borisnb]: srun --nodes=1 --ntasks=1 -w nid006561 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_boris_push --cells c numba nbnovec=numba:env=NUMBA_LOOP_VECTORIZE=0:env=NUMBA_SLP_VECTORIZE=0 --rounds 3 --perf --record-reps 300 --out parts/borisnb.csv --scratch scratch/borisnb --db-shard 202
+pristine warpx_boris_push_fp64.c 4df974435c75288a
+pristine warpx_boris_push_fp64.cpp 735afa550f3e31aa
+pristine warpx_boris_push_fp64.f90 49cae026e972751d
+pristine warpx_boris_push_fp32.c dfb4904c9ea7f7c3
+pristine warpx_boris_push_fp32.cpp 5325c09787509d1c
+pristine warpx_boris_push_fp32.f90 8bf89db8ccd34c11
+pristine warpx_boris_push_numba_np.py 5b74c30bace6d710
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+cell nbnovec: numba src=- src32=- bin=- env={'NUMBA_LOOP_VECTORIZE': '0', 'NUMBA_SLP_VECTORIZE': '0'} -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 3.066 ms 
+  [1] numba            ok           min 2.098 ms 
+  [1] nbnovec          ok           min 2.587 ms 
+  [2] nbnovec          ok           min 2.601 ms 
+  [2] numba            ok           min 2.093 ms 
+  [2] c                ok           min 3.041 ms 
+  [3] c                ok           min 3.031 ms 
+  [3] numba            ok           min 2.085 ms 
+  [3] nbnovec          ok           min 2.612 ms 
+  [record] c                ok           min 3.170 ms 
+  [record] numba            ok           min 2.127 ms 
+  [record] nbnovec          ok           min 2.669 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/borisnb.csv
+unit borisnb node=nid006561 end=2026-10-07T15:41:02+02:00

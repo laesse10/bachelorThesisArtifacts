@@ -1,4 +1,4 @@
-# objdump -d libtriangle_count_cc.so, functions matching triangle_count_fp64* (sha256 c4449d30e5e730a0)
+# objdump -d libtriangle_count_cc.so, functions matching triangle_count_fp64* (sha256 82960cd8aa37a38b)
 
 0000000000000640 <triangle_count_fp64>:    # address mod 64 = 0
  640:	f100009f 	cmp	x4, #0x0

@@ -1,0 +1,18 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 145K of event 'cycles:u'
+# Event count (approx.): 14551200000
+#
+# Overhead  Shared Object                                       Symbol                                                  
+# ........  ..................................................  ........................................................
+#
+    97.74%  libscatter_accum_dup_cc.so                          [.] scatter_accum_dup_fp64._omp_fn.0
+     2.19%  libc.so.6                                           [.] __GI___memcpy_sve
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

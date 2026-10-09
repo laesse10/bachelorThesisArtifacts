@@ -1,0 +1,84 @@
+########## fuse_diamond_fp64._omp_fn.0
+ Percent |	Source code & Disassembly of libfuse_diamond_fortran.so for cycles:u (9144 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000b20 <fuse_diamond_fp64._omp_fn.0>:
+         : 6   fuse_diamond_fp64._omp_fn.0():
+    0.00 :   b20:    stp     x29, x30, [sp, #-48]!
+    0.00 :   b24:    mov     x29, sp
+    0.00 :   b28:    str     x21, [sp, #32]
+    0.00 :   b2c:    ldr     x21, [x0]
+    0.00 :   b30:    stp     x19, x20, [sp, #16]
+    0.00 :   b34:    mov     x20, x0
+    0.00 :   b38:    bl      980 <omp_get_num_threads@plt>
+    0.00 :   b3c:    sxtw    x19, w0
+    0.00 :   b40:    bl      9b0 <omp_get_thread_num@plt>
+    0.00 :   b44:    sdiv    x3, x21, x19
+    0.00 :   b48:    sxtw    x1, w0
+    0.00 :   b4c:    msub    x2, x3, x19, x21
+    0.00 :   b50:    cmp     x1, x2
+    0.00 :   b54:    b.lt    c3c <fuse_diamond_fp64._omp_fn.0+0x11c>  // b.tstop
+    0.00 :   b58:    madd    x1, x3, x1, x2
+    0.00 :   b5c:    add     x0, x3, x1
+    0.00 :   b60:    cmp     x1, x0
+    0.00 :   b64:    b.ge    bbc <fuse_diamond_fp64._omp_fn.0+0x9c>  // b.tcont
+    0.00 :   b68:    sub     x6, x3, #0x1
+    0.00 :   b6c:    ldp     x5, x4, [x20, #8]
+    0.00 :   b70:    mov     x2, x1
+    0.00 :   b74:    cmp     x6, #0x1
+    0.00 :   b78:    b.ls    b94 <fuse_diamond_fp64._omp_fn.0+0x74>  // b.plast
+    0.00 :   b7c:    lsl     x6, x1, #3
+    0.00 :   b80:    add     x7, x5, x1, lsl #3
+    0.00 :   b84:    add     x8, x6, #0x8
+    0.00 :   b88:    add     x8, x4, x8
+    0.00 :   b8c:    cmp     x7, x8
+    0.00 :   b90:    b.ne    bcc <fuse_diamond_fp64._omp_fn.0+0xac>  // b.any
+    0.00 :   b94:    fmov    d1, #-1.000000000000000000e+00
+    0.00 :   b98:    nop
+    0.00 :   b9c:    nop
+    0.00 :   ba0:    ldr     d0, [x4, x2, lsl #3]
+    0.00 :   ba4:    fmul    d0, d0, d0
+    0.00 :   ba8:    fmadd   d0, d0, d0, d1
+    0.00 :   bac:    str     d0, [x5, x2, lsl #3]
+    0.00 :   bb0:    add     x2, x2, #0x1
+    0.00 :   bb4:    cmp     x2, x0
+    0.00 :   bb8:    b.ne    ba0 <fuse_diamond_fp64._omp_fn.0+0x80>  // b.any
+    0.00 :   bbc:    ldp     x19, x20, [sp, #16]
+    0.00 :   bc0:    ldr     x21, [sp, #32]
+    0.00 :   bc4:    ldp     x29, x30, [sp], #48
+    0.00 :   bc8:    ret
+    0.00 :   bcc:    fmov    v1.2d, #-1.000000000000000000e+00
+    0.00 :   bd0:    add     x6, x4, x6
+    0.00 :   bd4:    lsr     x8, x3, #1
+    0.00 :   bd8:    mov     x0, #0x0                        // #0
+    0.00 :   bdc:    mov     x2, #0x0                        // #0
+    7.91 :   be0:    ldr     q0, [x6, x0]
+   22.74 :   be4:    mov     v2.16b, v1.16b
+    0.35 :   be8:    add     x2, x2, #0x1
+    3.38 :   bec:    fmul    v0.2d, v0.2d, v0.2d
+    1.40 :   bf0:    fmla    v2.2d, v0.2d, v0.2d
+    4.18 :   bf4:    str     q2, [x7, x0]
+   55.63 :   bf8:    add     x0, x0, #0x10
+    4.42 :   bfc:    cmp     x8, x2
+    0.00 :   c00:    b.ne    be0 <fuse_diamond_fp64._omp_fn.0+0xc0>  // b.any
+    0.00 :   c04:    add     x1, x1, #0x1
+    0.00 :   c08:    and     x0, x3, #0xfffffffffffffffe
+    0.00 :   c0c:    add     x1, x1, x0
+    0.00 :   c10:    cmp     x3, x0
+    0.00 :   c14:    b.eq    bbc <fuse_diamond_fp64._omp_fn.0+0x9c>  // b.none
+    0.00 :   c18:    sub     x1, x1, #0x1
+    0.00 :   c1c:    ldp     x19, x20, [sp, #16]
+    0.00 :   c20:    ldr     d0, [x4, x1, lsl #3]
+    0.00 :   c24:    ldr     x21, [sp, #32]
+    0.00 :   c28:    fmul    d0, d0, d0
+    0.00 :   c2c:    fmadd   d0, d0, d0, d1
+    0.00 :   c30:    str     d0, [x5, x1, lsl #3]
+    0.00 :   c34:    ldp     x29, x30, [sp], #48
+    0.00 :   c38:    ret
+    0.00 :   c3c:    add     x3, x3, #0x1
+    0.00 :   c40:    mov     x2, #0x0                        // #0
+    0.00 :   c44:    b       b58 <fuse_diamond_fp64._omp_fn.0+0x38>

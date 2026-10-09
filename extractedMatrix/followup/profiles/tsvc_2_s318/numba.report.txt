@@ -1,0 +1,25 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 92K of event 'cycles:u'
+# Event count (approx.): 9262700000
+#
+# Overhead  Shared Object                                       Symbol                      
+# ........  ..................................................  ............................
+#
+    73.93%  [JIT] tid 4286                                      [.] 0x000040003bf2003c
+    13.65%  [JIT] tid 4286                                      [.] 0x000040003bf2002c
+     2.82%  [JIT] tid 4286                                      [.] 0x000040003bf20034
+     2.63%  [JIT] tid 4286                                      [.] 0x000040003bf20040
+     2.49%  [JIT] tid 4286                                      [.] 0x000040003bf20050
+     2.04%  [JIT] tid 4286                                      [.] 0x000040003bf20048
+     1.19%  [JIT] tid 4286                                      [.] 0x000040003bf20044
+     0.85%  [JIT] tid 4286                                      [.] 0x000040003bf2004c
+     0.38%  [JIT] tid 4286                                      [.] 0x000040003bf20038
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

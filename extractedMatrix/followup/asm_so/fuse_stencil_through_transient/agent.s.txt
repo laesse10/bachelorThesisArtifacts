@@ -1,0 +1,101 @@
+# objdump -d libfuse_stencil_through_transient_cc.so, functions matching fuse_stencil_through_transient_fp64* (sha256 42227523e5738543)
+
+0000000000000840 <fuse_stencil_through_transient_fp64._omp_fn.0>:    # address mod 64 = 0
+ 840:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 844:	910003fd 	mov	x29, sp
+ 848:	a90153f3 	stp	x19, x20, [sp, #16]
+ 84c:	aa0003f4 	mov	x20, x0
+ 850:	97ffffa0 	bl	6d0 <omp_get_num_threads@plt>
+ 854:	93407c13 	sxtw	x19, w0
+ 858:	97ffffaa 	bl	700 <omp_get_thread_num@plt>
+ 85c:	f9400a81 	ldr	x1, [x20, #16]
+ 860:	93407c02 	sxtw	x2, w0
+ 864:	d1000c20 	sub	x0, x1, #0x3
+ 868:	9ad30c03 	sdiv	x3, x0, x19
+ 86c:	9b138061 	msub	x1, x3, x19, x0
+ 870:	eb01005f 	cmp	x2, x1
+ 874:	5400076b 	b.lt	960 <fuse_stencil_through_transient_fp64._omp_fn.0+0x120>  // b.tstop
+ 878:	9b020462 	madd	x2, x3, x2, x1
+ 87c:	8b020060 	add	x0, x3, x2
+ 880:	eb00005f 	cmp	x2, x0
+ 884:	5400068a 	b.ge	954 <fuse_stencil_through_transient_fp64._omp_fn.0+0x114>  // b.tcont
+ 888:	a9402a87 	ldp	x7, x10, [x20]
+ 88c:	f100047f 	cmp	x3, #0x1
+ 890:	540006e0 	b.eq	96c <fuse_stencil_through_transient_fp64._omp_fn.0+0x12c>  // b.none
+ 894:	d37df040 	lsl	x0, x2, #3
+ 898:	d341fc64 	lsr	x4, x3, #1
+ 89c:	8b020ce9 	add	x9, x7, x2, lsl #3
+ 8a0:	91002005 	add	x5, x0, #0x8
+ 8a4:	91004006 	add	x6, x0, #0x10
+ 8a8:	91006000 	add	x0, x0, #0x18
+ 8ac:	8b0500e8 	add	x8, x7, x5
+ 8b0:	d2800001 	mov	x1, #0x0                   	// #0
+ 8b4:	8b050145 	add	x5, x10, x5
+ 8b8:	8b0600e6 	add	x6, x7, x6
+ 8bc:	8b0000e0 	add	x0, x7, x0
+ 8c0:	d37cec84 	lsl	x4, x4, #4
+ 8c4:	3ce16900 	ldr	q0, [x8, x1]
+ 8c8:	3ce1693d 	ldr	q29, [x9, x1]
+ 8cc:	3ce168de 	ldr	q30, [x6, x1]
+ 8d0:	3ce1681f 	ldr	q31, [x0, x1]
+ 8d4:	4e60d7bd 	fadd	v29.2d, v29.2d, v0.2d
+ 8d8:	4e7ed7bd 	fadd	v29.2d, v29.2d, v30.2d
+ 8dc:	4e60d7de 	fadd	v30.2d, v30.2d, v0.2d
+ 8e0:	4e7fd7df 	fadd	v31.2d, v30.2d, v31.2d
+ 8e4:	6e7fdfbf 	fmul	v31.2d, v29.2d, v31.2d
+ 8e8:	3ca168bf 	str	q31, [x5, x1]
+ 8ec:	91004021 	add	x1, x1, #0x10
+ 8f0:	eb04003f 	cmp	x1, x4
+ 8f4:	54fffe81 	b.ne	8c4 <fuse_stencil_through_transient_fp64._omp_fn.0+0x84>  // b.any
+ 8f8:	927ff860 	and	x0, x3, #0xfffffffffffffffe
+ 8fc:	360002c3 	tbz	w3, #0, 954 <fuse_stencil_through_transient_fp64._omp_fn.0+0x114>
+ 900:	8b020002 	add	x2, x0, x2
+ 904:	cb000063 	sub	x3, x3, x0
+ 908:	25e31fe7 	whilelo	p7.d, xzr, x3
+ 90c:	a5e25cfc 	ld1d	{z28.d}, p7/z, [x7, x2, lsl #3]
+ 910:	d37df042 	lsl	x2, x2, #3
+ 914:	91002040 	add	x0, x2, #0x8
+ 918:	91004041 	add	x1, x2, #0x10
+ 91c:	91006042 	add	x2, x2, #0x18
+ 920:	8b00014a 	add	x10, x10, x0
+ 924:	8b0100e1 	add	x1, x7, x1
+ 928:	8b0000e0 	add	x0, x7, x0
+ 92c:	a5e0bc3a 	ld1d	{z26.d}, p7/z, [x1]
+ 930:	a5e0bc01 	ld1d	{z1.d}, p7/z, [x0]
+ 934:	65c1039c 	fadd	z28.d, z28.d, z1.d
+ 938:	8b0200e7 	add	x7, x7, x2
+ 93c:	65da039c 	fadd	z28.d, z28.d, z26.d
+ 940:	a5e0bcfb 	ld1d	{z27.d}, p7/z, [x7]
+ 944:	65da003a 	fadd	z26.d, z1.d, z26.d
+ 948:	65db035b 	fadd	z27.d, z26.d, z27.d
+ 94c:	65dc0b7b 	fmul	z27.d, z27.d, z28.d
+ 950:	e5e0fd5b 	st1d	{z27.d}, p7, [x10]
+ 954:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 958:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 95c:	d65f03c0 	ret
+ 960:	91000463 	add	x3, x3, #0x1
+ 964:	d2800001 	mov	x1, #0x0                   	// #0
+ 968:	17ffffc4 	b	878 <fuse_stencil_through_transient_fp64._omp_fn.0+0x38>
+ 96c:	d2800000 	mov	x0, #0x0                   	// #0
+ 970:	17ffffe4 	b	900 <fuse_stencil_through_transient_fp64._omp_fn.0+0xc0>
+ 974:	d503201f 	nop
+ 978:	d503201f 	nop
+ 97c:	d503201f 	nop
+
+0000000000000980 <fuse_stencil_through_transient_fp64>:    # address mod 64 = 0
+ 980:	aa0003e6 	mov	x6, x0
+ 984:	aa0103e5 	mov	x5, x1
+ 988:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+ 98c:	aa0203e4 	mov	x4, x2
+ 990:	90000000 	adrp	x0, 0 <_init-0x690>
+ 994:	910003fd 	mov	x29, sp
+ 998:	910043e1 	add	x1, sp, #0x10
+ 99c:	91210000 	add	x0, x0, #0x840
+ 9a0:	52800003 	mov	w3, #0x0                   	// #0
+ 9a4:	a90117e6 	stp	x6, x5, [sp, #16]
+ 9a8:	52800002 	mov	w2, #0x0                   	// #0
+ 9ac:	f90013e4 	str	x4, [sp, #32]
+ 9b0:	97ffff58 	bl	710 <GOMP_parallel@plt>
+ 9b4:	a8c37bfd 	ldp	x29, x30, [sp], #48
+ 9b8:	d65f03c0 	ret
+ 9bc:	d503201f 	nop

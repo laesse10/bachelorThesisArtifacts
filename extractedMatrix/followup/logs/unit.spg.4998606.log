@@ -1,0 +1,37 @@
+unit spg kernel=spgemm_hash bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006556 start=2026-10-07T16:07:46+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006556 1 1
+SRUN[spg]: srun --nodes=1 --ntasks=1 -w nid006556 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel spgemm_hash --cells c cmod1=c:src=variants/spgemm_hash_cmod1_fp64.c:src32=variants/spgemm_hash_cmod1_fp32.c cmask=c:src=variants/spgemm_hash_cmask_fp64.c:src32=variants/spgemm_hash_cmask_fp32.c fortran numba --rounds 3 --perf --record-reps 10 --out parts/spg.csv --scratch scratch/spg --db-shard 205
+pristine spgemm_hash_fp64.c 0cd7b2db99500ed7
+pristine spgemm_hash_fp64.cpp 88e2a4a3e0529781
+pristine spgemm_hash_fp64.f90 13bcff56ccf6a02f
+pristine spgemm_hash_fp32.c 006276a1c62b3784
+pristine spgemm_hash_fp32.cpp 8eba4c95912f16e1
+pristine spgemm_hash_fp32.f90 7b0e6d572d83c3e6
+pristine spgemm_hash_numba_np.py 627a19e0ffb7e245
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cmod1: c src=variants/spgemm_hash_cmod1_fp64.c src32=variants/spgemm_hash_cmod1_fp32.c bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cmask: c src=variants/spgemm_hash_cmask_fp64.c src32=variants/spgemm_hash_cmask_fp32.c bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 256.876 ms 
+  [1] cmod1            ok           min 185.897 ms 
+  [1] cmask            ok           min 130.098 ms 
+  [1] fortran          ok           min 178.194 ms 
+  [1] numba            ok           min 151.049 ms 
+  [2] numba            ok           min 151.625 ms 
+  [2] fortran          ok           min 178.302 ms 
+  [2] cmask            ok           min 130.169 ms 
+  [2] cmod1            ok           min 185.923 ms 
+  [2] c                ok           min 256.292 ms 
+  [3] c                ok           min 256.386 ms 
+  [3] cmod1            ok           min 185.900 ms 
+  [3] cmask            ok           min 129.922 ms 
+  [3] fortran          ok           min 178.272 ms 
+  [3] numba            ok           min 151.244 ms 
+  [record] c                ok           min 261.789 ms 
+  [record] cmod1            ok           min 189.694 ms 
+  [record] cmask            ok           min 132.649 ms 
+  [record] fortran          ok           min 181.950 ms 
+  [record] numba            ok           min 154.372 ms 
+wrote 20 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/spg.csv
+unit spg node=nid006556 end=2026-10-07T16:11:51+02:00

@@ -1,0 +1,32 @@
+unit s3111r kernel=tsvc_2_s3111 bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006552 start=2026-10-07T16:07:46+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006552 1 1
+SRUN[s3111r]: srun --nodes=1 --ntasks=1 -w nid006552 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel tsvc_2_s3111 --cells c novec=c:src=variants/tsvc_2_s3111_novec.c novecsel=c:src=variants/tsvc_2_s3111_novecsel.c numba --rounds 3 --perf --record-reps 10 --out parts/s3111r.csv --scratch scratch/s3111r --db-shard 203
+pristine tsvc_2_s3111_fp64.c 602202884f12da8b
+pristine tsvc_2_s3111_fp64.cpp 23394b2da5e072c4
+pristine tsvc_2_s3111_fp64.f90 142b5857d12db8f7
+pristine tsvc_2_s3111_fp32.c 13537a1a399e4920
+pristine tsvc_2_s3111_fp32.cpp 33f7d20a504fd98f
+pristine tsvc_2_s3111_fp32.f90 cb16cca1a4c53e3f
+pristine tsvc_2_s3111_numba_np.py 1f9ef926f80aacf9
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell novec: c src=variants/tsvc_2_s3111_novec.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell novecsel: c src=variants/tsvc_2_s3111_novecsel.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 123.270 ms 
+  [1] novec            ok           min 712.214 ms 
+  [1] novecsel         ok           min 461.706 ms 
+  [1] numba            ok           min 307.830 ms 
+  [2] numba            ok           min 307.857 ms 
+  [2] novecsel         ok           min 461.768 ms 
+  [2] novec            ok           min 713.008 ms 
+  [2] c                ok           min 123.226 ms 
+  [3] c                ok           min 123.276 ms 
+  [3] novec            ok           min 712.308 ms 
+  [3] novecsel         ok           min 461.893 ms 
+  [3] numba            ok           min 307.732 ms 
+  [record] c                ok           min 126.283 ms 
+  [record] novec            ok           min 724.956 ms 
+  [record] novecsel         ok           min 471.011 ms 
+  [record] numba            ok           min 314.066 ms 
+wrote 16 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/s3111r.csv
+unit s3111r node=nid006552 end=2026-10-07T16:14:27+02:00

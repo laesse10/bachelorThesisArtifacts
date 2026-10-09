@@ -1,0 +1,47 @@
+unit cometL kernel=comet_int4_gemm bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006549 start=2026-10-09T10:16:15+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006549 1 1
+SRUN[cometL]: srun --nodes=1 --ntasks=1 -w nid006549 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel comet_int4_gemm --cells c cloops=c:src=variants/comet_int4_gemm_cloops_fp64.c:src32=variants/comet_int4_gemm_cloops_fp32.c cloopsT=c:src=variants/comet_int4_gemm_cloopsT_fp64.c:src32=variants/comet_int4_gemm_cloopsT_fp32.c fortran numba native32=cpp:src=variants/comet_int4_gemm_native_fp64.cpp:src32=variants/comet_int4_gemm_native_fp32.cpp native32noomp=cpp:src=variants/comet_int4_gemm_native_noomp_fp64.cpp:src32=variants/comet_int4_gemm_native_fp32.cpp --rounds 3 --perf --record-reps 3000 --out parts/cometL.csv --scratch scratch/cometL --db-shard 200
+pristine comet_int4_gemm_fp64.c c83275c6544d7fb4
+pristine comet_int4_gemm_fp64.cpp 03e5bfa63ed36cf7
+pristine comet_int4_gemm_fp64.f90 3fe78aeb1a82db23
+pristine comet_int4_gemm_fp32.c 221dec81903cc55e
+pristine comet_int4_gemm_fp32.cpp 192e8f32c52a4dc1
+pristine comet_int4_gemm_fp32.f90 14d8a8a787c8d425
+pristine comet_int4_gemm_numba_np.py 4f0802f89f2e1a5c
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cloops: c src=variants/comet_int4_gemm_cloops_fp64.c src32=variants/comet_int4_gemm_cloops_fp32.c bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cloopsT: c src=variants/comet_int4_gemm_cloopsT_fp64.c src32=variants/comet_int4_gemm_cloopsT_fp32.c bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+cell native32: cpp src=variants/comet_int4_gemm_native_fp64.cpp src32=variants/comet_int4_gemm_native_fp32.cpp bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell native32noomp: cpp src=variants/comet_int4_gemm_native_noomp_fp64.cpp src32=variants/comet_int4_gemm_native_fp32.cpp bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+  [1] c                ok           min 0.084 ms 
+  [1] cloops           ok           min 0.594 ms 
+  [1] cloopsT          ok           min 0.550 ms 
+  [1] fortran          ok           min 0.380 ms 
+  [1] numba            ok           min 0.167 ms 
+  [1] native32         ok           min 0.152 ms 
+  [1] native32noomp    ok           min 0.129 ms 
+  [2] native32noomp    ok           min 0.129 ms 
+  [2] native32         ok           min 0.151 ms 
+  [2] numba            ok           min 0.167 ms 
+  [2] fortran          ok           min 0.378 ms 
+  [2] cloopsT          ok           min 0.548 ms 
+  [2] cloops           ok           min 0.593 ms 
+  [2] c                ok           min 0.083 ms 
+  [3] c                ok           min 0.086 ms 
+  [3] cloops           ok           min 0.594 ms 
+  [3] cloopsT          ok           min 0.549 ms 
+  [3] fortran          ok           min 0.379 ms 
+  [3] numba            ok           min 0.167 ms 
+  [3] native32         ok           min 0.152 ms 
+  [3] native32noomp    ok           min 0.129 ms 
+  [record] c                ok           min 0.098 ms 
+  [record] cloops           ok           min 0.618 ms 
+  [record] cloopsT          ok           min 0.571 ms 
+  [record] fortran          ok           min 0.396 ms 
+  [record] numba            ok           min 0.176 ms 
+  [record] native32         ok           min 0.171 ms 
+  [record] native32noomp    ok           min 0.147 ms 
+wrote 28 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/cometL.csv
+unit cometL node=nid006549 end=2026-10-09T10:19:52+02:00

@@ -1,0 +1,173 @@
+# objdump -d libscatter_accum_dup_cc.so, functions matching scatter_accum_dup_fp64* (sha256 ceb700d68385d78c)
+
+00000000000008e0 <scatter_accum_dup_fp64._omp_fn.0>:    # address mod 64 = 32
+ 8e0:	d10d83ff 	sub	sp, sp, #0x360
+ 8e4:	a9007bfd 	stp	x29, x30, [sp]
+ 8e8:	910003fd 	mov	x29, sp
+ 8ec:	a90153f3 	stp	x19, x20, [sp, #16]
+ 8f0:	a9025bf5 	stp	x21, x22, [sp, #32]
+ 8f4:	aa0003f5 	mov	x21, x0
+ 8f8:	a90363f7 	stp	x23, x24, [sp, #48]
+ 8fc:	a9046bf9 	stp	x25, x26, [sp, #64]
+ 900:	910583fa 	add	x26, sp, #0x160
+ 904:	a9416418 	ldp	x24, x25, [x0, #16]
+ 908:	a9405c13 	ldp	x19, x23, [x0]
+ 90c:	97ffffa1 	bl	790 <omp_get_thread_num@plt>
+ 910:	93407c16 	sxtw	x22, w0
+ 914:	52800303 	mov	w3, #0x18                  	// #24
+ 918:	b94022a4 	ldr	w4, [x21, #32]
+ 91c:	4f00041f 	movi	v31.4s, #0x0
+ 920:	d2800025 	mov	x5, #0x1                   	// #1
+ 924:	d2801001 	mov	x1, #0x80                  	// #128
+ 928:	1ac30ec3 	sdiv	w3, w22, w3
+ 92c:	aa1a03e2 	mov	x2, x26
+ 930:	52800000 	mov	w0, #0x0                   	// #0
+ 934:	3d805bff 	str	q31, [sp, #352]
+ 938:	3d801f5f 	str	q31, [x26, #112]
+ 93c:	ad00ff5f 	stp	q31, q31, [x26, #16]
+ 940:	ad01ff5f 	stp	q31, q31, [x26, #48]
+ 944:	ad02ff5f 	stp	q31, q31, [x26, #80]
+ 948:	0b030463 	add	w3, w3, w3, lsl #1
+ 94c:	4b030ec3 	sub	w3, w22, w3, lsl #3
+ 950:	2b040063 	adds	w3, w3, w4
+ 954:	9ac320a7 	lsl	x7, x5, x3
+ 958:	1100fc66 	add	w6, w3, #0x3f
+ 95c:	1a8340c6 	csel	w6, w6, w3, mi	// mi = first
+ 960:	11027c64 	add	w4, w3, #0x9f
+ 964:	13067cc6 	asr	w6, w6, #6
+ 968:	31018063 	adds	w3, w3, #0x60
+ 96c:	1a834084 	csel	w4, w4, w3, mi	// mi = first
+ 970:	13067c84 	asr	w4, w4, #6
+ 974:	9ac320a5 	lsl	x5, x5, x3
+ 978:	937d7c83 	sbfiz	x3, x4, #3, #32
+ 97c:	f826db47 	str	x7, [x26, w6, sxtw #3]
+ 980:	f8636b44 	ldr	x4, [x26, x3]
+ 984:	aa0400a4 	orr	x4, x5, x4
+ 988:	f8236b44 	str	x4, [x26, x3]
+ 98c:	97ffff89 	bl	7b0 <sched_setaffinity@plt>
+ 990:	97ffff70 	bl	750 <omp_get_num_threads@plt>
+ 994:	93407c01 	sxtw	x1, w0
+ 998:	8b010320 	add	x0, x25, x1
+ 99c:	d1000400 	sub	x0, x0, #0x1
+ 9a0:	9ac10c00 	sdiv	x0, x0, x1
+ 9a4:	9b007ed6 	mul	x22, x22, x0
+ 9a8:	8b160000 	add	x0, x0, x22
+ 9ac:	8b160af7 	add	x23, x23, x22, lsl #2
+ 9b0:	eb19001f 	cmp	x0, x25
+ 9b4:	9a99d000 	csel	x0, x0, x25, le
+ 9b8:	cb160015 	sub	x21, x0, x22
+ 9bc:	8b160f16 	add	x22, x24, x22, lsl #3
+ 9c0:	f100febf 	cmp	x21, #0x3f
+ 9c4:	5400086d 	b.le	ad0 <scatter_accum_dup_fp64._omp_fn.0+0x1f0>
+ 9c8:	d346feb8 	lsr	x24, x21, #6
+ 9cc:	d10102b4 	sub	x20, x21, #0x40
+ 9d0:	a90573fb 	stp	x27, x28, [sp, #80]
+ 9d4:	8b1822f8 	add	x24, x23, x24, lsl #8
+ 9d8:	aa1703fb 	mov	x27, x23
+ 9dc:	aa1603fc 	mov	x28, x22
+ 9e0:	910183f9 	add	x25, sp, #0x60
+ 9e4:	ad40737d 	ldp	q29, q28, [x27]
+ 9e8:	d2804002 	mov	x2, #0x200                 	// #512
+ 9ec:	aa1c03e1 	mov	x1, x28
+ 9f0:	aa1a03e0 	mov	x0, x26
+ 9f4:	ad417b7f 	ldp	q31, q30, [x27, #32]
+ 9f8:	ad00733d 	stp	q29, q28, [x25]
+ 9fc:	ad42737d 	ldp	q29, q28, [x27, #64]
+ a00:	ad017b3f 	stp	q31, q30, [x25, #32]
+ a04:	ad437b7f 	ldp	q31, q30, [x27, #96]
+ a08:	ad02733d 	stp	q29, q28, [x25, #64]
+ a0c:	ad44737d 	ldp	q29, q28, [x27, #128]
+ a10:	ad037b3f 	stp	q31, q30, [x25, #96]
+ a14:	ad457b7f 	ldp	q31, q30, [x27, #160]
+ a18:	ad04733d 	stp	q29, q28, [x25, #128]
+ a1c:	ad46737d 	ldp	q29, q28, [x27, #192]
+ a20:	ad057b3f 	stp	q31, q30, [x25, #160]
+ a24:	ad477b7f 	ldp	q31, q30, [x27, #224]
+ a28:	ad06733d 	stp	q29, q28, [x25, #192]
+ a2c:	ad077b3f 	stp	q31, q30, [x25, #224]
+ a30:	97ffff50 	bl	770 <memcpy@plt>
+ a34:	d2800020 	mov	x0, #0x1                   	// #1
+ a38:	d503201f 	nop
+ a3c:	d503201f 	nop
+ a40:	8b000b22 	add	x2, x25, x0, lsl #2
+ a44:	8b000f43 	add	x3, x26, x0, lsl #3
+ a48:	91000400 	add	x0, x0, #0x1
+ a4c:	b89fc042 	ldursw	x2, [x2, #-4]
+ a50:	fc5f807e 	ldur	d30, [x3, #-8]
+ a54:	d37df042 	lsl	x2, x2, #3
+ a58:	fc626a7f 	ldr	d31, [x19, x2]
+ a5c:	1e7e2bfe 	fadd	d30, d31, d30
+ a60:	fc226a7e 	str	d30, [x19, x2]
+ a64:	f101041f 	cmp	x0, #0x41
+ a68:	54fffec1 	b.ne	a40 <scatter_accum_dup_fp64._omp_fn.0+0x160>  // b.any
+ a6c:	9104037b 	add	x27, x27, #0x100
+ a70:	9108039c 	add	x28, x28, #0x200
+ a74:	eb18037f 	cmp	x27, x24
+ a78:	54fffb61 	b.ne	9e4 <scatter_accum_dup_fp64._omp_fn.0+0x104>  // b.any
+ a7c:	a94573fb 	ldp	x27, x28, [sp, #80]
+ a80:	927ae680 	and	x0, x20, #0xffffffffffffffc0
+ a84:	91010000 	add	x0, x0, #0x40
+ a88:	eb0002bf 	cmp	x21, x0
+ a8c:	5400014d 	b.le	ab4 <scatter_accum_dup_fp64._omp_fn.0+0x1d4>
+ a90:	b8a07ae1 	ldrsw	x1, [x23, x0, lsl #2]
+ a94:	fc607adc 	ldr	d28, [x22, x0, lsl #3]
+ a98:	91000400 	add	x0, x0, #0x1
+ a9c:	d37df021 	lsl	x1, x1, #3
+ aa0:	fc616a7d 	ldr	d29, [x19, x1]
+ aa4:	1e7c2bbc 	fadd	d28, d29, d28
+ aa8:	fc216a7c 	str	d28, [x19, x1]
+ aac:	eb0002bf 	cmp	x21, x0
+ ab0:	54ffff01 	b.ne	a90 <scatter_accum_dup_fp64._omp_fn.0+0x1b0>  // b.any
+ ab4:	a9407bfd 	ldp	x29, x30, [sp]
+ ab8:	a94153f3 	ldp	x19, x20, [sp, #16]
+ abc:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ ac0:	a94363f7 	ldp	x23, x24, [sp, #48]
+ ac4:	a9446bf9 	ldp	x25, x26, [sp, #64]
+ ac8:	910d83ff 	add	sp, sp, #0x360
+ acc:	d65f03c0 	ret
+ ad0:	d2800000 	mov	x0, #0x0                   	// #0
+ ad4:	17ffffed 	b	a88 <scatter_accum_dup_fp64._omp_fn.0+0x1a8>
+ ad8:	d503201f 	nop
+ adc:	d503201f 	nop
+
+0000000000000ae0 <scatter_accum_dup_fp64>:    # address mod 64 = 32
+ ae0:	a9b97bfd 	stp	x29, x30, [sp, #-112]!
+ ae4:	910003fd 	mov	x29, sp
+ ae8:	a90153f3 	stp	x19, x20, [sp, #16]
+ aec:	aa0303f4 	mov	x20, x3
+ af0:	a9025bf5 	stp	x21, x22, [sp, #32]
+ af4:	aa0103f6 	mov	x22, x1
+ af8:	aa0203f5 	mov	x21, x2
+ afc:	f9001bf7 	str	x23, [sp, #48]
+ b00:	aa0003f7 	mov	x23, x0
+ b04:	97ffff33 	bl	7d0 <sched_getcpu@plt>
+ b08:	52955564 	mov	w4, #0xaaab                	// #43691
+ b0c:	2a0003f3 	mov	w19, w0
+ b10:	72a55544 	movk	w4, #0x2aaa, lsl #16
+ b14:	52800020 	mov	w0, #0x1                   	// #1
+ b18:	9b247e64 	smull	x4, w19, w4
+ b1c:	9362fc84 	asr	x4, x4, #34
+ b20:	4b937c93 	sub	w19, w4, w19, asr #31
+ b24:	97ffff27 	bl	7c0 <omp_set_num_threads@plt>
+ b28:	0b130673 	add	w19, w19, w19, lsl #1
+ b2c:	90000000 	adrp	x0, 0 <_init-0x710>
+ b30:	910103e1 	add	x1, sp, #0x40
+ b34:	a9045bf7 	stp	x23, x22, [sp, #64]
+ b38:	91238000 	add	x0, x0, #0x8e0
+ b3c:	52800003 	mov	w3, #0x0                   	// #0
+ b40:	531d7273 	lsl	w19, w19, #3
+ b44:	52800002 	mov	w2, #0x0                   	// #0
+ b48:	a90553f5 	stp	x21, x20, [sp, #80]
+ b4c:	b90063f3 	str	w19, [sp, #96]
+ b50:	97ffff14 	bl	7a0 <GOMP_parallel@plt>
+ b54:	f9401bf7 	ldr	x23, [sp, #48]
+ b58:	a94153f3 	ldp	x19, x20, [sp, #16]
+ b5c:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ b60:	a8c77bfd 	ldp	x29, x30, [sp], #112
+ b64:	d65f03c0 	ret
+ b68:	d503201f 	nop
+ b6c:	d503201f 	nop
+ b70:	d503201f 	nop
+ b74:	d503201f 	nop
+ b78:	d503201f 	nop
+ b7c:	d503201f 	nop

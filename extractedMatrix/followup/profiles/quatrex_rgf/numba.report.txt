@@ -1,0 +1,98 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 8K of event 'cycles:u'
+# Event count (approx.): 821400000
+#
+# Overhead  Shared Object                                   Symbol                                           
+# ........  ..............................................  .................................................
+#
+    52.09%  libscipy_openblas-c5a9b014.so                   [.] zgemm_kernel_n_NEOVERSEN2
+     3.36%  libscipy_openblas-c5a9b014.so                   [.] zgemm_oncopy_NEOVERSEN2
+     2.51%  libscipy_openblas-c5a9b014.so                   [.] zgemv_n_NEOVERSEN2
+     2.46%  libscipy_openblas-c5a9b014.so                   [.] zgemm_otcopy_NEOVERSEN2
+     2.20%  libc.so.6                                       [.] __aarch64_swp4_rel
+     1.94%  libscipy_openblas-c5a9b014.so                   [.] zgemm_beta_NEOVERSEN2
+     1.62%  [JIT] tid 238428                                [.] 0x000040003df1005c
+     1.40%  [JIT] tid 238428                                [.] 0x000040003df10070
+     1.40%  libscipy_openblas-c5a9b014.so                   [.] zaxpy_k_NEOVERSEN2
+     1.39%  [JIT] tid 238428                                [.] 0x000040003df10068
+     0.97%  libscipy_openblas-c5a9b014.so                   [.] zgemm_nn
+     0.86%  libc.so.6                                       [.] _int_malloc
+     0.75%  libc.so.6                                       [.] __aarch64_cas4_acq
+     0.63%  libc.so.6                                       [.] malloc
+     0.63%  libscipy_openblas-c5a9b014.so                   [.] zgetf2_k
+     0.51%  libc.so.6                                       [.] _int_free
+     0.46%  libscipy_openblas-c5a9b014.so                   [.] ztrsv_NLU
+     0.43%  libscipy_openblas-c5a9b014.so                   [.] zgemm_tn
+     0.39%  libscipy_openblas-c5a9b014.so                   [.] zscal_begin
+     0.35%  [JIT] tid 238428                                [.] 0x000040004cf73850
+     0.35%  [JIT] tid 238428                                [.] 0x000040004cf7b174
+     0.35%  libscipy_openblas-c5a9b014.so                   [.] ztrmv_NUN
+     0.34%  [JIT] tid 238428                                [.] 0x000040004cf72970
+     0.34%  [JIT] tid 238428                                [.] 0x000040004cf73454
+     0.34%  [JIT] tid 238428                                [.] 0x000040004cf7386c
+     0.33%  [JIT] tid 238428                                [.] 0x000040004cf779ec
+     0.33%  [JIT] tid 238428                                [.] 0x000040004cf78570
+     0.32%  [JIT] tid 238428                                [.] 0x000040004cf78014
+     0.32%  [JIT] tid 238428                                [.] 0x000040004cf7bf8c
+     0.32%  [JIT] tid 238428                                [.] 0x000040004cf7c9cc
+     0.30%  [JIT] tid 238428                                [.] 0x000040004cf79010
+     0.29%  [JIT] tid 238428                                [.] 0x000040004cf7b6ac
+     0.29%  [JIT] tid 238428                                [.] 0x000040004cf7c9b0
+     0.29%  libc.so.6                                       [.] pthread_mutex_lock@@GLIBC_2.17
+     0.29%  libscipy_openblas-c5a9b014.so                   [.] blas_memory_alloc
+     0.28%  [JIT] tid 238428                                [.] 0x0000400045990294
+     0.28%  [JIT] tid 238428                                [.] 0x000040004cf779d0
+     0.28%  [JIT] tid 238428                                [.] 0x000040004cf7a950
+     0.28%  [JIT] tid 238428                                [.] 0x000040004cf7b690
+     0.28%  [JIT] tid 238428                                [.] 0x000040004cf7c810
+     0.28%  libscipy_openblas-c5a9b014.so                   [.] scipy_zgemm_
+     0.26%  [JIT] tid 238428                                [.] 0x000040003df10080
+     0.26%  [JIT] tid 238428                                [.] 0x000040004cf71e74
+     0.24%  [JIT] tid 238428                                [.] 0x000040004cf78034
+     0.24%  libscipy_openblas-c5a9b014.so                   [.] scipy_zgemv_
+     0.23%  [JIT] tid 238428                                [.] 0x000040004599026c
+     0.22%  [JIT] tid 238428                                [.] 0x000040004cf7172c
+     0.22%  [JIT] tid 238428                                [.] 0x000040004cf72574
+     0.22%  [JIT] tid 238428                                [.] 0x000040004cf7858c
+     0.22%  [JIT] tid 238428                                [.] 0x000040004cf7b194
+     0.22%  [JIT] tid 238428                                [.] 0x000040004cf7bf70
+     0.22%  _nrt_python.cpython-312-aarch64-linux-gnu.so    [.] NRT_MemInfo_alloc_aligned
+     0.22%  python3.12                                      [.] _PyEval_EvalFrameDefault
+     0.21%  [JIT] tid 238428                                [.] 0x000040004cf7298c
+     0.21%  [JIT] tid 238428                                [.] 0x000040004cf77734
+     0.21%  libc.so.6                                       [.] cfree@GLIBC_2.17
+     0.18%  [JIT] tid 238428                                [.] 0x000040004cf71e94
+     0.18%  [JIT] tid 238428                                [.] 0x000040004cf7902c
+     0.18%  [JIT] tid 238428                                [.] 0x000040004cf7a96c
+     0.18%  libc.so.6                                       [.] __GI___memset_generic
+     0.17%  [JIT] tid 238428                                [.] 0x000040004cf7c82c
+     0.17%  _helperlib.cpython-312-aarch64-linux-gnu.so     [.] numba_xxgemm
+     0.17%  libc.so.6                                       [.] __GI___pthread_mutex_unlock_usercnt
+     0.17%  libc.so.6                                       [.] _int_free_merge_chunk
+     0.16%  [JIT] tid 238428                                [.] 0x000040004cf74550
+     0.16%  libscipy_openblas-c5a9b014.so                   [.] izamax_compute
+     0.16%  libscipy_openblas-c5a9b014.so                   [.] scipy_zgetri_
+     0.15%  [JIT] tid 238428                                [.] 0x0000400045990288
+     0.15%  libc.so.6                                       [.] unlink_chunk.isra.0
+     0.13%  [JIT] tid 238428                                [.] 0x000040004c000060
+     0.13%  [JIT] tid 238428                                [.] 0x000040004cf73474
+     0.13%  [JIT] tid 238428                                [.] 0x000040004cf78da4
+     0.13%  python3.12                                      [.] _PyMem_RawFree
+     0.12%  [JIT] tid 238428                                [.] 0x000040004cf725a4
+     0.12%  libc.so.6                                       [.] _int_free_create_chunk
+     0.12%  libscipy_openblas-c5a9b014.so                   [.] ztrti2_UN
+     0.12%  python3.12                                      [.] PyMem_RawMalloc
+     0.11%  [JIT] tid 238428                                [.] 0x000040004cf73484
+     0.11%  [JIT] tid 238428                                [.] 0x000040004cf73494
+     0.11%  [JIT] tid 238428                                [.] 0x000040004cf7a6b4
+     0.11%  [JIT] tid 238428                                [.] 0x000040004cf7b46c
+     0.11%  [JIT] tid 238428                                [.] 0x000040004cf7c2d8
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

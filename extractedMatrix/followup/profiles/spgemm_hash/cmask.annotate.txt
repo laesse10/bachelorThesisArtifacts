@@ -1,0 +1,579 @@
+########## spgemm_hash_fp32
+ Percent |	Source code & Disassembly of libspgemm_hash_cc.so for cycles:u (42683 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000001080 <spgemm_hash_fp32>:
+         : 6    spgemm_hash_fp32():
+    0.00 :   1080:   mov     x12, #0x8110                    // #33040
+    0.00 :   1084:   mov     x9, x1
+    0.00 :   1088:   sub     sp, sp, x12
+    0.00 :   108c:   mov     x1, #0x1                        // #1
+    0.00 :   1090:   stp     x29, x30, [sp]
+    0.00 :   1094:   mov     x29, sp
+    0.00 :   1098:   stp     x27, x28, [sp, #80]
+    0.00 :   109c:   mov     x28, x0
+    0.00 :   10a0:   mov     x0, #0x8030                     // #32816
+    0.00 :   10a4:   add     x0, sp, x0
+    0.00 :   10a8:   stp     x23, x24, [sp, #48]
+    0.00 :   10ac:   lsl     x24, x7, #3
+    0.00 :   10b0:   stp     x19, x20, [sp, #16]
+    0.00 :   10b4:   stp     x21, x22, [sp, #32]
+    0.00 :   10b8:   mov     x22, x2
+    0.00 :   10bc:   mov     x21, x3
+    0.00 :   10c0:   stp     x25, x26, [sp, #64]
+    0.00 :   10c4:   mov     x25, x7
+    0.00 :   10c8:   ldr     x19, [x0, #224]
+    0.00 :   10cc:   mov     x0, x24
+    0.00 :   10d0:   stp     x4, x5, [sp, #96]
+    0.00 :   10d4:   str     x9, [sp, #112]
+    0.00 :   10d8:   bl      630 <calloc@plt>
+    0.00 :   10dc:   mov     x1, #0x1                        // #1
+    0.00 :   10e0:   mov     x20, x0
+    0.00 :   10e4:   mov     x0, x24
+    0.00 :   10e8:   bl      630 <calloc@plt>
+    0.00 :   10ec:   mov     x1, #0x1                        // #1
+    0.00 :   10f0:   mov     x23, x0
+    0.00 :   10f4:   mov     x0, x24
+    0.00 :   10f8:   bl      630 <calloc@plt>
+    0.00 :   10fc:   mov     x27, x0
+    0.00 :   1100:   mov     x1, #0x1                        // #1
+    0.00 :   1104:   mov     x0, x24
+    0.00 :   1108:   bl      630 <calloc@plt>
+    0.00 :   110c:   movi    v31.4s, #0x0
+    0.00 :   1110:   cmp     x25, #0x0
+    0.00 :   1114:   ldp     x11, x9, [sp, #104]
+    0.00 :   1118:   mov     x26, x0
+    0.00 :   111c:   stp     q31, q31, [sp, #144]
+    0.00 :   1120:   stp     q31, q31, [sp, #176]
+    0.00 :   1124:   stp     q31, q31, [sp, #208]
+    0.00 :   1128:   stp     q31, q31, [sp, #240]
+    0.00 :   112c:   b.le    11a4 <spgemm_hash_fp32+0x124>
+    0.00 :   1130:   mov     x5, #0x0                        // #0
+    0.00 :   1134:   add     x6, x9, #0x8
+    0.00 :   1138:   ldr     x1, [x9, x5, lsl #3]
+    0.00 :   113c:   mov     x2, #0x0                        // #0
+    0.00 :   1140:   ldr     x4, [x6, x5, lsl #3]
+    0.00 :   1144:   cmp     x1, x4
+    0.00 :   1148:   b.ge    1184 <spgemm_hash_fp32+0x104>  // b.tcont
+    0.00 :   114c:   add     x1, x28, x1, lsl #3
+    0.00 :   1150:   add     x4, x28, x4, lsl #3
+    0.00 :   1154:   nop
+    0.00 :   1158:   nop
+    0.00 :   115c:   nop
+    0.00 :   1160:   ldr     x0, [x1], #8
+    0.02 :   1164:   add     x0, x0, #0x1
+    0.00 :   1168:   add     x3, x21, x0, lsl #3
+    0.01 :   116c:   ldr     x0, [x21, x0, lsl #3]
+    0.06 :   1170:   ldur    x3, [x3, #-8]
+    0.00 :   1174:   sub     x0, x0, x3
+    0.02 :   1178:   add     x2, x2, x0
+    0.00 :   117c:   cmp     x1, x4
+    0.00 :   1180:   b.ne    1160 <spgemm_hash_fp32+0xe0>  // b.any
+    0.00 :   1184:   cmp     x19, x2
+    0.00 :   1188:   add     x0, x5, #0x1
+    0.00 :   118c:   csel    x2, x19, x2, le
+    0.00 :   1190:   str     x2, [x20, x5, lsl #3]
+    0.00 :   1194:   cmp     x25, x0
+    0.00 :   1198:   b.eq    143c <spgemm_hash_fp32+0x3bc>  // b.none
+    0.00 :   119c:   mov     x5, x0
+    0.00 :   11a0:   b       1138 <spgemm_hash_fp32+0xb8>
+    0.00 :   11a4:   ldp     x0, x4, [sp, #144]
+    0.00 :   11a8:   movi    v31.4s, #0x0
+    0.00 :   11ac:   ldp     x3, x2, [sp, #160]
+    0.00 :   11b0:   add     x4, x0, x4
+    0.00 :   11b4:   stp     q31, q31, [sp, #144]
+    0.00 :   11b8:   ldr     x1, [sp, #176]
+    0.00 :   11bc:   add     x3, x4, x3
+    0.00 :   11c0:   stp     x0, x4, [sp, #216]
+    0.00 :   11c4:   add     x2, x3, x2
+    0.00 :   11c8:   ldr     x0, [sp, #184]
+    0.00 :   11cc:   add     x1, x2, x1
+    0.00 :   11d0:   stp     x3, x2, [sp, #232]
+    0.00 :   11d4:   ldr     x5, [sp, #192]
+    0.00 :   11d8:   add     x0, x1, x0
+    0.00 :   11dc:   str     q31, [sp, #176]
+    0.00 :   11e0:   str     q31, [sp, #192]
+    0.00 :   11e4:   stp     x1, x0, [sp, #248]
+    0.00 :   11e8:   add     x2, x5, x0
+    0.00 :   11ec:   str     x2, [sp, #264]
+    0.00 :   11f0:   cmp     x25, #0x0
+    0.00 :   11f4:   b.le    1950 <spgemm_hash_fp32+0x8d0>
+    0.00 :   11f8:   mov     x2, x24
+    0.00 :   11fc:   mov     w1, #0xff                       // #255
+    0.00 :   1200:   stp     x9, x11, [sp, #104]
+    0.00 :   1204:   mov     x0, x26
+    0.00 :   1208:   bl      650 <memset@plt>
+    0.00 :   120c:   ldp     x9, x11, [sp, #104]
+    0.00 :   1210:   add     x3, sp, #0x90
+    0.00 :   1214:   add     x4, sp, #0xd0
+    0.00 :   1218:   mov     x13, #0x0                       // #0
+    0.00 :   121c:   b       1224 <spgemm_hash_fp32+0x1a4>
+    0.00 :   1220:   mov     x13, x1
+    0.00 :   1224:   ldr     x0, [x23, x13, lsl #3]
+    0.00 :   1228:   add     x1, x13, #0x1
+    0.00 :   122c:   tbnz    x0, #63, 124c <spgemm_hash_fp32+0x1cc>
+    0.00 :   1230:   lsl     x0, x0, #3
+    0.00 :   1234:   ldr     x2, [x3, x0]
+    0.00 :   1238:   ldr     x6, [x4, x0]
+    0.00 :   123c:   add     x5, x2, #0x1
+    0.00 :   1240:   add     x2, x2, x6
+    0.00 :   1244:   str     x5, [x3, x0]
+    0.00 :   1248:   str     x13, [x26, x2, lsl #3]
+    0.01 :   124c:   cmp     x25, x1
+    0.00 :   1250:   b.ne    1220 <spgemm_hash_fp32+0x1a0>  // b.any
+    0.00 :   1254:   dup     v31.2d, x19
+    0.00 :   1258:   mov     x14, x26
+    0.00 :   125c:   add     x17, x24, x26
+    0.00 :   1260:   add     x6, sp, #0x110
+    0.00 :   1264:   b       1274 <spgemm_hash_fp32+0x1f4>
+    0.00 :   1268:   add     x14, x14, #0x8
+    0.00 :   126c:   cmp     x17, x14
+    0.00 :   1270:   b.eq    1388 <spgemm_hash_fp32+0x308>  // b.none
+    0.00 :   1274:   ldr     x15, [x14]
+    0.01 :   1278:   tbnz    x15, #63, 1268 <spgemm_hash_fp32+0x1e8>
+    0.00 :   127c:   lsl     x15, x15, #3
+    0.00 :   1280:   ldr     x1, [x23, x15]
+    0.03 :   1284:   cmp     x1, #0x0
+    0.00 :   1288:   b.le    1938 <spgemm_hash_fp32+0x8b8>
+    0.01 :   128c:   mov     x0, #0x0                        // #0
+    0.00 :   1290:   mov     x4, #0x20                       // #32
+    0.00 :   1294:   add     x0, x0, #0x1
+    0.00 :   1298:   lsl     x4, x4, #1
+    0.00 :   129c:   cmp     x1, x0
+    0.00 :   12a0:   b.ne    1294 <spgemm_hash_fp32+0x214>  // b.any
+    0.00 :   12a4:   cmp     x4, #0x0
+    0.00 :   12a8:   b.le    12c8 <spgemm_hash_fp32+0x248>
+    0.00 :   12ac:   mov     x0, x4
+    0.00 :   12b0:   lsr     x1, x0, #2
+    0.00 :   12b4:   add     x0, sp, #0x110
+    0.00 :   12b8:   add     x1, x0, x1, lsl #5
+    0.00 :   12bc:   stp     q31, q31, [x0], #32
+    0.11 :   12c0:   cmp     x0, x1
+    0.00 :   12c4:   b.ne    12bc <spgemm_hash_fp32+0x23c>  // b.any
+    0.00 :   12c8:   add     x0, x9, x15
+    0.01 :   12cc:   ldr     x12, [x9, x15]
+    0.02 :   12d0:   mov     x8, #0x0                        // #0
+    0.01 :   12d4:   ldr     x16, [x0, #8]
+    0.00 :   12d8:   cmp     x12, x16
+    0.00 :   12dc:   b.ge    1378 <spgemm_hash_fp32+0x2f8>  // b.tcont
+    0.00 :   12e0:   add     x12, x28, x12, lsl #3
+    0.00 :   12e4:   add     x16, x28, x16, lsl #3
+    0.02 :   12e8:   ldr     x0, [x12]
+    0.04 :   12ec:   lsl     x0, x0, #3
+    0.08 :   12f0:   add     x1, x21, x0
+    0.00 :   12f4:   ldr     x5, [x21, x0]
+    0.13 :   12f8:   ldr     x7, [x1, #8]
+    0.00 :   12fc:   cmp     x5, x7
+    0.00 :   1300:   b.ge    136c <spgemm_hash_fp32+0x2ec>  // b.tcont
+    0.03 :   1304:   add     x5, x22, x5, lsl #3
+    0.00 :   1308:   add     x7, x22, x7, lsl #3
+    0.06 :   130c:   ldr     x3, [x5]
+    0.23 :   1310:   add     x0, x3, x3, lsl #1
+    1.63 :   1314:   add     x0, x0, x0, lsl #3
+    0.00 :   1318:   lsl     x0, x0, #2
+    0.04 :   131c:   sub     x0, x0, x3
+    0.07 :   1320:   sdiv    x1, x0, x4
+    0.03 :   1324:   msub    x1, x1, x4, x0
+    0.02 :   1328:   add     x1, x1, x4
+    0.03 :   132c:   sdiv    x0, x1, x4
+    0.05 :   1330:   msub    x0, x0, x4, x1
+    0.04 :   1334:   add     x1, x6, x0, lsl #3
+    0.02 :   1338:   b       1350 <spgemm_hash_fp32+0x2d0>
+    0.58 :   133c:   cmp     x19, x2
+    0.00 :   1340:   b.eq    141c <spgemm_hash_fp32+0x39c>  // b.none
+    0.29 :   1344:   add     x0, x0, #0x1
+    0.37 :   1348:   cmp     x4, x0
+    0.00 :   134c:   b.eq    1434 <spgemm_hash_fp32+0x3b4>  // b.none
+    3.35 :   1350:   ldr     x2, [x1]
+    1.77 :   1354:   add     x1, x1, #0x8
+    2.17 :   1358:   cmp     x3, x2
+    0.00 :   135c:   b.ne    133c <spgemm_hash_fp32+0x2bc>  // b.any
+    0.00 :   1360:   add     x5, x5, #0x8
+    0.00 :   1364:   cmp     x7, x5
+    0.00 :   1368:   b.ne    130c <spgemm_hash_fp32+0x28c>  // b.any
+    0.10 :   136c:   add     x12, x12, #0x8
+    0.00 :   1370:   cmp     x12, x16
+    0.00 :   1374:   b.ne    12e8 <spgemm_hash_fp32+0x268>  // b.any
+    0.00 :   1378:   add     x14, x14, #0x8
+    0.01 :   137c:   str     x8, [x27, x15]
+    0.02 :   1380:   cmp     x17, x14
+    0.00 :   1384:   b.ne    1274 <spgemm_hash_fp32+0x1f4>  // b.any
+    0.00 :   1388:   mov     x0, #0x0                        // #0
+    0.00 :   138c:   mov     x2, #0x0                        // #0
+    0.00 :   1390:   ldr     x3, [x27, x0, lsl #3]
+    0.00 :   1394:   cmp     x0, x13
+    0.00 :   1398:   str     x2, [x11, x0, lsl #3]
+    0.00 :   139c:   add     x0, x0, #0x1
+    0.00 :   13a0:   add     x2, x2, x3
+    0.00 :   13a4:   b.ne    1390 <spgemm_hash_fp32+0x310>  // b.any
+    0.00 :   13a8:   mov     w4, #0x43800000                 // #1132462080
+    0.00 :   13ac:   mov     w1, #0x45800000                 // #1166016512
+    0.00 :   13b0:   str     x2, [x11, x24]
+    0.00 :   13b4:   movi    v31.4s, #0x0
+    0.00 :   13b8:   movi    v23.2s, #0x42, lsl #24
+    0.00 :   13bc:   mov     w2, #0x44800000                 // #1149239296
+    0.00 :   13c0:   mov     w3, #0x42800000                 // #1115684864
+    0.00 :   13c4:   movi    v24.2s, #0x43, lsl #24
+    0.00 :   13c8:   movi    v25.2s, #0x44, lsl #24
+    0.00 :   13cc:   fmov    s28, w4
+    0.00 :   13d0:   movi    v26.2s, #0x45, lsl #24
+    0.00 :   13d4:   mov     x0, #0x0                        // #0
+    0.00 :   13d8:   fmov    s29, w2
+    0.00 :   13dc:   fmov    s30, w1
+    0.00 :   13e0:   fmov    s27, w3
+    0.00 :   13e4:   add     x3, sp, #0x90
+    0.00 :   13e8:   stp     q31, q31, [sp, #144]
+    0.00 :   13ec:   stp     q31, q31, [sp, #176]
+    0.00 :   13f0:   ldr     x1, [x27, x0, lsl #3]
+    0.00 :   13f4:   scvtf   s31, x1
+    0.00 :   13f8:   fcmpe   s31, #0.0
+    0.00 :   13fc:   b.gt    1538 <spgemm_hash_fp32+0x4b8>
+    0.00 :   1400:   mov     x1, #0xffffffffffffffff         // #-1
+    0.00 :   1404:   str     x1, [x23, x0, lsl #3]
+    0.00 :   1408:   add     x1, x0, #0x1
+    0.00 :   140c:   cmp     x0, x13
+    0.00 :   1410:   b.eq    15a0 <spgemm_hash_fp32+0x520>  // b.none
+    0.00 :   1414:   mov     x0, x1
+    0.00 :   1418:   b       13f0 <spgemm_hash_fp32+0x370>
+    0.14 :   141c:   add     x5, x5, #0x8
+    0.34 :   1420:   str     x3, [x6, x0, lsl #3]
+    0.67 :   1424:   add     x8, x8, #0x1
+    0.06 :   1428:   cmp     x7, x5
+    0.00 :   142c:   b.ne    130c <spgemm_hash_fp32+0x28c>  // b.any
+    0.01 :   1430:   b       136c <spgemm_hash_fp32+0x2ec>
+    0.00 :   1434:   mov     x0, #0x0                        // #0
+    0.00 :   1438:   b       1334 <spgemm_hash_fp32+0x2b4>
+    0.00 :   143c:   mov     w4, #0x43800000                 // #1132462080
+    0.00 :   1440:   mov     w2, #0x44800000                 // #1149239296
+    0.00 :   1444:   movi    v23.2s, #0x42, lsl #24
+    0.00 :   1448:   movi    v24.2s, #0x43, lsl #24
+    0.00 :   144c:   mov     w1, #0x45800000                 // #1166016512
+    0.00 :   1450:   mov     w3, #0x42800000                 // #1115684864
+    0.00 :   1454:   movi    v25.2s, #0x44, lsl #24
+    0.00 :   1458:   movi    v26.2s, #0x45, lsl #24
+    0.00 :   145c:   fmov    s28, w4
+    0.00 :   1460:   mov     x0, #0x0                        // #0
+    0.00 :   1464:   fmov    s29, w2
+    0.00 :   1468:   fmov    s30, w1
+    0.00 :   146c:   fmov    s27, w3
+    0.00 :   1470:   add     x3, sp, #0x90
+    0.00 :   1474:   ldr     x1, [x20, x0, lsl #3]
+    0.00 :   1478:   scvtf   s31, x1
+    0.00 :   147c:   fcmpe   s31, #0.0
+    0.00 :   1480:   b.gt    14a0 <spgemm_hash_fp32+0x420>
+    0.00 :   1484:   mov     x1, #0xffffffffffffffff         // #-1
+    0.00 :   1488:   str     x1, [x23, x0, lsl #3]
+    0.00 :   148c:   add     x1, x0, #0x1
+    0.00 :   1490:   cmp     x5, x0
+    0.00 :   1494:   b.eq    11a4 <spgemm_hash_fp32+0x124>  // b.none
+    0.00 :   1498:   mov     x0, x1
+    0.00 :   149c:   b       1474 <spgemm_hash_fp32+0x3f4>
+    0.01 :   14a0:   fcmpe   s31, s23
+    0.00 :   14a4:   b.ls    1530 <spgemm_hash_fp32+0x4b0>  // b.plast
+    0.00 :   14a8:   fcmpe   s31, s27
+    0.00 :   14ac:   b.ls    1528 <spgemm_hash_fp32+0x4a8>  // b.plast
+    0.00 :   14b0:   fcmpe   s31, s24
+    0.00 :   14b4:   b.ls    1520 <spgemm_hash_fp32+0x4a0>  // b.plast
+    0.00 :   14b8:   fcmpe   s31, s28
+    0.00 :   14bc:   b.ls    1518 <spgemm_hash_fp32+0x498>  // b.plast
+    0.00 :   14c0:   fcmpe   s31, s25
+    0.00 :   14c4:   b.ls    1510 <spgemm_hash_fp32+0x490>  // b.plast
+    0.00 :   14c8:   fcmpe   s31, s29
+    0.00 :   14cc:   b.ls    1508 <spgemm_hash_fp32+0x488>  // b.plast
+    0.00 :   14d0:   fcmpe   s31, s26
+    0.00 :   14d4:   b.ls    1500 <spgemm_hash_fp32+0x480>  // b.plast
+    0.00 :   14d8:   fcmpe   s31, s30
+    0.00 :   14dc:   b.ls    14e4 <spgemm_hash_fp32+0x464>  // b.plast
+    0.00 :   14e0:   b       1484 <spgemm_hash_fp32+0x404>
+    0.00 :   14e4:   mov     x1, #0x7                        // #7
+    0.00 :   14e8:   lsl     x2, x1, #3
+    0.00 :   14ec:   str     x1, [x23, x0, lsl #3]
+    0.00 :   14f0:   ldr     x1, [x3, x2]
+    0.00 :   14f4:   add     x1, x1, #0x1
+    0.01 :   14f8:   str     x1, [x3, x2]
+    0.00 :   14fc:   b       148c <spgemm_hash_fp32+0x40c>
+    0.00 :   1500:   mov     x1, #0x6                        // #6
+    0.00 :   1504:   b       14e8 <spgemm_hash_fp32+0x468>
+    0.00 :   1508:   mov     x1, #0x5                        // #5
+    0.00 :   150c:   b       14e8 <spgemm_hash_fp32+0x468>
+    0.00 :   1510:   mov     x1, #0x4                        // #4
+    0.00 :   1514:   b       14e8 <spgemm_hash_fp32+0x468>
+    0.01 :   1518:   mov     x1, #0x3                        // #3
+    0.00 :   151c:   b       14e8 <spgemm_hash_fp32+0x468>
+    0.01 :   1520:   mov     x1, #0x2                        // #2
+    0.00 :   1524:   b       14e8 <spgemm_hash_fp32+0x468>
+    0.00 :   1528:   mov     x1, #0x1                        // #1
+    0.00 :   152c:   b       14e8 <spgemm_hash_fp32+0x468>
+    0.00 :   1530:   mov     x1, #0x0                        // #0
+    0.00 :   1534:   b       14e8 <spgemm_hash_fp32+0x468>
+    0.02 :   1538:   fcmpe   s31, s23
+    0.00 :   153c:   b.ls    190c <spgemm_hash_fp32+0x88c>  // b.plast
+    0.00 :   1540:   fcmpe   s31, s27
+    0.00 :   1544:   b.ls    1904 <spgemm_hash_fp32+0x884>  // b.plast
+    0.00 :   1548:   fcmpe   s31, s24
+    0.00 :   154c:   b.ls    18fc <spgemm_hash_fp32+0x87c>  // b.plast
+    0.00 :   1550:   fcmpe   s31, s28
+    0.00 :   1554:   b.ls    18f4 <spgemm_hash_fp32+0x874>  // b.plast
+    0.00 :   1558:   fcmpe   s31, s25
+    0.00 :   155c:   b.ls    18ec <spgemm_hash_fp32+0x86c>  // b.plast
+    0.00 :   1560:   fcmpe   s31, s29
+    0.00 :   1564:   b.ls    18e4 <spgemm_hash_fp32+0x864>  // b.plast
+    0.00 :   1568:   fcmpe   s31, s26
+    0.00 :   156c:   b.ls    18dc <spgemm_hash_fp32+0x85c>  // b.plast
+    0.00 :   1570:   fcmpe   s31, s30
+    0.00 :   1574:   b.ls    157c <spgemm_hash_fp32+0x4fc>  // b.plast
+    0.00 :   1578:   b       1400 <spgemm_hash_fp32+0x380>
+    0.00 :   157c:   mov     x1, #0x7                        // #7
+    0.00 :   1580:   lsl     x2, x1, #3
+    0.00 :   1584:   str     x1, [x23, x0, lsl #3]
+    0.01 :   1588:   ldr     x1, [x3, x2]
+    0.00 :   158c:   add     x1, x1, #0x1
+    0.01 :   1590:   str     x1, [x3, x2]
+    0.00 :   1594:   add     x1, x0, #0x1
+    0.00 :   1598:   cmp     x0, x13
+    0.00 :   159c:   b.ne    1414 <spgemm_hash_fp32+0x394>  // b.any
+    0.00 :   15a0:   ldp     x0, x4, [sp, #144]
+    0.00 :   15a4:   movi    v31.4s, #0x0
+    0.00 :   15a8:   ldp     x3, x2, [sp, #160]
+    0.00 :   15ac:   add     x4, x0, x4
+    0.00 :   15b0:   stp     xzr, x0, [sp, #208]
+    0.00 :   15b4:   add     x3, x4, x3
+    0.00 :   15b8:   ldr     x1, [sp, #176]
+    0.00 :   15bc:   add     x2, x3, x2
+    0.00 :   15c0:   stp     q31, q31, [sp, #144]
+    0.00 :   15c4:   ldr     x0, [sp, #184]
+    0.00 :   15c8:   str     q31, [sp, #176]
+    0.00 :   15cc:   ldr     x5, [sp, #192]
+    0.00 :   15d0:   add     x1, x2, x1
+    0.00 :   15d4:   str     q31, [sp, #192]
+    0.00 :   15d8:   stp     x2, x1, [sp, #240]
+    0.00 :   15dc:   add     x0, x1, x0
+    0.00 :   15e0:   add     x2, x5, x0
+    0.00 :   15e4:   stp     x4, x3, [sp, #224]
+    0.00 :   15e8:   stp     x0, x2, [sp, #256]
+    0.00 :   15ec:   cmp     x25, #0x0
+    0.00 :   15f0:   b.le    189c <spgemm_hash_fp32+0x81c>
+    0.00 :   15f4:   mov     x2, x24
+    0.00 :   15f8:   mov     w1, #0xff                       // #255
+    0.00 :   15fc:   mov     x0, x26
+    0.00 :   1600:   stp     x9, x11, [sp, #104]
+    0.00 :   1604:   bl      650 <memset@plt>
+    0.00 :   1608:   ldp     x9, x11, [sp, #104]
+    0.00 :   160c:   mov     x0, #0x0                        // #0
+    0.00 :   1610:   add     x3, sp, #0x90
+    0.00 :   1614:   add     x4, sp, #0xd0
+    0.00 :   1618:   ldr     x1, [x23, x0, lsl #3]
+    0.00 :   161c:   tbnz    x1, #63, 163c <spgemm_hash_fp32+0x5bc>
+    0.00 :   1620:   lsl     x1, x1, #3
+    0.00 :   1624:   ldr     x2, [x3, x1]
+    0.00 :   1628:   ldr     x6, [x4, x1]
+    0.00 :   162c:   add     x5, x2, #0x1
+    0.00 :   1630:   add     x2, x2, x6
+    0.00 :   1634:   str     x5, [x3, x1]
+    0.00 :   1638:   str     x0, [x26, x2, lsl #3]
+    0.00 :   163c:   add     x0, x0, #0x1
+    0.00 :   1640:   cmp     x25, x0
+    0.00 :   1644:   b.ne    1618 <spgemm_hash_fp32+0x598>  // b.any
+    0.00 :   1648:   dup     v31.2d, x19
+    0.00 :   164c:   add     x24, x24, x26
+    0.00 :   1650:   mov     x25, x26
+    0.00 :   1654:   add     x1, sp, #0x110
+    0.00 :   1658:   b       1668 <spgemm_hash_fp32+0x5e8>
+    0.00 :   165c:   add     x25, x25, #0x8
+    0.00 :   1660:   cmp     x24, x25
+    0.00 :   1664:   b.eq    189c <spgemm_hash_fp32+0x81c>  // b.none
+    0.00 :   1668:   ldr     x16, [x25]
+    0.00 :   166c:   tbnz    x16, #63, 165c <spgemm_hash_fp32+0x5dc>
+    0.00 :   1670:   lsl     x16, x16, #3
+    0.00 :   1674:   ldr     x2, [x23, x16]
+    0.04 :   1678:   cmp     x2, #0x0
+    0.00 :   167c:   b.le    1944 <spgemm_hash_fp32+0x8c4>
+    0.00 :   1680:   mov     x0, #0x0                        // #0
+    0.00 :   1684:   mov     x7, #0x20                       // #32
+    0.00 :   1688:   add     x0, x0, #0x1
+    0.00 :   168c:   lsl     x7, x7, #1
+    0.00 :   1690:   cmp     x2, x0
+    0.00 :   1694:   b.ne    1688 <spgemm_hash_fp32+0x608>  // b.any
+    0.00 :   1698:   cmp     x7, #0x0
+    0.00 :   169c:   b.le    16bc <spgemm_hash_fp32+0x63c>
+    0.00 :   16a0:   mov     x0, x7
+    0.00 :   16a4:   lsr     x2, x0, #2
+    0.00 :   16a8:   add     x0, sp, #0x110
+    0.00 :   16ac:   add     x2, x0, x2, lsl #5
+    0.03 :   16b0:   stp     q31, q31, [x0], #32
+    0.48 :   16b4:   cmp     x0, x2
+    0.00 :   16b8:   b.ne    16b0 <spgemm_hash_fp32+0x630>  // b.any
+    0.00 :   16bc:   add     x17, x16, #0x8
+    0.00 :   16c0:   ldr     x2, [x9, x16]
+    0.00 :   16c4:   ldr     x0, [x9, x17]
+    0.00 :   16c8:   add     x8, x28, x2, lsl #3
+    0.00 :   16cc:   add     x12, x28, x0, lsl #3
+    0.00 :   16d0:   cmp     x2, x0
+    0.00 :   16d4:   b.ge    176c <spgemm_hash_fp32+0x6ec>  // b.tcont
+    0.01 :   16d8:   ldr     x0, [x8]
+    0.03 :   16dc:   lsl     x0, x0, #3
+    0.08 :   16e0:   add     x3, x21, x0
+    0.00 :   16e4:   ldr     x2, [x21, x0]
+    0.17 :   16e8:   ldr     x0, [x3, #8]
+    0.01 :   16ec:   add     x5, x22, x2, lsl #3
+    0.02 :   16f0:   add     x6, x22, x0, lsl #3
+    0.00 :   16f4:   cmp     x2, x0
+    0.00 :   16f8:   b.ge    1760 <spgemm_hash_fp32+0x6e0>  // b.tcont
+    0.01 :   16fc:   nop
+    0.09 :   1700:   ldr     x4, [x5]
+    0.32 :   1704:   add     x0, x4, x4, lsl #1
+    1.86 :   1708:   add     x0, x0, x0, lsl #3
+    0.00 :   170c:   lsl     x0, x0, #2
+    0.03 :   1710:   sub     x0, x0, x4
+    0.01 :   1714:   sdiv    x2, x0, x7
+    0.04 :   1718:   msub    x2, x2, x7, x0
+    0.03 :   171c:   add     x2, x2, x7
+    0.05 :   1720:   sdiv    x0, x2, x7
+    0.03 :   1724:   msub    x0, x0, x7, x2
+    0.09 :   1728:   add     x2, x1, x0, lsl #3
+    0.01 :   172c:   b       1744 <spgemm_hash_fp32+0x6c4>
+    0.54 :   1730:   cmp     x3, x19
+    0.00 :   1734:   b.eq    1914 <spgemm_hash_fp32+0x894>  // b.none
+    0.26 :   1738:   add     x0, x0, #0x1
+    0.40 :   173c:   cmp     x0, x7
+    0.00 :   1740:   b.eq    1928 <spgemm_hash_fp32+0x8a8>  // b.none
+    4.26 :   1744:   ldr     x3, [x2]
+    0.91 :   1748:   add     x2, x2, #0x8
+    2.15 :   174c:   cmp     x4, x3
+    0.00 :   1750:   b.ne    1730 <spgemm_hash_fp32+0x6b0>  // b.any
+    0.00 :   1754:   add     x5, x5, #0x8
+    0.00 :   1758:   cmp     x6, x5
+    0.00 :   175c:   b.ne    1700 <spgemm_hash_fp32+0x680>  // b.any
+    0.10 :   1760:   add     x8, x8, #0x8
+    0.00 :   1764:   cmp     x12, x8
+    0.00 :   1768:   b.ne    16d8 <spgemm_hash_fp32+0x658>  // b.any
+    0.00 :   176c:   mov     x15, #0x2                       // #2
+    0.01 :   1770:   asr     x12, x7, #1
+    0.00 :   1774:   cmp     x7, x15
+    0.00 :   1778:   b.le    1854 <spgemm_hash_fp32+0x7d4>
+    0.02 :   177c:   asr     x14, x15, #1
+    0.00 :   1780:   cmp     x15, #0x1
+    0.00 :   1784:   b.le    1930 <spgemm_hash_fp32+0x8b0>
+    0.01 :   1788:   mov     x8, x14
+    0.03 :   178c:   mov     x3, #0x0                        // #0
+    0.01 :   1790:   sub     x13, x8, #0x1
+    0.02 :   1794:   nop
+    0.00 :   1798:   nop
+    0.02 :   179c:   nop
+    8.01 :   17a0:   sdiv    x0, x3, x14
+    0.23 :   17a4:   and     x4, x3, x13
+    0.89 :   17a8:   ubfiz   x2, x3, #1, #32
+    0.20 :   17ac:   sub     x2, x2, x4
+    0.80 :   17b0:   add     x3, x3, #0x1
+    0.22 :   17b4:   add     x4, x2, x8
+    0.76 :   17b8:   lsl     x2, x2, #3
+    0.19 :   17bc:   lsl     x4, x4, #3
+    0.84 :   17c0:   ldr     x5, [x1, x2]
+   13.02 :   17c4:   ldr     x6, [x1, x4]
+    0.22 :   17c8:   mvn     x0, x0
+    4.71 :   17cc:   cmp     x6, x5
+    0.40 :   17d0:   cset    x18, lt // lt = tstop
+    0.80 :   17d4:   and     x0, x0, #0x1
+    1.20 :   17d8:   cmp     x18, x0
+    0.00 :   17dc:   b.ne    17e8 <spgemm_hash_fp32+0x768>  // b.any
+   10.47 :   17e0:   str     x6, [x1, x2]
+    8.99 :   17e4:   str     x5, [x1, x4]
+   10.80 :   17e8:   cmp     x12, x3
+    0.00 :   17ec:   b.gt    17a0 <spgemm_hash_fp32+0x720>
+    0.14 :   17f0:   asr     x8, x8, #1
+    0.00 :   17f4:   cbnz    x8, 178c <spgemm_hash_fp32+0x70c>
+    0.01 :   17f8:   lsl     x15, x15, #1
+    0.00 :   17fc:   cmp     x15, x7
+    0.00 :   1800:   b.lt    177c <spgemm_hash_fp32+0x6fc>  // b.tstop
+    0.00 :   1804:   mov     x6, x12
+    0.07 :   1808:   mov     x2, #0x0                        // #0
+    0.00 :   180c:   sub     x7, x6, #0x1
+    1.29 :   1810:   and     x3, x7, x2
+    0.07 :   1814:   ubfiz   x0, x2, #1, #32
+    0.29 :   1818:   sub     x0, x0, x3
+    0.08 :   181c:   add     x2, x2, #0x1
+    0.28 :   1820:   add     x3, x0, x6
+    0.06 :   1824:   lsl     x0, x0, #3
+    0.30 :   1828:   lsl     x3, x3, #3
+    0.32 :   182c:   ldr     x4, [x1, x0]
+    3.02 :   1830:   ldr     x5, [x1, x3]
+    1.59 :   1834:   cmp     x5, x4
+    0.00 :   1838:   b.ge    1844 <spgemm_hash_fp32+0x7c4>  // b.tcont
+    0.50 :   183c:   str     x5, [x1, x0]
+    1.54 :   1840:   str     x4, [x1, x3]
+    1.15 :   1844:   cmp     x12, x2
+    0.00 :   1848:   b.gt    1810 <spgemm_hash_fp32+0x790>
+    0.00 :   184c:   asr     x6, x6, #1
+    0.00 :   1850:   cbnz    x6, 1808 <spgemm_hash_fp32+0x788>
+    0.03 :   1854:   ldr     x0, [x11, x16]
+    0.08 :   1858:   ldr     x2, [x11, x17]
+    0.00 :   185c:   sub     x2, x2, x0
+    0.00 :   1860:   cmp     x2, #0x0
+    0.00 :   1864:   b.le    165c <spgemm_hash_fp32+0x5dc>
+    0.01 :   1868:   ldr     x3, [sp, #96]
+    0.00 :   186c:   lsl     x2, x2, #3
+    0.00 :   1870:   add     x25, x25, #0x8
+    0.00 :   1874:   stp     x1, x9, [sp, #104]
+    0.00 :   1878:   str     x11, [sp, #120]
+    0.00 :   187c:   add     x0, x3, x0, lsl #3
+    0.00 :   1880:   str     q31, [sp, #128]
+    0.00 :   1884:   bl      610 <memcpy@plt>
+    0.00 :   1888:   ldr     x11, [sp, #120]
+    0.00 :   188c:   ldp     x1, x9, [sp, #104]
+    0.00 :   1890:   ldr     q31, [sp, #128]
+    0.00 :   1894:   cmp     x24, x25
+    0.00 :   1898:   b.ne    1668 <spgemm_hash_fp32+0x5e8>  // b.any
+    0.00 :   189c:   mov     x0, x20
+    0.00 :   18a0:   bl      640 <free@plt>
+    0.00 :   18a4:   mov     x0, x23
+    0.00 :   18a8:   bl      640 <free@plt>
+    0.00 :   18ac:   mov     x0, x27
+    0.00 :   18b0:   bl      640 <free@plt>
+    0.00 :   18b4:   mov     x12, #0x8110                    // #33040
+    0.00 :   18b8:   ldp     x29, x30, [sp]
+    0.00 :   18bc:   mov     x0, x26
+    0.00 :   18c0:   ldp     x19, x20, [sp, #16]
+    0.00 :   18c4:   ldp     x21, x22, [sp, #32]
+    0.00 :   18c8:   ldp     x23, x24, [sp, #48]
+    0.00 :   18cc:   ldp     x25, x26, [sp, #64]
+    0.00 :   18d0:   ldp     x27, x28, [sp, #80]
+    0.00 :   18d4:   add     sp, sp, x12
+    0.00 :   18d8:   b       640 <free@plt>
+    0.00 :   18dc:   mov     x1, #0x6                        // #6
+    0.00 :   18e0:   b       1580 <spgemm_hash_fp32+0x500>
+    0.00 :   18e4:   mov     x1, #0x5                        // #5
+    0.00 :   18e8:   b       1580 <spgemm_hash_fp32+0x500>
+    0.00 :   18ec:   mov     x1, #0x4                        // #4
+    0.00 :   18f0:   b       1580 <spgemm_hash_fp32+0x500>
+    0.01 :   18f4:   mov     x1, #0x3                        // #3
+    0.00 :   18f8:   b       1580 <spgemm_hash_fp32+0x500>
+    0.00 :   18fc:   mov     x1, #0x2                        // #2
+    0.00 :   1900:   b       1580 <spgemm_hash_fp32+0x500>
+    0.00 :   1904:   mov     x1, #0x1                        // #1
+    0.01 :   1908:   b       1580 <spgemm_hash_fp32+0x500>
+    0.00 :   190c:   mov     x1, #0x0                        // #0
+    0.00 :   1910:   b       1580 <spgemm_hash_fp32+0x500>
+    0.14 :   1914:   add     x5, x5, #0x8
+    0.44 :   1918:   str     x4, [x1, x0, lsl #3]
+    0.67 :   191c:   cmp     x6, x5
+    0.00 :   1920:   b.ne    1700 <spgemm_hash_fp32+0x680>  // b.any
+    0.01 :   1924:   b       1760 <spgemm_hash_fp32+0x6e0>
+    0.01 :   1928:   mov     x0, #0x0                        // #0
+    0.01 :   192c:   b       1728 <spgemm_hash_fp32+0x6a8>
+    0.00 :   1930:   lsl     x15, x15, #1
+    0.00 :   1934:   b       177c <spgemm_hash_fp32+0x6fc>
+    0.00 :   1938:   mov     x0, #0x20                       // #32
+    0.00 :   193c:   mov     x4, x0
+    0.00 :   1940:   b       12b0 <spgemm_hash_fp32+0x230>
+    0.00 :   1944:   mov     x0, #0x20                       // #32
+    0.00 :   1948:   mov     x7, x0
+    0.00 :   194c:   b       16a4 <spgemm_hash_fp32+0x624>
+    0.00 :   1950:   movi    v31.4s, #0x0
+    0.00 :   1954:   str     xzr, [x11, x24]
+    0.00 :   1958:   stp     q31, q31, [sp, #144]
+    0.00 :   195c:   stp     q31, q31, [sp, #176]
+    0.00 :   1960:   b       15a0 <spgemm_hash_fp32+0x520>

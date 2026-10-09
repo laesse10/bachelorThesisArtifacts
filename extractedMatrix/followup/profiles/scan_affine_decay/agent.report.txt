@@ -1,0 +1,17 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 76K of event 'cycles:u'
+# Event count (approx.): 7641900000
+#
+# Overhead  Shared Object               Symbol                                                
+# ........  ..........................  ......................................................
+#
+    99.84%  libscan_affine_decay_cc.so  [.] scan_affine_decay_fp64._omp_fn.0
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

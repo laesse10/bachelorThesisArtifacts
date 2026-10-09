@@ -1,0 +1,18 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 14K of event 'cycles:u'
+# Event count (approx.): 1488300000
+#
+# Overhead  Shared Object                                       Symbol                                               
+# ........  ..................................................  .....................................................
+#
+    99.66%  libfuse_stencil_through_transient_cc.so             [.] fuse_stencil_through_transient_fp64
+     0.12%  python3.12                                          [.] _PyEval_EvalFrameDefault
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

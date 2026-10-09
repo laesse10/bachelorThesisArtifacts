@@ -1,0 +1,239 @@
+########## fuse_diamond_fp64
+ Percent |	Source code & Disassembly of libfuse_diamond_cc.so for cycles:u (42612 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   00000000000006e0 <fuse_diamond_fp64>:
+         : 6   fuse_diamond_fp64():
+    0.00 :   6e0:    stp     x29, x30, [sp, #-80]!
+    0.00 :   6e4:    mov     x29, sp
+    0.00 :   6e8:    stp     x23, x24, [sp, #48]
+    0.00 :   6ec:    adrp    x24, 20000 <__gmon_start__@Base>
+    0.00 :   6f0:    mov     x23, x1
+    0.00 :   6f4:    stp     x21, x22, [sp, #32]
+    0.00 :   6f8:    add     x21, x24, #0x40
+    0.00 :   6fc:    mov     x22, x0
+    0.00 :   700:    stp     x19, x20, [sp, #16]
+    0.00 :   704:    mov     x20, x2
+    0.00 :   708:    stp     x25, x26, [sp, #64]
+    0.00 :   70c:    ldr     x2, [x21, #32]
+    0.00 :   710:    ldr     x19, [x24, #64]
+    0.00 :   714:    cmp     x20, x2
+    0.00 :   718:    b.gt    9b8 <fuse_diamond_fp64+0x2d8>
+    0.00 :   71c:    add     x25, x24, #0x40
+    0.00 :   720:    ldr     x0, [x25, #40]
+    0.00 :   724:    ldr     x21, [x25, #8]
+    0.00 :   728:    cmp     x20, x0
+    0.00 :   72c:    b.gt    9e8 <fuse_diamond_fp64+0x308>
+    0.00 :   730:    add     x24, x24, #0x40
+    0.00 :   734:    ldr     x1, [x24, #48]
+    0.00 :   738:    ldr     x0, [x24, #16]
+    0.00 :   73c:    cmp     x20, x1
+    0.00 :   740:    b.gt    a18 <fuse_diamond_fp64+0x338>
+    0.00 :   744:    cmp     x20, #0x0
+    0.00 :   748:    b.le    960 <fuse_diamond_fp64+0x280>
+    0.00 :   74c:    sub     x5, x20, #0x1
+    0.00 :   750:    cmp     x5, #0x2
+    0.00 :   754:    b.ls    a64 <fuse_diamond_fp64+0x384>  // b.plast
+    0.00 :   758:    lsr     x4, x20, #2
+    0.00 :   75c:    mov     x3, #0x0                        // #0
+    0.00 :   760:    add     x1, x22, #0x10
+    0.00 :   764:    lsl     x4, x4, #5
+    0.00 :   768:    add     x2, x19, #0x10
+    0.39 :   76c:    ldr     q31, [x22, x3]
+    0.43 :   770:    ldr     q30, [x1, x3]
+    7.70 :   774:    fmul    v31.2d, v31.2d, v31.2d
+    0.03 :   778:    fmul    v30.2d, v30.2d, v30.2d
+    0.42 :   77c:    str     q31, [x19, x3]
+    1.31 :   780:    str     q30, [x2, x3]
+   10.76 :   784:    add     x3, x3, #0x20
+    0.48 :   788:    cmp     x4, x3
+    0.00 :   78c:    b.ne    76c <fuse_diamond_fp64+0x8c>  // b.any
+    0.00 :   790:    and     x1, x20, #0xfffffffffffffffc
+    0.00 :   794:    cmp     x20, x1
+    0.00 :   798:    b.eq    7cc <fuse_diamond_fp64+0xec>  // b.none
+    0.00 :   79c:    sub     x2, x20, x1
+    0.00 :   7a0:    add     x3, x19, x1, lsl #3
+    0.00 :   7a4:    whilelo p7.d, xzr, x2
+    0.00 :   7a8:    ld1d    {z29.d}, p7/z, [x22, x1, lsl #3]
+    0.00 :   7ac:    fmul    z29.d, z29.d, z29.d
+    0.00 :   7b0:    st1d    {z29.d}, p7, [x3]
+    0.00 :   7b4:    cntd    x4
+    0.00 :   7b8:    add     x1, x22, x1, lsl #3
+    0.00 :   7bc:    whilelo p7.d, x4, x2
+    0.00 :   7c0:    b.ne    978 <fuse_diamond_fp64+0x298>  // b.any
+    0.00 :   7c4:    cmp     x5, #0x2
+    0.00 :   7c8:    b.ls    a30 <fuse_diamond_fp64+0x350>  // b.plast
+    0.00 :   7cc:    add     x5, x19, #0x8
+    0.00 :   7d0:    sub     x1, x21, x5
+    0.00 :   7d4:    cmp     x1, #0x10
+    0.00 :   7d8:    b.ls    a6c <fuse_diamond_fp64+0x38c>  // b.plast
+    0.00 :   7dc:    fmov    v27.2d, #1.000000000000000000e+00
+    0.00 :   7e0:    lsr     x1, x20, #2
+    0.00 :   7e4:    mov     x3, #0x0                        // #0
+    0.00 :   7e8:    add     x2, x19, #0x10
+    0.00 :   7ec:    lsl     x1, x1, #5
+    0.00 :   7f0:    add     x4, x21, #0x10
+    0.00 :   7f4:    nop
+    0.00 :   7f8:    nop
+    0.00 :   7fc:    nop
+    0.88 :   800:    ldr     q2, [x19, x3]
+    0.45 :   804:    ldr     q26, [x2, x3]
+    7.69 :   808:    fadd    v2.2d, v2.2d, v27.2d
+    0.05 :   80c:    fadd    v26.2d, v26.2d, v27.2d
+    0.40 :   810:    str     q2, [x21, x3]
+    1.84 :   814:    str     q26, [x4, x3]
+    9.71 :   818:    add     x3, x3, #0x20
+    0.50 :   81c:    cmp     x1, x3
+    0.00 :   820:    b.ne    800 <fuse_diamond_fp64+0x120>  // b.any
+    0.00 :   824:    and     x2, x20, #0xfffffffffffffffc
+    0.00 :   828:    tst     x20, #0x3
+    0.00 :   82c:    b.eq    878 <fuse_diamond_fp64+0x198>  // b.none
+    0.00 :   830:    lsl     x3, x2, #3
+    0.00 :   834:    add     x1, x2, #0x1
+    0.00 :   838:    ldr     d1, [x19, x3]
+    0.00 :   83c:    fadd    d1, d1, d27
+    0.00 :   840:    str     d1, [x21, x3]
+    0.00 :   844:    cmp     x20, x1
+    0.00 :   848:    b.le    878 <fuse_diamond_fp64+0x198>
+    0.00 :   84c:    lsl     x1, x1, #3
+    0.00 :   850:    add     x2, x2, #0x2
+    0.00 :   854:    ldr     d0, [x19, x1]
+    0.00 :   858:    fadd    d0, d0, d27
+    0.00 :   85c:    str     d0, [x21, x1]
+    0.00 :   860:    cmp     x2, x20
+    0.00 :   864:    b.ge    878 <fuse_diamond_fp64+0x198>  // b.tcont
+    0.00 :   868:    add     x1, x1, #0x8
+    0.00 :   86c:    ldr     d25, [x19, x1]
+    0.00 :   870:    fadd    d25, d25, d27
+    0.00 :   874:    str     d25, [x21, x1]
+    0.00 :   878:    sub     x5, x0, x5
+    0.00 :   87c:    cmp     x5, #0x10
+    0.00 :   880:    b.ls    988 <fuse_diamond_fp64+0x2a8>  // b.plast
+    0.00 :   884:    fmov    v22.2d, #-1.000000000000000000e+00
+    0.00 :   888:    lsr     x1, x20, #2
+    0.00 :   88c:    mov     x3, #0x0                        // #0
+    0.00 :   890:    add     x2, x19, #0x10
+    0.00 :   894:    lsl     x1, x1, #5
+    0.00 :   898:    add     x4, x0, #0x10
+    0.00 :   89c:    nop
+    0.95 :   8a0:    ldr     q20, [x19, x3]
+    0.46 :   8a4:    ldr     q21, [x2, x3]
+    8.04 :   8a8:    fadd    v20.2d, v20.2d, v22.2d
+    0.07 :   8ac:    fadd    v21.2d, v21.2d, v22.2d
+    0.37 :   8b0:    str     q20, [x0, x3]
+    1.54 :   8b4:    str     q21, [x4, x3]
+    9.78 :   8b8:    add     x3, x3, #0x20
+    0.45 :   8bc:    cmp     x1, x3
+    0.00 :   8c0:    b.ne    8a0 <fuse_diamond_fp64+0x1c0>  // b.any
+    0.00 :   8c4:    and     x2, x20, #0xfffffffffffffffc
+    0.00 :   8c8:    tst     x20, #0x3
+    0.00 :   8cc:    b.eq    91c <fuse_diamond_fp64+0x23c>  // b.none
+    0.00 :   8d0:    lsl     x3, x2, #3
+    0.00 :   8d4:    fmov    d18, #1.000000000000000000e+00
+    0.00 :   8d8:    add     x1, x2, #0x1
+    0.00 :   8dc:    ldr     d4, [x19, x3]
+    0.00 :   8e0:    fsub    d4, d4, d18
+    0.00 :   8e4:    str     d4, [x0, x3]
+    0.00 :   8e8:    cmp     x20, x1
+    0.00 :   8ec:    b.le    9a8 <fuse_diamond_fp64+0x2c8>
+    0.00 :   8f0:    lsl     x1, x1, #3
+    0.00 :   8f4:    add     x2, x2, #0x2
+    0.00 :   8f8:    ldr     d3, [x19, x1]
+    0.00 :   8fc:    fsub    d3, d3, d18
+    0.00 :   900:    str     d3, [x0, x1]
+    0.00 :   904:    cmp     x20, x2
+    0.00 :   908:    b.le    91c <fuse_diamond_fp64+0x23c>
+    0.00 :   90c:    add     x1, x1, #0x8
+    0.00 :   910:    ldr     d19, [x19, x1]
+    0.00 :   914:    fsub    d19, d19, d18
+    0.00 :   918:    str     d19, [x0, x1]
+    0.00 :   91c:    lsr     x1, x20, #1
+    0.00 :   920:    mov     x3, #0x0                        // #0
+    0.00 :   924:    lsl     x1, x1, #4
+    1.74 :   928:    ldr     q7, [x0, x3]
+   17.57 :   92c:    ldr     q6, [x21, x3]
+    9.78 :   930:    fmul    v6.2d, v7.2d, v6.2d
+    0.84 :   934:    str     q6, [x23, x3]
+    4.44 :   938:    add     x3, x3, #0x10
+    0.92 :   93c:    cmp     x3, x1
+    0.00 :   940:    b.ne    928 <fuse_diamond_fp64+0x248>  // b.any
+    0.00 :   944:    tbz     w20, #0, 960 <fuse_diamond_fp64+0x280>
+    0.00 :   948:    and     x20, x20, #0xfffffffffffffffe
+    0.00 :   94c:    lsl     x20, x20, #3
+    0.00 :   950:    ldr     d5, [x0, x20]
+    0.00 :   954:    ldr     d31, [x21, x20]
+    0.00 :   958:    fmul    d31, d5, d31
+    0.00 :   95c:    str     d31, [x23, x20]
+    0.00 :   960:    ldp     x19, x20, [sp, #16]
+    0.00 :   964:    ldp     x21, x22, [sp, #32]
+    0.00 :   968:    ldp     x23, x24, [sp, #48]
+    0.00 :   96c:    ldp     x25, x26, [sp, #64]
+    0.00 :   970:    ldp     x29, x30, [sp], #80
+    0.00 :   974:    ret
+    0.00 :   978:    ld1d    {z28.d}, p7/z, [x1, #1, mul vl]
+    0.00 :   97c:    fmul    z28.d, z28.d, z28.d
+    0.00 :   980:    st1d    {z28.d}, p7, [x3, #1, mul vl]
+    0.00 :   984:    b       7c4 <fuse_diamond_fp64+0xe4>
+    0.00 :   988:    fmov    d17, #1.000000000000000000e+00
+    0.00 :   98c:    mov     x1, #0x0                        // #0
+    0.00 :   990:    ldr     d16, [x19, x1, lsl #3]
+    0.00 :   994:    fsub    d16, d16, d17
+    0.00 :   998:    str     d16, [x0, x1, lsl #3]
+    0.00 :   99c:    add     x1, x1, #0x1
+    0.00 :   9a0:    cmp     x20, x1
+    0.00 :   9a4:    b.ne    990 <fuse_diamond_fp64+0x2b0>  // b.any
+    0.00 :   9a8:    cmp     x20, #0x1
+    0.00 :   9ac:    b.ne    91c <fuse_diamond_fp64+0x23c>  // b.any
+    0.00 :   9b0:    mov     x20, #0x0                       // #0
+    0.00 :   9b4:    b       94c <fuse_diamond_fp64+0x26c>
+    0.00 :   9b8:    mov     x0, x19
+    0.00 :   9bc:    add     x25, x24, #0x40
+    0.00 :   9c0:    bl      5c0 <free@plt>
+    0.00 :   9c4:    lsl     x0, x20, #3
+    0.00 :   9c8:    bl      5b0 <malloc@plt>
+    0.00 :   9cc:    mov     x19, x0
+    0.00 :   9d0:    str     x0, [x24, #64]
+    0.00 :   9d4:    ldr     x0, [x25, #40]
+    0.00 :   9d8:    str     x20, [x21, #32]
+    0.00 :   9dc:    ldr     x21, [x25, #8]
+    0.00 :   9e0:    cmp     x20, x0
+    0.00 :   9e4:    b.le    730 <fuse_diamond_fp64+0x50>
+    0.00 :   9e8:    mov     x0, x21
+    0.00 :   9ec:    add     x24, x24, #0x40
+    0.00 :   9f0:    bl      5c0 <free@plt>
+    0.00 :   9f4:    lsl     x0, x20, #3
+    0.00 :   9f8:    bl      5b0 <malloc@plt>
+    0.00 :   9fc:    ldr     x1, [x24, #48]
+    0.00 :   a00:    mov     x21, x0
+    0.00 :   a04:    str     x0, [x25, #8]
+    0.00 :   a08:    str     x20, [x25, #40]
+    0.00 :   a0c:    ldr     x0, [x24, #16]
+    0.00 :   a10:    cmp     x20, x1
+    0.00 :   a14:    b.le    744 <fuse_diamond_fp64+0x64>
+    0.00 :   a18:    bl      5c0 <free@plt>
+    0.00 :   a1c:    lsl     x0, x20, #3
+    0.00 :   a20:    bl      5b0 <malloc@plt>
+    0.00 :   a24:    str     x0, [x24, #16]
+    0.00 :   a28:    str     x20, [x24, #48]
+    0.00 :   a2c:    b       744 <fuse_diamond_fp64+0x64>
+    0.00 :   a30:    mov     w2, #0x0                        // #0
+    0.00 :   a34:    fmov    d24, #1.000000000000000000e+00
+    0.00 :   a38:    mov     x1, #0x0                        // #0
+    0.00 :   a3c:    nop
+    0.00 :   a40:    ldr     d23, [x19, x1, lsl #3]
+    0.00 :   a44:    fadd    d23, d23, d24
+    0.00 :   a48:    str     d23, [x21, x1, lsl #3]
+    0.00 :   a4c:    add     x1, x1, #0x1
+    0.00 :   a50:    cmp     x20, x1
+    0.00 :   a54:    b.ne    a40 <fuse_diamond_fp64+0x360>  // b.any
+    0.00 :   a58:    cbz     w2, 988 <fuse_diamond_fp64+0x2a8>
+    0.00 :   a5c:    add     x5, x19, #0x8
+    0.00 :   a60:    b       878 <fuse_diamond_fp64+0x198>
+    0.00 :   a64:    mov     x1, #0x0                        // #0
+    0.00 :   a68:    b       79c <fuse_diamond_fp64+0xbc>
+    0.00 :   a6c:    mov     w2, #0x1                        // #1
+    0.00 :   a70:    b       a34 <fuse_diamond_fp64+0x354>

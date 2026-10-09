@@ -1,0 +1,29 @@
+unit qtxN kernel=quatrex_rgf bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006555 start=2026-10-09T10:20:03+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006555 1 1
+SRUN[qtxN]: srun --nodes=1 --ntasks=1 -w nid006555 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel quatrex_rgf --cells c numba nbnoblas=numba:src=variants/quatrex_rgf_nbnoblas.py --rounds 3 --perf --record-reps 60 --out parts/qtxN.csv --scratch scratch/qtxN --db-shard 201
+pristine quatrex_rgf_fp64.c 900ad4172759a18b
+pristine quatrex_rgf_fp64.cpp efdcfe76626bae86
+pristine quatrex_rgf_fp64.f90 ed898b4a3a00473a
+pristine quatrex_rgf_fp32.c 1069841ecd7e30b1
+pristine quatrex_rgf_fp32.cpp 4c6f47dfa85b5704
+pristine quatrex_rgf_fp32.f90 dd084ac3f570ca7f
+pristine quatrex_rgf_numba_np.py c01c08aff44402c6
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+cell nbnoblas: numba src=variants/quatrex_rgf_nbnoblas.py src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 7.271 ms 
+  [1] numba            ok           min 4.189 ms 
+  [1] nbnoblas         ok           min 7.444 ms 
+  [2] nbnoblas         ok           min 7.430 ms 
+  [2] numba            ok           min 4.189 ms 
+  [2] c                ok           min 7.264 ms 
+  [3] c                ok           min 7.277 ms 
+  [3] numba            ok           min 4.172 ms 
+  [3] nbnoblas         ok           min 7.436 ms 
+  [record] c                ok           min 7.416 ms 
+  [record] numba            ok           min 4.334 ms 
+  [record] nbnoblas         ok           min 7.591 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/qtxN.csv
+SRUN[qtxN]: srun --nodes=1 --ntasks=1 -w nid006555 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.qtxN.csv --out-dir opt_reports/nbnoblas quatrex_rgf:numba_hand:python:variants/quatrex_rgf_nbnoblas.py
+quatrex_rgf                  numba_hand   ok
+unit qtxN node=nid006555 end=2026-10-09T10:25:38+02:00

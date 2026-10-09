@@ -1,0 +1,29 @@
+unit nfa kernel=nfa_frontier bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 node=nid006563 start=2026-10-07T15:38:54+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006563 1 1
+SRUN[nfa]: srun --nodes=1 --ntasks=1 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext2 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel nfa_frontier --cells c cpp cpp14=cpp:bin=bin_gxx14 numba --rounds 3 --perf --record-reps 2 --out parts/nfa.csv --scratch scratch/nfa --db-shard 204 --rounds 2 --reps 10
+pristine nfa_frontier_fp64.c 9db4f21f9cf8c582
+pristine nfa_frontier_fp64.cpp 17cd88d5b7513061
+pristine nfa_frontier_fp64.f90 fe13cbc82371af61
+pristine nfa_frontier_fp32.c 239c5498713c073a
+pristine nfa_frontier_fp32.cpp fea04f884f6fd77e
+pristine nfa_frontier_fp32.f90 a2c6cd1174ab01a1
+pristine nfa_frontier_numba_np.py 718f36714143eb09
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 9744.990 ms 
+  [1] cpp              ok           min 9389.735 ms 
+  [1] cpp14            ok           min 9756.260 ms 
+  [1] numba            ok           min 10426.599 ms 
+  [2] numba            ok           min 10391.720 ms 
+  [2] cpp14            ok           min 9812.983 ms 
+  [2] cpp              ok           min 9367.189 ms 
+  [2] c                ok           min 9796.266 ms 
+  [record] c                ok           min 10012.601 ms 
+  [record] cpp              ok           min 9710.025 ms 
+[2026-10-07T16:07:28.007] error: *** STEP 4998574.5 ON nid006563 CANCELLED AT 2026-10-07T16:07:28 DUE TO TIME LIMIT ***
+srun: error: nid006563: task 0: Terminated
+srun: Terminating StepId=4998574.5
+srun: Force Terminated StepId=4998574.5
+unit nfa node=nid006563 end=2026-10-07T16:07:29+02:00

@@ -1,0 +1,2 @@
+kernel,representation,variant,lang,compiler,source,source_sha256,optreport,asm,status,n_vec_optimized,n_vec_missed,n_loop_optimized,kernel_functions,error,compile_argv
+quatrex_rgf,numba_hand,,python,numba,followup/opt_reports/nbnoblas/quatrex_rgf/numba_hand/quatrex_rgf_numba_np.py,611e95edf612b876d2dbb4d24288ea98ba824ca0318a10be1244ce332e589bfe,,followup/opt_reports/nbnoblas/quatrex_rgf/numba_hand/quatrex_rgf_numba_np.py.s.txt,ok,,,,_mm _inv _dag _solve_energy _rgf,,"@nb.njit(parallel=True, cache=True); inspect_asm()"

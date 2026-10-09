@@ -1,0 +1,4 @@
+#!/bin/bash
+# extractedMatrix/followup: the Fortran column's compiler (~/bin/gfortran = gfortran 13.3.1) with -fno-protect-parens
+# appended, as in LLR-40 follow-up 2b: gfortran may then reassociate and contract across the translator's parentheses.
+exec /usr/bin/gfortran-13 "$@" -fno-protect-parens

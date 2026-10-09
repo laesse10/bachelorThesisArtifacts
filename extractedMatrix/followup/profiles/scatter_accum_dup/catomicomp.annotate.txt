@@ -1,0 +1,53 @@
+########## scatter_accum_dup_fp64._omp_fn.0
+ Percent |	Source code & Disassembly of libscatter_accum_dup_cc.so for cycles:u (165792 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   00000000000007a0 <scatter_accum_dup_fp64._omp_fn.0>:
+         : 6   scatter_accum_dup_fp64._omp_fn.0():
+    0.00 :   7a0:    stp     x29, x30, [sp, #-48]!
+    0.00 :   7a4:    mov     x29, sp
+    0.00 :   7a8:    stp     x19, x20, [sp, #16]
+    0.00 :   7ac:    mov     x20, x0
+    0.00 :   7b0:    str     x21, [sp, #32]
+    0.00 :   7b4:    ldr     x21, [x0, #24]
+    0.00 :   7b8:    bl      640 <omp_get_num_threads@plt>
+    0.00 :   7bc:    sxtw    x19, w0
+    0.00 :   7c0:    bl      670 <omp_get_thread_num@plt>
+    0.00 :   7c4:    sxtw    x1, w0
+    0.00 :   7c8:    sdiv    x4, x21, x19
+    0.00 :   7cc:    msub    x2, x4, x19, x21
+    0.00 :   7d0:    cmp     x1, x2
+    0.00 :   7d4:    b.lt    838 <scatter_accum_dup_fp64._omp_fn.0+0x98>  // b.tstop
+    0.00 :   7d8:    madd    x1, x4, x1, x2
+    0.00 :   7dc:    add     x4, x4, x1
+    0.00 :   7e0:    cmp     x1, x4
+    0.00 :   7e4:    b.ge    828 <scatter_accum_dup_fp64._omp_fn.0+0x88>  // b.tcont
+    0.00 :   7e8:    ldr     x5, [x20, #16]
+    0.00 :   7ec:    ldp     x6, x7, [x20]
+    0.42 :   7f0:    ldrsw   x0, [x7, x1, lsl #2]
+    0.40 :   7f4:    ldr     d31, [x5, x1, lsl #3]
+    0.13 :   7f8:    add     x0, x6, x0, lsl #3
+    0.38 :   7fc:    ldr     x2, [x0]
+   39.56 :   800:    fmov    d30, x2
+    0.08 :   804:    mov     x3, x2
+    0.32 :   808:    fadd    d30, d31, d30
+    0.13 :   80c:    fmov    x8, d30
+    0.40 :   810:    cas     x3, x8, [x0]
+   51.91 :   814:    cmp     x2, x3
+    0.00 :   818:    b.ne    844 <scatter_accum_dup_fp64._omp_fn.0+0xa4>  // b.any
+    5.90 :   81c:    add     x1, x1, #0x1
+    0.37 :   820:    cmp     x4, x1
+    0.00 :   824:    b.ne    7f0 <scatter_accum_dup_fp64._omp_fn.0+0x50>  // b.any
+    0.00 :   828:    ldr     x21, [sp, #32]
+    0.00 :   82c:    ldp     x19, x20, [sp, #16]
+    0.00 :   830:    ldp     x29, x30, [sp], #48
+    0.00 :   834:    ret
+    0.00 :   838:    add     x4, x4, #0x1
+    0.00 :   83c:    mov     x2, #0x0                        // #0
+    0.00 :   840:    b       7d8 <scatter_accum_dup_fp64._omp_fn.0+0x38>
+    0.00 :   844:    mov     x2, x3
+    0.00 :   848:    b       800 <scatter_accum_dup_fp64._omp_fn.0+0x60>

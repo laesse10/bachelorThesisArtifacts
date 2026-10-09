@@ -6,7 +6,7 @@
 set -uo pipefail
 U=$1; NODE=$2; MIN=$3; SHARD=$4
 LINE=$(grep -E "^$U +\|" units.txt) || { echo "no unit $U"; exit 2; }
-IFS='|' read -r _ K WT RR CELLS <<< "$LINE"
+IFS='|' read -r _ K WT RR CELLS EXTRA <<< "$LINE"   # EXTRA (optional 6th field): more sweep_gap.py options
 K=$(echo $K); WT=$(echo $WT); RR=$(echo $RR)
 PY="${LLR40_PYTHON:-/capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python}"
 BENCH="/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-$WT"
@@ -23,7 +23,7 @@ P=$(step env LLR40_BENCH="$BENCH" numactl --cpunodebind=0 --membind=0 "$PY" -c \
 echo "$P"
 [ "$(echo "$P" | awk '{print $3, $4}')" = "1 1" ] || { echo "GEOMETRY_FAILED [$U]: $P"; exit 3; }
 step env LLR40_BENCH="$BENCH" "$PY" sweep_gap.py --kernel "$K" --cells $CELLS --rounds 3 --perf --record-reps "$RR" \
-  --out "parts/$U.csv" --scratch "scratch/$U" --db-shard "$SHARD"
+  --out "parts/$U.csv" --scratch "scratch/$U" --db-shard "$SHARD" $EXTRA
 # opt reports / numba asm of the cells that are new here (the default cells have theirs in ../opt_reports
 # or in llr40Matrix/v2/opt_reports)
 E=emitted_sources/$K

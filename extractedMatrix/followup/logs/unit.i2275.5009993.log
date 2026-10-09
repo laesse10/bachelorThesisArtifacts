@@ -1,0 +1,27 @@
+unit i2275 kernel=tsvc_2_s2275 bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006557 start=2026-10-09T10:33:22+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006557 1 1
+SRUN[i2275]: srun --nodes=1 --ntasks=1 -w nid006557 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel tsvc_2_s2275 --cells c cinter=c:src=variants/tsvc_2_s2275_cinter.c agent=c:src=variants/tsvc_2_s2275_agent.c --rounds 3 --perf --record-reps 10 --out parts/i2275.csv --scratch scratch/i2275 --db-shard 203
+pristine tsvc_2_s2275_fp64.c 7869ddc9d7a70cd4
+pristine tsvc_2_s2275_fp64.cpp 5cb28a9e3797641e
+pristine tsvc_2_s2275_fp64.f90 c71a90443ebad271
+pristine tsvc_2_s2275_fp32.c d879299f7fcb4f54
+pristine tsvc_2_s2275_fp32.cpp 09df57e946b194d5
+pristine tsvc_2_s2275_fp32.f90 d6037a9ffd155efe
+pristine tsvc_2_s2275_numba_np.py 90676eacd4ef171c
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cinter: c src=variants/tsvc_2_s2275_cinter.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell agent: c src=variants/tsvc_2_s2275_agent.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+  [1] c                ok           min 685.233 ms 
+  [1] cinter           ok           min 73.453 ms 
+  [1] agent            ok           min 73.847 ms 
+  [2] agent            ok           min 73.809 ms 
+  [2] cinter           ok           min 73.163 ms 
+  [2] c                ok           min 710.343 ms 
+  [3] c                ok           min 684.324 ms 
+  [3] cinter           ok           min 73.390 ms 
+  [3] agent            ok           min 74.188 ms 
+  [record] c                ok           min 711.866 ms 
+  [record] cinter           ok           min 75.369 ms 
+  [record] agent            ok           min 75.997 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/i2275.csv
+unit i2275 node=nid006557 end=2026-10-09T10:38:40+02:00

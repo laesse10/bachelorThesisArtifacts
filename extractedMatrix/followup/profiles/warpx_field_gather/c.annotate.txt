@@ -1,5 +1,5 @@
 ########## warpx_field_gather_fp64
- Percent |	Source code & Disassembly of libwarpx_field_gather_cc.so for cycles:u (13536 samples, percent: local period)
+ Percent |	Source code & Disassembly of libwarpx_field_gather_cc.so for cycles:u (13560 samples, percent: local period)
 ----------------------------------------------------------------------------------------------------------------------------
          :
          :
@@ -368,16 +368,16 @@
     0.00 :     d54:    lsl     x1, x1, #5
     0.00 :     d58:    add     x0, x0, #0x10
     0.00 :     d5c:    ldr     q2, [x3, x2]
-    0.00 :     d60:    ldr     q27, [x4, x2]
-    0.01 :     d64:    ldr     x5, [sp, #256]
+    0.01 :     d60:    ldr     q27, [x4, x2]
+    0.03 :     d64:    ldr     x5, [sp, #256]
     0.00 :     d68:    fsub    v2.2d, v2.2d, v29.2d
     0.00 :     d6c:    fsub    v27.2d, v27.2d, v29.2d
     0.00 :     d70:    fmul    v2.2d, v2.2d, v28.2d
-    0.00 :     d74:    fmul    v27.2d, v27.2d, v28.2d
+    0.01 :     d74:    fmul    v27.2d, v27.2d, v28.2d
     0.00 :     d78:    str     q2, [x5, x2]
-    0.00 :     d7c:    str     q27, [x0, x2]
+    0.01 :     d7c:    str     q27, [x0, x2]
     0.01 :     d80:    add     x2, x2, #0x20
-    0.01 :     d84:    cmp     x2, x1
+    0.00 :     d84:    cmp     x2, x1
     0.00 :     d88:    b.ne    d5c <warpx_field_gather_fp64+0x59c>  // b.any
     0.00 :     d8c:    and     x1, x19, #0xfffffffffffffffc
     0.00 :     d90:    cmp     x19, x1
@@ -1604,14 +1604,14 @@
     0.00 :    20a4:   mov     x1, #0x0                        // #0
     0.00 :    20a8:   lsl     x2, x0, #4
     0.00 :    20ac:   ldr     x3, [sp, #256]
-    0.00 :    20b0:   ldr     q4, [x3, x1]
-    0.01 :    20b4:   ldr     x3, [sp, #656]
+    0.01 :    20b0:   ldr     q4, [x3, x1]
+    0.04 :    20b4:   ldr     x3, [sp, #656]
     0.01 :    20b8:   fadd    v4.2d, v4.2d, v24.2d
     0.00 :    20bc:   fadd    v4.2d, v4.2d, v17.2d
     0.00 :    20c0:   fcvtzs  v4.2d, v4.2d
-    0.01 :    20c4:   str     q4, [x3, x1]
+    0.00 :    20c4:   str     q4, [x3, x1]
     0.00 :    20c8:   add     x1, x1, #0x10
-    0.01 :    20cc:   cmp     x1, x2
+    0.00 :    20cc:   cmp     x1, x2
     0.00 :    20d0:   b.ne    20ac <warpx_field_gather_fp64+0x18ec>  // b.any
     0.00 :    20d4:   and     x1, x19, #0xfffffffffffffffe
     0.00 :    20d8:   mov     x2, x1
@@ -1640,17 +1640,17 @@
     0.00 :    2134:   fmov    v23.2d, #-5.000000000000000000e-01
     0.00 :    2138:   mov     x2, #0x0                        // #0
     0.00 :    213c:   lsl     x4, x0, #4
-    0.00 :    2140:   ldr     x3, [sp, #256]
-    0.00 :    2144:   ldr     q19, [x3, x2]
+    0.01 :    2140:   ldr     x3, [sp, #256]
+    0.01 :    2144:   ldr     q19, [x3, x2]
     0.01 :    2148:   ldr     x3, [sp, #656]
-    0.00 :    214c:   fadd    v19.2d, v19.2d, v23.2d
+    0.01 :    214c:   fadd    v19.2d, v19.2d, v23.2d
     0.01 :    2150:   ldr     q16, [x3, x2]
-    0.01 :    2154:   ldr     x3, [sp, #416]
+    0.02 :    2154:   ldr     x3, [sp, #416]
     0.00 :    2158:   scvtf   v16.2d, v16.2d
     0.00 :    215c:   fsub    v16.2d, v19.2d, v16.2d
     0.00 :    2160:   str     q16, [x3, x2]
-    0.00 :    2164:   add     x2, x2, #0x10
-    0.00 :    2168:   cmp     x2, x4
+    0.01 :    2164:   add     x2, x2, #0x10
+    0.01 :    2168:   cmp     x2, x4
     0.00 :    216c:   b.ne    2140 <warpx_field_gather_fp64+0x1980>  // b.any
     0.00 :    2170:   mov     x2, x1
     0.00 :    2174:   cmp     x19, x1
@@ -1981,20 +1981,20 @@
     0.00 :    2688:   b.ne    1cc0 <warpx_field_gather_fp64+0x1500>  // b.any
     0.00 :    268c:   mov     x2, #0x0                        // #0
     0.00 :    2690:   b       1d08 <warpx_field_gather_fp64+0x1548>
-    0.00 :    2694:   cmp     x22, #0x1
+    0.01 :    2694:   cmp     x22, #0x1
     0.00 :    2698:   b.eq    1713c <warpx_field_gather_fp64+0x1697c>  // b.none
     0.00 :    269c:   fmov    v18.2d, #5.000000000000000000e-01
     0.00 :    26a0:   mov     x2, #0x0                        // #0
     0.00 :    26a4:   lsl     x0, x0, #4
-    0.01 :    26a8:   ldr     x3, [sp, #416]
-    0.01 :    26ac:   ldr     q6, [x3, x2]
-    0.01 :    26b0:   ldr     x3, [sp, #632]
-    0.01 :    26b4:   fsub    v6.2d, v18.2d, v6.2d
-    0.01 :    26b8:   fmul    v5.2d, v6.2d, v18.2d
+    0.00 :    26a8:   ldr     x3, [sp, #416]
+    0.00 :    26ac:   ldr     q6, [x3, x2]
+    0.04 :    26b0:   ldr     x3, [sp, #632]
+    0.00 :    26b4:   fsub    v6.2d, v18.2d, v6.2d
+    0.00 :    26b8:   fmul    v5.2d, v6.2d, v18.2d
     0.00 :    26bc:   fmul    v5.2d, v5.2d, v6.2d
     0.00 :    26c0:   str     q5, [x3, x2]
-    0.00 :    26c4:   add     x2, x2, #0x10
-    0.00 :    26c8:   cmp     x2, x0
+    0.01 :    26c4:   add     x2, x2, #0x10
+    0.01 :    26c8:   cmp     x2, x0
     0.00 :    26cc:   b.ne    26a8 <warpx_field_gather_fp64+0x1ee8>  // b.any
     0.00 :    26d0:   cmp     x19, x1
     0.00 :    26d4:   b.eq    272c <warpx_field_gather_fp64+0x1f6c>  // b.none
@@ -2033,14 +2033,14 @@
     0.00 :    2758:   fmov    z26.d, #7.500000000000000000e-01
     0.00 :    275c:   addvl   x4, x3, #1
     0.00 :    2760:   ldr     x3, [sp, #416]
-    0.00 :    2764:   ld1d    {z25.d}, p7/z, [x3, x0, lsl #3]
+    0.01 :    2764:   ld1d    {z25.d}, p7/z, [x3, x0, lsl #3]
     0.01 :    2768:   fmsb    z25.d, p7/m, z25.d, z26.d
-    0.00 :    276c:   st1d    {z25.d}, p7, [x1, x0, lsl #3]
-    0.01 :    2770:   ld1d    {z0.d}, p7/z, [x4, x0, lsl #3]
+    0.01 :    276c:   st1d    {z25.d}, p7, [x1, x0, lsl #3]
+    0.00 :    2770:   ld1d    {z0.d}, p7/z, [x4, x0, lsl #3]
     0.00 :    2774:   fmsb    z0.d, p7/m, z0.d, z26.d
-    0.01 :    2778:   st1d    {z0.d}, p7, [x5, x0, lsl #3]
-    0.01 :    277c:   add     x0, x0, x2
-    0.01 :    2780:   cmp     x6, x0
+    0.00 :    2778:   st1d    {z0.d}, p7, [x5, x0, lsl #3]
+    0.00 :    277c:   add     x0, x0, x2
+    0.00 :    2780:   cmp     x6, x0
     0.00 :    2784:   b.cs    2760 <warpx_field_gather_fp64+0x1fa0>  // b.hs, b.nlast
     0.00 :    2788:   cmp     x19, x0
     0.00 :    278c:   b.eq    27b0 <warpx_field_gather_fp64+0x1ff0>  // b.none
@@ -2061,13 +2061,13 @@
     0.00 :    27c8:   lsl     x0, x0, #4
     0.00 :    27cc:   add     x2, x2, x19, lsl #4
     0.00 :    27d0:   ldr     x3, [sp, #416]
-    0.01 :    27d4:   ldr     q30, [x3, x1]
-    0.00 :    27d8:   fadd    v30.2d, v30.2d, v4.2d
+    0.00 :    27d4:   ldr     q30, [x3, x1]
+    0.01 :    27d8:   fadd    v30.2d, v30.2d, v4.2d
     0.00 :    27dc:   fmul    v28.2d, v30.2d, v4.2d
     0.00 :    27e0:   fmul    v28.2d, v28.2d, v30.2d
-    0.00 :    27e4:   str     q28, [x2, x1]
-    0.01 :    27e8:   add     x1, x1, #0x10
-    0.01 :    27ec:   cmp     x1, x0
+    0.01 :    27e4:   str     q28, [x2, x1]
+    0.00 :    27e8:   add     x1, x1, #0x10
+    0.00 :    27ec:   cmp     x1, x0
     0.00 :    27f0:   b.ne    27d0 <warpx_field_gather_fp64+0x2010>  // b.any
     0.00 :    27f4:   and     x0, x19, #0xfffffffffffffffe
     0.00 :    27f8:   tbz     w19, #0, 2850 <warpx_field_gather_fp64+0x2090>
@@ -2103,15 +2103,15 @@
     0.00 :    2870:   add     x2, x2, #0x10
     0.00 :    2874:   add     x6, x3, #0x10
     0.01 :    2878:   ldr     x3, [sp, #656]
-    0.01 :    287c:   ldr     q7, [x2, x0]
+    0.00 :    287c:   ldr     q7, [x2, x0]
     0.01 :    2880:   ldr     q22, [x3, x0]
     0.00 :    2884:   ldr     x3, [sp, #808]
-    0.01 :    2888:   add     v7.2d, v7.2d, v31.2d
+    0.00 :    2888:   add     v7.2d, v7.2d, v31.2d
     0.00 :    288c:   add     v22.2d, v22.2d, v31.2d
     0.00 :    2890:   str     q22, [x3, x0]
     0.00 :    2894:   str     q7, [x6, x0]
     0.00 :    2898:   add     x0, x0, #0x20
-    0.00 :    289c:   cmp     x0, x1
+    0.01 :    289c:   cmp     x0, x1
     0.00 :    28a0:   b.ne    2878 <warpx_field_gather_fp64+0x20b8>  // b.any
     0.00 :    28a4:   and     x1, x19, #0xfffffffffffffffc
     0.00 :    28a8:   cmp     x19, x1
@@ -3188,7 +3188,7 @@
     0.00 :    3964:   b.hi    2858 <warpx_field_gather_fp64+0x2098>  // b.pmore
     0.00 :    3968:   mov     x1, #0x0                        // #0
     0.00 :    396c:   b       28b0 <warpx_field_gather_fp64+0x20f0>
-    0.00 :    3970:   ldr     x0, [sp, #224]
+    0.01 :    3970:   ldr     x0, [sp, #224]
     0.00 :    3974:   mov     x22, #0x0                       // #0
     0.00 :    3978:   bl      680 <malloc@plt>
     0.00 :    397c:   mov     x4, x0
@@ -3198,7 +3198,7 @@
     0.00 :    398c:   mov     x2, x20
     0.00 :    3990:   bl      660 <memcpy@plt>
     0.00 :    3994:   ldr     x1, [sp, #176]
-    0.01 :    3998:   cmp     x21, x22
+    0.00 :    3998:   cmp     x21, x22
     0.00 :    399c:   add     x4, x0, x20
     0.00 :    39a0:   add     x22, x22, #0x1
     0.00 :    39a4:   add     x1, x1, x20
@@ -3219,7 +3219,7 @@
     0.00 :    39e0:   add     x0, x0, x20
     0.00 :    39e4:   str     x0, [sp, #152]
     0.00 :    39e8:   ldr     x0, [sp, #160]
-    0.01 :    39ec:   add     x0, x0, x20
+    0.00 :    39ec:   add     x0, x0, x20
     0.00 :    39f0:   str     x0, [sp, #160]
     0.00 :    39f4:   add     x0, x5, #0x1
     0.00 :    39f8:   cmp     x21, x5
@@ -3362,7 +3362,7 @@
     0.00 :    3c1c:   str     x5, [sp, #160]
     0.00 :    3c20:   bl      660 <memcpy@plt>
     0.00 :    3c24:   ldp     x1, x5, [sp, #152]
-    0.00 :    3c28:   add     x4, x0, x20
+    0.01 :    3c28:   add     x4, x0, x20
     0.00 :    3c2c:   add     x1, x1, x20
     0.00 :    3c30:   cmp     x22, x5
     0.00 :    3c34:   add     x5, x5, #0x1
@@ -3379,7 +3379,7 @@
     0.00 :    3c60:   mov     x0, x22
     0.00 :    3c64:   bl      660 <memcpy@plt>
     0.00 :    3c68:   ldr     x0, [sp, #1032]
-    0.01 :    3c6c:   mov     x1, x22
+    0.00 :    3c6c:   mov     x1, x22
     0.00 :    3c70:   mov     x2, x20
     0.00 :    3c74:   bl      660 <memcpy@plt>
     0.00 :    3c78:   mov     x0, x20
@@ -3483,14 +3483,14 @@
     0.00 :    3e00:   ldr     x0, [sp, #112]
     0.00 :    3e04:   add     x0, x0, #0x10
     0.00 :    3e08:   ldr     x3, [sp, #264]
-    0.01 :    3e0c:   ldr     q5, [x4, x2]
-    0.01 :    3e10:   ldr     q27, [x3, x2]
-    0.00 :    3e14:   ldr     x3, [sp, #112]
+    0.00 :    3e0c:   ldr     q5, [x4, x2]
+    0.02 :    3e10:   ldr     q27, [x3, x2]
+    0.01 :    3e14:   ldr     x3, [sp, #112]
     0.00 :    3e18:   fsub    v5.2d, v5.2d, v18.2d
     0.00 :    3e1c:   fsub    v27.2d, v27.2d, v18.2d
     0.00 :    3e20:   fmul    v5.2d, v5.2d, v6.2d
     0.00 :    3e24:   fmul    v27.2d, v27.2d, v6.2d
-    0.01 :    3e28:   str     q27, [x3, x2]
+    0.00 :    3e28:   str     q27, [x3, x2]
     0.00 :    3e2c:   str     q5, [x0, x2]
     0.00 :    3e30:   add     x2, x2, #0x20
     0.00 :    3e34:   cmp     x2, x1
@@ -3828,7 +3828,7 @@
     0.00 :    4364:   bl      660 <memcpy@plt>
     0.00 :    4368:   ldr     x0, [sp, #184]
     0.00 :    436c:   ldr     w0, [x0, #4]
-    0.00 :    4370:   str     w0, [sp, #120]
+    0.01 :    4370:   str     w0, [sp, #120]
     0.00 :    4374:   cmp     w0, #0x1
     0.00 :    4378:   b.eq    ca5c <warpx_field_gather_fp64+0xc29c>  // b.none
     0.00 :    437c:   ldr     x0, [sp, #136]
@@ -4040,7 +4040,7 @@
     0.00 :    46b4:   add     x1, x1, x20
     0.00 :    46b8:   cmp     x22, x5
     0.00 :    46bc:   str     x1, [sp, #176]
-    0.00 :    46c0:   add     x5, x5, #0x1
+    0.01 :    46c0:   add     x5, x5, #0x1
     0.00 :    46c4:   b.ne    4694 <warpx_field_gather_fp64+0x3ed4>  // b.any
     0.00 :    46c8:   ldr     x0, [sp, #224]
     0.00 :    46cc:   bl      680 <malloc@plt>
@@ -4258,7 +4258,7 @@
     0.00 :    4a1c:   ldr     x0, [sp, #240]
     0.00 :    4a20:   sub     x22, x19, #0x1
     0.00 :    4a24:   ldr     d3, [x0, #16]
-    0.00 :    4a28:   ldr     x0, [sp, #232]
+    0.01 :    4a28:   ldr     x0, [sp, #232]
     0.00 :    4a2c:   ldr     d2, [x0, #16]
     0.00 :    4a30:   cmp     x22, #0x2
     0.00 :    4a34:   b.ls    11a74 <warpx_field_gather_fp64+0x112b4>  // b.plast
@@ -4273,11 +4273,11 @@
     0.00 :    4a58:   add     x0, x0, #0x10
     0.00 :    4a5c:   ldr     x3, [sp, #272]
     0.00 :    4a60:   ldr     q22, [x4, x2]
-    0.02 :    4a64:   ldr     q16, [x3, x2]
+    0.04 :    4a64:   ldr     q16, [x3, x2]
     0.00 :    4a68:   ldr     x3, [sp, #112]
     0.00 :    4a6c:   fsub    v22.2d, v22.2d, v30.2d
     0.00 :    4a70:   fsub    v16.2d, v16.2d, v30.2d
-    0.00 :    4a74:   fmul    v22.2d, v22.2d, v28.2d
+    0.01 :    4a74:   fmul    v22.2d, v22.2d, v28.2d
     0.00 :    4a78:   fmul    v16.2d, v16.2d, v28.2d
     0.00 :    4a7c:   str     q16, [x3, x2]
     0.00 :    4a80:   str     q22, [x0, x2]
@@ -4758,9 +4758,9 @@
     0.00 :    51ec:   mov     x2, x20
     0.00 :    51f0:   ldr     x0, [sp, #1352]
     0.00 :    51f4:   bl      660 <memcpy@plt>
-    0.00 :    51f8:   ldr     x0, [sp, #128]
+    0.01 :    51f8:   ldr     x0, [sp, #128]
     0.00 :    51fc:   ldr     w0, [x0, #8]
-    0.00 :    5200:   str     w0, [sp, #120]
+    0.01 :    5200:   str     w0, [sp, #120]
     0.00 :    5204:   cmp     w0, #0x1
     0.00 :    5208:   b.eq    c034 <warpx_field_gather_fp64+0xb874>  // b.none
     0.00 :    520c:   ldr     x0, [sp, #136]
@@ -4973,7 +4973,7 @@
     0.00 :    5548:   str     x1, [sp, #208]
     0.00 :    554c:   add     x5, x5, #0x1
     0.00 :    5550:   b.ne    5520 <warpx_field_gather_fp64+0x4d60>  // b.any
-    0.01 :    5554:   ldr     x0, [sp, #248]
+    0.00 :    5554:   ldr     x0, [sp, #248]
     0.00 :    5558:   bl      680 <malloc@plt>
     0.00 :    555c:   mov     x5, #0x0                        // #0
     0.00 :    5560:   mov     x4, x0
@@ -5094,7 +5094,7 @@
     0.00 :    572c:   mov     x0, x22
     0.00 :    5730:   bl      660 <memcpy@plt>
     0.00 :    5734:   ldr     x0, [sp, #1128]
-    0.01 :    5738:   mov     x1, x22
+    0.00 :    5738:   mov     x1, x22
     0.00 :    573c:   mov     x2, x20
     0.00 :    5740:   bl      660 <memcpy@plt>
     0.00 :    5744:   mov     x0, x20
@@ -5360,14 +5360,14 @@
     0.00 :    5b54:   mov     x5, #0x0                        // #0
     0.00 :    5b58:   add     x6, x3, x2, lsl #3
     0.00 :    5b5c:   nop
-    0.01 :    5b60:   ldr     x3, [sp, #1032]
+    0.04 :    5b60:   ldr     x3, [sp, #1032]
     0.00 :    5b64:   ldr     q28, [x3, x5]
-    0.09 :    5b68:   add     v28.2d, v17.2d, v28.2d
+    0.04 :    5b68:   add     v28.2d, v17.2d, v28.2d
     0.00 :    5b6c:   add     v28.2d, v28.2d, v7.2d
-    0.00 :    5b70:   scvtf   v28.2d, v28.2d
+    0.03 :    5b70:   scvtf   v28.2d, v28.2d
     0.01 :    5b74:   str     q28, [x6, x5]
-    0.00 :    5b78:   add     x5, x5, #0x10
-    0.00 :    5b7c:   cmp     x5, x0
+    0.01 :    5b78:   add     x5, x5, #0x10
+    0.01 :    5b7c:   cmp     x5, x0
     0.00 :    5b80:   b.ne    5b60 <warpx_field_gather_fp64+0x53a0>  // b.any
     0.00 :    5b84:   cmp     x19, x9
     0.00 :    5b88:   b.eq    6004 <warpx_field_gather_fp64+0x5844>  // b.none
@@ -5432,14 +5432,14 @@
     0.00 :    5c74:   mov     x5, #0x0                        // #0
     0.00 :    5c78:   add     x6, x3, x2, lsl #3
     0.00 :    5c7c:   nop
-    0.03 :    5c80:   ldr     x3, [sp, #1080]
-    0.01 :    5c84:   ldr     q21, [x3, x5]
-    0.03 :    5c88:   add     v21.2d, v31.2d, v21.2d
+    0.01 :    5c80:   ldr     x3, [sp, #1080]
+    0.02 :    5c84:   ldr     q21, [x3, x5]
+    0.06 :    5c88:   add     v21.2d, v31.2d, v21.2d
     0.00 :    5c8c:   add     v21.2d, v21.2d, v2.2d
     0.01 :    5c90:   scvtf   v21.2d, v21.2d
     0.02 :    5c94:   str     q21, [x6, x5]
-    0.01 :    5c98:   add     x5, x5, #0x10
-    0.03 :    5c9c:   cmp     x5, x0
+    0.02 :    5c98:   add     x5, x5, #0x10
+    0.01 :    5c9c:   cmp     x5, x0
     0.00 :    5ca0:   b.ne    5c80 <warpx_field_gather_fp64+0x54c0>  // b.any
     0.00 :    5ca4:   cmp     x19, x9
     0.00 :    5ca8:   b.eq    5fec <warpx_field_gather_fp64+0x582c>  // b.none
@@ -5504,11 +5504,11 @@
     0.00 :    5d94:   nop
     0.00 :    5d98:   nop
     0.00 :    5d9c:   nop
-    0.01 :    5da0:   ldr     x3, [sp, #1128]
-    0.00 :    5da4:   ldr     q19, [x3, x5]
-    0.08 :    5da8:   add     v19.2d, v29.2d, v19.2d
+    0.02 :    5da0:   ldr     x3, [sp, #1128]
+    0.01 :    5da4:   ldr     q19, [x3, x5]
+    0.01 :    5da8:   add     v19.2d, v29.2d, v19.2d
     0.00 :    5dac:   add     v19.2d, v19.2d, v27.2d
-    0.01 :    5db0:   scvtf   v19.2d, v19.2d
+    0.00 :    5db0:   scvtf   v19.2d, v19.2d
     0.01 :    5db4:   str     q19, [x6, x5]
     0.01 :    5db8:   add     x5, x5, #0x10
     0.01 :    5dbc:   cmp     x0, x5
@@ -5581,7 +5581,7 @@
     0.00 :    5ec8:   mov     x2, x15
     0.00 :    5ecc:   mov     x13, #0x0                       // #0
     0.00 :    5ed0:   ldr     x17, [sp, #712]
-    0.00 :    5ed4:   add     x1, x14, x2, lsl #3
+    0.01 :    5ed4:   add     x1, x14, x2, lsl #3
     0.00 :    5ed8:   mov     x9, x2
     0.00 :    5edc:   mov     x5, #0x0                        // #0
     0.00 :    5ee0:   ldr     x16, [sp, #1016]
@@ -5592,14 +5592,14 @@
     0.00 :    5ef4:   sub     x18, x1, #0x10
     0.00 :    5ef8:   nop
     0.00 :    5efc:   nop
-    0.10 :    5f00:   ldr     q26, [x8, x3]
-    0.30 :    5f04:   ldr     q25, [x7, x3]
-    0.18 :    5f08:   fcvtzs  v26.2d, v26.2d
-    0.02 :    5f0c:   fcvtzs  v25.2d, v25.2d
-    0.07 :    5f10:   str     q26, [x18, x3]
-    0.09 :    5f14:   str     q25, [x1, x3]
-    0.07 :    5f18:   add     x3, x3, #0x20
-    0.03 :    5f1c:   cmp     x6, x3
+    0.13 :    5f00:   ldr     q26, [x8, x3]
+    0.29 :    5f04:   ldr     q25, [x7, x3]
+    0.21 :    5f08:   fcvtzs  v26.2d, v26.2d
+    0.01 :    5f0c:   fcvtzs  v25.2d, v25.2d
+    0.04 :    5f10:   str     q26, [x18, x3]
+    0.08 :    5f14:   str     q25, [x1, x3]
+    0.10 :    5f18:   add     x3, x3, #0x20
+    0.04 :    5f1c:   cmp     x6, x3
     0.00 :    5f20:   b.ne    5f00 <warpx_field_gather_fp64+0x5740>  // b.any
     0.00 :    5f24:   cmp     x19, x10
     0.00 :    5f28:   b.eq    5fb4 <warpx_field_gather_fp64+0x57f4>  // b.none
@@ -5696,13 +5696,13 @@
     0.00 :    6094:   mov     x5, #0x0                        // #0
     0.00 :    6098:   sub     x7, x0, #0x10
     0.00 :    609c:   nop
-    0.12 :    60a0:   ldr     q16, [x2, x5]
-    0.20 :    60a4:   ldr     q22, [x1, x5]
-    0.38 :    60a8:   fcvtzs  v16.2d, v16.2d
+    0.08 :    60a0:   ldr     q16, [x2, x5]
+    0.18 :    60a4:   ldr     q22, [x1, x5]
+    0.46 :    60a8:   fcvtzs  v16.2d, v16.2d
     0.01 :    60ac:   fcvtzs  v22.2d, v22.2d
-    0.05 :    60b0:   str     q16, [x7, x5]
-    0.03 :    60b4:   str     q22, [x0, x5]
-    0.07 :    60b8:   add     x5, x5, #0x20
+    0.04 :    60b0:   str     q16, [x7, x5]
+    0.07 :    60b4:   str     q22, [x0, x5]
+    0.04 :    60b8:   add     x5, x5, #0x20
     0.04 :    60bc:   cmp     x5, x6
     0.00 :    60c0:   b.ne    60a0 <warpx_field_gather_fp64+0x58e0>  // b.any
     0.00 :    60c4:   cmp     x19, x12
@@ -5727,7 +5727,7 @@
     0.00 :    6110:   add     x11, x11, x19
     0.00 :    6114:   cmp     x4, x17
     0.00 :    6118:   b.ge    6088 <warpx_field_gather_fp64+0x58c8>  // b.tcont
-    0.01 :    611c:   ldp     x0, x10, [sp, #104]
+    0.00 :    611c:   ldp     x0, x10, [sp, #104]
     0.00 :    6120:   add     x2, x2, x20
     0.00 :    6124:   add     x1, x1, x20
     0.00 :    6128:   add     x15, x15, x19
@@ -5928,14 +5928,14 @@
     0.00 :    6434:   mov     x3, #0x0                        // #0
     0.00 :    6438:   sub     x30, x2, #0x10
     0.00 :    643c:   sub     x18, x1, #0x10
-    0.10 :    6440:   ldr     q7, [x30, x3]
-    0.44 :    6444:   ldr     q17, [x2, x3]
-    0.18 :    6448:   fcvtzs  v7.2d, v7.2d
-    0.02 :    644c:   fcvtzs  v17.2d, v17.2d
-    0.07 :    6450:   str     q7, [x18, x3]
-    0.01 :    6454:   str     q17, [x1, x3]
-    0.06 :    6458:   add     x3, x3, #0x20
-    0.07 :    645c:   cmp     x3, x8
+    0.12 :    6440:   ldr     q7, [x30, x3]
+    0.49 :    6444:   ldr     q17, [x2, x3]
+    0.17 :    6448:   fcvtzs  v7.2d, v7.2d
+    0.01 :    644c:   fcvtzs  v17.2d, v17.2d
+    0.04 :    6450:   str     q7, [x18, x3]
+    0.08 :    6454:   str     q17, [x1, x3]
+    0.04 :    6458:   add     x3, x3, #0x20
+    0.06 :    645c:   cmp     x3, x8
     0.00 :    6460:   b.ne    6440 <warpx_field_gather_fp64+0x5c80>  // b.any
     0.00 :    6464:   cmp     x19, x12
     0.00 :    6468:   b.eq    64e4 <warpx_field_gather_fp64+0x5d24>  // b.none
@@ -6012,7 +6012,7 @@
     0.00 :    6584:   mov     x10, x0
     0.00 :    6588:   mov     x11, #0x0                       // #0
     0.00 :    658c:   ldr     x16, [sp, #712]
-    0.01 :    6590:   ldr     x17, [sp, #768]
+    0.00 :    6590:   ldr     x17, [sp, #768]
     0.00 :    6594:   ldr     x18, [sp, #776]
     0.00 :    6598:   nop
     0.00 :    659c:   nop
@@ -6025,15 +6025,15 @@
     0.00 :    65b8:   nop
     0.00 :    65bc:   nop
     0.14 :    65c0:   ld1d    {z2.d}, p7/z, [x15, x1, lsl #3]
-    0.25 :    65c4:   ld1d    {z0.d}, p7/z, [x14, x1, lsl #3]
-    0.30 :    65c8:   ld1d    {z21.d}, p7/z, [x6, x1, lsl #3]
-    0.08 :    65cc:   mla     z0.d, p6/m, z2.d, z31.d
-    0.04 :    65d0:   mla     z21.d, p6/m, z0.d, z31.d
-    0.10 :    65d4:   ld1d    {z5.d}, p7/z, [x27, z21.d, lsl #3]
-    2.88 :    65d8:   st1d    {z5.d}, p7, [x3, x1, lsl #3]
-    0.08 :    65dc:   add     x1, x1, x9
-    0.22 :    65e0:   whilelo p7.d, x1, x19
-    0.01 :    65e4:   b.ne    65c0 <warpx_field_gather_fp64+0x5e00>  // b.any
+    0.18 :    65c4:   ld1d    {z0.d}, p7/z, [x14, x1, lsl #3]
+    0.26 :    65c8:   ld1d    {z21.d}, p7/z, [x6, x1, lsl #3]
+    0.15 :    65cc:   mla     z0.d, p6/m, z2.d, z31.d
+    0.09 :    65d0:   mla     z21.d, p6/m, z0.d, z31.d
+    0.12 :    65d4:   ld1d    {z5.d}, p7/z, [x27, z21.d, lsl #3]
+    2.76 :    65d8:   st1d    {z5.d}, p7, [x3, x1, lsl #3]
+    0.13 :    65dc:   add     x1, x1, x9
+    0.27 :    65e0:   whilelo p7.d, x1, x19
+    0.03 :    65e4:   b.ne    65c0 <warpx_field_gather_fp64+0x5e00>  // b.any
     0.00 :    65e8:   add     x10, x10, x20
     0.00 :    65ec:   add     x1, x11, #0x1
     0.00 :    65f0:   cmp     x4, x11
@@ -6080,14 +6080,14 @@
     0.00 :    6694:   add     x6, x3, x10, lsl #3
     0.00 :    6698:   add     x3, x27, x11, lsl #3
     0.00 :    669c:   nop
-    0.25 :    66a0:   ldr     q1, [x9, x1]
-    0.29 :    66a4:   ldr     q30, [x7, x1]
-    0.37 :    66a8:   ldr     q3, [x6, x1]
-    0.53 :    66ac:   fmul    v30.2d, v1.2d, v30.2d
-    0.01 :    66b0:   fmul    v3.2d, v30.2d, v3.2d
+    0.19 :    66a0:   ldr     q1, [x9, x1]
+    0.24 :    66a4:   ldr     q30, [x7, x1]
+    0.43 :    66a8:   ldr     q3, [x6, x1]
+    0.62 :    66ac:   fmul    v30.2d, v1.2d, v30.2d
+    0.00 :    66b0:   fmul    v3.2d, v30.2d, v3.2d
     0.13 :    66b4:   str     q3, [x3, x1]
     0.13 :    66b8:   add     x1, x1, #0x10
-    0.08 :    66bc:   cmp     x8, x1
+    0.13 :    66bc:   cmp     x8, x1
     0.00 :    66c0:   b.ne    66a0 <warpx_field_gather_fp64+0x5ee0>  // b.any
     0.00 :    66c4:   cmp     x19, x13
     0.00 :    66c8:   b.eq    673c <warpx_field_gather_fp64+0x5f7c>  // b.none
@@ -6111,7 +6111,7 @@
     0.00 :    6710:   cmp     x16, x5
     0.00 :    6714:   b.ne    6680 <warpx_field_gather_fp64+0x5ec0>  // b.any
     0.00 :    6718:   ldr     x0, [sp, #104]
-    0.01 :    671c:   add     x2, x2, x19
+    0.00 :    671c:   add     x2, x2, x19
     0.00 :    6720:   add     x7, x7, x20
     0.00 :    6724:   add     x18, x18, x0
     0.00 :    6728:   add     x0, x17, #0x1
@@ -6129,7 +6129,7 @@
     0.00 :    6758:   mov     x0, #0x0                        // #0
     0.00 :    675c:   b       66cc <warpx_field_gather_fp64+0x5f0c>
     0.00 :    6760:   ldr     x0, [sp, #184]
-    0.00 :    6764:   add     x14, x14, x19
+    0.01 :    6764:   add     x14, x14, x19
     0.00 :    6768:   add     x9, x9, x20
     0.00 :    676c:   add     x30, x30, x0
     0.00 :    6770:   add     x0, x22, #0x1
@@ -6163,13 +6163,13 @@
     0.00 :    67e0:   add     x15, x27, x9
     0.00 :    67e4:   add     x6, x3, x9
     0.00 :    67e8:   ldr     x3, [sp, #168]
-    0.00 :    67ec:   add     x3, x3, x9
-    0.10 :    67f0:   ldr     q19, [x6, x1]
-    0.62 :    67f4:   ldr     q26, [x15, x1]
-    0.55 :    67f8:   fmul    v26.2d, v19.2d, v26.2d
-    0.07 :    67fc:   str     q26, [x3, x1]
-    0.10 :    6800:   add     x1, x1, #0x10
-    0.11 :    6804:   cmp     x1, x8
+    0.01 :    67ec:   add     x3, x3, x9
+    0.09 :    67f0:   ldr     q19, [x6, x1]
+    0.48 :    67f4:   ldr     q26, [x15, x1]
+    0.53 :    67f8:   fmul    v26.2d, v19.2d, v26.2d
+    0.13 :    67fc:   str     q26, [x3, x1]
+    0.18 :    6800:   add     x1, x1, #0x10
+    0.07 :    6804:   cmp     x1, x8
     0.00 :    6808:   b.ne    67f0 <warpx_field_gather_fp64+0x6030>  // b.any
     0.00 :    680c:   cmp     x19, x12
     0.00 :    6810:   b.eq    6868 <warpx_field_gather_fp64+0x60a8>  // b.none
@@ -6218,41 +6218,41 @@
     0.00 :    68bc:   ldr     x10, [sp, #168]
     0.00 :    68c0:   lsl     x8, x0, #3
     0.00 :    68c4:   ldr     x0, [sp, #1376]
-    0.01 :    68c8:   movi    d23, #0x0
+    0.00 :    68c8:   movi    d23, #0x0
     0.00 :    68cc:   mov     x7, x10
-    0.01 :    68d0:   mov     x2, #0x0                        // #0
+    0.00 :    68d0:   mov     x2, #0x0                        // #0
     0.01 :    68d4:   str     xzr, [x0, x9, lsl #3]
-    0.01 :    68d8:   ldr     x0, [sp, #216]
+    0.00 :    68d8:   ldr     x0, [sp, #216]
     0.00 :    68dc:   tbnz    x0, #63, 6948 <warpx_field_gather_fp64+0x6188>
     0.01 :    68e0:   ldr     x6, [sp, #224]
     0.00 :    68e4:   mov     x4, x7
     0.01 :    68e8:   mov     x5, #0x0                        // #0
-    0.04 :    68ec:   mov     x3, x4
+    0.09 :    68ec:   mov     x3, x4
     0.01 :    68f0:   mov     x1, #0x0                        // #0
-    0.05 :    68f4:   nop
+    0.07 :    68f4:   nop
     0.00 :    68f8:   nop
-    0.06 :    68fc:   nop
+    0.07 :    68fc:   nop
     0.25 :    6900:   ldr     d22, [x3]
-    1.44 :    6904:   cmp     x21, x1
-    5.18 :    6908:   add     x3, x3, x20
-    0.12 :    690c:   add     x1, x1, #0x1
-    0.20 :    6910:   fadd    d23, d23, d22
-    0.12 :    6914:   b.ne    6900 <warpx_field_gather_fp64+0x6140>  // b.any
-    0.07 :    6918:   add     x4, x4, x6
-    0.02 :    691c:   add     x0, x5, #0x1
-    0.01 :    6920:   cmp     x21, x5
+    1.27 :    6904:   cmp     x21, x1
+    5.33 :    6908:   add     x3, x3, x20
+    0.07 :    690c:   add     x1, x1, #0x1
+    0.14 :    6910:   fadd    d23, d23, d22
+    0.18 :    6914:   b.ne    6900 <warpx_field_gather_fp64+0x6140>  // b.any
+    0.06 :    6918:   add     x4, x4, x6
+    0.01 :    691c:   add     x0, x5, #0x1
+    0.07 :    6920:   cmp     x21, x5
     0.00 :    6924:   b.eq    6930 <warpx_field_gather_fp64+0x6170>  // b.none
     0.04 :    6928:   mov     x5, x0
-    0.04 :    692c:   b       68ec <warpx_field_gather_fp64+0x612c>
+    0.00 :    692c:   b       68ec <warpx_field_gather_fp64+0x612c>
     0.01 :    6930:   add     x2, x2, #0x1
-    0.02 :    6934:   add     x7, x7, x8
-    0.04 :    6938:   cmp     x21, x2
+    0.01 :    6934:   add     x7, x7, x8
+    0.01 :    6938:   cmp     x21, x2
     0.00 :    693c:   b.ne    68e0 <warpx_field_gather_fp64+0x6120>  // b.any
     0.00 :    6940:   ldr     x0, [sp, #1376]
-    0.00 :    6944:   str     d23, [x0, x9, lsl #3]
+    0.01 :    6944:   str     d23, [x0, x9, lsl #3]
     0.01 :    6948:   add     x9, x9, #0x1
     0.00 :    694c:   add     x10, x10, #0x8
-    0.01 :    6950:   cmp     x19, x9
+    0.00 :    6950:   cmp     x19, x9
     0.00 :    6954:   b.ne    68c4 <warpx_field_gather_fp64+0x6104>  // b.any
     0.00 :    6958:   mov     x0, x20
     0.00 :    695c:   bl      680 <malloc@plt>
@@ -6265,10 +6265,10 @@
     0.00 :    6978:   lsr     x0, x19, #1
     0.00 :    697c:   mov     x1, #0x0                        // #0
     0.00 :    6980:   lsl     x0, x0, #4
-    0.00 :    6984:   ldr     x2, [sp, #280]
+    0.01 :    6984:   ldr     x2, [sp, #280]
     0.00 :    6988:   ldr     x3, [sp, #1440]
     0.00 :    698c:   ldr     q16, [x2, x1]
-    0.02 :    6990:   ldr     q28, [x3, x1]
+    0.01 :    6990:   ldr     q28, [x3, x1]
     0.00 :    6994:   fadd    v28.2d, v16.2d, v28.2d
     0.01 :    6998:   str     q28, [x2, x1]
     0.00 :    699c:   add     x1, x1, #0x10
@@ -6452,10 +6452,10 @@
     0.01 :    6c64:   ldr     q16, [x3, x5]
     0.07 :    6c68:   add     v16.2d, v19.2d, v16.2d
     0.00 :    6c6c:   add     v16.2d, v16.2d, v25.2d
-    0.02 :    6c70:   scvtf   v16.2d, v16.2d
+    0.01 :    6c70:   scvtf   v16.2d, v16.2d
     0.01 :    6c74:   str     q16, [x7, x5]
-    0.01 :    6c78:   add     x5, x5, #0x10
-    0.01 :    6c7c:   cmp     x5, x0
+    0.00 :    6c78:   add     x5, x5, #0x10
+    0.00 :    6c7c:   cmp     x5, x0
     0.00 :    6c80:   b.ne    6c60 <warpx_field_gather_fp64+0x64a0>  // b.any
     0.00 :    6c84:   cmp     x19, x11
     0.00 :    6c88:   b.eq    7730 <warpx_field_gather_fp64+0x6f70>  // b.none
@@ -6495,7 +6495,7 @@
     0.00 :    6d10:   cmp     x9, x2
     0.00 :    6d14:   b.ne    6c38 <warpx_field_gather_fp64+0x6478>  // b.any
     0.00 :    6d18:   ldr     x0, [sp, #248]
-    0.00 :    6d1c:   bl      680 <malloc@plt>
+    0.01 :    6d1c:   bl      680 <malloc@plt>
     0.00 :    6d20:   str     x0, [sp, #960]
     0.00 :    6d24:   ldr     x0, [sp, #216]
     0.00 :    6d28:   cmn     x0, #0x1
@@ -6520,12 +6520,12 @@
     0.00 :    6d74:   add     x7, x3, x4, lsl #3
     0.00 :    6d78:   nop
     0.00 :    6d7c:   nop
-    0.02 :    6d80:   ldr     x3, [sp, #1088]
-    0.00 :    6d84:   ldr     q7, [x3, x5]
-    0.02 :    6d88:   add     v7.2d, v28.2d, v7.2d
+    0.01 :    6d80:   ldr     x3, [sp, #1088]
+    0.01 :    6d84:   ldr     q7, [x3, x5]
+    0.05 :    6d88:   add     v7.2d, v28.2d, v7.2d
     0.00 :    6d8c:   add     v7.2d, v7.2d, v20.2d
-    0.00 :    6d90:   scvtf   v7.2d, v7.2d
-    0.02 :    6d94:   str     q7, [x7, x5]
+    0.01 :    6d90:   scvtf   v7.2d, v7.2d
+    0.01 :    6d94:   str     q7, [x7, x5]
     0.01 :    6d98:   add     x5, x5, #0x10
     0.01 :    6d9c:   cmp     x0, x5
     0.00 :    6da0:   b.ne    6d80 <warpx_field_gather_fp64+0x65c0>  // b.any
@@ -6593,12 +6593,12 @@
     0.00 :    6e98:   nop
     0.00 :    6e9c:   nop
     0.03 :    6ea0:   ldr     x3, [sp, #1136]
-    0.03 :    6ea4:   ldr     q3, [x3, x5]
-    0.06 :    6ea8:   add     v3.2d, v31.2d, v3.2d
-    0.01 :    6eac:   add     v3.2d, v3.2d, v21.2d
-    0.01 :    6eb0:   scvtf   v3.2d, v3.2d
-    0.03 :    6eb4:   str     q3, [x7, x5]
-    0.01 :    6eb8:   add     x5, x5, #0x10
+    0.01 :    6ea4:   ldr     q3, [x3, x5]
+    0.07 :    6ea8:   add     v3.2d, v31.2d, v3.2d
+    0.00 :    6eac:   add     v3.2d, v3.2d, v21.2d
+    0.00 :    6eb0:   scvtf   v3.2d, v3.2d
+    0.02 :    6eb4:   str     q3, [x7, x5]
+    0.00 :    6eb8:   add     x5, x5, #0x10
     0.01 :    6ebc:   cmp     x5, x0
     0.00 :    6ec0:   b.ne    6ea0 <warpx_field_gather_fp64+0x66e0>  // b.any
     0.00 :    6ec4:   cmp     x19, x11
@@ -6680,14 +6680,14 @@
     0.00 :    6ff4:   nop
     0.00 :    6ff8:   nop
     0.00 :    6ffc:   nop
-    0.13 :    7000:   ldr     q29, [x7, x3]
-    0.26 :    7004:   ldr     q5, [x5, x3]
-    0.21 :    7008:   fcvtzs  v29.2d, v29.2d
-    0.01 :    700c:   fcvtzs  v5.2d, v5.2d
+    0.12 :    7000:   ldr     q29, [x7, x3]
+    0.33 :    7004:   ldr     q5, [x5, x3]
+    0.20 :    7008:   fcvtzs  v29.2d, v29.2d
+    0.02 :    700c:   fcvtzs  v5.2d, v5.2d
     0.05 :    7010:   str     q29, [x18, x3]
-    0.09 :    7014:   str     q5, [x1, x3]
-    0.07 :    7018:   add     x3, x3, #0x20
-    0.05 :    701c:   cmp     x4, x3
+    0.07 :    7014:   str     q5, [x1, x3]
+    0.05 :    7018:   add     x3, x3, #0x20
+    0.04 :    701c:   cmp     x4, x3
     0.00 :    7020:   b.ne    7000 <warpx_field_gather_fp64+0x6840>  // b.any
     0.00 :    7024:   cmp     x19, x10
     0.00 :    7028:   b.eq    76d8 <warpx_field_gather_fp64+0x6f18>  // b.none
@@ -6760,14 +6760,14 @@
     0.00 :    7134:   nop
     0.00 :    7138:   nop
     0.00 :    713c:   nop
-    0.12 :    7140:   ldr     q1, [x5, x3]
-    0.20 :    7144:   ldr     q18, [x4, x3]
-    0.39 :    7148:   fcvtzs  v1.2d, v1.2d
+    0.11 :    7140:   ldr     q1, [x5, x3]
+    0.18 :    7144:   ldr     q18, [x4, x3]
+    0.34 :    7148:   fcvtzs  v1.2d, v1.2d
     0.01 :    714c:   fcvtzs  v18.2d, v18.2d
-    0.05 :    7150:   str     q1, [x18, x3]
-    0.04 :    7154:   str     q18, [x1, x3]
-    0.04 :    7158:   add     x3, x3, #0x20
-    0.07 :    715c:   cmp     x7, x3
+    0.04 :    7150:   str     q1, [x18, x3]
+    0.10 :    7154:   str     q18, [x1, x3]
+    0.07 :    7158:   add     x3, x3, #0x20
+    0.06 :    715c:   cmp     x7, x3
     0.00 :    7160:   b.ne    7140 <warpx_field_gather_fp64+0x6980>  // b.any
     0.00 :    7164:   cmp     x19, x10
     0.00 :    7168:   b.eq    7748 <warpx_field_gather_fp64+0x6f88>  // b.none
@@ -6840,13 +6840,13 @@
     0.00 :    7274:   sub     x18, x1, #0x10
     0.00 :    7278:   nop
     0.00 :    727c:   nop
-    0.10 :    7280:   ldr     q22, [x30, x3]
+    0.08 :    7280:   ldr     q22, [x30, x3]
     0.49 :    7284:   ldr     q23, [x2, x3]
-    0.13 :    7288:   fcvtzs  v22.2d, v22.2d
-    0.03 :    728c:   fcvtzs  v23.2d, v23.2d
-    0.06 :    7290:   str     q22, [x18, x3]
-    0.04 :    7294:   str     q23, [x1, x3]
-    0.08 :    7298:   add     x3, x3, #0x20
+    0.16 :    7288:   fcvtzs  v22.2d, v22.2d
+    0.01 :    728c:   fcvtzs  v23.2d, v23.2d
+    0.04 :    7290:   str     q22, [x18, x3]
+    0.10 :    7294:   str     q23, [x1, x3]
+    0.04 :    7298:   add     x3, x3, #0x20
     0.01 :    729c:   cmp     x7, x3
     0.00 :    72a0:   b.ne    7280 <warpx_field_gather_fp64+0x6ac0>  // b.any
     0.00 :    72a4:   cmp     x19, x11
@@ -6872,7 +6872,7 @@
     0.00 :    72f4:   add     x10, x10, x19
     0.00 :    72f8:   cmp     x21, x8
     0.00 :    72fc:   b.ge    7260 <warpx_field_gather_fp64+0x6aa0>  // b.tcont
-    0.01 :    7300:   ldr     x0, [sp, #104]
+    0.00 :    7300:   ldr     x0, [sp, #104]
     0.00 :    7304:   add     x5, x5, #0x1
     0.00 :    7308:   add     x4, x4, x0
     0.00 :    730c:   cmp     x21, x5
@@ -6908,7 +6908,7 @@
     0.00 :    7384:   mov     x9, x2
     0.00 :    7388:   mov     x10, #0x0                       // #0
     0.00 :    738c:   ldr     x14, [sp, #784]
-    0.01 :    7390:   ldr     x16, [sp, #792]
+    0.00 :    7390:   ldr     x16, [sp, #792]
     0.00 :    7394:   ldr     x17, [sp, #800]
     0.00 :    7398:   nop
     0.00 :    739c:   nop
@@ -6920,16 +6920,16 @@
     0.00 :    73b4:   add     x3, x15, x9
     0.00 :    73b8:   nop
     0.00 :    73bc:   nop
-    0.13 :    73c0:   ld1d    {z6.d}, p7/z, [x13, x1, lsl #3]
-    0.34 :    73c4:   ld1d    {z4.d}, p7/z, [x7, x1, lsl #3]
-    0.40 :    73c8:   ld1d    {z20.d}, p7/z, [x6, x1, lsl #3]
-    0.21 :    73cc:   mla     z4.d, p6/m, z28.d, z6.d
-    0.16 :    73d0:   mla     z20.d, p6/m, z4.d, z28.d
+    0.15 :    73c0:   ld1d    {z6.d}, p7/z, [x13, x1, lsl #3]
+    0.24 :    73c4:   ld1d    {z4.d}, p7/z, [x7, x1, lsl #3]
+    0.36 :    73c8:   ld1d    {z20.d}, p7/z, [x6, x1, lsl #3]
+    0.14 :    73cc:   mla     z4.d, p6/m, z28.d, z6.d
+    0.13 :    73d0:   mla     z20.d, p6/m, z4.d, z28.d
     0.08 :    73d4:   ld1d    {z17.d}, p7/z, [x28, z20.d, lsl #3]
-    2.71 :    73d8:   st1d    {z17.d}, p7, [x3, x1, lsl #3]
+    2.91 :    73d8:   st1d    {z17.d}, p7, [x3, x1, lsl #3]
     0.08 :    73dc:   add     x1, x1, x8
-    0.18 :    73e0:   whilelo p7.d, x1, x19
-    0.02 :    73e4:   b.ne    73c0 <warpx_field_gather_fp64+0x6c00>  // b.any
+    0.16 :    73e0:   whilelo p7.d, x1, x19
+    0.03 :    73e4:   b.ne    73c0 <warpx_field_gather_fp64+0x6c00>  // b.any
     0.00 :    73e8:   add     x10, x10, #0x1
     0.00 :    73ec:   add     x9, x9, x20
     0.00 :    73f0:   cmp     x21, x10
@@ -6967,17 +6967,17 @@
     0.00 :    7470:   b.eq    77ac <warpx_field_gather_fp64+0x6fec>  // b.none
     0.00 :    7474:   mov     x0, x12
     0.00 :    7478:   ldr     x3, [sp, #200]
-    0.00 :    747c:   mov     x1, #0x0                        // #0
+    0.01 :    747c:   mov     x1, #0x0                        // #0
     0.00 :    7480:   add     x6, x3, x9, lsl #3
     0.00 :    7484:   add     x3, x28, x10, lsl #3
-    0.12 :    7488:   ldr     q0, [x4, x1]
-    0.43 :    748c:   ldr     q31, [x8, x1]
-    0.35 :    7490:   ldr     q7, [x6, x1]
-    0.52 :    7494:   fmul    v31.2d, v0.2d, v31.2d
+    0.08 :    7488:   ldr     q0, [x4, x1]
+    0.44 :    748c:   ldr     q31, [x8, x1]
+    0.41 :    7490:   ldr     q7, [x6, x1]
+    0.55 :    7494:   fmul    v31.2d, v0.2d, v31.2d
     0.01 :    7498:   fmul    v7.2d, v31.2d, v7.2d
-    0.10 :    749c:   str     q7, [x3, x1]
-    0.12 :    74a0:   add     x1, x1, #0x10
-    0.18 :    74a4:   cmp     x1, x5
+    0.09 :    749c:   str     q7, [x3, x1]
+    0.09 :    74a0:   add     x1, x1, #0x10
+    0.12 :    74a4:   cmp     x1, x5
     0.00 :    74a8:   b.ne    7488 <warpx_field_gather_fp64+0x6cc8>  // b.any
     0.00 :    74ac:   cmp     x19, x12
     0.00 :    74b0:   b.eq    7790 <warpx_field_gather_fp64+0x6fd0>  // b.none
@@ -7001,7 +7001,7 @@
     0.00 :    74f8:   cmp     x15, x21
     0.00 :    74fc:   b.ne    746c <warpx_field_gather_fp64+0x6cac>  // b.any
     0.00 :    7500:   ldr     x0, [sp, #104]
-    0.00 :    7504:   add     x16, x16, #0x1
+    0.01 :    7504:   add     x16, x16, #0x1
     0.00 :    7508:   add     x2, x2, x19
     0.00 :    750c:   add     x4, x4, x20
     0.00 :    7510:   add     x17, x17, x0
@@ -7040,12 +7040,12 @@
     0.00 :    7594:   add     x7, x28, x8
     0.00 :    7598:   add     x6, x3, x8
     0.00 :    759c:   ldr     x3, [sp, #184]
-    0.01 :    75a0:   add     x3, x3, x8
-    0.16 :    75a4:   ldr     q3, [x6, x1]
-    0.47 :    75a8:   ldr     q29, [x7, x1]
-    0.54 :    75ac:   fmul    v29.2d, v3.2d, v29.2d
-    0.07 :    75b0:   str     q29, [x3, x1]
-    0.17 :    75b4:   add     x1, x1, #0x10
+    0.00 :    75a0:   add     x3, x3, x8
+    0.09 :    75a4:   ldr     q3, [x6, x1]
+    0.49 :    75a8:   ldr     q29, [x7, x1]
+    0.62 :    75ac:   fmul    v29.2d, v3.2d, v29.2d
+    0.10 :    75b0:   str     q29, [x3, x1]
+    0.14 :    75b4:   add     x1, x1, #0x10
     0.13 :    75b8:   cmp     x5, x1
     0.00 :    75bc:   b.ne    75a4 <warpx_field_gather_fp64+0x6de4>  // b.any
     0.00 :    75c0:   cmp     x19, x11
@@ -7092,31 +7092,31 @@
     0.00 :    7664:   ldr     x1, [sp, #720]
     0.00 :    7668:   str     xzr, [x1, x22, lsl #3]
     0.00 :    766c:   tbnz    x21, #63, 7654 <warpx_field_gather_fp64+0x6e94>
-    0.00 :    7670:   ldr     x1, [sp, #216]
-    0.00 :    7674:   mov     x2, x9
+    0.01 :    7670:   ldr     x1, [sp, #216]
+    0.01 :    7674:   mov     x2, x9
     0.00 :    7678:   mov     x8, #0x0                        // #0
     0.00 :    767c:   cmn     x1, #0x1
     0.00 :    7680:   b.eq    7800 <warpx_field_gather_fp64+0x7040>  // b.none
-    0.04 :    7684:   ldr     x1, [sp, #720]
-    0.01 :    7688:   mov     x4, x2
-    0.00 :    768c:   mov     x5, #0x0                        // #0
-    0.00 :    7690:   ldr     x7, [sp, #224]
-    0.02 :    7694:   ldr     d26, [x1, x22, lsl #3]
-    1.12 :    7698:   nop
+    0.01 :    7684:   ldr     x1, [sp, #720]
+    0.00 :    7688:   mov     x4, x2
+    0.02 :    768c:   mov     x5, #0x0                        // #0
+    0.02 :    7690:   ldr     x7, [sp, #224]
+    0.03 :    7694:   ldr     d26, [x1, x22, lsl #3]
+    1.35 :    7698:   nop
     0.00 :    769c:   nop
-    0.07 :    76a0:   mov     x6, x4
-    0.01 :    76a4:   mov     x3, #0x0                        // #0
-    0.24 :    76a8:   ldr     d18, [x6]
-    0.97 :    76ac:   cmp     x21, x3
-    4.93 :    76b0:   add     x6, x6, x20
+    0.09 :    76a0:   mov     x6, x4
+    0.00 :    76a4:   mov     x3, #0x0                        // #0
+    0.27 :    76a8:   ldr     d18, [x6]
+    0.91 :    76ac:   cmp     x21, x3
+    4.62 :    76b0:   add     x6, x6, x20
     0.04 :    76b4:   add     x3, x3, #0x1
-    0.18 :    76b8:   fadd    d26, d26, d18
+    0.24 :    76b8:   fadd    d26, d26, d18
     0.21 :    76bc:   b.ne    76a8 <warpx_field_gather_fp64+0x6ee8>  // b.any
-    0.07 :    76c0:   add     x1, x5, #0x1
-    0.01 :    76c4:   add     x4, x4, x7
-    0.08 :    76c8:   cmp     x21, x1
+    0.03 :    76c0:   add     x1, x5, #0x1
+    0.00 :    76c4:   add     x4, x4, x7
+    0.07 :    76c8:   cmp     x21, x1
     0.00 :    76cc:   b.eq    77d8 <warpx_field_gather_fp64+0x7018>  // b.none
-    0.03 :    76d0:   mov     x5, x1
+    0.02 :    76d0:   mov     x5, x1
     0.00 :    76d4:   b       76a0 <warpx_field_gather_fp64+0x6ee0>
     0.00 :    76d8:   add     x8, x8, #0x1
     0.00 :    76dc:   add     x1, x1, x20
@@ -7146,7 +7146,7 @@
     0.00 :    773c:   b.eq    6d18 <warpx_field_gather_fp64+0x6558>  // b.none
     0.00 :    7740:   ldr     d31, [x2]
     0.00 :    7744:   b       6c48 <warpx_field_gather_fp64+0x6488>
-    0.00 :    7748:   add     x8, x8, #0x1
+    0.01 :    7748:   add     x8, x8, #0x1
     0.00 :    774c:   add     x1, x1, x20
     0.00 :    7750:   add     x9, x9, x19
     0.00 :    7754:   cmp     x21, x8
@@ -7182,14 +7182,14 @@
     0.00 :    77cc:   b       758c <warpx_field_gather_fp64+0x6dcc>
     0.00 :    77d0:   mov     x0, #0x0                        // #0
     0.00 :    77d4:   b       75c8 <warpx_field_gather_fp64+0x6e08>
-    0.00 :    77d8:   ldr     x1, [sp, #720]
+    0.01 :    77d8:   ldr     x1, [sp, #720]
     0.00 :    77dc:   add     x2, x2, x0
-    0.03 :    77e0:   str     d26, [x1, x22, lsl #3]
-    0.00 :    77e4:   add     x1, x8, #0x1
+    0.01 :    77e0:   str     d26, [x1, x22, lsl #3]
+    0.02 :    77e4:   add     x1, x8, #0x1
     0.01 :    77e8:   cmp     x8, x5
     0.00 :    77ec:   b.gt    7654 <warpx_field_gather_fp64+0x6e94>
-    0.04 :    77f0:   mov     x8, x1
-    0.00 :    77f4:   ldr     x1, [sp, #216]
+    0.01 :    77f0:   mov     x8, x1
+    0.04 :    77f4:   ldr     x1, [sp, #216]
     0.01 :    77f8:   cmn     x1, #0x1
     0.00 :    77fc:   b.ne    7684 <warpx_field_gather_fp64+0x6ec4>  // b.any
     0.00 :    7800:   add     x22, x22, #0x1
@@ -7214,10 +7214,10 @@
     0.01 :    784c:   ldr     x3, [sp, #1576]
     0.00 :    7850:   ldr     q1, [x2, x1]
     0.01 :    7854:   ldr     q25, [x3, x1]
-    0.01 :    7858:   fadd    v25.2d, v1.2d, v25.2d
+    0.00 :    7858:   fadd    v25.2d, v1.2d, v25.2d
     0.00 :    785c:   str     q25, [x2, x1]
     0.00 :    7860:   add     x1, x1, #0x10
-    0.01 :    7864:   cmp     x1, x0
+    0.00 :    7864:   cmp     x1, x0
     0.00 :    7868:   b.ne    7848 <warpx_field_gather_fp64+0x7088>  // b.any
     0.00 :    786c:   and     x0, x19, #0xfffffffffffffffe
     0.00 :    7870:   tbz     w19, #0, 7890 <warpx_field_gather_fp64+0x70d0>
@@ -7392,14 +7392,14 @@
     0.00 :    7b14:   nop
     0.00 :    7b18:   nop
     0.00 :    7b1c:   nop
-    0.04 :    7b20:   ldr     x3, [sp, #1048]
-    0.02 :    7b24:   ldr     q1, [x3, x0]
-    0.11 :    7b28:   add     v1.2d, v3.2d, v1.2d
+    0.03 :    7b20:   ldr     x3, [sp, #1048]
+    0.01 :    7b24:   ldr     q1, [x3, x0]
+    0.07 :    7b28:   add     v1.2d, v3.2d, v1.2d
     0.00 :    7b2c:   add     v1.2d, v1.2d, v27.2d
     0.01 :    7b30:   scvtf   v1.2d, v1.2d
     0.01 :    7b34:   str     q1, [x2, x0]
     0.01 :    7b38:   add     x0, x0, #0x10
-    0.01 :    7b3c:   cmp     x1, x0
+    0.02 :    7b3c:   cmp     x1, x0
     0.00 :    7b40:   b.ne    7b20 <warpx_field_gather_fp64+0x7360>  // b.any
     0.00 :    7b44:   cmp     x19, x12
     0.00 :    7b48:   b.eq    8038 <warpx_field_gather_fp64+0x7878>  // b.none
@@ -7464,14 +7464,14 @@
     0.00 :    7c34:   nop
     0.00 :    7c38:   nop
     0.00 :    7c3c:   nop
-    0.04 :    7c40:   ldr     x3, [sp, #1096]
-    0.00 :    7c44:   ldr     q20, [x3, x0]
-    0.08 :    7c48:   add     v20.2d, v25.2d, v20.2d
+    0.01 :    7c40:   ldr     x3, [sp, #1096]
+    0.01 :    7c44:   ldr     q20, [x3, x0]
+    0.10 :    7c48:   add     v20.2d, v25.2d, v20.2d
     0.00 :    7c4c:   add     v20.2d, v20.2d, v24.2d
-    0.01 :    7c50:   scvtf   v20.2d, v20.2d
-    0.00 :    7c54:   str     q20, [x2, x0]
-    0.00 :    7c58:   add     x0, x0, #0x10
-    0.00 :    7c5c:   cmp     x0, x1
+    0.00 :    7c50:   scvtf   v20.2d, v20.2d
+    0.01 :    7c54:   str     q20, [x2, x0]
+    0.01 :    7c58:   add     x0, x0, #0x10
+    0.01 :    7c5c:   cmp     x0, x1
     0.00 :    7c60:   b.ne    7c40 <warpx_field_gather_fp64+0x7480>  // b.any
     0.00 :    7c64:   cmp     x19, x12
     0.00 :    7c68:   b.eq    8020 <warpx_field_gather_fp64+0x7860>  // b.none
@@ -7536,12 +7536,12 @@
     0.00 :    7d54:   dup     v22.2d, v31.d[0]
     0.00 :    7d58:   mov     x0, #0x0                        // #0
     0.00 :    7d5c:   add     x2, x2, x4, lsl #3
-    0.00 :    7d60:   ldr     x3, [sp, #1144]
+    0.01 :    7d60:   ldr     x3, [sp, #1144]
     0.00 :    7d64:   ldr     q7, [x3, x0]
-    0.04 :    7d68:   add     v7.2d, v28.2d, v7.2d
+    0.06 :    7d68:   add     v7.2d, v28.2d, v7.2d
     0.00 :    7d6c:   add     v7.2d, v7.2d, v22.2d
     0.00 :    7d70:   scvtf   v7.2d, v7.2d
-    0.01 :    7d74:   str     q7, [x2, x0]
+    0.00 :    7d74:   str     q7, [x2, x0]
     0.00 :    7d78:   add     x0, x0, #0x10
     0.01 :    7d7c:   cmp     x0, x1
     0.00 :    7d80:   b.ne    7d60 <warpx_field_gather_fp64+0x75a0>  // b.any
@@ -7648,14 +7648,14 @@
     0.00 :    7f14:   nop
     0.00 :    7f18:   nop
     0.00 :    7f1c:   nop
-    0.12 :    7f20:   ldr     q0, [x5, x2]
-    0.44 :    7f24:   ldr     q2, [x4, x2]
+    0.07 :    7f20:   ldr     q0, [x5, x2]
+    0.51 :    7f24:   ldr     q2, [x4, x2]
     0.18 :    7f28:   fcvtzs  v0.2d, v0.2d
     0.03 :    7f2c:   fcvtzs  v2.2d, v2.2d
-    0.04 :    7f30:   str     q0, [x6, x2]
-    0.05 :    7f34:   str     q2, [x1, x2]
-    0.09 :    7f38:   add     x2, x2, #0x20
-    0.01 :    7f3c:   cmp     x2, x8
+    0.06 :    7f30:   str     q0, [x6, x2]
+    0.07 :    7f34:   str     q2, [x1, x2]
+    0.07 :    7f38:   add     x2, x2, #0x20
+    0.04 :    7f3c:   cmp     x2, x8
     0.00 :    7f40:   b.ne    7f20 <warpx_field_gather_fp64+0x7760>  // b.any
     0.00 :    7f44:   cmp     x19, x11
     0.00 :    7f48:   b.eq    7fe8 <warpx_field_gather_fp64+0x7828>  // b.none
@@ -7723,7 +7723,7 @@
     0.00 :    8040:   cmp     x11, x5
     0.00 :    8044:   b.eq    7bd8 <warpx_field_gather_fp64+0x7418>  // b.none
     0.00 :    8048:   ldr     d31, [x5]
-    0.00 :    804c:   b       7b04 <warpx_field_gather_fp64+0x7344>
+    0.01 :    804c:   b       7b04 <warpx_field_gather_fp64+0x7344>
     0.00 :    8050:   mov     x16, #0x0                       // #0
     0.00 :    8054:   mov     x14, x30
     0.00 :    8058:   nop
@@ -7744,14 +7744,14 @@
     0.00 :    8094:   nop
     0.00 :    8098:   nop
     0.00 :    809c:   nop
-    0.12 :    80a0:   ldr     q30, [x8, x2]
-    0.30 :    80a4:   ldr     q17, [x5, x2]
-    0.27 :    80a8:   fcvtzs  v30.2d, v30.2d
-    0.01 :    80ac:   fcvtzs  v17.2d, v17.2d
-    0.04 :    80b0:   str     q30, [x3, x2]
+    0.13 :    80a0:   ldr     q30, [x8, x2]
+    0.21 :    80a4:   ldr     q17, [x5, x2]
+    0.31 :    80a8:   fcvtzs  v30.2d, v30.2d
+    0.03 :    80ac:   fcvtzs  v17.2d, v17.2d
+    0.07 :    80b0:   str     q30, [x3, x2]
     0.04 :    80b4:   str     q17, [x1, x2]
-    0.09 :    80b8:   add     x2, x2, #0x20
-    0.04 :    80bc:   cmp     x4, x2
+    0.05 :    80b8:   add     x2, x2, #0x20
+    0.06 :    80bc:   cmp     x4, x2
     0.00 :    80c0:   b.ne    80a0 <warpx_field_gather_fp64+0x78e0>  // b.any
     0.00 :    80c4:   cmp     x19, x11
     0.00 :    80c8:   b.eq    8158 <warpx_field_gather_fp64+0x7998>  // b.none
@@ -7782,7 +7782,7 @@
     0.00 :    812c:   cmp     x21, x16
     0.00 :    8130:   b.ge    8060 <warpx_field_gather_fp64+0x78a0>  // b.tcont
     0.00 :    8134:   ldr     x0, [sp, #136]
-    0.00 :    8138:   add     x18, x18, #0x1
+    0.01 :    8138:   add     x18, x18, #0x1
     0.00 :    813c:   add     x8, x8, x20
     0.00 :    8140:   add     x5, x5, x20
     0.00 :    8144:   add     x13, x13, x19
@@ -7826,9 +7826,9 @@
     0.01 :    81dc:   add     x1, x14, x4, lsl #3
     0.00 :    81e0:   mov     x11, x4
     0.00 :    81e4:   mov     x10, #0x0                       // #0
-    0.00 :    81e8:   mov     x9, #0x0                        // #0
+    0.01 :    81e8:   mov     x9, #0x0                        // #0
     0.00 :    81ec:   ldr     x7, [sp, #848]
-    0.00 :    81f0:   add     x2, x6, #0x10
+    0.01 :    81f0:   add     x2, x6, #0x10
     0.00 :    81f4:   nop
     0.00 :    81f8:   nop
     0.00 :    81fc:   nop
@@ -7840,14 +7840,14 @@
     0.00 :    8214:   sub     x17, x1, #0x10
     0.00 :    8218:   nop
     0.00 :    821c:   nop
-    0.13 :    8220:   ldr     q5, [x18, x3]
-    0.16 :    8224:   ldr     q18, [x2, x3]
-    0.40 :    8228:   fcvtzs  v5.2d, v5.2d
-    0.00 :    822c:   fcvtzs  v18.2d, v18.2d
+    0.07 :    8220:   ldr     q5, [x18, x3]
+    0.13 :    8224:   ldr     q18, [x2, x3]
+    0.46 :    8228:   fcvtzs  v5.2d, v5.2d
+    0.01 :    822c:   fcvtzs  v18.2d, v18.2d
     0.04 :    8230:   str     q5, [x17, x3]
-    0.04 :    8234:   str     q18, [x1, x3]
-    0.10 :    8238:   add     x3, x3, #0x20
-    0.04 :    823c:   cmp     x8, x3
+    0.08 :    8234:   str     q18, [x1, x3]
+    0.07 :    8238:   add     x3, x3, #0x20
+    0.07 :    823c:   cmp     x8, x3
     0.00 :    8240:   b.ne    8220 <warpx_field_gather_fp64+0x7a60>  // b.any
     0.00 :    8244:   cmp     x19, x12
     0.00 :    8248:   b.eq    82bc <warpx_field_gather_fp64+0x7afc>  // b.none
@@ -7928,15 +7928,15 @@
     0.00 :    8374:   mov     x1, #0x0                        // #0
     0.00 :    8378:   add     x6, x15, x10
     0.00 :    837c:   add     x3, x14, x10
-    0.12 :    8380:   ld1d    {z19.d}, p7/z, [x8, x1, lsl #3]
-    0.30 :    8384:   ld1d    {z16.d}, p7/z, [x7, x1, lsl #3]
-    0.49 :    8388:   ld1d    {z24.d}, p7/z, [x6, x1, lsl #3]
-    0.18 :    838c:   mla     z16.d, p6/m, z19.d, z25.d
-    0.11 :    8390:   mla     z24.d, p6/m, z16.d, z25.d
-    0.12 :    8394:   ld1d    {z23.d}, p7/z, [x26, z24.d, lsl #3]
-    2.87 :    8398:   st1d    {z23.d}, p7, [x3, x1, lsl #3]
-    0.16 :    839c:   add     x1, x1, x9
-    0.18 :    83a0:   whilelo p7.d, x1, x19
+    0.05 :    8380:   ld1d    {z19.d}, p7/z, [x8, x1, lsl #3]
+    0.41 :    8384:   ld1d    {z16.d}, p7/z, [x7, x1, lsl #3]
+    0.40 :    8388:   ld1d    {z24.d}, p7/z, [x6, x1, lsl #3]
+    0.28 :    838c:   mla     z16.d, p6/m, z19.d, z25.d
+    0.10 :    8390:   mla     z24.d, p6/m, z16.d, z25.d
+    0.07 :    8394:   ld1d    {z23.d}, p7/z, [x26, z24.d, lsl #3]
+    3.01 :    8398:   st1d    {z23.d}, p7, [x3, x1, lsl #3]
+    0.06 :    839c:   add     x1, x1, x9
+    0.25 :    83a0:   whilelo p7.d, x1, x19
     0.02 :    83a4:   b.ne    8380 <warpx_field_gather_fp64+0x7bc0>  // b.any
     0.00 :    83a8:   add     x11, x11, #0x1
     0.00 :    83ac:   add     x10, x10, x20
@@ -7992,13 +7992,13 @@
     0.00 :    8474:   add     x7, x6, x10, lsl #3
     0.00 :    8478:   add     x6, x5, x11, lsl #3
     0.00 :    847c:   nop
-    0.23 :    8480:   ldr     q4, [x3, x1]
-    0.43 :    8484:   ldr     q31, [x9, x1]
-    0.40 :    8488:   ldr     q20, [x7, x1]
-    0.47 :    848c:   fmul    v31.2d, v4.2d, v31.2d
+    0.21 :    8480:   ldr     q4, [x3, x1]
+    0.48 :    8484:   ldr     q31, [x9, x1]
+    0.31 :    8488:   ldr     q20, [x7, x1]
+    0.46 :    848c:   fmul    v31.2d, v4.2d, v31.2d
     0.01 :    8490:   fmul    v20.2d, v31.2d, v20.2d
     0.15 :    8494:   str     q20, [x6, x1]
-    0.05 :    8498:   add     x1, x1, #0x10
+    0.10 :    8498:   add     x1, x1, #0x10
     0.10 :    849c:   cmp     x4, x1
     0.00 :    84a0:   b.ne    8480 <warpx_field_gather_fp64+0x7cc0>  // b.any
     0.00 :    84a4:   cmp     x19, x13
@@ -8022,7 +8022,7 @@
     0.00 :    84ec:   cmp     x21, x12
     0.00 :    84f0:   b.ne    8460 <warpx_field_gather_fp64+0x7ca0>  // b.any
     0.00 :    84f4:   ldr     x0, [sp, #240]
-    0.00 :    84f8:   add     x2, x2, x19
+    0.01 :    84f8:   add     x2, x2, x19
     0.00 :    84fc:   add     x3, x3, x20
     0.00 :    8500:   add     x17, x17, x0
     0.00 :    8504:   add     x0, x15, #0x1
@@ -8039,7 +8039,7 @@
     0.00 :    8530:   mov     x0, #0x0                        // #0
     0.00 :    8534:   b       84ac <warpx_field_gather_fp64+0x7cec>
     0.00 :    8538:   ldr     x0, [sp, #192]
-    0.00 :    853c:   str     x5, [sp, #232]
+    0.01 :    853c:   str     x5, [sp, #232]
     0.00 :    8540:   bl      680 <malloc@plt>
     0.00 :    8544:   ldr     x5, [sp, #232]
     0.00 :    8548:   lsr     x1, x19, #1
@@ -8066,11 +8066,11 @@
     0.00 :    859c:   add     x7, x6, x9
     0.00 :    85a0:   ldr     x6, [sp, #192]
     0.00 :    85a4:   add     x6, x6, x9
-    0.17 :    85a8:   ldr     q7, [x7, x1]
-    0.68 :    85ac:   ldr     q30, [x8, x1]
-    0.46 :    85b0:   fmul    v30.2d, v7.2d, v30.2d
-    0.07 :    85b4:   str     q30, [x6, x1]
-    0.18 :    85b8:   add     x1, x1, #0x10
+    0.22 :    85a8:   ldr     q7, [x7, x1]
+    0.60 :    85ac:   ldr     q30, [x8, x1]
+    0.51 :    85b0:   fmul    v30.2d, v7.2d, v30.2d
+    0.11 :    85b4:   str     q30, [x6, x1]
+    0.08 :    85b8:   add     x1, x1, #0x10
     0.10 :    85bc:   cmp     x4, x1
     0.00 :    85c0:   b.ne    85a8 <warpx_field_gather_fp64+0x7de8>  // b.any
     0.00 :    85c4:   cmp     x19, x12
@@ -8210,9 +8210,9 @@
     0.00 :    87dc:   mov     x1, #0x0                        // #0
     0.00 :    87e0:   lsl     x0, x0, #4
     0.00 :    87e4:   ldr     x2, [sp, #704]
-    0.01 :    87e8:   ldr     x3, [sp, #1552]
-    0.01 :    87ec:   ldr     q0, [x2, x1]
-    0.07 :    87f0:   ldr     q27, [x3, x1]
+    0.00 :    87e8:   ldr     x3, [sp, #1552]
+    0.00 :    87ec:   ldr     q0, [x2, x1]
+    0.02 :    87f0:   ldr     q27, [x3, x1]
     0.00 :    87f4:   fadd    v27.2d, v0.2d, v27.2d
     0.00 :    87f8:   str     q27, [x2, x1]
     0.00 :    87fc:   add     x1, x1, #0x10
@@ -8397,12 +8397,12 @@
     0.00 :    8ac8:   mov     x0, #0x0                        // #0
     0.00 :    8acc:   add     x2, x2, x4, lsl #3
     0.00 :    8ad0:   ldr     x6, [sp, #1072]
-    0.01 :    8ad4:   ldr     q0, [x6, x0]
-    0.04 :    8ad8:   add     v0.2d, v7.2d, v0.2d
+    0.00 :    8ad4:   ldr     q0, [x6, x0]
+    0.09 :    8ad8:   add     v0.2d, v7.2d, v0.2d
     0.00 :    8adc:   add     v0.2d, v0.2d, v29.2d
-    0.01 :    8ae0:   scvtf   v0.2d, v0.2d
-    0.00 :    8ae4:   str     q0, [x2, x0]
-    0.02 :    8ae8:   add     x0, x0, #0x10
+    0.00 :    8ae0:   scvtf   v0.2d, v0.2d
+    0.01 :    8ae4:   str     q0, [x2, x0]
+    0.01 :    8ae8:   add     x0, x0, #0x10
     0.01 :    8aec:   cmp     x0, x1
     0.00 :    8af0:   b.ne    8ad0 <warpx_field_gather_fp64+0x8310>  // b.any
     0.00 :    8af4:   cmp     x19, x14
@@ -8467,13 +8467,13 @@
     0.00 :    8be0:   dup     v26.2d, v31.d[0]
     0.00 :    8be4:   mov     x0, #0x0                        // #0
     0.00 :    8be8:   add     x2, x2, x4, lsl #3
-    0.01 :    8bec:   ldr     x6, [sp, #1120]
-    0.01 :    8bf0:   ldr     q5, [x6, x0]
+    0.02 :    8bec:   ldr     x6, [sp, #1120]
+    0.00 :    8bf0:   ldr     q5, [x6, x0]
     0.06 :    8bf4:   add     v5.2d, v27.2d, v5.2d
     0.00 :    8bf8:   add     v5.2d, v5.2d, v26.2d
-    0.01 :    8bfc:   scvtf   v5.2d, v5.2d
-    0.01 :    8c00:   str     q5, [x2, x0]
-    0.02 :    8c04:   add     x0, x0, #0x10
+    0.00 :    8bfc:   scvtf   v5.2d, v5.2d
+    0.00 :    8c00:   str     q5, [x2, x0]
+    0.01 :    8c04:   add     x0, x0, #0x10
     0.00 :    8c08:   cmp     x0, x1
     0.00 :    8c0c:   b.ne    8bec <warpx_field_gather_fp64+0x842c>  // b.any
     0.00 :    8c10:   cmp     x19, x13
@@ -8537,14 +8537,14 @@
     0.00 :    8cf8:   dup     v24.2d, v31.d[0]
     0.00 :    8cfc:   mov     x0, #0x0                        // #0
     0.00 :    8d00:   add     x2, x2, x4, lsl #3
-    0.00 :    8d04:   ldr     x6, [sp, #1168]
-    0.03 :    8d08:   ldr     q20, [x6, x0]
-    0.10 :    8d0c:   add     v20.2d, v25.2d, v20.2d
+    0.02 :    8d04:   ldr     x6, [sp, #1168]
+    0.01 :    8d08:   ldr     q20, [x6, x0]
+    0.12 :    8d0c:   add     v20.2d, v25.2d, v20.2d
     0.00 :    8d10:   add     v20.2d, v20.2d, v24.2d
-    0.00 :    8d14:   scvtf   v20.2d, v20.2d
+    0.01 :    8d14:   scvtf   v20.2d, v20.2d
     0.01 :    8d18:   str     q20, [x2, x0]
-    0.01 :    8d1c:   add     x0, x0, #0x10
-    0.00 :    8d20:   cmp     x0, x1
+    0.00 :    8d1c:   add     x0, x0, #0x10
+    0.01 :    8d20:   cmp     x0, x1
     0.00 :    8d24:   b.ne    8d04 <warpx_field_gather_fp64+0x8544>  // b.any
     0.00 :    8d28:   cmp     x19, x12
     0.00 :    8d2c:   b.eq    8ff4 <warpx_field_gather_fp64+0x8834>  // b.none
@@ -8584,7 +8584,7 @@
     0.00 :    8db4:   cmp     x21, x3
     0.00 :    8db8:   b.ge    8ce0 <warpx_field_gather_fp64+0x8520>  // b.tcont
     0.00 :    8dbc:   ldr     x1, [sp, #504]
-    0.01 :    8dc0:   str     x5, [sp, #136]
+    0.00 :    8dc0:   str     x5, [sp, #136]
     0.00 :    8dc4:   ldr     x0, [sp, #1304]
     0.00 :    8dc8:   mul     x0, x0, x1
     0.00 :    8dcc:   mul     x0, x0, x19
@@ -8632,14 +8632,14 @@
     0.00 :    8e74:   nop
     0.00 :    8e78:   nop
     0.00 :    8e7c:   nop
-    0.04 :    8e80:   ldr     q30, [x9, x6]
-    0.33 :    8e84:   ldr     q23, [x4, x6]
-    0.14 :    8e88:   fcvtzs  v30.2d, v30.2d
-    0.00 :    8e8c:   fcvtzs  v23.2d, v23.2d
+    0.07 :    8e80:   ldr     q30, [x9, x6]
+    0.22 :    8e84:   ldr     q23, [x4, x6]
+    0.09 :    8e88:   fcvtzs  v30.2d, v30.2d
+    0.03 :    8e8c:   fcvtzs  v23.2d, v23.2d
     0.04 :    8e90:   str     q30, [x30, x6]
-    0.03 :    8e94:   str     q23, [x1, x6]
-    0.06 :    8e98:   add     x6, x6, #0x20
-    0.02 :    8e9c:   cmp     x3, x6
+    0.04 :    8e94:   str     q23, [x1, x6]
+    0.09 :    8e98:   add     x6, x6, #0x20
+    0.04 :    8e9c:   cmp     x3, x6
     0.00 :    8ea0:   b.ne    8e80 <warpx_field_gather_fp64+0x86c0>  // b.any
     0.00 :    8ea4:   cmp     x19, x13
     0.00 :    8ea8:   b.eq    8f9c <warpx_field_gather_fp64+0x87dc>  // b.none
@@ -8671,37 +8671,37 @@
     0.00 :    8f10:   b       8e40 <warpx_field_gather_fp64+0x8680>
     0.01 :    8f14:   add     x9, x9, #0x1
     0.00 :    8f18:   add     x12, x12, #0x8
-    0.01 :    8f1c:   cmp     x19, x9
+    0.00 :    8f1c:   cmp     x19, x9
     0.00 :    8f20:   b.eq    87b0 <warpx_field_gather_fp64+0x7ff0>  // b.none
-    0.00 :    8f24:   str     xzr, [x26, x9, lsl #3]
+    0.02 :    8f24:   str     xzr, [x26, x9, lsl #3]
     0.00 :    8f28:   mov     x0, x12
     0.00 :    8f2c:   mov     x2, #0x0                        // #0
-    0.03 :    8f30:   ldr     x8, [sp, #216]
-    0.01 :    8f34:   mov     x3, x0
+    0.02 :    8f30:   ldr     x8, [sp, #216]
+    0.02 :    8f34:   mov     x3, x0
     0.00 :    8f38:   mov     x4, #0x0                        // #0
-    0.02 :    8f3c:   tbnz    x8, #63, 8f84 <warpx_field_gather_fp64+0x87c4>
-    0.07 :    8f40:   ldr     d21, [x26, x9, lsl #3]
-    0.14 :    8f44:   mov     x1, #0x0                        // #0
-    4.40 :    8f48:   mov     x6, x3
-    0.27 :    8f4c:   mov     x7, x1
+    0.03 :    8f3c:   tbnz    x8, #63, 8f84 <warpx_field_gather_fp64+0x87c4>
+    0.08 :    8f40:   ldr     d21, [x26, x9, lsl #3]
+    0.08 :    8f44:   mov     x1, #0x0                        // #0
+    4.42 :    8f48:   mov     x6, x3
+    0.21 :    8f4c:   mov     x7, x1
     0.00 :    8f50:   add     x1, x1, #0x1
-    0.21 :    8f54:   ldr     d2, [x6]
-    0.69 :    8f58:   add     x6, x6, x20
-    1.42 :    8f5c:   fadd    d21, d21, d2
-    0.22 :    8f60:   cmp     x21, x1
+    0.23 :    8f54:   ldr     d2, [x6]
+    0.72 :    8f58:   add     x6, x6, x20
+    1.46 :    8f5c:   fadd    d21, d21, d2
+    0.24 :    8f60:   cmp     x21, x1
     0.00 :    8f64:   b.ne    8f4c <warpx_field_gather_fp64+0x878c>  // b.any
-    0.13 :    8f68:   str     d21, [x26, x9, lsl #3]
+    0.07 :    8f68:   str     d21, [x26, x9, lsl #3]
     0.07 :    8f6c:   add     x3, x3, x10
-    0.06 :    8f70:   add     x1, x4, #0x1
-    0.10 :    8f74:   cmp     x4, x7
+    0.05 :    8f70:   add     x1, x4, #0x1
+    0.09 :    8f74:   cmp     x4, x7
     0.00 :    8f78:   b.gt    8f84 <warpx_field_gather_fp64+0x87c4>
-    0.04 :    8f7c:   mov     x4, x1
-    0.03 :    8f80:   tbz     x8, #63, 8f40 <warpx_field_gather_fp64+0x8780>
-    0.01 :    8f84:   add     x0, x0, x11
+    0.01 :    8f7c:   mov     x4, x1
+    0.05 :    8f80:   tbz     x8, #63, 8f40 <warpx_field_gather_fp64+0x8780>
+    0.02 :    8f84:   add     x0, x0, x11
     0.01 :    8f88:   add     x1, x2, #0x1
-    0.01 :    8f8c:   cmp     x21, x2
+    0.04 :    8f8c:   cmp     x21, x2
     0.00 :    8f90:   b.eq    8f14 <warpx_field_gather_fp64+0x8754>  // b.none
-    0.00 :    8f94:   mov     x2, x1
+    0.01 :    8f94:   mov     x2, x1
     0.00 :    8f98:   b       8f30 <warpx_field_gather_fp64+0x8770>
     0.00 :    8f9c:   add     x11, x11, #0x1
     0.00 :    8fa0:   add     x1, x1, x20
@@ -8709,7 +8709,7 @@
     0.00 :    8fa8:   cmp     x21, x11
     0.00 :    8fac:   b.ge    8e6c <warpx_field_gather_fp64+0x86ac>  // b.tcont
     0.00 :    8fb0:   ldr     x0, [sp, #104]
-    0.00 :    8fb4:   add     x12, x10, #0x1
+    0.01 :    8fb4:   add     x12, x10, #0x1
     0.00 :    8fb8:   add     x2, x2, x0
     0.00 :    8fbc:   cmp     x21, x12
     0.00 :    8fc0:   b.ne    8f0c <warpx_field_gather_fp64+0x874c>  // b.any
@@ -8773,7 +8773,7 @@
     0.00 :    90a8:   mov     x13, x16
     0.00 :    90ac:   mov     x11, #0x0                       // #0
     0.00 :    90b0:   ldr     x28, [sp, #760]
-    0.00 :    90b4:   str     x12, [sp, #728]
+    0.01 :    90b4:   str     x12, [sp, #728]
     0.00 :    90b8:   ldr     x12, [sp, #928]
     0.00 :    90bc:   stp     x5, x26, [sp, #232]
     0.00 :    90c0:   cmp     x22, #0x2
@@ -8784,14 +8784,14 @@
     0.00 :    90d4:   nop
     0.00 :    90d8:   nop
     0.00 :    90dc:   nop
-    0.09 :    90e0:   ldr     q4, [x2, x5]
-    0.13 :    90e4:   ldr     q6, [x1, x5]
-    0.34 :    90e8:   fcvtzs  v4.2d, v4.2d
-    0.00 :    90ec:   fcvtzs  v6.2d, v6.2d
+    0.06 :    90e0:   ldr     q4, [x2, x5]
+    0.11 :    90e4:   ldr     q6, [x1, x5]
+    0.28 :    90e8:   fcvtzs  v4.2d, v4.2d
+    0.01 :    90ec:   fcvtzs  v6.2d, v6.2d
     0.04 :    90f0:   str     q4, [x8, x5]
-    0.04 :    90f4:   str     q6, [x0, x5]
-    0.04 :    90f8:   add     x5, x5, #0x20
-    0.03 :    90fc:   cmp     x3, x5
+    0.06 :    90f4:   str     q6, [x0, x5]
+    0.07 :    90f8:   add     x5, x5, #0x20
+    0.04 :    90fc:   cmp     x3, x5
     0.00 :    9100:   b.ne    90e0 <warpx_field_gather_fp64+0x8920>  // b.any
     0.00 :    9104:   cmp     x19, x14
     0.00 :    9108:   b.eq    9190 <warpx_field_gather_fp64+0x89d0>  // b.none
@@ -8819,7 +8819,7 @@
     0.00 :    9160:   add     x2, x2, x20
     0.00 :    9164:   add     x1, x1, x20
     0.00 :    9168:   ldp     x5, x26, [sp, #232]
-    0.00 :    916c:   add     x17, x17, x19
+    0.01 :    916c:   add     x17, x17, x19
     0.00 :    9170:   ldr     x28, [sp, #136]
     0.00 :    9174:   add     x16, x16, x0
     0.00 :    9178:   add     x0, x9, #0x1
@@ -8881,13 +8881,13 @@
     0.00 :    9258:   sub     x8, x1, #0x10
     0.00 :    925c:   nop
     0.06 :    9260:   ldr     q7, [x28, x3]
-    0.38 :    9264:   ldr     q17, [x2, x3]
+    0.26 :    9264:   ldr     q17, [x2, x3]
     0.12 :    9268:   fcvtzs  v7.2d, v7.2d
-    0.01 :    926c:   fcvtzs  v17.2d, v17.2d
-    0.07 :    9270:   str     q7, [x8, x3]
-    0.02 :    9274:   str     q17, [x1, x3]
-    0.04 :    9278:   add     x3, x3, #0x20
-    0.02 :    927c:   cmp     x3, x9
+    0.03 :    926c:   fcvtzs  v17.2d, v17.2d
+    0.04 :    9270:   str     q7, [x8, x3]
+    0.05 :    9274:   str     q17, [x1, x3]
+    0.07 :    9278:   add     x3, x3, #0x20
+    0.06 :    927c:   cmp     x3, x9
     0.00 :    9280:   b.ne    9260 <warpx_field_gather_fp64+0x8aa0>  // b.any
     0.00 :    9284:   cmp     x19, x15
     0.00 :    9288:   b.eq    9308 <warpx_field_gather_fp64+0x8b48>  // b.none
@@ -8923,7 +8923,7 @@
     0.00 :    9300:   mov     x4, x0
     0.00 :    9304:   b       9220 <warpx_field_gather_fp64+0x8a60>
     0.00 :    9308:   add     x2, x2, x20
-    0.00 :    930c:   add     x1, x1, x20
+    0.01 :    930c:   add     x1, x1, x20
     0.00 :    9310:   add     x13, x13, x19
     0.00 :    9314:   add     x14, x14, x19
     0.00 :    9318:   add     x3, x11, #0x1
@@ -8976,16 +8976,16 @@
     0.00 :    93d4:   add     x6, x11, x13
     0.00 :    93d8:   nop
     0.00 :    93dc:   nop
-    0.07 :    93e0:   ld1d    {z3.d}, p7/z, [x17, x1, lsl #3]
-    0.36 :    93e4:   ld1d    {z1.d}, p7/z, [x8, x1, lsl #3]
-    0.26 :    93e8:   ld1d    {z26.d}, p7/z, [x7, x1, lsl #3]
-    0.15 :    93ec:   mla     z1.d, p6/m, z27.d, z3.d
-    0.08 :    93f0:   mla     z26.d, p6/m, z27.d, z1.d
-    0.07 :    93f4:   ld1d    {z18.d}, p7/z, [x25, z26.d, lsl #3]
-    2.37 :    93f8:   st1d    {z18.d}, p7, [x6, x1, lsl #3]
+    0.08 :    93e0:   ld1d    {z3.d}, p7/z, [x17, x1, lsl #3]
+    0.32 :    93e4:   ld1d    {z1.d}, p7/z, [x8, x1, lsl #3]
+    0.40 :    93e8:   ld1d    {z26.d}, p7/z, [x7, x1, lsl #3]
+    0.14 :    93ec:   mla     z1.d, p6/m, z27.d, z3.d
+    0.05 :    93f0:   mla     z26.d, p6/m, z27.d, z1.d
+    0.08 :    93f4:   ld1d    {z18.d}, p7/z, [x25, z26.d, lsl #3]
+    2.31 :    93f8:   st1d    {z18.d}, p7, [x6, x1, lsl #3]
     0.06 :    93fc:   add     x1, x1, x9
     0.15 :    9400:   whilelo p7.d, x1, x19
-    0.03 :    9404:   b.ne    93e0 <warpx_field_gather_fp64+0x8c20>  // b.any
+    0.01 :    9404:   b.ne    93e0 <warpx_field_gather_fp64+0x8c20>  // b.any
     0.00 :    9408:   add     x13, x13, x20
     0.00 :    940c:   add     x1, x14, #0x1
     0.00 :    9410:   cmp     x10, x14
@@ -9005,7 +9005,7 @@
     0.00 :    9448:   mov     x4, x0
     0.00 :    944c:   b       93a0 <warpx_field_gather_fp64+0x8be0>
     0.00 :    9450:   ldr     x0, [sp, #736]
-    0.01 :    9454:   stp     x5, x11, [sp, #232]
+    0.00 :    9454:   stp     x5, x11, [sp, #232]
     0.00 :    9458:   str     x12, [sp, #728]
     0.00 :    945c:   str     x10, [sp, #896]
     0.00 :    9460:   bl      680 <malloc@plt>
@@ -9036,14 +9036,14 @@
     0.00 :    94c4:   ldr     x22, [sp, #208]
     0.00 :    94c8:   add     x25, x22, x14, lsl #3
     0.00 :    94cc:   add     x22, x13, x15, lsl #3
-    0.10 :    94d0:   ldr     q16, [x9, x1]
-    0.28 :    94d4:   ldr     q31, [x3, x1]
-    0.32 :    94d8:   ldr     q5, [x25, x1]
-    0.35 :    94dc:   fmul    v31.2d, v16.2d, v31.2d
-    0.09 :    94e0:   fmul    v5.2d, v31.2d, v5.2d
-    0.11 :    94e4:   str     q5, [x22, x1]
-    0.05 :    94e8:   add     x1, x1, #0x10
-    0.08 :    94ec:   cmp     x4, x1
+    0.07 :    94d0:   ldr     q16, [x9, x1]
+    0.24 :    94d4:   ldr     q31, [x3, x1]
+    0.35 :    94d8:   ldr     q5, [x25, x1]
+    0.40 :    94dc:   fmul    v31.2d, v16.2d, v31.2d
+    0.10 :    94e0:   fmul    v5.2d, v31.2d, v5.2d
+    0.05 :    94e4:   str     q5, [x22, x1]
+    0.13 :    94e8:   add     x1, x1, #0x10
+    0.06 :    94ec:   cmp     x4, x1
     0.00 :    94f0:   b.ne    94d0 <warpx_field_gather_fp64+0x8d10>  // b.any
     0.00 :    94f4:   cmp     x19, x17
     0.00 :    94f8:   b.eq    9570 <warpx_field_gather_fp64+0x8db0>  // b.none
@@ -9087,7 +9087,7 @@
     0.00 :    9590:   mov     x25, x16
     0.00 :    9594:   b       9504 <warpx_field_gather_fp64+0x8d44>
     0.00 :    9598:   ldr     x0, [sp, #104]
-    0.00 :    959c:   add     x2, x2, x19
+    0.01 :    959c:   add     x2, x2, x19
     0.00 :    95a0:   add     x3, x3, x20
     0.00 :    95a4:   str     x4, [sp, #136]
     0.00 :    95a8:   add     x8, x8, x0
@@ -9132,12 +9132,12 @@
     0.00 :    9644:   add     x8, x13, x9
     0.00 :    9648:   add     x7, x11, x9
     0.00 :    964c:   add     x6, x6, x9
-    0.08 :    9650:   ldr     q20, [x8, x1]
-    0.41 :    9654:   ldr     q30, [x7, x1]
+    0.03 :    9650:   ldr     q20, [x8, x1]
+    0.40 :    9654:   ldr     q30, [x7, x1]
     0.52 :    9658:   fmul    v30.2d, v20.2d, v30.2d
     0.09 :    965c:   str     q30, [x6, x1]
-    0.08 :    9660:   add     x1, x1, #0x10
-    0.09 :    9664:   cmp     x1, x4
+    0.15 :    9660:   add     x1, x1, #0x10
+    0.07 :    9664:   cmp     x1, x4
     0.00 :    9668:   b.ne    9650 <warpx_field_gather_fp64+0x8e90>  // b.any
     0.00 :    966c:   cmp     x19, x16
     0.00 :    9670:   b.eq    96c4 <warpx_field_gather_fp64+0x8f04>  // b.none
@@ -9155,7 +9155,7 @@
     0.00 :    96a0:   cmp     x12, x1
     0.00 :    96a4:   b.ne    9630 <warpx_field_gather_fp64+0x8e70>  // b.any
     0.00 :    96a8:   ldr     x0, [sp, #104]
-    0.01 :    96ac:   add     x2, x2, x0
+    0.00 :    96ac:   add     x2, x2, x0
     0.00 :    96b0:   add     x0, x3, #0x1
     0.00 :    96b4:   cmp     x10, x3
     0.00 :    96b8:   b.eq    96e8 <warpx_field_gather_fp64+0x8f28>  // b.none
@@ -9190,41 +9190,41 @@
     0.00 :    972c:   mul     x0, x0, x19
     0.00 :    9730:   lsl     x0, x0, #3
     0.00 :    9734:   ldr     x1, [sp, #1392]
-    0.00 :    9738:   movi    d22, #0x0
+    0.01 :    9738:   movi    d22, #0x0
     0.00 :    973c:   mov     x2, x12
-    0.00 :    9740:   mov     x9, #0x0                        // #0
+    0.01 :    9740:   mov     x9, #0x0                        // #0
     0.01 :    9744:   str     xzr, [x1, x10, lsl #3]
-    0.01 :    9748:   ldr     x1, [sp, #216]
+    0.00 :    9748:   ldr     x1, [sp, #216]
     0.00 :    974c:   tbnz    x1, #63, 97b8 <warpx_field_gather_fp64+0x8ff8>
     0.01 :    9750:   ldr     x8, [sp, #224]
     0.01 :    9754:   mov     x3, x2
-    0.01 :    9758:   mov     x4, #0x0                        // #0
+    0.00 :    9758:   mov     x4, #0x0                        // #0
     0.01 :    975c:   nop
     0.04 :    9760:   mov     x7, x3
     0.01 :    9764:   mov     x6, #0x0                        // #0
-    0.15 :    9768:   ldr     d6, [x7]
-    0.58 :    976c:   cmp     x21, x6
-    2.86 :    9770:   add     x7, x7, x20
-    0.04 :    9774:   add     x6, x6, #0x1
-    0.18 :    9778:   fadd    d22, d22, d6
-    0.14 :    977c:   b.ne    9768 <warpx_field_gather_fp64+0x8fa8>  // b.any
-    0.08 :    9780:   add     x1, x4, #0x1
-    0.02 :    9784:   add     x3, x3, x8
-    0.05 :    9788:   cmp     x21, x1
+    0.12 :    9768:   ldr     d6, [x7]
+    0.71 :    976c:   cmp     x21, x6
+    2.85 :    9770:   add     x7, x7, x20
+    0.05 :    9774:   add     x6, x6, #0x1
+    0.13 :    9778:   fadd    d22, d22, d6
+    0.16 :    977c:   b.ne    9768 <warpx_field_gather_fp64+0x8fa8>  // b.any
+    0.04 :    9780:   add     x1, x4, #0x1
+    0.01 :    9784:   add     x3, x3, x8
+    0.09 :    9788:   cmp     x21, x1
     0.00 :    978c:   b.eq    9798 <warpx_field_gather_fp64+0x8fd8>  // b.none
     0.01 :    9790:   mov     x4, x1
     0.00 :    9794:   b       9760 <warpx_field_gather_fp64+0x8fa0>
-    0.00 :    9798:   add     x2, x2, x0
-    0.01 :    979c:   add     x1, x9, #0x1
+    0.02 :    9798:   add     x2, x2, x0
+    0.00 :    979c:   add     x1, x9, #0x1
     0.01 :    97a0:   cmp     x9, x4
     0.00 :    97a4:   b.eq    97b0 <warpx_field_gather_fp64+0x8ff0>  // b.none
     0.01 :    97a8:   mov     x9, x1
     0.00 :    97ac:   b       9750 <warpx_field_gather_fp64+0x8f90>
-    0.01 :    97b0:   ldr     x1, [sp, #1392]
-    0.00 :    97b4:   str     d22, [x1, x10, lsl #3]
+    0.00 :    97b0:   ldr     x1, [sp, #1392]
+    0.01 :    97b4:   str     d22, [x1, x10, lsl #3]
     0.02 :    97b8:   add     x10, x10, #0x1
     0.00 :    97bc:   add     x12, x12, #0x8
-    0.01 :    97c0:   cmp     x19, x10
+    0.00 :    97c0:   cmp     x19, x10
     0.00 :    97c4:   b.ne    9734 <warpx_field_gather_fp64+0x8f74>  // b.any
     0.00 :    97c8:   mov     x0, x20
     0.00 :    97cc:   stp     x13, x5, [sp, #232]
@@ -9243,11 +9243,11 @@
     0.00 :    9800:   lsl     x0, x0, #4
     0.00 :    9804:   ldr     x2, [sp, #888]
     0.00 :    9808:   ldr     x3, [sp, #1568]
-    0.00 :    980c:   ldr     q4, [x2, x1]
+    0.01 :    980c:   ldr     q4, [x2, x1]
     0.04 :    9810:   ldr     q29, [x3, x1]
     0.00 :    9814:   fadd    v29.2d, v4.2d, v29.2d
     0.00 :    9818:   str     q29, [x2, x1]
-    0.00 :    981c:   add     x1, x1, #0x10
+    0.01 :    981c:   add     x1, x1, #0x10
     0.00 :    9820:   cmp     x1, x0
     0.00 :    9824:   b.ne    9804 <warpx_field_gather_fp64+0x9044>  // b.any
     0.00 :    9828:   and     x0, x19, #0xfffffffffffffffe
@@ -9437,13 +9437,13 @@
     0.00 :    9b08:   mov     x0, #0x0                        // #0
     0.00 :    9b0c:   add     x2, x2, x3, lsl #3
     0.01 :    9b10:   ldr     x6, [sp, #1064]
-    0.00 :    9b14:   ldr     q4, [x6, x0]
-    0.07 :    9b18:   add     v4.2d, v20.2d, v4.2d
+    0.02 :    9b14:   ldr     q4, [x6, x0]
+    0.04 :    9b18:   add     v4.2d, v20.2d, v4.2d
     0.00 :    9b1c:   add     v4.2d, v4.2d, v28.2d
     0.01 :    9b20:   scvtf   v4.2d, v4.2d
     0.00 :    9b24:   str     q4, [x2, x0]
     0.01 :    9b28:   add     x0, x0, #0x10
-    0.01 :    9b2c:   cmp     x0, x1
+    0.00 :    9b2c:   cmp     x0, x1
     0.00 :    9b30:   b.ne    9b10 <warpx_field_gather_fp64+0x9350>  // b.any
     0.00 :    9b34:   cmp     x19, x15
     0.00 :    9b38:   b.eq    b310 <warpx_field_gather_fp64+0xab50>  // b.none
@@ -9508,14 +9508,14 @@
     0.00 :    9c24:   dup     v21.2d, v31.d[0]
     0.00 :    9c28:   mov     x0, #0x0                        // #0
     0.00 :    9c2c:   add     x2, x2, x4, lsl #3
-    0.00 :    9c30:   ldr     x6, [sp, #1112]
+    0.01 :    9c30:   ldr     x6, [sp, #1112]
     0.01 :    9c34:   ldr     q7, [x6, x0]
-    0.07 :    9c38:   add     v7.2d, v29.2d, v7.2d
+    0.14 :    9c38:   add     v7.2d, v29.2d, v7.2d
     0.00 :    9c3c:   add     v7.2d, v7.2d, v21.2d
     0.01 :    9c40:   scvtf   v7.2d, v7.2d
     0.01 :    9c44:   str     q7, [x2, x0]
     0.01 :    9c48:   add     x0, x0, #0x10
-    0.00 :    9c4c:   cmp     x1, x0
+    0.01 :    9c4c:   cmp     x1, x0
     0.00 :    9c50:   b.ne    9c30 <warpx_field_gather_fp64+0x9470>  // b.any
     0.00 :    9c54:   cmp     x19, x14
     0.00 :    9c58:   b.eq    b340 <warpx_field_gather_fp64+0xab80>  // b.none
@@ -9584,13 +9584,13 @@
     0.00 :    9d54:   mov     x0, #0x0                        // #0
     0.00 :    9d58:   add     x2, x2, x3, lsl #3
     0.00 :    9d5c:   nop
-    0.01 :    9d60:   ldr     x6, [sp, #1160]
-    0.01 :    9d64:   ldr     q16, [x6, x0]
-    0.12 :    9d68:   add     v16.2d, v27.2d, v16.2d
+    0.03 :    9d60:   ldr     x6, [sp, #1160]
+    0.00 :    9d64:   ldr     q16, [x6, x0]
+    0.10 :    9d68:   add     v16.2d, v27.2d, v16.2d
     0.00 :    9d6c:   add     v16.2d, v16.2d, v26.2d
-    0.01 :    9d70:   scvtf   v16.2d, v16.2d
-    0.02 :    9d74:   str     q16, [x2, x0]
-    0.01 :    9d78:   add     x0, x0, #0x10
+    0.00 :    9d70:   scvtf   v16.2d, v16.2d
+    0.00 :    9d74:   str     q16, [x2, x0]
+    0.00 :    9d78:   add     x0, x0, #0x10
     0.00 :    9d7c:   cmp     x1, x0
     0.00 :    9d80:   b.ne    9d60 <warpx_field_gather_fp64+0x95a0>  // b.any
     0.00 :    9d84:   cmp     x19, x15
@@ -9675,19 +9675,19 @@
     0.00 :    9ec0:   cmp     x22, #0x2
     0.00 :    9ec4:   b.ls    a5c0 <warpx_field_gather_fp64+0x9e00>  // b.plast
     0.00 :    9ec8:   mov     x0, x12
-    0.00 :    9ecc:   mov     x6, #0x0                        // #0
+    0.01 :    9ecc:   mov     x6, #0x0                        // #0
     0.00 :    9ed0:   sub     x28, x1, #0x10
     0.00 :    9ed4:   nop
     0.00 :    9ed8:   nop
     0.00 :    9edc:   nop
-    0.06 :    9ee0:   ldr     q30, [x9, x6]
-    0.17 :    9ee4:   ldr     q18, [x4, x6]
-    0.24 :    9ee8:   fcvtzs  v30.2d, v30.2d
-    0.00 :    9eec:   fcvtzs  v18.2d, v18.2d
-    0.06 :    9ef0:   str     q30, [x28, x6]
-    0.05 :    9ef4:   str     q18, [x1, x6]
-    0.04 :    9ef8:   add     x6, x6, #0x20
-    0.02 :    9efc:   cmp     x6, x3
+    0.09 :    9ee0:   ldr     q30, [x9, x6]
+    0.16 :    9ee4:   ldr     q18, [x4, x6]
+    0.22 :    9ee8:   fcvtzs  v30.2d, v30.2d
+    0.01 :    9eec:   fcvtzs  v18.2d, v18.2d
+    0.01 :    9ef0:   str     q30, [x28, x6]
+    0.04 :    9ef4:   str     q18, [x1, x6]
+    0.07 :    9ef8:   add     x6, x6, #0x20
+    0.04 :    9efc:   cmp     x6, x3
     0.00 :    9f00:   b.ne    9ee0 <warpx_field_gather_fp64+0x9720>  // b.any
     0.00 :    9f04:   cmp     x19, x12
     0.00 :    9f08:   b.eq    a5a8 <warpx_field_gather_fp64+0x9de8>  // b.none
@@ -9760,13 +9760,13 @@
     0.00 :    a014:   mov     x0, x14
     0.00 :    a018:   mov     x5, #0x0                        // #0
     0.00 :    a01c:   sub     x28, x1, #0x10
-    0.11 :    a020:   ldr     q5, [x4, x5]
-    0.33 :    a024:   ldr     q19, [x3, x5]
-    0.13 :    a028:   fcvtzs  v5.2d, v5.2d
+    0.07 :    a020:   ldr     q5, [x4, x5]
+    0.38 :    a024:   ldr     q19, [x3, x5]
+    0.10 :    a028:   fcvtzs  v5.2d, v5.2d
     0.01 :    a02c:   fcvtzs  v19.2d, v19.2d
-    0.03 :    a030:   str     q5, [x28, x5]
-    0.04 :    a034:   str     q19, [x1, x5]
-    0.04 :    a038:   add     x5, x5, #0x20
+    0.02 :    a030:   str     q5, [x28, x5]
+    0.05 :    a034:   str     q19, [x1, x5]
+    0.06 :    a038:   add     x5, x5, #0x20
     0.05 :    a03c:   cmp     x9, x5
     0.00 :    a040:   b.ne    a020 <warpx_field_gather_fp64+0x9860>  // b.any
     0.00 :    a044:   cmp     x19, x14
@@ -9841,14 +9841,14 @@
     0.00 :    a158:   mov     x0, #0x0                        // #0
     0.00 :    a15c:   sub     x28, x2, #0x10
     0.00 :    a160:   sub     x3, x1, #0x10
-    0.03 :    a164:   ldr     q20, [x28, x0]
+    0.02 :    a164:   ldr     q20, [x28, x0]
     0.13 :    a168:   ldr     q22, [x2, x0]
-    0.38 :    a16c:   fcvtzs  v20.2d, v20.2d
+    0.41 :    a16c:   fcvtzs  v20.2d, v20.2d
     0.01 :    a170:   fcvtzs  v22.2d, v22.2d
-    0.06 :    a174:   str     q20, [x3, x0]
-    0.03 :    a178:   str     q22, [x1, x0]
-    0.05 :    a17c:   add     x0, x0, #0x20
-    0.06 :    a180:   cmp     x9, x0
+    0.01 :    a174:   str     q20, [x3, x0]
+    0.05 :    a178:   str     q22, [x1, x0]
+    0.04 :    a17c:   add     x0, x0, #0x20
+    0.05 :    a180:   cmp     x9, x0
     0.00 :    a184:   b.ne    a164 <warpx_field_gather_fp64+0x99a4>  // b.any
     0.00 :    a188:   cmp     x19, x15
     0.00 :    a18c:   b.eq    a570 <warpx_field_gather_fp64+0x9db0>  // b.none
@@ -9913,7 +9913,7 @@
     0.00 :    a278:   nop
     0.00 :    a27c:   nop
     0.00 :    a280:   ldr     x18, [sp, #728]
-    0.00 :    a284:   mov     x12, x2
+    0.01 :    a284:   mov     x12, x2
     0.00 :    a288:   mov     x14, #0x0                       // #0
     0.00 :    a28c:   ldr     x22, [sp, #736]
     0.00 :    a290:   ldr     x30, [sp, #752]
@@ -9928,16 +9928,16 @@
     0.00 :    a2b4:   add     x6, x10, x12
     0.00 :    a2b8:   nop
     0.00 :    a2bc:   nop
-    0.05 :    a2c0:   ld1d    {z2.d}, p7/z, [x17, x1, lsl #3]
-    0.37 :    a2c4:   ld1d    {z0.d}, p7/z, [x8, x1, lsl #3]
-    0.27 :    a2c8:   ld1d    {z21.d}, p7/z, [x7, x1, lsl #3]
-    0.15 :    a2cc:   mla     z0.d, p6/m, z2.d, z29.d
-    0.04 :    a2d0:   mla     z21.d, p6/m, z29.d, z0.d
-    0.06 :    a2d4:   ld1d    {z17.d}, p7/z, [x24, z21.d, lsl #3]
-    2.36 :    a2d8:   st1d    {z17.d}, p7, [x6, x1, lsl #3]
+    0.13 :    a2c0:   ld1d    {z2.d}, p7/z, [x17, x1, lsl #3]
+    0.27 :    a2c4:   ld1d    {z0.d}, p7/z, [x8, x1, lsl #3]
+    0.37 :    a2c8:   ld1d    {z21.d}, p7/z, [x7, x1, lsl #3]
+    0.16 :    a2cc:   mla     z0.d, p6/m, z2.d, z29.d
+    0.11 :    a2d0:   mla     z21.d, p6/m, z29.d, z0.d
+    0.03 :    a2d4:   ld1d    {z17.d}, p7/z, [x24, z21.d, lsl #3]
+    2.37 :    a2d8:   st1d    {z17.d}, p7, [x6, x1, lsl #3]
     0.06 :    a2dc:   add     x1, x1, x9
-    0.18 :    a2e0:   whilelo p7.d, x1, x19
-    0.02 :    a2e4:   b.ne    a2c0 <warpx_field_gather_fp64+0x9b00>  // b.any
+    0.13 :    a2e0:   whilelo p7.d, x1, x19
+    0.04 :    a2e4:   b.ne    a2c0 <warpx_field_gather_fp64+0x9b00>  // b.any
     0.00 :    a2e8:   add     x14, x14, #0x1
     0.00 :    a2ec:   add     x12, x12, x20
     0.00 :    a2f0:   cmp     x14, x25
@@ -9985,12 +9985,12 @@
     0.00 :    a398:   add     x8, x24, x14, lsl #3
     0.00 :    a39c:   nop
     0.15 :    a3a0:   ldr     q1, [x3, x1]
-    0.47 :    a3a4:   ldr     q31, [x9, x1]
-    0.26 :    a3a8:   ldr     q7, [x22, x1]
-    0.31 :    a3ac:   fmul    v31.2d, v1.2d, v31.2d
+    0.38 :    a3a4:   ldr     q31, [x9, x1]
+    0.27 :    a3a8:   ldr     q7, [x22, x1]
+    0.37 :    a3ac:   fmul    v31.2d, v1.2d, v31.2d
     0.01 :    a3b0:   fmul    v7.2d, v31.2d, v7.2d
-    0.08 :    a3b4:   str     q7, [x8, x1]
-    0.06 :    a3b8:   add     x1, x1, #0x10
+    0.06 :    a3b4:   str     q7, [x8, x1]
+    0.09 :    a3b8:   add     x1, x1, #0x10
     0.10 :    a3bc:   cmp     x4, x1
     0.00 :    a3c0:   b.ne    a3a0 <warpx_field_gather_fp64+0x9be0>  // b.any
     0.00 :    a3c4:   cmp     x19, x16
@@ -10068,16 +10068,16 @@
     0.00 :    a4e4:   b.eq    a6c4 <warpx_field_gather_fp64+0x9f04>  // b.none
     0.00 :    a4e8:   mov     x0, x15
     0.00 :    a4ec:   ldr     x6, [sp, #104]
-    0.00 :    a4f0:   mov     x1, #0x0                        // #0
+    0.01 :    a4f0:   mov     x1, #0x0                        // #0
     0.00 :    a4f4:   add     x8, x24, x9
     0.00 :    a4f8:   add     x7, x10, x9
     0.00 :    a4fc:   add     x6, x6, x9
-    0.05 :    a500:   ldr     q16, [x8, x1]
-    0.38 :    a504:   ldr     q30, [x7, x1]
-    0.57 :    a508:   fmul    v30.2d, v16.2d, v30.2d
-    0.07 :    a50c:   str     q30, [x6, x1]
-    0.15 :    a510:   add     x1, x1, #0x10
-    0.05 :    a514:   cmp     x4, x1
+    0.10 :    a500:   ldr     q16, [x8, x1]
+    0.43 :    a504:   ldr     q30, [x7, x1]
+    0.52 :    a508:   fmul    v30.2d, v16.2d, v30.2d
+    0.04 :    a50c:   str     q30, [x6, x1]
+    0.09 :    a510:   add     x1, x1, #0x10
+    0.07 :    a514:   cmp     x4, x1
     0.00 :    a518:   b.ne    a500 <warpx_field_gather_fp64+0x9d40>  // b.any
     0.00 :    a51c:   cmp     x19, x15
     0.00 :    a520:   b.eq    a5e0 <warpx_field_gather_fp64+0x9e20>  // b.none
@@ -10100,7 +10100,7 @@
     0.00 :    a564:   b.eq    a608 <warpx_field_gather_fp64+0x9e48>  // b.none
     0.00 :    a568:   mov     x3, x0
     0.00 :    a56c:   b       a4cc <warpx_field_gather_fp64+0x9d0c>
-    0.00 :    a570:   add     x10, x10, #0x1
+    0.01 :    a570:   add     x10, x10, #0x1
     0.00 :    a574:   add     x2, x2, x20
     0.00 :    a578:   add     x1, x1, x20
     0.00 :    a57c:   add     x12, x12, x19
@@ -10162,42 +10162,42 @@
     0.00 :    a65c:   lsl     x9, x1, #3
     0.00 :    a660:   lsl     x14, x0, #3
     0.01 :    a664:   ldr     x0, [sp, #888]
-    0.00 :    a668:   movi    d24, #0x0
+    0.01 :    a668:   movi    d24, #0x0
     0.00 :    a66c:   mov     x1, x16
-    0.00 :    a670:   mov     x12, #0x0                       // #0
+    0.01 :    a670:   mov     x12, #0x0                       // #0
     0.01 :    a674:   str     xzr, [x0, x15, lsl #3]
-    0.01 :    a678:   ldr     x0, [sp, #216]
+    0.00 :    a678:   ldr     x0, [sp, #216]
     0.01 :    a67c:   tbnz    x0, #63, a6ec <warpx_field_gather_fp64+0x9f2c>
-    0.00 :    a680:   mov     x3, x1
+    0.01 :    a680:   mov     x3, x1
     0.01 :    a684:   mov     x4, #0x0                        // #0
-    0.04 :    a688:   mov     x6, x3
-    0.02 :    a68c:   mov     x0, #0x0                        // #0
-    0.17 :    a690:   ldr     d19, [x6]
-    3.15 :    a694:   mov     x2, x0
-    1.26 :    a698:   add     x0, x0, #0x1
+    0.07 :    a688:   mov     x6, x3
+    0.01 :    a68c:   mov     x0, #0x0                        // #0
+    0.15 :    a690:   ldr     d19, [x6]
+    3.32 :    a694:   mov     x2, x0
+    1.11 :    a698:   add     x0, x0, #0x1
     0.10 :    a69c:   add     x6, x6, x20
-    0.14 :    a6a0:   fadd    d24, d24, d19
-    0.16 :    a6a4:   cmp     x21, x0
+    0.18 :    a6a0:   fadd    d24, d24, d19
+    0.18 :    a6a4:   cmp     x21, x0
     0.00 :    a6a8:   b.ne    a690 <warpx_field_gather_fp64+0x9ed0>  // b.any
     0.04 :    a6ac:   add     x3, x3, x9
     0.00 :    a6b0:   add     x0, x4, #0x1
-    0.10 :    a6b4:   cmp     x21, x4
+    0.02 :    a6b4:   cmp     x21, x4
     0.00 :    a6b8:   b.eq    a6cc <warpx_field_gather_fp64+0x9f0c>  // b.none
-    0.06 :    a6bc:   mov     x4, x0
-    0.04 :    a6c0:   b       a688 <warpx_field_gather_fp64+0x9ec8>
+    0.05 :    a6bc:   mov     x4, x0
+    0.01 :    a6c0:   b       a688 <warpx_field_gather_fp64+0x9ec8>
     0.00 :    a6c4:   mov     x0, #0x0                        // #0
     0.00 :    a6c8:   b       a524 <warpx_field_gather_fp64+0x9d64>
-    0.01 :    a6cc:   add     x1, x1, x14
+    0.00 :    a6cc:   add     x1, x1, x14
     0.00 :    a6d0:   add     x0, x12, #0x1
     0.01 :    a6d4:   cmp     x12, x2
     0.00 :    a6d8:   b.eq    a6e4 <warpx_field_gather_fp64+0x9f24>  // b.none
-    0.00 :    a6dc:   mov     x12, x0
-    0.00 :    a6e0:   b       a680 <warpx_field_gather_fp64+0x9ec0>
-    0.00 :    a6e4:   ldr     x0, [sp, #888]
+    0.01 :    a6dc:   mov     x12, x0
+    0.01 :    a6e0:   b       a680 <warpx_field_gather_fp64+0x9ec0>
+    0.01 :    a6e4:   ldr     x0, [sp, #888]
     0.00 :    a6e8:   str     d24, [x0, x15, lsl #3]
     0.00 :    a6ec:   add     x15, x15, #0x1
     0.00 :    a6f0:   add     x16, x16, #0x8
-    0.01 :    a6f4:   cmp     x19, x15
+    0.00 :    a6f4:   cmp     x19, x15
     0.00 :    a6f8:   b.ne    a664 <warpx_field_gather_fp64+0x9ea4>  // b.any
     0.00 :    a6fc:   mov     x0, x20
     0.00 :    a700:   stp     x13, x5, [sp, #232]
@@ -10216,12 +10216,12 @@
     0.00 :    a734:   lsr     x0, x19, #1
     0.00 :    a738:   mov     x1, #0x0                        // #0
     0.00 :    a73c:   lsl     x0, x0, #4
-    0.00 :    a740:   ldr     x3, [sp, #1432]
+    0.01 :    a740:   ldr     x3, [sp, #1432]
     0.00 :    a744:   ldr     x2, [sp, #1520]
     0.00 :    a748:   ldr     q28, [x3, x1]
-    0.01 :    a74c:   ldr     q5, [x2, x1]
-    0.02 :    a750:   fadd    v28.2d, v5.2d, v28.2d
-    0.00 :    a754:   str     q28, [x2, x1]
+    0.00 :    a74c:   ldr     q5, [x2, x1]
+    0.05 :    a750:   fadd    v28.2d, v5.2d, v28.2d
+    0.01 :    a754:   str     q28, [x2, x1]
     0.00 :    a758:   add     x1, x1, #0x10
     0.00 :    a75c:   cmp     x1, x0
     0.00 :    a760:   b.ne    a740 <warpx_field_gather_fp64+0x9f80>  // b.any
@@ -10235,7 +10235,7 @@
     0.00 :    a780:   fadd    d22, d23, d22
     0.00 :    a784:   str     d22, [x1, x0]
     0.00 :    a788:   ldr     x0, [sp, #496]
-    0.00 :    a78c:   stp     x13, x5, [sp, #232]
+    0.01 :    a78c:   stp     x13, x5, [sp, #232]
     0.00 :    a790:   str     x10, [sp, #896]
     0.00 :    a794:   str     x11, [sp, #1240]
     0.00 :    a798:   bl      680 <malloc@plt>
@@ -10420,14 +10420,14 @@
     0.00 :    aa64:   dup     v25.2d, v31.d[0]
     0.00 :    aa68:   mov     x0, #0x0                        // #0
     0.00 :    aa6c:   add     x2, x2, x4, lsl #3
-    0.01 :    aa70:   ldr     x6, [sp, #1056]
+    0.00 :    aa70:   ldr     x6, [sp, #1056]
     0.00 :    aa74:   ldr     q5, [x6, x0]
     0.10 :    aa78:   add     v5.2d, v16.2d, v5.2d
     0.00 :    aa7c:   add     v5.2d, v5.2d, v25.2d
     0.01 :    aa80:   scvtf   v5.2d, v5.2d
-    0.01 :    aa84:   str     q5, [x2, x0]
+    0.02 :    aa84:   str     q5, [x2, x0]
     0.01 :    aa88:   add     x0, x0, #0x10
-    0.02 :    aa8c:   cmp     x0, x1
+    0.01 :    aa8c:   cmp     x0, x1
     0.00 :    aa90:   b.ne    aa70 <warpx_field_gather_fp64+0xa2b0>  // b.any
     0.00 :    aa94:   cmp     x19, x16
     0.00 :    aa98:   b.eq    b35c <warpx_field_gather_fp64+0xab9c>  // b.none
@@ -10497,14 +10497,14 @@
     0.00 :    ab98:   dup     v23.2d, v31.d[0]
     0.00 :    ab9c:   mov     x0, #0x0                        // #0
     0.00 :    aba0:   add     x2, x2, x4, lsl #3
-    0.01 :    aba4:   ldr     x6, [sp, #1104]
+    0.00 :    aba4:   ldr     x6, [sp, #1104]
     0.01 :    aba8:   ldr     q20, [x6, x0]
-    0.09 :    abac:   add     v20.2d, v28.2d, v20.2d
+    0.04 :    abac:   add     v20.2d, v28.2d, v20.2d
     0.00 :    abb0:   add     v20.2d, v20.2d, v23.2d
     0.01 :    abb4:   scvtf   v20.2d, v20.2d
     0.01 :    abb8:   str     q20, [x2, x0]
-    0.02 :    abbc:   add     x0, x0, #0x10
-    0.00 :    abc0:   cmp     x0, x1
+    0.01 :    abbc:   add     x0, x0, #0x10
+    0.01 :    abc0:   cmp     x0, x1
     0.00 :    abc4:   b.ne    aba4 <warpx_field_gather_fp64+0xa3e4>  // b.any
     0.00 :    abc8:   cmp     x19, x16
     0.00 :    abcc:   b.eq    b2f8 <warpx_field_gather_fp64+0xab38>  // b.none
@@ -10572,13 +10572,13 @@
     0.00 :    acc4:   add     x2, x8, x4, lsl #3
     0.00 :    acc8:   mov     x0, #0x0                        // #0
     0.01 :    accc:   ldr     x6, [sp, #1152]
-    0.01 :    acd0:   ldr     q7, [x6, x0]
-    0.09 :    acd4:   add     v7.2d, v29.2d, v7.2d
-    0.01 :    acd8:   add     v7.2d, v7.2d, v21.2d
-    0.00 :    acdc:   scvtf   v7.2d, v7.2d
+    0.00 :    acd0:   ldr     q7, [x6, x0]
+    0.10 :    acd4:   add     v7.2d, v29.2d, v7.2d
+    0.00 :    acd8:   add     v7.2d, v7.2d, v21.2d
+    0.01 :    acdc:   scvtf   v7.2d, v7.2d
     0.00 :    ace0:   str     q7, [x2, x0]
-    0.00 :    ace4:   add     x0, x0, #0x10
-    0.00 :    ace8:   cmp     x1, x0
+    0.01 :    ace4:   add     x0, x0, #0x10
+    0.02 :    ace8:   cmp     x1, x0
     0.00 :    acec:   b.ne    accc <warpx_field_gather_fp64+0xa50c>  // b.any
     0.00 :    acf0:   cmp     x19, x16
     0.00 :    acf4:   b.eq    b2e0 <warpx_field_gather_fp64+0xab20>  // b.none
@@ -10664,14 +10664,14 @@
     0.00 :    ae34:   sub     x28, x1, #0x10
     0.00 :    ae38:   nop
     0.00 :    ae3c:   nop
-    0.08 :    ae40:   ldr     q30, [x9, x13]
-    0.25 :    ae44:   ldr     q17, [x4, x13]
-    0.12 :    ae48:   fcvtzs  v30.2d, v30.2d
+    0.10 :    ae40:   ldr     q30, [x9, x13]
+    0.24 :    ae44:   ldr     q17, [x4, x13]
+    0.15 :    ae48:   fcvtzs  v30.2d, v30.2d
     0.01 :    ae4c:   fcvtzs  v17.2d, v17.2d
     0.04 :    ae50:   str     q30, [x28, x13]
-    0.04 :    ae54:   str     q17, [x1, x13]
-    0.10 :    ae58:   add     x13, x13, #0x20
-    0.02 :    ae5c:   cmp     x3, x13
+    0.03 :    ae54:   str     q17, [x1, x13]
+    0.06 :    ae58:   add     x13, x13, #0x20
+    0.04 :    ae5c:   cmp     x3, x13
     0.00 :    ae60:   b.ne    ae40 <warpx_field_gather_fp64+0xa680>  // b.any
     0.00 :    ae64:   cmp     x19, x15
     0.00 :    ae68:   b.eq    b2c0 <warpx_field_gather_fp64+0xab00>  // b.none
@@ -10752,14 +10752,14 @@
     0.00 :    af94:   sub     x28, x1, #0x10
     0.00 :    af98:   nop
     0.00 :    af9c:   nop
-    0.13 :    afa0:   ldr     q1, [x4, x13]
-    0.10 :    afa4:   ldr     q3, [x3, x13]
-    0.26 :    afa8:   fcvtzs  v1.2d, v1.2d
-    0.00 :    afac:   fcvtzs  v3.2d, v3.2d
-    0.04 :    afb0:   str     q1, [x28, x13]
-    0.06 :    afb4:   str     q3, [x1, x13]
-    0.04 :    afb8:   add     x13, x13, #0x20
-    0.07 :    afbc:   cmp     x9, x13
+    0.06 :    afa0:   ldr     q1, [x4, x13]
+    0.15 :    afa4:   ldr     q3, [x3, x13]
+    0.37 :    afa8:   fcvtzs  v1.2d, v1.2d
+    0.02 :    afac:   fcvtzs  v3.2d, v3.2d
+    0.03 :    afb0:   str     q1, [x28, x13]
+    0.01 :    afb4:   str     q3, [x1, x13]
+    0.06 :    afb8:   add     x13, x13, #0x20
+    0.04 :    afbc:   cmp     x9, x13
     0.00 :    afc0:   b.ne    afa0 <warpx_field_gather_fp64+0xa7e0>  // b.any
     0.00 :    afc4:   cmp     x19, x15
     0.00 :    afc8:   b.eq    b374 <warpx_field_gather_fp64+0xabb4>  // b.none
@@ -10841,13 +10841,13 @@
     0.00 :    b0f8:   sub     x7, x1, #0x10
     0.00 :    b0fc:   nop
     0.08 :    b100:   ldr     q18, [x28, x0]
-    0.41 :    b104:   ldr     q19, [x2, x0]
-    0.13 :    b108:   fcvtzs  v18.2d, v18.2d
+    0.35 :    b104:   ldr     q19, [x2, x0]
+    0.15 :    b108:   fcvtzs  v18.2d, v18.2d
     0.00 :    b10c:   fcvtzs  v19.2d, v19.2d
-    0.04 :    b110:   str     q18, [x7, x0]
-    0.01 :    b114:   str     q19, [x1, x0]
-    0.04 :    b118:   add     x0, x0, #0x20
-    0.03 :    b11c:   cmp     x9, x0
+    0.01 :    b110:   str     q18, [x7, x0]
+    0.03 :    b114:   str     q19, [x1, x0]
+    0.03 :    b118:   add     x0, x0, #0x20
+    0.04 :    b11c:   cmp     x9, x0
     0.00 :    b120:   b.ne    b100 <warpx_field_gather_fp64+0xa940>  // b.any
     0.00 :    b124:   cmp     x19, x16
     0.00 :    b128:   b.eq    b394 <warpx_field_gather_fp64+0xabd4>  // b.none
@@ -10874,7 +10874,7 @@
     0.00 :    b17c:   cmp     x21, x12
     0.00 :    b180:   b.ne    b0e4 <warpx_field_gather_fp64+0xa924>  // b.any
     0.00 :    b184:   ldp     x7, x0, [sp, #232]
-    0.00 :    b188:   add     x4, x4, #0x1
+    0.01 :    b188:   add     x4, x4, #0x1
     0.00 :    b18c:   ldr     x28, [sp, #248]
     0.00 :    b190:   add     x3, x3, x0
     0.00 :    b194:   cmp     x4, x12
@@ -10937,22 +10937,22 @@
     0.00 :    b278:   nop
     0.00 :    b27c:   nop
     0.10 :    b280:   ld1d    {z6.d}, p7/z, [x30, x1, lsl #3]
-    0.39 :    b284:   ld1d    {z4.d}, p7/z, [x28, x1, lsl #3]
-    0.27 :    b288:   ld1d    {z23.d}, p7/z, [x18, x1, lsl #3]
-    0.14 :    b28c:   mla     z4.d, p6/m, z28.d, z6.d
-    0.08 :    b290:   mla     z23.d, p6/m, z28.d, z4.d
-    0.06 :    b294:   ld1d    {z22.d}, p7/z, [x23, z23.d, lsl #3]
-    2.34 :    b298:   st1d    {z22.d}, p7, [x17, x1, lsl #3]
-    0.10 :    b29c:   add     x1, x1, x9
-    0.18 :    b2a0:   whilelo p7.d, x1, x19
-    0.04 :    b2a4:   b.ne    b280 <warpx_field_gather_fp64+0xaac0>  // b.any
+    0.27 :    b284:   ld1d    {z4.d}, p7/z, [x28, x1, lsl #3]
+    0.23 :    b288:   ld1d    {z23.d}, p7/z, [x18, x1, lsl #3]
+    0.11 :    b28c:   mla     z4.d, p6/m, z28.d, z6.d
+    0.07 :    b290:   mla     z23.d, p6/m, z28.d, z4.d
+    0.04 :    b294:   ld1d    {z22.d}, p7/z, [x23, z23.d, lsl #3]
+    2.51 :    b298:   st1d    {z22.d}, p7, [x17, x1, lsl #3]
+    0.08 :    b29c:   add     x1, x1, x9
+    0.15 :    b2a0:   whilelo p7.d, x1, x19
+    0.03 :    b2a4:   b.ne    b280 <warpx_field_gather_fp64+0xaac0>  // b.any
     0.00 :    b2a8:   add     x1, x14, #0x1
     0.00 :    b2ac:   add     x12, x12, x20
     0.00 :    b2b0:   cmp     x21, x1
     0.00 :    b2b4:   b.eq    b3bc <warpx_field_gather_fp64+0xabfc>  // b.none
     0.00 :    b2b8:   mov     x14, x1
     0.00 :    b2bc:   b       b260 <warpx_field_gather_fp64+0xaaa0>
-    0.01 :    b2c0:   add     x12, x12, #0x1
+    0.00 :    b2c0:   add     x12, x12, #0x1
     0.00 :    b2c4:   add     x1, x1, x20
     0.00 :    b2c8:   add     x14, x14, x19
     0.00 :    b2cc:   cmp     x21, x12
@@ -10965,7 +10965,7 @@
     0.00 :    b2e8:   cmp     x15, x3
     0.00 :    b2ec:   b.eq    ad80 <warpx_field_gather_fp64+0xa5c0>  // b.none
     0.00 :    b2f0:   ldr     d31, [x3]
-    0.00 :    b2f4:   b       acc0 <warpx_field_gather_fp64+0xa500>
+    0.01 :    b2f4:   b       acc0 <warpx_field_gather_fp64+0xa500>
     0.00 :    b2f8:   add     x3, x3, #0x8
     0.00 :    b2fc:   add     x4, x4, x19
     0.00 :    b300:   cmp     x3, x15
@@ -10997,7 +10997,7 @@
     0.00 :    b368:   b.eq    ab28 <warpx_field_gather_fp64+0xa368>  // b.none
     0.00 :    b36c:   ldr     d31, [x3]
     0.00 :    b370:   b       aa60 <warpx_field_gather_fp64+0xa2a0>
-    0.00 :    b374:   add     x12, x12, #0x1
+    0.01 :    b374:   add     x12, x12, #0x1
     0.00 :    b378:   add     x1, x1, x20
     0.00 :    b37c:   add     x14, x14, x19
     0.00 :    b380:   cmp     x12, x21
@@ -11016,7 +11016,7 @@
     0.00 :    b3b4:   mov     x0, #0x0                        // #0
     0.00 :    b3b8:   b       b130 <warpx_field_gather_fp64+0xa970>
     0.00 :    b3bc:   ldr     x28, [sp, #224]
-    0.01 :    b3c0:   add     x0, x0, x3
+    0.00 :    b3c0:   add     x0, x0, x3
     0.00 :    b3c4:   add     x1, x2, #0x1
     0.00 :    b3c8:   cmp     x2, x14
     0.00 :    b3cc:   b.eq    b3d8 <warpx_field_gather_fp64+0xac18>  // b.none
@@ -11072,14 +11072,14 @@
     0.00 :    b494:   mov     x0, #0x0                        // #0
     0.00 :    b498:   add     x18, x1, x12, lsl #3
     0.00 :    b49c:   add     x1, x23, x14, lsl #3
-    0.16 :    b4a0:   ldr     q0, [x3, x0]
-    0.38 :    b4a4:   ldr     q31, [x9, x0]
-    0.35 :    b4a8:   ldr     q20, [x18, x0]
-    0.31 :    b4ac:   fmul    v31.2d, v0.2d, v31.2d
-    0.00 :    b4b0:   fmul    v20.2d, v31.2d, v20.2d
-    0.04 :    b4b4:   str     q20, [x1, x0]
-    0.06 :    b4b8:   add     x0, x0, #0x10
-    0.10 :    b4bc:   cmp     x4, x0
+    0.10 :    b4a0:   ldr     q0, [x3, x0]
+    0.37 :    b4a4:   ldr     q31, [x9, x0]
+    0.27 :    b4a8:   ldr     q20, [x18, x0]
+    0.33 :    b4ac:   fmul    v31.2d, v0.2d, v31.2d
+    0.01 :    b4b0:   fmul    v20.2d, v31.2d, v20.2d
+    0.07 :    b4b4:   str     q20, [x1, x0]
+    0.10 :    b4b8:   add     x0, x0, #0x10
+    0.11 :    b4bc:   cmp     x4, x0
     0.00 :    b4c0:   b.ne    b4a0 <warpx_field_gather_fp64+0xace0>  // b.any
     0.00 :    b4c4:   cmp     x19, x16
     0.00 :    b4c8:   b.eq    b754 <warpx_field_gather_fp64+0xaf94>  // b.none
@@ -11112,7 +11112,7 @@
     0.00 :    b534:   cmp     x21, x30
     0.00 :    b538:   b.ne    b470 <warpx_field_gather_fp64+0xacb0>  // b.any
     0.00 :    b53c:   ldr     x1, [sp, #488]
-    0.01 :    b540:   add     x17, x17, x19
+    0.00 :    b540:   add     x17, x17, x19
     0.00 :    b544:   add     x9, x9, x20
     0.00 :    b548:   ldr     x2, [sp, #1216]
     0.00 :    b54c:   ldr     x0, [sp, #1224]
@@ -11160,12 +11160,12 @@
     0.00 :    b5f4:   add     x7, x22, x9
     0.00 :    b5f8:   add     x1, x18, x9
     0.00 :    b5fc:   nop
-    0.08 :    b600:   ldr     q7, [x7, x0]
-    0.42 :    b604:   ldr     q30, [x30, x0]
-    0.47 :    b608:   fmul    v30.2d, v7.2d, v30.2d
-    0.09 :    b60c:   str     q30, [x1, x0]
-    0.10 :    b610:   add     x0, x0, #0x10
-    0.09 :    b614:   cmp     x4, x0
+    0.14 :    b600:   ldr     q7, [x7, x0]
+    0.43 :    b604:   ldr     q30, [x30, x0]
+    0.41 :    b608:   fmul    v30.2d, v7.2d, v30.2d
+    0.08 :    b60c:   str     q30, [x1, x0]
+    0.08 :    b610:   add     x0, x0, #0x10
+    0.07 :    b614:   cmp     x4, x0
     0.00 :    b618:   b.ne    b600 <warpx_field_gather_fp64+0xae40>  // b.any
     0.00 :    b61c:   cmp     x19, x15
     0.00 :    b620:   b.eq    b778 <warpx_field_gather_fp64+0xafb8>  // b.none
@@ -11215,37 +11215,37 @@
     0.00 :    b6d0:   lsl     x9, x9, #3
     0.00 :    b6d4:   mul     x0, x19, x0
     0.00 :    b6d8:   lsl     x15, x0, #3
-    0.00 :    b6dc:   str     xzr, [x14, x12, lsl #3]
+    0.01 :    b6dc:   str     xzr, [x14, x12, lsl #3]
     0.00 :    b6e0:   mov     x1, x16
     0.00 :    b6e4:   mov     x2, #0x0                        // #0
     0.01 :    b6e8:   tbnz    x21, #63, b7bc <warpx_field_gather_fp64+0xaffc>
     0.00 :    b6ec:   ldr     x0, [sp, #216]
-    0.01 :    b6f0:   tbnz    x0, #63, b7bc <warpx_field_gather_fp64+0xaffc>
-    0.01 :    b6f4:   nop
+    0.00 :    b6f0:   tbnz    x0, #63, b7bc <warpx_field_gather_fp64+0xaffc>
+    0.00 :    b6f4:   nop
     0.00 :    b6f8:   nop
     0.00 :    b6fc:   nop
-    0.03 :    b700:   ldr     d26, [x14, x12, lsl #3]
-    0.03 :    b704:   mov     x3, x1
-    1.25 :    b708:   mov     x4, #0x0                        // #0
-    0.07 :    b70c:   mov     x17, x3
-    0.01 :    b710:   mov     x0, #0x0                        // #0
-    0.07 :    b714:   nop
+    0.01 :    b700:   ldr     d26, [x14, x12, lsl #3]
+    0.01 :    b704:   mov     x3, x1
+    1.14 :    b708:   mov     x4, #0x0                        // #0
+    0.04 :    b70c:   mov     x17, x3
+    0.02 :    b710:   mov     x0, #0x0                        // #0
+    0.04 :    b714:   nop
     0.00 :    b718:   nop
-    0.07 :    b71c:   nop
+    0.03 :    b71c:   nop
     0.10 :    b720:   ldr     d3, [x17]
-    3.17 :    b724:   mov     x30, x0
-    0.20 :    b728:   add     x0, x0, #0x1
-    0.15 :    b72c:   add     x17, x17, x20
-    0.01 :    b730:   fadd    d26, d26, d3
-    0.17 :    b734:   cmp     x21, x0
+    3.36 :    b724:   mov     x30, x0
+    0.17 :    b728:   add     x0, x0, #0x1
+    0.25 :    b72c:   add     x17, x17, x20
+    0.04 :    b730:   fadd    d26, d26, d3
+    0.15 :    b734:   cmp     x21, x0
     0.00 :    b738:   b.ne    b720 <warpx_field_gather_fp64+0xaf60>  // b.any
-    0.04 :    b73c:   add     x3, x3, x9
+    0.07 :    b73c:   add     x3, x3, x9
     0.07 :    b740:   add     x0, x4, #0x1
-    0.01 :    b744:   cmp     x4, x30
+    0.04 :    b744:   cmp     x4, x30
     0.00 :    b748:   b.eq    b79c <warpx_field_gather_fp64+0xafdc>  // b.none
-    0.06 :    b74c:   mov     x4, x0
+    0.04 :    b74c:   mov     x4, x0
     0.00 :    b750:   b       b70c <warpx_field_gather_fp64+0xaf4c>
-    0.01 :    b754:   add     x15, x15, #0x1
+    0.00 :    b754:   add     x15, x15, #0x1
     0.00 :    b758:   add     x12, x12, x19
     0.00 :    b75c:   add     x14, x14, x19
     0.00 :    b760:   cmp     x21, x15
@@ -11266,11 +11266,11 @@
     0.01 :    b79c:   str     d26, [x14, x12, lsl #3]
     0.01 :    b7a0:   add     x1, x1, x15
     0.00 :    b7a4:   add     x0, x2, #0x1
-    0.00 :    b7a8:   cmp     x2, x4
+    0.01 :    b7a8:   cmp     x2, x4
     0.00 :    b7ac:   b.gt    b7bc <warpx_field_gather_fp64+0xaffc>
-    0.01 :    b7b0:   mov     x2, x0
-    0.03 :    b7b4:   ldr     x0, [sp, #216]
-    0.02 :    b7b8:   tbz     x0, #63, b700 <warpx_field_gather_fp64+0xaf40>
+    0.02 :    b7b0:   mov     x2, x0
+    0.01 :    b7b4:   ldr     x0, [sp, #216]
+    0.01 :    b7b8:   tbz     x0, #63, b700 <warpx_field_gather_fp64+0xaf40>
     0.00 :    b7bc:   add     x12, x12, #0x1
     0.00 :    b7c0:   add     x16, x16, #0x8
     0.00 :    b7c4:   cmp     x19, x12
@@ -11303,8 +11303,8 @@
     0.00 :    b830:   lsl     x1, x1, #4
     0.00 :    b834:   ldr     x2, [sp, #1800]
     0.00 :    b838:   ldr     q25, [x20, x0]
-    0.01 :    b83c:   ldr     q1, [x2, x0]
-    0.04 :    b840:   fadd    v25.2d, v1.2d, v25.2d
+    0.00 :    b83c:   ldr     q1, [x2, x0]
+    0.01 :    b840:   fadd    v25.2d, v1.2d, v25.2d
     0.00 :    b844:   str     q25, [x2, x0]
     0.01 :    b848:   add     x0, x0, #0x10
     0.00 :    b84c:   cmp     x1, x0
@@ -11944,7 +11944,7 @@
     0.00 :    c234:   b       c9c8 <warpx_field_gather_fp64+0xc208>
     0.00 :    c238:   ldr     x0, [sp, #992]
     0.00 :    c23c:   mov     x2, x20
-    0.01 :    c240:   mov     w1, #0x0                        // #0
+    0.00 :    c240:   mov     w1, #0x0                        // #0
     0.00 :    c244:   bl      6b0 <memset@plt>
     0.00 :    c248:   cbz     x21, d048 <warpx_field_gather_fp64+0xc888>
     0.00 :    c24c:   cmp     x21, #0x1
@@ -12840,7 +12840,7 @@
     0.00 :    d034:   ldr     x1, [sp, #984]
     0.00 :    d038:   mov     x2, x20
     0.00 :    d03c:   ldr     x0, [sp, #1312]
-    0.01 :    d040:   bl      660 <memcpy@plt>
+    0.00 :    d040:   bl      660 <memcpy@plt>
     0.00 :    d044:   b       3f70 <warpx_field_gather_fp64+0x37b0>
     0.00 :    d048:   cmp     x19, #0x0
     0.00 :    d04c:   b.le    5054 <warpx_field_gather_fp64+0x4894>
@@ -13070,7 +13070,7 @@
     0.00 :    d3cc:   ldr     x1, [sp, #816]
     0.00 :    d3d0:   mov     x2, x20
     0.00 :    d3d4:   ldr     x0, [sp, #1336]
-    0.00 :    d3d8:   bl      660 <memcpy@plt>
+    0.01 :    d3d8:   bl      660 <memcpy@plt>
     0.00 :    d3dc:   ldr     x0, [sp, #224]
     0.00 :    d3e0:   bl      680 <malloc@plt>
     0.00 :    d3e4:   str     x0, [sp, #1208]
@@ -16070,13 +16070,13 @@
     0.00 :   102ac:  lsl     x2, x0, #4
     0.00 :   102b0:  ldr     x3, [sp, #112]
     0.00 :   102b4:  ldr     q16, [x3, x1]
-    0.03 :   102b8:  ldr     x3, [sp, #672]
+    0.04 :   102b8:  ldr     x3, [sp, #672]
     0.00 :   102bc:  fadd    v16.2d, v16.2d, v19.2d
-    0.01 :   102c0:  fadd    v16.2d, v16.2d, v18.2d
+    0.00 :   102c0:  fadd    v16.2d, v16.2d, v18.2d
     0.00 :   102c4:  fcvtzs  v16.2d, v16.2d
     0.00 :   102c8:  str     q16, [x3, x1]
-    0.00 :   102cc:  add     x1, x1, #0x10
-    0.01 :   102d0:  cmp     x2, x1
+    0.01 :   102cc:  add     x1, x1, #0x10
+    0.00 :   102d0:  cmp     x2, x1
     0.00 :   102d4:  b.ne    102b0 <warpx_field_gather_fp64+0xfaf0>  // b.any
     0.00 :   102d8:  and     x1, x19, #0xfffffffffffffffe
     0.00 :   102dc:  mov     x2, x1
@@ -16109,7 +16109,7 @@
     0.00 :   10348:  ldr     q22, [x3, x2]
     0.01 :   1034c:  ldr     x3, [sp, #672]
     0.00 :   10350:  fadd    v22.2d, v22.2d, v24.2d
-    0.01 :   10354:  ldr     q17, [x3, x2]
+    0.00 :   10354:  ldr     q17, [x3, x2]
     0.00 :   10358:  ldr     x3, [sp, #480]
     0.00 :   1035c:  scvtf   v17.2d, v17.2d
     0.00 :   10360:  fsub    v17.2d, v22.2d, v17.2d
@@ -16139,12 +16139,12 @@
     0.00 :   103c0:  mov     x2, #0x0                        // #0
     0.00 :   103c4:  lsl     x0, x0, #4
     0.00 :   103c8:  ldr     x3, [sp, #480]
-    0.01 :   103cc:  ldr     q5, [x3, x2]
-    0.00 :   103d0:  ldr     x3, [sp, #648]
+    0.00 :   103cc:  ldr     q5, [x3, x2]
+    0.04 :   103d0:  ldr     x3, [sp, #648]
     0.00 :   103d4:  fsub    v5.2d, v6.2d, v5.2d
-    0.00 :   103d8:  fmul    v3.2d, v5.2d, v6.2d
+    0.01 :   103d8:  fmul    v3.2d, v5.2d, v6.2d
     0.00 :   103dc:  fmul    v3.2d, v3.2d, v5.2d
-    0.01 :   103e0:  str     q3, [x3, x2]
+    0.00 :   103e0:  str     q3, [x3, x2]
     0.00 :   103e4:  add     x2, x2, #0x10
     0.00 :   103e8:  cmp     x2, x0
     0.00 :   103ec:  b.ne    103c8 <warpx_field_gather_fp64+0xfc08>  // b.any
@@ -16191,8 +16191,8 @@
     0.00 :   10490:  ld1d    {z1.d}, p7/z, [x4, x0, lsl #3]
     0.00 :   10494:  fmsb    z1.d, p7/m, z1.d, z27.d
     0.00 :   10498:  st1d    {z1.d}, p7, [x5, x0, lsl #3]
-    0.01 :   1049c:  add     x0, x0, x2
-    0.01 :   104a0:  cmp     x6, x0
+    0.00 :   1049c:  add     x0, x0, x2
+    0.00 :   104a0:  cmp     x6, x0
     0.00 :   104a4:  b.cs    10480 <warpx_field_gather_fp64+0xfcc0>  // b.hs, b.nlast
     0.00 :   104a8:  cmp     x19, x0
     0.00 :   104ac:  b.eq    104d0 <warpx_field_gather_fp64+0xfd10>  // b.none
@@ -16214,12 +16214,12 @@
     0.00 :   104ec:  add     x2, x2, x19, lsl #4
     0.00 :   104f0:  ldr     x3, [sp, #480]
     0.00 :   104f4:  ldr     q30, [x3, x1]
-    0.04 :   104f8:  fadd    v30.2d, v30.2d, v16.2d
+    0.01 :   104f8:  fadd    v30.2d, v30.2d, v16.2d
     0.00 :   104fc:  fmul    v26.2d, v30.2d, v16.2d
     0.01 :   10500:  fmul    v26.2d, v26.2d, v30.2d
     0.00 :   10504:  str     q26, [x2, x1]
     0.00 :   10508:  add     x1, x1, #0x10
-    0.01 :   1050c:  cmp     x1, x0
+    0.00 :   1050c:  cmp     x1, x0
     0.00 :   10510:  b.ne    104f0 <warpx_field_gather_fp64+0xfd30>  // b.any
     0.00 :   10514:  and     x0, x19, #0xfffffffffffffffe
     0.00 :   10518:  tbz     w19, #0, 10570 <warpx_field_gather_fp64+0xfdb0>
@@ -16256,7 +16256,7 @@
     0.00 :   10594:  add     x6, x3, #0x10
     0.00 :   10598:  ldr     x3, [sp, #672]
     0.00 :   1059c:  ldr     q7, [x2, x0]
-    0.00 :   105a0:  ldr     q23, [x3, x0]
+    0.01 :   105a0:  ldr     q23, [x3, x0]
     0.00 :   105a4:  ldr     x3, [sp, #824]
     0.00 :   105a8:  add     v7.2d, v7.2d, v28.2d
     0.00 :   105ac:  add     v23.2d, v23.2d, v28.2d
@@ -16553,15 +16553,15 @@
     0.00 :   10a38:  lsr     x0, x19, #1
     0.00 :   10a3c:  mov     x1, #0x0                        // #0
     0.00 :   10a40:  lsl     x2, x0, #4
-    0.01 :   10a44:  ldr     x3, [sp, #112]
+    0.00 :   10a44:  ldr     x3, [sp, #112]
     0.00 :   10a48:  ldr     q16, [x3, x1]
-    0.02 :   10a4c:  ldr     x3, [sp, #664]
+    0.00 :   10a4c:  ldr     x3, [sp, #664]
     0.00 :   10a50:  fadd    v16.2d, v16.2d, v19.2d
     0.00 :   10a54:  fadd    v16.2d, v16.2d, v17.2d
     0.00 :   10a58:  fcvtzs  v16.2d, v16.2d
     0.00 :   10a5c:  str     q16, [x3, x1]
     0.00 :   10a60:  add     x1, x1, #0x10
-    0.00 :   10a64:  cmp     x1, x2
+    0.01 :   10a64:  cmp     x1, x2
     0.00 :   10a68:  b.ne    10a44 <warpx_field_gather_fp64+0x10284>  // b.any
     0.00 :   10a6c:  and     x1, x19, #0xfffffffffffffffe
     0.00 :   10a70:  mov     x2, x1
@@ -16590,17 +16590,17 @@
     0.00 :   10acc:  fmov    v24.2d, #-5.000000000000000000e-01
     0.00 :   10ad0:  mov     x2, #0x0                        // #0
     0.00 :   10ad4:  lsl     x4, x0, #4
-    0.00 :   10ad8:  ldr     x3, [sp, #112]
+    0.01 :   10ad8:  ldr     x3, [sp, #112]
     0.00 :   10adc:  ldr     q21, [x3, x2]
-    0.01 :   10ae0:  ldr     x3, [sp, #664]
-    0.00 :   10ae4:  fadd    v21.2d, v21.2d, v24.2d
+    0.00 :   10ae0:  ldr     x3, [sp, #664]
+    0.01 :   10ae4:  fadd    v21.2d, v21.2d, v24.2d
     0.00 :   10ae8:  ldr     q18, [x3, x2]
-    0.01 :   10aec:  ldr     x3, [sp, #448]
+    0.00 :   10aec:  ldr     x3, [sp, #448]
     0.00 :   10af0:  scvtf   v18.2d, v18.2d
     0.00 :   10af4:  fsub    v18.2d, v21.2d, v18.2d
-    0.01 :   10af8:  str     q18, [x3, x2]
+    0.00 :   10af8:  str     q18, [x3, x2]
     0.00 :   10afc:  add     x2, x2, #0x10
-    0.01 :   10b00:  cmp     x2, x4
+    0.00 :   10b00:  cmp     x2, x4
     0.00 :   10b04:  b.ne    10ad8 <warpx_field_gather_fp64+0x10318>  // b.any
     0.00 :   10b08:  mov     x2, x1
     0.00 :   10b0c:  cmp     x19, x1
@@ -16630,8 +16630,8 @@
     0.00 :   10b6c:  fmul    v2.2d, v3.2d, v4.2d
     0.00 :   10b70:  fmul    v2.2d, v2.2d, v3.2d
     0.00 :   10b74:  str     q2, [x3, x2]
-    0.00 :   10b78:  add     x2, x2, #0x10
-    0.01 :   10b7c:  cmp     x0, x2
+    0.01 :   10b78:  add     x2, x2, #0x10
+    0.00 :   10b7c:  cmp     x0, x2
     0.00 :   10b80:  b.ne    10b5c <warpx_field_gather_fp64+0x1039c>  // b.any
     0.00 :   10b84:  cmp     x19, x1
     0.00 :   10b88:  b.eq    10be0 <warpx_field_gather_fp64+0x10420>  // b.none
@@ -16672,7 +16672,7 @@
     0.00 :   10c14:  ldr     x3, [sp, #448]
     0.00 :   10c18:  ld1d    {z26.d}, p7/z, [x3, x0, lsl #3]
     0.01 :   10c1c:  fmsb    z26.d, p7/m, z26.d, z28.d
-    0.01 :   10c20:  st1d    {z26.d}, p7, [x1, x0, lsl #3]
+    0.00 :   10c20:  st1d    {z26.d}, p7, [x1, x0, lsl #3]
     0.00 :   10c24:  ld1d    {z6.d}, p7/z, [x4, x0, lsl #3]
     0.01 :   10c28:  fmsb    z6.d, p7/m, z6.d, z28.d
     0.00 :   10c2c:  st1d    {z6.d}, p7, [x5, x0, lsl #3]
@@ -16699,12 +16699,12 @@
     0.00 :   10c80:  add     x2, x2, x19, lsl #4
     0.00 :   10c84:  ldr     x3, [sp, #448]
     0.00 :   10c88:  ldr     q29, [x3, x1]
-    0.01 :   10c8c:  fadd    v29.2d, v29.2d, v16.2d
+    0.05 :   10c8c:  fadd    v29.2d, v29.2d, v16.2d
     0.00 :   10c90:  fmul    v25.2d, v29.2d, v16.2d
     0.00 :   10c94:  fmul    v25.2d, v25.2d, v29.2d
     0.00 :   10c98:  str     q25, [x2, x1]
     0.00 :   10c9c:  add     x1, x1, #0x10
-    0.00 :   10ca0:  cmp     x1, x0
+    0.01 :   10ca0:  cmp     x1, x0
     0.00 :   10ca4:  b.ne    10c84 <warpx_field_gather_fp64+0x104c4>  // b.any
     0.00 :   10ca8:  and     x0, x19, #0xfffffffffffffffe
     0.00 :   10cac:  tbz     w19, #0, 10d04 <warpx_field_gather_fp64+0x10544>
@@ -16742,13 +16742,13 @@
     0.00 :   10d2c:  ldr     x3, [sp, #664]
     0.00 :   10d30:  ldr     q7, [x2, x0]
     0.01 :   10d34:  ldr     q23, [x3, x0]
-    0.00 :   10d38:  ldr     x3, [sp, #816]
-    0.00 :   10d3c:  add     v7.2d, v7.2d, v27.2d
-    0.01 :   10d40:  add     v23.2d, v23.2d, v27.2d
-    0.00 :   10d44:  str     q23, [x3, x0]
+    0.01 :   10d38:  ldr     x3, [sp, #816]
+    0.01 :   10d3c:  add     v7.2d, v7.2d, v27.2d
+    0.00 :   10d40:  add     v23.2d, v23.2d, v27.2d
+    0.01 :   10d44:  str     q23, [x3, x0]
     0.00 :   10d48:  str     q7, [x6, x0]
     0.00 :   10d4c:  add     x0, x0, #0x20
-    0.01 :   10d50:  cmp     x1, x0
+    0.00 :   10d50:  cmp     x1, x0
     0.00 :   10d54:  b.ne    10d2c <warpx_field_gather_fp64+0x1056c>  // b.any
     0.00 :   10d58:  and     x1, x19, #0xfffffffffffffffc
     0.00 :   10d5c:  cmp     x19, x1
@@ -17520,7 +17520,7 @@
     0.00 :   11954:  b.hi    113fc <warpx_field_gather_fp64+0x10c3c>  // b.pmore
     0.00 :   11958:  mov     x0, #0x0                        // #0
     0.00 :   1195c:  b       11454 <warpx_field_gather_fp64+0x10c94>
-    0.01 :   11960:  cmp     x21, #0x3
+    0.00 :   11960:  cmp     x21, #0x3
     0.00 :   11964:  b.eq    19a3c <warpx_field_gather_fp64+0x1927c>  // b.none
     0.00 :   11968:  cmp     x21, #0x4
     0.00 :   1196c:  b.eq    19e88 <warpx_field_gather_fp64+0x196c8>  // b.none
@@ -21128,14 +21128,14 @@
     0.00 :   151b4:  cmp     x22, #0x2
     0.00 :   151b8:  b.ls    163c8 <warpx_field_gather_fp64+0x15c08>  // b.plast
     0.00 :   151bc:  ldr     x0, [sp, #256]
-    0.01 :   151c0:  lsr     x1, x19, #2
+    0.00 :   151c0:  lsr     x1, x19, #2
     0.00 :   151c4:  mov     x4, #0x0                        // #0
     0.00 :   151c8:  lsl     x1, x1, #5
     0.00 :   151cc:  ldr     x2, [sp, #512]
     0.00 :   151d0:  add     x0, x0, #0x10
     0.00 :   151d4:  add     x2, x2, #0x10
     0.00 :   151d8:  ldr     x3, [sp, #256]
-    0.01 :   151dc:  ldr     q7, [x0, x4]
+    0.00 :   151dc:  ldr     q7, [x0, x4]
     0.01 :   151e0:  ldr     q6, [x3, x4]
     0.01 :   151e4:  ldr     x3, [sp, #512]
     0.00 :   151e8:  fcvtzs  v7.2d, v7.2d
@@ -21169,13 +21169,13 @@
     0.00 :   15258:  lsr     x0, x19, #1
     0.00 :   1525c:  mov     x1, #0x0                        // #0
     0.00 :   15260:  lsl     x2, x0, #4
-    0.00 :   15264:  ldr     x3, [sp, #512]
+    0.01 :   15264:  ldr     x3, [sp, #512]
     0.00 :   15268:  ldr     q26, [x3, x1]
     0.01 :   1526c:  ldr     x3, [sp, #256]
-    0.00 :   15270:  scvtf   v26.2d, v26.2d
-    0.01 :   15274:  ldr     q25, [x3, x1]
-    0.04 :   15278:  ldr     x3, [sp, #392]
-    0.01 :   1527c:  fsub    v25.2d, v25.2d, v26.2d
+    0.01 :   15270:  scvtf   v26.2d, v26.2d
+    0.00 :   15274:  ldr     q25, [x3, x1]
+    0.01 :   15278:  ldr     x3, [sp, #392]
+    0.00 :   1527c:  fsub    v25.2d, v25.2d, v26.2d
     0.00 :   15280:  str     q25, [x3, x1]
     0.00 :   15284:  add     x1, x1, #0x10
     0.00 :   15288:  cmp     x1, x2
@@ -21226,12 +21226,12 @@
     0.00 :   1533c:  mov     v1.16b, v19.16b
     0.00 :   15340:  mov     v4.16b, v18.16b
     0.00 :   15344:  ldr     q29, [x3, x1]
-    0.01 :   15348:  fmla    v1.2d, v29.2d, v20.2d
+    0.00 :   15348:  fmla    v1.2d, v29.2d, v20.2d
     0.00 :   1534c:  fmul    v3.2d, v29.2d, v29.2d
-    0.01 :   15350:  fmla    v4.2d, v3.2d, v1.2d
+    0.00 :   15350:  fmla    v4.2d, v3.2d, v1.2d
     0.00 :   15354:  str     q4, [x4, x1]
     0.00 :   15358:  add     x1, x1, #0x10
-    0.01 :   1535c:  cmp     x1, x2
+    0.00 :   1535c:  cmp     x1, x2
     0.00 :   15360:  b.ne    15338 <warpx_field_gather_fp64+0x14b78>  // b.any
     0.00 :   15364:  and     x1, x19, #0xfffffffffffffffe
     0.00 :   15368:  mov     x2, x1
@@ -21304,15 +21304,15 @@
     0.00 :   15474:  add     x6, x3, x19, lsl #4
     0.00 :   15478:  ldr     x3, [sp, #392]
     0.00 :   1547c:  mov     v6.16b, v28.16b
-    0.01 :   15480:  mov     v16.16b, v17.16b
+    0.00 :   15480:  mov     v16.16b, v17.16b
     0.00 :   15484:  ldr     q5, [x3, x4]
-    0.04 :   15488:  fsub    v5.2d, v31.2d, v5.2d
+    0.00 :   15488:  fsub    v5.2d, v31.2d, v5.2d
     0.00 :   1548c:  fmla    v6.2d, v5.2d, v30.2d
     0.00 :   15490:  fmul    v7.2d, v5.2d, v5.2d
     0.00 :   15494:  fmla    v16.2d, v7.2d, v6.2d
     0.00 :   15498:  str     q16, [x6, x4]
     0.00 :   1549c:  add     x4, x4, #0x10
-    0.01 :   154a0:  cmp     x4, x5
+    0.00 :   154a0:  cmp     x4, x5
     0.00 :   154a4:  b.ne    15478 <warpx_field_gather_fp64+0x14cb8>  // b.any
     0.00 :   154a8:  mov     x4, x1
     0.00 :   154ac:  cmp     x19, x1
@@ -21386,12 +21386,12 @@
     0.00 :   155bc:  add     x2, x3, x2, lsl #3
     0.00 :   155c0:  ldr     x3, [sp, #392]
     0.00 :   155c4:  ldr     q26, [x3, x5]
-    0.03 :   155c8:  fmul    v25.2d, v26.2d, v27.2d
+    0.01 :   155c8:  fmul    v25.2d, v26.2d, v27.2d
     0.00 :   155cc:  fmul    v25.2d, v25.2d, v26.2d
     0.00 :   155d0:  fmul    v25.2d, v25.2d, v26.2d
-    0.01 :   155d4:  str     q25, [x2, x5]
+    0.00 :   155d4:  str     q25, [x2, x5]
     0.00 :   155d8:  add     x5, x5, #0x10
-    0.00 :   155dc:  cmp     x5, x0
+    0.01 :   155dc:  cmp     x5, x0
     0.00 :   155e0:  b.ne    155c0 <warpx_field_gather_fp64+0x14e00>  // b.any
     0.00 :   155e4:  cmp     x19, x1
     0.00 :   155e8:  b.ne    162b8 <warpx_field_gather_fp64+0x15af8>  // b.any
@@ -22175,15 +22175,15 @@
     0.00 :   16210:  ldr     q23, [x2, #2240]
     0.00 :   16214:  mov     x2, #0x0                        // #0
     0.00 :   16218:  ldr     x3, [sp, #392]
-    0.00 :   1621c:  ldr     q22, [x3, x2]
-    0.01 :   16220:  ldr     x3, [sp, #608]
+    0.01 :   1621c:  ldr     q22, [x3, x2]
+    0.04 :   16220:  ldr     x3, [sp, #608]
     0.00 :   16224:  fsub    v22.2d, v0.2d, v22.2d
     0.00 :   16228:  fmul    v21.2d, v22.2d, v23.2d
     0.00 :   1622c:  fmul    v21.2d, v21.2d, v22.2d
     0.00 :   16230:  fmul    v21.2d, v21.2d, v22.2d
-    0.01 :   16234:  str     q21, [x3, x2]
-    0.00 :   16238:  add     x2, x2, #0x10
-    0.00 :   1623c:  cmp     x2, x0
+    0.00 :   16234:  str     q21, [x3, x2]
+    0.01 :   16238:  add     x2, x2, #0x10
+    0.01 :   1623c:  cmp     x2, x0
     0.00 :   16240:  b.ne    16218 <warpx_field_gather_fp64+0x15a58>  // b.any
     0.00 :   16244:  cmp     x19, x1
     0.00 :   16248:  b.eq    1530c <warpx_field_gather_fp64+0x14b4c>  // b.none
@@ -22235,14 +22235,14 @@
     0.00 :   16300:  ldr     x3, [sp, #1024]
     0.00 :   16304:  add     x2, x2, #0x10
     0.00 :   16308:  add     x6, x3, #0x10
-    0.00 :   1630c:  ldr     x3, [sp, #512]
+    0.01 :   1630c:  ldr     x3, [sp, #512]
     0.00 :   16310:  ldr     q2, [x2, x0]
     0.00 :   16314:  ldr     q23, [x3, x0]
-    0.02 :   16318:  ldr     x3, [sp, #1024]
+    0.01 :   16318:  ldr     x3, [sp, #1024]
     0.00 :   1631c:  add     v2.2d, v2.2d, v24.2d
-    0.00 :   16320:  add     v23.2d, v23.2d, v24.2d
+    0.01 :   16320:  add     v23.2d, v23.2d, v24.2d
     0.00 :   16324:  str     q23, [x3, x0]
-    0.00 :   16328:  str     q2, [x6, x0]
+    0.01 :   16328:  str     q2, [x6, x0]
     0.00 :   1632c:  add     x0, x0, #0x20
     0.00 :   16330:  cmp     x0, x1
     0.00 :   16334:  b.ne    1630c <warpx_field_gather_fp64+0x15b4c>  // b.any
@@ -24650,7 +24650,7 @@
     0.00 :   188bc:  cmp     x19, x2
     0.00 :   188c0:  b.ne    1b914 <warpx_field_gather_fp64+0x1b154>  // b.any
     0.00 :   188c4:  b       1b96c <warpx_field_gather_fp64+0x1b1ac>
-    0.00 :   188c8:  cmp     x19, #0x0
+    0.01 :   188c8:  cmp     x19, #0x0
     0.00 :   188cc:  b.le    12fd0 <warpx_field_gather_fp64+0x12810>
     0.00 :   188d0:  sub     x22, x19, #0x1
     0.00 :   188d4:  cmp     x22, #0x2
@@ -24664,13 +24664,13 @@
     0.00 :   188f4:  add     x2, x2, #0x10
     0.00 :   188f8:  ldr     x3, [sp, #112]
     0.00 :   188fc:  ldr     q16, [x0, x4]
-    0.02 :   18900:  ldr     q7, [x3, x4]
-    0.00 :   18904:  ldr     x3, [sp, #528]
+    0.00 :   18900:  ldr     q7, [x3, x4]
+    0.02 :   18904:  ldr     x3, [sp, #528]
     0.00 :   18908:  fcvtzs  v16.2d, v16.2d
     0.00 :   1890c:  fcvtzs  v7.2d, v7.2d
     0.00 :   18910:  str     q7, [x3, x4]
-    0.00 :   18914:  str     q16, [x2, x4]
-    0.00 :   18918:  add     x4, x4, #0x20
+    0.01 :   18914:  str     q16, [x2, x4]
+    0.01 :   18918:  add     x4, x4, #0x20
     0.00 :   1891c:  cmp     x4, x1
     0.00 :   18920:  b.ne    188f8 <warpx_field_gather_fp64+0x18138>  // b.any
     0.00 :   18924:  and     x0, x19, #0xfffffffffffffffc
@@ -24697,16 +24697,16 @@
     0.00 :   18978:  lsr     x0, x19, #1
     0.00 :   1897c:  mov     x1, #0x0                        // #0
     0.00 :   18980:  lsl     x2, x0, #4
-    0.00 :   18984:  ldr     x3, [sp, #528]
-    0.02 :   18988:  ldr     q25, [x3, x1]
-    0.01 :   1898c:  ldr     x3, [sp, #112]
-    0.01 :   18990:  scvtf   v25.2d, v25.2d
+    0.01 :   18984:  ldr     x3, [sp, #528]
+    0.01 :   18988:  ldr     q25, [x3, x1]
+    0.03 :   1898c:  ldr     x3, [sp, #112]
+    0.00 :   18990:  scvtf   v25.2d, v25.2d
     0.01 :   18994:  ldr     q18, [x3, x1]
-    0.01 :   18998:  ldr     x3, [sp, #424]
+    0.02 :   18998:  ldr     x3, [sp, #424]
     0.01 :   1899c:  fsub    v18.2d, v18.2d, v25.2d
     0.00 :   189a0:  str     q18, [x3, x1]
-    0.00 :   189a4:  add     x1, x1, #0x10
-    0.01 :   189a8:  cmp     x1, x2
+    0.01 :   189a4:  add     x1, x1, #0x10
+    0.00 :   189a8:  cmp     x1, x2
     0.00 :   189ac:  b.ne    18984 <warpx_field_gather_fp64+0x181c4>  // b.any
     0.00 :   189b0:  and     x1, x19, #0xfffffffffffffffe
     0.00 :   189b4:  mov     x2, x1
@@ -24752,12 +24752,12 @@
     0.00 :   18a54:  lsl     x2, x0, #4
     0.01 :   18a58:  ldr     x3, [sp, #424]
     0.00 :   18a5c:  mov     v0.16b, v19.16b
-    0.01 :   18a60:  mov     v4.16b, v17.16b
+    0.00 :   18a60:  mov     v4.16b, v17.16b
     0.00 :   18a64:  ldr     q27, [x3, x1]
-    0.03 :   18a68:  fmla    v0.2d, v27.2d, v23.2d
+    0.01 :   18a68:  fmla    v0.2d, v27.2d, v23.2d
     0.00 :   18a6c:  fmul    v3.2d, v27.2d, v27.2d
     0.00 :   18a70:  fmla    v4.2d, v3.2d, v0.2d
-    0.00 :   18a74:  str     q4, [x4, x1]
+    0.01 :   18a74:  str     q4, [x4, x1]
     0.00 :   18a78:  add     x1, x1, #0x10
     0.01 :   18a7c:  cmp     x1, x2
     0.00 :   18a80:  b.ne    18a58 <warpx_field_gather_fp64+0x18298>  // b.any
@@ -24834,13 +24834,13 @@
     0.00 :   18b9c:  mov     v7.16b, v22.16b
     0.00 :   18ba0:  mov     v20.16b, v21.16b
     0.00 :   18ba4:  ldr     q2, [x3, x4]
-    0.04 :   18ba8:  fsub    v2.2d, v31.2d, v2.2d
+    0.03 :   18ba8:  fsub    v2.2d, v31.2d, v2.2d
     0.00 :   18bac:  fmla    v7.2d, v2.2d, v29.2d
     0.00 :   18bb0:  fmul    v16.2d, v2.2d, v2.2d
-    0.00 :   18bb4:  fmla    v20.2d, v16.2d, v7.2d
-    0.01 :   18bb8:  str     q20, [x6, x4]
+    0.01 :   18bb4:  fmla    v20.2d, v16.2d, v7.2d
+    0.00 :   18bb8:  str     q20, [x6, x4]
     0.00 :   18bbc:  add     x4, x4, #0x10
-    0.01 :   18bc0:  cmp     x4, x5
+    0.00 :   18bc0:  cmp     x4, x5
     0.00 :   18bc4:  b.ne    18b98 <warpx_field_gather_fp64+0x183d8>  // b.any
     0.00 :   18bc8:  mov     x4, x1
     0.00 :   18bcc:  add     x5, x2, x19
@@ -24915,11 +24915,11 @@
     0.00 :   18ce0:  add     x2, x3, x2, lsl #3
     0.00 :   18ce4:  ldr     x3, [sp, #424]
     0.00 :   18ce8:  ldr     q25, [x3, x4]
-    0.03 :   18cec:  fmul    v18.2d, v25.2d, v26.2d
+    0.02 :   18cec:  fmul    v18.2d, v25.2d, v26.2d
     0.00 :   18cf0:  fmul    v18.2d, v18.2d, v25.2d
     0.00 :   18cf4:  fmul    v18.2d, v18.2d, v25.2d
     0.00 :   18cf8:  str     q18, [x2, x4]
-    0.00 :   18cfc:  add     x4, x4, #0x10
+    0.01 :   18cfc:  add     x4, x4, #0x10
     0.00 :   18d00:  cmp     x4, x0
     0.00 :   18d04:  b.ne    18ce4 <warpx_field_gather_fp64+0x18524>  // b.any
     0.00 :   18d08:  cmp     x19, x1
@@ -25669,16 +25669,16 @@
     0.00 :   198a8:  lsl     x0, x0, #4
     0.00 :   198ac:  ldr     q30, [x2, #2240]
     0.00 :   198b0:  mov     x2, #0x0                        // #0
-    0.01 :   198b4:  ldr     x3, [sp, #424]
+    0.00 :   198b4:  ldr     x3, [sp, #424]
     0.00 :   198b8:  ldr     q28, [x3, x2]
-    0.00 :   198bc:  ldr     x3, [sp, #560]
+    0.01 :   198bc:  ldr     x3, [sp, #560]
     0.00 :   198c0:  fsub    v28.2d, v1.2d, v28.2d
     0.00 :   198c4:  fmul    v24.2d, v28.2d, v30.2d
     0.00 :   198c8:  fmul    v24.2d, v24.2d, v28.2d
     0.00 :   198cc:  fmul    v24.2d, v24.2d, v28.2d
-    0.00 :   198d0:  str     q24, [x3, x2]
-    0.00 :   198d4:  add     x2, x2, #0x10
-    0.01 :   198d8:  cmp     x2, x0
+    0.01 :   198d0:  str     q24, [x3, x2]
+    0.01 :   198d4:  add     x2, x2, #0x10
+    0.00 :   198d8:  cmp     x2, x0
     0.00 :   198dc:  b.ne    198b4 <warpx_field_gather_fp64+0x190f4>  // b.any
     0.00 :   198e0:  cmp     x19, x1
     0.00 :   198e4:  b.eq    18a2c <warpx_field_gather_fp64+0x1826c>  // b.none
@@ -25732,9 +25732,9 @@
     0.00 :   199a4:  ldr     x3, [sp, #984]
     0.00 :   199a8:  add     x2, x2, #0x10
     0.00 :   199ac:  add     x6, x3, #0x10
-    0.01 :   199b0:  ldr     x3, [sp, #528]
+    0.00 :   199b0:  ldr     x3, [sp, #528]
     0.00 :   199b4:  ldr     q5, [x2, x0]
-    0.00 :   199b8:  ldr     q30, [x3, x0]
+    0.01 :   199b8:  ldr     q30, [x3, x0]
     0.01 :   199bc:  ldr     x3, [sp, #984]
     0.00 :   199c0:  add     v5.2d, v5.2d, v6.2d
     0.00 :   199c4:  add     v30.2d, v30.2d, v6.2d
@@ -25781,7 +25781,7 @@
     0.00 :   19a68:  add     x2, x2, #0x10
     0.00 :   19a6c:  ldr     x3, [sp, #112]
     0.00 :   19a70:  ldr     q4, [x0, x4]
-    0.00 :   19a74:  ldr     q1, [x3, x4]
+    0.01 :   19a74:  ldr     q1, [x3, x4]
     0.00 :   19a78:  ldr     x3, [sp, #544]
     0.00 :   19a7c:  fcvtzs  v4.2d, v4.2d
     0.00 :   19a80:  fcvtzs  v1.2d, v1.2d
@@ -25814,16 +25814,16 @@
     0.00 :   19aec:  lsr     x0, x19, #1
     0.00 :   19af0:  mov     x1, #0x0                        // #0
     0.00 :   19af4:  lsl     x2, x0, #4
-    0.01 :   19af8:  ldr     x3, [sp, #544]
+    0.00 :   19af8:  ldr     x3, [sp, #544]
     0.00 :   19afc:  ldr     q25, [x3, x1]
     0.01 :   19b00:  ldr     x3, [sp, #112]
-    0.00 :   19b04:  scvtf   v25.2d, v25.2d
-    0.01 :   19b08:  ldr     q17, [x3, x1]
+    0.01 :   19b04:  scvtf   v25.2d, v25.2d
+    0.00 :   19b08:  ldr     q17, [x3, x1]
     0.01 :   19b0c:  ldr     x3, [sp, #456]
     0.00 :   19b10:  fsub    v17.2d, v17.2d, v25.2d
-    0.01 :   19b14:  str     q17, [x3, x1]
-    0.01 :   19b18:  add     x1, x1, #0x10
-    0.01 :   19b1c:  cmp     x1, x2
+    0.00 :   19b14:  str     q17, [x3, x1]
+    0.00 :   19b18:  add     x1, x1, #0x10
+    0.00 :   19b1c:  cmp     x1, x2
     0.00 :   19b20:  b.ne    19af8 <warpx_field_gather_fp64+0x19338>  // b.any
     0.00 :   19b24:  and     x1, x19, #0xfffffffffffffffe
     0.00 :   19b28:  mov     x2, x1
@@ -25867,14 +25867,14 @@
     0.00 :   19bc0:  lsr     x0, x19, #1
     0.00 :   19bc4:  add     x4, x2, x20
     0.00 :   19bc8:  lsl     x2, x0, #4
-    0.01 :   19bcc:  ldr     x3, [sp, #456]
+    0.00 :   19bcc:  ldr     x3, [sp, #456]
     0.00 :   19bd0:  mov     v3.16b, v19.16b
     0.00 :   19bd4:  mov     v7.16b, v18.16b
     0.00 :   19bd8:  ldr     q28, [x3, x1]
-    0.02 :   19bdc:  fmla    v3.2d, v28.2d, v21.2d
-    0.00 :   19be0:  fmul    v5.2d, v28.2d, v28.2d
+    0.01 :   19bdc:  fmla    v3.2d, v28.2d, v21.2d
+    0.01 :   19be0:  fmul    v5.2d, v28.2d, v28.2d
     0.00 :   19be4:  fmla    v7.2d, v5.2d, v3.2d
-    0.00 :   19be8:  str     q7, [x4, x1]
+    0.02 :   19be8:  str     q7, [x4, x1]
     0.00 :   19bec:  add     x1, x1, #0x10
     0.00 :   19bf0:  cmp     x2, x1
     0.00 :   19bf4:  b.ne    19bcc <warpx_field_gather_fp64+0x1940c>  // b.any
@@ -25947,15 +25947,15 @@
     0.00 :   19d00:  ldr     q22, [x3, #2256]
     0.00 :   19d04:  ldr     x3, [sp, #592]
     0.00 :   19d08:  add     x6, x3, x19, lsl #4
-    0.00 :   19d0c:  ldr     x3, [sp, #456]
+    0.01 :   19d0c:  ldr     x3, [sp, #456]
     0.01 :   19d10:  mov     v1.16b, v26.16b
     0.00 :   19d14:  mov     v20.16b, v22.16b
-    0.01 :   19d18:  ldr     q0, [x3, x4]
-    0.01 :   19d1c:  fsub    v0.2d, v31.2d, v0.2d
+    0.00 :   19d18:  ldr     q0, [x3, x4]
+    0.04 :   19d1c:  fsub    v0.2d, v31.2d, v0.2d
     0.00 :   19d20:  fmla    v1.2d, v0.2d, v30.2d
     0.00 :   19d24:  fmul    v4.2d, v0.2d, v0.2d
     0.00 :   19d28:  fmla    v20.2d, v4.2d, v1.2d
-    0.01 :   19d2c:  str     q20, [x6, x4]
+    0.02 :   19d2c:  str     q20, [x6, x4]
     0.01 :   19d30:  add     x4, x4, #0x10
     0.00 :   19d34:  cmp     x4, x5
     0.00 :   19d38:  b.ne    19d0c <warpx_field_gather_fp64+0x1954c>  // b.any
@@ -26028,15 +26028,15 @@
     0.00 :   19e44:  mov     x4, #0x0                        // #0
     0.00 :   19e48:  lsl     x0, x0, #4
     0.00 :   19e4c:  ldr     q29, [x3, #2240]
-    0.01 :   19e50:  ldr     x3, [sp, #592]
+    0.00 :   19e50:  ldr     x3, [sp, #592]
     0.00 :   19e54:  add     x2, x3, x2, lsl #3
-    0.01 :   19e58:  ldr     x3, [sp, #456]
-    0.00 :   19e5c:  ldr     q25, [x3, x4]
-    0.01 :   19e60:  fmul    v17.2d, v25.2d, v29.2d
-    0.01 :   19e64:  fmul    v17.2d, v17.2d, v25.2d
+    0.00 :   19e58:  ldr     x3, [sp, #456]
+    0.01 :   19e5c:  ldr     q25, [x3, x4]
+    0.03 :   19e60:  fmul    v17.2d, v25.2d, v29.2d
+    0.00 :   19e64:  fmul    v17.2d, v17.2d, v25.2d
     0.01 :   19e68:  fmul    v17.2d, v17.2d, v25.2d
     0.00 :   19e6c:  str     q17, [x2, x4]
-    0.00 :   19e70:  add     x4, x4, #0x10
+    0.01 :   19e70:  add     x4, x4, #0x10
     0.01 :   19e74:  cmp     x0, x4
     0.00 :   19e78:  b.ne    19e58 <warpx_field_gather_fp64+0x19698>  // b.any
     0.00 :   19e7c:  cmp     x19, x1
@@ -26220,11 +26220,11 @@
     0.00 :   1a144:  ldr     q27, [x2, #2240]
     0.00 :   1a148:  mov     x2, #0x0                        // #0
     0.00 :   1a14c:  ldr     x3, [sp, #456]
-    0.00 :   1a150:  ldr     q24, [x3, x2]
-    0.00 :   1a154:  ldr     x3, [sp, #592]
+    0.01 :   1a150:  ldr     q24, [x3, x2]
+    0.01 :   1a154:  ldr     x3, [sp, #592]
     0.00 :   1a158:  fsub    v24.2d, v2.2d, v24.2d
     0.00 :   1a15c:  fmul    v23.2d, v24.2d, v27.2d
-    0.01 :   1a160:  fmul    v23.2d, v23.2d, v24.2d
+    0.00 :   1a160:  fmul    v23.2d, v23.2d, v24.2d
     0.00 :   1a164:  fmul    v23.2d, v23.2d, v24.2d
     0.00 :   1a168:  str     q23, [x3, x2]
     0.00 :   1a16c:  add     x2, x2, #0x10
@@ -26357,12 +26357,12 @@
     0.00 :   1a368:  add     x2, x2, #0x10
     0.00 :   1a36c:  add     x6, x3, #0x10
     0.00 :   1a370:  ldr     x3, [sp, #544]
-    0.01 :   1a374:  ldr     q6, [x2, x0]
-    0.02 :   1a378:  ldr     q27, [x3, x0]
-    0.01 :   1a37c:  ldr     x3, [sp, #992]
+    0.00 :   1a374:  ldr     q6, [x2, x0]
+    0.01 :   1a378:  ldr     q27, [x3, x0]
+    0.00 :   1a37c:  ldr     x3, [sp, #992]
     0.00 :   1a380:  add     v6.2d, v6.2d, v16.2d
     0.00 :   1a384:  add     v27.2d, v27.2d, v16.2d
-    0.00 :   1a388:  str     q27, [x3, x0]
+    0.01 :   1a388:  str     q27, [x3, x0]
     0.00 :   1a38c:  str     q6, [x6, x0]
     0.00 :   1a390:  add     x0, x0, #0x20
     0.00 :   1a394:  cmp     x0, x1

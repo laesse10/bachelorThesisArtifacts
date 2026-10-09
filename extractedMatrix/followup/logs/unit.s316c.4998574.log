@@ -1,0 +1,48 @@
+unit s316c kernel=tsvc_2_s316 bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006556 start=2026-10-07T15:38:54+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006556 1 1
+SRUN[s316c]: srun --nodes=1 --ntasks=1 -w nid006556 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel tsvc_2_s316 --cells c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14 numba --rounds 3 --perf --record-reps 10 --out parts/s316c.csv --scratch scratch/s316c --db-shard 200
+pristine tsvc_2_s316_fp64.c d0b4cc3319936777
+pristine tsvc_2_s316_fp64.cpp 284967cc902ce286
+pristine tsvc_2_s316_fp64.f90 f1f253d6f7375ca8
+pristine tsvc_2_s316_fp32.c 2cd4eb68217f4734
+pristine tsvc_2_s316_fp32.cpp 7137d5c238f0fca2
+pristine tsvc_2_s316_fp32.f90 485f13c0c0587d16
+pristine tsvc_2_s316_numba_np.py 299bd389b1ec6ae8
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- src32=- bin=bin14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 273.700 ms 
+  [1] cpp              ok           min 79.065 ms 
+  [1] cpp14            ok           min 273.697 ms 
+  [1] fortran          ok           min 79.249 ms 
+  [1] fortran14        ok           min 273.847 ms 
+  [1] numba            ok           min 122.184 ms 
+  [2] numba            ok           min 122.216 ms 
+  [2] fortran14        ok           min 273.734 ms 
+  [2] fortran          ok           min 79.172 ms 
+  [2] cpp14            ok           min 273.776 ms 
+  [2] cpp              ok           min 79.191 ms 
+  [2] c                ok           min 273.766 ms 
+  [3] c                ok           min 273.779 ms 
+  [3] cpp              ok           min 79.377 ms 
+  [3] cpp14            ok           min 273.830 ms 
+  [3] fortran          ok           min 79.580 ms 
+  [3] fortran14        ok           min 273.684 ms 
+  [3] numba            ok           min 122.251 ms 
+  [record] c                ok           min 279.320 ms 
+  [record] cpp              ok           min 81.034 ms 
+  [record] cpp14            ok           min 279.178 ms 
+  [record] fortran          ok           min 81.397 ms 
+  [record] fortran14        ok           min 279.118 ms 
+  [record] numba            ok           min 125.243 ms 
+wrote 24 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/s316c.csv
+SRUN[s316c]: srun --nodes=1 --ntasks=1 -w nid006556 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env PATH=/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/bin14:/users/lhulsbergen/.local/bin:/users/lhulsbergen/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.s316c.csv --out-dir opt_reports/gfortran14 --variant gfortran14 tsvc_2_s316:fortran:fortran:emitted_sources/tsvc_2_s316/tsvc_2_s316_fp64.f90
+tsvc_2_s316                  fortran      ok
+SRUN[s316c]: srun --nodes=1 --ntasks=1 -w nid006556 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.s316c.csv --out-dir opt_reports/gfortran13 --variant gfortran13 tsvc_2_s316:fortran:fortran:emitted_sources/tsvc_2_s316/tsvc_2_s316_fp64.f90
+tsvc_2_s316                  fortran      ok
+SRUN[s316c]: srun --nodes=1 --ntasks=1 -w nid006556 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python ../opt_reports_extracted.py --index parts/optrep.s316c.csv --out-dir opt_reports/gcc14 --variant gcc14 tsvc_2_s316:c:c:emitted_sources/tsvc_2_s316/tsvc_2_s316_fp64.c
+tsvc_2_s316                  c            ok
+unit s316c node=nid006556 end=2026-10-07T15:45:30+02:00

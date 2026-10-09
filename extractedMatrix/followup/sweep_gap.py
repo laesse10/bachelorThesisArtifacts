@@ -16,6 +16,7 @@ exclusive node. What this script adds:
   re-checked after the run. ``bin=DIR`` puts DIR first on the harness's PATH, which is how the
   harness resolves ``gfortran`` (languages.resolve_compiler: first ``gfortran`` on PATH);
   ``bin14/gfortran -> /usr/bin/gfortran-14`` replaces the default ``~/bin/gfortran`` (13.3.1).
+  ``env=NAME=VALUE`` (repeatable) sets an environment variable for the cell's harness run.
   ``src32=PATH`` places PATH over ``<k>_fp32.<ext>`` as well: the harness's wrapper binds the symbol by the
   ARGUMENT dtypes (cpp_runtime.wrap_kernel: fp64 if any argument is a float64/complex128 array, else
   fp32), so an integer-only kernel runs ``<k>_fp32`` whatever ``--precision`` says.
@@ -46,7 +47,7 @@ FW = {"c": ("cc", ".c"), "cpp": ("cpp", ".cpp"), "fortran": ("fortran", ".f90"),
 COMPILER = {"cc": "gcc", "cpp": "g++", "fortran": "gfortran", "numba": "numba"}
 FIELDS = ["kernel", "label", "representation", "round", "position", "preset", "status", "time_ns_median",
           "time_ns_min", "time_ns_all", "rsd_pct", "compiler_resolved", "compiler_version", "flags", "override",
-          "bin_prefix", "source_sha256", "provenance", "perf_cycles", "perf_instructions", "perf_branch_misses",
+          "bin_prefix", "cell_env", "source_sha256", "provenance", "perf_cycles", "perf_instructions", "perf_branch_misses", "perf_page_faults",
           "perf_gated_reps", "perf_raw", "notes", "slurm_job", "node", "timestamp", "commit_hash"]
 LAST = {"log": "", "extra": {}}
 
@@ -72,11 +73,12 @@ def parse_cell(spec):
     label, _, rest = spec.partition("=")
     parts = rest.split(":") if rest else []
     repr_ = parts[0] if parts and "=" not in parts[0] else label
-    opts = dict(p.split("=", 1) for p in parts if "=" in p)
+    opts = dict(p.split("=", 1) for p in parts if "=" in p and not p.startswith("env="))
+    env = dict(p[4:].split("=", 1) for p in parts if p.startswith("env="))
     if repr_ not in FW:
         raise SystemExit(f"cell {spec}: unknown representation {repr_}")
     return {"label": label, "repr": repr_, "src": opts.get("src", ""), "src32": opts.get("src32", ""),
-            "bin": opts.get("bin", "")}
+            "bin": opts.get("bin", ""), "env": env}
 
 
 def env_for(cell, perf):
@@ -90,6 +92,7 @@ def env_for(cell, perf):
     })
     if cell["bin"]:
         e["PATH"] = f"{(HERE / cell['bin']).resolve()}:{e['PATH']}"
+    e.update(cell.get("env") or {})
     if perf:
         e["PYTHONPATH"] = f"{HERE / 'perfgate'}:{e['PYTHONPATH']}"
     return e
@@ -153,7 +156,7 @@ def run_framework(k, cell, reps, mode):
         else:
             pout = pathlib.Path(ARGS.scratch) / f"perf.{tag}.csv"
             pout.unlink(missing_ok=True)
-            pre = ["perf", "stat", "-x,", "-e", "cycles,instructions,branch-misses", "--delay=-1",
+            pre = ["perf", "stat", "-x,", "-e", "cycles,instructions,branch-misses,page-faults", "--delay=-1",
                    f"--control=fifo:{ctl},{ack}", "-o", str(pout)]
         # perf prepends /usr/lib/perf-core:/usr/bin to its child's PATH; `env PATH=` restores the
         # PATH the cell resolves its compiler from (LLR-40 follow-up, sweep_followup.py)
@@ -174,7 +177,8 @@ def run_framework(k, cell, reps, mode):
         elif pout.is_file():
             got, raw = parse_perf_stat(pout)
             LAST["extra"].update(perf_cycles=got.get("cycles", ""), perf_instructions=got.get("instructions", ""),
-                                 perf_branch_misses=got.get("branch-misses", ""), perf_raw=raw)
+                                 perf_branch_misses=got.get("branch-misses", ""),
+                                 perf_page_faults=got.get("page-faults", ""), perf_raw=raw)
     if not out.is_file():
         tail = (p.stderr or p.stdout or "").strip().splitlines()
         return "build_error", [], " | ".join(tail[-4:])[:900]
@@ -279,7 +283,8 @@ def main():
             print(f"pristine {f.name} {sha(f)[:16]}", flush=True)
     vers = {c["label"]: resolved_compiler(c) for c in cells}
     for c in cells:
-        print(f"cell {c['label']}: {c['repr']} src={c['src'] or '-'} bin={c['bin'] or '-'} -> {vers[c['label']]}", flush=True)
+        print(f"cell {c['label']}: {c['repr']} src={c['src'] or '-'} src32={c['src32'] or '-'} bin={c['bin'] or '-'} "
+              f"env={c['env'] or '-'} -> {vers[c['label']]}", flush=True)
     schedule = []
     for r in range(1, ARGS.rounds + 1):
         order = cells if r % 2 == 1 else cells[::-1]
@@ -326,7 +331,7 @@ def main():
                 "compiler_resolved": vers[c["label"]][0], "compiler_version": vers[c["label"]][1],
                 "flags": FLAGS.get({"cc": "c", "cpp": "cpp", "fortran": "fortran"}.get(FW[c["repr"]][0], ""),
                                    "@nb.njit as written in the numba file"),
-                "override": " ".join(x for x in (c["src"], c["src32"]) if x), "bin_prefix": c["bin"], "source_sha256": want, "provenance": prov,
+                "override": " ".join(x for x in (c["src"], c["src32"]) if x), "bin_prefix": c["bin"], "cell_env": " ".join(f"{k}={v}" for k, v in c["env"].items()), "source_sha256": want, "provenance": prov,
                 "notes": note, "slurm_job": f"{os.environ.get('SLURM_JOB_PARTITION', '')}/{os.environ.get('SLURM_JOB_ID', '')}",
                 "node": os.uname().nodename, "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "commit_hash": COMMIT,
                 **LAST["extra"]})

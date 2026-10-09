@@ -1,0 +1,24 @@
+########## tsvc_2_s3111_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s3111_cc.so for cycles:u (231406 samples, percent: local period)
+-----------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <tsvc_2_s3111_fp64>:
+         : 6   tsvc_2_s3111_fp64():
+    0.00 :   640:    movi    d31, #0x0
+    0.00 :   644:    cmp     x2, #0x0
+    0.00 :   648:    b.le    668 <tsvc_2_s3111_fp64+0x28>
+    0.00 :   64c:    add     x2, x0, x2, lsl #3
+   18.15 :   650:    ldr     d30, [x0]
+   16.21 :   654:    fcmpe   d30, #0.0
+    1.49 :   658:    b.gt    670 <tsvc_2_s3111_fp64+0x30>
+   27.85 :   65c:    add     x0, x0, #0x8
+    9.86 :   660:    cmp     x0, x2
+    0.00 :   664:    b.ne    650 <tsvc_2_s3111_fp64+0x10>  // b.any
+    0.00 :   668:    str     d31, [x1]
+    0.00 :   66c:    ret
+   17.77 :   670:    fadd    d31, d31, d30
+    8.67 :   674:    b       65c <tsvc_2_s3111_fp64+0x1c>

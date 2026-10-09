@@ -1,0 +1,22 @@
+########## scan_affine_decay_fp64
+ Percent |	Source code & Disassembly of libscan_affine_decay_cc.so for cycles:u (38479 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <scan_affine_decay_fp64>:
+         : 6   scan_affine_decay_fp64():
+    0.00 :   640:    cmp     x3, #0x1
+    0.00 :   644:    b.le    66c <scan_affine_decay_fp64+0x2c>
+    0.00 :   648:    ldr     d31, [x2]
+    0.00 :   64c:    mov     x4, #0x1                        // #1
+    2.94 :   650:    ldr     d30, [x0, x4, lsl #3]
+    3.59 :   654:    ldr     d29, [x1, x4, lsl #3]
+    3.75 :   658:    fmadd   d31, d30, d31, d29
+    3.11 :   65c:    str     d31, [x2, x4, lsl #3]
+   83.26 :   660:    add     x4, x4, #0x1
+    3.34 :   664:    cmp     x3, x4
+    0.00 :   668:    b.ne    650 <scan_affine_decay_fp64+0x10>  // b.any
+    0.00 :   66c:    ret

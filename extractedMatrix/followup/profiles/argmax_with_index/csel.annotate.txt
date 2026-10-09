@@ -1,0 +1,28 @@
+########## argmax_with_index_fp64
+ Percent |	Source code & Disassembly of libargmax_with_index_cc.so for cycles:u (80792 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <argmax_with_index_fp64>:
+         : 6   argmax_with_index_fp64():
+    0.00 :   640:    ldr     d31, [x0]
+    0.00 :   644:    mov     x5, #0x0                        // #0
+    0.00 :   648:    cmp     x3, #0x1
+    0.00 :   64c:    b.le    67c <argmax_with_index_fp64+0x3c>
+    0.00 :   650:    mov     x4, #0x1                        // #1
+    0.00 :   654:    nop
+    0.00 :   658:    nop
+    0.00 :   65c:    nop
+   44.77 :   660:    ldr     d30, [x0, x4, lsl #3]
+   45.58 :   664:    fcmpe   d31, d30
+    0.89 :   668:    csel    x5, x4, x5, mi  // mi = first
+    3.73 :   66c:    add     x4, x4, #0x1
+    1.97 :   670:    fcsel   d31, d30, d31, mi       // mi = first
+    3.06 :   674:    cmp     x3, x4
+    0.00 :   678:    b.ne    660 <argmax_with_index_fp64+0x20>  // b.any
+    0.00 :   67c:    str     x5, [x1]
+    0.00 :   680:    str     d31, [x2]
+    0.00 :   684:    ret

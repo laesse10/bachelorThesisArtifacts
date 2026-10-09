@@ -1,0 +1,202 @@
+########## nfa_frontier_fp32
+ Percent |	Source code & Disassembly of libnfa_frontier_cpp.so for cycles:u (613826 samples, percent: local period)
+------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000a20 <nfa_frontier_fp32>:
+         : 6   nfa_frontier_fp32():
+    0.00 :   a20:    stp     x29, x30, [sp, #-144]!
+    0.00 :   a24:    mov     x29, sp
+    0.00 :   a28:    stp     x19, x20, [sp, #16]
+    0.00 :   a2c:    ldr     x20, [sp, #184]
+    0.00 :   a30:    stp     x23, x24, [sp, #48]
+    0.00 :   a34:    mov     x23, x0
+    0.00 :   a38:    ldp     x24, x18, [sp, #160]
+    0.00 :   a3c:    lsl     x20, x20, #3
+    0.00 :   a40:    mov     x0, x20
+    0.00 :   a44:    stp     x25, x26, [sp, #64]
+    0.00 :   a48:    mov     x26, x6
+    0.00 :   a4c:    ldp     x25, x9, [sp, #144]
+    0.00 :   a50:    stp     x4, x7, [sp, #112]
+    0.00 :   a54:    ldr     x4, [sp, #200]
+    0.00 :   a58:    stp     x21, x22, [sp, #32]
+    0.00 :   a5c:    mov     x22, x1
+    0.00 :   a60:    mov     x1, #0x1                        // #1
+    0.00 :   a64:    mov     x21, x5
+    0.00 :   a68:    stp     x27, x28, [sp, #80]
+    0.00 :   a6c:    mov     x28, x2
+    0.00 :   a70:    mov     x27, x3
+    0.00 :   a74:    str     x4, [sp, #104]
+    0.00 :   a78:    stp     x18, x9, [sp, #128]
+    0.00 :   a7c:    bl      5b0 <calloc@plt>
+    0.00 :   a80:    mov     x1, #0x1                        // #1
+    0.00 :   a84:    mov     x19, x0
+    0.00 :   a88:    mov     x0, x20
+    0.00 :   a8c:    bl      5b0 <calloc@plt>
+    0.00 :   a90:    mov     x2, x0
+    0.00 :   a94:    mov     x1, #0x1                        // #1
+    0.00 :   a98:    mov     x0, x20
+    0.00 :   a9c:    mov     x20, x2
+    0.00 :   aa0:    bl      5b0 <calloc@plt>
+    0.00 :   aa4:    ldp     x7, x18, [sp, #120]
+    0.00 :   aa8:    mov     x10, x0
+    0.00 :   aac:    ldr     x4, [sp, #104]
+    0.00 :   ab0:    ldr     x9, [sp, #136]
+    0.00 :   ab4:    cmp     x18, #0x0
+    0.00 :   ab8:    b.le    ccc <nfa_frontier_fp32+0x2ac>
+    0.00 :   abc:    add     x1, x7, #0x8
+    0.00 :   ac0:    sub     x17, x4, #0x1
+    0.00 :   ac4:    mov     x13, #0x0                       // #0
+    0.00 :   ac8:    mov     x8, #0x1                        // #1
+    0.00 :   acc:    mov     x11, x7
+    0.00 :   ad0:    ldr     x14, [x11, x13, lsl #3]
+    0.00 :   ad4:    ldr     x5, [x1, x13, lsl #3]
+    0.00 :   ad8:    cmp     x14, x5
+    0.00 :   adc:    b.ge    d0c <nfa_frontier_fp32+0x2ec>  // b.tcont
+    0.00 :   ae0:    add     x0, x26, x14, lsl #3
+    0.00 :   ae4:    mov     x3, #0x0                        // #0
+    0.00 :   ae8:    add     x12, x26, x5, lsl #3
+    0.00 :   aec:    ldr     x2, [x0]
+    0.00 :   af0:    add     x0, x0, #0x8
+    0.00 :   af4:    lsl     x6, x2, #3
+    0.00 :   af8:    ldr     x7, [x19, x6]
+    0.00 :   afc:    cbnz    x7, b14 <nfa_frontier_fp32+0xf4>
+    0.00 :   b00:    ldr     x7, [x28, x13, lsl #3]
+    0.00 :   b04:    str     x8, [x19, x6]
+    0.00 :   b08:    add     x6, x3, x7
+    0.00 :   b0c:    add     x3, x3, #0x1
+    0.00 :   b10:    str     x2, [x20, x6, lsl #3]
+    0.00 :   b14:    cmp     x0, x12
+    0.00 :   b18:    b.ne    aec <nfa_frontier_fp32+0xcc>  // b.any
+    0.00 :   b1c:    cmp     x4, #0x0
+    0.00 :   b20:    b.le    d18 <nfa_frontier_fp32+0x2f8>
+    0.00 :   b24:    mov     x12, #0x0                       // #0
+    0.00 :   b28:    mov     x6, #0x0                        // #0
+    0.00 :   b2c:    stp     x11, x18, [sp, #120]
+    0.00 :   b30:    mov     x16, x4
+    0.00 :   b34:    str     x1, [sp, #136]
+    0.00 :   b38:    nop
+    0.00 :   b3c:    nop
+    0.67 :   b40:    mov     w2, #0x1                        // #1
+    0.60 :   b44:    cmp     x12, x17
+    0.00 :   b48:    b.eq    b58 <nfa_frontier_fp32+0x138>  // b.none
+    0.64 :   b4c:    ldr     x0, [x9, x12, lsl #3]
+    0.35 :   b50:    cmp     x0, #0xa
+    0.33 :   b54:    cset    w2, eq  // eq = none
+    0.58 :   b58:    cmp     x3, #0x0
+    0.00 :   b5c:    b.le    d04 <nfa_frontier_fp32+0x2e4>
+    0.54 :   b60:    ldr     x15, [x28, x13, lsl #3]
+    0.03 :   b64:    mov     x4, #0x0                        // #0
+    0.54 :   b68:    str     w2, [sp, #104]
+    0.55 :   b6c:    ldr     x18, [x9, x12, lsl #3]
+    0.01 :   b70:    add     x3, x3, x15
+    0.55 :   b74:    add     x0, x20, x15, lsl #3
+    0.00 :   b78:    lsl     x1, x15, #3
+    0.56 :   b7c:    add     x30, x20, x3, lsl #3
+    0.85 :   b80:    ldr     x2, [x0]
+    0.98 :   b84:    add     x11, x15, x4
+    2.80 :   b88:    add     x0, x0, #0x8
+    0.15 :   b8c:    add     x7, x24, x2, lsl #8
+    0.74 :   b90:    lsl     x3, x2, #3
+    0.85 :   b94:    ldrb    w7, [x7, x18]
+   16.51 :   b98:    cbz     w7, bbc <nfa_frontier_fp32+0x19c>
+    0.52 :   b9c:    ldr     x7, [x23, x3]
+   12.26 :   ba0:    add     x4, x4, #0x1
+    0.23 :   ba4:    str     x2, [x10, x11, lsl #3]
+    0.29 :   ba8:    ldrb    w2, [x27, x2]
+    0.75 :   bac:    add     x7, x7, #0x1
+    0.62 :   bb0:    cmp     w2, #0x0
+    0.20 :   bb4:    cinc    x6, x6, ne      // ne = any
+    0.23 :   bb8:    str     x7, [x23, x3]
+    3.19 :   bbc:    str     xzr, [x19, x3]
+    1.37 :   bc0:    cmp     x30, x0
+    0.00 :   bc4:    b.ne    b80 <nfa_frontier_fp32+0x160>  // b.any
+    0.58 :   bc8:    ldr     w2, [sp, #104]
+    1.42 :   bcc:    cmp     x4, #0x0
+    0.00 :   bd0:    b.le    d04 <nfa_frontier_fp32+0x2e4>
+    0.22 :   bd4:    add     x4, x4, x15
+    0.03 :   bd8:    add     x1, x10, x1
+    0.17 :   bdc:    add     x7, x10, x4, lsl #3
+    0.21 :   be0:    mov     x3, #0x0                        // #0
+    0.24 :   be4:    ldr     x0, [x1]
+    0.14 :   be8:    lsl     x0, x0, #3
+    0.94 :   bec:    add     x4, x21, x0
+    0.24 :   bf0:    ldr     x0, [x21, x0]
+    5.03 :   bf4:    ldr     x30, [x4, #8]
+    1.67 :   bf8:    cmp     x0, x30
+    0.00 :   bfc:    b.ge    c44 <nfa_frontier_fp32+0x224>  // b.tcont
+    1.38 :   c00:    add     x0, x22, x0, lsl #3
+    0.08 :   c04:    mov     w11, w2
+    0.24 :   c08:    str     x1, [sp, #104]
+    0.24 :   c0c:    add     x30, x22, x30, lsl #3
+    0.32 :   c10:    ldr     x2, [x0]
+    1.68 :   c14:    add     x18, x15, x3
+    2.26 :   c18:    add     x0, x0, #0x8
+    0.14 :   c1c:    lsl     x4, x2, #3
+    0.29 :   c20:    ldr     x1, [x19, x4]
+    8.66 :   c24:    cbnz    x1, c34 <nfa_frontier_fp32+0x214>
+    1.95 :   c28:    add     x3, x3, #0x1
+    0.35 :   c2c:    str     x8, [x19, x4]
+    0.38 :   c30:    str     x2, [x20, x18, lsl #3]
+    0.41 :   c34:    cmp     x30, x0
+    0.00 :   c38:    b.ne    c10 <nfa_frontier_fp32+0x1f0>  // b.any
+    0.28 :   c3c:    ldr     x1, [sp, #104]
+    0.30 :   c40:    mov     w2, w11
+    0.02 :   c44:    add     x1, x1, #0x8
+    0.25 :   c48:    cmp     x7, x1
+    0.00 :   c4c:    b.ne    be4 <nfa_frontier_fp32+0x1c4>  // b.any
+    0.66 :   c50:    cmp     x14, x5
+    0.00 :   c54:    b.ge    ca0 <nfa_frontier_fp32+0x280>  // b.tcont
+    0.69 :   c58:    mov     x0, x14
+    0.01 :   c5c:    nop
+    0.61 :   c60:    ldrb    w1, [x25, x0]
+    0.14 :   c64:    cmp     w1, #0x0
+    0.57 :   c68:    ccmp    w2, #0x0, #0x0, ne      // ne = any
+    0.17 :   c6c:    b.eq    c94 <nfa_frontier_fp32+0x274>  // b.none
+    0.87 :   c70:    ldr     x1, [x26, x0, lsl #3]
+    0.27 :   c74:    lsl     x4, x1, #3
+    0.59 :   c78:    ldr     x7, [x19, x4]
+    8.59 :   c7c:    cbnz    x7, c94 <nfa_frontier_fp32+0x274>
+    3.24 :   c80:    ldr     x7, [x28, x13, lsl #3]
+    0.58 :   c84:    str     x8, [x19, x4]
+    0.56 :   c88:    add     x4, x3, x7
+    0.03 :   c8c:    add     x3, x3, #0x1
+    0.57 :   c90:    str     x1, [x20, x4, lsl #3]
+    0.90 :   c94:    add     x0, x0, #0x1
+    0.64 :   c98:    cmp     x5, x0
+    0.00 :   c9c:    b.ne    c60 <nfa_frontier_fp32+0x240>  // b.any
+    0.69 :   ca0:    add     x12, x12, #0x1
+    0.61 :   ca4:    cmp     x16, x12
+    0.00 :   ca8:    b.ne    b40 <nfa_frontier_fp32+0x120>  // b.any
+    0.00 :   cac:    ldp     x11, x18, [sp, #120]
+    0.00 :   cb0:    mov     x4, x16
+    0.00 :   cb4:    ldr     x1, [sp, #136]
+    0.00 :   cb8:    ldr     x0, [sp, #112]
+    0.00 :   cbc:    str     x6, [x0, x13, lsl #3]
+    0.00 :   cc0:    add     x13, x13, #0x1
+    0.00 :   cc4:    cmp     x18, x13
+    0.00 :   cc8:    b.ne    ad0 <nfa_frontier_fp32+0xb0>  // b.any
+    0.00 :   ccc:    mov     x0, x19
+    0.00 :   cd0:    str     x10, [sp, #104]
+    0.00 :   cd4:    bl      5c0 <free@plt>
+    0.00 :   cd8:    mov     x0, x20
+    0.00 :   cdc:    bl      5c0 <free@plt>
+    0.00 :   ce0:    ldr     x10, [sp, #104]
+    0.00 :   ce4:    ldp     x19, x20, [sp, #16]
+    0.00 :   ce8:    ldp     x21, x22, [sp, #32]
+    0.00 :   cec:    mov     x0, x10
+    0.00 :   cf0:    ldp     x23, x24, [sp, #48]
+    0.00 :   cf4:    ldp     x25, x26, [sp, #64]
+    0.00 :   cf8:    ldp     x27, x28, [sp, #80]
+    0.00 :   cfc:    ldp     x29, x30, [sp], #144
+    0.00 :   d00:    b       5c0 <free@plt>
+    0.42 :   d04:    mov     x3, #0x0                        // #0
+    0.00 :   d08:    b       c50 <nfa_frontier_fp32+0x230>
+    0.00 :   d0c:    mov     x3, #0x0                        // #0
+    0.00 :   d10:    cmp     x4, #0x0
+    0.00 :   d14:    b.gt    b24 <nfa_frontier_fp32+0x104>
+    0.00 :   d18:    mov     x6, #0x0                        // #0
+    0.00 :   d1c:    b       cb8 <nfa_frontier_fp32+0x298>

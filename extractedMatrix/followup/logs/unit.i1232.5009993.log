@@ -1,0 +1,27 @@
+unit i1232 kernel=tsvc_2_s1232 bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006558 start=2026-10-09T10:33:22+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006558 1 1
+SRUN[i1232]: srun --nodes=1 --ntasks=1 -w nid006558 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel tsvc_2_s1232 --cells c cinter=c:src=variants/tsvc_2_s1232_cinter.c agent=fortran:src=variants/tsvc_2_s1232_agent.f90 --rounds 3 --perf --record-reps 10 --out parts/i1232.csv --scratch scratch/i1232 --db-shard 204
+pristine tsvc_2_s1232_fp64.c 6ab1075bb9b2e813
+pristine tsvc_2_s1232_fp64.cpp 606b064ac8a11177
+pristine tsvc_2_s1232_fp64.f90 8cb3f94dc0fbb451
+pristine tsvc_2_s1232_fp32.c e2de8f9f2832ca0c
+pristine tsvc_2_s1232_fp32.cpp 1c04bbd2a3bbbaae
+pristine tsvc_2_s1232_fp32.f90 cfa38315adf50035
+pristine tsvc_2_s1232_numba_np.py e034868d8f71bbd6
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cinter: c src=variants/tsvc_2_s1232_cinter.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell agent: fortran src=variants/tsvc_2_s1232_agent.f90 src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+  [1] c                ok           min 62.359 ms 
+  [1] cinter           ok           min 11.934 ms 
+  [1] agent            ok           min 12.220 ms 
+  [2] agent            ok           min 11.901 ms 
+  [2] cinter           ok           min 11.856 ms 
+  [2] c                ok           min 38.466 ms 
+  [3] c                ok           min 63.029 ms 
+  [3] cinter           ok           min 11.902 ms 
+  [3] agent            ok           min 12.296 ms 
+  [record] c                ok           min 45.258 ms 
+  [record] cinter           ok           min 12.106 ms 
+  [record] agent            ok           min 12.595 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/i1232.csv
+unit i1232 node=nid006558 end=2026-10-09T10:38:22+02:00

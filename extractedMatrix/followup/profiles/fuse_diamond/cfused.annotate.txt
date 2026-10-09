@@ -1,0 +1,54 @@
+########## fuse_diamond_fp64
+ Percent |	Source code & Disassembly of libfuse_diamond_cc.so for cycles:u (9103 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   00000000000006e0 <fuse_diamond_fp64>:
+         : 6   fuse_diamond_fp64():
+    0.00 :   6e0:    cmp     x2, #0x0
+    0.00 :   6e4:    b.le    78c <fuse_diamond_fp64+0xac>
+    0.00 :   6e8:    cntw    x4
+    0.00 :   6ec:    sub     x3, x2, #0x1
+    0.00 :   6f0:    sub     x5, x4, #0x1
+    0.00 :   6f4:    cmp     x3, x5
+    0.00 :   6f8:    mov     x3, #0x0                        // #0
+    0.00 :   6fc:    b.cc    764 <fuse_diamond_fp64+0x84>  // b.lo, b.ul, b.last
+    0.00 :   700:    sub     x7, x2, x4
+    0.00 :   704:    addvl   x6, x0, #1
+    0.00 :   708:    ptrue   p7.b
+    0.00 :   70c:    fmov    z31.d, #1.000000000000000000e+00
+    0.00 :   710:    fmov    z30.d, #-1.000000000000000000e+00
+    0.00 :   714:    addvl   x5, x1, #1
+    0.00 :   718:    nop
+    0.00 :   71c:    nop
+    1.71 :   720:    ld1d    {z29.d}, p7/z, [x0, x3, lsl #3]
+    2.99 :   724:    movprfx z27, z31
+    0.00 :   728:    fmla    z27.d, p7/m, z29.d, z29.d
+    2.01 :   72c:    fmad    z29.d, p7/m, z29.d, z30.d
+    0.18 :   730:    fmul    z29.d, z27.d, z29.d
+    1.70 :   734:    st1d    {z29.d}, p7, [x1, x3, lsl #3]
+    5.79 :   738:    ld1d    {z28.d}, p7/z, [x6, x3, lsl #3]
+   23.11 :   73c:    movprfx z26, z31
+    0.00 :   740:    fmla    z26.d, p7/m, z28.d, z28.d
+    0.04 :   744:    fmad    z28.d, p7/m, z28.d, z30.d
+    4.19 :   748:    fmul    z28.d, z26.d, z28.d
+    1.79 :   74c:    st1d    {z28.d}, p7, [x5, x3, lsl #3]
+   54.66 :   750:    add     x3, x3, x4
+    1.82 :   754:    cmp     x7, x3
+    0.00 :   758:    b.cs    720 <fuse_diamond_fp64+0x40>  // b.hs, b.nlast
+    0.00 :   75c:    cmp     x2, x3
+    0.00 :   760:    b.eq    78c <fuse_diamond_fp64+0xac>  // b.none
+    0.00 :   764:    fmov    d25, #1.000000000000000000e+00
+    0.00 :   768:    fmov    d24, #-1.000000000000000000e+00
+    0.00 :   76c:    ldr     d23, [x0, x3, lsl #3]
+    0.00 :   770:    fmadd   d22, d23, d23, d25
+    0.00 :   774:    fmadd   d23, d23, d23, d24
+    0.00 :   778:    fmul    d23, d23, d22
+    0.00 :   77c:    str     d23, [x1, x3, lsl #3]
+    0.00 :   780:    add     x3, x3, #0x1
+    0.00 :   784:    cmp     x2, x3
+    0.00 :   788:    b.gt    76c <fuse_diamond_fp64+0x8c>
+    0.00 :   78c:    ret

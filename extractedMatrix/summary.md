@@ -16,7 +16,8 @@ Files: `results.csv` (every timing, v2 layout plus provenance/adapter), `cells.c
 > **Corrections (2026-10-07, `followup/README.md`, `DEVIATIONS.md` item 12).** The integer-only kernels ran
 > their fp32 functions: CoMet's C/C++ call `cblas_sgemm` on float32 copies, not `cblas_dgemm`. The `native`
 > CoMet cell timed the translated code; the hand-written code is 0.565x of C. The `warpx_boris_push` and
-> `warpx_field_gather` Fortran losses come from a separate loop counter in gfortran's vector loops; the
+> `warpx_field_gather` Fortran losses come from fresh memory for the per-call temporaries (page faults; the
+> deposition's from the protected parentheses), not from gfortran's extra loop counter (round 2); the
 > `triangle_count` gap is the floor-division helper (shifts: C 1.55x faster); the hand-written Numba deposition
 > loses a third of its time to NRT reference counting. The text below is as first written.
 

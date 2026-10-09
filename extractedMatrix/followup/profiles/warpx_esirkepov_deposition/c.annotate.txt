@@ -1,5 +1,5 @@
 ########## warpx_esirkepov_deposition_fp64
- Percent |	Source code & Disassembly of libwarpx_esirkepov_deposition_cc.so for cycles:u (16818 samples, percent: local period)
+ Percent |	Source code & Disassembly of libwarpx_esirkepov_deposition_cc.so for cycles:u (17564 samples, percent: local period)
 ------------------------------------------------------------------------------------------------------------------------------------
          :
          :
@@ -8,7 +8,7 @@
          :
          : 5     00000000000008a0 <warpx_esirkepov_deposition_fp64>:
          : 6     warpx_esirkepov_deposition_fp64():
-    0.01 :     8a0:    sub     sp, sp, #0x680
+    0.00 :     8a0:    sub     sp, sp, #0x680
     0.00 :     8a4:    mov     x10, x0
     0.00 :     8a8:    stp     x29, x30, [sp]
     0.00 :     8ac:    mov     x29, sp
@@ -32,7 +32,7 @@
     0.00 :     8f4:    fmov    d9, d2
     0.00 :     8f8:    str     x2, [sp, #184]
     0.00 :     8fc:    ldr     x2, [sp, #1720]
-    0.00 :     900:    stp     d10, d11, [sp, #112]
+    0.01 :     900:    stp     d10, d11, [sp, #112]
     0.00 :     904:    stp     d12, d13, [sp, #128]
     0.00 :     908:    stp     d14, d15, [sp, #144]
     0.00 :     90c:    fmov    d15, d0
@@ -98,7 +98,7 @@
     0.00 :     9fc:    mov     x1, #0x1                        // #1
     0.00 :     a00:    mov     x0, x24
     0.00 :     a04:    str     x3, [sp, #576]
-    0.01 :     a08:    bl      760 <calloc@plt>
+    0.00 :     a08:    bl      760 <calloc@plt>
     0.00 :     a0c:    mov     x3, x0
     0.00 :     a10:    mov     x1, #0x1                        // #1
     0.00 :     a14:    mov     x0, x24
@@ -164,8 +164,8 @@
     0.00 :     b04:    add     x3, x1, x3, lsl #5
     0.00 :     b08:    ldr     q31, [x0, #3296]
     0.00 :     b0c:    mov     x0, x1
-    0.00 :     b10:    stp     q31, q31, [x0], #32
-    0.02 :     b14:    cmp     x0, x3
+    0.01 :     b10:    stp     q31, q31, [x0], #32
+    0.06 :     b14:    cmp     x0, x3
     0.00 :     b18:    b.ne    b10 <warpx_esirkepov_deposition_fp64+0x270>  // b.any
     0.00 :     b1c:    and     x0, x19, #0xfffffffffffffffc
     0.00 :     b20:    cmp     x19, x0
@@ -461,16 +461,16 @@
     0.00 :     fa8:    ldr     q26, [x0, #3312]
     0.00 :     fac:    mov     x0, #0x0                        // #0
     0.02 :     fb0:    ldr     q31, [x26, x0]
-    0.24 :     fb4:    ldr     q25, [x28, x0]
-    0.04 :     fb8:    ldr     q30, [x27, x0]
-    0.03 :     fbc:    fmul    v31.2d, v31.2d, v31.2d
+    0.22 :     fb4:    ldr     q25, [x28, x0]
+    0.07 :     fb8:    ldr     q30, [x27, x0]
+    0.01 :     fbc:    fmul    v31.2d, v31.2d, v31.2d
     0.01 :     fc0:    fmla    v31.2d, v25.2d, v25.2d
     0.00 :     fc4:    fmla    v31.2d, v30.2d, v30.2d
     0.01 :     fc8:    mov     v30.16b, v27.16b
     0.00 :     fcc:    fmla    v30.2d, v31.2d, v26.2d
     0.01 :     fd0:    fsqrt   v31.2d, v30.2d
-    0.04 :     fd4:    str     q31, [x1, x0]
-    0.09 :     fd8:    add     x0, x0, #0x10
+    0.06 :     fd4:    str     q31, [x1, x0]
+    0.10 :     fd8:    add     x0, x0, #0x10
     0.01 :     fdc:    cmp     x0, x4
     0.00 :     fe0:    b.ne    fb0 <warpx_esirkepov_deposition_fp64+0x710>  // b.any
     0.00 :     fe4:    and     x0, x19, #0xfffffffffffffffe
@@ -493,19 +493,19 @@
     0.00 :    1028:   cmp     x25, #0x2
     0.00 :    102c:   b.ls    f164 <warpx_esirkepov_deposition_fp64+0xe8c4>  // b.plast
     0.00 :    1030:   ldr     x5, [sp, #1280]
-    0.00 :    1034:   fmov    v27.2d, #1.000000000000000000e+00
+    0.01 :    1034:   fmov    v27.2d, #1.000000000000000000e+00
     0.00 :    1038:   lsr     x3, x19, #2
     0.00 :    103c:   mov     x0, #0x0                        // #0
     0.00 :    1040:   lsl     x4, x3, #5
     0.00 :    1044:   add     x1, x21, #0x10
     0.00 :    1048:   add     x6, x5, #0x10
-    0.01 :    104c:   ldr     q30, [x5, x0]
-    0.01 :    1050:   ldr     q31, [x6, x0]
-    0.00 :    1054:   fdiv    v30.2d, v27.2d, v30.2d
+    0.00 :    104c:   ldr     q30, [x5, x0]
+    0.00 :    1050:   ldr     q31, [x6, x0]
+    0.01 :    1054:   fdiv    v30.2d, v27.2d, v30.2d
     0.01 :    1058:   fdiv    v31.2d, v27.2d, v31.2d
     0.01 :    105c:   str     q30, [x21, x0]
-    0.36 :    1060:   str     q31, [x1, x0]
-    0.04 :    1064:   add     x0, x0, #0x20
+    0.26 :    1060:   str     q31, [x1, x0]
+    0.06 :    1064:   add     x0, x0, #0x20
     0.01 :    1068:   cmp     x0, x4
     0.00 :    106c:   b.ne    104c <warpx_esirkepov_deposition_fp64+0x7ac>  // b.any
     0.00 :    1070:   and     x4, x19, #0xfffffffffffffffc
@@ -544,14 +544,14 @@
     0.00 :    10f4:   add     x1, x5, #0x10
     0.00 :    10f8:   nop
     0.00 :    10fc:   nop
-    0.02 :    1100:   ldr     q30, [x20, x0]
-    0.10 :    1104:   ldr     q31, [x6, x0]
-    0.03 :    1108:   fmul    v30.2d, v30.2d, v27.2d
-    0.00 :    110c:   fmul    v31.2d, v31.2d, v27.2d
-    0.01 :    1110:   str     q30, [x5, x0]
+    0.01 :    1100:   ldr     q30, [x20, x0]
+    0.01 :    1104:   ldr     q31, [x6, x0]
+    0.07 :    1108:   fmul    v30.2d, v30.2d, v27.2d
+    0.01 :    110c:   fmul    v31.2d, v31.2d, v27.2d
+    0.00 :    1110:   str     q30, [x5, x0]
     0.01 :    1114:   str     q31, [x1, x0]
-    0.04 :    1118:   add     x0, x0, #0x20
-    0.01 :    111c:   cmp     x0, x7
+    0.02 :    1118:   add     x0, x0, #0x20
+    0.00 :    111c:   cmp     x0, x7
     0.00 :    1120:   b.ne    1100 <warpx_esirkepov_deposition_fp64+0x860>  // b.any
     0.00 :    1124:   mov     x1, x4
     0.00 :    1128:   cmp     x19, x4
@@ -1230,16 +1230,16 @@
     0.00 :    1bac:   dup     v26.2d, v13.d[0]
     0.00 :    1bb0:   lsl     x1, x4, #4
     0.01 :    1bb4:   ldr     q31, [x10, x0]
-    0.05 :    1bb8:   ldr     q30, [x28, x0]
-    0.01 :    1bbc:   ldr     q27, [x21, x0]
+    0.06 :    1bb8:   ldr     q30, [x28, x0]
+    0.03 :    1bbc:   ldr     q27, [x21, x0]
     0.01 :    1bc0:   fsub    v31.2d, v31.2d, v24.2d
     0.01 :    1bc4:   ldr     x3, [sp, #216]
-    0.02 :    1bc8:   fmul    v30.2d, v30.2d, v25.2d
-    0.00 :    1bcc:   fmla    v31.2d, v30.2d, v27.2d
-    0.01 :    1bd0:   fmul    v31.2d, v31.2d, v26.2d
+    0.01 :    1bc8:   fmul    v30.2d, v30.2d, v25.2d
+    0.01 :    1bcc:   fmla    v31.2d, v30.2d, v27.2d
+    0.02 :    1bd0:   fmul    v31.2d, v31.2d, v26.2d
     0.01 :    1bd4:   str     q31, [x3, x0]
-    0.00 :    1bd8:   add     x0, x0, #0x10
-    0.01 :    1bdc:   cmp     x0, x1
+    0.05 :    1bd8:   add     x0, x0, #0x10
+    0.00 :    1bdc:   cmp     x0, x1
     0.00 :    1be0:   b.ne    1bb4 <warpx_esirkepov_deposition_fp64+0x1314>  // b.any
     0.00 :    1be4:   and     x3, x19, #0xfffffffffffffffe
     0.00 :    1be8:   mov     x1, x3
@@ -1273,16 +1273,16 @@
     0.00 :    1c58:   dup     v25.2d, v27.d[0]
     0.00 :    1c5c:   mov     x0, #0x0                        // #0
     0.00 :    1c60:   lsl     x4, x4, #4
-    0.01 :    1c64:   ldr     q30, [x28, x0]
-    0.02 :    1c68:   ldr     x1, [sp, #216]
+    0.00 :    1c64:   ldr     q30, [x28, x0]
+    0.01 :    1c68:   ldr     x1, [sp, #216]
     0.01 :    1c6c:   ldr     q26, [x21, x0]
-    0.02 :    1c70:   fmul    v30.2d, v30.2d, v25.2d
+    0.01 :    1c70:   fmul    v30.2d, v30.2d, v25.2d
     0.00 :    1c74:   ldr     q31, [x1, x0]
     0.10 :    1c78:   ldr     x1, [sp, #264]
-    0.01 :    1c7c:   fmls    v31.2d, v30.2d, v26.2d
+    0.02 :    1c7c:   fmls    v31.2d, v30.2d, v26.2d
     0.01 :    1c80:   str     q31, [x1, x0]
     0.01 :    1c84:   add     x0, x0, #0x10
-    0.01 :    1c88:   cmp     x0, x4
+    0.02 :    1c88:   cmp     x0, x4
     0.00 :    1c8c:   b.ne    1c64 <warpx_esirkepov_deposition_fp64+0x13c4>  // b.any
     0.00 :    1c90:   mov     x0, x3
     0.00 :    1c94:   cmp     x19, x3
@@ -1307,17 +1307,17 @@
     0.00 :    1ce0:   mov     x0, #0x0                        // #0
     0.00 :    1ce4:   dup     v26.2d, v29.d[0]
     0.00 :    1ce8:   lsl     x1, x4, #4
-    0.00 :    1cec:   ldr     q31, [x2, x0]
-    0.05 :    1cf0:   ldr     q30, [x26, x0]
+    0.02 :    1cec:   ldr     q31, [x2, x0]
+    0.11 :    1cf0:   ldr     q30, [x26, x0]
     0.03 :    1cf4:   ldr     q27, [x21, x0]
-    0.02 :    1cf8:   fsub    v31.2d, v31.2d, v24.2d
-    0.00 :    1cfc:   ldr     x3, [sp, #384]
-    0.03 :    1d00:   fmul    v30.2d, v30.2d, v25.2d
-    0.01 :    1d04:   fmla    v31.2d, v30.2d, v27.2d
-    0.00 :    1d08:   fmul    v31.2d, v31.2d, v26.2d
-    0.01 :    1d0c:   str     q31, [x3, x0]
-    0.04 :    1d10:   add     x0, x0, #0x10
-    0.03 :    1d14:   cmp     x0, x1
+    0.01 :    1cf8:   fsub    v31.2d, v31.2d, v24.2d
+    0.01 :    1cfc:   ldr     x3, [sp, #384]
+    0.01 :    1d00:   fmul    v30.2d, v30.2d, v25.2d
+    0.00 :    1d04:   fmla    v31.2d, v30.2d, v27.2d
+    0.01 :    1d08:   fmul    v31.2d, v31.2d, v26.2d
+    0.00 :    1d0c:   str     q31, [x3, x0]
+    0.03 :    1d10:   add     x0, x0, #0x10
+    0.01 :    1d14:   cmp     x0, x1
     0.00 :    1d18:   b.ne    1cec <warpx_esirkepov_deposition_fp64+0x144c>  // b.any
     0.00 :    1d1c:   and     x3, x19, #0xfffffffffffffffe
     0.00 :    1d20:   mov     x1, x3
@@ -1351,16 +1351,16 @@
     0.00 :    1d90:   dup     v28.2d, v27.d[0]
     0.00 :    1d94:   mov     x0, #0x0                        // #0
     0.00 :    1d98:   lsl     x4, x4, #4
-    0.00 :    1d9c:   ldr     q30, [x26, x0]
-    0.01 :    1da0:   ldr     x1, [sp, #384]
+    0.01 :    1d9c:   ldr     q30, [x26, x0]
+    0.03 :    1da0:   ldr     x1, [sp, #384]
     0.01 :    1da4:   ldr     q29, [x21, x0]
     0.01 :    1da8:   fmul    v30.2d, v30.2d, v28.2d
-    0.01 :    1dac:   ldr     q31, [x1, x0]
-    0.08 :    1db0:   ldr     x1, [sp, #480]
+    0.00 :    1dac:   ldr     q31, [x1, x0]
+    0.06 :    1db0:   ldr     x1, [sp, #480]
     0.02 :    1db4:   fmls    v31.2d, v30.2d, v29.2d
     0.01 :    1db8:   str     q31, [x1, x0]
-    0.01 :    1dbc:   add     x0, x0, #0x10
-    0.01 :    1dc0:   cmp     x0, x4
+    0.03 :    1dbc:   add     x0, x0, #0x10
+    0.00 :    1dc0:   cmp     x0, x4
     0.00 :    1dc4:   b.ne    1d9c <warpx_esirkepov_deposition_fp64+0x14fc>  // b.any
     0.00 :    1dc8:   mov     x0, x3
     0.00 :    1dcc:   cmp     x19, x3
@@ -1379,7 +1379,7 @@
     0.00 :    1e00:   mov     x0, #0x3                        // #3
     0.00 :    1e04:   str     x0, [sp, #392]
     0.00 :    1e08:   b       1e44 <warpx_esirkepov_deposition_fp64+0x15a4>
-    0.01 :    1e0c:   sub     x25, x19, #0x1
+    0.00 :    1e0c:   sub     x25, x19, #0x1
     0.00 :    1e10:   cmp     x25, #0x2
     0.00 :    1e14:   b.hi    1030 <warpx_esirkepov_deposition_fp64+0x790>  // b.pmore
     0.00 :    1e18:   ldr     x0, [sp, #1280]
@@ -1396,7 +1396,7 @@
     0.00 :    1e44:   cmp     x25, #0x1
     0.00 :    1e48:   b.ls    f9e0 <warpx_esirkepov_deposition_fp64+0xf140>  // b.plast
     0.00 :    1e4c:   ldr     d31, [sp, #584]
-    0.00 :    1e50:   dup     v27.2d, v9.d[0]
+    0.01 :    1e50:   dup     v27.2d, v9.d[0]
     0.00 :    1e54:   dup     v28.2d, v8.d[0]
     0.00 :    1e58:   lsr     x4, x19, #1
     0.00 :    1e5c:   mov     x0, #0x0                        // #0
@@ -1406,14 +1406,14 @@
     0.00 :    1e6c:   ldr     q30, [x27, x0]
     0.01 :    1e70:   ldr     q29, [x21, x0]
     0.01 :    1e74:   ldr     q31, [x2, x0]
-    0.12 :    1e78:   fmul    v30.2d, v30.2d, v27.2d
-    0.01 :    1e7c:   ldr     x2, [sp, #200]
-    0.02 :    1e80:   fsub    v31.2d, v31.2d, v26.2d
+    0.10 :    1e78:   fmul    v30.2d, v30.2d, v27.2d
+    0.00 :    1e7c:   ldr     x2, [sp, #200]
+    0.01 :    1e80:   fsub    v31.2d, v31.2d, v26.2d
     0.00 :    1e84:   fmla    v31.2d, v30.2d, v29.2d
     0.01 :    1e88:   fmul    v31.2d, v31.2d, v28.2d
     0.01 :    1e8c:   str     q31, [x2, x0]
     0.01 :    1e90:   add     x0, x0, #0x10
-    0.01 :    1e94:   cmp     x0, x1
+    0.03 :    1e94:   cmp     x0, x1
     0.00 :    1e98:   b.ne    1e68 <warpx_esirkepov_deposition_fp64+0x15c8>  // b.any
     0.00 :    1e9c:   and     x3, x19, #0xfffffffffffffffe
     0.00 :    1ea0:   mov     x1, x3
@@ -1440,18 +1440,18 @@
     0.00 :    1ef4:   lsr     x4, x19, #1
     0.00 :    1ef8:   and     x3, x19, #0xfffffffffffffffe
     0.00 :    1efc:   dup     v28.2d, v15.d[0]
-    0.00 :    1f00:   mov     x0, #0x0                        // #0
+    0.01 :    1f00:   mov     x0, #0x0                        // #0
     0.00 :    1f04:   lsl     x4, x4, #4
     0.01 :    1f08:   ldr     q30, [x27, x0]
     0.02 :    1f0c:   ldr     x1, [sp, #200]
-    0.01 :    1f10:   ldr     q29, [x21, x0]
+    0.02 :    1f10:   ldr     q29, [x21, x0]
     0.02 :    1f14:   fmul    v30.2d, v30.2d, v28.2d
-    0.00 :    1f18:   ldr     q31, [x1, x0]
+    0.01 :    1f18:   ldr     q31, [x1, x0]
     0.07 :    1f1c:   ldr     x1, [sp, #256]
     0.01 :    1f20:   fmls    v31.2d, v30.2d, v29.2d
     0.01 :    1f24:   str     q31, [x1, x0]
-    0.02 :    1f28:   add     x0, x0, #0x10
-    0.00 :    1f2c:   cmp     x0, x4
+    0.01 :    1f28:   add     x0, x0, #0x10
+    0.01 :    1f2c:   cmp     x0, x4
     0.00 :    1f30:   b.ne    1f08 <warpx_esirkepov_deposition_fp64+0x1668>  // b.any
     0.00 :    1f34:   mov     x0, x3
     0.00 :    1f38:   cmp     x19, x3
@@ -1818,7 +1818,7 @@
     0.00 :    24dc:   bl      770 <free@plt>
     0.00 :    24e0:   mov     x0, x20
     0.00 :    24e4:   bl      770 <free@plt>
-    0.00 :    24e8:   ldr     x1, [sp, #160]
+    0.01 :    24e8:   ldr     x1, [sp, #160]
     0.00 :    24ec:   add     x0, x1, x1, lsr #63
     0.00 :    24f0:   asr     x0, x0, #1
     0.00 :    24f4:   str     x0, [sp, #168]
@@ -1848,7 +1848,7 @@
     0.00 :    2554:   mov     x1, x25
     0.00 :    2558:   bl      720 <memcpy@plt>
     0.00 :    255c:   ldr     x0, [sp, #336]
-    0.01 :    2560:   mov     x2, x24
+    0.00 :    2560:   mov     x2, x24
     0.00 :    2564:   mov     x1, x25
     0.00 :    2568:   bl      720 <memcpy@plt>
     0.00 :    256c:   ldr     x0, [sp, #736]
@@ -1892,8 +1892,8 @@
     0.00 :    2604:   ldr     q31, [x0, #3296]
     0.01 :    2608:   add     x1, x2, x1, lsl #5
     0.00 :    260c:   mov     x0, x2
-    0.01 :    2610:   stp     q31, q31, [x0], #32
-    0.07 :    2614:   cmp     x0, x1
+    0.00 :    2610:   stp     q31, q31, [x0], #32
+    0.08 :    2614:   cmp     x0, x1
     0.00 :    2618:   b.ne    2610 <warpx_esirkepov_deposition_fp64+0x1d70>  // b.any
     0.00 :    261c:   and     x0, x19, #0xfffffffffffffffc
     0.00 :    2620:   cmp     x19, x0
@@ -2004,11 +2004,11 @@
     0.00 :    27c4:   stp     xzr, xzr, [x14, #40]
     0.00 :    27c8:   str     xzr, [sp, #888]
     0.00 :    27cc:   str     xzr, [sp, #1160]
-    0.02 :    27d0:   ldr     x1, [sp, #240]
-    0.30 :    27d4:   ldr     x0, [sp, #640]
-    0.05 :    27d8:   ldr     d15, [x0, x1, lsl #3]
-    0.73 :    27dc:   ldr     x0, [sp, #232]
-    0.02 :    27e0:   cmp     x0, #0x3
+    0.03 :    27d0:   ldr     x1, [sp, #240]
+    0.26 :    27d4:   ldr     x0, [sp, #640]
+    0.02 :    27d8:   ldr     d15, [x0, x1, lsl #3]
+    0.60 :    27dc:   ldr     x0, [sp, #232]
+    0.01 :    27e0:   cmp     x0, #0x3
     0.00 :    27e4:   b.eq    32ac <warpx_esirkepov_deposition_fp64+0x2a0c>  // b.none
     0.00 :    27e8:   ldr     x0, [sp, #1416]
     0.00 :    27ec:   cmp     x0, #0x1
@@ -2699,141 +2699,141 @@
     0.00 :    32a0:   str     x9, [sp, #760]
     0.00 :    32a4:   ldr     x28, [sp, #832]
     0.00 :    32a8:   ldr     x27, [sp, #968]
-    0.01 :    32ac:   str     x5, [sp, #160]
-    0.02 :    32b0:   ldr     x1, [sp, #240]
-    0.01 :    32b4:   str     x3, [sp, #1128]
+    0.05 :    32ac:   str     x5, [sp, #160]
+    0.03 :    32b0:   ldr     x1, [sp, #240]
+    0.02 :    32b4:   str     x3, [sp, #1128]
     0.02 :    32b8:   ldr     x0, [sp, #1032]
-    0.01 :    32bc:   str     x7, [sp, #712]
+    0.03 :    32bc:   str     x7, [sp, #712]
     0.02 :    32c0:   ldr     x4, [sp, #1040]
-    0.02 :    32c4:   str     x6, [sp, #832]
-    0.01 :    32c8:   ldr     x3, [sp, #1312]
-    0.02 :    32cc:   ldr     x2, [x0, x1, lsl #3]
-    0.27 :    32d0:   ldr     x5, [x4, x1, lsl #3]
-    0.08 :    32d4:   ldr     x4, [sp, #752]
-    0.03 :    32d8:   str     x2, [sp, #1336]
+    0.01 :    32c4:   str     x6, [sp, #832]
+    0.03 :    32c8:   ldr     x3, [sp, #1312]
+    0.01 :    32cc:   ldr     x2, [x0, x1, lsl #3]
+    0.39 :    32d0:   ldr     x5, [x4, x1, lsl #3]
+    0.13 :    32d4:   ldr     x4, [sp, #752]
+    0.02 :    32d8:   str     x2, [sp, #1336]
     0.02 :    32dc:   ldr     x3, [x3, x1, lsl #3]
-    0.20 :    32e0:   str     x5, [sp, #1440]
-    0.02 :    32e4:   ldr     x0, [sp, #416]
+    0.15 :    32e0:   str     x5, [sp, #1440]
+    0.00 :    32e4:   ldr     x0, [sp, #416]
     0.00 :    32e8:   sub     x2, x4, x2
-    0.01 :    32ec:   str     x2, [sp, #632]
-    0.02 :    32f0:   ldr     x2, [sp, #408]
-    0.01 :    32f4:   str     x3, [sp, #1432]
+    0.02 :    32ec:   str     x2, [sp, #632]
+    0.00 :    32f0:   ldr     x2, [sp, #408]
+    0.02 :    32f4:   str     x3, [sp, #1432]
     0.02 :    32f8:   ldr     x8, [x2, x1, lsl #3]
-    0.00 :    32fc:   sub     x2, x20, x3
-    0.06 :    3300:   ldr     x3, [sp, #624]
-    0.01 :    3304:   str     x2, [sp, #1344]
-    0.03 :    3308:   ldr     x4, [x3, x1, lsl #3]
-    0.02 :    330c:   sub     x3, x20, x5
-    0.10 :    3310:   ldr     x5, [sp, #336]
+    0.02 :    32fc:   sub     x2, x20, x3
+    0.09 :    3300:   ldr     x3, [sp, #624]
+    0.03 :    3304:   str     x2, [sp, #1344]
+    0.01 :    3308:   ldr     x4, [x3, x1, lsl #3]
+    0.01 :    330c:   sub     x3, x20, x5
+    0.15 :    3310:   ldr     x5, [sp, #336]
     0.01 :    3314:   str     x3, [sp, #1264]
     0.02 :    3318:   sub     x4, x4, #0x1
-    0.01 :    331c:   ldr     x2, [x5, x1, lsl #3]
-    0.07 :    3320:   sub     x5, x8, #0x1
-    0.04 :    3324:   str     x4, [sp, #1352]
-    0.03 :    3328:   str     x5, [sp, #672]
-    0.01 :    332c:   ldr     x5, [sp, #768]
-    0.03 :    3330:   ldr     x4, [sp, #1288]
-    0.04 :    3334:   ldr     x5, [x5, x1, lsl #3]
-    0.08 :    3338:   ldr     x25, [x4, x1, lsl #3]
-    0.05 :    333c:   sub     x4, x2, #0x1
+    0.03 :    331c:   ldr     x2, [x5, x1, lsl #3]
+    0.13 :    3320:   sub     x5, x8, #0x1
+    0.01 :    3324:   str     x4, [sp, #1352]
+    0.02 :    3328:   str     x5, [sp, #672]
+    0.02 :    332c:   ldr     x5, [sp, #768]
+    0.01 :    3330:   ldr     x4, [sp, #1288]
+    0.01 :    3334:   ldr     x5, [x5, x1, lsl #3]
+    0.10 :    3338:   ldr     x25, [x4, x1, lsl #3]
+    0.08 :    333c:   sub     x4, x2, #0x1
     0.04 :    3340:   str     x5, [sp, #1272]
     0.02 :    3344:   str     x4, [sp, #1360]
     0.01 :    3348:   ldr     x4, [sp, #960]
-    0.00 :    334c:   ldr     x26, [x4, x1, lsl #3]
-    0.03 :    3350:   bl      770 <free@plt>
-    0.01 :    3354:   ldr     x0, [sp, #1344]
+    0.02 :    334c:   ldr     x26, [x4, x1, lsl #3]
+    0.10 :    3350:   bl      770 <free@plt>
+    0.05 :    3354:   ldr     x0, [sp, #1344]
     0.01 :    3358:   str     x25, [sp, #968]
-    0.01 :    335c:   str     x26, [sp, #704]
-    0.02 :    3360:   sub     x1, x0, x25
-    0.03 :    3364:   ldr     x0, [sp, #1264]
-    0.01 :    3368:   mov     x25, x1
-    0.01 :    336c:   str     x1, [sp, #592]
+    0.02 :    335c:   str     x26, [sp, #704]
+    0.01 :    3360:   sub     x1, x0, x25
+    0.02 :    3364:   ldr     x0, [sp, #1264]
+    0.00 :    3368:   mov     x25, x1
+    0.02 :    336c:   str     x1, [sp, #592]
     0.02 :    3370:   sub     x26, x0, x26
     0.03 :    3374:   mul     x0, x1, x26
-    0.00 :    3378:   lsl     x0, x0, #3
+    0.01 :    3378:   lsl     x0, x0, #3
     0.02 :    337c:   bl      750 <malloc@plt>
-    0.04 :    3380:   cmp     x25, #0x0
-    0.01 :    3384:   str     x0, [sp, #416]
+    0.05 :    3380:   cmp     x25, #0x0
+    0.02 :    3384:   str     x0, [sp, #416]
     0.02 :    3388:   mov     x1, x25
-    0.01 :    338c:   ldr     x5, [sp, #160]
-    0.04 :    3390:   ldr     x7, [sp, #712]
-    0.01 :    3394:   ldr     x6, [sp, #832]
-    0.02 :    3398:   ldr     x3, [sp, #1128]
-    0.02 :    339c:   b.le    3560 <warpx_esirkepov_deposition_fp64+0x2cc0>
+    0.04 :    338c:   ldr     x5, [sp, #160]
+    0.01 :    3390:   ldr     x7, [sp, #712]
+    0.03 :    3394:   ldr     x6, [sp, #832]
+    0.03 :    3398:   ldr     x3, [sp, #1128]
+    0.01 :    339c:   b.le    3560 <warpx_esirkepov_deposition_fp64+0x2cc0>
     0.02 :    33a0:   cmp     x26, #0x0
     0.00 :    33a4:   b.le    3560 <warpx_esirkepov_deposition_fp64+0x2cc0>
     0.01 :    33a8:   ldr     x4, [sp, #168]
     0.03 :    33ac:   adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.00 :    33b0:   lsr     x9, x26, #1
-    0.01 :    33b4:   mov     x13, #0x0                       // #0
+    0.04 :    33b4:   mov     x13, #0x0                       // #0
     0.01 :    33b8:   sub     x16, x26, #0x1
-    0.01 :    33bc:   ldr     x25, [sp, #968]
+    0.03 :    33bc:   ldr     x25, [sp, #968]
     0.01 :    33c0:   and     x15, x26, #0x1
     0.01 :    33c4:   and     x17, x26, #0xfffffffffffffffe
-    0.01 :    33c8:   ldr     x2, [sp, #704]
+    0.02 :    33c8:   ldr     x2, [sp, #704]
     0.03 :    33cc:   ldr     q23, [x0, #3328]
-    0.02 :    33d0:   add     x0, x4, x25
-    0.01 :    33d4:   add     x8, x0, x1
-    0.04 :    33d8:   ldr     x1, [sp, #176]
-    0.04 :    33dc:   lsl     x12, x0, #3
-    0.04 :    33e0:   add     x2, x2, x4
+    0.01 :    33d0:   add     x0, x4, x25
+    0.03 :    33d4:   add     x8, x0, x1
+    0.03 :    33d8:   ldr     x1, [sp, #176]
+    0.00 :    33dc:   lsl     x12, x0, #3
+    0.01 :    33e0:   add     x2, x2, x4
     0.02 :    33e4:   lsl     x14, x8, #3
     0.01 :    33e8:   ldr     x0, [sp, #208]
-    0.04 :    33ec:   fmov    d21, d23
+    0.01 :    33ec:   fmov    d21, d23
     0.01 :    33f0:   add     x4, x1, x2, lsl #3
-    0.03 :    33f4:   adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
-    0.02 :    33f8:   ldr     q24, [x1, #3488]
+    0.02 :    33f4:   adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
+    0.03 :    33f8:   ldr     q24, [x1, #3488]
     0.01 :    33fc:   add     x2, x0, x2, lsl #3
-    0.00 :    3400:   lsl     x0, x9, #4
-    0.02 :    3404:   fmov    d22, d24
+    0.04 :    3400:   lsl     x0, x9, #4
+    0.01 :    3404:   fmov    d22, d24
     0.05 :    3408:   ldr     x1, [sp, #552]
-    0.06 :    340c:   ldr     d28, [x1, x12]
-    0.20 :    3410:   ldr     x1, [sp, #560]
-    0.04 :    3414:   ldr     d30, [x1, x12]
-    0.27 :    3418:   cmp     x16, #0x2
+    0.04 :    340c:   ldr     d28, [x1, x12]
+    0.23 :    3410:   ldr     x1, [sp, #560]
+    0.03 :    3414:   ldr     d30, [x1, x12]
+    0.22 :    3418:   cmp     x16, #0x2
     0.00 :    341c:   b.ls    4a38 <warpx_esirkepov_deposition_fp64+0x4198>  // b.plast
-    0.05 :    3420:   dup     v25.2d, v28.d[0]
+    0.10 :    3420:   dup     v25.2d, v28.d[0]
     0.00 :    3424:   dup     v26.2d, v30.d[0]
-    0.10 :    3428:   ldr     x1, [sp, #416]
+    0.08 :    3428:   ldr     x1, [sp, #416]
     0.02 :    342c:   add     x8, x1, x13, lsl #3
-    0.05 :    3430:   mov     x1, #0x0                        // #0
-    0.08 :    3434:   nop
+    0.09 :    3430:   mov     x1, #0x0                        // #0
+    0.05 :    3434:   nop
     0.00 :    3438:   nop
-    0.11 :    343c:   nop
-    0.15 :    3440:   ldr     q20, [x4, x1]
+    0.06 :    343c:   nop
+    0.17 :    3440:   ldr     q20, [x4, x1]
     0.39 :    3444:   ldr     q27, [x2, x1]
-    0.68 :    3448:   fmul    v31.2d, v26.2d, v20.2d
-    0.04 :    344c:   fmul    v19.2d, v26.2d, v27.2d
+    0.50 :    3448:   fmul    v31.2d, v26.2d, v20.2d
+    0.03 :    344c:   fmul    v19.2d, v26.2d, v27.2d
     0.12 :    3450:   fmla    v31.2d, v25.2d, v27.2d
-    0.08 :    3454:   mov     v27.16b, v19.16b
+    0.07 :    3454:   mov     v27.16b, v19.16b
     0.11 :    3458:   fmla    v27.2d, v25.2d, v20.2d
     0.11 :    345c:   fmul    v31.2d, v31.2d, v23.2d
-    0.17 :    3460:   fmla    v31.2d, v27.2d, v24.2d
-    0.22 :    3464:   str     q31, [x8, x1]
-    0.16 :    3468:   add     x1, x1, #0x10
-    0.19 :    346c:   cmp     x0, x1
-    0.00 :    3470:   b.ne    3440 <warpx_esirkepov_deposition_fp64+0x2ba0>  // b.any
-    0.11 :    3474:   cbz     x15, 3e84 <warpx_esirkepov_deposition_fp64+0x35e4>
-    0.04 :    3478:   mov     x9, x17
-    0.00 :    347c:   ldr     x1, [sp, #704]
-    0.03 :    3480:   add     x11, x9, x13
+    0.13 :    3460:   fmla    v31.2d, v27.2d, v24.2d
+    0.16 :    3464:   str     q31, [x8, x1]
+    0.13 :    3468:   add     x1, x1, #0x10
+    0.15 :    346c:   cmp     x0, x1
+    0.01 :    3470:   b.ne    3440 <warpx_esirkepov_deposition_fp64+0x2ba0>  // b.any
+    0.05 :    3474:   cbz     x15, 3e84 <warpx_esirkepov_deposition_fp64+0x35e4>
+    0.02 :    3478:   mov     x9, x17
+    0.02 :    347c:   ldr     x1, [sp, #704]
+    0.02 :    3480:   add     x11, x9, x13
     0.01 :    3484:   add     x10, x9, #0x1
-    0.03 :    3488:   ldp     x18, x25, [sp, #168]
-    0.01 :    348c:   add     x8, x9, x1
-    0.04 :    3490:   ldr     x30, [sp, #208]
+    0.02 :    3488:   ldp     x18, x25, [sp, #168]
+    0.02 :    348c:   add     x8, x9, x1
+    0.03 :    3490:   ldr     x30, [sp, #208]
     0.01 :    3494:   add     x8, x8, x18
-    0.04 :    3498:   lsl     x8, x8, #3
+    0.05 :    3498:   lsl     x8, x8, #3
     0.02 :    349c:   ldr     d26, [x25, x8]
-    0.21 :    34a0:   ldr     d25, [x30, x8]
-    0.09 :    34a4:   ldr     x8, [sp, #416]
-    0.02 :    34a8:   fmul    d31, d26, d30
+    0.27 :    34a0:   ldr     d25, [x30, x8]
+    0.10 :    34a4:   ldr     x8, [sp, #416]
+    0.03 :    34a8:   fmul    d31, d26, d30
     0.01 :    34ac:   fmul    d27, d30, d25
-    0.02 :    34b0:   fmadd   d31, d28, d25, d31
-    0.01 :    34b4:   fmadd   d27, d26, d28, d27
-    0.01 :    34b8:   fmul    d31, d31, d21
+    0.03 :    34b0:   fmadd   d31, d28, d25, d31
+    0.00 :    34b4:   fmadd   d27, d26, d28, d27
+    0.02 :    34b8:   fmul    d31, d31, d21
     0.02 :    34bc:   fmadd   d31, d27, d22, d31
-    0.02 :    34c0:   str     d31, [x8, x11, lsl #3]
-    0.02 :    34c4:   cmp     x10, x26
+    0.03 :    34c0:   str     d31, [x8, x11, lsl #3]
+    0.05 :    34c4:   cmp     x10, x26
     0.00 :    34c8:   b.ge    3550 <warpx_esirkepov_deposition_fp64+0x2cb0>  // b.tcont
     0.00 :    34cc:   add     x8, x10, x1
     0.00 :    34d0:   mov     x11, x18
@@ -2868,317 +2868,317 @@
     0.00 :    3544:   fmul    d31, d31, d21
     0.00 :    3548:   fmadd   d31, d30, d22, d31
     0.00 :    354c:   str     d31, [x30, x9, lsl #3]
-    0.04 :    3550:   add     x12, x12, #0x8
+    0.02 :    3550:   add     x12, x12, #0x8
     0.01 :    3554:   add     x13, x13, x26
-    0.04 :    3558:   cmp     x14, x12
+    0.02 :    3558:   cmp     x14, x12
     0.00 :    355c:   b.ne    3408 <warpx_esirkepov_deposition_fp64+0x2b68>  // b.any
-    0.04 :    3560:   ldr     x0, [sp, #1096]
-    0.01 :    3564:   str     x5, [sp, #712]
+    0.01 :    3560:   ldr     x0, [sp, #1096]
+    0.02 :    3564:   str     x5, [sp, #712]
     0.01 :    3568:   str     x7, [sp, #832]
-    0.01 :    356c:   str     x6, [sp, #1128]
-    0.05 :    3570:   str     x3, [sp, #1136]
-    0.00 :    3574:   bl      770 <free@plt>
-    0.04 :    3578:   ldr     x1, [sp, #632]
-    0.02 :    357c:   ldr     x0, [sp, #1272]
-    0.04 :    3580:   sub     x25, x1, x0
+    0.02 :    356c:   str     x6, [sp, #1128]
+    0.02 :    3570:   str     x3, [sp, #1136]
+    0.01 :    3574:   bl      770 <free@plt>
+    0.05 :    3578:   ldr     x1, [sp, #632]
+    0.01 :    357c:   ldr     x0, [sp, #1272]
+    0.02 :    3580:   sub     x25, x1, x0
     0.01 :    3584:   lsl     x1, x25, #3
     0.02 :    3588:   mov     x0, x1
-    0.03 :    358c:   str     x1, [sp, #160]
-    0.02 :    3590:   bl      750 <malloc@plt>
-    0.05 :    3594:   cmp     x25, #0x0
+    0.01 :    358c:   str     x1, [sp, #160]
+    0.01 :    3590:   bl      750 <malloc@plt>
+    0.03 :    3594:   cmp     x25, #0x0
     0.01 :    3598:   str     x0, [sp, #1096]
-    0.01 :    359c:   mov     x1, x0
+    0.05 :    359c:   mov     x1, x0
     0.02 :    35a0:   ldr     x5, [sp, #712]
-    0.02 :    35a4:   ldr     x7, [sp, #832]
-    0.02 :    35a8:   ldr     x6, [sp, #1128]
-    0.03 :    35ac:   ldr     x3, [sp, #1136]
-    0.01 :    35b0:   b.le    f2b8 <warpx_esirkepov_deposition_fp64+0xea18>
+    0.01 :    35a4:   ldr     x7, [sp, #832]
+    0.01 :    35a8:   ldr     x6, [sp, #1128]
+    0.02 :    35ac:   ldr     x3, [sp, #1136]
+    0.02 :    35b0:   b.le    f2b8 <warpx_esirkepov_deposition_fp64+0xea18>
     0.02 :    35b4:   fmul    d30, d10, d15
     0.01 :    35b8:   cmp     x25, #0x1
-    0.02 :    35bc:   b.eq    f434 <warpx_esirkepov_deposition_fp64+0xeb94>  // b.none
+    0.01 :    35bc:   b.eq    f434 <warpx_esirkepov_deposition_fp64+0xeb94>  // b.none
     0.02 :    35c0:   ldr     x2, [sp, #168]
     0.02 :    35c4:   dup     v28.2d, v30.d[0]
     0.02 :    35c8:   lsr     x4, x25, #1
-    0.01 :    35cc:   ldp     x8, x9, [sp, #184]
-    0.01 :    35d0:   lsl     x4, x4, #4
-    0.01 :    35d4:   ldr     x0, [sp, #1272]
+    0.03 :    35cc:   ldp     x8, x9, [sp, #184]
+    0.02 :    35d0:   lsl     x4, x4, #4
+    0.02 :    35d4:   ldr     x0, [sp, #1272]
     0.01 :    35d8:   add     x2, x0, x2
     0.01 :    35dc:   mov     x0, #0x0                        // #0
-    0.01 :    35e0:   add     x8, x8, x2, lsl #3
-    0.02 :    35e4:   add     x2, x9, x2, lsl #3
-    0.02 :    35e8:   ldr     q31, [x8, x0]
-    0.32 :    35ec:   ldr     q27, [x2, x0]
+    0.03 :    35e0:   add     x8, x8, x2, lsl #3
+    0.01 :    35e4:   add     x2, x9, x2, lsl #3
+    0.01 :    35e8:   ldr     q31, [x8, x0]
+    0.30 :    35ec:   ldr     q27, [x2, x0]
     0.24 :    35f0:   fsub    v31.2d, v31.2d, v27.2d
-    0.01 :    35f4:   fmul    v31.2d, v31.2d, v28.2d
-    0.01 :    35f8:   str     q31, [x1, x0]
+    0.03 :    35f4:   fmul    v31.2d, v31.2d, v28.2d
+    0.02 :    35f8:   str     q31, [x1, x0]
     0.02 :    35fc:   add     x0, x0, #0x10
-    0.03 :    3600:   cmp     x4, x0
+    0.02 :    3600:   cmp     x4, x0
     0.00 :    3604:   b.ne    35e8 <warpx_esirkepov_deposition_fp64+0x2d48>  // b.any
     0.01 :    3608:   and     x4, x25, #0xfffffffffffffffe
     0.00 :    360c:   tbz     w25, #0, 8158 <warpx_esirkepov_deposition_fp64+0x78b8>
-    0.01 :    3610:   ldr     x0, [sp, #1272]
+    0.02 :    3610:   ldr     x0, [sp, #1272]
     0.01 :    3614:   str     x5, [sp, #712]
-    0.01 :    3618:   ldr     x1, [sp, #168]
+    0.00 :    3618:   ldr     x1, [sp, #168]
     0.01 :    361c:   str     x7, [sp, #832]
-    0.03 :    3620:   str     x6, [sp, #1128]
-    0.00 :    3624:   add     x2, x4, x0
-    0.01 :    3628:   ldr     x0, [sp, #808]
+    0.01 :    3620:   str     x6, [sp, #1128]
+    0.01 :    3624:   add     x2, x4, x0
+    0.02 :    3628:   ldr     x0, [sp, #808]
     0.02 :    362c:   str     x3, [sp, #1136]
     0.02 :    3630:   add     x2, x2, x1
     0.02 :    3634:   ldr     x1, [sp, #184]
-    0.01 :    3638:   lsl     x2, x2, #3
+    0.02 :    3638:   lsl     x2, x2, #3
     0.01 :    363c:   ldr     d31, [x1, x2]
-    0.02 :    3640:   ldr     x1, [sp, #192]
+    0.01 :    3640:   ldr     x1, [sp, #192]
     0.01 :    3644:   ldr     d28, [x1, x2]
-    0.01 :    3648:   ldr     x1, [sp, #1096]
-    0.01 :    364c:   fsub    d31, d31, d28
-    0.01 :    3650:   fmul    d31, d31, d30
-    0.04 :    3654:   str     d31, [x1, x4, lsl #3]
+    0.02 :    3648:   ldr     x1, [sp, #1096]
+    0.03 :    364c:   fsub    d31, d31, d28
+    0.02 :    3650:   fmul    d31, d31, d30
+    0.02 :    3654:   str     d31, [x1, x4, lsl #3]
     0.01 :    3658:   bl      770 <free@plt>
-    0.02 :    365c:   ldr     x0, [sp, #160]
-    0.04 :    3660:   bl      750 <malloc@plt>
+    0.03 :    365c:   ldr     x0, [sp, #160]
+    0.01 :    3660:   bl      750 <malloc@plt>
     0.01 :    3664:   ldr     x1, [sp, #1096]
-    0.02 :    3668:   cmp     x25, #0x1
-    0.02 :    366c:   str     x0, [sp, #808]
-    0.02 :    3670:   ldr     x5, [sp, #712]
-    0.01 :    3674:   ldr     x7, [sp, #832]
-    0.01 :    3678:   ldr     d31, [x1]
-    0.03 :    367c:   ldr     x6, [sp, #1128]
+    0.01 :    3668:   cmp     x25, #0x1
+    0.00 :    366c:   str     x0, [sp, #808]
+    0.01 :    3670:   ldr     x5, [sp, #712]
+    0.02 :    3674:   ldr     x7, [sp, #832]
+    0.02 :    3678:   ldr     d31, [x1]
+    0.01 :    367c:   ldr     x6, [sp, #1128]
     0.01 :    3680:   ldr     x3, [sp, #1136]
     0.01 :    3684:   str     d31, [x0]
-    0.04 :    3688:   b.eq    36b8 <warpx_esirkepov_deposition_fp64+0x2e18>  // b.none
+    0.01 :    3688:   b.eq    36b8 <warpx_esirkepov_deposition_fp64+0x2e18>  // b.none
     0.02 :    368c:   ldr     x2, [sp, #808]
-    0.01 :    3690:   mov     x0, #0x1                        // #1
-    0.04 :    3694:   ldr     x1, [sp, #1096]
-    0.01 :    3698:   nop
-    0.04 :    369c:   nop
-    0.05 :    36a0:   ldr     d30, [x1, x0, lsl #3]
-    0.01 :    36a4:   fadd    d31, d31, d30
-    0.04 :    36a8:   str     d31, [x2, x0, lsl #3]
-    0.09 :    36ac:   add     x0, x0, #0x1
+    0.03 :    3690:   mov     x0, #0x1                        // #1
+    0.02 :    3694:   ldr     x1, [sp, #1096]
+    0.02 :    3698:   nop
+    0.02 :    369c:   nop
+    0.03 :    36a0:   ldr     d30, [x1, x0, lsl #3]
+    0.04 :    36a4:   fadd    d31, d31, d30
+    0.02 :    36a8:   str     d31, [x2, x0, lsl #3]
+    0.06 :    36ac:   add     x0, x0, #0x1
     0.05 :    36b0:   cmp     x25, x0
     0.00 :    36b4:   b.ne    36a0 <warpx_esirkepov_deposition_fp64+0x2e00>  // b.any
     0.01 :    36b8:   ldr     x0, [sp, #656]
     0.02 :    36bc:   ldr     x1, [sp, #672]
-    0.02 :    36c0:   add     x0, x0, x1
-    0.04 :    36c4:   ldr     x1, [sp, #1272]
-    0.00 :    36c8:   str     x0, [sp, #1368]
-    0.03 :    36cc:   add     x0, x0, x1
-    0.01 :    36d0:   str     x0, [sp, #712]
+    0.01 :    36c0:   add     x0, x0, x1
+    0.02 :    36c4:   ldr     x1, [sp, #1272]
+    0.01 :    36c8:   str     x0, [sp, #1368]
+    0.01 :    36cc:   add     x0, x0, x1
+    0.00 :    36d0:   str     x0, [sp, #712]
     0.02 :    36d4:   ldr     x0, [sp, #632]
-    0.03 :    36d8:   cmp     x1, x0
+    0.04 :    36d8:   cmp     x1, x0
     0.01 :    36dc:   b.ge    38a4 <warpx_esirkepov_deposition_fp64+0x3004>  // b.tcont
-    0.01 :    36e0:   ldr     x0, [sp, #1120]
+    0.02 :    36e0:   ldr     x0, [sp, #1120]
     0.02 :    36e4:   ldr     x1, [sp, #1352]
     0.03 :    36e8:   ldr     x2, [sp, #1344]
     0.02 :    36ec:   add     x15, x0, x1
-    0.01 :    36f0:   ldr     x1, [sp, #968]
-    0.03 :    36f4:   add     x0, x1, x15
+    0.02 :    36f0:   ldr     x1, [sp, #968]
+    0.00 :    36f4:   add     x0, x1, x15
     0.02 :    36f8:   add     x15, x2, x15
-    0.01 :    36fc:   str     x0, [sp, #1248]
+    0.03 :    36fc:   str     x0, [sp, #1248]
     0.02 :    3700:   cmp     x1, x2
-    0.00 :    3704:   b.ge    38a4 <warpx_esirkepov_deposition_fp64+0x3004>  // b.tcont
-    0.01 :    3708:   ldr     x1, [sp, #704]
-    0.04 :    370c:   ldr     x2, [sp, #1264]
+    0.01 :    3704:   b.ge    38a4 <warpx_esirkepov_deposition_fp64+0x3004>  // b.tcont
+    0.02 :    3708:   ldr     x1, [sp, #704]
+    0.00 :    370c:   ldr     x2, [sp, #1264]
     0.02 :    3710:   cmp     x1, x2
     0.00 :    3714:   b.ge    38a4 <warpx_esirkepov_deposition_fp64+0x3004>  // b.tcont
     0.02 :    3718:   ldr     x9, [sp, #1360]
-    0.02 :    371c:   mul     x25, x5, x24
-    0.02 :    3720:   sub     x11, x26, #0x1
-    0.01 :    3724:   lsl     x16, x26, #3
-    0.03 :    3728:   ldr     x8, [sp, #1408]
+    0.03 :    371c:   mul     x25, x5, x24
+    0.01 :    3720:   sub     x11, x26, #0x1
+    0.02 :    3724:   lsl     x16, x26, #3
+    0.02 :    3728:   ldr     x8, [sp, #1408]
     0.02 :    372c:   ldr     x2, [sp, #1008]
     0.01 :    3730:   ldr     x4, [sp, #712]
-    0.01 :    3734:   add     x10, x8, x9
-    0.02 :    3738:   lsl     x9, x5, #4
-    0.02 :    373c:   ldr     x8, [sp, #632]
-    0.04 :    3740:   add     x13, x1, x10
-    0.01 :    3744:   lsl     x2, x2, #4
-    0.03 :    3748:   ldr     x1, [sp, #1368]
-    0.02 :    374c:   sub     x2, x2, #0x8
+    0.02 :    3734:   add     x10, x8, x9
+    0.00 :    3738:   lsl     x9, x5, #4
+    0.03 :    373c:   ldr     x8, [sp, #632]
+    0.02 :    3740:   add     x13, x1, x10
+    0.03 :    3744:   lsl     x2, x2, #4
+    0.02 :    3748:   ldr     x1, [sp, #1368]
+    0.03 :    374c:   sub     x2, x2, #0x8
     0.01 :    3750:   madd    x0, x24, x4, x0
-    0.05 :    3754:   add     x1, x1, x8
-    0.04 :    3758:   mul     x8, x24, x2
+    0.01 :    3754:   add     x1, x1, x8
+    0.02 :    3758:   mul     x8, x24, x2
     0.02 :    375c:   str     x1, [sp, #1240]
-    0.01 :    3760:   ldr     x1, [sp, #808]
-    0.01 :    3764:   mul     x8, x8, x24
-    0.00 :    3768:   str     x8, [sp, #1256]
-    0.01 :    376c:   ldr     x8, [sp, #608]
-    0.02 :    3770:   sub     x1, x1, x4, lsl #3
-    0.02 :    3774:   lsl     x4, x25, #3
-    0.02 :    3778:   str     x1, [sp, #1216]
-    0.09 :    377c:   mul     x1, x0, x24
-    0.03 :    3780:   add     x0, x13, x1
-    0.01 :    3784:   madd    x8, x0, x2, x8
-    0.02 :    3788:   cmp     x11, #0x3
-    0.02 :    378c:   b.ls    f398 <warpx_esirkepov_deposition_fp64+0xeaf8>  // b.plast
+    0.02 :    3760:   ldr     x1, [sp, #808]
+    0.02 :    3764:   mul     x8, x8, x24
+    0.02 :    3768:   str     x8, [sp, #1256]
+    0.03 :    376c:   ldr     x8, [sp, #608]
+    0.01 :    3770:   sub     x1, x1, x4, lsl #3
+    0.03 :    3774:   lsl     x4, x25, #3
+    0.03 :    3778:   str     x1, [sp, #1216]
+    0.04 :    377c:   mul     x1, x0, x24
+    0.02 :    3780:   add     x0, x13, x1
+    0.02 :    3784:   madd    x8, x0, x2, x8
+    0.03 :    3788:   cmp     x11, #0x3
+    0.00 :    378c:   b.ls    f398 <warpx_esirkepov_deposition_fp64+0xeaf8>  // b.plast
     0.01 :    3790:   ldr     x0, [sp, #712]
     0.01 :    3794:   lsr     x17, x26, #1
-    0.00 :    3798:   and     x30, x26, #0xfffffffffffffffe
-    0.01 :    379c:   lsl     x17, x17, #4
+    0.01 :    3798:   and     x30, x26, #0xfffffffffffffffe
+    0.00 :    379c:   lsl     x17, x17, #4
     0.01 :    37a0:   add     x25, x30, x13
     0.00 :    37a4:   and     x18, x26, #0x1
     0.02 :    37a8:   ldr     x10, [sp, #1216]
-    0.02 :    37ac:   mov     x14, #0x0                       // #0
-    0.05 :    37b0:   mov     x12, x8
-    0.01 :    37b4:   str     x27, [sp, #1136]
-    0.01 :    37b8:   mov     x13, x1
-    0.01 :    37bc:   ldr     x27, [sp, #608]
-    0.01 :    37c0:   str     x28, [sp, #1128]
+    0.01 :    37ac:   mov     x14, #0x0                       // #0
+    0.03 :    37b0:   mov     x12, x8
+    0.02 :    37b4:   str     x27, [sp, #1136]
+    0.03 :    37b8:   mov     x13, x1
+    0.02 :    37bc:   ldr     x27, [sp, #608]
+    0.02 :    37c0:   str     x28, [sp, #1128]
     0.01 :    37c4:   ldr     x11, [sp, #1248]
-    0.02 :    37c8:   str     x8, [sp, #632]
-    0.02 :    37cc:   ldr     d27, [x10, x0, lsl #3]
-    0.09 :    37d0:   str     x0, [sp, #672]
+    0.00 :    37c8:   str     x8, [sp, #632]
+    0.03 :    37cc:   ldr     d27, [x10, x0, lsl #3]
+    0.14 :    37d0:   str     x0, [sp, #672]
     0.02 :    37d4:   ldr     x10, [sp, #416]
     0.01 :    37d8:   str     x21, [sp, #832]
     0.03 :    37dc:   str     x1, [sp, #1144]
     0.03 :    37e0:   dup     v28.2d, v27.d[0]
-    0.01 :    37e4:   mov     x28, x10
-    0.05 :    37e8:   add     x21, x17, x10
+    0.02 :    37e4:   mov     x28, x10
+    0.06 :    37e8:   add     x21, x17, x10
     0.05 :    37ec:   mov     x0, x12
-    0.08 :    37f0:   str     x3, [sp, #160]
+    0.09 :    37f0:   str     x3, [sp, #160]
     0.07 :    37f4:   mov     x1, x10
-    0.08 :    37f8:   nop
-    0.04 :    37fc:   nop
-    0.17 :    3800:   ldr     d31, [x0]
-    0.94 :    3804:   add     x8, x0, x2
-    0.57 :    3808:   ldr     q30, [x1], #16
-    0.23 :    380c:   ld1     {v31.d}[1], [x8]
-    0.42 :    3810:   fmla    v31.2d, v30.2d, v28.2d
-    0.31 :    3814:   str     d31, [x0]
-    0.12 :    3818:   add     x0, x0, x9
-    0.17 :    381c:   st1     {v31.d}[1], [x8]
-    0.32 :    3820:   cmp     x1, x21
-    0.00 :    3824:   b.ne    3800 <warpx_esirkepov_deposition_fp64+0x2f60>  // b.any
-    0.09 :    3828:   ldr     x3, [sp, #160]
-    0.17 :    382c:   cbz     x18, 3850 <warpx_esirkepov_deposition_fp64+0x2fb0>
-    0.07 :    3830:   add     x0, x13, x25
-    0.04 :    3834:   add     x1, x14, x30
-    0.07 :    3838:   mul     x0, x0, x5
+    0.05 :    37f8:   nop
+    0.03 :    37fc:   nop
+    0.12 :    3800:   ldr     d31, [x0]
+    1.03 :    3804:   add     x8, x0, x2
+    0.68 :    3808:   ldr     q30, [x1], #16
+    0.19 :    380c:   ld1     {v31.d}[1], [x8]
+    0.53 :    3810:   fmla    v31.2d, v30.2d, v28.2d
+    0.40 :    3814:   str     d31, [x0]
+    0.15 :    3818:   add     x0, x0, x9
+    0.16 :    381c:   st1     {v31.d}[1], [x8]
+    0.26 :    3820:   cmp     x1, x21
+    0.01 :    3824:   b.ne    3800 <warpx_esirkepov_deposition_fp64+0x2f60>  // b.any
+    0.06 :    3828:   ldr     x3, [sp, #160]
+    0.08 :    382c:   cbz     x18, 3850 <warpx_esirkepov_deposition_fp64+0x2fb0>
+    0.05 :    3830:   add     x0, x13, x25
+    0.06 :    3834:   add     x1, x14, x30
+    0.09 :    3838:   mul     x0, x0, x5
     0.05 :    383c:   ldr     d30, [x28, x1, lsl #3]
-    0.07 :    3840:   lsl     x0, x0, #3
+    0.06 :    3840:   lsl     x0, x0, #3
     0.09 :    3844:   ldr     d31, [x27, x0]
-    0.27 :    3848:   fmadd   d31, d27, d30, d31
-    0.11 :    384c:   str     d31, [x27, x0]
-    0.05 :    3850:   add     x11, x11, #0x1
-    0.07 :    3854:   add     x10, x10, x16
-    0.12 :    3858:   add     x13, x13, x24
-    0.03 :    385c:   add     x14, x14, x26
-    0.08 :    3860:   add     x12, x12, x4
-    0.03 :    3864:   cmp     x11, x15
+    0.36 :    3848:   fmadd   d31, d27, d30, d31
+    0.09 :    384c:   str     d31, [x27, x0]
+    0.04 :    3850:   add     x11, x11, #0x1
+    0.04 :    3854:   add     x10, x10, x16
+    0.05 :    3858:   add     x13, x13, x24
+    0.05 :    385c:   add     x14, x14, x26
+    0.09 :    3860:   add     x12, x12, x4
+    0.08 :    3864:   cmp     x11, x15
     0.00 :    3868:   b.lt    37e8 <warpx_esirkepov_deposition_fp64+0x2f48>  // b.tstop
     0.01 :    386c:   ldr     x8, [sp, #632]
-    0.01 :    3870:   ldr     x10, [sp, #1256]
-    0.02 :    3874:   ldr     x1, [sp, #1144]
-    0.01 :    3878:   ldr     x0, [sp, #672]
-    0.03 :    387c:   add     x8, x8, x10
+    0.02 :    3870:   ldr     x10, [sp, #1256]
+    0.00 :    3874:   ldr     x1, [sp, #1144]
+    0.03 :    3878:   ldr     x0, [sp, #672]
+    0.01 :    387c:   add     x8, x8, x10
     0.02 :    3880:   ldr     x10, [sp, #584]
     0.02 :    3884:   ldr     x21, [sp, #832]
-    0.03 :    3888:   add     x0, x0, #0x1
-    0.01 :    388c:   ldr     x28, [sp, #1128]
+    0.02 :    3888:   add     x0, x0, #0x1
+    0.03 :    388c:   ldr     x28, [sp, #1128]
     0.01 :    3890:   add     x1, x1, x10
-    0.03 :    3894:   ldr     x10, [sp, #1240]
-    0.02 :    3898:   ldr     x27, [sp, #1136]
-    0.04 :    389c:   cmp     x0, x10
-    0.01 :    38a0:   b.lt    37a8 <warpx_esirkepov_deposition_fp64+0x2f08>  // b.tstop
-    0.02 :    38a4:   ldr     x1, [sp, #1336]
-    0.03 :    38a8:   str     x5, [sp, #160]
-    0.02 :    38ac:   ldr     x2, [sp, #1432]
+    0.01 :    3894:   ldr     x10, [sp, #1240]
+    0.01 :    3898:   ldr     x27, [sp, #1136]
+    0.01 :    389c:   cmp     x0, x10
+    0.02 :    38a0:   b.lt    37a8 <warpx_esirkepov_deposition_fp64+0x2f08>  // b.tstop
+    0.01 :    38a4:   ldr     x1, [sp, #1336]
+    0.02 :    38a8:   str     x5, [sp, #160]
+    0.03 :    38ac:   ldr     x2, [sp, #1432]
     0.02 :    38b0:   str     x7, [sp, #672]
     0.01 :    38b4:   ldr     x0, [sp, #536]
     0.01 :    38b8:   sub     x25, x20, x1
-    0.01 :    38bc:   str     x6, [sp, #832]
+    0.02 :    38bc:   str     x6, [sp, #832]
     0.02 :    38c0:   ldr     x1, [sp, #752]
     0.01 :    38c4:   str     x3, [sp, #1128]
     0.01 :    38c8:   str     x25, [sp, #1424]
-    0.02 :    38cc:   sub     x1, x1, x2
-    0.02 :    38d0:   str     x1, [sp, #632]
-    0.01 :    38d4:   bl      770 <free@plt>
-    0.03 :    38d8:   ldr     x0, [sp, #1272]
+    0.03 :    38cc:   sub     x1, x1, x2
+    0.01 :    38d0:   str     x1, [sp, #632]
+    0.02 :    38d4:   bl      770 <free@plt>
+    0.01 :    38d8:   ldr     x0, [sp, #1272]
     0.00 :    38dc:   sub     x25, x25, x0
-    0.04 :    38e0:   mul     x0, x26, x25
-    0.02 :    38e4:   str     x25, [sp, #1336]
+    0.02 :    38e0:   mul     x0, x26, x25
+    0.01 :    38e4:   str     x25, [sp, #1336]
     0.02 :    38e8:   lsl     x0, x0, #3
-    0.02 :    38ec:   bl      750 <malloc@plt>
-    0.04 :    38f0:   cmp     x25, #0x0
-    0.01 :    38f4:   str     x0, [sp, #536]
-    0.01 :    38f8:   ldr     x5, [sp, #160]
-    0.02 :    38fc:   ldr     x7, [sp, #672]
-    0.04 :    3900:   ldr     x6, [sp, #832]
-    0.03 :    3904:   ldr     x3, [sp, #1128]
-    0.05 :    3908:   b.le    3ac4 <warpx_esirkepov_deposition_fp64+0x3224>
-    0.01 :    390c:   cmp     x26, #0x0
+    0.01 :    38ec:   bl      750 <malloc@plt>
+    0.05 :    38f0:   cmp     x25, #0x0
+    0.02 :    38f4:   str     x0, [sp, #536]
+    0.02 :    38f8:   ldr     x5, [sp, #160]
+    0.01 :    38fc:   ldr     x7, [sp, #672]
+    0.02 :    3900:   ldr     x6, [sp, #832]
+    0.02 :    3904:   ldr     x3, [sp, #1128]
+    0.01 :    3908:   b.le    3ac4 <warpx_esirkepov_deposition_fp64+0x3224>
+    0.03 :    390c:   cmp     x26, #0x0
     0.00 :    3910:   b.le    3ac4 <warpx_esirkepov_deposition_fp64+0x3224>
-    0.01 :    3914:   adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
+    0.02 :    3914:   adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.02 :    3918:   ldr     x1, [sp, #168]
     0.00 :    391c:   lsr     x9, x26, #1
     0.02 :    3920:   mov     x13, #0x0                       // #0
     0.00 :    3924:   sub     x16, x26, #0x1
-    0.01 :    3928:   ldr     x2, [sp, #704]
+    0.02 :    3928:   ldr     x2, [sp, #704]
     0.00 :    392c:   and     x15, x26, #0x1
-    0.02 :    3930:   and     x17, x26, #0xfffffffffffffffe
-    0.04 :    3934:   ldr     q23, [x0, #3328]
+    0.01 :    3930:   and     x17, x26, #0xfffffffffffffffe
+    0.02 :    3934:   ldr     q23, [x0, #3328]
     0.02 :    3938:   ldr     x0, [sp, #1272]
     0.00 :    393c:   add     x2, x2, x1
-    0.01 :    3940:   fmov    d21, d23
-    0.00 :    3944:   add     x0, x1, x0
-    0.00 :    3948:   ldr     x1, [sp, #1336]
-    0.01 :    394c:   lsl     x12, x0, #3
-    0.03 :    3950:   add     x8, x0, x1
-    0.03 :    3954:   ldr     x1, [sp, #176]
-    0.00 :    3958:   lsl     x14, x8, #3
-    0.02 :    395c:   ldr     x0, [sp, #208]
+    0.02 :    3940:   fmov    d21, d23
+    0.01 :    3944:   add     x0, x1, x0
+    0.01 :    3948:   ldr     x1, [sp, #1336]
+    0.00 :    394c:   lsl     x12, x0, #3
+    0.02 :    3950:   add     x8, x0, x1
+    0.01 :    3954:   ldr     x1, [sp, #176]
+    0.01 :    3958:   lsl     x14, x8, #3
+    0.01 :    395c:   ldr     x0, [sp, #208]
     0.02 :    3960:   add     x4, x1, x2, lsl #3
     0.00 :    3964:   adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.03 :    3968:   ldr     q24, [x1, #3488]
     0.00 :    396c:   add     x2, x0, x2, lsl #3
-    0.02 :    3970:   lsl     x0, x9, #4
+    0.03 :    3970:   lsl     x0, x9, #4
     0.00 :    3974:   fmov    d22, d24
-    0.05 :    3978:   ldr     x1, [sp, #192]
-    0.02 :    397c:   ldr     d28, [x1, x12]
-    0.07 :    3980:   ldr     x1, [sp, #184]
-    0.03 :    3984:   ldr     d30, [x1, x12]
-    0.10 :    3988:   cmp     x16, #0x2
+    0.07 :    3978:   ldr     x1, [sp, #192]
+    0.05 :    397c:   ldr     d28, [x1, x12]
+    0.10 :    3980:   ldr     x1, [sp, #184]
+    0.06 :    3984:   ldr     d30, [x1, x12]
+    0.09 :    3988:   cmp     x16, #0x2
     0.00 :    398c:   b.ls    4a30 <warpx_esirkepov_deposition_fp64+0x4190>  // b.plast
-    0.10 :    3990:   dup     v25.2d, v28.d[0]
-    0.00 :    3994:   dup     v26.2d, v30.d[0]
-    0.09 :    3998:   ldr     x1, [sp, #536]
-    0.01 :    399c:   add     x8, x1, x13, lsl #3
-    0.05 :    39a0:   mov     x1, #0x0                        // #0
-    0.13 :    39a4:   ldr     q20, [x4, x1]
-    0.23 :    39a8:   ldr     q27, [x2, x1]
-    0.17 :    39ac:   fmul    v31.2d, v26.2d, v20.2d
-    0.02 :    39b0:   fmul    v19.2d, v26.2d, v27.2d
+    0.09 :    3990:   dup     v25.2d, v28.d[0]
+    0.01 :    3994:   dup     v26.2d, v30.d[0]
+    0.12 :    3998:   ldr     x1, [sp, #536]
+    0.03 :    399c:   add     x8, x1, x13, lsl #3
+    0.06 :    39a0:   mov     x1, #0x0                        // #0
+    0.15 :    39a4:   ldr     q20, [x4, x1]
+    0.19 :    39a8:   ldr     q27, [x2, x1]
+    0.14 :    39ac:   fmul    v31.2d, v26.2d, v20.2d
+    0.07 :    39b0:   fmul    v19.2d, v26.2d, v27.2d
     0.12 :    39b4:   fmla    v31.2d, v25.2d, v27.2d
-    0.08 :    39b8:   mov     v27.16b, v19.16b
-    0.08 :    39bc:   fmla    v27.2d, v25.2d, v20.2d
-    0.17 :    39c0:   fmul    v31.2d, v31.2d, v23.2d
-    0.10 :    39c4:   fmla    v31.2d, v27.2d, v24.2d
-    0.12 :    39c8:   str     q31, [x8, x1]
-    0.18 :    39cc:   add     x1, x1, #0x10
-    0.12 :    39d0:   cmp     x0, x1
-    0.00 :    39d4:   b.ne    39a4 <warpx_esirkepov_deposition_fp64+0x3104>  // b.any
-    0.12 :    39d8:   cbz     x15, 3e60 <warpx_esirkepov_deposition_fp64+0x35c0>
+    0.06 :    39b8:   mov     v27.16b, v19.16b
+    0.17 :    39bc:   fmla    v27.2d, v25.2d, v20.2d
+    0.19 :    39c0:   fmul    v31.2d, v31.2d, v23.2d
+    0.09 :    39c4:   fmla    v31.2d, v27.2d, v24.2d
+    0.17 :    39c8:   str     q31, [x8, x1]
+    0.09 :    39cc:   add     x1, x1, #0x10
+    0.19 :    39d0:   cmp     x0, x1
+    0.01 :    39d4:   b.ne    39a4 <warpx_esirkepov_deposition_fp64+0x3104>  // b.any
+    0.06 :    39d8:   cbz     x15, 3e60 <warpx_esirkepov_deposition_fp64+0x35c0>
     0.01 :    39dc:   mov     x9, x17
     0.02 :    39e0:   ldr     x1, [sp, #704]
     0.00 :    39e4:   add     x11, x13, x9
     0.02 :    39e8:   add     x10, x9, #0x1
     0.02 :    39ec:   ldp     x18, x25, [sp, #168]
     0.02 :    39f0:   add     x8, x9, x1
-    0.02 :    39f4:   ldr     x30, [sp, #208]
-    0.01 :    39f8:   add     x8, x8, x18
-    0.01 :    39fc:   lsl     x8, x8, #3
-    0.04 :    3a00:   ldr     d26, [x25, x8]
-    0.08 :    3a04:   ldr     d25, [x30, x8]
-    0.04 :    3a08:   ldr     x8, [sp, #536]
-    0.03 :    3a0c:   fmul    d31, d30, d26
-    0.01 :    3a10:   fmul    d27, d25, d30
-    0.02 :    3a14:   fmadd   d31, d25, d28, d31
+    0.01 :    39f4:   ldr     x30, [sp, #208]
+    0.00 :    39f8:   add     x8, x8, x18
+    0.02 :    39fc:   lsl     x8, x8, #3
+    0.03 :    3a00:   ldr     d26, [x25, x8]
+    0.11 :    3a04:   ldr     d25, [x30, x8]
+    0.06 :    3a08:   ldr     x8, [sp, #536]
+    0.02 :    3a0c:   fmul    d31, d30, d26
+    0.00 :    3a10:   fmul    d27, d25, d30
+    0.04 :    3a14:   fmadd   d31, d25, d28, d31
     0.00 :    3a18:   fmadd   d27, d26, d28, d27
-    0.03 :    3a1c:   fmul    d31, d31, d21
-    0.02 :    3a20:   fmadd   d31, d27, d22, d31
-    0.03 :    3a24:   str     d31, [x8, x11, lsl #3]
-    0.01 :    3a28:   cmp     x10, x26
+    0.05 :    3a1c:   fmul    d31, d31, d21
+    0.04 :    3a20:   fmadd   d31, d27, d22, d31
+    0.02 :    3a24:   str     d31, [x8, x11, lsl #3]
+    0.03 :    3a28:   cmp     x10, x26
     0.00 :    3a2c:   b.ge    3ab4 <warpx_esirkepov_deposition_fp64+0x3214>  // b.tcont
     0.00 :    3a30:   add     x8, x10, x1
     0.00 :    3a34:   mov     x11, x18
@@ -3213,259 +3213,259 @@
     0.00 :    3aa8:   fmul    d31, d31, d21
     0.00 :    3aac:   fmadd   d31, d30, d22, d31
     0.00 :    3ab0:   str     d31, [x30, x9, lsl #3]
-    0.01 :    3ab4:   add     x12, x12, #0x8
+    0.02 :    3ab4:   add     x12, x12, #0x8
     0.00 :    3ab8:   add     x13, x13, x26
     0.02 :    3abc:   cmp     x14, x12
     0.00 :    3ac0:   b.ne    3978 <warpx_esirkepov_deposition_fp64+0x30d8>  // b.any
     0.02 :    3ac4:   ldr     x0, [sp, #1104]
-    0.00 :    3ac8:   str     x5, [sp, #672]
+    0.01 :    3ac8:   str     x5, [sp, #672]
     0.01 :    3acc:   str     x7, [sp, #832]
     0.02 :    3ad0:   str     x6, [sp, #1128]
-    0.02 :    3ad4:   str     x3, [sp, #1136]
-    0.01 :    3ad8:   bl      770 <free@plt>
+    0.00 :    3ad4:   str     x3, [sp, #1136]
+    0.02 :    3ad8:   bl      770 <free@plt>
     0.04 :    3adc:   ldr     x1, [sp, #632]
-    0.02 :    3ae0:   ldr     x0, [sp, #968]
+    0.01 :    3ae0:   ldr     x0, [sp, #968]
     0.00 :    3ae4:   sub     x25, x1, x0
     0.02 :    3ae8:   lsl     x1, x25, #3
     0.01 :    3aec:   mov     x0, x1
-    0.01 :    3af0:   str     x1, [sp, #160]
-    0.01 :    3af4:   bl      750 <malloc@plt>
-    0.01 :    3af8:   cmp     x25, #0x0
-    0.01 :    3afc:   str     x0, [sp, #1104]
-    0.02 :    3b00:   mov     x1, x0
-    0.04 :    3b04:   ldr     x5, [sp, #672]
-    0.03 :    3b08:   ldr     x7, [sp, #832]
-    0.03 :    3b0c:   ldr     x6, [sp, #1128]
-    0.03 :    3b10:   ldr     x3, [sp, #1136]
-    0.00 :    3b14:   b.le    e390 <warpx_esirkepov_deposition_fp64+0xdaf0>
+    0.03 :    3af0:   str     x1, [sp, #160]
+    0.02 :    3af4:   bl      750 <malloc@plt>
+    0.03 :    3af8:   cmp     x25, #0x0
+    0.02 :    3afc:   str     x0, [sp, #1104]
+    0.01 :    3b00:   mov     x1, x0
+    0.02 :    3b04:   ldr     x5, [sp, #672]
+    0.01 :    3b08:   ldr     x7, [sp, #832]
+    0.02 :    3b0c:   ldr     x6, [sp, #1128]
+    0.02 :    3b10:   ldr     x3, [sp, #1136]
+    0.02 :    3b14:   b.le    e390 <warpx_esirkepov_deposition_fp64+0xdaf0>
     0.03 :    3b18:   ldr     d31, [sp, #1568]
-    0.02 :    3b1c:   fmul    d30, d31, d15
+    0.01 :    3b1c:   fmul    d30, d31, d15
     0.01 :    3b20:   cmp     x25, #0x1
     0.00 :    3b24:   b.eq    f7dc <warpx_esirkepov_deposition_fp64+0xef3c>  // b.none
     0.02 :    3b28:   ldr     x2, [sp, #168]
-    0.01 :    3b2c:   dup     v28.2d, v30.d[0]
+    0.02 :    3b2c:   dup     v28.2d, v30.d[0]
     0.01 :    3b30:   lsr     x4, x25, #1
-    0.01 :    3b34:   lsl     x4, x4, #4
+    0.02 :    3b34:   lsl     x4, x4, #4
     0.02 :    3b38:   ldr     x0, [sp, #968]
     0.02 :    3b3c:   ldr     x9, [sp, #552]
-    0.01 :    3b40:   ldr     x8, [sp, #560]
+    0.02 :    3b40:   ldr     x8, [sp, #560]
     0.00 :    3b44:   add     x2, x0, x2
     0.02 :    3b48:   mov     x0, #0x0                        // #0
     0.02 :    3b4c:   add     x8, x8, x2, lsl #3
     0.01 :    3b50:   add     x2, x9, x2, lsl #3
     0.01 :    3b54:   nop
-    0.01 :    3b58:   nop
-    0.02 :    3b5c:   nop
-    0.01 :    3b60:   ldr     q31, [x8, x0]
-    0.14 :    3b64:   ldr     q27, [x2, x0]
-    0.29 :    3b68:   fsub    v31.2d, v31.2d, v27.2d
+    0.00 :    3b58:   nop
+    0.00 :    3b5c:   nop
+    0.02 :    3b60:   ldr     q31, [x8, x0]
+    0.15 :    3b64:   ldr     q27, [x2, x0]
+    0.32 :    3b68:   fsub    v31.2d, v31.2d, v27.2d
     0.00 :    3b6c:   fmul    v31.2d, v31.2d, v28.2d
-    0.02 :    3b70:   str     q31, [x1, x0]
-    0.04 :    3b74:   add     x0, x0, #0x10
-    0.01 :    3b78:   cmp     x0, x4
+    0.01 :    3b70:   str     q31, [x1, x0]
+    0.01 :    3b74:   add     x0, x0, #0x10
+    0.00 :    3b78:   cmp     x0, x4
     0.00 :    3b7c:   b.ne    3b60 <warpx_esirkepov_deposition_fp64+0x32c0>  // b.any
-    0.04 :    3b80:   and     x4, x25, #0xfffffffffffffffe
-    0.01 :    3b84:   tbz     w25, #0, 72b4 <warpx_esirkepov_deposition_fp64+0x6a14>
+    0.01 :    3b80:   and     x4, x25, #0xfffffffffffffffe
+    0.00 :    3b84:   tbz     w25, #0, 72b4 <warpx_esirkepov_deposition_fp64+0x6a14>
     0.01 :    3b88:   ldr     x0, [sp, #968]
     0.01 :    3b8c:   str     x5, [sp, #672]
-    0.01 :    3b90:   ldr     x1, [sp, #168]
+    0.00 :    3b90:   ldr     x1, [sp, #168]
     0.01 :    3b94:   str     x7, [sp, #832]
-    0.01 :    3b98:   str     x6, [sp, #1128]
+    0.02 :    3b98:   str     x6, [sp, #1128]
     0.01 :    3b9c:   add     x2, x4, x0
     0.02 :    3ba0:   ldr     x0, [sp, #1072]
-    0.01 :    3ba4:   str     x3, [sp, #1136]
-    0.02 :    3ba8:   add     x2, x2, x1
+    0.00 :    3ba4:   str     x3, [sp, #1136]
+    0.03 :    3ba8:   add     x2, x2, x1
     0.01 :    3bac:   ldr     x1, [sp, #560]
-    0.00 :    3bb0:   lsl     x2, x2, #3
-    0.01 :    3bb4:   ldr     d31, [x1, x2]
-    0.01 :    3bb8:   ldr     x1, [sp, #552]
-    0.00 :    3bbc:   ldr     d28, [x1, x2]
-    0.01 :    3bc0:   ldr     x1, [sp, #1104]
+    0.01 :    3bb0:   lsl     x2, x2, #3
+    0.00 :    3bb4:   ldr     d31, [x1, x2]
+    0.02 :    3bb8:   ldr     x1, [sp, #552]
+    0.02 :    3bbc:   ldr     d28, [x1, x2]
+    0.04 :    3bc0:   ldr     x1, [sp, #1104]
     0.01 :    3bc4:   fsub    d31, d31, d28
-    0.00 :    3bc8:   fmul    d31, d31, d30
-    0.02 :    3bcc:   str     d31, [x1, x4, lsl #3]
-    0.01 :    3bd0:   bl      770 <free@plt>
-    0.03 :    3bd4:   ldr     x0, [sp, #160]
+    0.01 :    3bc8:   fmul    d31, d31, d30
+    0.01 :    3bcc:   str     d31, [x1, x4, lsl #3]
+    0.02 :    3bd0:   bl      770 <free@plt>
+    0.02 :    3bd4:   ldr     x0, [sp, #160]
     0.02 :    3bd8:   bl      750 <malloc@plt>
-    0.03 :    3bdc:   ldr     x1, [sp, #1104]
+    0.02 :    3bdc:   ldr     x1, [sp, #1104]
     0.01 :    3be0:   cmp     x25, #0x1
-    0.02 :    3be4:   str     x0, [sp, #1072]
-    0.03 :    3be8:   ldr     x5, [sp, #672]
-    0.04 :    3bec:   ldr     x7, [sp, #832]
-    0.01 :    3bf0:   ldr     d31, [x1]
+    0.01 :    3be4:   str     x0, [sp, #1072]
+    0.01 :    3be8:   ldr     x5, [sp, #672]
+    0.02 :    3bec:   ldr     x7, [sp, #832]
+    0.02 :    3bf0:   ldr     d31, [x1]
     0.01 :    3bf4:   ldr     x6, [sp, #1128]
-    0.02 :    3bf8:   ldr     x3, [sp, #1136]
+    0.01 :    3bf8:   ldr     x3, [sp, #1136]
     0.02 :    3bfc:   str     d31, [x0]
     0.02 :    3c00:   b.eq    3c28 <warpx_esirkepov_deposition_fp64+0x3388>  // b.none
-    0.02 :    3c04:   ldr     x2, [sp, #1072]
+    0.01 :    3c04:   ldr     x2, [sp, #1072]
     0.01 :    3c08:   mov     x0, #0x1                        // #1
-    0.01 :    3c0c:   ldr     x1, [sp, #1104]
-    0.06 :    3c10:   ldr     d30, [x1, x0, lsl #3]
+    0.03 :    3c0c:   ldr     x1, [sp, #1104]
+    0.05 :    3c10:   ldr     d30, [x1, x0, lsl #3]
     0.04 :    3c14:   fadd    d31, d31, d30
-    0.03 :    3c18:   str     d31, [x2, x0, lsl #3]
-    0.08 :    3c1c:   add     x0, x0, #0x1
-    0.04 :    3c20:   cmp     x25, x0
+    0.01 :    3c18:   str     d31, [x2, x0, lsl #3]
+    0.07 :    3c1c:   add     x0, x0, #0x1
+    0.07 :    3c20:   cmp     x25, x0
     0.01 :    3c24:   b.ne    3c10 <warpx_esirkepov_deposition_fp64+0x3370>  // b.any
-    0.01 :    3c28:   ldr     x1, [sp, #1368]
-    0.04 :    3c2c:   ldr     x0, [sp, #1424]
-    0.00 :    3c30:   add     x1, x1, x0
+    0.03 :    3c28:   ldr     x1, [sp, #1368]
+    0.03 :    3c2c:   ldr     x0, [sp, #1424]
+    0.01 :    3c30:   add     x1, x1, x0
     0.02 :    3c34:   str     x1, [sp, #832]
-    0.02 :    3c38:   ldr     x1, [sp, #1272]
+    0.03 :    3c38:   ldr     x1, [sp, #1272]
     0.02 :    3c3c:   cmp     x1, x0
-    0.01 :    3c40:   b.ge    4324 <warpx_esirkepov_deposition_fp64+0x3a84>  // b.tcont
-    0.03 :    3c44:   ldr     x0, [sp, #1120]
-    0.03 :    3c48:   ldr     x1, [sp, #1352]
-    0.03 :    3c4c:   add     x14, x0, x1
-    0.02 :    3c50:   ldr     x0, [sp, #968]
-    0.04 :    3c54:   ldr     x1, [sp, #632]
-    0.00 :    3c58:   add     x8, x0, x14
-    0.04 :    3c5c:   str     x8, [sp, #1256]
+    0.00 :    3c40:   b.ge    4324 <warpx_esirkepov_deposition_fp64+0x3a84>  // b.tcont
+    0.02 :    3c44:   ldr     x0, [sp, #1120]
+    0.01 :    3c48:   ldr     x1, [sp, #1352]
+    0.01 :    3c4c:   add     x14, x0, x1
+    0.03 :    3c50:   ldr     x0, [sp, #968]
+    0.02 :    3c54:   ldr     x1, [sp, #632]
+    0.01 :    3c58:   add     x8, x0, x14
+    0.01 :    3c5c:   str     x8, [sp, #1256]
     0.02 :    3c60:   add     x14, x1, x14
     0.02 :    3c64:   cmp     x0, x1
     0.00 :    3c68:   b.ge    4324 <warpx_esirkepov_deposition_fp64+0x3a84>  // b.tcont
-    0.01 :    3c6c:   ldr     x0, [sp, #704]
+    0.02 :    3c6c:   ldr     x0, [sp, #704]
     0.01 :    3c70:   ldr     x9, [sp, #1264]
-    0.02 :    3c74:   cmp     x0, x9
+    0.01 :    3c74:   cmp     x0, x9
     0.00 :    3c78:   b.ge    4324 <warpx_esirkepov_deposition_fp64+0x3a84>  // b.tcont
-    0.01 :    3c7c:   ldr     x1, [sp, #712]
-    0.02 :    3c80:   mul     x25, x5, x24
-    0.02 :    3c84:   sub     x12, x26, #0x1
-    0.01 :    3c88:   mov     x30, #0x0                       // #0
-    0.01 :    3c8c:   ldr     x2, [sp, #1008]
+    0.03 :    3c7c:   ldr     x1, [sp, #712]
+    0.01 :    3c80:   mul     x25, x5, x24
+    0.01 :    3c84:   sub     x12, x26, #0x1
+    0.00 :    3c88:   mov     x30, #0x0                       // #0
+    0.02 :    3c8c:   ldr     x2, [sp, #1008]
     0.01 :    3c90:   str     x12, [sp, #1264]
-    0.04 :    3c94:   ldr     x11, [sp, #1360]
+    0.02 :    3c94:   ldr     x11, [sp, #1360]
     0.01 :    3c98:   nop
     0.00 :    3c9c:   madd    x4, x1, x24, x8
-    0.02 :    3ca0:   ldr     x10, [sp, #1408]
+    0.00 :    3ca0:   ldr     x10, [sp, #1408]
     0.00 :    3ca4:   lsl     x2, x2, #4
-    0.01 :    3ca8:   ldr     x16, [sp, #1072]
-    0.01 :    3cac:   mul     x15, x4, x24
+    0.02 :    3ca8:   ldr     x16, [sp, #1072]
+    0.02 :    3cac:   mul     x15, x4, x24
     0.01 :    3cb0:   sub     x2, x2, #0x8
     0.00 :    3cb4:   lsl     x4, x26, #3
-    0.02 :    3cb8:   str     x4, [sp, #1216]
-    0.02 :    3cbc:   lsl     x4, x25, #3
+    0.03 :    3cb8:   str     x4, [sp, #1216]
+    0.03 :    3cbc:   lsl     x4, x25, #3
     0.01 :    3cc0:   add     x13, x10, x11
-    0.01 :    3cc4:   mul     x10, x24, x2
+    0.00 :    3cc4:   mul     x10, x24, x2
     0.02 :    3cc8:   str     x15, [sp, #672]
-    0.01 :    3ccc:   add     x11, x0, x13
+    0.00 :    3ccc:   add     x11, x0, x13
     0.03 :    3cd0:   ldr     x0, [sp, #536]
     0.00 :    3cd4:   add     x13, x9, x13
-    0.01 :    3cd8:   sub     x16, x16, x8, lsl #3
+    0.02 :    3cd8:   sub     x16, x16, x8, lsl #3
     0.01 :    3cdc:   add     x8, x11, x15
-    0.01 :    3ce0:   lsl     x9, x5, #4
-    0.01 :    3ce4:   mul     x10, x10, x24
-    0.01 :    3ce8:   str     x11, [sp, #1240]
-    0.23 :    3cec:   nop
+    0.02 :    3ce0:   lsl     x9, x5, #4
+    0.03 :    3ce4:   mul     x10, x10, x24
+    0.03 :    3ce8:   str     x11, [sp, #1240]
+    0.22 :    3cec:   nop
     0.00 :    3cf0:   madd    x8, x8, x2, x22
-    0.08 :    3cf4:   str     x10, [sp, #1248]
+    0.07 :    3cf4:   str     x10, [sp, #1248]
     0.07 :    3cf8:   sub     x0, x0, x11, lsl #3
-    0.01 :    3cfc:   str     x8, [sp, #632]
-    0.04 :    3d00:   cmp     x12, #0x3
+    0.02 :    3cfc:   str     x8, [sp, #632]
+    0.06 :    3d00:   cmp     x12, #0x3
     0.00 :    3d04:   b.ls    3e14 <warpx_esirkepov_deposition_fp64+0x3574>  // b.plast
     0.01 :    3d08:   ldr     x10, [sp, #536]
-    0.01 :    3d0c:   and     x15, x26, #0xfffffffffffffffe
-    0.02 :    3d10:   lsr     x8, x26, #1
+    0.00 :    3d0c:   and     x15, x26, #0xfffffffffffffffe
+    0.03 :    3d10:   lsr     x8, x26, #1
     0.01 :    3d14:   add     x25, x15, x30
-    0.04 :    3d18:   and     x18, x26, #0x1
+    0.02 :    3d18:   and     x18, x26, #0x1
     0.02 :    3d1c:   str     x1, [sp, #1128]
-    0.02 :    3d20:   ldr     x11, [sp, #1240]
-    0.04 :    3d24:   str     x21, [sp, #1136]
-    0.01 :    3d28:   ldr     x12, [sp, #672]
-    0.03 :    3d2c:   add     x17, x10, x30, lsl #3
-    0.28 :    3d30:   str     x28, [sp, #1144]
-    0.01 :    3d34:   add     x25, x10, x25, lsl #3
-    0.04 :    3d38:   ldr     x10, [sp, #1256]
+    0.04 :    3d20:   ldr     x11, [sp, #1240]
+    0.03 :    3d24:   str     x21, [sp, #1136]
+    0.00 :    3d28:   ldr     x12, [sp, #672]
+    0.02 :    3d2c:   add     x17, x10, x30, lsl #3
+    0.23 :    3d30:   str     x28, [sp, #1144]
+    0.02 :    3d34:   add     x25, x10, x25, lsl #3
+    0.02 :    3d38:   ldr     x10, [sp, #1256]
     0.01 :    3d3c:   add     x15, x15, x11
     0.00 :    3d40:   add     x8, x17, x8, lsl #4
-    0.02 :    3d44:   ldr     x11, [sp, #632]
+    0.00 :    3d44:   ldr     x11, [sp, #632]
     0.05 :    3d48:   mov     x1, x11
-    0.16 :    3d4c:   mov     x21, x17
-    0.10 :    3d50:   str     x0, [sp, #160]
-    0.05 :    3d54:   ldr     d30, [x16, x10, lsl #3]
-    0.13 :    3d58:   dup     v28.2d, v30.d[0]
-    0.02 :    3d5c:   nop
-    0.18 :    3d60:   ldr     d31, [x1]
-    0.88 :    3d64:   add     x28, x1, x2
-    1.14 :    3d68:   ldr     q27, [x21], #16
-    0.20 :    3d6c:   ld1     {v31.d}[1], [x28]
-    0.24 :    3d70:   fmla    v31.2d, v27.2d, v28.2d
+    0.14 :    3d4c:   mov     x21, x17
+    0.06 :    3d50:   str     x0, [sp, #160]
+    0.04 :    3d54:   ldr     d30, [x16, x10, lsl #3]
+    0.07 :    3d58:   dup     v28.2d, v30.d[0]
+    0.01 :    3d5c:   nop
+    0.15 :    3d60:   ldr     d31, [x1]
+    0.89 :    3d64:   add     x28, x1, x2
+    1.30 :    3d68:   ldr     q27, [x21], #16
+    0.16 :    3d6c:   ld1     {v31.d}[1], [x28]
+    0.29 :    3d70:   fmla    v31.2d, v27.2d, v28.2d
     0.57 :    3d74:   str     d31, [x1]
-    0.15 :    3d78:   add     x1, x1, x9
-    0.18 :    3d7c:   st1     {v31.d}[1], [x28]
-    0.29 :    3d80:   cmp     x21, x8
+    0.07 :    3d78:   add     x1, x1, x9
+    0.11 :    3d7c:   st1     {v31.d}[1], [x28]
+    0.28 :    3d80:   cmp     x21, x8
     0.00 :    3d84:   b.ne    3d60 <warpx_esirkepov_deposition_fp64+0x34c0>  // b.any
-    0.10 :    3d88:   ldr     x0, [sp, #160]
-    0.13 :    3d8c:   cbz     x18, 3dac <warpx_esirkepov_deposition_fp64+0x350c>
-    0.11 :    3d90:   add     x1, x12, x15
+    0.05 :    3d88:   ldr     x0, [sp, #160]
+    0.07 :    3d8c:   cbz     x18, 3dac <warpx_esirkepov_deposition_fp64+0x350c>
+    0.07 :    3d90:   add     x1, x12, x15
     0.11 :    3d94:   ldr     d28, [x25]
-    0.06 :    3d98:   mul     x1, x1, x5
-    0.08 :    3d9c:   lsl     x1, x1, #3
-    0.10 :    3da0:   ldr     d31, [x22, x1]
-    0.39 :    3da4:   fmadd   d31, d30, d28, d31
-    0.07 :    3da8:   str     d31, [x22, x1]
+    0.02 :    3d98:   mul     x1, x1, x5
+    0.09 :    3d9c:   lsl     x1, x1, #3
+    0.05 :    3da0:   ldr     d31, [x22, x1]
+    0.45 :    3da4:   fmadd   d31, d30, d28, d31
+    0.04 :    3da8:   str     d31, [x22, x1]
     0.07 :    3dac:   add     x10, x10, #0x1
-    0.04 :    3db0:   add     x12, x12, x24
-    0.05 :    3db4:   add     x11, x11, x4
-    0.08 :    3db8:   cmp     x10, x14
-    0.01 :    3dbc:   b.lt    3d48 <warpx_esirkepov_deposition_fp64+0x34a8>  // b.tstop
+    0.03 :    3db0:   add     x12, x12, x24
+    0.03 :    3db4:   add     x11, x11, x4
+    0.06 :    3db8:   cmp     x10, x14
+    0.00 :    3dbc:   b.lt    3d48 <warpx_esirkepov_deposition_fp64+0x34a8>  // b.tstop
     0.02 :    3dc0:   ldr     x1, [sp, #1128]
-    0.00 :    3dc4:   ldr     x21, [sp, #1136]
-    0.02 :    3dc8:   ldr     x28, [sp, #1144]
-    0.05 :    3dcc:   add     x1, x1, #0x1
-    0.08 :    3dd0:   add     x30, x30, x26
-    0.08 :    3dd4:   ldr     x8, [sp, #1216]
+    0.03 :    3dc4:   ldr     x21, [sp, #1136]
+    0.03 :    3dc8:   ldr     x28, [sp, #1144]
+    0.03 :    3dcc:   add     x1, x1, #0x1
+    0.03 :    3dd0:   add     x30, x30, x26
+    0.09 :    3dd4:   ldr     x8, [sp, #1216]
     0.11 :    3dd8:   ldr     x10, [sp, #1248]
-    0.03 :    3ddc:   add     x0, x0, x8
-    0.07 :    3de0:   ldr     x8, [sp, #632]
-    0.04 :    3de4:   add     x8, x8, x10
-    0.11 :    3de8:   ldr     x10, [sp, #584]
-    0.08 :    3dec:   str     x8, [sp, #632]
-    0.18 :    3df0:   ldr     x8, [sp, #672]
-    0.05 :    3df4:   add     x8, x8, x10
-    0.05 :    3df8:   str     x8, [sp, #672]
-    0.07 :    3dfc:   ldr     x8, [sp, #832]
-    0.10 :    3e00:   cmp     x1, x8
-    0.01 :    3e04:   b.ge    4324 <warpx_esirkepov_deposition_fp64+0x3a84>  // b.tcont
-    0.09 :    3e08:   ldr     x8, [sp, #1264]
-    0.09 :    3e0c:   cmp     x8, #0x3
+    0.07 :    3ddc:   add     x0, x0, x8
+    0.10 :    3de0:   ldr     x8, [sp, #632]
+    0.03 :    3de4:   add     x8, x8, x10
+    0.09 :    3de8:   ldr     x10, [sp, #584]
+    0.06 :    3dec:   str     x8, [sp, #632]
+    0.10 :    3df0:   ldr     x8, [sp, #672]
+    0.07 :    3df4:   add     x8, x8, x10
+    0.10 :    3df8:   str     x8, [sp, #672]
+    0.09 :    3dfc:   ldr     x8, [sp, #832]
+    0.11 :    3e00:   cmp     x1, x8
+    0.00 :    3e04:   b.ge    4324 <warpx_esirkepov_deposition_fp64+0x3a84>  // b.tcont
+    0.07 :    3e08:   ldr     x8, [sp, #1264]
+    0.06 :    3e0c:   cmp     x8, #0x3
     0.01 :    3e10:   b.hi    3d08 <warpx_esirkepov_deposition_fp64+0x3468>  // b.pmore
-    0.05 :    3e14:   ldr     x12, [sp, #632]
-    0.80 :    3e18:   ldr     x15, [sp, #1240]
-    0.05 :    3e1c:   ldr     x11, [sp, #1256]
-    0.16 :    3e20:   mov     x10, x12
-    0.24 :    3e24:   mov     x8, x15
-    0.17 :    3e28:   ldr     d28, [x16, x11, lsl #3]
-    0.97 :    3e2c:   ldr     d31, [x10]
-    7.20 :    3e30:   ldr     d30, [x0, x8, lsl #3]
-    0.24 :    3e34:   add     x8, x8, #0x1
-    0.71 :    3e38:   fmadd   d31, d30, d28, d31
-    0.67 :    3e3c:   str     d31, [x10]
-    0.78 :    3e40:   add     x10, x10, x2
-    0.75 :    3e44:   cmp     x8, x13
-    0.02 :    3e48:   b.lt    3e2c <warpx_esirkepov_deposition_fp64+0x358c>  // b.tstop
-    0.21 :    3e4c:   add     x11, x11, #0x1
-    0.14 :    3e50:   add     x12, x12, x4
-    0.18 :    3e54:   cmp     x11, x14
+    0.08 :    3e14:   ldr     x12, [sp, #632]
+    0.77 :    3e18:   ldr     x15, [sp, #1240]
+    0.06 :    3e1c:   ldr     x11, [sp, #1256]
+    0.24 :    3e20:   mov     x10, x12
+    0.18 :    3e24:   mov     x8, x15
+    0.14 :    3e28:   ldr     d28, [x16, x11, lsl #3]
+    0.85 :    3e2c:   ldr     d31, [x10]
+    7.65 :    3e30:   ldr     d30, [x0, x8, lsl #3]
+    0.23 :    3e34:   add     x8, x8, #0x1
+    0.83 :    3e38:   fmadd   d31, d30, d28, d31
+    0.71 :    3e3c:   str     d31, [x10]
+    0.74 :    3e40:   add     x10, x10, x2
+    0.69 :    3e44:   cmp     x8, x13
+    0.04 :    3e48:   b.lt    3e2c <warpx_esirkepov_deposition_fp64+0x358c>  // b.tstop
+    0.15 :    3e4c:   add     x11, x11, #0x1
+    0.18 :    3e50:   add     x12, x12, x4
+    0.25 :    3e54:   cmp     x11, x14
     0.00 :    3e58:   b.lt    3e20 <warpx_esirkepov_deposition_fp64+0x3580>  // b.tstop
-    0.02 :    3e5c:   b       3dcc <warpx_esirkepov_deposition_fp64+0x352c>
+    0.05 :    3e5c:   b       3dcc <warpx_esirkepov_deposition_fp64+0x352c>
     0.06 :    3e60:   add     x12, x12, #0x8
-    0.04 :    3e64:   add     x13, x13, x26
+    0.03 :    3e64:   add     x13, x13, x26
     0.05 :    3e68:   cmp     x14, x12
     0.00 :    3e6c:   b.eq    3ac4 <warpx_esirkepov_deposition_fp64+0x3224>  // b.none
-    0.02 :    3e70:   ldr     x1, [sp, #192]
-    0.04 :    3e74:   ldr     d28, [x1, x12]
-    0.09 :    3e78:   ldr     x1, [sp, #184]
-    0.04 :    3e7c:   ldr     d30, [x1, x12]
-    0.10 :    3e80:   b       3990 <warpx_esirkepov_deposition_fp64+0x30f0>
-    0.05 :    3e84:   add     x12, x12, #0x8
-    0.02 :    3e88:   add     x13, x13, x26
-    0.09 :    3e8c:   cmp     x12, x14
+    0.07 :    3e70:   ldr     x1, [sp, #192]
+    0.05 :    3e74:   ldr     d28, [x1, x12]
+    0.18 :    3e78:   ldr     x1, [sp, #184]
+    0.02 :    3e7c:   ldr     d30, [x1, x12]
+    0.20 :    3e80:   b       3990 <warpx_esirkepov_deposition_fp64+0x30f0>
+    0.07 :    3e84:   add     x12, x12, #0x8
+    0.03 :    3e88:   add     x13, x13, x26
+    0.08 :    3e8c:   cmp     x12, x14
     0.00 :    3e90:   b.eq    3560 <warpx_esirkepov_deposition_fp64+0x2cc0>  // b.none
-    0.04 :    3e94:   ldr     x1, [sp, #552]
-    0.05 :    3e98:   ldr     d28, [x1, x12]
-    0.15 :    3e9c:   ldr     x1, [sp, #560]
+    0.07 :    3e94:   ldr     x1, [sp, #552]
+    0.06 :    3e98:   ldr     d28, [x1, x12]
+    0.18 :    3e9c:   ldr     x1, [sp, #560]
     0.04 :    3ea0:   ldr     d30, [x1, x12]
-    0.30 :    3ea4:   b       3420 <warpx_esirkepov_deposition_fp64+0x2b80>
+    0.13 :    3ea4:   b       3420 <warpx_esirkepov_deposition_fp64+0x2b80>
     0.00 :    3ea8:   ldr     x28, [sp, #832]
     0.00 :    3eac:   str     x21, [sp, #728]
     0.00 :    3eb0:   ldr     x21, [sp, #712]
@@ -3688,7 +3688,7 @@
     0.00 :    4214:   bl      770 <free@plt>
     0.00 :    4218:   ldr     x0, [sp, #208]
     0.00 :    421c:   bl      770 <free@plt>
-    0.00 :    4220:   ldr     x0, [sp, #416]
+    0.01 :    4220:   ldr     x0, [sp, #416]
     0.00 :    4224:   bl      770 <free@plt>
     0.00 :    4228:   ldr     x0, [sp, #536]
     0.00 :    422c:   bl      770 <free@plt>
@@ -3729,7 +3729,7 @@
     0.00 :    42b8:   ldp     x19, x20, [sp, #16]
     0.00 :    42bc:   ldp     x21, x22, [sp, #32]
     0.00 :    42c0:   ldp     x23, x24, [sp, #48]
-    0.01 :    42c4:   ldp     x25, x26, [sp, #64]
+    0.00 :    42c4:   ldp     x25, x26, [sp, #64]
     0.00 :    42c8:   ldp     x27, x28, [sp, #80]
     0.00 :    42cc:   ldp     d8, d9, [sp, #96]
     0.00 :    42d0:   ldp     d10, d11, [sp, #112]
@@ -3753,105 +3753,105 @@
     0.00 :    4318:   ldr     x3, [sp, #744]
     0.00 :    431c:   str     d31, [x0]
     0.00 :    4320:   b       2f50 <warpx_esirkepov_deposition_fp64+0x26b0>
-    0.02 :    4324:   ldr     x1, [sp, #752]
+    0.03 :    4324:   ldr     x1, [sp, #752]
     0.01 :    4328:   str     x5, [sp, #632]
-    0.02 :    432c:   ldr     x2, [sp, #1440]
-    0.01 :    4330:   str     x7, [sp, #672]
-    0.01 :    4334:   ldr     x0, [sp, #664]
+    0.03 :    432c:   ldr     x2, [sp, #1440]
+    0.02 :    4330:   str     x7, [sp, #672]
+    0.02 :    4334:   ldr     x0, [sp, #664]
     0.02 :    4338:   str     x6, [sp, #1128]
-    0.01 :    433c:   str     x3, [sp, #1136]
-    0.01 :    4340:   sub     x1, x1, x2
-    0.04 :    4344:   str     x1, [sp, #160]
-    0.04 :    4348:   bl      770 <free@plt>
-    0.03 :    434c:   ldr     x0, [sp, #592]
-    0.03 :    4350:   ldr     x25, [sp, #1336]
+    0.02 :    433c:   str     x3, [sp, #1136]
+    0.02 :    4340:   sub     x1, x1, x2
+    0.02 :    4344:   str     x1, [sp, #160]
+    0.01 :    4348:   bl      770 <free@plt>
+    0.06 :    434c:   ldr     x0, [sp, #592]
+    0.04 :    4350:   ldr     x25, [sp, #1336]
     0.00 :    4354:   mul     x0, x0, x25
-    0.02 :    4358:   lsl     x0, x0, #3
-    0.03 :    435c:   bl      750 <malloc@plt>
+    0.01 :    4358:   lsl     x0, x0, #3
+    0.01 :    435c:   bl      750 <malloc@plt>
     0.02 :    4360:   cmp     x25, #0x0
-    0.02 :    4364:   str     x0, [sp, #664]
-    0.04 :    4368:   ldr     x5, [sp, #632]
+    0.01 :    4364:   str     x0, [sp, #664]
+    0.01 :    4368:   ldr     x5, [sp, #632]
     0.02 :    436c:   ldr     x7, [sp, #672]
-    0.03 :    4370:   ldr     x6, [sp, #1128]
+    0.01 :    4370:   ldr     x6, [sp, #1128]
     0.02 :    4374:   ldr     x3, [sp, #1136]
     0.02 :    4378:   b.le    4548 <warpx_esirkepov_deposition_fp64+0x3ca8>
     0.01 :    437c:   ldr     x1, [sp, #592]
-    0.02 :    4380:   cmp     x1, #0x0
+    0.01 :    4380:   cmp     x1, #0x0
     0.00 :    4384:   b.le    4548 <warpx_esirkepov_deposition_fp64+0x3ca8>
-    0.05 :    4388:   adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
-    0.01 :    438c:   ldr     x2, [sp, #168]
+    0.01 :    4388:   adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
+    0.00 :    438c:   ldr     x2, [sp, #168]
     0.00 :    4390:   adrp    x10, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.02 :    4394:   lsr     x9, x1, #1
-    0.02 :    4398:   mov     x13, #0x0                       // #0
-    0.01 :    439c:   ldr     x4, [sp, #968]
-    0.01 :    43a0:   sub     x16, x1, #0x1
+    0.00 :    4398:   mov     x13, #0x0                       // #0
+    0.03 :    439c:   ldr     x4, [sp, #968]
+    0.04 :    43a0:   sub     x16, x1, #0x1
     0.01 :    43a4:   and     x15, x1, #0x1
-    0.02 :    43a8:   and     x17, x1, #0xfffffffffffffffe
+    0.01 :    43a8:   and     x17, x1, #0xfffffffffffffffe
     0.01 :    43ac:   ldr     q23, [x0, #3328]
-    0.01 :    43b0:   ldr     x0, [sp, #1272]
-    0.01 :    43b4:   ldr     q24, [x10, #3488]
-    0.01 :    43b8:   fmov    d21, d23
+    0.00 :    43b0:   ldr     x0, [sp, #1272]
+    0.02 :    43b4:   ldr     q24, [x10, #3488]
+    0.03 :    43b8:   fmov    d21, d23
     0.01 :    43bc:   add     x0, x2, x0
-    0.03 :    43c0:   add     x2, x4, x2
+    0.04 :    43c0:   add     x2, x4, x2
     0.01 :    43c4:   ldr     x4, [sp, #1336]
-    0.00 :    43c8:   lsl     x12, x0, #3
+    0.02 :    43c8:   lsl     x12, x0, #3
     0.01 :    43cc:   fmov    d22, d24
-    0.02 :    43d0:   add     x8, x0, x4
-    0.02 :    43d4:   ldr     x4, [sp, #552]
+    0.01 :    43d0:   add     x8, x0, x4
+    0.04 :    43d4:   ldr     x4, [sp, #552]
     0.02 :    43d8:   lsl     x14, x8, #3
-    0.01 :    43dc:   ldr     x0, [sp, #560]
-    0.02 :    43e0:   add     x4, x4, x2, lsl #3
-    0.01 :    43e4:   add     x2, x0, x2, lsl #3
-    0.02 :    43e8:   lsl     x0, x9, #4
-    0.05 :    43ec:   ldr     x1, [sp, #192]
-    0.04 :    43f0:   ldr     d28, [x1, x12]
-    0.04 :    43f4:   ldr     x1, [sp, #184]
+    0.00 :    43dc:   ldr     x0, [sp, #560]
+    0.01 :    43e0:   add     x4, x4, x2, lsl #3
+    0.02 :    43e4:   add     x2, x0, x2, lsl #3
+    0.01 :    43e8:   lsl     x0, x9, #4
+    0.03 :    43ec:   ldr     x1, [sp, #192]
+    0.02 :    43f0:   ldr     d28, [x1, x12]
+    0.05 :    43f4:   ldr     x1, [sp, #184]
     0.02 :    43f8:   ldr     d30, [x1, x12]
-    0.04 :    43fc:   cmp     x16, #0x2
-    0.00 :    4400:   b.ls    4a28 <warpx_esirkepov_deposition_fp64+0x4188>  // b.plast
+    0.06 :    43fc:   cmp     x16, #0x2
+    0.02 :    4400:   b.ls    4a28 <warpx_esirkepov_deposition_fp64+0x4188>  // b.plast
     0.08 :    4404:   dup     v25.2d, v28.d[0]
     0.01 :    4408:   dup     v26.2d, v30.d[0]
-    0.07 :    440c:   ldr     x1, [sp, #664]
-    0.01 :    4410:   add     x8, x1, x13, lsl #3
+    0.05 :    440c:   ldr     x1, [sp, #664]
+    0.02 :    4410:   add     x8, x1, x13, lsl #3
     0.07 :    4414:   mov     x1, #0x0                        // #0
-    0.08 :    4418:   nop
-    0.03 :    441c:   nop
-    0.24 :    4420:   ldr     q20, [x4, x1]
-    0.21 :    4424:   ldr     q27, [x2, x1]
-    0.18 :    4428:   fmul    v31.2d, v26.2d, v20.2d
+    0.07 :    4418:   nop
+    0.01 :    441c:   nop
+    0.16 :    4420:   ldr     q20, [x4, x1]
+    0.14 :    4424:   ldr     q27, [x2, x1]
+    0.24 :    4428:   fmul    v31.2d, v26.2d, v20.2d
     0.02 :    442c:   fmul    v19.2d, v26.2d, v27.2d
-    0.21 :    4430:   fmla    v31.2d, v25.2d, v27.2d
-    0.06 :    4434:   mov     v27.16b, v19.16b
-    0.10 :    4438:   fmla    v27.2d, v25.2d, v20.2d
+    0.13 :    4430:   fmla    v31.2d, v25.2d, v27.2d
+    0.02 :    4434:   mov     v27.16b, v19.16b
+    0.09 :    4438:   fmla    v27.2d, v25.2d, v20.2d
     0.05 :    443c:   fmul    v31.2d, v31.2d, v23.2d
     0.19 :    4440:   fmla    v31.2d, v27.2d, v24.2d
-    0.20 :    4444:   str     q31, [x8, x1]
-    0.18 :    4448:   add     x1, x1, #0x10
-    0.16 :    444c:   cmp     x0, x1
+    0.11 :    4444:   str     q31, [x8, x1]
+    0.16 :    4448:   add     x1, x1, #0x10
+    0.14 :    444c:   cmp     x0, x1
     0.00 :    4450:   b.ne    4420 <warpx_esirkepov_deposition_fp64+0x3b80>  // b.any
     0.09 :    4454:   cbz     x15, 4838 <warpx_esirkepov_deposition_fp64+0x3f98>
-    0.01 :    4458:   mov     x9, x17
-    0.03 :    445c:   ldr     x1, [sp, #968]
+    0.03 :    4458:   mov     x9, x17
+    0.02 :    445c:   ldr     x1, [sp, #968]
     0.02 :    4460:   add     x11, x9, x13
     0.01 :    4464:   add     x10, x9, #0x1
     0.02 :    4468:   ldr     x18, [sp, #168]
     0.02 :    446c:   ldr     x25, [sp, #552]
-    0.01 :    4470:   add     x8, x1, x9
-    0.04 :    4474:   ldr     x26, [sp, #560]
+    0.00 :    4470:   add     x8, x1, x9
+    0.03 :    4474:   ldr     x26, [sp, #560]
     0.00 :    4478:   add     x8, x8, x18
     0.01 :    447c:   lsl     x8, x8, #3
-    0.02 :    4480:   ldr     x30, [sp, #664]
-    0.02 :    4484:   ldr     d26, [x25, x8]
-    0.08 :    4488:   ldr     d25, [x26, x8]
+    0.04 :    4480:   ldr     x30, [sp, #664]
+    0.03 :    4484:   ldr     d26, [x25, x8]
+    0.06 :    4488:   ldr     d25, [x26, x8]
     0.03 :    448c:   ldr     x8, [sp, #592]
-    0.03 :    4490:   fmul    d31, d26, d30
+    0.01 :    4490:   fmul    d31, d26, d30
     0.01 :    4494:   fmul    d27, d30, d25
-    0.01 :    4498:   fmadd   d31, d25, d28, d31
-    0.00 :    449c:   fmadd   d27, d26, d28, d27
+    0.02 :    4498:   fmadd   d31, d25, d28, d31
+    0.01 :    449c:   fmadd   d27, d26, d28, d27
     0.01 :    44a0:   fmul    d31, d31, d21
     0.01 :    44a4:   fmadd   d31, d27, d22, d31
-    0.01 :    44a8:   str     d31, [x30, x11, lsl #3]
-    0.02 :    44ac:   cmp     x10, x8
+    0.00 :    44a8:   str     d31, [x30, x11, lsl #3]
+    0.03 :    44ac:   cmp     x10, x8
     0.00 :    44b0:   b.ge    4534 <warpx_esirkepov_deposition_fp64+0x3c94>  // b.tcont
     0.00 :    44b4:   add     x8, x10, x1
     0.00 :    44b8:   add     x10, x10, x13
@@ -3885,51 +3885,51 @@
     0.00 :    4528:   fmul    d31, d31, d21
     0.00 :    452c:   fmadd   d31, d30, d22, d31
     0.00 :    4530:   str     d31, [x30, x9, lsl #3]
-    0.02 :    4534:   ldr     x1, [sp, #592]
-    0.02 :    4538:   add     x12, x12, #0x8
+    0.05 :    4534:   ldr     x1, [sp, #592]
+    0.00 :    4538:   add     x12, x12, #0x8
     0.02 :    453c:   add     x13, x13, x1
     0.02 :    4540:   cmp     x14, x12
     0.00 :    4544:   b.ne    43ec <warpx_esirkepov_deposition_fp64+0x3b4c>  // b.any
-    0.02 :    4548:   ldr     x0, [sp, #1160]
+    0.01 :    4548:   ldr     x0, [sp, #1160]
     0.01 :    454c:   str     x5, [sp, #632]
     0.01 :    4550:   str     x7, [sp, #672]
-    0.04 :    4554:   str     x6, [sp, #1128]
-    0.02 :    4558:   str     x3, [sp, #1136]
+    0.02 :    4554:   str     x6, [sp, #1128]
+    0.01 :    4558:   str     x3, [sp, #1136]
     0.01 :    455c:   bl      770 <free@plt>
-    0.07 :    4560:   ldr     x1, [sp, #160]
-    0.01 :    4564:   ldr     x0, [sp, #704]
+    0.04 :    4560:   ldr     x1, [sp, #160]
+    0.03 :    4564:   ldr     x0, [sp, #704]
     0.00 :    4568:   sub     x26, x1, x0
     0.01 :    456c:   lsl     x25, x26, #3
-    0.01 :    4570:   mov     x0, x25
-    0.02 :    4574:   bl      750 <malloc@plt>
-    0.05 :    4578:   cmp     x26, #0x0
-    0.02 :    457c:   str     x0, [sp, #1160]
-    0.01 :    4580:   mov     x1, x0
+    0.00 :    4570:   mov     x0, x25
+    0.01 :    4574:   bl      750 <malloc@plt>
+    0.03 :    4578:   cmp     x26, #0x0
+    0.03 :    457c:   str     x0, [sp, #1160]
+    0.03 :    4580:   mov     x1, x0
     0.02 :    4584:   ldr     x5, [sp, #632]
-    0.01 :    4588:   ldr     x7, [sp, #672]
-    0.02 :    458c:   ldr     x6, [sp, #1128]
-    0.02 :    4590:   ldr     x3, [sp, #1136]
-    0.04 :    4594:   b.le    e348 <warpx_esirkepov_deposition_fp64+0xdaa8>
+    0.03 :    4588:   ldr     x7, [sp, #672]
+    0.01 :    458c:   ldr     x6, [sp, #1128]
+    0.01 :    4590:   ldr     x3, [sp, #1136]
+    0.03 :    4594:   b.le    e348 <warpx_esirkepov_deposition_fp64+0xdaa8>
     0.02 :    4598:   fmul    d15, d12, d15
-    0.01 :    459c:   cmp     x26, #0x1
-    0.02 :    45a0:   b.eq    f9d0 <warpx_esirkepov_deposition_fp64+0xf130>  // b.none
-    0.01 :    45a4:   ldr     x0, [sp, #704]
-    0.02 :    45a8:   dup     v28.2d, v15.d[0]
+    0.00 :    459c:   cmp     x26, #0x1
+    0.01 :    45a0:   b.eq    f9d0 <warpx_esirkepov_deposition_fp64+0xf130>  // b.none
+    0.02 :    45a4:   ldr     x0, [sp, #704]
+    0.03 :    45a8:   dup     v28.2d, v15.d[0]
     0.01 :    45ac:   lsr     x10, x26, #1
     0.02 :    45b0:   ldp     x2, x9, [sp, #168]
-    0.04 :    45b4:   lsl     x8, x10, #4
+    0.01 :    45b4:   lsl     x8, x10, #4
     0.01 :    45b8:   ldr     x4, [sp, #208]
-    0.02 :    45bc:   add     x2, x0, x2
-    0.01 :    45c0:   mov     x0, #0x0                        // #0
+    0.01 :    45bc:   add     x2, x0, x2
+    0.00 :    45c0:   mov     x0, #0x0                        // #0
     0.01 :    45c4:   add     x4, x4, x2, lsl #3
     0.02 :    45c8:   add     x2, x9, x2, lsl #3
-    0.02 :    45cc:   ldr     q31, [x4, x0]
+    0.01 :    45cc:   ldr     q31, [x4, x0]
     0.04 :    45d0:   ldr     q30, [x2, x0]
-    0.04 :    45d4:   fsub    v31.2d, v31.2d, v30.2d
-    0.00 :    45d8:   fmul    v31.2d, v31.2d, v28.2d
-    0.01 :    45dc:   str     q31, [x1, x0]
-    0.03 :    45e0:   add     x0, x0, #0x10
-    0.05 :    45e4:   cmp     x0, x8
+    0.03 :    45d4:   fsub    v31.2d, v31.2d, v30.2d
+    0.01 :    45d8:   fmul    v31.2d, v31.2d, v28.2d
+    0.03 :    45dc:   str     q31, [x1, x0]
+    0.02 :    45e0:   add     x0, x0, #0x10
+    0.02 :    45e4:   cmp     x0, x8
     0.00 :    45e8:   b.ne    45cc <warpx_esirkepov_deposition_fp64+0x3d2c>  // b.any
     0.02 :    45ec:   and     x4, x26, #0xfffffffffffffffe
     0.01 :    45f0:   tbz     w26, #0, 72f8 <warpx_esirkepov_deposition_fp64+0x6a58>
@@ -3937,86 +3937,86 @@
     0.01 :    45f8:   str     x5, [sp, #632]
     0.02 :    45fc:   ldr     x1, [sp, #168]
     0.02 :    4600:   str     x7, [sp, #672]
-    0.01 :    4604:   str     x6, [sp, #1128]
-    0.02 :    4608:   add     x2, x4, x0
+    0.00 :    4604:   str     x6, [sp, #1128]
+    0.03 :    4608:   add     x2, x4, x0
     0.01 :    460c:   mov     x0, x28
     0.02 :    4610:   ldr     x28, [sp, #1160]
     0.01 :    4614:   str     x3, [sp, #1136]
-    0.02 :    4618:   add     x2, x2, x1
-    0.02 :    461c:   ldr     x1, [sp, #208]
-    0.02 :    4620:   lsl     x2, x2, #3
-    0.02 :    4624:   ldr     d31, [x1, x2]
-    0.02 :    4628:   ldr     x1, [sp, #176]
+    0.01 :    4618:   add     x2, x2, x1
+    0.01 :    461c:   ldr     x1, [sp, #208]
+    0.01 :    4620:   lsl     x2, x2, #3
+    0.00 :    4624:   ldr     d31, [x1, x2]
+    0.01 :    4628:   ldr     x1, [sp, #176]
     0.01 :    462c:   ldr     d30, [x1, x2]
-    0.02 :    4630:   fsub    d31, d31, d30
+    0.00 :    4630:   fsub    d31, d31, d30
     0.02 :    4634:   fmul    d31, d31, d15
-    0.02 :    4638:   str     d31, [x28, x4, lsl #3]
+    0.00 :    4638:   str     d31, [x28, x4, lsl #3]
     0.01 :    463c:   bl      770 <free@plt>
-    0.01 :    4640:   mov     x0, x25
+    0.03 :    4640:   mov     x0, x25
     0.01 :    4644:   bl      750 <malloc@plt>
     0.03 :    4648:   ldr     d31, [x28]
     0.00 :    464c:   cmp     x26, #0x1
     0.01 :    4650:   mov     x28, x0
     0.02 :    4654:   ldr     x5, [sp, #632]
-    0.03 :    4658:   ldr     x7, [sp, #672]
-    0.02 :    465c:   str     d31, [x0]
+    0.01 :    4658:   ldr     x7, [sp, #672]
+    0.03 :    465c:   str     d31, [x0]
     0.01 :    4660:   ldr     x6, [sp, #1128]
     0.01 :    4664:   ldr     x3, [sp, #1136]
     0.01 :    4668:   b.eq    4698 <warpx_esirkepov_deposition_fp64+0x3df8>  // b.none
     0.01 :    466c:   mov     x0, #0x1                        // #1
     0.03 :    4670:   ldr     x1, [sp, #1160]
-    0.03 :    4674:   nop
+    0.01 :    4674:   nop
     0.01 :    4678:   nop
-    0.01 :    467c:   nop
-    0.02 :    4680:   ldr     d30, [x1, x0, lsl #3]
-    0.03 :    4684:   fadd    d31, d31, d30
-    0.06 :    4688:   str     d31, [x28, x0, lsl #3]
-    0.07 :    468c:   add     x0, x0, #0x1
-    0.02 :    4690:   cmp     x26, x0
-    0.01 :    4694:   b.ne    4680 <warpx_esirkepov_deposition_fp64+0x3de0>  // b.any
-    0.01 :    4698:   ldr     x0, [sp, #1272]
-    0.03 :    469c:   ldr     x1, [sp, #1424]
+    0.02 :    467c:   nop
+    0.05 :    4680:   ldr     d30, [x1, x0, lsl #3]
+    0.05 :    4684:   fadd    d31, d31, d30
+    0.05 :    4688:   str     d31, [x28, x0, lsl #3]
+    0.06 :    468c:   add     x0, x0, #0x1
+    0.05 :    4690:   cmp     x26, x0
+    0.00 :    4694:   b.ne    4680 <warpx_esirkepov_deposition_fp64+0x3de0>  // b.any
+    0.02 :    4698:   ldr     x0, [sp, #1272]
+    0.02 :    469c:   ldr     x1, [sp, #1424]
     0.02 :    46a0:   cmp     x0, x1
     0.00 :    46a4:   b.ge    4814 <warpx_esirkepov_deposition_fp64+0x3f74>  // b.tcont
-    0.05 :    46a8:   ldr     x0, [sp, #1120]
+    0.03 :    46a8:   ldr     x0, [sp, #1120]
     0.02 :    46ac:   ldr     x1, [sp, #1352]
-    0.02 :    46b0:   ldr     x2, [sp, #1344]
+    0.01 :    46b0:   ldr     x2, [sp, #1344]
     0.02 :    46b4:   add     x15, x0, x1
     0.01 :    46b8:   ldr     x0, [sp, #968]
     0.01 :    46bc:   add     x1, x0, x15
     0.02 :    46c0:   add     x15, x2, x15
-    0.01 :    46c4:   str     x1, [sp, #632]
+    0.02 :    46c4:   str     x1, [sp, #632]
     0.02 :    46c8:   cmp     x0, x2
     0.00 :    46cc:   b.ge    4814 <warpx_esirkepov_deposition_fp64+0x3f74>  // b.tcont
-    0.02 :    46d0:   ldr     x0, [sp, #160]
+    0.01 :    46d0:   ldr     x0, [sp, #160]
     0.01 :    46d4:   ldr     x2, [sp, #704]
     0.01 :    46d8:   cmp     x2, x0
     0.00 :    46dc:   b.ge    4814 <warpx_esirkepov_deposition_fp64+0x3f74>  // b.tcont
-    0.01 :    46e0:   ldr     x4, [sp, #1008]
-    0.01 :    46e4:   mul     x25, x5, x24
-    0.02 :    46e8:   and     x18, x26, #0xfffffffffffffffe
+    0.03 :    46e0:   ldr     x4, [sp, #1008]
+    0.00 :    46e4:   mul     x25, x5, x24
+    0.03 :    46e8:   and     x18, x26, #0xfffffffffffffffe
     0.01 :    46ec:   sub     x10, x26, #0x1
     0.01 :    46f0:   lsl     x11, x5, #4
     0.01 :    46f4:   ldr     x9, [sp, #1360]
-    0.01 :    46f8:   ldr     x0, [sp, #712]
-    0.01 :    46fc:   lsl     x8, x4, #4
+    0.02 :    46f8:   ldr     x0, [sp, #712]
+    0.03 :    46fc:   lsl     x8, x4, #4
     0.02 :    4700:   ldr     x4, [sp, #1408]
     0.01 :    4704:   sub     x8, x8, #0x8
-    0.03 :    4708:   madd    x0, x0, x24, x1
-    0.02 :    470c:   add     x12, x4, x9
-    0.02 :    4710:   lsl     x4, x25, #3
-    0.02 :    4714:   add     x25, x28, x18, lsl #3
-    0.00 :    4718:   add     x14, x2, x12
+    0.02 :    4708:   madd    x0, x0, x24, x1
+    0.01 :    470c:   add     x12, x4, x9
+    0.00 :    4710:   lsl     x4, x25, #3
+    0.01 :    4714:   add     x25, x28, x18, lsl #3
+    0.02 :    4718:   add     x14, x2, x12
     0.02 :    471c:   ldr     x2, [sp, #664]
-    0.05 :    4720:   mul     x9, x0, x24
+    0.01 :    4720:   mul     x9, x0, x24
     0.01 :    4724:   add     x0, x14, x9
-    0.01 :    4728:   sub     x1, x2, x1, lsl #3
-    0.01 :    472c:   mul     x2, x24, x8
+    0.03 :    4728:   sub     x1, x2, x1, lsl #3
+    0.00 :    472c:   mul     x2, x24, x8
     0.01 :    4730:   madd    x30, x0, x8, x23
     0.02 :    4734:   str     x1, [sp, #672]
-    0.11 :    4738:   mul     x1, x2, x24
-    0.02 :    473c:   str     x1, [sp, #704]
-    0.02 :    4740:   cmp     x10, #0x3
+    0.07 :    4738:   mul     x1, x2, x24
+    0.06 :    473c:   str     x1, [sp, #704]
+    0.03 :    4740:   cmp     x10, #0x3
     0.00 :    4744:   b.ls    f7e4 <warpx_esirkepov_deposition_fp64+0xef44>  // b.plast
     0.00 :    4748:   lsr     x10, x26, #1
     0.00 :    474c:   mov     x0, #0x0                        // #0
@@ -4069,25 +4069,25 @@
     0.00 :    4808:   ldr     x2, [sp, #832]
     0.00 :    480c:   cmp     x2, x1
     0.00 :    4810:   b.gt    475c <warpx_esirkepov_deposition_fp64+0x3ebc>
-    0.01 :    4814:   ldr     x1, [sp, #168]
-    0.01 :    4818:   ldr     x0, [sp, #240]
-    0.01 :    481c:   add     x1, x1, x20
-    0.03 :    4820:   add     x0, x0, #0x1
-    0.04 :    4824:   str     x1, [sp, #168]
-    0.02 :    4828:   str     x0, [sp, #240]
-    0.04 :    482c:   cmp     x19, x0
+    0.02 :    4814:   ldr     x1, [sp, #168]
+    0.03 :    4818:   ldr     x0, [sp, #240]
+    0.00 :    481c:   add     x1, x1, x20
+    0.01 :    4820:   add     x0, x0, #0x1
+    0.01 :    4824:   str     x1, [sp, #168]
+    0.03 :    4828:   str     x0, [sp, #240]
+    0.02 :    482c:   cmp     x19, x0
     0.00 :    4830:   b.ne    27d0 <warpx_esirkepov_deposition_fp64+0x1f30>  // b.any
     0.00 :    4834:   b       3ec0 <warpx_esirkepov_deposition_fp64+0x3620>
-    0.05 :    4838:   ldr     x1, [sp, #592]
-    0.02 :    483c:   add     x12, x12, #0x8
-    0.03 :    4840:   add     x13, x13, x1
-    0.09 :    4844:   cmp     x12, x14
+    0.06 :    4838:   ldr     x1, [sp, #592]
+    0.03 :    483c:   add     x12, x12, #0x8
+    0.05 :    4840:   add     x13, x13, x1
+    0.03 :    4844:   cmp     x12, x14
     0.00 :    4848:   b.eq    4548 <warpx_esirkepov_deposition_fp64+0x3ca8>  // b.none
-    0.03 :    484c:   ldr     x1, [sp, #192]
+    0.05 :    484c:   ldr     x1, [sp, #192]
     0.05 :    4850:   ldr     d28, [x1, x12]
-    0.05 :    4854:   ldr     x1, [sp, #184]
-    0.08 :    4858:   ldr     d30, [x1, x12]
-    0.11 :    485c:   b       4404 <warpx_esirkepov_deposition_fp64+0x3b64>
+    0.09 :    4854:   ldr     x1, [sp, #184]
+    0.03 :    4858:   ldr     d30, [x1, x12]
+    0.12 :    485c:   b       4404 <warpx_esirkepov_deposition_fp64+0x3b64>
     0.00 :    4860:   ldr     x1, [sp, #584]
     0.00 :    4864:   mul     x0, x0, x28
     0.00 :    4868:   sub     x4, x24, x19, lsl #3
@@ -4230,7 +4230,7 @@
     0.00 :    4a8c:   b       2bac <warpx_esirkepov_deposition_fp64+0x230c>
     0.00 :    4a90:   mov     x12, #0x0                       // #0
     0.00 :    4a94:   b       2ef0 <warpx_esirkepov_deposition_fp64+0x2650>
-    0.00 :    4a98:   mul     x0, x19, x20
+    0.02 :    4a98:   mul     x0, x19, x20
     0.00 :    4a9c:   mov     x1, #0x1                        // #1
     0.00 :    4aa0:   lsl     x26, x0, #3
     0.00 :    4aa4:   str     x0, [sp, #672]
@@ -4826,15 +4826,15 @@
     0.00 :    53dc:   lsl     x1, x4, #4
     0.00 :    53e0:   ldr     q29, [x0, #3296]
     0.00 :    53e4:   mov     x0, #0x0                        // #0
-    0.01 :    53e8:   ldr     x2, [sp, #408]
+    0.02 :    53e8:   ldr     x2, [sp, #408]
     0.02 :    53ec:   ldr     q31, [x2, x0]
-    0.10 :    53f0:   ldr     x2, [sp, #904]
+    0.08 :    53f0:   ldr     x2, [sp, #904]
     0.01 :    53f4:   ldr     q30, [x2, x0]
-    0.10 :    53f8:   cmge    v31.2d, v30.2d, v31.2d
+    0.06 :    53f8:   cmge    v31.2d, v30.2d, v31.2d
     0.00 :    53fc:   and     v31.16b, v29.16b, v31.16b
-    0.01 :    5400:   str     q31, [x28, x0]
-    0.00 :    5404:   add     x0, x0, #0x10
-    0.02 :    5408:   cmp     x0, x1
+    0.02 :    5400:   str     q31, [x28, x0]
+    0.01 :    5404:   add     x0, x0, #0x10
+    0.01 :    5408:   cmp     x0, x1
     0.00 :    540c:   b.ne    53e8 <warpx_esirkepov_deposition_fp64+0x4b48>  // b.any
     0.00 :    5410:   and     x3, x19, #0xfffffffffffffffe
     0.00 :    5414:   mov     x1, x3
@@ -4873,13 +4873,13 @@
     0.00 :    5498:   ldr     q29, [x0, #3296]
     0.00 :    549c:   mov     x0, #0x0                        // #0
     0.01 :    54a0:   ldr     x1, [sp, #408]
-    0.00 :    54a4:   ldr     q31, [x1, x0]
-    0.04 :    54a8:   ldr     x1, [sp, #904]
+    0.01 :    54a4:   ldr     q31, [x1, x0]
+    0.03 :    54a8:   ldr     x1, [sp, #904]
     0.01 :    54ac:   ldr     q30, [x1, x0]
-    0.05 :    54b0:   cmge    v31.2d, v31.2d, v30.2d
+    0.04 :    54b0:   cmge    v31.2d, v31.2d, v30.2d
     0.00 :    54b4:   and     v31.16b, v29.16b, v31.16b
-    0.00 :    54b8:   str     q31, [x26, x0]
-    0.02 :    54bc:   add     x0, x0, #0x10
+    0.02 :    54b8:   str     q31, [x26, x0]
+    0.01 :    54bc:   add     x0, x0, #0x10
     0.01 :    54c0:   cmp     x0, x4
     0.00 :    54c4:   b.ne    54a0 <warpx_esirkepov_deposition_fp64+0x4c00>  // b.any
     0.00 :    54c8:   cmp     x19, x3
@@ -4964,7 +4964,7 @@
     0.00 :    5604:   str     xzr, [sp, #1016]
     0.00 :    5608:   str     xzr, [sp, #1176]
     0.00 :    560c:   str     xzr, [sp, #1184]
-    0.00 :    5610:   mov     x1, #0x1                        // #1
+    0.01 :    5610:   mov     x1, #0x1                        // #1
     0.00 :    5614:   mov     x0, x26
     0.00 :    5618:   bl      760 <calloc@plt>
     0.00 :    561c:   str     x0, [sp, #488]
@@ -5045,16 +5045,16 @@
     0.00 :    5748:   mov     x4, #0x0                        // #0
     0.00 :    574c:   lsl     x28, x20, #3
     0.00 :    5750:   mov     x3, x0
-    0.24 :    5754:   mov     x1, x27
-    0.01 :    5758:   mov     x0, x3
-    0.01 :    575c:   str     x4, [sp, #208]
-    0.03 :    5760:   mov     x2, x28
-    0.01 :    5764:   add     x27, x27, x28
-    0.05 :    5768:   bl      720 <memcpy@plt>
-    0.02 :    576c:   ldr     x4, [sp, #208]
-    0.13 :    5770:   add     x3, x0, x28
-    0.33 :    5774:   add     x4, x4, #0x1
-    0.01 :    5778:   cmp     x19, x4
+    0.30 :    5754:   mov     x1, x27
+    0.02 :    5758:   mov     x0, x3
+    0.02 :    575c:   str     x4, [sp, #208]
+    0.01 :    5760:   mov     x2, x28
+    0.00 :    5764:   add     x27, x27, x28
+    0.00 :    5768:   bl      720 <memcpy@plt>
+    0.01 :    576c:   ldr     x4, [sp, #208]
+    0.08 :    5770:   add     x3, x0, x28
+    0.27 :    5774:   add     x4, x4, #0x1
+    0.02 :    5778:   cmp     x19, x4
     0.00 :    577c:   b.gt    5754 <warpx_esirkepov_deposition_fp64+0x4eb4>
     0.00 :    5780:   ldr     x1, [sp, #880]
     0.00 :    5784:   cmp     x19, #0x0
@@ -5083,8 +5083,8 @@
     0.00 :    57e0:   ldr     q31, [x1, #3408]
     0.00 :    57e4:   add     x1, x0, x3, lsl #5
     0.00 :    57e8:   add     v29.2d, v31.2d, v27.2d
-    0.00 :    57ec:   mov     v30.16b, v31.16b
-    0.01 :    57f0:   add     v31.2d, v31.2d, v28.2d
+    0.01 :    57ec:   mov     v30.16b, v31.16b
+    0.00 :    57f0:   add     v31.2d, v31.2d, v28.2d
     0.00 :    57f4:   stp     q30, q29, [x0], #32
     0.10 :    57f8:   cmp     x0, x1
     0.00 :    57fc:   b.ne    57e8 <warpx_esirkepov_deposition_fp64+0x4f48>  // b.any
@@ -5283,26 +5283,26 @@
     0.00 :    5b00:   mov     x4, #0x0                        // #0
     0.00 :    5b04:   lsl     x2, x20, #3
     0.00 :    5b08:   mov     x3, x0
-    0.20 :    5b0c:   mov     x1, x28
-    0.02 :    5b10:   mov     x0, x3
-    0.02 :    5b14:   str     x2, [sp, #240]
-    0.01 :    5b18:   str     x4, [sp, #416]
-    0.04 :    5b1c:   bl      720 <memcpy@plt>
-    0.02 :    5b20:   ldr     x4, [sp, #416]
-    0.34 :    5b24:   ldr     x2, [sp, #240]
+    0.18 :    5b0c:   mov     x1, x28
+    0.01 :    5b10:   mov     x0, x3
+    0.01 :    5b14:   str     x2, [sp, #240]
+    0.02 :    5b18:   str     x4, [sp, #416]
+    0.05 :    5b1c:   bl      720 <memcpy@plt>
+    0.01 :    5b20:   ldr     x4, [sp, #416]
+    0.32 :    5b24:   ldr     x2, [sp, #240]
     0.00 :    5b28:   add     x4, x4, #0x1
-    0.04 :    5b2c:   add     x3, x0, x2
+    0.05 :    5b2c:   add     x3, x0, x2
     0.00 :    5b30:   add     x28, x28, x2
     0.01 :    5b34:   cmp     x19, x4
     0.00 :    5b38:   b.gt    5b0c <warpx_esirkepov_deposition_fp64+0x526c>
     0.00 :    5b3c:   ldr     x0, [sp, #736]
-    0.00 :    5b40:   cmp     x19, #0x0
+    0.01 :    5b40:   cmp     x19, #0x0
     0.00 :    5b44:   mov     x2, #0x8                        // #8
     0.00 :    5b48:   csel    x2, x24, x2, gt
     0.00 :    5b4c:   ldr     x1, [sp, #792]
     0.00 :    5b50:   bl      720 <memcpy@plt>
     0.00 :    5b54:   ldr     w0, [sp, #664]
-    0.00 :    5b58:   cbnz    w0, c3bc <warpx_esirkepov_deposition_fp64+0xbb1c>
+    0.01 :    5b58:   cbnz    w0, c3bc <warpx_esirkepov_deposition_fp64+0xbb1c>
     0.00 :    5b5c:   str     xzr, [sp, #928]
     0.00 :    5b60:   str     xzr, [sp, #936]
     0.00 :    5b64:   str     xzr, [sp, #1208]
@@ -5974,19 +5974,19 @@
     0.00 :    65cc:   mov     x4, #0x0                        // #0
     0.00 :    65d0:   lsl     x28, x20, #3
     0.00 :    65d4:   mov     x3, x0
-    0.25 :    65d8:   mov     x1, x27
-    0.03 :    65dc:   mov     x0, x3
-    0.03 :    65e0:   str     x4, [sp, #176]
+    0.24 :    65d8:   mov     x1, x27
+    0.00 :    65dc:   mov     x0, x3
+    0.05 :    65e0:   str     x4, [sp, #176]
     0.05 :    65e4:   mov     x2, x28
-    0.01 :    65e8:   add     x27, x27, x28
+    0.00 :    65e8:   add     x27, x27, x28
     0.02 :    65ec:   bl      720 <memcpy@plt>
-    0.01 :    65f0:   ldr     x4, [sp, #176]
-    0.07 :    65f4:   add     x3, x0, x28
+    0.02 :    65f0:   ldr     x4, [sp, #176]
+    0.06 :    65f4:   add     x3, x0, x28
     0.25 :    65f8:   add     x4, x4, #0x1
-    0.01 :    65fc:   cmp     x19, x4
+    0.03 :    65fc:   cmp     x19, x4
     0.00 :    6600:   b.gt    65d8 <warpx_esirkepov_deposition_fp64+0x5d38>
     0.00 :    6604:   ldr     x1, [sp, #864]
-    0.01 :    6608:   cmp     x19, #0x0
+    0.00 :    6608:   cmp     x19, #0x0
     0.00 :    660c:   mov     x2, #0x8                        // #8
     0.00 :    6610:   csel    x2, x24, x2, gt
     0.00 :    6614:   ldr     x0, [sp, #408]
@@ -6011,11 +6011,11 @@
     0.00 :    6660:   ldr     q28, [x2, #3440]
     0.00 :    6664:   ldr     q31, [x1, #3408]
     0.00 :    6668:   add     x1, x0, x3, lsl #5
-    0.01 :    666c:   add     v29.2d, v31.2d, v27.2d
-    0.01 :    6670:   mov     v30.16b, v31.16b
+    0.00 :    666c:   add     v29.2d, v31.2d, v27.2d
+    0.00 :    6670:   mov     v30.16b, v31.16b
     0.01 :    6674:   add     v31.2d, v31.2d, v28.2d
-    0.02 :    6678:   stp     q30, q29, [x0], #32
-    0.07 :    667c:   cmp     x0, x1
+    0.01 :    6678:   stp     q30, q29, [x0], #32
+    0.11 :    667c:   cmp     x0, x1
     0.00 :    6680:   b.ne    666c <warpx_esirkepov_deposition_fp64+0x5dcc>  // b.any
     0.00 :    6684:   and     x4, x19, #0xfffffffffffffffc
     0.00 :    6688:   mov     x0, x4
@@ -6212,16 +6212,16 @@
     0.00 :    6984:   mov     x4, #0x0                        // #0
     0.00 :    6988:   lsl     x28, x20, #3
     0.00 :    698c:   mov     x3, x0
-    0.21 :    6990:   mov     x1, x25
-    0.02 :    6994:   mov     x0, x3
-    0.02 :    6998:   str     x4, [sp, #176]
-    0.04 :    699c:   mov     x2, x28
-    0.02 :    69a0:   add     x25, x25, x28
-    0.04 :    69a4:   bl      720 <memcpy@plt>
+    0.26 :    6990:   mov     x1, x25
+    0.03 :    6994:   mov     x0, x3
+    0.03 :    6998:   str     x4, [sp, #176]
+    0.03 :    699c:   mov     x2, x28
+    0.01 :    69a0:   add     x25, x25, x28
+    0.03 :    69a4:   bl      720 <memcpy@plt>
     0.02 :    69a8:   ldr     x4, [sp, #176]
-    0.03 :    69ac:   add     x3, x0, x28
-    0.25 :    69b0:   add     x4, x4, #0x1
-    0.04 :    69b4:   cmp     x19, x4
+    0.07 :    69ac:   add     x3, x0, x28
+    0.27 :    69b0:   add     x4, x4, #0x1
+    0.01 :    69b4:   cmp     x19, x4
     0.00 :    69b8:   b.gt    6990 <warpx_esirkepov_deposition_fp64+0x60f0>
     0.00 :    69bc:   ldr     x1, [sp, #776]
     0.00 :    69c0:   cmp     x19, #0x0
@@ -6797,39 +6797,39 @@
     0.00 :    72a8:   mov     x26, x0
     0.00 :    72ac:   ldr     x4, [sp, #240]
     0.00 :    72b0:   b       5490 <warpx_esirkepov_deposition_fp64+0x4bf0>
-    0.00 :    72b4:   ldr     x0, [sp, #1072]
+    0.01 :    72b4:   ldr     x0, [sp, #1072]
     0.01 :    72b8:   str     x5, [sp, #672]
-    0.00 :    72bc:   str     x7, [sp, #832]
-    0.01 :    72c0:   str     x6, [sp, #1128]
+    0.01 :    72bc:   str     x7, [sp, #832]
+    0.00 :    72c0:   str     x6, [sp, #1128]
     0.00 :    72c4:   str     x3, [sp, #1136]
-    0.01 :    72c8:   bl      770 <free@plt>
-    0.02 :    72cc:   ldr     x0, [sp, #160]
+    0.00 :    72c8:   bl      770 <free@plt>
+    0.01 :    72cc:   ldr     x0, [sp, #160]
     0.00 :    72d0:   bl      750 <malloc@plt>
     0.02 :    72d4:   ldr     x1, [sp, #1104]
-    0.01 :    72d8:   str     x0, [sp, #1072]
+    0.02 :    72d8:   str     x0, [sp, #1072]
     0.01 :    72dc:   ldr     x5, [sp, #672]
-    0.00 :    72e0:   ldr     x7, [sp, #832]
-    0.00 :    72e4:   ldr     d31, [x1]
-    0.00 :    72e8:   ldr     x6, [sp, #1128]
+    0.01 :    72e0:   ldr     x7, [sp, #832]
+    0.01 :    72e4:   ldr     d31, [x1]
+    0.01 :    72e8:   ldr     x6, [sp, #1128]
     0.01 :    72ec:   ldr     x3, [sp, #1136]
     0.00 :    72f0:   str     d31, [x0]
     0.00 :    72f4:   b       3c04 <warpx_esirkepov_deposition_fp64+0x3364>
-    0.02 :    72f8:   mov     x0, x28
+    0.01 :    72f8:   mov     x0, x28
     0.01 :    72fc:   str     x5, [sp, #632]
     0.00 :    7300:   str     x7, [sp, #672]
     0.01 :    7304:   str     x6, [sp, #1128]
     0.01 :    7308:   str     x3, [sp, #1136]
-    0.00 :    730c:   bl      770 <free@plt>
+    0.01 :    730c:   bl      770 <free@plt>
     0.01 :    7310:   mov     x0, x25
     0.01 :    7314:   bl      750 <malloc@plt>
     0.01 :    7318:   ldr     x1, [sp, #1160]
     0.00 :    731c:   mov     x28, x0
     0.00 :    7320:   ldr     x5, [sp, #632]
-    0.01 :    7324:   ldr     x7, [sp, #672]
+    0.00 :    7324:   ldr     x7, [sp, #672]
     0.00 :    7328:   ldr     d31, [x1]
-    0.00 :    732c:   ldr     x6, [sp, #1128]
-    0.00 :    7330:   ldr     x3, [sp, #1136]
-    0.01 :    7334:   str     d31, [x0]
+    0.01 :    732c:   ldr     x6, [sp, #1128]
+    0.01 :    7330:   ldr     x3, [sp, #1136]
+    0.00 :    7334:   str     d31, [x0]
     0.01 :    7338:   b       466c <warpx_esirkepov_deposition_fp64+0x3dcc>
     0.00 :    733c:   fmul    d15, d8, d15
     0.00 :    7340:   b       1efc <warpx_esirkepov_deposition_fp64+0x165c>
@@ -7734,22 +7734,22 @@
     0.00 :    814c:   cmp     x19, #0x0
     0.00 :    8150:   b.gt    6ebc <warpx_esirkepov_deposition_fp64+0x661c>
     0.00 :    8154:   b       6ea4 <warpx_esirkepov_deposition_fp64+0x6604>
-    0.00 :    8158:   ldr     x0, [sp, #808]
-    0.02 :    815c:   str     x5, [sp, #712]
-    0.01 :    8160:   str     x7, [sp, #832]
-    0.00 :    8164:   str     x6, [sp, #1128]
+    0.01 :    8158:   ldr     x0, [sp, #808]
+    0.01 :    815c:   str     x5, [sp, #712]
+    0.00 :    8160:   str     x7, [sp, #832]
+    0.01 :    8164:   str     x6, [sp, #1128]
     0.01 :    8168:   str     x3, [sp, #1136]
     0.01 :    816c:   bl      770 <free@plt>
-    0.02 :    8170:   ldr     x0, [sp, #160]
-    0.01 :    8174:   bl      750 <malloc@plt>
-    0.01 :    8178:   ldr     x1, [sp, #1096]
+    0.04 :    8170:   ldr     x0, [sp, #160]
+    0.00 :    8174:   bl      750 <malloc@plt>
+    0.00 :    8178:   ldr     x1, [sp, #1096]
     0.01 :    817c:   str     x0, [sp, #808]
-    0.00 :    8180:   ldr     x5, [sp, #712]
+    0.01 :    8180:   ldr     x5, [sp, #712]
     0.01 :    8184:   ldr     x7, [sp, #832]
     0.01 :    8188:   ldr     d31, [x1]
-    0.00 :    818c:   ldr     x6, [sp, #1128]
-    0.00 :    8190:   ldr     x3, [sp, #1136]
-    0.01 :    8194:   str     d31, [x0]
+    0.01 :    818c:   ldr     x6, [sp, #1128]
+    0.01 :    8190:   ldr     x3, [sp, #1136]
+    0.00 :    8194:   str     d31, [x0]
     0.01 :    8198:   b       368c <warpx_esirkepov_deposition_fp64+0x2dec>
     0.00 :    819c:   ldr     w0, [sp, #1564]
     0.00 :    81a0:   mul     x2, x24, x5
@@ -8702,15 +8702,15 @@
     0.00 :    906c:   lsl     x1, x4, #4
     0.00 :    9070:   ldr     q29, [x0, #3296]
     0.00 :    9074:   mov     x0, #0x0                        // #0
-    0.01 :    9078:   ldr     x2, [sp, #336]
+    0.02 :    9078:   ldr     x2, [sp, #336]
     0.01 :    907c:   ldr     q31, [x2, x0]
-    0.04 :    9080:   ldr     x2, [sp, #736]
-    0.01 :    9084:   ldr     q30, [x2, x0]
-    0.04 :    9088:   cmge    v31.2d, v30.2d, v31.2d
-    0.00 :    908c:   and     v31.16b, v29.16b, v31.16b
+    0.03 :    9080:   ldr     x2, [sp, #736]
+    0.02 :    9084:   ldr     q30, [x2, x0]
+    0.03 :    9088:   cmge    v31.2d, v30.2d, v31.2d
+    0.01 :    908c:   and     v31.16b, v29.16b, v31.16b
     0.01 :    9090:   str     q31, [x26, x0]
-    0.02 :    9094:   add     x0, x0, #0x10
-    0.02 :    9098:   cmp     x1, x0
+    0.01 :    9094:   add     x0, x0, #0x10
+    0.00 :    9098:   cmp     x1, x0
     0.00 :    909c:   b.ne    9078 <warpx_esirkepov_deposition_fp64+0x87d8>  // b.any
     0.00 :    90a0:   and     x3, x19, #0xfffffffffffffffe
     0.00 :    90a4:   mov     x1, x3
@@ -8748,15 +8748,15 @@
     0.00 :    9124:   lsl     x4, x4, #4
     0.00 :    9128:   ldr     q29, [x0, #3296]
     0.00 :    912c:   mov     x0, #0x0                        // #0
-    0.00 :    9130:   ldr     x1, [sp, #336]
-    0.00 :    9134:   ldr     q31, [x1, x0]
+    0.01 :    9130:   ldr     x1, [sp, #336]
+    0.02 :    9134:   ldr     q31, [x1, x0]
     0.06 :    9138:   ldr     x1, [sp, #736]
-    0.02 :    913c:   ldr     q30, [x1, x0]
-    0.05 :    9140:   cmge    v31.2d, v31.2d, v30.2d
+    0.01 :    913c:   ldr     q30, [x1, x0]
+    0.04 :    9140:   cmge    v31.2d, v31.2d, v30.2d
     0.00 :    9144:   and     v31.16b, v29.16b, v31.16b
-    0.01 :    9148:   str     q31, [x28, x0]
+    0.00 :    9148:   str     q31, [x28, x0]
     0.01 :    914c:   add     x0, x0, #0x10
-    0.02 :    9150:   cmp     x4, x0
+    0.03 :    9150:   cmp     x4, x0
     0.00 :    9154:   b.ne    9130 <warpx_esirkepov_deposition_fp64+0x8890>  // b.any
     0.00 :    9158:   cmp     x19, x3
     0.00 :    915c:   b.eq    91a4 <warpx_esirkepov_deposition_fp64+0x8904>  // b.none
@@ -11971,7 +11971,7 @@
     0.00 :    c380:   b.eq    b584 <warpx_esirkepov_deposition_fp64+0xace4>  // b.none
     0.00 :    c384:   ldr     d28, [x14]
     0.00 :    c388:   b       b4b8 <warpx_esirkepov_deposition_fp64+0xac18>
-    0.00 :    c38c:   ldr     x0, [sp, #960]
+    0.02 :    c38c:   ldr     x0, [sp, #960]
     0.00 :    c390:   mov     x2, x24
     0.00 :    c394:   mov     x1, x26
     0.00 :    c398:   str     x3, [sp, #168]
@@ -14052,14 +14052,14 @@
     0.00 :    e404:   ldr     q30, [x0, #3296]
     0.00 :    e408:   mov     x0, #0x0                        // #0
     0.01 :    e40c:   ldr     x2, [sp, #624]
-    0.03 :    e410:   ldr     q31, [x2, x0]
-    0.05 :    e414:   ldr     x2, [sp, #1232]
+    0.00 :    e410:   ldr     q31, [x2, x0]
+    0.02 :    e414:   ldr     x2, [sp, #1232]
     0.01 :    e418:   ldr     q29, [x2, x0]
-    0.02 :    e41c:   cmge    v31.2d, v29.2d, v31.2d
-    0.00 :    e420:   and     v31.16b, v30.16b, v31.16b
-    0.02 :    e424:   str     q31, [x26, x0]
-    0.03 :    e428:   add     x0, x0, #0x10
-    0.00 :    e42c:   cmp     x1, x0
+    0.05 :    e41c:   cmge    v31.2d, v29.2d, v31.2d
+    0.02 :    e420:   and     v31.16b, v30.16b, v31.16b
+    0.01 :    e424:   str     q31, [x26, x0]
+    0.01 :    e428:   add     x0, x0, #0x10
+    0.01 :    e42c:   cmp     x1, x0
     0.00 :    e430:   b.ne    e40c <warpx_esirkepov_deposition_fp64+0xdb6c>  // b.any
     0.00 :    e434:   and     x3, x19, #0xfffffffffffffffe
     0.00 :    e438:   mov     x1, x3
@@ -14097,13 +14097,13 @@
     0.00 :    e4b8:   lsl     x4, x4, #4
     0.00 :    e4bc:   ldr     q30, [x0, #3296]
     0.00 :    e4c0:   mov     x0, #0x0                        // #0
-    0.01 :    e4c4:   ldr     x1, [sp, #624]
-    0.03 :    e4c8:   ldr     q31, [x1, x0]
-    0.07 :    e4cc:   ldr     x1, [sp, #1232]
-    0.03 :    e4d0:   ldr     q29, [x1, x0]
-    0.03 :    e4d4:   cmge    v31.2d, v31.2d, v29.2d
+    0.03 :    e4c4:   ldr     x1, [sp, #624]
+    0.01 :    e4c8:   ldr     q31, [x1, x0]
+    0.08 :    e4cc:   ldr     x1, [sp, #1232]
+    0.01 :    e4d0:   ldr     q29, [x1, x0]
+    0.05 :    e4d4:   cmge    v31.2d, v31.2d, v29.2d
     0.00 :    e4d8:   and     v31.16b, v30.16b, v31.16b
-    0.00 :    e4dc:   str     q31, [x28, x0]
+    0.01 :    e4dc:   str     q31, [x28, x0]
     0.02 :    e4e0:   add     x0, x0, #0x10
     0.01 :    e4e4:   cmp     x0, x4
     0.00 :    e4e8:   b.ne    e4c4 <warpx_esirkepov_deposition_fp64+0xdc24>  // b.any
@@ -14173,7 +14173,7 @@
     0.00 :    e5e8:   lsr     x4, x19, #1
     0.00 :    e5ec:   and     x3, x19, #0xfffffffffffffffe
     0.00 :    e5f0:   b       1d90 <warpx_esirkepov_deposition_fp64+0x14f0>
-    0.01 :    e5f4:   fmul    d27, d29, d15
+    0.00 :    e5f4:   fmul    d27, d29, d15
     0.00 :    e5f8:   b       1d90 <warpx_esirkepov_deposition_fp64+0x14f0>
     0.00 :    e5fc:   mov     x0, x24
     0.00 :    e600:   bl      750 <malloc@plt>
@@ -14612,7 +14612,7 @@
     0.00 :    ecc4:   b       19c4 <warpx_esirkepov_deposition_fp64+0x1124>
     0.00 :    ecc8:   mov     x0, #0x0                        // #0
     0.00 :    eccc:   b       b28 <warpx_esirkepov_deposition_fp64+0x288>
-    0.00 :    ecd0:   mov     x0, x24
+    0.01 :    ecd0:   mov     x0, x24
     0.00 :    ecd4:   str     x4, [sp, #208]
     0.00 :    ecd8:   str     x3, [sp, #240]
     0.00 :    ecdc:   bl      750 <malloc@plt>
@@ -14907,7 +14907,7 @@
     0.00 :    f160:   b       8358 <warpx_esirkepov_deposition_fp64+0x7ab8>
     0.00 :    f164:   mov     x1, #0x0                        // #0
     0.00 :    f168:   b       1080 <warpx_esirkepov_deposition_fp64+0x7e0>
-    0.01 :    f16c:   mov     x0, x24
+    0.00 :    f16c:   mov     x0, x24
     0.00 :    f170:   stp     x4, x3, [sp, #176]
     0.00 :    f174:   bl      750 <malloc@plt>
     0.00 :    f178:   ldr     x1, [sp, #552]
@@ -15046,35 +15046,35 @@
     0.00 :    f38c:   b       9310 <warpx_esirkepov_deposition_fp64+0x8a70>
     0.00 :    f390:   mov     x4, #0x0                        // #0
     0.00 :    f394:   b       8428 <warpx_esirkepov_deposition_fp64+0x7b88>
-    0.02 :    f398:   ldr     x0, [sp, #1264]
+    0.01 :    f398:   ldr     x0, [sp, #1264]
     0.04 :    f39c:   ldr     x14, [sp, #712]
     0.01 :    f3a0:   add     x10, x0, x10
-    0.02 :    f3a4:   ldr     x0, [sp, #416]
-    0.00 :    f3a8:   sub     x17, x0, x13, lsl #3
+    0.00 :    f3a4:   ldr     x0, [sp, #416]
+    0.01 :    f3a8:   sub     x17, x0, x13, lsl #3
     0.05 :    f3ac:   ldr     x0, [sp, #1216]
-    0.11 :    f3b0:   mov     x9, x17
-    0.05 :    f3b4:   mov     x12, x8
-    0.04 :    f3b8:   ldr     x11, [sp, #1248]
+    0.10 :    f3b0:   mov     x9, x17
+    0.03 :    f3b4:   mov     x12, x8
+    0.05 :    f3b8:   ldr     x11, [sp, #1248]
     0.04 :    f3bc:   ldr     d28, [x0, x14, lsl #3]
-    0.63 :    f3c0:   mov     x1, x12
+    0.48 :    f3c0:   mov     x1, x12
     0.16 :    f3c4:   mov     x0, x13
     0.73 :    f3c8:   ldr     d31, [x1]
-    5.89 :    f3cc:   ldr     d30, [x9, x0, lsl #3]
+    6.51 :    f3cc:   ldr     d30, [x9, x0, lsl #3]
     0.24 :    f3d0:   add     x0, x0, #0x1
-    0.77 :    f3d4:   fmadd   d31, d28, d30, d31
-    0.68 :    f3d8:   str     d31, [x1]
-    0.77 :    f3dc:   add     x1, x1, x2
-    0.77 :    f3e0:   cmp     x0, x10
-    0.02 :    f3e4:   b.lt    f3c8 <warpx_esirkepov_deposition_fp64+0xeb28>  // b.tstop
+    0.75 :    f3d4:   fmadd   d31, d28, d30, d31
+    0.66 :    f3d8:   str     d31, [x1]
+    0.73 :    f3dc:   add     x1, x1, x2
+    0.75 :    f3e0:   cmp     x0, x10
+    0.05 :    f3e4:   b.lt    f3c8 <warpx_esirkepov_deposition_fp64+0xeb28>  // b.tstop
     0.20 :    f3e8:   add     x11, x11, #0x1
-    0.17 :    f3ec:   add     x12, x12, x4
-    0.08 :    f3f0:   add     x9, x9, x16
-    0.19 :    f3f4:   cmp     x11, x15
-    0.00 :    f3f8:   b.lt    f3c0 <warpx_esirkepov_deposition_fp64+0xeb20>  // b.tstop
-    0.05 :    f3fc:   ldr     x0, [sp, #1256]
-    0.04 :    f400:   add     x14, x14, #0x1
-    0.04 :    f404:   add     x8, x8, x0
-    0.05 :    f408:   ldr     x0, [sp, #1240]
+    0.15 :    f3ec:   add     x12, x12, x4
+    0.07 :    f3f0:   add     x9, x9, x16
+    0.17 :    f3f4:   cmp     x11, x15
+    0.01 :    f3f8:   b.lt    f3c0 <warpx_esirkepov_deposition_fp64+0xeb20>  // b.tstop
+    0.02 :    f3fc:   ldr     x0, [sp, #1256]
+    0.03 :    f400:   add     x14, x14, #0x1
+    0.02 :    f404:   add     x8, x8, x0
+    0.07 :    f408:   ldr     x0, [sp, #1240]
     0.05 :    f40c:   cmp     x14, x0
     0.00 :    f410:   b.lt    f3ac <warpx_esirkepov_deposition_fp64+0xeb0c>  // b.tstop
     0.02 :    f414:   b       38a4 <warpx_esirkepov_deposition_fp64+0x3004>
@@ -15321,38 +15321,38 @@
     0.00 :    f7d8:   b       1c58 <warpx_esirkepov_deposition_fp64+0x13b8>
     0.00 :    f7dc:   mov     x4, #0x0                        // #0
     0.00 :    f7e0:   b       3b88 <warpx_esirkepov_deposition_fp64+0x32e8>
-    0.03 :    f7e4:   ldr     x0, [sp, #160]
-    0.01 :    f7e8:   sub     x10, x28, x14, lsl #3
-    0.04 :    f7ec:   mov     x2, #0x0                        // #0
+    0.02 :    f7e4:   ldr     x0, [sp, #160]
+    0.00 :    f7e8:   sub     x10, x28, x14, lsl #3
+    0.01 :    f7ec:   mov     x2, #0x0                        // #0
     0.01 :    f7f0:   add     x9, x0, x12
-    0.12 :    f7f4:   ldr     x0, [sp, #672]
-    0.04 :    f7f8:   mov     x12, x30
-    0.08 :    f7fc:   ldr     x11, [sp, #632]
-    0.08 :    f800:   add     x13, x0, x2, lsl #3
+    0.09 :    f7f4:   ldr     x0, [sp, #672]
+    0.03 :    f7f8:   mov     x12, x30
+    0.09 :    f7fc:   ldr     x11, [sp, #632]
+    0.09 :    f800:   add     x13, x0, x2, lsl #3
     0.36 :    f804:   ldr     d28, [x13, x11, lsl #3]
-    0.27 :    f808:   mov     x1, x12
-    1.23 :    f80c:   mov     x0, x14
-    0.92 :    f810:   ldr     d31, [x1]
-    7.47 :    f814:   ldr     d30, [x10, x0, lsl #3]
-    0.15 :    f818:   add     x0, x0, #0x1
-    1.10 :    f81c:   fmadd   d31, d28, d30, d31
-    1.09 :    f820:   str     d31, [x1]
-    1.01 :    f824:   add     x1, x1, x8
-    1.06 :    f828:   cmp     x0, x9
-    0.03 :    f82c:   b.lt    f810 <warpx_esirkepov_deposition_fp64+0xef70>  // b.tstop
-    0.37 :    f830:   add     x11, x11, #0x1
-    0.30 :    f834:   add     x12, x12, x4
-    0.36 :    f838:   cmp     x11, x15
+    0.19 :    f808:   mov     x1, x12
+    1.20 :    f80c:   mov     x0, x14
+    1.03 :    f810:   ldr     d31, [x1]
+    8.44 :    f814:   ldr     d30, [x10, x0, lsl #3]
+    0.19 :    f818:   add     x0, x0, #0x1
+    1.09 :    f81c:   fmadd   d31, d28, d30, d31
+    1.00 :    f820:   str     d31, [x1]
+    0.98 :    f824:   add     x1, x1, x8
+    1.12 :    f828:   cmp     x0, x9
+    0.05 :    f82c:   b.lt    f810 <warpx_esirkepov_deposition_fp64+0xef70>  // b.tstop
+    0.30 :    f830:   add     x11, x11, #0x1
+    0.35 :    f834:   add     x12, x12, x4
+    0.31 :    f838:   cmp     x11, x15
     0.01 :    f83c:   b.lt    f804 <warpx_esirkepov_deposition_fp64+0xef64>  // b.tstop
     0.05 :    f840:   ldr     x1, [sp, #704]
-    0.07 :    f844:   ldr     x0, [sp, #712]
-    0.02 :    f848:   add     x30, x30, x1
-    0.07 :    f84c:   ldr     x1, [sp, #592]
-    0.01 :    f850:   add     x0, x0, #0x1
-    0.08 :    f854:   str     x0, [sp, #712]
-    0.06 :    f858:   add     x2, x2, x1
-    0.05 :    f85c:   ldr     x1, [sp, #832]
-    0.11 :    f860:   cmp     x1, x0
+    0.06 :    f844:   ldr     x0, [sp, #712]
+    0.00 :    f848:   add     x30, x30, x1
+    0.09 :    f84c:   ldr     x1, [sp, #592]
+    0.00 :    f850:   add     x0, x0, #0x1
+    0.11 :    f854:   str     x0, [sp, #712]
+    0.08 :    f858:   add     x2, x2, x1
+    0.09 :    f85c:   ldr     x1, [sp, #832]
+    0.07 :    f860:   cmp     x1, x0
     0.00 :    f864:   b.gt    f7f4 <warpx_esirkepov_deposition_fp64+0xef54>
     0.02 :    f868:   b       4814 <warpx_esirkepov_deposition_fp64+0x3f74>
     0.00 :    f86c:   mov     x0, x24
@@ -15862,22 +15862,22 @@
     0.00 :   1004c:  b.ls    16d8c <warpx_esirkepov_deposition_fp64+0x164ec>  // b.plast
     0.00 :   10050:  lsr     x3, x19, #2
     0.00 :   10054:  and     x4, x19, #0xfffffffffffffffc
-    0.01 :   10058:  ldr     x0, [sp, #256]
-    0.01 :   1005c:  mov     x1, #0x0                        // #0
+    0.00 :   10058:  ldr     x0, [sp, #256]
+    0.00 :   1005c:  mov     x1, #0x0                        // #0
     0.00 :   10060:  lsl     x3, x3, #5
     0.00 :   10064:  ldr     x2, [sp, #280]
     0.00 :   10068:  add     x0, x0, #0x10
     0.00 :   1006c:  add     x2, x2, #0x10
-    0.00 :   10070:  ldr     x5, [sp, #256]
+    0.01 :   10070:  ldr     x5, [sp, #256]
     0.01 :   10074:  ldr     q31, [x0, x1]
-    0.07 :   10078:  ldr     q30, [x5, x1]
+    0.06 :   10078:  ldr     q30, [x5, x1]
     0.01 :   1007c:  ldr     x5, [sp, #280]
-    0.00 :   10080:  fcvtzs  v31.2d, v31.2d
-    0.01 :   10084:  fcvtzs  v30.2d, v30.2d
+    0.01 :   10080:  fcvtzs  v31.2d, v31.2d
+    0.00 :   10084:  fcvtzs  v30.2d, v30.2d
     0.01 :   10088:  str     q30, [x5, x1]
-    0.01 :   1008c:  str     q31, [x2, x1]
+    0.03 :   1008c:  str     q31, [x2, x1]
     0.01 :   10090:  add     x1, x1, #0x20
-    0.01 :   10094:  cmp     x1, x3
+    0.00 :   10094:  cmp     x1, x3
     0.00 :   10098:  b.ne    10070 <warpx_esirkepov_deposition_fp64+0xf7d0>  // b.any
     0.00 :   1009c:  cmp     x19, x4
     0.00 :   100a0:  b.eq    100ec <warpx_esirkepov_deposition_fp64+0xf84c>  // b.none
@@ -15905,14 +15905,14 @@
     0.00 :   100f8:  ldr     q29, [x0, #3296]
     0.00 :   100fc:  mov     x0, #0x0                        // #0
     0.01 :   10100:  ldr     x2, [sp, #336]
-    0.01 :   10104:  ldr     q30, [x2, x0]
-    0.05 :   10108:  ldr     x2, [sp, #280]
-    0.00 :   1010c:  add     v30.2d, v30.2d, v29.2d
-    0.01 :   10110:  ldr     q31, [x2, x0]
-    0.04 :   10114:  ldr     x2, [sp, #272]
+    0.00 :   10104:  ldr     q30, [x2, x0]
+    0.06 :   10108:  ldr     x2, [sp, #280]
+    0.02 :   1010c:  add     v30.2d, v30.2d, v29.2d
+    0.00 :   10110:  ldr     q31, [x2, x0]
+    0.05 :   10114:  ldr     x2, [sp, #272]
     0.01 :   10118:  sub     v31.2d, v31.2d, v30.2d
     0.02 :   1011c:  str     q31, [x2, x0]
-    0.01 :   10120:  add     x0, x0, #0x10
+    0.00 :   10120:  add     x0, x0, #0x10
     0.01 :   10124:  cmp     x0, x1
     0.00 :   10128:  b.ne    10100 <warpx_esirkepov_deposition_fp64+0xf860>  // b.any
     0.00 :   1012c:  and     x3, x19, #0xfffffffffffffffe
@@ -15928,16 +15928,16 @@
     0.00 :   10154:  str     x1, [x2, x0]
     0.00 :   10158:  mov     x0, #0x0                        // #0
     0.00 :   1015c:  lsl     x4, x4, #4
-    0.01 :   10160:  ldr     x1, [sp, #280]
+    0.02 :   10160:  ldr     x1, [sp, #280]
     0.00 :   10164:  ldr     q30, [x1, x0]
-    0.02 :   10168:  ldr     x1, [sp, #256]
-    0.01 :   1016c:  scvtf   v30.2d, v30.2d
-    0.01 :   10170:  ldr     q31, [x1, x0]
-    0.06 :   10174:  ldr     x1, [sp, #360]
-    0.02 :   10178:  fsub    v31.2d, v31.2d, v30.2d
+    0.04 :   10168:  ldr     x1, [sp, #256]
+    0.02 :   1016c:  scvtf   v30.2d, v30.2d
+    0.02 :   10170:  ldr     q31, [x1, x0]
+    0.05 :   10174:  ldr     x1, [sp, #360]
+    0.01 :   10178:  fsub    v31.2d, v31.2d, v30.2d
     0.01 :   1017c:  str     q31, [x1, x0]
     0.01 :   10180:  add     x0, x0, #0x10
-    0.00 :   10184:  cmp     x4, x0
+    0.01 :   10184:  cmp     x4, x0
     0.00 :   10188:  b.ne    10160 <warpx_esirkepov_deposition_fp64+0xf8c0>  // b.any
     0.00 :   1018c:  cmp     x19, x3
     0.00 :   10190:  b.eq    101b8 <warpx_esirkepov_deposition_fp64+0xf918>  // b.none
@@ -15957,31 +15957,31 @@
     0.00 :   101c8:  fmov    v26.2d, #1.000000000000000000e+00
     0.00 :   101cc:  lsr     x4, x19, #1
     0.00 :   101d0:  ldr     q27, [x1, #3328]
-    0.00 :   101d4:  lsl     x4, x4, #4
+    0.01 :   101d4:  lsl     x4, x4, #4
     0.00 :   101d8:  ldr     q25, [x0, #3296]
     0.00 :   101dc:  mov     x0, #0x0                        // #0
     0.01 :   101e0:  ldr     x1, [sp, #360]
     0.01 :   101e4:  ldr     q31, [x27, x0]
-    0.01 :   101e8:  ldr     x2, [sp, #376]
-    0.02 :   101ec:  ldr     q29, [x1, x0]
-    0.01 :   101f0:  ldr     x1, [sp, #272]
-    0.01 :   101f4:  shl     v28.2d, v31.2d, #1
-    0.00 :   101f8:  fsub    v29.2d, v26.2d, v29.2d
+    0.00 :   101e8:  ldr     x2, [sp, #376]
+    0.03 :   101ec:  ldr     q29, [x1, x0]
+    0.02 :   101f0:  ldr     x1, [sp, #272]
+    0.00 :   101f4:  shl     v28.2d, v31.2d, #1
+    0.01 :   101f8:  fsub    v29.2d, v26.2d, v29.2d
     0.01 :   101fc:  ldr     q30, [x1, x0]
-    0.01 :   10200:  add     v28.2d, v28.2d, v31.2d
+    0.03 :   10200:  add     v28.2d, v28.2d, v31.2d
     0.00 :   10204:  add     x0, x0, #0x10
-    0.01 :   10208:  shl     v28.2d, v28.2d, #1
+    0.00 :   10208:  shl     v28.2d, v28.2d, #1
     0.00 :   1020c:  fmul    v31.2d, v29.2d, v27.2d
     0.01 :   10210:  add     v30.2d, v30.2d, v25.2d
     0.00 :   10214:  add     v30.2d, v30.2d, v28.2d
-    0.01 :   10218:  fmul    v31.2d, v31.2d, v29.2d
-    0.01 :   1021c:  mov     x1, v30.d[1]
+    0.00 :   10218:  fmul    v31.2d, v31.2d, v29.2d
+    0.00 :   1021c:  mov     x1, v30.d[1]
     0.01 :   10220:  fmov    x3, d30
     0.00 :   10224:  fmul    v31.2d, v31.2d, v29.2d
     0.01 :   10228:  add     x1, x2, x1, lsl #3
     0.00 :   1022c:  str     d31, [x2, x3, lsl #3]
-    0.17 :   10230:  st1     {v31.d}[1], [x1]
-    0.14 :   10234:  cmp     x0, x4
+    0.12 :   10230:  st1     {v31.d}[1], [x1]
+    0.11 :   10234:  cmp     x0, x4
     0.00 :   10238:  b.ne    101e0 <warpx_esirkepov_deposition_fp64+0xf940>  // b.any
     0.00 :   1023c:  and     x3, x19, #0xfffffffffffffffe
     0.00 :   10240:  tbz     w19, #0, 102cc <warpx_esirkepov_deposition_fp64+0xfa2c>
@@ -16032,27 +16032,27 @@
     0.00 :   102f4:  mov     x0, #0x0                        // #0
     0.01 :   102f8:  mov     v23.16b, v26.16b
     0.01 :   102fc:  ldr     q28, [x27, x0]
-    0.02 :   10300:  ldr     x1, [sp, #272]
-    0.01 :   10304:  ldr     x2, [sp, #376]
-    0.02 :   10308:  shl     v30.2d, v28.2d, #1
-    0.00 :   1030c:  ldr     q31, [x1, x0]
-    0.02 :   10310:  ldr     x1, [sp, #360]
-    0.00 :   10314:  add     v30.2d, v30.2d, v28.2d
+    0.01 :   10300:  ldr     x1, [sp, #272]
+    0.02 :   10304:  ldr     x2, [sp, #376]
+    0.01 :   10308:  shl     v30.2d, v28.2d, #1
+    0.01 :   1030c:  ldr     q31, [x1, x0]
+    0.01 :   10310:  ldr     x1, [sp, #360]
+    0.02 :   10314:  add     v30.2d, v30.2d, v28.2d
     0.00 :   10318:  add     v31.2d, v31.2d, v24.2d
-    0.01 :   1031c:  ldr     q29, [x1, x0]
-    0.02 :   10320:  shl     v30.2d, v30.2d, #1
+    0.02 :   1031c:  ldr     q29, [x1, x0]
+    0.03 :   10320:  shl     v30.2d, v30.2d, #1
     0.00 :   10324:  add     x0, x0, #0x10
-    0.00 :   10328:  add     v31.2d, v31.2d, v30.2d
+    0.01 :   10328:  add     v31.2d, v31.2d, v30.2d
     0.00 :   1032c:  fmla    v23.2d, v29.2d, v25.2d
     0.01 :   10330:  mov     x1, v31.d[1]
     0.00 :   10334:  fmul    v28.2d, v29.2d, v29.2d
     0.01 :   10338:  fmov    x3, d31
-    0.02 :   1033c:  mov     v29.16b, v27.16b
-    0.01 :   10340:  fmla    v29.2d, v23.2d, v28.2d
+    0.00 :   1033c:  mov     v29.16b, v27.16b
+    0.02 :   10340:  fmla    v29.2d, v23.2d, v28.2d
     0.00 :   10344:  add     x1, x2, x1, lsl #3
     0.01 :   10348:  str     d29, [x2, x3, lsl #3]
-    0.17 :   1034c:  st1     {v29.d}[1], [x1]
-    0.13 :   10350:  cmp     x0, x4
+    0.15 :   1034c:  st1     {v29.d}[1], [x1]
+    0.10 :   10350:  cmp     x0, x4
     0.00 :   10354:  b.ne    102f8 <warpx_esirkepov_deposition_fp64+0xfa58>  // b.any
     0.00 :   10358:  and     x2, x19, #0xfffffffffffffffe
     0.00 :   1035c:  tbz     w19, #0, 104c4 <warpx_esirkepov_deposition_fp64+0xfc24>
@@ -16158,28 +16158,28 @@
     0.00 :   104ec:  ldr     q23, [x0, #3456]
     0.00 :   104f0:  mov     x0, #0x0                        // #0
     0.01 :   104f4:  mov     v22.16b, v26.16b
-    0.01 :   104f8:  ldr     x1, [sp, #360]
-    0.04 :   104fc:  ldr     q28, [x27, x0]
+    0.00 :   104f8:  ldr     x1, [sp, #360]
+    0.00 :   104fc:  ldr     q28, [x27, x0]
     0.01 :   10500:  ldr     x3, [sp, #376]
-    0.01 :   10504:  ldr     q29, [x1, x0]
+    0.00 :   10504:  ldr     q29, [x1, x0]
     0.01 :   10508:  ldr     x1, [sp, #272]
-    0.01 :   1050c:  shl     v30.2d, v28.2d, #1
+    0.00 :   1050c:  shl     v30.2d, v28.2d, #1
     0.00 :   10510:  add     v30.2d, v30.2d, v28.2d
-    0.01 :   10514:  ldr     q31, [x1, x0]
-    0.01 :   10518:  fsub    v29.2d, v24.2d, v29.2d
+    0.00 :   10514:  ldr     q31, [x1, x0]
+    0.02 :   10518:  fsub    v29.2d, v24.2d, v29.2d
     0.00 :   1051c:  add     x0, x0, #0x10
-    0.01 :   10520:  shl     v30.2d, v30.2d, #1
+    0.00 :   10520:  shl     v30.2d, v30.2d, #1
     0.00 :   10524:  add     v31.2d, v31.2d, v23.2d
-    0.00 :   10528:  fmla    v22.2d, v29.2d, v25.2d
+    0.01 :   10528:  fmla    v22.2d, v29.2d, v25.2d
     0.01 :   1052c:  fmul    v28.2d, v29.2d, v29.2d
     0.00 :   10530:  add     v31.2d, v31.2d, v30.2d
-    0.01 :   10534:  mov     v30.16b, v27.16b
+    0.00 :   10534:  mov     v30.16b, v27.16b
     0.00 :   10538:  mov     x1, v31.d[1]
     0.00 :   1053c:  fmla    v30.2d, v22.2d, v28.2d
     0.00 :   10540:  fmov    x5, d31
     0.00 :   10544:  add     x1, x3, x1, lsl #3
-    0.01 :   10548:  str     d30, [x3, x5, lsl #3]
-    0.14 :   1054c:  st1     {v30.d}[1], [x1]
+    0.00 :   10548:  str     d30, [x3, x5, lsl #3]
+    0.19 :   1054c:  st1     {v30.d}[1], [x1]
     0.08 :   10550:  cmp     x0, x2
     0.00 :   10554:  b.ne    104f4 <warpx_esirkepov_deposition_fp64+0xfc54>  // b.any
     0.00 :   10558:  and     x3, x19, #0xfffffffffffffffe
@@ -16328,33 +16328,33 @@
     0.00 :   10794:  ldr     x1, [sp, #376]
     0.00 :   10798:  fmadd   d30, d29, d31, d30
     0.00 :   1079c:  str     d30, [x1, x0, lsl #3]
-    0.00 :   107a0:  adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
+    0.01 :   107a0:  adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.00 :   107a4:  adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.00 :   107a8:  lsl     x4, x4, #4
     0.00 :   107ac:  ldr     q27, [x1, #3328]
-    0.00 :   107b0:  ldr     q26, [x0, #3440]
+    0.01 :   107b0:  ldr     q26, [x0, #3440]
     0.00 :   107b4:  mov     x0, #0x0                        // #0
     0.01 :   107b8:  ldr     q31, [x27, x0]
-    0.02 :   107bc:  ldr     x1, [sp, #272]
-    0.00 :   107c0:  ldr     x2, [sp, #376]
+    0.01 :   107bc:  ldr     x1, [sp, #272]
+    0.02 :   107c0:  ldr     x2, [sp, #376]
     0.01 :   107c4:  shl     v29.2d, v31.2d, #1
-    0.02 :   107c8:  ldr     q30, [x1, x0]
-    0.00 :   107cc:  ldr     x1, [sp, #360]
-    0.01 :   107d0:  add     v29.2d, v29.2d, v31.2d
+    0.03 :   107c8:  ldr     q30, [x1, x0]
+    0.01 :   107cc:  ldr     x1, [sp, #360]
+    0.00 :   107d0:  add     v29.2d, v29.2d, v31.2d
     0.00 :   107d4:  add     v30.2d, v30.2d, v26.2d
     0.01 :   107d8:  ldr     q28, [x1, x0]
     0.01 :   107dc:  shl     v29.2d, v29.2d, #1
     0.01 :   107e0:  add     x0, x0, #0x10
     0.00 :   107e4:  add     v30.2d, v30.2d, v29.2d
-    0.01 :   107e8:  fmul    v31.2d, v28.2d, v27.2d
-    0.00 :   107ec:  mov     x1, v30.d[1]
-    0.01 :   107f0:  fmov    x5, d30
+    0.00 :   107e8:  fmul    v31.2d, v28.2d, v27.2d
+    0.01 :   107ec:  mov     x1, v30.d[1]
+    0.00 :   107f0:  fmov    x5, d30
     0.00 :   107f4:  fmul    v31.2d, v31.2d, v28.2d
     0.01 :   107f8:  add     x1, x2, x1, lsl #3
-    0.00 :   107fc:  fmul    v31.2d, v31.2d, v28.2d
+    0.01 :   107fc:  fmul    v31.2d, v31.2d, v28.2d
     0.01 :   10800:  str     d31, [x2, x5, lsl #3]
-    0.15 :   10804:  st1     {v31.d}[1], [x1]
-    0.06 :   10808:  cmp     x0, x4
+    0.17 :   10804:  st1     {v31.d}[1], [x1]
+    0.07 :   10808:  cmp     x0, x4
     0.00 :   1080c:  b.ne    107b8 <warpx_esirkepov_deposition_fp64+0xff18>  // b.any
     0.00 :   10810:  cmp     x19, x3
     0.00 :   10814:  b.eq    10894 <warpx_esirkepov_deposition_fp64+0xfff4>  // b.none
@@ -16401,14 +16401,14 @@
     0.00 :   108b8:  add     x4, x1, #0x10
     0.01 :   108bc:  ldr     x1, [sp, #280]
     0.01 :   108c0:  ldr     q31, [x2, x0]
-    0.05 :   108c4:  ldr     q30, [x1, x0]
+    0.03 :   108c4:  ldr     q30, [x1, x0]
     0.03 :   108c8:  ldr     x1, [sp, #792]
-    0.00 :   108cc:  add     v31.2d, v31.2d, v29.2d
-    0.01 :   108d0:  add     v30.2d, v30.2d, v29.2d
-    0.00 :   108d4:  str     q30, [x1, x0]
-    0.00 :   108d8:  str     q31, [x4, x0]
-    0.01 :   108dc:  add     x0, x0, #0x20
-    0.00 :   108e0:  cmp     x0, x3
+    0.01 :   108cc:  add     v31.2d, v31.2d, v29.2d
+    0.00 :   108d0:  add     v30.2d, v30.2d, v29.2d
+    0.01 :   108d4:  str     q30, [x1, x0]
+    0.02 :   108d8:  str     q31, [x4, x0]
+    0.00 :   108dc:  add     x0, x0, #0x20
+    0.01 :   108e0:  cmp     x0, x3
     0.00 :   108e4:  b.ne    108bc <warpx_esirkepov_deposition_fp64+0x1001c>  // b.any
     0.00 :   108e8:  and     x1, x19, #0xfffffffffffffffc
     0.00 :   108ec:  cmp     x19, x1
@@ -16473,16 +16473,16 @@
     0.00 :   109d8:  add     x2, x0, #0x10
     0.00 :   109dc:  ldr     x0, [sp, #528]
     0.00 :   109e0:  add     x0, x0, #0x10
-    0.00 :   109e4:  ldr     x4, [sp, #216]
-    0.02 :   109e8:  ldr     q31, [x2, x1]
-    0.07 :   109ec:  ldr     q30, [x4, x1]
+    0.01 :   109e4:  ldr     x4, [sp, #216]
+    0.00 :   109e8:  ldr     q31, [x2, x1]
+    0.04 :   109ec:  ldr     q30, [x4, x1]
     0.01 :   109f0:  ldr     x4, [sp, #528]
-    0.01 :   109f4:  fcvtzs  v31.2d, v31.2d
+    0.00 :   109f4:  fcvtzs  v31.2d, v31.2d
     0.00 :   109f8:  fcvtzs  v30.2d, v30.2d
     0.01 :   109fc:  str     q30, [x4, x1]
     0.01 :   10a00:  str     q31, [x0, x1]
-    0.00 :   10a04:  add     x1, x1, #0x20
-    0.00 :   10a08:  cmp     x1, x3
+    0.01 :   10a04:  add     x1, x1, #0x20
+    0.01 :   10a08:  cmp     x1, x3
     0.00 :   10a0c:  b.ne    109e4 <warpx_esirkepov_deposition_fp64+0x10144>  // b.any
     0.00 :   10a10:  and     x0, x19, #0xfffffffffffffffc
     0.00 :   10a14:  cmp     x19, x0
@@ -16508,15 +16508,15 @@
     0.00 :   10a64:  lsr     x4, x19, #1
     0.00 :   10a68:  mov     x0, #0x0                        // #0
     0.00 :   10a6c:  lsl     x4, x4, #4
-    0.00 :   10a70:  ldr     x1, [sp, #528]
-    0.01 :   10a74:  ldr     q30, [x1, x0]
-    0.04 :   10a78:  ldr     x1, [sp, #216]
+    0.01 :   10a70:  ldr     x1, [sp, #528]
+    0.02 :   10a74:  ldr     q30, [x1, x0]
+    0.05 :   10a78:  ldr     x1, [sp, #216]
     0.01 :   10a7c:  scvtf   v30.2d, v30.2d
     0.01 :   10a80:  ldr     q31, [x1, x0]
-    0.04 :   10a84:  ldr     x1, [sp, #440]
-    0.01 :   10a88:  fsub    v31.2d, v31.2d, v30.2d
+    0.06 :   10a84:  ldr     x1, [sp, #440]
+    0.00 :   10a88:  fsub    v31.2d, v31.2d, v30.2d
     0.01 :   10a8c:  str     q31, [x1, x0]
-    0.01 :   10a90:  add     x0, x0, #0x10
+    0.02 :   10a90:  add     x0, x0, #0x10
     0.00 :   10a94:  cmp     x0, x4
     0.00 :   10a98:  b.ne    10a70 <warpx_esirkepov_deposition_fp64+0x101d0>  // b.any
     0.00 :   10a9c:  and     x0, x19, #0xfffffffffffffffe
@@ -17128,7 +17128,7 @@
     0.00 :   11414:  ldr     x4, [sp, #208]
     0.00 :   11418:  ldr     q29, [sp, #240]
     0.00 :   1141c:  b       7430 <warpx_esirkepov_deposition_fp64+0x6b90>
-    0.01 :   11420:  mov     x1, #0x1                        // #1
+    0.00 :   11420:  mov     x1, #0x1                        // #1
     0.00 :   11424:  mov     x0, x26
     0.00 :   11428:  bl      760 <calloc@plt>
     0.00 :   1142c:  str     x0, [sp, #432]
@@ -17215,19 +17215,19 @@
     0.00 :   11570:  mov     x4, #0x0                        // #0
     0.00 :   11574:  lsl     x28, x20, #3
     0.00 :   11578:  mov     x3, x0
-    0.20 :   1157c:  mov     x1, x27
+    0.25 :   1157c:  mov     x1, x27
     0.02 :   11580:  mov     x0, x3
-    0.02 :   11584:  str     x4, [sp, #176]
-    0.05 :   11588:  mov     x2, x28
+    0.01 :   11584:  str     x4, [sp, #176]
+    0.02 :   11588:  mov     x2, x28
     0.01 :   1158c:  add     x27, x27, x28
-    0.04 :   11590:  bl      720 <memcpy@plt>
+    0.02 :   11590:  bl      720 <memcpy@plt>
     0.02 :   11594:  ldr     x4, [sp, #176]
     0.08 :   11598:  add     x3, x0, x28
-    0.29 :   1159c:  add     x4, x4, #0x1
-    0.02 :   115a0:  cmp     x19, x4
+    0.25 :   1159c:  add     x4, x4, #0x1
+    0.01 :   115a0:  cmp     x19, x4
     0.00 :   115a4:  b.gt    1157c <warpx_esirkepov_deposition_fp64+0x10cdc>
     0.00 :   115a8:  ldr     x1, [sp, #872]
-    0.00 :   115ac:  cmp     x19, #0x0
+    0.01 :   115ac:  cmp     x19, #0x0
     0.00 :   115b0:  mov     x2, #0x8                        // #8
     0.00 :   115b4:  csel    x2, x24, x2, gt
     0.00 :   115b8:  ldr     x0, [sp, #624]
@@ -17253,9 +17253,9 @@
     0.00 :   11608:  ldr     q31, [x1, #3408]
     0.00 :   1160c:  add     x1, x0, x3, lsl #5
     0.01 :   11610:  add     v27.2d, v31.2d, v29.2d
-    0.01 :   11614:  mov     v28.16b, v31.16b
-    0.01 :   11618:  add     v31.2d, v31.2d, v30.2d
-    0.00 :   1161c:  stp     q28, q27, [x0], #32
+    0.00 :   11614:  mov     v28.16b, v31.16b
+    0.00 :   11618:  add     v31.2d, v31.2d, v30.2d
+    0.01 :   1161c:  stp     q28, q27, [x0], #32
     0.10 :   11620:  cmp     x0, x1
     0.00 :   11624:  b.ne    11610 <warpx_esirkepov_deposition_fp64+0x10d70>  // b.any
     0.00 :   11628:  and     x4, x19, #0xfffffffffffffffc
@@ -17444,7 +17444,7 @@
     0.00 :   11904:  mov     x2, x24
     0.00 :   11908:  ldr     x0, [sp, #784]
     0.00 :   1190c:  bl      720 <memcpy@plt>
-    0.01 :   11910:  mov     x0, x26
+    0.00 :   11910:  mov     x0, x26
     0.00 :   11914:  bl      750 <malloc@plt>
     0.00 :   11918:  str     x0, [sp, #560]
     0.00 :   1191c:  cmp     x20, #0x0
@@ -17453,16 +17453,16 @@
     0.00 :   11928:  mov     x4, #0x0                        // #0
     0.00 :   1192c:  lsl     x28, x20, #3
     0.00 :   11930:  mov     x3, x0
-    0.29 :   11934:  mov     x1, x25
+    0.30 :   11934:  mov     x1, x25
     0.02 :   11938:  mov     x0, x3
-    0.01 :   1193c:  str     x4, [sp, #176]
+    0.02 :   1193c:  str     x4, [sp, #176]
     0.04 :   11940:  mov     x2, x28
-    0.01 :   11944:  add     x25, x25, x28
+    0.00 :   11944:  add     x25, x25, x28
     0.02 :   11948:  bl      720 <memcpy@plt>
-    0.02 :   1194c:  ldr     x4, [sp, #176]
-    0.08 :   11950:  add     x3, x0, x28
-    0.25 :   11954:  add     x4, x4, #0x1
-    0.01 :   11958:  cmp     x19, x4
+    0.01 :   1194c:  ldr     x4, [sp, #176]
+    0.10 :   11950:  add     x3, x0, x28
+    0.32 :   11954:  add     x4, x4, #0x1
+    0.02 :   11958:  cmp     x19, x4
     0.00 :   1195c:  b.gt    11934 <warpx_esirkepov_deposition_fp64+0x11094>
     0.00 :   11960:  ldr     x1, [sp, #784]
     0.00 :   11964:  cmp     x19, #0x0
@@ -17603,13 +17603,13 @@
     0.00 :   11b80:  add     x0, x0, #0x10
     0.00 :   11b84:  add     x2, x2, #0x10
     0.01 :   11b88:  ldr     x4, [sp, #200]
-    0.00 :   11b8c:  ldr     q31, [x0, x1]
-    0.04 :   11b90:  ldr     q30, [x4, x1]
-    0.01 :   11b94:  ldr     x4, [sp, #496]
-    0.01 :   11b98:  fcvtzs  v31.2d, v31.2d
-    0.00 :   11b9c:  fcvtzs  v30.2d, v30.2d
+    0.01 :   11b8c:  ldr     q31, [x0, x1]
+    0.02 :   11b90:  ldr     q30, [x4, x1]
+    0.02 :   11b94:  ldr     x4, [sp, #496]
+    0.00 :   11b98:  fcvtzs  v31.2d, v31.2d
+    0.01 :   11b9c:  fcvtzs  v30.2d, v30.2d
     0.01 :   11ba0:  str     q30, [x4, x1]
-    0.02 :   11ba4:  str     q31, [x2, x1]
+    0.03 :   11ba4:  str     q31, [x2, x1]
     0.01 :   11ba8:  add     x1, x1, #0x20
     0.00 :   11bac:  cmp     x3, x1
     0.00 :   11bb0:  b.ne    11b88 <warpx_esirkepov_deposition_fp64+0x112e8>  // b.any
@@ -17638,12 +17638,12 @@
     0.00 :   11c0c:  mov     x0, #0x0                        // #0
     0.00 :   11c10:  lsl     x4, x4, #4
     0.01 :   11c14:  ldr     x1, [sp, #496]
-    0.01 :   11c18:  ldr     q30, [x1, x0]
-    0.07 :   11c1c:  ldr     x1, [sp, #200]
+    0.00 :   11c18:  ldr     q30, [x1, x0]
+    0.05 :   11c1c:  ldr     x1, [sp, #200]
     0.01 :   11c20:  scvtf   v30.2d, v30.2d
-    0.01 :   11c24:  ldr     q31, [x1, x0]
-    0.07 :   11c28:  ldr     x1, [sp, #456]
-    0.01 :   11c2c:  fsub    v31.2d, v31.2d, v30.2d
+    0.02 :   11c24:  ldr     q31, [x1, x0]
+    0.04 :   11c28:  ldr     x1, [sp, #456]
+    0.00 :   11c2c:  fsub    v31.2d, v31.2d, v30.2d
     0.01 :   11c30:  str     q31, [x1, x0]
     0.01 :   11c34:  add     x0, x0, #0x10
     0.01 :   11c38:  cmp     x4, x0
@@ -17675,10 +17675,10 @@
     0.02 :   11ca0:  fsub    v30.2d, v29.2d, v30.2d
     0.00 :   11ca4:  fmul    v31.2d, v30.2d, v28.2d
     0.01 :   11ca8:  fmul    v31.2d, v31.2d, v30.2d
-    0.00 :   11cac:  fmul    v31.2d, v31.2d, v30.2d
+    0.01 :   11cac:  fmul    v31.2d, v31.2d, v30.2d
     0.01 :   11cb0:  str     d31, [x2], #48
-    0.14 :   11cb4:  st1     {v31.d}[1], [x2]
-    0.09 :   11cb8:  cmp     x4, x0
+    0.06 :   11cb4:  st1     {v31.d}[1], [x2]
+    0.12 :   11cb8:  cmp     x4, x0
     0.00 :   11cbc:  b.ne    11c94 <warpx_esirkepov_deposition_fp64+0x113f4>  // b.any
     0.00 :   11cc0:  and     x1, x19, #0xfffffffffffffffe
     0.00 :   11cc4:  tbz     w19, #0, 11d34 <warpx_esirkepov_deposition_fp64+0x11494>
@@ -17720,17 +17720,17 @@
     0.00 :   11d54:  add     x1, x0, #0x10
     0.00 :   11d58:  ldr     x0, [sp, #456]
     0.00 :   11d5c:  add     x3, x0, x4, lsl #4
-    0.01 :   11d60:  ldr     q31, [x0], #16
-    0.02 :   11d64:  mov     v26.16b, v30.16b
+    0.00 :   11d60:  ldr     q31, [x0], #16
+    0.01 :   11d64:  mov     v26.16b, v30.16b
     0.00 :   11d68:  mov     x2, x1
-    0.00 :   11d6c:  add     x1, x1, #0x60
+    0.01 :   11d6c:  add     x1, x1, #0x60
     0.00 :   11d70:  fmla    v26.2d, v31.2d, v29.2d
     0.01 :   11d74:  fmul    v27.2d, v31.2d, v31.2d
     0.00 :   11d78:  mov     v31.16b, v28.16b
-    0.00 :   11d7c:  fmla    v31.2d, v26.2d, v27.2d
-    0.02 :   11d80:  str     d31, [x2], #48
-    0.11 :   11d84:  st1     {v31.d}[1], [x2]
-    0.11 :   11d88:  cmp     x3, x0
+    0.01 :   11d7c:  fmla    v31.2d, v26.2d, v27.2d
+    0.01 :   11d80:  str     d31, [x2], #48
+    0.14 :   11d84:  st1     {v31.d}[1], [x2]
+    0.10 :   11d88:  cmp     x3, x0
     0.00 :   11d8c:  b.ne    11d60 <warpx_esirkepov_deposition_fp64+0x114c0>  // b.any
     0.00 :   11d90:  and     x3, x19, #0xfffffffffffffffe
     0.00 :   11d94:  mov     x1, x3
@@ -17810,17 +17810,17 @@
     0.00 :   11ebc:  add     x1, x1, #0x18
     0.00 :   11ec0:  add     x5, x0, x4, lsl #4
     0.01 :   11ec4:  ldr     q31, [x0], #16
-    0.00 :   11ec8:  mov     v25.16b, v30.16b
+    0.01 :   11ec8:  mov     v25.16b, v30.16b
     0.00 :   11ecc:  mov     x2, x1
-    0.01 :   11ed0:  add     x1, x1, #0x60
-    0.01 :   11ed4:  fsub    v31.2d, v28.2d, v31.2d
-    0.01 :   11ed8:  fmla    v25.2d, v31.2d, v29.2d
+    0.00 :   11ed0:  add     x1, x1, #0x60
+    0.00 :   11ed4:  fsub    v31.2d, v28.2d, v31.2d
+    0.00 :   11ed8:  fmla    v25.2d, v31.2d, v29.2d
     0.00 :   11edc:  fmul    v26.2d, v31.2d, v31.2d
     0.01 :   11ee0:  mov     v31.16b, v27.16b
     0.00 :   11ee4:  fmla    v31.2d, v25.2d, v26.2d
     0.01 :   11ee8:  str     d31, [x2], #48
-    0.08 :   11eec:  st1     {v31.d}[1], [x2]
-    0.14 :   11ef0:  cmp     x5, x0
+    0.07 :   11eec:  st1     {v31.d}[1], [x2]
+    0.13 :   11ef0:  cmp     x5, x0
     0.00 :   11ef4:  b.ne    11ec4 <warpx_esirkepov_deposition_fp64+0x11624>  // b.any
     0.00 :   11ef8:  mov     x1, x3
     0.00 :   11efc:  cmp     x19, x3
@@ -17892,15 +17892,15 @@
     0.00 :   12004:  ldr     x0, [sp, #456]
     0.00 :   12008:  add     x1, x1, #0x20
     0.00 :   1200c:  add     x4, x0, x4, lsl #4
-    0.01 :   12010:  ldr     q30, [x0], #16
-    0.01 :   12014:  mov     x2, x1
+    0.02 :   12010:  ldr     q30, [x0], #16
+    0.00 :   12014:  mov     x2, x1
     0.00 :   12018:  add     x1, x1, #0x60
-    0.01 :   1201c:  fmul    v31.2d, v30.2d, v29.2d
+    0.00 :   1201c:  fmul    v31.2d, v30.2d, v29.2d
     0.01 :   12020:  fmul    v31.2d, v31.2d, v30.2d
     0.00 :   12024:  fmul    v31.2d, v31.2d, v30.2d
-    0.01 :   12028:  str     d31, [x2], #48
-    0.14 :   1202c:  st1     {v31.d}[1], [x2]
-    0.08 :   12030:  cmp     x0, x4
+    0.02 :   12028:  str     d31, [x2], #48
+    0.07 :   1202c:  st1     {v31.d}[1], [x2]
+    0.14 :   12030:  cmp     x0, x4
     0.00 :   12034:  b.ne    12010 <warpx_esirkepov_deposition_fp64+0x11770>  // b.any
     0.00 :   12038:  cmp     x19, x3
     0.00 :   1203c:  b.eq    16b38 <warpx_esirkepov_deposition_fp64+0x16298>  // b.none
@@ -17926,16 +17926,16 @@
     0.00 :   1208c:  add     x2, x1, #0x10
     0.00 :   12090:  ldr     x1, [sp, #880]
     0.00 :   12094:  add     x4, x1, #0x10
-    0.01 :   12098:  ldr     x1, [sp, #496]
-    0.01 :   1209c:  ldr     q31, [x2, x0]
-    0.01 :   120a0:  ldr     q30, [x1, x0]
-    0.03 :   120a4:  ldr     x1, [sp, #880]
+    0.02 :   12098:  ldr     x1, [sp, #496]
+    0.00 :   1209c:  ldr     q31, [x2, x0]
+    0.02 :   120a0:  ldr     q30, [x1, x0]
+    0.04 :   120a4:  ldr     x1, [sp, #880]
     0.01 :   120a8:  add     v31.2d, v31.2d, v29.2d
     0.00 :   120ac:  add     v30.2d, v30.2d, v29.2d
-    0.00 :   120b0:  str     q30, [x1, x0]
-    0.00 :   120b4:  str     q31, [x4, x0]
-    0.00 :   120b8:  add     x0, x0, #0x20
-    0.01 :   120bc:  cmp     x0, x3
+    0.01 :   120b0:  str     q30, [x1, x0]
+    0.01 :   120b4:  str     q31, [x4, x0]
+    0.01 :   120b8:  add     x0, x0, #0x20
+    0.00 :   120bc:  cmp     x0, x3
     0.00 :   120c0:  b.ne    12098 <warpx_esirkepov_deposition_fp64+0x117f8>  // b.any
     0.00 :   120c4:  and     x1, x19, #0xfffffffffffffffc
     0.00 :   120c8:  cmp     x19, x1
@@ -19263,7 +19263,7 @@
     0.00 :   13570:  ldr     x0, [sp, #232]
     0.00 :   13574:  cmp     x0, #0x4
     0.00 :   13578:  ldr     x0, [sp, #392]
-    0.00 :   1357c:  str     x0, [sp, #400]
+    0.01 :   1357c:  str     x0, [sp, #400]
     0.00 :   13580:  b.eq    1a50 <warpx_esirkepov_deposition_fp64+0x11b0>  // b.none
     0.00 :   13584:  ldr     x0, [sp, #232]
     0.00 :   13588:  cmp     x0, #0x5
@@ -19460,19 +19460,19 @@
     0.00 :   13884:  lsr     x3, x19, #2
     0.00 :   13888:  and     x4, x19, #0xfffffffffffffffc
     0.00 :   1388c:  ldr     x0, [sp, #480]
-    0.00 :   13890:  mov     x2, #0x0                        // #0
+    0.01 :   13890:  mov     x2, #0x0                        // #0
     0.00 :   13894:  lsl     x3, x3, #5
     0.00 :   13898:  add     x1, x0, #0x10
     0.00 :   1389c:  ldr     x0, [sp, #328]
     0.00 :   138a0:  add     x0, x0, #0x10
     0.00 :   138a4:  ldr     x5, [sp, #480]
     0.01 :   138a8:  ldr     q31, [x1, x2]
-    0.03 :   138ac:  ldr     q30, [x5, x2]
+    0.06 :   138ac:  ldr     q30, [x5, x2]
     0.01 :   138b0:  ldr     x5, [sp, #328]
-    0.01 :   138b4:  fcvtzs  v31.2d, v31.2d
-    0.01 :   138b8:  fcvtzs  v30.2d, v30.2d
+    0.00 :   138b4:  fcvtzs  v31.2d, v31.2d
+    0.00 :   138b8:  fcvtzs  v30.2d, v30.2d
     0.00 :   138bc:  str     q30, [x5, x2]
-    0.04 :   138c0:  str     q31, [x0, x2]
+    0.01 :   138c0:  str     q31, [x0, x2]
     0.01 :   138c4:  add     x2, x2, #0x20
     0.00 :   138c8:  cmp     x2, x3
     0.00 :   138cc:  b.ne    138a4 <warpx_esirkepov_deposition_fp64+0x13004>  // b.any
@@ -20748,16 +20748,16 @@
     0.00 :   14ca4:  lsr     x4, x19, #1
     0.00 :   14ca8:  lsl     x1, x4, #4
     0.00 :   14cac:  ldr     q29, [x0, #3296]
-    0.00 :   14cb0:  mov     x0, #0x0                        // #0
-    0.01 :   14cb4:  ldr     x2, [sp, #624]
-    0.01 :   14cb8:  ldr     q30, [x2, x0]
-    0.09 :   14cbc:  ldr     x2, [sp, #328]
-    0.00 :   14cc0:  add     v30.2d, v30.2d, v29.2d
-    0.02 :   14cc4:  ldr     q31, [x2, x0]
-    0.03 :   14cc8:  ldr     x2, [sp, #320]
-    0.01 :   14ccc:  sub     v31.2d, v31.2d, v30.2d
-    0.00 :   14cd0:  str     q31, [x2, x0]
-    0.03 :   14cd4:  add     x0, x0, #0x10
+    0.01 :   14cb0:  mov     x0, #0x0                        // #0
+    0.00 :   14cb4:  ldr     x2, [sp, #624]
+    0.00 :   14cb8:  ldr     q30, [x2, x0]
+    0.06 :   14cbc:  ldr     x2, [sp, #328]
+    0.01 :   14cc0:  add     v30.2d, v30.2d, v29.2d
+    0.00 :   14cc4:  ldr     q31, [x2, x0]
+    0.02 :   14cc8:  ldr     x2, [sp, #320]
+    0.00 :   14ccc:  sub     v31.2d, v31.2d, v30.2d
+    0.01 :   14cd0:  str     q31, [x2, x0]
+    0.00 :   14cd4:  add     x0, x0, #0x10
     0.01 :   14cd8:  cmp     x0, x1
     0.00 :   14cdc:  b.ne    14cb4 <warpx_esirkepov_deposition_fp64+0x14414>  // b.any
     0.00 :   14ce0:  and     x3, x19, #0xfffffffffffffffe
@@ -20773,15 +20773,15 @@
     0.00 :   14d08:  str     x1, [x2, x0]
     0.00 :   14d0c:  mov     x0, #0x0                        // #0
     0.00 :   14d10:  lsl     x4, x4, #4
-    0.02 :   14d14:  ldr     x1, [sp, #328]
-    0.00 :   14d18:  ldr     q30, [x1, x0]
-    0.02 :   14d1c:  ldr     x1, [sp, #480]
+    0.01 :   14d14:  ldr     x1, [sp, #328]
+    0.01 :   14d18:  ldr     q30, [x1, x0]
+    0.03 :   14d1c:  ldr     x1, [sp, #480]
     0.01 :   14d20:  scvtf   v30.2d, v30.2d
-    0.01 :   14d24:  ldr     q31, [x1, x0]
-    0.07 :   14d28:  ldr     x1, [sp, #352]
+    0.03 :   14d24:  ldr     q31, [x1, x0]
+    0.03 :   14d28:  ldr     x1, [sp, #352]
     0.02 :   14d2c:  fsub    v31.2d, v31.2d, v30.2d
     0.01 :   14d30:  str     q31, [x1, x0]
-    0.02 :   14d34:  add     x0, x0, #0x10
+    0.01 :   14d34:  add     x0, x0, #0x10
     0.02 :   14d38:  cmp     x0, x4
     0.00 :   14d3c:  b.ne    14d14 <warpx_esirkepov_deposition_fp64+0x14474>  // b.any
     0.00 :   14d40:  cmp     x19, x3
@@ -20816,31 +20816,31 @@
     0.00 :   14db4:  fmov    v26.2d, #1.000000000000000000e+00
     0.00 :   14db8:  lsr     x4, x19, #1
     0.00 :   14dbc:  ldr     q27, [x1, #3328]
-    0.01 :   14dc0:  lsl     x4, x4, #4
+    0.00 :   14dc0:  lsl     x4, x4, #4
     0.00 :   14dc4:  ldr     q25, [x0, #3296]
     0.00 :   14dc8:  mov     x0, #0x0                        // #0
-    0.00 :   14dcc:  ldr     x1, [sp, #352]
-    0.01 :   14dd0:  ldr     q31, [x27, x0]
-    0.01 :   14dd4:  ldr     x2, [sp, #368]
-    0.01 :   14dd8:  ldr     q29, [x1, x0]
-    0.04 :   14ddc:  ldr     x1, [sp, #320]
-    0.01 :   14de0:  shl     v28.2d, v31.2d, #1
+    0.02 :   14dcc:  ldr     x1, [sp, #352]
+    0.00 :   14dd0:  ldr     q31, [x27, x0]
+    0.02 :   14dd4:  ldr     x2, [sp, #368]
+    0.02 :   14dd8:  ldr     q29, [x1, x0]
+    0.01 :   14ddc:  ldr     x1, [sp, #320]
+    0.00 :   14de0:  shl     v28.2d, v31.2d, #1
     0.00 :   14de4:  fsub    v29.2d, v26.2d, v29.2d
-    0.02 :   14de8:  ldr     q30, [x1, x0]
-    0.00 :   14dec:  add     v28.2d, v28.2d, v31.2d
+    0.01 :   14de8:  ldr     q30, [x1, x0]
+    0.01 :   14dec:  add     v28.2d, v28.2d, v31.2d
     0.00 :   14df0:  add     x0, x0, #0x10
-    0.01 :   14df4:  shl     v28.2d, v28.2d, #1
-    0.00 :   14df8:  fmul    v31.2d, v29.2d, v27.2d
-    0.01 :   14dfc:  add     v30.2d, v30.2d, v25.2d
+    0.02 :   14df4:  shl     v28.2d, v28.2d, #1
+    0.01 :   14df8:  fmul    v31.2d, v29.2d, v27.2d
+    0.02 :   14dfc:  add     v30.2d, v30.2d, v25.2d
     0.02 :   14e00:  add     v30.2d, v30.2d, v28.2d
     0.00 :   14e04:  fmul    v31.2d, v31.2d, v29.2d
-    0.02 :   14e08:  mov     x1, v30.d[1]
+    0.01 :   14e08:  mov     x1, v30.d[1]
     0.00 :   14e0c:  fmov    x3, d30
-    0.00 :   14e10:  fmul    v31.2d, v31.2d, v29.2d
+    0.01 :   14e10:  fmul    v31.2d, v31.2d, v29.2d
     0.00 :   14e14:  add     x1, x2, x1, lsl #3
     0.01 :   14e18:  str     d31, [x2, x3, lsl #3]
-    0.17 :   14e1c:  st1     {v31.d}[1], [x1]
-    0.11 :   14e20:  cmp     x0, x4
+    0.21 :   14e1c:  st1     {v31.d}[1], [x1]
+    0.07 :   14e20:  cmp     x0, x4
     0.00 :   14e24:  b.ne    14dcc <warpx_esirkepov_deposition_fp64+0x1452c>  // b.any
     0.00 :   14e28:  and     x3, x19, #0xfffffffffffffffe
     0.00 :   14e2c:  tbz     w19, #0, 14eb8 <warpx_esirkepov_deposition_fp64+0x14618>
@@ -20886,32 +20886,32 @@
     0.00 :   14ecc:  fmov    v26.2d, #-1.000000000000000000e+00
     0.00 :   14ed0:  lsr     x4, x19, #1
     0.00 :   14ed4:  ldr     q27, [x1, #3344]
-    0.00 :   14ed8:  lsl     x4, x4, #4
+    0.01 :   14ed8:  lsl     x4, x4, #4
     0.00 :   14edc:  ldr     q24, [x0, #3424]
     0.00 :   14ee0:  mov     x0, #0x0                        // #0
-    0.05 :   14ee4:  mov     v23.16b, v26.16b
-    0.00 :   14ee8:  ldr     q28, [x27, x0]
+    0.02 :   14ee4:  mov     v23.16b, v26.16b
+    0.02 :   14ee8:  ldr     q28, [x27, x0]
     0.01 :   14eec:  ldr     x1, [sp, #320]
     0.01 :   14ef0:  ldr     x2, [sp, #368]
     0.01 :   14ef4:  shl     v30.2d, v28.2d, #1
     0.01 :   14ef8:  ldr     q31, [x1, x0]
-    0.02 :   14efc:  ldr     x1, [sp, #352]
-    0.00 :   14f00:  add     v30.2d, v30.2d, v28.2d
+    0.03 :   14efc:  ldr     x1, [sp, #352]
+    0.02 :   14f00:  add     v30.2d, v30.2d, v28.2d
     0.00 :   14f04:  add     v31.2d, v31.2d, v24.2d
     0.01 :   14f08:  ldr     q29, [x1, x0]
     0.02 :   14f0c:  shl     v30.2d, v30.2d, #1
     0.00 :   14f10:  add     x0, x0, #0x10
-    0.01 :   14f14:  add     v31.2d, v31.2d, v30.2d
-    0.01 :   14f18:  fmla    v23.2d, v29.2d, v25.2d
+    0.00 :   14f14:  add     v31.2d, v31.2d, v30.2d
+    0.00 :   14f18:  fmla    v23.2d, v29.2d, v25.2d
     0.00 :   14f1c:  mov     x1, v31.d[1]
-    0.02 :   14f20:  fmul    v28.2d, v29.2d, v29.2d
-    0.00 :   14f24:  fmov    x3, d31
+    0.01 :   14f20:  fmul    v28.2d, v29.2d, v29.2d
+    0.01 :   14f24:  fmov    x3, d31
     0.01 :   14f28:  mov     v29.16b, v27.16b
-    0.01 :   14f2c:  fmla    v29.2d, v23.2d, v28.2d
+    0.02 :   14f2c:  fmla    v29.2d, v23.2d, v28.2d
     0.00 :   14f30:  add     x1, x2, x1, lsl #3
     0.01 :   14f34:  str     d29, [x2, x3, lsl #3]
-    0.13 :   14f38:  st1     {v29.d}[1], [x1]
-    0.09 :   14f3c:  cmp     x0, x4
+    0.15 :   14f38:  st1     {v29.d}[1], [x1]
+    0.04 :   14f3c:  cmp     x0, x4
     0.00 :   14f40:  b.ne    14ee4 <warpx_esirkepov_deposition_fp64+0x14644>  // b.any
     0.00 :   14f44:  and     x2, x19, #0xfffffffffffffffe
     0.00 :   14f48:  tbz     w19, #0, 150b0 <warpx_esirkepov_deposition_fp64+0x14810>
@@ -21017,29 +21017,29 @@
     0.00 :   150d8:  ldr     q23, [x0, #3456]
     0.00 :   150dc:  mov     x0, #0x0                        // #0
     0.03 :   150e0:  mov     v22.16b, v26.16b
-    0.00 :   150e4:  ldr     x1, [sp, #352]
-    0.00 :   150e8:  ldr     q28, [x27, x0]
+    0.03 :   150e4:  ldr     x1, [sp, #352]
+    0.01 :   150e8:  ldr     q28, [x27, x0]
     0.01 :   150ec:  ldr     x3, [sp, #368]
     0.01 :   150f0:  ldr     q29, [x1, x0]
-    0.01 :   150f4:  ldr     x1, [sp, #320]
+    0.02 :   150f4:  ldr     x1, [sp, #320]
     0.01 :   150f8:  shl     v30.2d, v28.2d, #1
     0.00 :   150fc:  add     v30.2d, v30.2d, v28.2d
     0.01 :   15100:  ldr     q31, [x1, x0]
-    0.02 :   15104:  fsub    v29.2d, v24.2d, v29.2d
+    0.01 :   15104:  fsub    v29.2d, v24.2d, v29.2d
     0.00 :   15108:  add     x0, x0, #0x10
-    0.00 :   1510c:  shl     v30.2d, v30.2d, #1
+    0.01 :   1510c:  shl     v30.2d, v30.2d, #1
     0.00 :   15110:  add     v31.2d, v31.2d, v23.2d
-    0.02 :   15114:  fmla    v22.2d, v29.2d, v25.2d
+    0.01 :   15114:  fmla    v22.2d, v29.2d, v25.2d
     0.00 :   15118:  fmul    v28.2d, v29.2d, v29.2d
-    0.00 :   1511c:  add     v31.2d, v31.2d, v30.2d
+    0.01 :   1511c:  add     v31.2d, v31.2d, v30.2d
     0.00 :   15120:  mov     v30.16b, v27.16b
     0.00 :   15124:  mov     x1, v31.d[1]
     0.01 :   15128:  fmla    v30.2d, v22.2d, v28.2d
     0.00 :   1512c:  fmov    x5, d31
     0.01 :   15130:  add     x1, x3, x1, lsl #3
     0.01 :   15134:  str     d30, [x3, x5, lsl #3]
-    0.21 :   15138:  st1     {v30.d}[1], [x1]
-    0.07 :   1513c:  cmp     x0, x2
+    0.20 :   15138:  st1     {v30.d}[1], [x1]
+    0.05 :   1513c:  cmp     x0, x2
     0.00 :   15140:  b.ne    150e0 <warpx_esirkepov_deposition_fp64+0x14840>  // b.any
     0.00 :   15144:  and     x3, x19, #0xfffffffffffffffe
     0.00 :   15148:  mov     x1, x3
@@ -21187,32 +21187,32 @@
     0.00 :   15380:  ldr     x1, [sp, #368]
     0.00 :   15384:  fmadd   d30, d29, d31, d30
     0.00 :   15388:  str     d30, [x1, x0, lsl #3]
-    0.00 :   1538c:  adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
+    0.01 :   1538c:  adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.00 :   15390:  adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.00 :   15394:  lsl     x4, x4, #4
     0.00 :   15398:  ldr     q27, [x1, #3328]
     0.00 :   1539c:  ldr     q26, [x0, #3440]
     0.00 :   153a0:  mov     x0, #0x0                        // #0
-    0.01 :   153a4:  ldr     q31, [x27, x0]
+    0.00 :   153a4:  ldr     q31, [x27, x0]
     0.01 :   153a8:  ldr     x1, [sp, #320]
     0.01 :   153ac:  ldr     x2, [sp, #368]
     0.01 :   153b0:  shl     v29.2d, v31.2d, #1
     0.00 :   153b4:  ldr     q30, [x1, x0]
-    0.02 :   153b8:  ldr     x1, [sp, #352]
-    0.02 :   153bc:  add     v29.2d, v29.2d, v31.2d
-    0.02 :   153c0:  add     v30.2d, v30.2d, v26.2d
-    0.01 :   153c4:  ldr     q28, [x1, x0]
+    0.01 :   153b8:  ldr     x1, [sp, #352]
+    0.00 :   153bc:  add     v29.2d, v29.2d, v31.2d
+    0.01 :   153c0:  add     v30.2d, v30.2d, v26.2d
+    0.02 :   153c4:  ldr     q28, [x1, x0]
     0.01 :   153c8:  shl     v29.2d, v29.2d, #1
     0.01 :   153cc:  add     x0, x0, #0x10
-    0.00 :   153d0:  add     v30.2d, v30.2d, v29.2d
+    0.01 :   153d0:  add     v30.2d, v30.2d, v29.2d
     0.01 :   153d4:  fmul    v31.2d, v28.2d, v27.2d
-    0.00 :   153d8:  mov     x1, v30.d[1]
+    0.01 :   153d8:  mov     x1, v30.d[1]
     0.01 :   153dc:  fmov    x5, d30
     0.01 :   153e0:  fmul    v31.2d, v31.2d, v28.2d
-    0.00 :   153e4:  add     x1, x2, x1, lsl #3
+    0.01 :   153e4:  add     x1, x2, x1, lsl #3
     0.01 :   153e8:  fmul    v31.2d, v31.2d, v28.2d
-    0.00 :   153ec:  str     d31, [x2, x5, lsl #3]
-    0.15 :   153f0:  st1     {v31.d}[1], [x1]
+    0.01 :   153ec:  str     d31, [x2, x5, lsl #3]
+    0.13 :   153f0:  st1     {v31.d}[1], [x1]
     0.06 :   153f4:  cmp     x0, x4
     0.00 :   153f8:  b.ne    153a4 <warpx_esirkepov_deposition_fp64+0x14b04>  // b.any
     0.00 :   153fc:  cmp     x19, x3
@@ -21260,13 +21260,13 @@
     0.00 :   154a4:  add     x5, x2, #0x10
     0.00 :   154a8:  ldr     x2, [sp, #328]
     0.01 :   154ac:  ldr     q31, [x0, x1]
-    0.02 :   154b0:  ldr     q30, [x2, x1]
-    0.02 :   154b4:  ldr     x2, [sp, #784]
-    0.00 :   154b8:  add     v31.2d, v31.2d, v29.2d
+    0.05 :   154b0:  ldr     q30, [x2, x1]
+    0.01 :   154b4:  ldr     x2, [sp, #784]
+    0.01 :   154b8:  add     v31.2d, v31.2d, v29.2d
     0.00 :   154bc:  add     v30.2d, v30.2d, v29.2d
-    0.01 :   154c0:  str     q30, [x2, x1]
-    0.02 :   154c4:  str     q31, [x5, x1]
-    0.01 :   154c8:  add     x1, x1, #0x20
+    0.00 :   154c0:  str     q30, [x2, x1]
+    0.01 :   154c4:  str     q31, [x5, x1]
+    0.00 :   154c8:  add     x1, x1, #0x20
     0.00 :   154cc:  cmp     x1, x3
     0.00 :   154d0:  b.ne    154a8 <warpx_esirkepov_deposition_fp64+0x14c08>  // b.any
     0.00 :   154d4:  and     x1, x19, #0xfffffffffffffffc
@@ -21756,21 +21756,21 @@
     0.00 :   15c64:  lsr     x3, x19, #2
     0.00 :   15c68:  and     x4, x19, #0xfffffffffffffffc
     0.01 :   15c6c:  ldr     x0, [sp, #264]
-    0.01 :   15c70:  mov     x1, #0x0                        // #0
+    0.00 :   15c70:  mov     x1, #0x0                        // #0
     0.00 :   15c74:  lsl     x3, x3, #5
     0.00 :   15c78:  add     x2, x0, #0x10
     0.00 :   15c7c:  ldr     x0, [sp, #312]
     0.00 :   15c80:  add     x0, x0, #0x10
-    0.00 :   15c84:  ldr     x5, [sp, #264]
-    0.00 :   15c88:  ldr     q31, [x2, x1]
+    0.01 :   15c84:  ldr     x5, [sp, #264]
+    0.01 :   15c88:  ldr     q31, [x2, x1]
     0.07 :   15c8c:  ldr     q30, [x5, x1]
-    0.00 :   15c90:  ldr     x5, [sp, #312]
-    0.01 :   15c94:  fcvtzs  v31.2d, v31.2d
+    0.01 :   15c90:  ldr     x5, [sp, #312]
+    0.00 :   15c94:  fcvtzs  v31.2d, v31.2d
     0.00 :   15c98:  fcvtzs  v30.2d, v30.2d
     0.00 :   15c9c:  str     q30, [x5, x1]
-    0.02 :   15ca0:  str     q31, [x0, x1]
-    0.00 :   15ca4:  add     x1, x1, #0x20
-    0.01 :   15ca8:  cmp     x1, x3
+    0.00 :   15ca0:  str     q31, [x0, x1]
+    0.02 :   15ca4:  add     x1, x1, #0x20
+    0.00 :   15ca8:  cmp     x1, x3
     0.00 :   15cac:  b.ne    15c84 <warpx_esirkepov_deposition_fp64+0x153e4>  // b.any
     0.00 :   15cb0:  cmp     x19, x4
     0.00 :   15cb4:  b.eq    15d00 <warpx_esirkepov_deposition_fp64+0x15460>  // b.none
@@ -21797,15 +21797,15 @@
     0.00 :   15d08:  lsl     x1, x4, #4
     0.00 :   15d0c:  ldr     q29, [x0, #3296]
     0.01 :   15d10:  mov     x0, #0x0                        // #0
-    0.01 :   15d14:  ldr     x2, [sp, #408]
+    0.00 :   15d14:  ldr     x2, [sp, #408]
     0.01 :   15d18:  ldr     q30, [x2, x0]
     0.04 :   15d1c:  ldr     x2, [sp, #312]
-    0.02 :   15d20:  add     v30.2d, v30.2d, v29.2d
-    0.02 :   15d24:  ldr     q31, [x2, x0]
+    0.01 :   15d20:  add     v30.2d, v30.2d, v29.2d
+    0.01 :   15d24:  ldr     q31, [x2, x0]
     0.05 :   15d28:  ldr     x2, [sp, #296]
-    0.00 :   15d2c:  sub     v31.2d, v31.2d, v30.2d
+    0.02 :   15d2c:  sub     v31.2d, v31.2d, v30.2d
     0.01 :   15d30:  str     q31, [x2, x0]
-    0.02 :   15d34:  add     x0, x0, #0x10
+    0.01 :   15d34:  add     x0, x0, #0x10
     0.00 :   15d38:  cmp     x0, x1
     0.00 :   15d3c:  b.ne    15d14 <warpx_esirkepov_deposition_fp64+0x15474>  // b.any
     0.00 :   15d40:  and     x3, x19, #0xfffffffffffffffe
@@ -21821,16 +21821,16 @@
     0.00 :   15d68:  str     x1, [x2, x0]
     0.00 :   15d6c:  mov     x0, #0x0                        // #0
     0.00 :   15d70:  lsl     x4, x4, #4
-    0.02 :   15d74:  ldr     x1, [sp, #312]
-    0.02 :   15d78:  ldr     q30, [x1, x0]
-    0.07 :   15d7c:  ldr     x1, [sp, #264]
+    0.01 :   15d74:  ldr     x1, [sp, #312]
+    0.01 :   15d78:  ldr     q30, [x1, x0]
+    0.03 :   15d7c:  ldr     x1, [sp, #264]
     0.01 :   15d80:  scvtf   v30.2d, v30.2d
     0.01 :   15d84:  ldr     q31, [x1, x0]
-    0.06 :   15d88:  ldr     x1, [sp, #344]
+    0.04 :   15d88:  ldr     x1, [sp, #344]
     0.01 :   15d8c:  fsub    v31.2d, v31.2d, v30.2d
-    0.02 :   15d90:  str     q31, [x1, x0]
-    0.01 :   15d94:  add     x0, x0, #0x10
-    0.01 :   15d98:  cmp     x0, x4
+    0.00 :   15d90:  str     q31, [x1, x0]
+    0.02 :   15d94:  add     x0, x0, #0x10
+    0.02 :   15d98:  cmp     x0, x4
     0.00 :   15d9c:  b.ne    15d74 <warpx_esirkepov_deposition_fp64+0x154d4>  // b.any
     0.00 :   15da0:  cmp     x19, x3
     0.00 :   15da4:  b.ne    15df8 <warpx_esirkepov_deposition_fp64+0x15558>  // b.any
@@ -21876,24 +21876,24 @@
     0.01 :   15e44:  ldr     x1, [sp, #344]
     0.01 :   15e48:  ldr     q30, [x27, x0]
     0.01 :   15e4c:  ldr     x2, [sp, #400]
-    0.02 :   15e50:  ldr     q29, [x1, x0]
+    0.01 :   15e50:  ldr     q29, [x1, x0]
     0.03 :   15e54:  ldr     x1, [sp, #296]
-    0.00 :   15e58:  shl     v31.2d, v30.2d, #1
+    0.01 :   15e58:  shl     v31.2d, v30.2d, #1
     0.01 :   15e5c:  fsub    v29.2d, v26.2d, v29.2d
     0.01 :   15e60:  ldr     q28, [x1, x0]
-    0.01 :   15e64:  add     v31.2d, v31.2d, v30.2d
+    0.03 :   15e64:  add     v31.2d, v31.2d, v30.2d
     0.00 :   15e68:  add     x0, x0, #0x10
     0.00 :   15e6c:  shl     v31.2d, v31.2d, #1
     0.00 :   15e70:  fmul    v30.2d, v29.2d, v27.2d
-    0.00 :   15e74:  add     v28.2d, v28.2d, v25.2d
-    0.00 :   15e78:  add     v31.2d, v31.2d, v28.2d
+    0.02 :   15e74:  add     v28.2d, v28.2d, v25.2d
+    0.01 :   15e78:  add     v31.2d, v31.2d, v28.2d
     0.01 :   15e7c:  fmul    v30.2d, v30.2d, v29.2d
-    0.02 :   15e80:  mov     x1, v31.d[1]
-    0.01 :   15e84:  fmov    x3, d31
+    0.01 :   15e80:  mov     x1, v31.d[1]
+    0.00 :   15e84:  fmov    x3, d31
     0.01 :   15e88:  fmul    v30.2d, v30.2d, v29.2d
     0.00 :   15e8c:  add     x1, x2, x1, lsl #3
-    0.02 :   15e90:  str     d30, [x2, x3, lsl #3]
-    0.13 :   15e94:  st1     {v30.d}[1], [x1]
+    0.01 :   15e90:  str     d30, [x2, x3, lsl #3]
+    0.17 :   15e94:  st1     {v30.d}[1], [x1]
     0.10 :   15e98:  cmp     x0, x4
     0.00 :   15e9c:  b.ne    15e44 <warpx_esirkepov_deposition_fp64+0x155a4>  // b.any
     0.00 :   15ea0:  and     x3, x19, #0xfffffffffffffffe
@@ -21944,28 +21944,28 @@
     0.00 :   15f54:  ldr     q24, [x0, #3424]
     0.00 :   15f58:  mov     x0, #0x0                        // #0
     0.01 :   15f5c:  ldr     q28, [x27, x0]
-    0.00 :   15f60:  ldr     x1, [sp, #296]
+    0.02 :   15f60:  ldr     x1, [sp, #296]
     0.01 :   15f64:  ldr     x2, [sp, #400]
     0.01 :   15f68:  shl     v31.2d, v28.2d, #1
-    0.01 :   15f6c:  ldr     q30, [x1, x0]
+    0.00 :   15f6c:  ldr     q30, [x1, x0]
     0.01 :   15f70:  ldr     x1, [sp, #344]
-    0.00 :   15f74:  add     v31.2d, v31.2d, v28.2d
+    0.02 :   15f74:  add     v31.2d, v31.2d, v28.2d
     0.00 :   15f78:  mov     v28.16b, v26.16b
     0.02 :   15f7c:  add     v30.2d, v30.2d, v24.2d
     0.01 :   15f80:  ldr     q29, [x1, x0]
-    0.01 :   15f84:  shl     v31.2d, v31.2d, #1
+    0.02 :   15f84:  shl     v31.2d, v31.2d, #1
     0.00 :   15f88:  add     x0, x0, #0x10
-    0.02 :   15f8c:  add     v31.2d, v31.2d, v30.2d
+    0.01 :   15f8c:  add     v31.2d, v31.2d, v30.2d
     0.01 :   15f90:  fmla    v28.2d, v29.2d, v25.2d
     0.01 :   15f94:  mov     x1, v31.d[1]
-    0.01 :   15f98:  fmul    v23.2d, v29.2d, v29.2d
+    0.00 :   15f98:  fmul    v23.2d, v29.2d, v29.2d
     0.01 :   15f9c:  fmov    x3, d31
-    0.01 :   15fa0:  mov     v29.16b, v27.16b
-    0.01 :   15fa4:  fmla    v29.2d, v23.2d, v28.2d
-    0.01 :   15fa8:  add     x1, x2, x1, lsl #3
+    0.02 :   15fa0:  mov     v29.16b, v27.16b
+    0.00 :   15fa4:  fmla    v29.2d, v23.2d, v28.2d
+    0.00 :   15fa8:  add     x1, x2, x1, lsl #3
     0.01 :   15fac:  str     d29, [x2, x3, lsl #3]
-    0.12 :   15fb0:  st1     {v29.d}[1], [x1]
-    0.11 :   15fb4:  cmp     x0, x4
+    0.13 :   15fb0:  st1     {v29.d}[1], [x1]
+    0.09 :   15fb4:  cmp     x0, x4
     0.00 :   15fb8:  b.ne    15f5c <warpx_esirkepov_deposition_fp64+0x156bc>  // b.any
     0.00 :   15fbc:  and     x2, x19, #0xfffffffffffffffe
     0.00 :   15fc0:  tbz     w19, #0, 16128 <warpx_esirkepov_deposition_fp64+0x15888>
@@ -22069,31 +22069,31 @@
     0.00 :   16148:  ldr     q27, [x1, #3344]
     0.00 :   1614c:  lsl     x2, x4, #4
     0.00 :   16150:  ldr     q23, [x0, #3456]
-    0.00 :   16154:  mov     x0, #0x0                        // #0
-    0.02 :   16158:  ldr     x1, [sp, #344]
+    0.01 :   16154:  mov     x0, #0x0                        // #0
+    0.00 :   16158:  ldr     x1, [sp, #344]
     0.00 :   1615c:  ldr     q28, [x27, x0]
     0.01 :   16160:  ldr     x3, [sp, #400]
-    0.01 :   16164:  ldr     q30, [x1, x0]
+    0.00 :   16164:  ldr     q30, [x1, x0]
     0.01 :   16168:  ldr     x1, [sp, #296]
-    0.00 :   1616c:  shl     v31.2d, v28.2d, #1
+    0.01 :   1616c:  shl     v31.2d, v28.2d, #1
     0.00 :   16170:  add     v31.2d, v31.2d, v28.2d
     0.00 :   16174:  mov     v28.16b, v26.16b
     0.01 :   16178:  ldr     q29, [x1, x0]
     0.01 :   1617c:  fsub    v30.2d, v24.2d, v30.2d
     0.01 :   16180:  add     x0, x0, #0x10
-    0.01 :   16184:  shl     v31.2d, v31.2d, #1
-    0.00 :   16188:  add     v29.2d, v29.2d, v23.2d
+    0.00 :   16184:  shl     v31.2d, v31.2d, #1
+    0.01 :   16188:  add     v29.2d, v29.2d, v23.2d
     0.00 :   1618c:  fmla    v28.2d, v30.2d, v25.2d
-    0.02 :   16190:  fmul    v22.2d, v30.2d, v30.2d
+    0.00 :   16190:  fmul    v22.2d, v30.2d, v30.2d
     0.00 :   16194:  add     v31.2d, v31.2d, v29.2d
-    0.02 :   16198:  mov     v30.16b, v27.16b
+    0.01 :   16198:  mov     v30.16b, v27.16b
     0.00 :   1619c:  mov     x1, v31.d[1]
     0.01 :   161a0:  fmla    v30.2d, v22.2d, v28.2d
     0.00 :   161a4:  fmov    x5, d31
-    0.00 :   161a8:  add     x1, x3, x1, lsl #3
-    0.02 :   161ac:  str     d30, [x3, x5, lsl #3]
-    0.17 :   161b0:  st1     {v30.d}[1], [x1]
-    0.08 :   161b4:  cmp     x0, x2
+    0.01 :   161a8:  add     x1, x3, x1, lsl #3
+    0.01 :   161ac:  str     d30, [x3, x5, lsl #3]
+    0.19 :   161b0:  st1     {v30.d}[1], [x1]
+    0.05 :   161b4:  cmp     x0, x2
     0.00 :   161b8:  b.ne    16158 <warpx_esirkepov_deposition_fp64+0x158b8>  // b.any
     0.00 :   161bc:  and     x3, x19, #0xfffffffffffffffe
     0.00 :   161c0:  mov     x1, x3
@@ -22241,33 +22241,33 @@
     0.00 :   163f8:  ldr     x1, [sp, #400]
     0.00 :   163fc:  fmadd   d30, d31, d29, d30
     0.00 :   16400:  str     d30, [x1, x0, lsl #3]
-    0.01 :   16404:  adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
+    0.00 :   16404:  adrp    x1, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.00 :   16408:  adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.00 :   1640c:  lsl     x4, x4, #4
     0.00 :   16410:  ldr     q27, [x1, #3328]
     0.00 :   16414:  ldr     q26, [x0, #3440]
     0.00 :   16418:  mov     x0, #0x0                        // #0
     0.01 :   1641c:  ldr     q30, [x27, x0]
-    0.02 :   16420:  ldr     x1, [sp, #296]
-    0.01 :   16424:  ldr     x2, [sp, #400]
+    0.00 :   16420:  ldr     x1, [sp, #296]
+    0.00 :   16424:  ldr     x2, [sp, #400]
     0.00 :   16428:  shl     v31.2d, v30.2d, #1
     0.02 :   1642c:  ldr     q28, [x1, x0]
     0.01 :   16430:  ldr     x1, [sp, #344]
     0.01 :   16434:  add     v31.2d, v31.2d, v30.2d
-    0.01 :   16438:  add     v28.2d, v28.2d, v26.2d
-    0.02 :   1643c:  ldr     q29, [x1, x0]
-    0.01 :   16440:  shl     v31.2d, v31.2d, #1
+    0.00 :   16438:  add     v28.2d, v28.2d, v26.2d
+    0.01 :   1643c:  ldr     q29, [x1, x0]
+    0.02 :   16440:  shl     v31.2d, v31.2d, #1
     0.00 :   16444:  add     x0, x0, #0x10
-    0.01 :   16448:  add     v31.2d, v31.2d, v28.2d
-    0.00 :   1644c:  fmul    v30.2d, v29.2d, v27.2d
-    0.01 :   16450:  mov     x1, v31.d[1]
-    0.00 :   16454:  fmov    x5, d31
-    0.00 :   16458:  fmul    v30.2d, v30.2d, v29.2d
-    0.00 :   1645c:  add     x1, x2, x1, lsl #3
-    0.01 :   16460:  fmul    v30.2d, v30.2d, v29.2d
+    0.02 :   16448:  add     v31.2d, v31.2d, v28.2d
+    0.01 :   1644c:  fmul    v30.2d, v29.2d, v27.2d
+    0.00 :   16450:  mov     x1, v31.d[1]
+    0.01 :   16454:  fmov    x5, d31
+    0.01 :   16458:  fmul    v30.2d, v30.2d, v29.2d
+    0.01 :   1645c:  add     x1, x2, x1, lsl #3
+    0.00 :   16460:  fmul    v30.2d, v30.2d, v29.2d
     0.01 :   16464:  str     d30, [x2, x5, lsl #3]
-    0.12 :   16468:  st1     {v30.d}[1], [x1]
-    0.10 :   1646c:  cmp     x0, x4
+    0.14 :   16468:  st1     {v30.d}[1], [x1]
+    0.09 :   1646c:  cmp     x0, x4
     0.00 :   16470:  b.ne    1641c <warpx_esirkepov_deposition_fp64+0x15b7c>  // b.any
     0.00 :   16474:  cmp     x19, x3
     0.00 :   16478:  b.eq    164f8 <warpx_esirkepov_deposition_fp64+0x15c58>  // b.none
@@ -22312,15 +22312,15 @@
     0.00 :   16514:  ldr     x2, [sp, #776]
     0.00 :   16518:  add     x0, x0, #0x10
     0.00 :   1651c:  add     x5, x2, #0x10
-    0.01 :   16520:  ldr     x2, [sp, #312]
+    0.00 :   16520:  ldr     x2, [sp, #312]
     0.00 :   16524:  ldr     q31, [x0, x1]
-    0.02 :   16528:  ldr     q30, [x2, x1]
-    0.04 :   1652c:  ldr     x2, [sp, #776]
+    0.05 :   16528:  ldr     q30, [x2, x1]
+    0.03 :   1652c:  ldr     x2, [sp, #776]
     0.00 :   16530:  add     v31.2d, v31.2d, v29.2d
     0.00 :   16534:  add     v30.2d, v30.2d, v29.2d
-    0.01 :   16538:  str     q30, [x2, x1]
-    0.01 :   1653c:  str     q31, [x5, x1]
-    0.00 :   16540:  add     x1, x1, #0x20
+    0.00 :   16538:  str     q30, [x2, x1]
+    0.00 :   1653c:  str     q31, [x5, x1]
+    0.02 :   16540:  add     x1, x1, #0x20
     0.01 :   16544:  cmp     x1, x3
     0.00 :   16548:  b.ne    16520 <warpx_esirkepov_deposition_fp64+0x15c80>  // b.any
     0.00 :   1654c:  and     x1, x19, #0xfffffffffffffffc
@@ -24433,15 +24433,15 @@
     0.00 :   18638:  ldr     x0, [sp, #568]
     0.00 :   1863c:  add     x0, x0, #0x10
     0.00 :   18640:  ldr     x4, [sp, #384]
-    0.00 :   18644:  ldr     q31, [x1, x2]
-    0.08 :   18648:  ldr     q30, [x4, x2]
-    0.01 :   1864c:  ldr     x4, [sp, #568]
-    0.00 :   18650:  fcvtzs  v31.2d, v31.2d
+    0.01 :   18644:  ldr     q31, [x1, x2]
+    0.10 :   18648:  ldr     q30, [x4, x2]
+    0.05 :   1864c:  ldr     x4, [sp, #568]
+    0.01 :   18650:  fcvtzs  v31.2d, v31.2d
     0.00 :   18654:  fcvtzs  v30.2d, v30.2d
     0.01 :   18658:  str     q30, [x4, x2]
-    0.04 :   1865c:  str     q31, [x0, x2]
-    0.00 :   18660:  add     x2, x2, #0x20
-    0.00 :   18664:  cmp     x2, x3
+    0.03 :   1865c:  str     q31, [x0, x2]
+    0.01 :   18660:  add     x2, x2, #0x20
+    0.01 :   18664:  cmp     x2, x3
     0.00 :   18668:  b.ne    18640 <warpx_esirkepov_deposition_fp64+0x17da0>  // b.any
     0.00 :   1866c:  and     x0, x19, #0xfffffffffffffffc
     0.00 :   18670:  cmp     x19, x0
@@ -24468,15 +24468,15 @@
     0.00 :   186c4:  mov     x0, #0x0                        // #0
     0.00 :   186c8:  lsl     x4, x4, #4
     0.00 :   186cc:  ldr     x1, [sp, #568]
-    0.02 :   186d0:  ldr     q30, [x1, x0]
-    0.04 :   186d4:  ldr     x1, [sp, #384]
-    0.03 :   186d8:  scvtf   v30.2d, v30.2d
+    0.01 :   186d0:  ldr     q30, [x1, x0]
+    0.03 :   186d4:  ldr     x1, [sp, #384]
+    0.01 :   186d8:  scvtf   v30.2d, v30.2d
     0.01 :   186dc:  ldr     q31, [x1, x0]
-    0.05 :   186e0:  ldr     x1, [sp, #448]
+    0.04 :   186e0:  ldr     x1, [sp, #448]
     0.01 :   186e4:  fsub    v31.2d, v31.2d, v30.2d
-    0.02 :   186e8:  str     q31, [x1, x0]
-    0.03 :   186ec:  add     x0, x0, #0x10
-    0.01 :   186f0:  cmp     x0, x4
+    0.00 :   186e8:  str     q31, [x1, x0]
+    0.00 :   186ec:  add     x0, x0, #0x10
+    0.00 :   186f0:  cmp     x0, x4
     0.00 :   186f4:  b.ne    186cc <warpx_esirkepov_deposition_fp64+0x17e2c>  // b.any
     0.00 :   186f8:  and     x0, x19, #0xfffffffffffffffe
     0.00 :   186fc:  tbnz    w19, #0, 18828 <warpx_esirkepov_deposition_fp64+0x17f88>
@@ -24569,21 +24569,21 @@
     0.00 :   18858:  lsr     x4, x19, #1
     0.00 :   1885c:  fmov    v29.2d, #1.000000000000000000e+00
     0.00 :   18860:  ldr     q28, [x0, #3328]
-    0.00 :   18864:  ldr     x0, [sp, #448]
+    0.01 :   18864:  ldr     x0, [sp, #448]
     0.00 :   18868:  add     x4, x0, x4, lsl #4
     0.00 :   1886c:  mov     x1, x0
     0.00 :   18870:  ldr     x0, [sp, #432]
     0.00 :   18874:  add     x0, x0, #0x8
     0.01 :   18878:  ldr     q30, [x1], #16
-    0.04 :   1887c:  mov     x2, x0
+    0.01 :   1887c:  mov     x2, x0
     0.01 :   18880:  add     x0, x0, #0x60
     0.00 :   18884:  fsub    v30.2d, v29.2d, v30.2d
-    0.00 :   18888:  fmul    v31.2d, v30.2d, v28.2d
-    0.00 :   1888c:  fmul    v31.2d, v31.2d, v30.2d
-    0.01 :   18890:  fmul    v31.2d, v31.2d, v30.2d
-    0.01 :   18894:  str     d31, [x2], #48
-    0.10 :   18898:  st1     {v31.d}[1], [x2]
-    0.07 :   1889c:  cmp     x1, x4
+    0.01 :   18888:  fmul    v31.2d, v30.2d, v28.2d
+    0.01 :   1888c:  fmul    v31.2d, v31.2d, v30.2d
+    0.00 :   18890:  fmul    v31.2d, v31.2d, v30.2d
+    0.02 :   18894:  str     d31, [x2], #48
+    0.09 :   18898:  st1     {v31.d}[1], [x2]
+    0.10 :   1889c:  cmp     x1, x4
     0.00 :   188a0:  b.ne    18878 <warpx_esirkepov_deposition_fp64+0x17fd8>  // b.any
     0.00 :   188a4:  and     x1, x19, #0xfffffffffffffffe
     0.00 :   188a8:  tbz     w19, #0, 18918 <warpx_esirkepov_deposition_fp64+0x18078>
@@ -24626,17 +24626,17 @@
     0.00 :   1893c:  mov     x1, x0
     0.00 :   18940:  ldr     x0, [sp, #432]
     0.00 :   18944:  add     x0, x0, #0x10
-    0.01 :   18948:  ldr     q31, [x1], #16
-    0.00 :   1894c:  mov     v27.16b, v30.16b
+    0.02 :   18948:  ldr     q31, [x1], #16
+    0.02 :   1894c:  mov     v27.16b, v30.16b
     0.00 :   18950:  mov     x2, x0
-    0.01 :   18954:  add     x0, x0, #0x60
+    0.02 :   18954:  add     x0, x0, #0x60
     0.00 :   18958:  fmla    v27.2d, v31.2d, v29.2d
     0.01 :   1895c:  fmul    v26.2d, v31.2d, v31.2d
     0.01 :   18960:  mov     v31.16b, v28.16b
     0.00 :   18964:  fmla    v31.2d, v26.2d, v27.2d
     0.01 :   18968:  str     d31, [x2], #48
-    0.05 :   1896c:  st1     {v31.d}[1], [x2]
-    0.16 :   18970:  cmp     x1, x3
+    0.09 :   1896c:  st1     {v31.d}[1], [x2]
+    0.11 :   18970:  cmp     x1, x3
     0.00 :   18974:  b.ne    18948 <warpx_esirkepov_deposition_fp64+0x180a8>  // b.any
     0.00 :   18978:  and     x3, x19, #0xfffffffffffffffe
     0.00 :   1897c:  mov     x1, x3
@@ -24715,18 +24715,18 @@
     0.00 :   18aa0:  ldr     x0, [sp, #432]
     0.00 :   18aa4:  add     x5, x1, x4, lsl #4
     0.00 :   18aa8:  add     x0, x0, #0x18
-    0.01 :   18aac:  ldr     q31, [x1], #16
-    0.01 :   18ab0:  mov     v26.16b, v30.16b
+    0.02 :   18aac:  ldr     q31, [x1], #16
+    0.00 :   18ab0:  mov     v26.16b, v30.16b
     0.00 :   18ab4:  mov     x2, x0
     0.01 :   18ab8:  add     x0, x0, #0x60
     0.00 :   18abc:  fsub    v31.2d, v28.2d, v31.2d
-    0.00 :   18ac0:  fmla    v26.2d, v31.2d, v29.2d
+    0.01 :   18ac0:  fmla    v26.2d, v31.2d, v29.2d
     0.00 :   18ac4:  fmul    v25.2d, v31.2d, v31.2d
     0.00 :   18ac8:  mov     v31.16b, v27.16b
     0.00 :   18acc:  fmla    v31.2d, v25.2d, v26.2d
     0.01 :   18ad0:  str     d31, [x2], #48
-    0.06 :   18ad4:  st1     {v31.d}[1], [x2]
-    0.14 :   18ad8:  cmp     x1, x5
+    0.13 :   18ad4:  st1     {v31.d}[1], [x2]
+    0.11 :   18ad8:  cmp     x1, x5
     0.00 :   18adc:  b.ne    18aac <warpx_esirkepov_deposition_fp64+0x1820c>  // b.any
     0.00 :   18ae0:  mov     x1, x3
     0.00 :   18ae4:  cmp     x19, x3
@@ -24799,14 +24799,14 @@
     0.00 :   18bf0:  add     x4, x1, x4, lsl #4
     0.00 :   18bf4:  add     x0, x0, #0x20
     0.01 :   18bf8:  ldr     q30, [x1], #16
-    0.01 :   18bfc:  mov     x2, x0
+    0.02 :   18bfc:  mov     x2, x0
     0.01 :   18c00:  add     x0, x0, #0x60
-    0.01 :   18c04:  fmul    v31.2d, v30.2d, v29.2d
-    0.01 :   18c08:  fmul    v31.2d, v31.2d, v30.2d
-    0.01 :   18c0c:  fmul    v31.2d, v31.2d, v30.2d
+    0.02 :   18c04:  fmul    v31.2d, v30.2d, v29.2d
+    0.00 :   18c08:  fmul    v31.2d, v31.2d, v30.2d
+    0.00 :   18c0c:  fmul    v31.2d, v31.2d, v30.2d
     0.02 :   18c10:  str     d31, [x2], #48
     0.10 :   18c14:  st1     {v31.d}[1], [x2]
-    0.10 :   18c18:  cmp     x1, x4
+    0.09 :   18c18:  cmp     x1, x4
     0.00 :   18c1c:  b.ne    18bf8 <warpx_esirkepov_deposition_fp64+0x18358>  // b.any
     0.00 :   18c20:  cmp     x19, x3
     0.00 :   18c24:  b.eq    18d5c <warpx_esirkepov_deposition_fp64+0x184bc>  // b.none
@@ -24832,14 +24832,14 @@
     0.00 :   18c74:  ldr     x2, [sp, #872]
     0.00 :   18c78:  add     x0, x0, #0x10
     0.00 :   18c7c:  add     x4, x2, #0x10
-    0.01 :   18c80:  ldr     x2, [sp, #568]
+    0.00 :   18c80:  ldr     x2, [sp, #568]
     0.01 :   18c84:  ldr     q31, [x0, x1]
     0.01 :   18c88:  ldr     q30, [x2, x1]
-    0.03 :   18c8c:  ldr     x2, [sp, #872]
-    0.04 :   18c90:  add     v31.2d, v31.2d, v29.2d
-    0.00 :   18c94:  add     v30.2d, v30.2d, v29.2d
+    0.02 :   18c8c:  ldr     x2, [sp, #872]
+    0.00 :   18c90:  add     v31.2d, v31.2d, v29.2d
+    0.01 :   18c94:  add     v30.2d, v30.2d, v29.2d
     0.01 :   18c98:  str     q30, [x2, x1]
-    0.00 :   18c9c:  str     q31, [x4, x1]
+    0.01 :   18c9c:  str     q31, [x4, x1]
     0.01 :   18ca0:  add     x1, x1, #0x20
     0.01 :   18ca4:  cmp     x1, x3
     0.00 :   18ca8:  b.ne    18c80 <warpx_esirkepov_deposition_fp64+0x183e0>  // b.any
@@ -25170,7 +25170,7 @@
     0.00 :   191bc:  ldr     x1, [sp, #440]
     0.00 :   191c0:  fsub    d31, d31, d30
     0.00 :   191c4:  str     d31, [x1, x0]
-    0.01 :   191c8:  cmp     x25, #0x1
+    0.00 :   191c8:  cmp     x25, #0x1
     0.00 :   191cc:  b.ls    19b9c <warpx_esirkepov_deposition_fp64+0x192fc>  // b.plast
     0.00 :   191d0:  adrp    x0, 31000 <warpx_esirkepov_deposition_fp32+0x163e0>
     0.00 :   191d4:  lsr     x4, x19, #1
@@ -25184,13 +25184,13 @@
     0.00 :   191f4:  ldr     q30, [x1], #16
     0.01 :   191f8:  mov     x2, x0
     0.00 :   191fc:  add     x0, x0, #0x60
-    0.01 :   19200:  fsub    v30.2d, v29.2d, v30.2d
+    0.02 :   19200:  fsub    v30.2d, v29.2d, v30.2d
     0.00 :   19204:  fmul    v31.2d, v30.2d, v28.2d
-    0.01 :   19208:  fmul    v31.2d, v31.2d, v30.2d
+    0.00 :   19208:  fmul    v31.2d, v31.2d, v30.2d
     0.01 :   1920c:  fmul    v31.2d, v31.2d, v30.2d
-    0.00 :   19210:  str     d31, [x2], #48
-    0.08 :   19214:  st1     {v31.d}[1], [x2]
-    0.11 :   19218:  cmp     x1, x4
+    0.02 :   19210:  str     d31, [x2], #48
+    0.09 :   19214:  st1     {v31.d}[1], [x2]
+    0.13 :   19218:  cmp     x1, x4
     0.00 :   1921c:  b.ne    191f4 <warpx_esirkepov_deposition_fp64+0x18954>  // b.any
     0.00 :   19220:  and     x1, x19, #0xfffffffffffffffe
     0.00 :   19224:  tbz     w19, #0, 19294 <warpx_esirkepov_deposition_fp64+0x189f4>
@@ -25234,16 +25234,16 @@
     0.00 :   192bc:  ldr     x0, [sp, #504]
     0.00 :   192c0:  add     x0, x0, #0x10
     0.01 :   192c4:  ldr     q31, [x1], #16
-    0.00 :   192c8:  mov     v27.16b, v30.16b
+    0.01 :   192c8:  mov     v27.16b, v30.16b
     0.00 :   192cc:  mov     x2, x0
-    0.02 :   192d0:  add     x0, x0, #0x60
+    0.00 :   192d0:  add     x0, x0, #0x60
     0.00 :   192d4:  fmla    v27.2d, v31.2d, v29.2d
     0.01 :   192d8:  fmul    v26.2d, v31.2d, v31.2d
     0.00 :   192dc:  mov     v31.16b, v28.16b
-    0.02 :   192e0:  fmla    v31.2d, v26.2d, v27.2d
-    0.01 :   192e4:  str     d31, [x2], #48
+    0.01 :   192e0:  fmla    v31.2d, v26.2d, v27.2d
+    0.00 :   192e4:  str     d31, [x2], #48
     0.08 :   192e8:  st1     {v31.d}[1], [x2]
-    0.10 :   192ec:  cmp     x1, x3
+    0.13 :   192ec:  cmp     x1, x3
     0.00 :   192f0:  b.ne    192c4 <warpx_esirkepov_deposition_fp64+0x18a24>  // b.any
     0.00 :   192f4:  and     x3, x19, #0xfffffffffffffffe
     0.00 :   192f8:  mov     x1, x3
@@ -25322,7 +25322,7 @@
     0.00 :   1941c:  ldr     x0, [sp, #504]
     0.00 :   19420:  add     x5, x1, x4, lsl #4
     0.00 :   19424:  add     x0, x0, #0x18
-    0.02 :   19428:  ldr     q31, [x1], #16
+    0.01 :   19428:  ldr     q31, [x1], #16
     0.01 :   1942c:  mov     v26.16b, v30.16b
     0.00 :   19430:  mov     x2, x0
     0.01 :   19434:  add     x0, x0, #0x60
@@ -25332,8 +25332,8 @@
     0.00 :   19444:  mov     v31.16b, v27.16b
     0.01 :   19448:  fmla    v31.2d, v25.2d, v26.2d
     0.01 :   1944c:  str     d31, [x2], #48
-    0.04 :   19450:  st1     {v31.d}[1], [x2]
-    0.17 :   19454:  cmp     x1, x5
+    0.10 :   19450:  st1     {v31.d}[1], [x2]
+    0.07 :   19454:  cmp     x1, x5
     0.00 :   19458:  b.ne    19428 <warpx_esirkepov_deposition_fp64+0x18b88>  // b.any
     0.00 :   1945c:  mov     x1, x3
     0.00 :   19460:  cmp     x19, x3
@@ -25405,15 +25405,15 @@
     0.00 :   19568:  ldr     x0, [sp, #504]
     0.00 :   1956c:  add     x4, x1, x4, lsl #4
     0.00 :   19570:  add     x0, x0, #0x20
-    0.01 :   19574:  ldr     q30, [x1], #16
-    0.01 :   19578:  mov     x2, x0
+    0.00 :   19574:  ldr     q30, [x1], #16
+    0.00 :   19578:  mov     x2, x0
     0.00 :   1957c:  add     x0, x0, #0x60
     0.01 :   19580:  fmul    v31.2d, v30.2d, v29.2d
     0.00 :   19584:  fmul    v31.2d, v31.2d, v30.2d
-    0.00 :   19588:  fmul    v31.2d, v31.2d, v30.2d
+    0.01 :   19588:  fmul    v31.2d, v31.2d, v30.2d
     0.01 :   1958c:  str     d31, [x2], #48
-    0.07 :   19590:  st1     {v31.d}[1], [x2]
-    0.10 :   19594:  cmp     x1, x4
+    0.13 :   19590:  st1     {v31.d}[1], [x2]
+    0.09 :   19594:  cmp     x1, x4
     0.00 :   19598:  b.ne    19574 <warpx_esirkepov_deposition_fp64+0x18cd4>  // b.any
     0.00 :   1959c:  cmp     x19, x3
     0.00 :   195a0:  b.eq    19be8 <warpx_esirkepov_deposition_fp64+0x19348>  // b.none
@@ -25439,16 +25439,16 @@
     0.00 :   195f0:  ldr     x2, [sp, #864]
     0.00 :   195f4:  add     x0, x0, #0x10
     0.00 :   195f8:  add     x4, x2, #0x10
-    0.00 :   195fc:  ldr     x2, [sp, #528]
+    0.01 :   195fc:  ldr     x2, [sp, #528]
     0.00 :   19600:  ldr     q31, [x0, x1]
-    0.05 :   19604:  ldr     q30, [x2, x1]
-    0.01 :   19608:  ldr     x2, [sp, #864]
-    0.00 :   1960c:  add     v31.2d, v31.2d, v29.2d
-    0.01 :   19610:  add     v30.2d, v30.2d, v29.2d
+    0.04 :   19604:  ldr     q30, [x2, x1]
+    0.02 :   19608:  ldr     x2, [sp, #864]
+    0.01 :   1960c:  add     v31.2d, v31.2d, v29.2d
+    0.00 :   19610:  add     v30.2d, v30.2d, v29.2d
     0.00 :   19614:  str     q30, [x2, x1]
     0.01 :   19618:  str     q31, [x4, x1]
-    0.01 :   1961c:  add     x1, x1, #0x20
-    0.01 :   19620:  cmp     x1, x3
+    0.00 :   1961c:  add     x1, x1, #0x20
+    0.00 :   19620:  cmp     x1, x3
     0.00 :   19624:  b.ne    195fc <warpx_esirkepov_deposition_fp64+0x18d5c>  // b.any
     0.00 :   19628:  and     x1, x19, #0xfffffffffffffffc
     0.00 :   1962c:  cmp     x19, x1

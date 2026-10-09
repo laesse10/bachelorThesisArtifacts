@@ -1,0 +1,189 @@
+# objdump -d libtsvc_2_s235_fortran.so, functions matching tsvc_2_s235_fp64* (sha256 2b01375e520801d5)
+
+0000000000000800 <tsvc_2_s235_fp64._omp_fn.0>:    # address mod 64 = 0
+ 800:	a9b67bfd 	stp	x29, x30, [sp, #-160]!
+ 804:	910003fd 	mov	x29, sp
+ 808:	a9025bf5 	stp	x21, x22, [sp, #32]
+ 80c:	a90573fb 	stp	x27, x28, [sp, #80]
+ 810:	a942ec16 	ldp	x22, x27, [x0, #40]
+ 814:	a9046bf9 	stp	x25, x26, [sp, #64]
+ 818:	a941d41a 	ldp	x26, x21, [x0, #24]
+ 81c:	f90033fb 	str	x27, [sp, #96]
+ 820:	f9401c19 	ldr	x25, [x0, #56]
+ 824:	f100075f 	cmp	x26, #0x1
+ 828:	54000d6d 	b.le	9d4 <tsvc_2_s235_fp64._omp_fn.0+0x1d4>
+ 82c:	a90153f3 	stp	x19, x20, [sp, #16]
+ 830:	8b1b0739 	add	x25, x25, x27, lsl #1
+ 834:	8b1502d6 	add	x22, x22, x21
+ 838:	a90363f7 	stp	x23, x24, [sp, #48]
+ 83c:	aa0003f7 	mov	x23, x0
+ 840:	d2800058 	mov	x24, #0x2                   	// #2
+ 844:	97ffff97 	bl	6a0 <omp_get_num_threads@plt>
+ 848:	93407c14 	sxtw	x20, w0
+ 84c:	97ffffa1 	bl	6d0 <omp_get_thread_num@plt>
+ 850:	9ad40f53 	sdiv	x19, x26, x20
+ 854:	93407c06 	sxtw	x6, w0
+ 858:	91000740 	add	x0, x26, #0x1
+ 85c:	f90043e0 	str	x0, [sp, #128]
+ 860:	910006a0 	add	x0, x21, #0x1
+ 864:	f9004fe0 	str	x0, [sp, #152]
+ 868:	d503201f 	nop
+ 86c:	9b14ea74 	msub	x20, x19, x20, x26
+ 870:	eb1400df 	cmp	x6, x20
+ 874:	1a9fa7e0 	cset	w0, lt	// lt = tstop
+ 878:	7100001f 	cmp	w0, #0x0
+ 87c:	9a930673 	cinc	x19, x19, ne	// ne = any
+ 880:	9b067e66 	mul	x6, x19, x6
+ 884:	927ffa60 	and	x0, x19, #0xfffffffffffffffe
+ 888:	d341fe7b 	lsr	x27, x19, #1
+ 88c:	f90047e0 	str	x0, [sp, #136]
+ 890:	8b060294 	add	x20, x20, x6
+ 894:	9a9410dc 	csel	x28, x6, x20, ne	// ne = any
+ 898:	91000780 	add	x0, x28, #0x1
+ 89c:	8b1c0274 	add	x20, x19, x28
+ 8a0:	f9003be0 	str	x0, [sp, #112]
+ 8a4:	8b000260 	add	x0, x19, x0
+ 8a8:	f9003fe0 	str	x0, [sp, #120]
+ 8ac:	d37df380 	lsl	x0, x28, #3
+ 8b0:	f9004be0 	str	x0, [sp, #144]
+ 8b4:	14000008 	b	8d4 <tsvc_2_s235_fp64._omp_fn.0+0xd4>
+ 8b8:	97ffff8a 	bl	6e0 <GOMP_barrier@plt>
+ 8bc:	f94033e0 	ldr	x0, [sp, #96]
+ 8c0:	91000718 	add	x24, x24, #0x1
+ 8c4:	8b1502d6 	add	x22, x22, x21
+ 8c8:	8b000339 	add	x25, x25, x0
+ 8cc:	eb18035f 	cmp	x26, x24
+ 8d0:	540007eb 	b.lt	9cc <tsvc_2_s235_fp64._omp_fn.0+0x1cc>  // b.tstop
+ 8d4:	eb1c029f 	cmp	x20, x28
+ 8d8:	54ffff0d 	b.le	8b8 <tsvc_2_s235_fp64._omp_fn.0+0xb8>
+ 8dc:	a94036ef 	ldp	x15, x13, [x23]
+ 8e0:	8b1c02d0 	add	x16, x22, x28
+ 8e4:	f9400aee 	ldr	x14, [x23, #16]
+ 8e8:	f100067f 	cmp	x19, #0x1
+ 8ec:	540007e0 	b.eq	9e8 <tsvc_2_s235_fp64._omp_fn.0+0x1e8>  // b.none
+ 8f0:	d2800001 	mov	x1, #0x0                   	// #0
+ 8f4:	d2800002 	mov	x2, #0x0                   	// #0
+ 8f8:	f9403be0 	ldr	x0, [sp, #112]
+ 8fc:	f9404ff1 	ldr	x17, [sp, #152]
+ 900:	8b0002c9 	add	x9, x22, x0
+ 904:	8b000328 	add	x8, x25, x0
+ 908:	f9404be0 	ldr	x0, [sp, #144]
+ 90c:	8b090da9 	add	x9, x13, x9, lsl #3
+ 910:	8b100227 	add	x7, x17, x16
+ 914:	8b080dc8 	add	x8, x14, x8, lsl #3
+ 918:	8b070da7 	add	x7, x13, x7, lsl #3
+ 91c:	8b0001e0 	add	x0, x15, x0
+ 920:	3ce16902 	ldr	q2, [x8, x1]
+ 924:	91000442 	add	x2, x2, #0x1
+ 928:	3ce16801 	ldr	q1, [x0, x1]
+ 92c:	3ce16920 	ldr	q0, [x9, x1]
+ 930:	4e61cc40 	fmla	v0.2d, v2.2d, v1.2d
+ 934:	3ca168e0 	str	q0, [x7, x1]
+ 938:	91004021 	add	x1, x1, #0x10
+ 93c:	eb02037f 	cmp	x27, x2
+ 940:	54ffff01 	b.ne	920 <tsvc_2_s235_fp64._omp_fn.0+0x120>  // b.any
+ 944:	f94047e0 	ldr	x0, [sp, #136]
+ 948:	eb00027f 	cmp	x19, x0
+ 94c:	54000220 	b.eq	990 <tsvc_2_s235_fp64._omp_fn.0+0x190>  // b.none
+ 950:	f9403be3 	ldr	x3, [sp, #112]
+ 954:	8b0002c2 	add	x2, x22, x0
+ 958:	8b000321 	add	x1, x25, x0
+ 95c:	2518e3e1 	ptrue	p1.b
+ 960:	8b100231 	add	x17, x17, x16
+ 964:	cb000267 	sub	x7, x19, x0
+ 968:	25e71fe0 	whilelo	p0.d, xzr, x7
+ 96c:	8b000231 	add	x17, x17, x0
+ 970:	8b1c0000 	add	x0, x0, x28
+ 974:	a5e041e1 	ld1d	{z1.d}, p0/z, [x15, x0, lsl #3]
+ 978:	8b030042 	add	x2, x2, x3
+ 97c:	8b030021 	add	x1, x1, x3
+ 980:	a5e241a2 	ld1d	{z2.d}, p0/z, [x13, x2, lsl #3]
+ 984:	a5e141c0 	ld1d	{z0.d}, p0/z, [x14, x1, lsl #3]
+ 988:	65e28420 	fmad	z0.d, p1/m, z1.d, z2.d
+ 98c:	e5f141a0 	st1d	{z0.d}, p0, [x13, x17, lsl #3]
+ 990:	a94783e1 	ldp	x1, x0, [sp, #120]
+ 994:	eb00003f 	cmp	x1, x0
+ 998:	f94037e1 	ldr	x1, [sp, #104]
+ 99c:	9a801020 	csel	x0, x1, x0, ne	// ne = any
+ 9a0:	f90037e0 	str	x0, [sp, #104]
+ 9a4:	eb14035f 	cmp	x26, x20
+ 9a8:	54fff881 	b.ne	8b8 <tsvc_2_s235_fp64._omp_fn.0+0xb8>  // b.any
+ 9ac:	f90022e0 	str	x0, [x23, #64]
+ 9b0:	91000718 	add	x24, x24, #0x1
+ 9b4:	8b1502d6 	add	x22, x22, x21
+ 9b8:	97ffff4a 	bl	6e0 <GOMP_barrier@plt>
+ 9bc:	f94033e0 	ldr	x0, [sp, #96]
+ 9c0:	8b000339 	add	x25, x25, x0
+ 9c4:	eb18035f 	cmp	x26, x24
+ 9c8:	54fff86a 	b.ge	8d4 <tsvc_2_s235_fp64._omp_fn.0+0xd4>  // b.tcont
+ 9cc:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 9d0:	a94363f7 	ldp	x23, x24, [sp, #48]
+ 9d4:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 9d8:	a9446bf9 	ldp	x25, x26, [sp, #64]
+ 9dc:	a94573fb 	ldp	x27, x28, [sp, #80]
+ 9e0:	a8ca7bfd 	ldp	x29, x30, [sp], #160
+ 9e4:	d65f03c0 	ret
+ 9e8:	d2800000 	mov	x0, #0x0                   	// #0
+ 9ec:	910006b1 	add	x17, x21, #0x1
+ 9f0:	17ffffd8 	b	950 <tsvc_2_s235_fp64._omp_fn.0+0x150>
+ 9f4:	d503201f 	nop
+ 9f8:	d503201f 	nop
+ 9fc:	d503201f 	nop
+
+0000000000000a00 <tsvc_2_s235_fp64>:    # address mod 64 = 0
+ a00:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+ a04:	f10000bf 	cmp	x5, #0x0
+ a08:	910003fd 	mov	x29, sp
+ a0c:	9a9fa0a9 	csel	x9, x5, xzr, ge	// ge = tcont
+ a10:	aa0303ea 	mov	x10, x3
+ a14:	aa2903eb 	mvn	x11, x9
+ a18:	540004ed 	b.le	ab4 <tsvc_2_s235_fp64+0xb4>
+ a1c:	f10004bf 	cmp	x5, #0x1
+ a20:	540004e0 	b.eq	abc <tsvc_2_s235_fp64+0xbc>  // b.none
+ a24:	d341fca8 	lsr	x8, x5, #1
+ a28:	d2800006 	mov	x6, #0x0                   	// #0
+ a2c:	d2800007 	mov	x7, #0x0                   	// #0
+ a30:	3ce66800 	ldr	q0, [x0, x6]
+ a34:	910004e7 	add	x7, x7, #0x1
+ a38:	3ce66842 	ldr	q2, [x2, x6]
+ a3c:	3ce66881 	ldr	q1, [x4, x6]
+ a40:	4e61cc40 	fmla	v0.2d, v2.2d, v1.2d
+ a44:	3ca66800 	str	q0, [x0, x6]
+ a48:	910040c6 	add	x6, x6, #0x10
+ a4c:	eb07011f 	cmp	x8, x7
+ a50:	54ffff01 	b.ne	a30 <tsvc_2_s235_fp64+0x30>  // b.any
+ a54:	927ff8a6 	and	x6, x5, #0xfffffffffffffffe
+ a58:	36000125 	tbz	w5, #0, a7c <tsvc_2_s235_fp64+0x7c>
+ a5c:	cb0600a3 	sub	x3, x5, x6
+ a60:	2518e3e1 	ptrue	p1.b
+ a64:	25e31fe0 	whilelo	p0.d, xzr, x3
+ a68:	a5e64002 	ld1d	{z2.d}, p0/z, [x0, x6, lsl #3]
+ a6c:	a5e64040 	ld1d	{z0.d}, p0/z, [x2, x6, lsl #3]
+ a70:	a5e64081 	ld1d	{z1.d}, p0/z, [x4, x6, lsl #3]
+ a74:	65e28420 	fmad	z0.d, p1/m, z1.d, z2.d
+ a78:	e5e64000 	st1d	{z0.d}, p0, [x0, x6, lsl #3]
+ a7c:	910004a4 	add	x4, x5, #0x1
+ a80:	90000002 	adrp	x2, 0 <_init-0x660>
+ a84:	52800003 	mov	w3, #0x0                   	// #0
+ a88:	a90187e0 	stp	x0, x1, [sp, #24]
+ a8c:	91200040 	add	x0, x2, #0x800
+ a90:	910063e1 	add	x1, sp, #0x18
+ a94:	52800002 	mov	w2, #0x0                   	// #0
+ a98:	a90297ea 	stp	x10, x5, [sp, #40]
+ a9c:	a903afe9 	stp	x9, x11, [sp, #56]
+ aa0:	a904afe9 	stp	x9, x11, [sp, #72]
+ aa4:	f9002fe4 	str	x4, [sp, #88]
+ aa8:	97ffff12 	bl	6f0 <GOMP_parallel@plt>
+ aac:	a8c67bfd 	ldp	x29, x30, [sp], #96
+ ab0:	d65f03c0 	ret
+ ab4:	d2800024 	mov	x4, #0x1                   	// #1
+ ab8:	17fffff2 	b	a80 <tsvc_2_s235_fp64+0x80>
+ abc:	d2800006 	mov	x6, #0x0                   	// #0
+ ac0:	17ffffe7 	b	a5c <tsvc_2_s235_fp64+0x5c>
+ ac4:	d503201f 	nop
+ ac8:	d503201f 	nop
+ acc:	d503201f 	nop
+ ad0:	d503201f 	nop
+ ad4:	d503201f 	nop
+ ad8:	d503201f 	nop
+ adc:	d503201f 	nop

@@ -1,0 +1,4 @@
+#!/bin/bash
+# extractedMatrix/followup: the C column's compiler (SUSE GCC 14.2.0) with -fcx-fortran-rules appended:
+# complex multiply/divide without C99 Annex G's NaN/Inf recovery, as gfortran does by default.
+exec /usr/bin/gcc-14 "$@" -fcx-fortran-rules

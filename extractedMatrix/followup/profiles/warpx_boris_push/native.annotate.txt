@@ -1,0 +1,223 @@
+########## warpx_boris_push_original._omp_fn.0
+ Percent |	Source code & Disassembly of libwarpx_boris_push_cpp.so for cycles:u (37024 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000900 <warpx_boris_push_original._omp_fn.0>:
+         : 6   warpx_boris_push_original._omp_fn.0():
+    0.00 :   900:    stp     x29, x30, [sp, #-48]!
+    0.00 :   904:    mov     x29, sp
+    0.00 :   908:    str     x21, [sp, #32]
+    0.00 :   90c:    ldr     x21, [x0, #96]
+    0.00 :   910:    stp     x19, x20, [sp, #16]
+    0.00 :   914:    mov     x19, x0
+    0.00 :   918:    bl      7d0 <omp_get_num_threads@plt>
+    0.00 :   91c:    sxtw    x20, w0
+    0.00 :   920:    bl      7b0 <omp_get_thread_num@plt>
+    0.00 :   924:    sdiv    x4, x21, x20
+    0.00 :   928:    sxtw    x1, w0
+    0.00 :   92c:    msub    x0, x4, x20, x21
+    0.00 :   930:    cmp     x1, x0
+    0.00 :   934:    b.lt    c48 <warpx_boris_push_original._omp_fn.0+0x348>  // b.tstop
+    0.00 :   938:    madd    x1, x4, x1, x0
+    0.00 :   93c:    add     x4, x4, x1
+    0.00 :   940:    cmp     x1, x4
+    0.00 :   944:    b.ge    abc <warpx_boris_push_original._omp_fn.0+0x1bc>  // b.tcont
+    0.00 :   948:    ldr     d4, [x19, #88]
+    0.00 :   94c:    fmov    d2, #5.000000000000000000e-01
+    0.00 :   950:    ldp     x10, x9, [x19]
+    0.00 :   954:    ldp     x8, x7, [x19, #16]
+    0.00 :   958:    fmul    d4, d4, d2
+    0.00 :   95c:    ldp     x6, x5, [x19, #32]
+    0.00 :   960:    ldp     x3, x2, [x19, #48]
+    0.00 :   964:    ldp     d1, d0, [x19, #72]
+    0.00 :   968:    ldr     w13, [x19, #104]
+    0.00 :   96c:    ldr     x0, [x19, #64]
+    0.00 :   970:    fmul    d4, d4, d1
+    0.00 :   974:    cmp     w13, #0x1
+    0.00 :   978:    sub     w12, w13, #0x1
+    0.00 :   97c:    and     w11, w13, #0xfffffffd
+    0.00 :   980:    adrp    x13, 1000 <warpx_boris_push_fp32+0x320>
+    0.00 :   984:    fdiv    d4, d4, d0
+    0.00 :   988:    b.ls    acc <warpx_boris_push_original._omp_fn.0+0x1cc>  // b.plast
+    0.00 :   98c:    ldr     d19, [x13, #3792]
+    0.00 :   990:    fmov    d16, #1.000000000000000000e+00
+    0.00 :   994:    fmov    d18, #2.000000000000000000e+00
+    0.00 :   998:    b       a3c <warpx_boris_push_original._omp_fn.0+0x13c>
+    0.00 :   99c:    fmadd   d1, d3, d3, d16
+    0.00 :   9a0:    fmadd   d23, d2, d5, d6
+    0.00 :   9a4:    fmadd   d22, d0, d7, d5
+    0.00 :   9a8:    fmadd   d24, d3, d6, d7
+    0.00 :   9ac:    fmadd   d1, d2, d2, d1
+    0.00 :   9b0:    fmsub   d23, d3, d7, d23
+    0.00 :   9b4:    fmsub   d22, d2, d6, d22
+    0.00 :   9b8:    fmsub   d24, d0, d5, d24
+    0.00 :   9bc:    fmadd   d1, d0, d0, d1
+    0.00 :   9c0:    fdiv    d1, d18, d1
+    0.00 :   9c4:    fmul    d2, d1, d2
+    0.00 :   9c8:    fmul    d0, d1, d0
+    0.00 :   9cc:    fmul    d1, d1, d3
+    0.00 :   9d0:    fmul    d7, d23, d2
+    0.00 :   9d4:    fmul    d6, d22, d0
+    0.00 :   9d8:    fmul    d3, d24, d1
+    0.00 :   9dc:    fnmsub  d7, d24, d0, d7
+    0.00 :   9e0:    fnmsub  d1, d23, d1, d6
+    0.00 :   9e4:    fnmsub  d0, d22, d2, d3
+    0.00 :   9e8:    fadd    d2, d7, d5
+    0.00 :   9ec:    str     d2, [x3, x1, lsl #3]
+    0.00 :   9f0:    ldr     d2, [x2, x1, lsl #3]
+    0.00 :   9f4:    fadd    d1, d1, d2
+    0.00 :   9f8:    str     d1, [x2, x1, lsl #3]
+    0.00 :   9fc:    ldr     d1, [x0, x1, lsl #3]
+    0.00 :   a00:    fadd    d0, d0, d1
+    0.00 :   a04:    str     d0, [x0, x1, lsl #3]
+    0.00 :   a08:    cbnz    w11, a30 <warpx_boris_push_original._omp_fn.0+0x130>
+    0.00 :   a0c:    ldr     d0, [x3, x1, lsl #3]
+    0.00 :   a10:    fmadd   d0, d4, d20, d0
+    0.00 :   a14:    str     d0, [x3, x1, lsl #3]
+    0.00 :   a18:    ldr     d0, [x2, x1, lsl #3]
+    0.00 :   a1c:    fmadd   d0, d4, d17, d0
+    0.00 :   a20:    str     d0, [x2, x1, lsl #3]
+    0.00 :   a24:    ldr     d0, [x0, x1, lsl #3]
+    0.00 :   a28:    fmadd   d0, d4, d21, d0
+    0.00 :   a2c:    str     d0, [x0, x1, lsl #3]
+    0.00 :   a30:    add     x1, x1, #0x1
+    0.00 :   a34:    cmp     x4, x1
+    0.00 :   a38:    b.eq    abc <warpx_boris_push_original._omp_fn.0+0x1bc>  // b.none
+    0.00 :   a3c:    ldr     d7, [x2, x1, lsl #3]
+    0.00 :   a40:    ldr     d5, [x3, x1, lsl #3]
+    0.00 :   a44:    ldr     d6, [x0, x1, lsl #3]
+    0.00 :   a48:    fmul    d0, d7, d7
+    0.00 :   a4c:    ldr     d3, [x10, x1, lsl #3]
+    0.00 :   a50:    ldr     d2, [x9, x1, lsl #3]
+    0.00 :   a54:    ldr     d1, [x8, x1, lsl #3]
+    0.00 :   a58:    fmadd   d0, d5, d5, d0
+    0.00 :   a5c:    ldr     d20, [x7, x1, lsl #3]
+    0.00 :   a60:    ldr     d17, [x6, x1, lsl #3]
+    0.00 :   a64:    fmadd   d0, d6, d6, d0
+    0.00 :   a68:    ldr     d21, [x5, x1, lsl #3]
+    0.00 :   a6c:    fmadd   d0, d0, d19, d16
+    0.00 :   a70:    fsqrt   d0, d0
+    0.00 :   a74:    fdiv    d0, d16, d0
+    0.00 :   a78:    fmul    d0, d0, d4
+    0.00 :   a7c:    fmul    d3, d0, d3
+    0.00 :   a80:    fmul    d2, d0, d2
+    0.00 :   a84:    fmul    d0, d0, d1
+    0.00 :   a88:    cmp     w12, #0x1
+    0.00 :   a8c:    b.ne    99c <warpx_boris_push_original._omp_fn.0+0x9c>  // b.any
+    0.00 :   a90:    fmul    d1, d3, d3
+    0.00 :   a94:    fmov    d22, #5.000000000000000000e-01
+    0.00 :   a98:    fmadd   d1, d2, d2, d1
+    0.00 :   a9c:    fmadd   d1, d0, d0, d1
+    0.00 :   aa0:    fcmpe   d1, #0.0
+    0.00 :   aa4:    fadd    d23, d1, d16
+    0.00 :   aa8:    b.gt    c28 <warpx_boris_push_original._omp_fn.0+0x328>
+    0.00 :   aac:    fmul    d3, d3, d22
+    0.00 :   ab0:    fmul    d2, d2, d22
+    0.00 :   ab4:    fmul    d0, d0, d22
+    0.00 :   ab8:    b       99c <warpx_boris_push_original._omp_fn.0+0x9c>
+    0.00 :   abc:    ldp     x19, x20, [sp, #16]
+    0.00 :   ac0:    ldr     x21, [sp, #32]
+    0.00 :   ac4:    ldp     x29, x30, [sp], #48
+    0.00 :   ac8:    ret
+    0.00 :   acc:    ldr     d21, [x13, #3792]
+    0.00 :   ad0:    fmov    d19, #1.000000000000000000e+00
+    0.00 :   ad4:    fmov    d20, #2.000000000000000000e+00
+    0.00 :   ad8:    b       b7c <warpx_boris_push_original._omp_fn.0+0x27c>
+    0.27 :   adc:    fmadd   d1, d3, d3, d19
+    0.24 :   ae0:    fmadd   d23, d2, d6, d5
+    0.24 :   ae4:    fmadd   d22, d0, d7, d6
+    0.00 :   ae8:    fmadd   d24, d3, d5, d7
+    0.30 :   aec:    fmadd   d1, d2, d2, d1
+    0.01 :   af0:    fmsub   d7, d3, d7, d23
+    0.28 :   af4:    fmsub   d5, d2, d5, d22
+    0.23 :   af8:    fmsub   d23, d0, d6, d24
+    0.11 :   afc:    fmadd   d1, d0, d0, d1
+    0.32 :   b00:    fdiv    d1, d20, d1
+    0.11 :   b04:    fmul    d2, d1, d2
+    0.25 :   b08:    fmul    d0, d1, d0
+    0.29 :   b0c:    fmul    d1, d1, d3
+    0.01 :   b10:    fmul    d3, d7, d2
+    0.35 :   b14:    fmul    d24, d5, d0
+    0.01 :   b18:    fmul    d22, d23, d1
+    0.28 :   b1c:    fnmsub  d0, d23, d0, d3
+    0.27 :   b20:    fnmsub  d3, d7, d1, d24
+    0.06 :   b24:    fnmsub  d1, d5, d2, d22
+    0.25 :   b28:    fadd    d0, d0, d6
+    0.27 :   b2c:    str     d0, [x3, x1, lsl #3]
+    0.31 :   b30:    ldr     d0, [x2, x1, lsl #3]
+    0.30 :   b34:    fadd    d0, d0, d3
+    0.28 :   b38:    str     d0, [x2, x1, lsl #3]
+    0.27 :   b3c:    ldr     d0, [x0, x1, lsl #3]
+    0.25 :   b40:    fadd    d0, d0, d1
+    0.26 :   b44:    str     d0, [x0, x1, lsl #3]
+    0.28 :   b48:    cbnz    w11, b70 <warpx_boris_push_original._omp_fn.0+0x270>
+    0.28 :   b4c:    ldr     d0, [x3, x1, lsl #3]
+   80.16 :   b50:    fadd    d0, d0, d18
+    0.25 :   b54:    str     d0, [x3, x1, lsl #3]
+    0.31 :   b58:    ldr     d0, [x2, x1, lsl #3]
+    1.86 :   b5c:    fadd    d0, d0, d17
+    0.30 :   b60:    str     d0, [x2, x1, lsl #3]
+    0.26 :   b64:    ldr     d0, [x0, x1, lsl #3]
+    2.34 :   b68:    fadd    d0, d0, d16
+    0.20 :   b6c:    str     d0, [x0, x1, lsl #3]
+    0.29 :   b70:    add     x1, x1, #0x1
+    0.29 :   b74:    cmp     x4, x1
+    0.00 :   b78:    b.eq    abc <warpx_boris_push_original._omp_fn.0+0x1bc>  // b.none
+    0.26 :   b7c:    ldr     d18, [x7, x1, lsl #3]
+    0.26 :   b80:    ldr     d0, [x3, x1, lsl #3]
+    0.33 :   b84:    ldr     d17, [x6, x1, lsl #3]
+    0.28 :   b88:    fmul    d18, d4, d18
+    0.25 :   b8c:    ldr     d16, [x5, x1, lsl #3]
+    0.26 :   b90:    ldr     d3, [x10, x1, lsl #3]
+    0.31 :   b94:    ldr     d2, [x9, x1, lsl #3]
+    0.28 :   b98:    fmul    d17, d4, d17
+    0.01 :   b9c:    fadd    d0, d0, d18
+    0.29 :   ba0:    ldr     d1, [x8, x1, lsl #3]
+    0.23 :   ba4:    fmul    d16, d4, d16
+    0.32 :   ba8:    str     d0, [x3, x1, lsl #3]
+    0.23 :   bac:    ldr     d0, [x2, x1, lsl #3]
+    0.33 :   bb0:    fadd    d0, d0, d17
+    0.26 :   bb4:    str     d0, [x2, x1, lsl #3]
+    0.24 :   bb8:    ldr     d5, [x0, x1, lsl #3]
+    0.31 :   bbc:    fadd    d5, d16, d5
+    0.29 :   bc0:    str     d5, [x0, x1, lsl #3]
+    0.29 :   bc4:    ldr     d7, [x2, x1, lsl #3]
+    0.25 :   bc8:    ldr     d6, [x3, x1, lsl #3]
+    0.19 :   bcc:    fmul    d0, d7, d7
+    0.11 :   bd0:    fmadd   d0, d6, d6, d0
+    0.30 :   bd4:    fmadd   d0, d5, d5, d0
+    0.23 :   bd8:    fmadd   d0, d0, d21, d19
+    0.06 :   bdc:    fsqrt   d0, d0
+    0.29 :   be0:    fdiv    d0, d19, d0
+    0.07 :   be4:    fmul    d0, d0, d4
+    0.26 :   be8:    fmul    d3, d0, d3
+    0.24 :   bec:    fmul    d2, d0, d2
+    0.01 :   bf0:    fmul    d0, d0, d1
+    0.30 :   bf4:    cmp     w12, #0x1
+    0.00 :   bf8:    b.hi    adc <warpx_boris_push_original._omp_fn.0+0x1dc>  // b.pmore
+    0.00 :   bfc:    fmul    d22, d3, d3
+    0.00 :   c00:    fmadd   d22, d2, d2, d22
+    0.00 :   c04:    fmadd   d22, d0, d0, d22
+    0.00 :   c08:    fcmpe   d22, #0.0
+    0.00 :   c0c:    fadd    d1, d22, d19
+    0.00 :   c10:    b.gt    c38 <warpx_boris_push_original._omp_fn.0+0x338>
+    0.00 :   c14:    fmov    d1, #5.000000000000000000e-01
+    0.00 :   c18:    fmul    d3, d3, d1
+    0.00 :   c1c:    fmul    d2, d2, d1
+    0.00 :   c20:    fmul    d0, d0, d1
+    0.00 :   c24:    b       adc <warpx_boris_push_original._omp_fn.0+0x1dc>
+    0.00 :   c28:    fsqrt   d23, d23
+    0.00 :   c2c:    fsub    d23, d23, d16
+    0.00 :   c30:    fdiv    d22, d23, d1
+    0.00 :   c34:    b       aac <warpx_boris_push_original._omp_fn.0+0x1ac>
+    0.00 :   c38:    fsqrt   d1, d1
+    0.00 :   c3c:    fsub    d1, d1, d19
+    0.00 :   c40:    fdiv    d1, d1, d22
+    0.00 :   c44:    b       c18 <warpx_boris_push_original._omp_fn.0+0x318>
+    0.00 :   c48:    add     x4, x4, #0x1
+    0.00 :   c4c:    mov     x0, #0x0                        // #0
+    0.00 :   c50:    b       938 <warpx_boris_push_original._omp_fn.0+0x38>

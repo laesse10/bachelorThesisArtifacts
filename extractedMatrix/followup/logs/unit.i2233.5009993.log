@@ -1,0 +1,22 @@
+unit i2233 kernel=tsvc_2_s2233 bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006555 start=2026-10-09T10:33:22+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006555 1 1
+SRUN[i2233]: srun --nodes=1 --ntasks=1 -w nid006555 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel tsvc_2_s2233 --cells c cinter=c:src=variants/tsvc_2_s2233_cinter.c --rounds 3 --perf --record-reps 10 --out parts/i2233.csv --scratch scratch/i2233 --db-shard 201
+pristine tsvc_2_s2233_fp64.c c3ab39167d568ebf
+pristine tsvc_2_s2233_fp64.cpp 43d058eb6ed0a1cc
+pristine tsvc_2_s2233_fp64.f90 54b770181fb345f2
+pristine tsvc_2_s2233_fp32.c dbdaaad3fbdeda18
+pristine tsvc_2_s2233_fp32.cpp 85bd4b7aa6c22b44
+pristine tsvc_2_s2233_fp32.f90 fb35c3efcf431849
+pristine tsvc_2_s2233_numba_np.py b10fd64e4bebd232
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cinter: c src=variants/tsvc_2_s2233_cinter.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+  [1] c                ok           min 421.094 ms 
+  [1] cinter           ok           min 66.195 ms 
+  [2] cinter           ok           min 66.037 ms 
+  [2] c                ok           min 424.802 ms 
+  [3] c                ok           min 424.638 ms 
+  [3] cinter           ok           min 66.041 ms 
+  [record] c                ok           min 447.972 ms 
+  [record] cinter           ok           min 57.201 ms 
+wrote 8 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/i2233.csv
+unit i2233 node=nid006555 end=2026-10-09T10:36:30+02:00

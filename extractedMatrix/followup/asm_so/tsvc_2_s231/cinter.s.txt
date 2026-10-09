@@ -1,0 +1,67 @@
+# objdump -d libtsvc_2_s231_cc.so, functions matching tsvc_2_s231_fp64* (sha256 6ab8ace6f8d8c02a)
+
+0000000000000640 <tsvc_2_s231_fp64>:    # address mod 64 = 0
+ 640:	f100045f 	cmp	x2, #0x1
+ 644:	540005ad 	b.le	6f8 <tsvc_2_s231_fp64+0xb8>
+ 648:	d341fc47 	lsr	x7, x2, #1
+ 64c:	8b020c2f 	add	x15, x1, x2, lsl #3
+ 650:	d37df04d 	lsl	x13, x2, #3
+ 654:	8b020c0e 	add	x14, x0, x2, lsl #3
+ 658:	d2800008 	mov	x8, #0x0                   	// #0
+ 65c:	d280000a 	mov	x10, #0x0                   	// #0
+ 660:	d37cece7 	lsl	x7, x7, #4
+ 664:	d37cec50 	lsl	x16, x2, #4
+ 668:	aa0203e9 	mov	x9, x2
+ 66c:	d280002b 	mov	x11, #0x1                   	// #1
+ 670:	927ff84c 	and	x12, x2, #0xfffffffffffffffe
+ 674:	d503201f 	nop
+ 678:	d503201f 	nop
+ 67c:	d503201f 	nop
+ 680:	d1000523 	sub	x3, x9, #0x1
+ 684:	cb0a0063 	sub	x3, x3, x10
+ 688:	eb030fff 	cmp	xzr, x3, lsl #3
+ 68c:	54000380 	b.eq	6fc <tsvc_2_s231_fp64+0xbc>  // b.none
+ 690:	d2800003 	mov	x3, #0x0                   	// #0
+ 694:	8b080006 	add	x6, x0, x8
+ 698:	8b0f0105 	add	x5, x8, x15
+ 69c:	8b0e0104 	add	x4, x8, x14
+ 6a0:	3ce368df 	ldr	q31, [x6, x3]
+ 6a4:	3ce368be 	ldr	q30, [x5, x3]
+ 6a8:	4e7ed7fe 	fadd	v30.2d, v31.2d, v30.2d
+ 6ac:	3ca3689e 	str	q30, [x4, x3]
+ 6b0:	91004063 	add	x3, x3, #0x10
+ 6b4:	eb0300ff 	cmp	x7, x3
+ 6b8:	54ffff41 	b.ne	6a0 <tsvc_2_s231_fp64+0x60>  // b.any
+ 6bc:	eb0c005f 	cmp	x2, x12
+ 6c0:	54000100 	b.eq	6e0 <tsvc_2_s231_fp64+0xa0>  // b.none
+ 6c4:	8b0c0123 	add	x3, x9, x12
+ 6c8:	8b0c0144 	add	x4, x10, x12
+ 6cc:	d37df063 	lsl	x3, x3, #3
+ 6d0:	fc64781d 	ldr	d29, [x0, x4, lsl #3]
+ 6d4:	fc63683c 	ldr	d28, [x1, x3]
+ 6d8:	1e7c2bbc 	fadd	d28, d29, d28
+ 6dc:	fc23681c 	str	d28, [x0, x3]
+ 6e0:	9100056b 	add	x11, x11, #0x1
+ 6e4:	8b02014a 	add	x10, x10, x2
+ 6e8:	8b0d0108 	add	x8, x8, x13
+ 6ec:	8b020129 	add	x9, x9, x2
+ 6f0:	eb0b005f 	cmp	x2, x11
+ 6f4:	54fffc61 	b.ne	680 <tsvc_2_s231_fp64+0x40>  // b.any
+ 6f8:	d65f03c0 	ret
+ 6fc:	cb090d04 	sub	x4, x8, x9, lsl #3
+ 700:	d37df123 	lsl	x3, x9, #3
+ 704:	8b100105 	add	x5, x8, x16
+ 708:	8b040004 	add	x4, x0, x4
+ 70c:	fc63689a 	ldr	d26, [x4, x3]
+ 710:	fc63683b 	ldr	d27, [x1, x3]
+ 714:	1e7a2b7a 	fadd	d26, d27, d26
+ 718:	fc23681a 	str	d26, [x0, x3]
+ 71c:	91002063 	add	x3, x3, #0x8
+ 720:	eb05007f 	cmp	x3, x5
+ 724:	54ffff41 	b.ne	70c <tsvc_2_s231_fp64+0xcc>  // b.any
+ 728:	17ffffee 	b	6e0 <tsvc_2_s231_fp64+0xa0>
+ 72c:	d503201f 	nop
+ 730:	d503201f 	nop
+ 734:	d503201f 	nop
+ 738:	d503201f 	nop
+ 73c:	d503201f 	nop

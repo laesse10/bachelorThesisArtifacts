@@ -1,0 +1,27 @@
+unit agscan kernel=scan_affine_decay bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006557 start=2026-10-09T10:20:03+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006557 1 1
+SRUN[agscan]: srun --nodes=1 --ntasks=1 -w nid006557 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel scan_affine_decay --cells c agent=c:src=variants/scan_affine_decay_agent.c agent3p=c:src=variants/scan_affine_decay_agent3p.c --rounds 3 --perf --record-reps 10 --out parts/agscan.csv --scratch scratch/agscan --db-shard 203
+pristine scan_affine_decay_fp64.c 466ca55c50f18ff0
+pristine scan_affine_decay_fp64.cpp baac550ded7e421b
+pristine scan_affine_decay_fp64.f90 fc28754a308603a6
+pristine scan_affine_decay_fp32.c 1d10e2b7bcbf982c
+pristine scan_affine_decay_fp32.cpp 257ec8243fb8ae46
+pristine scan_affine_decay_fp32.f90 0be30bef875b29ee
+pristine scan_affine_decay_numba_np.py d56541a73c275a30
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell agent: c src=variants/scan_affine_decay_agent.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell agent3p: c src=variants/scan_affine_decay_agent3p.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+  [1] c                ok           min 116.711 ms 
+  [1] agent            ok           min 231.789 ms 
+  [1] agent3p          ok           min 347.420 ms 
+  [2] agent3p          ok           min 347.184 ms 
+  [2] agent            ok           min 232.010 ms 
+  [2] c                ok           min 116.681 ms 
+  [3] c                ok           min 116.898 ms 
+  [3] agent            ok           min 231.642 ms 
+  [3] agent3p          ok           min 347.473 ms 
+  [record] c                ok           min 121.086 ms 
+  [record] agent            ok           min 240.193 ms 
+  [record] agent3p          ok           min 361.994 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/agscan.csv
+unit agscan node=nid006557 end=2026-10-09T10:24:49+02:00

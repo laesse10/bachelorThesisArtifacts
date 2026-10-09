@@ -1,0 +1,32 @@
+unit fgathM kernel=warpx_field_gather bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006563 start=2026-10-09T10:56:46+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006563 1 1
+SRUN[fgathM]: srun --nodes=1 --ntasks=1 -w nid006563 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_field_gather --cells c fortran cmal=c:env=MALLOC_MMAP_THRESHOLD_=33554432:env=MALLOC_TRIM_THRESHOLD_=68719476736 fmal=fortran:env=MALLOC_MMAP_THRESHOLD_=33554432:env=MALLOC_TRIM_THRESHOLD_=68719476736 --rounds 3 --perf --record-reps 60 --out parts/fgathM.csv --scratch scratch/fgathM --db-shard 201
+pristine warpx_field_gather_fp64.c a9cd07ab2ad51509
+pristine warpx_field_gather_fp64.cpp ecfc884ae77c7857
+pristine warpx_field_gather_fp64.f90 65f9a50f18a58642
+pristine warpx_field_gather_fp32.c ccaa4bd464005c99
+pristine warpx_field_gather_fp32.cpp a0f748f376b93e18
+pristine warpx_field_gather_fp32.f90 54afef5b5819cfd3
+pristine warpx_field_gather_numba_np.py 43555889e7428c62
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cmal: c src=- src32=- bin=- env={'MALLOC_MMAP_THRESHOLD_': '33554432', 'MALLOC_TRIM_THRESHOLD_': '68719476736'} -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fmal: fortran src=- src32=- bin=- env={'MALLOC_MMAP_THRESHOLD_': '33554432', 'MALLOC_TRIM_THRESHOLD_': '68719476736'} -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+  [1] c                ok           min 11.515 ms 
+  [1] fortran          ok           min 12.397 ms 
+  [1] cmal             ok           min 7.669 ms 
+  [1] fmal             ok           min 7.826 ms 
+  [2] fmal             ok           min 7.913 ms 
+  [2] cmal             ok           min 7.694 ms 
+  [2] fortran          ok           min 12.155 ms 
+  [2] c                ok           min 11.476 ms 
+  [3] c                ok           min 11.438 ms 
+  [3] fortran          ok           min 12.078 ms 
+  [3] cmal             ok           min 7.606 ms 
+  [3] fmal             ok           min 7.883 ms 
+  [record] c                ok           min 12.508 ms 
+  [record] fortran          ok           min 13.349 ms 
+  [record] cmal             ok           min 8.069 ms 
+  [record] fmal             ok           min 8.323 ms 
+wrote 16 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/fgathM.csv
+unit fgathM node=nid006563 end=2026-10-09T11:07:43+02:00

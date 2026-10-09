@@ -3,29 +3,31 @@
 #
 # Total Lost Samples: 0
 #
-# Samples: 25K of event 'cycles:u'
-# Event count (approx.): 2544100000
+# Samples: 24K of event 'cycles:u'
+# Event count (approx.): 2485700000
 #
 # Overhead  Shared Object                                       Symbol                                                             
 # ........  ..................................................  ...................................................................
 #
-    75.33%  libwarpx_esirkepov_deposition_fortran.so            [.] warpx_esirkepov_deposition_fp64
-     5.24%  libc.so.6                                           [.] malloc
-     4.03%  libc.so.6                                           [.] _int_free
-     3.92%  libc.so.6                                           [.] __GI___memcpy_sve
-     2.72%  libc.so.6                                           [.] cfree@GLIBC_2.17
-     2.41%  libc.so.6                                           [.] __GI___memset_generic
-     1.19%  python3.12                                          [.] _PyEval_EvalFrameDefault
-     0.58%  [unknown]                                           [k] 0xffffa4554ea5b908
-     0.31%  libwarpx_esirkepov_deposition_fortran.so            [.] memset@plt
-     0.27%  python3.12                                          [.] PyDict_GetItemWithError
-     0.24%  python3.12                                          [.] _PyObject_Malloc
-     0.21%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
-     0.20%  libwarpx_esirkepov_deposition_fortran.so            [.] memcpy@plt
-     0.18%  libwarpx_esirkepov_deposition_fortran.so            [.] free@plt
-     0.18%  libwarpx_esirkepov_deposition_fortran.so            [.] malloc@plt
-     0.16%  python3.12                                          [.] _PyObject_Free
-     0.13%  [unknown]                                           [k] 0xffffa4554db89ebc
+    75.39%  libwarpx_esirkepov_deposition_fortran.so            [.] warpx_esirkepov_deposition_fp64
+     5.15%  libc.so.6                                           [.] malloc
+     4.08%  libc.so.6                                           [.] _int_free
+     3.82%  libc.so.6                                           [.] __GI___memcpy_sve
+     2.74%  libc.so.6                                           [.] cfree@GLIBC_2.17
+     2.24%  libc.so.6                                           [.] __GI___memset_generic
+     1.29%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.57%  [unknown]                                           [k] 0xffffdc4f055db908
+     0.41%  libwarpx_esirkepov_deposition_fortran.so            [.] memset@plt
+     0.27%  python3.12                                          [.] _PyObject_Malloc
+     0.27%  libwarpx_esirkepov_deposition_fortran.so            [.] memcpy@plt
+     0.23%  python3.12                                          [.] PyDict_GetItemWithError
+     0.22%  libwarpx_esirkepov_deposition_fortran.so            [.] free@plt
+     0.16%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+     0.14%  libwarpx_esirkepov_deposition_fortran.so            [.] malloc@plt
+     0.12%  python3.12                                          [.] _PyObject_Free
+     0.12%  python3.12                                          [.] _PyObject_LookupAttr
+     0.11%  libc.so.6                                           [.] __aarch64_swp4_rel
+     0.11%  [unknown]                                           [k] 0xffffdc4f04709ebc
 
 
 #

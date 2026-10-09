@@ -4,16 +4,18 @@
 # Total Lost Samples: 0
 #
 # Samples: 27K of event 'cycles:u'
-# Event count (approx.): 2763900000
+# Event count (approx.): 2771900000
 #
 # Overhead  Shared Object                                       Symbol                                                             
 # ........  ..................................................  ...................................................................
 #
-    95.59%  libwarpx_boris_push_fortran.so                      [.] warpx_boris_push_fp64
-     0.89%  [unknown]                                           [k] 0xffffa1b91a2fb908
-     0.80%  python3.12                                          [.] _PyEval_EvalFrameDefault
-     0.21%  python3.12                                          [.] PyDict_GetItemWithError
-     0.17%  python3.12                                          [.] _PyObject_Malloc
+    95.48%  libwarpx_boris_push_fortran.so                      [.] warpx_boris_push_fp64
+     0.97%  [unknown]                                           [k] 0xffffceb70e97b908
+     0.91%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.20%  python3.12                                          [.] PyDict_GetItemWithError
+     0.16%  python3.12                                          [.] _PyObject_Malloc
+     0.13%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+     0.12%  python3.12                                          [.] PyObject_GenericGetAttr
 
 
 #

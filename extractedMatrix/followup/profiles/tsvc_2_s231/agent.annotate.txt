@@ -1,0 +1,93 @@
+########## tsvc_2_s231_fp64._omp_fn.0
+ Percent |	Source code & Disassembly of libtsvc_2_s231_cc.so for cycles:u (18378 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000780 <tsvc_2_s231_fp64._omp_fn.0>:
+         : 6   tsvc_2_s231_fp64._omp_fn.0():
+    0.00 :   780:    stp     x29, x30, [sp, #-48]!
+    0.00 :   784:    mov     x29, sp
+    0.00 :   788:    stp     x19, x20, [sp, #16]
+    0.00 :   78c:    ldr     x19, [x0, #16]
+    0.00 :   790:    str     x21, [sp, #32]
+    0.00 :   794:    mov     x21, x0
+    0.00 :   798:    bl      630 <omp_get_num_threads@plt>
+    0.00 :   79c:    mov     w20, w0
+    0.00 :   7a0:    bl      660 <omp_get_thread_num@plt>
+    0.00 :   7a4:    sxtw    x9, w0
+    0.00 :   7a8:    sxtw    x1, w20
+    0.00 :   7ac:    mul     x9, x9, x19
+    0.00 :   7b0:    add     x10, x19, x9
+    0.00 :   7b4:    sdiv    x9, x9, x1
+    0.00 :   7b8:    sdiv    x10, x10, x1
+    0.00 :   7bc:    cmp     x9, x10
+    0.00 :   7c0:    b.ge    890 <tsvc_2_s231_fp64._omp_fn.0+0x110>  // b.tcont
+    0.00 :   7c4:    cmp     x19, #0x1
+    0.00 :   7c8:    b.le    890 <tsvc_2_s231_fp64._omp_fn.0+0x110>
+    0.00 :   7cc:    ldp     x3, x18, [x21]
+    0.00 :   7d0:    sub     x15, x10, x9
+    0.00 :   7d4:    add     x2, x9, x19
+    0.00 :   7d8:    and     x14, x15, #0xfffffffffffffffe
+    0.00 :   7dc:    lsr     x4, x15, #1
+    0.00 :   7e0:    add     x14, x14, x9
+    0.00 :   7e4:    lsl     x4, x4, #4
+    0.00 :   7e8:    sub     x20, x14, x19
+    0.00 :   7ec:    and     x17, x15, #0x1
+    0.00 :   7f0:    lsl     x8, x19, #3
+    0.00 :   7f4:    lsl     x13, x9, #3
+    0.00 :   7f8:    add     x1, x3, x2, lsl #3
+    0.00 :   7fc:    mov     x11, x19
+    0.00 :   800:    mov     x7, #0x1                        // #1
+    0.00 :   804:    add     x3, x3, x9, lsl #3
+    0.00 :   808:    sub     x0, x19, #0x1
+    0.00 :   80c:    add     x2, x18, x2, lsl #3
+    0.00 :   810:    cmp     xzr, x0, lsl #3
+    0.00 :   814:    cset    w16, ne // ne = any
+    0.00 :   818:    nop
+    0.00 :   81c:    nop
+    0.00 :   820:    sub     x5, x1, x13
+    0.00 :   824:    cmp     x15, #0x1
+    0.00 :   828:    b.eq    8a0 <tsvc_2_s231_fp64._omp_fn.0+0x120>  // b.none
+    0.00 :   82c:    cmp     w16, #0x0
+    0.00 :   830:    add     x6, x2, #0x8
+    0.00 :   834:    ccmp    x6, x1, #0x4, ne        // ne = any
+    0.00 :   838:    mov     x0, #0x0                        // #0
+    0.00 :   83c:    b.eq    8a0 <tsvc_2_s231_fp64._omp_fn.0+0x120>  // b.none
+    3.27 :   840:    ldr     q31, [x3, x0]
+   23.53 :   844:    ldr     q30, [x2, x0]
+   55.79 :   848:    fadd    v30.2d, v31.2d, v30.2d
+    3.36 :   84c:    str     q30, [x1, x0]
+   10.74 :   850:    add     x0, x0, #0x10
+    3.29 :   854:    cmp     x4, x0
+    0.01 :   858:    b.ne    840 <tsvc_2_s231_fp64._omp_fn.0+0xc0>  // b.any
+    0.00 :   85c:    cbz     x17, 874 <tsvc_2_s231_fp64._omp_fn.0+0xf4>
+    0.00 :   860:    add     x0, x14, x11
+    0.00 :   864:    ldr     d29, [x5, x20, lsl #3]
+    0.00 :   868:    ldr     d28, [x18, x0, lsl #3]
+    0.01 :   86c:    fadd    d28, d29, d28
+    0.00 :   870:    str     d28, [x5, x14, lsl #3]
+    0.00 :   874:    add     x7, x7, #0x1
+    0.00 :   878:    add     x11, x11, x19
+    0.01 :   87c:    add     x2, x2, x8
+    0.00 :   880:    add     x1, x1, x8
+    0.00 :   884:    add     x3, x3, x8
+    0.00 :   888:    cmp     x19, x7
+    0.00 :   88c:    b.ne    820 <tsvc_2_s231_fp64._omp_fn.0+0xa0>  // b.any
+    0.00 :   890:    ldr     x21, [sp, #32]
+    0.00 :   894:    ldp     x19, x20, [sp, #16]
+    0.00 :   898:    ldp     x29, x30, [sp], #48
+    0.00 :   89c:    ret
+    0.00 :   8a0:    sub     x12, x3, x13
+    0.00 :   8a4:    sub     x6, x2, x13
+    0.00 :   8a8:    mov     x0, x9
+    0.00 :   8ac:    ldr     d27, [x6, x0, lsl #3]
+    0.00 :   8b0:    ldr     d26, [x12, x0, lsl #3]
+    0.00 :   8b4:    fadd    d26, d27, d26
+    0.00 :   8b8:    str     d26, [x5, x0, lsl #3]
+    0.00 :   8bc:    add     x0, x0, #0x1
+    0.00 :   8c0:    cmp     x10, x0
+    0.00 :   8c4:    b.ne    8ac <tsvc_2_s231_fp64._omp_fn.0+0x12c>  // b.any
+    0.00 :   8c8:    b       874 <tsvc_2_s231_fp64._omp_fn.0+0xf4>

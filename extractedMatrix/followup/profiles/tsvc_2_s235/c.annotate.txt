@@ -1,0 +1,48 @@
+########## tsvc_2_s235_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s235_cc.so for cycles:u (247648 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <tsvc_2_s235_fp64>:
+         : 6   tsvc_2_s235_fp64():
+    0.00 :   640:    cmp     x5, #0x0
+    0.00 :   644:    b.le    664 <tsvc_2_s235_fp64+0x24>
+    0.00 :   648:    ldr     d29, [x0]
+    0.00 :   64c:    ldr     d3, [x2]
+    0.00 :   650:    ldr     d2, [x4]
+    0.00 :   654:    fmadd   d29, d3, d2, d29
+    0.00 :   658:    str     d29, [x0]
+    0.00 :   65c:    cmp     x5, #0x1
+    0.00 :   660:    b.ne    668 <tsvc_2_s235_fp64+0x28>  // b.any
+    0.00 :   664:    ret
+    0.00 :   668:    lsl     x9, x5, #3
+    0.00 :   66c:    sub     x10, x1, x5, lsl #3
+    0.00 :   670:    mov     x12, #0x0                       // #0
+    0.00 :   674:    mov     x11, x9
+    0.00 :   678:    nop
+    0.00 :   67c:    nop
+    0.00 :   680:    mov     x6, x11
+    0.00 :   684:    mov     x7, #0x1                        // #1
+    0.54 :   688:    ldr     d30, [x10, x6]
+    0.20 :   68c:    mov     x8, x7
+   45.58 :   690:    add     x7, x7, #0x1
+    0.55 :   694:    ldr     d31, [x3, x6]
+   51.06 :   698:    fmadd   d30, d29, d31, d30
+    0.55 :   69c:    str     d30, [x1, x6]
+    0.90 :   6a0:    add     x6, x6, x9
+    0.52 :   6a4:    cmp     x5, x7
+    0.00 :   6a8:    b.ne    688 <tsvc_2_s235_fp64+0x48>  // b.any
+    0.00 :   6ac:    add     x11, x11, #0x8
+    0.00 :   6b0:    add     x6, x12, #0x1
+    0.00 :   6b4:    cmp     x12, x8
+    0.00 :   6b8:    b.eq    664 <tsvc_2_s235_fp64+0x24>  // b.none
+    0.00 :   6bc:    ldr     d0, [x0, x6, lsl #3]
+    0.06 :   6c0:    mov     x12, x6
+    0.00 :   6c4:    ldr     d28, [x4, x6, lsl #3]
+    0.04 :   6c8:    ldr     d1, [x2, x6, lsl #3]
+    0.02 :   6cc:    fmadd   d29, d28, d1, d0
+    0.00 :   6d0:    str     d29, [x0, x6, lsl #3]
+    0.00 :   6d4:    b       680 <tsvc_2_s235_fp64+0x40>

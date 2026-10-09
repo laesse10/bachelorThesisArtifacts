@@ -1,0 +1,237 @@
+# objdump -d libscan_affine_decay_cc.so, functions matching scan_affine_decay_fp64* (sha256 037d51e65c6c8d70)
+
+00000000000008e0 <scan_affine_decay_fp64._omp_fn.0>:    # address mod 64 = 32
+ 8e0:	a9b37bfd 	stp	x29, x30, [sp, #-208]!
+ 8e4:	910003fd 	mov	x29, sp
+ 8e8:	a90153f3 	stp	x19, x20, [sp, #16]
+ 8ec:	a9025bf5 	stp	x21, x22, [sp, #32]
+ 8f0:	a90363f7 	stp	x23, x24, [sp, #48]
+ 8f4:	a9046bf9 	stp	x25, x26, [sp, #64]
+ 8f8:	a90573fb 	stp	x27, x28, [sp, #80]
+ 8fc:	f9005fe0 	str	x0, [sp, #184]
+ 900:	a9400419 	ldp	x25, x1, [x0]
+ 904:	f940201b 	ldr	x27, [x0, #64]
+ 908:	f90053e1 	str	x1, [sp, #160]
+ 90c:	91004001 	add	x1, x0, #0x10
+ 910:	a9405036 	ldp	x22, x20, [x1]
+ 914:	91008001 	add	x1, x0, #0x20
+ 918:	a9405433 	ldp	x19, x21, [x1]
+ 91c:	9100c001 	add	x1, x0, #0x30
+ 920:	a9405c38 	ldp	x24, x23, [x1]
+ 924:	f10002df 	cmp	x22, #0x0
+ 928:	5400128d 	b.le	b78 <scan_affine_decay_fp64._omp_fn.0+0x298>
+ 92c:	d280001a 	mov	x26, #0x0                   	// #0
+ 930:	d100073c 	sub	x28, x25, #0x1
+ 934:	97ffff87 	bl	750 <omp_get_num_threads@plt>
+ 938:	93407c00 	sxtw	x0, w0
+ 93c:	f90057e0 	str	x0, [sp, #168]
+ 940:	97ffff90 	bl	780 <omp_get_thread_num@plt>
+ 944:	93407c00 	sxtw	x0, w0
+ 948:	d379e2c1 	lsl	x1, x22, #7
+ 94c:	d10022b6 	sub	x22, x21, #0x8
+ 950:	f9003be0 	str	x0, [sp, #112]
+ 954:	d1002280 	sub	x0, x20, #0x8
+ 958:	f9005be1 	str	x1, [sp, #176]
+ 95c:	f90033e0 	str	x0, [sp, #96]
+ 960:	d1002260 	sub	x0, x19, #0x8
+ 964:	f90037e0 	str	x0, [sp, #104]
+ 968:	1400000d 	b	99c <scan_affine_decay_fp64._omp_fn.0+0xbc>
+ 96c:	a9079fee 	stp	x14, x7, [sp, #120]
+ 970:	a908b7e8 	stp	x8, x13, [sp, #136]
+ 974:	97ffff87 	bl	790 <GOMP_barrier@plt>
+ 978:	97ffff8a 	bl	7a0 <GOMP_single_start@plt>
+ 97c:	a9479fee 	ldp	x14, x7, [sp, #120]
+ 980:	a948b7e8 	ldp	x8, x13, [sp, #136]
+ 984:	37000ae0 	tbnz	w0, #0, ae0 <scan_affine_decay_fp64._omp_fn.0+0x200>
+ 988:	97ffff82 	bl	790 <GOMP_barrier@plt>
+ 98c:	97ffff81 	bl	790 <GOMP_barrier@plt>
+ 990:	f9405be0 	ldr	x0, [sp, #176]
+ 994:	eb1a001f 	cmp	x0, x26
+ 998:	54000f00 	b.eq	b78 <scan_affine_decay_fp64._omp_fn.0+0x298>  // b.none
+ 99c:	f94053e0 	ldr	x0, [sp, #160]
+ 9a0:	aa1a03ee 	mov	x14, x26
+ 9a4:	f9004ffa 	str	x26, [sp, #152]
+ 9a8:	9102035a 	add	x26, x26, #0x80
+ 9ac:	eb00035f 	cmp	x26, x0
+ 9b0:	9a80d34d 	csel	x13, x26, x0, le
+ 9b4:	f94057e0 	ldr	x0, [sp, #168]
+ 9b8:	cb0e01a7 	sub	x7, x13, x14
+ 9bc:	9ac00ce8 	sdiv	x8, x7, x0
+ 9c0:	9b009d07 	msub	x7, x8, x0, x7
+ 9c4:	f9403be0 	ldr	x0, [sp, #112]
+ 9c8:	eb07001f 	cmp	x0, x7
+ 9cc:	54000d0b 	b.lt	b6c <scan_affine_decay_fp64._omp_fn.0+0x28c>  // b.tstop
+ 9d0:	f9403be0 	ldr	x0, [sp, #112]
+ 9d4:	9b001d07 	madd	x7, x8, x0, x7
+ 9d8:	8b070108 	add	x8, x8, x7
+ 9dc:	eb0800ff 	cmp	x7, x8
+ 9e0:	54fffc6a 	b.ge	96c <scan_affine_decay_fp64._omp_fn.0+0x8c>  // b.tcont
+ 9e4:	8b0701c5 	add	x5, x14, x7
+ 9e8:	8b0801cc 	add	x12, x14, x8
+ 9ec:	910004a6 	add	x6, x5, #0x1
+ 9f0:	d374cccf 	lsl	x15, x6, #12
+ 9f4:	d13ffdf0 	sub	x16, x15, #0xfff
+ 9f8:	d503201f 	nop
+ 9fc:	d503201f 	nop
+ a00:	eb0f033f 	cmp	x25, x15
+ a04:	2f00e41f 	movi	d31, #0x0
+ a08:	9a8fd391 	csel	x17, x28, x15, le
+ a0c:	1e6e101e 	fmov	d30, #1.000000000000000000e+00
+ a10:	aa1003e0 	mov	x0, x16
+ a14:	91000623 	add	x3, x17, #0x1
+ a18:	eb10023f 	cmp	x17, x16
+ a1c:	5400010b 	b.lt	a3c <scan_affine_decay_fp64._omp_fn.0+0x15c>  // b.tstop
+ a20:	fc607b1d 	ldr	d29, [x24, x0, lsl #3]
+ a24:	fc607afc 	ldr	d28, [x23, x0, lsl #3]
+ a28:	91000400 	add	x0, x0, #0x1
+ a2c:	1e7d0bde 	fmul	d30, d30, d29
+ a30:	1f5f73bf 	fmadd	d31, d29, d31, d28
+ a34:	eb03001f 	cmp	x0, x3
+ a38:	54ffff41 	b.ne	a20 <scan_affine_decay_fp64._omp_fn.0+0x140>  // b.any
+ a3c:	fc257a9e 	str	d30, [x20, x5, lsl #3]
+ a40:	914005ef 	add	x15, x15, #0x1, lsl #12
+ a44:	91400610 	add	x16, x16, #0x1, lsl #12
+ a48:	fc257a7f 	str	d31, [x19, x5, lsl #3]
+ a4c:	910004a5 	add	x5, x5, #0x1
+ a50:	eb05019f 	cmp	x12, x5
+ a54:	54fffd6c 	b.gt	a00 <scan_affine_decay_fp64._omp_fn.0+0x120>
+ a58:	a9079fee 	stp	x14, x7, [sp, #120]
+ a5c:	a908b3e8 	stp	x8, x12, [sp, #136]
+ a60:	a90c1bed 	stp	x13, x6, [sp, #192]
+ a64:	97ffff4b 	bl	790 <GOMP_barrier@plt>
+ a68:	97ffff4e 	bl	7a0 <GOMP_single_start@plt>
+ a6c:	a9479fee 	ldp	x14, x7, [sp, #120]
+ a70:	a948b3e8 	ldp	x8, x12, [sp, #136]
+ a74:	a94c1bed 	ldp	x13, x6, [sp, #192]
+ a78:	37000340 	tbnz	w0, #0, ae0 <scan_affine_decay_fp64._omp_fn.0+0x200>
+ a7c:	a9079bec 	stp	x12, x6, [sp, #120]
+ a80:	97ffff44 	bl	790 <GOMP_barrier@plt>
+ a84:	a9479bec 	ldp	x12, x6, [sp, #120]
+ a88:	d374ccc5 	lsl	x5, x6, #12
+ a8c:	d13ffca7 	sub	x7, x5, #0xfff
+ a90:	eb05033f 	cmp	x25, x5
+ a94:	aa0703e0 	mov	x0, x7
+ a98:	9a85d388 	csel	x8, x28, x5, le
+ a9c:	fc667ad8 	ldr	d24, [x22, x6, lsl #3]
+ aa0:	91000503 	add	x3, x8, #0x1
+ aa4:	eb07011f 	cmp	x8, x7
+ aa8:	5400010b 	b.lt	ac8 <scan_affine_decay_fp64._omp_fn.0+0x1e8>  // b.tstop
+ aac:	fc607b17 	ldr	d23, [x24, x0, lsl #3]
+ ab0:	fc607af6 	ldr	d22, [x23, x0, lsl #3]
+ ab4:	1f585af8 	fmadd	d24, d23, d24, d22
+ ab8:	fc207b78 	str	d24, [x27, x0, lsl #3]
+ abc:	91000400 	add	x0, x0, #0x1
+ ac0:	eb03001f 	cmp	x0, x3
+ ac4:	54ffff41 	b.ne	aac <scan_affine_decay_fp64._omp_fn.0+0x1cc>  // b.any
+ ac8:	914004a5 	add	x5, x5, #0x1, lsl #12
+ acc:	914004e7 	add	x7, x7, #0x1, lsl #12
+ ad0:	eb0c00df 	cmp	x6, x12
+ ad4:	54fff5ca 	b.ge	98c <scan_affine_decay_fp64._omp_fn.0+0xac>  // b.tcont
+ ad8:	910004c6 	add	x6, x6, #0x1
+ adc:	17ffffed 	b	a90 <scan_affine_decay_fp64._omp_fn.0+0x1b0>
+ ae0:	f9405fe0 	ldr	x0, [sp, #184]
+ ae4:	f9404fe1 	ldr	x1, [sp, #152]
+ ae8:	fd40241b 	ldr	d27, [x0, #72]
+ aec:	91000420 	add	x0, x1, #0x1
+ af0:	fc217abb 	str	d27, [x21, x1, lsl #3]
+ af4:	eb0001bf 	cmp	x13, x0
+ af8:	5400016d 	b.le	b24 <scan_affine_decay_fp64._omp_fn.0+0x244>
+ afc:	d503201f 	nop
+ b00:	f94033e1 	ldr	x1, [sp, #96]
+ b04:	fc607821 	ldr	d1, [x1, x0, lsl #3]
+ b08:	f94037e1 	ldr	x1, [sp, #104]
+ b0c:	fc607820 	ldr	d0, [x1, x0, lsl #3]
+ b10:	1f5b003b 	fmadd	d27, d1, d27, d0
+ b14:	fc207abb 	str	d27, [x21, x0, lsl #3]
+ b18:	91000400 	add	x0, x0, #0x1
+ b1c:	eb0001bf 	cmp	x13, x0
+ b20:	54ffff01 	b.ne	b00 <scan_affine_decay_fp64._omp_fn.0+0x220>  // b.any
+ b24:	d37df1a0 	lsl	x0, x13, #3
+ b28:	f90047e8 	str	x8, [sp, #136]
+ b2c:	d1002000 	sub	x0, x0, #0x8
+ b30:	fc606a9a 	ldr	d26, [x20, x0]
+ b34:	fc606a79 	ldr	d25, [x19, x0]
+ b38:	f9405fe0 	ldr	x0, [sp, #184]
+ b3c:	1f5b6759 	fmadd	d25, d26, d27, d25
+ b40:	fd002419 	str	d25, [x0, #72]
+ b44:	a9079fee 	stp	x14, x7, [sp, #120]
+ b48:	97ffff12 	bl	790 <GOMP_barrier@plt>
+ b4c:	f94047e8 	ldr	x8, [sp, #136]
+ b50:	a9479fee 	ldp	x14, x7, [sp, #120]
+ b54:	eb0800ff 	cmp	x7, x8
+ b58:	54fff1aa 	b.ge	98c <scan_affine_decay_fp64._omp_fn.0+0xac>  // b.tcont
+ b5c:	8b0701c7 	add	x7, x14, x7
+ b60:	8b0801cc 	add	x12, x14, x8
+ b64:	910004e6 	add	x6, x7, #0x1
+ b68:	17ffffc8 	b	a88 <scan_affine_decay_fp64._omp_fn.0+0x1a8>
+ b6c:	91000508 	add	x8, x8, #0x1
+ b70:	d2800007 	mov	x7, #0x0                   	// #0
+ b74:	17ffff97 	b	9d0 <scan_affine_decay_fp64._omp_fn.0+0xf0>
+ b78:	a94153f3 	ldp	x19, x20, [sp, #16]
+ b7c:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ b80:	a94363f7 	ldp	x23, x24, [sp, #48]
+ b84:	a9446bf9 	ldp	x25, x26, [sp, #64]
+ b88:	a94573fb 	ldp	x27, x28, [sp, #80]
+ b8c:	a8cd7bfd 	ldp	x29, x30, [sp], #208
+ b90:	d65f03c0 	ret
+ b94:	d503201f 	nop
+ b98:	d503201f 	nop
+ b9c:	d503201f 	nop
+
+0000000000000ba0 <scan_affine_decay_fp64>:    # address mod 64 = 32
+ ba0:	f100047f 	cmp	x3, #0x1
+ ba4:	5400062d 	b.le	c68 <scan_affine_decay_fp64+0xc8>
+ ba8:	a9b67bfd 	stp	x29, x30, [sp, #-160]!
+ bac:	910003fd 	mov	x29, sp
+ bb0:	a90363f7 	stp	x23, x24, [sp, #48]
+ bb4:	913ff877 	add	x23, x3, #0xffe
+ bb8:	934cfef7 	asr	x23, x23, #12
+ bbc:	d37df2f8 	lsl	x24, x23, #3
+ bc0:	a9025bf5 	stp	x21, x22, [sp, #32]
+ bc4:	aa0003f6 	mov	x22, x0
+ bc8:	aa1803e0 	mov	x0, x24
+ bcc:	aa0103f5 	mov	x21, x1
+ bd0:	a90153f3 	stp	x19, x20, [sp, #16]
+ bd4:	aa0203f4 	mov	x20, x2
+ bd8:	aa0303f3 	mov	x19, x3
+ bdc:	a9046bf9 	stp	x25, x26, [sp, #64]
+ be0:	97fffef8 	bl	7c0 <malloc@plt>
+ be4:	aa0003fa 	mov	x26, x0
+ be8:	aa1803e0 	mov	x0, x24
+ bec:	97fffef5 	bl	7c0 <malloc@plt>
+ bf0:	aa0003f9 	mov	x25, x0
+ bf4:	aa1803e0 	mov	x0, x24
+ bf8:	97fffef2 	bl	7c0 <malloc@plt>
+ bfc:	fd40029f 	ldr	d31, [x20]
+ c00:	9101fee2 	add	x2, x23, #0x7f
+ c04:	aa0003f8 	mov	x24, x0
+ c08:	9347fc42 	asr	x2, x2, #7
+ c0c:	90000000 	adrp	x0, 0 <_init-0x718>
+ c10:	a9055ff3 	stp	x19, x23, [sp, #80]
+ c14:	910143e1 	add	x1, sp, #0x50
+ c18:	52800003 	mov	w3, #0x0                   	// #0
+ c1c:	91238000 	add	x0, x0, #0x8e0
+ c20:	a9066be2 	stp	x2, x26, [sp, #96]
+ c24:	52800002 	mov	w2, #0x0                   	// #0
+ c28:	a90763f9 	stp	x25, x24, [sp, #112]
+ c2c:	a90857f6 	stp	x22, x21, [sp, #128]
+ c30:	f9004bf4 	str	x20, [sp, #144]
+ c34:	fd004fff 	str	d31, [sp, #152]
+ c38:	97fffede 	bl	7b0 <GOMP_parallel@plt>
+ c3c:	aa1a03e0 	mov	x0, x26
+ c40:	97fffee4 	bl	7d0 <free@plt>
+ c44:	aa1903e0 	mov	x0, x25
+ c48:	97fffee2 	bl	7d0 <free@plt>
+ c4c:	aa1803e0 	mov	x0, x24
+ c50:	a94153f3 	ldp	x19, x20, [sp, #16]
+ c54:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ c58:	a94363f7 	ldp	x23, x24, [sp, #48]
+ c5c:	a9446bf9 	ldp	x25, x26, [sp, #64]
+ c60:	a8ca7bfd 	ldp	x29, x30, [sp], #160
+ c64:	17fffedb 	b	7d0 <free@plt>
+ c68:	d65f03c0 	ret
+ c6c:	d503201f 	nop
+ c70:	d503201f 	nop
+ c74:	d503201f 	nop
+ c78:	d503201f 	nop
+ c7c:	d503201f 	nop

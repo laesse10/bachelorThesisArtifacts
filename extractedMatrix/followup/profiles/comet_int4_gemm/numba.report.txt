@@ -1,0 +1,117 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 17K of event 'cycles:u'
+# Event count (approx.): 1736900000
+#
+# Overhead  Shared Object                                       Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+# ........  ..................................................  ........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+#
+     5.49%  [JIT] tid 43279                                     [.] 0x0000400051ce0360
+     4.72%  [JIT] tid 43279                                     [.] 0x0000400051ce0364
+     4.24%  [JIT] tid 43279                                     [.] 0x0000400052581904
+     4.15%  [JIT] tid 43279                                     [.] 0x0000400051ce036c
+     3.77%  [JIT] tid 43279                                     [.] 0x000040005258191c
+     3.47%  [JIT] tid 43279                                     [.] 0x0000400051ce0368
+     3.02%  [JIT] tid 43279                                     [.] 0x0000400052581908
+     2.84%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     2.75%  [JIT] tid 43279                                     [.] 0x0000400052581920
+     2.36%  [JIT] tid 43279                                     [.] 0x000040005258193c
+     2.33%  [JIT] tid 43279                                     [.] 0x0000400052581e04
+     2.23%  [JIT] tid 43279                                     [.] 0x0000400052581e00
+     2.21%  [JIT] tid 43279                                     [.] 0x0000400052582210
+     2.14%  [JIT] tid 43279                                     [.] 0x0000400052581de8
+     2.06%  [JIT] tid 43279                                     [.] 0x0000400052581dfc
+     1.89%  [JIT] tid 43279                                     [.] 0x000040005258220c
+     1.88%  [JIT] tid 43279                                     [.] 0x0000400052582208
+     1.70%  [JIT] tid 43279                                     [.] 0x0000400052581de4
+     1.54%  [JIT] tid 43279                                     [.] 0x0000400052582204
+     1.38%  [JIT] tid 43279                                     [.] 0x0000400052581df0
+     1.33%  libc.so.6                                           [.] _int_malloc
+     1.24%  libc.so.6                                           [.] malloc
+     1.21%  [JIT] tid 43279                                     [.] 0x0000400052581910
+     1.12%  [JIT] tid 43279                                     [.] 0x0000400051ce034c
+     0.98%  [unknown]                                           [k] 0xffffb71cae5a9ebc
+     0.97%  [JIT] tid 43279                                     [.] 0x0000400051ce0374
+     0.74%  [JIT] tid 43279                                     [.] 0x0000400051ce035c
+     0.74%  [JIT] tid 43279                                     [.] 0x0000400051ce037c
+     0.72%  [JIT] tid 43279                                     [.] 0x0000400051ce0354
+     0.68%  [JIT] tid 43279                                     [.] 0x0000400051fd010c
+     0.59%  libc.so.6                                           [.] _int_free
+     0.54%  libc.so.6                                           [.] __aarch64_swp4_rel
+     0.51%  [JIT] tid 43279                                     [.] 0x0000400052581880
+     0.45%  [JIT] tid 43279                                     [.] 0x0000400052581dec
+     0.44%  [JIT] tid 43279                                     [.] 0x0000400052581940
+     0.44%  [JIT] tid 43279                                     [.] 0x0000400051ce0378
+     0.41%  libc.so.6                                           [.] unlink_chunk.isra.0
+     0.41%  [JIT] tid 43279                                     [.] 0x0000400052581934
+     0.40%  [JIT] tid 43279                                     [.] 0x0000400052581938
+     0.39%  [JIT] tid 43279                                     [.] 0x0000400052581e20
+     0.38%  [JIT] tid 43279                                     [.] 0x00004000516e0184
+     0.37%  [JIT] tid 43279                                     [.] 0x0000400052582220
+     0.36%  [JIT] tid 43279                                     [.] 0x0000400052581950
+     0.36%  [JIT] tid 43279                                     [.] 0x0000400052581de0
+     0.36%  [JIT] tid 43279                                     [.] 0x0000400052582224
+     0.35%  [JIT] tid 43279                                     [.] 0x0000400052581900
+     0.35%  [JIT] tid 43279                                     [.] 0x0000400052581930
+     0.33%  [JIT] tid 43279                                     [.] 0x000040005258221c
+     0.33%  [JIT] tid 43279                                     [.] 0x0000400051ce033c
+     0.33%  [JIT] tid 43279                                     [.] 0x0000400052581988
+     0.33%  [JIT] tid 43279                                     [.] 0x0000400052582200
+     0.32%  libc.so.6                                           [.] __GI___memset_generic
+     0.31%  [JIT] tid 43279                                     [.] 0x0000400052581928
+     0.31%  [JIT] tid 43279                                     [.] 0x0000400052581958
+     0.31%  [JIT] tid 43279                                     [.] 0x0000400052581918
+     0.31%  [JIT] tid 43279                                     [.] 0x0000400052581df8
+     0.31%  libc.so.6                                           [.] __aarch64_cas4_acq
+     0.30%  [JIT] tid 43279                                     [.] 0x0000400052581948
+     0.30%  [JIT] tid 43279                                     [.] 0x0000400052581e0c
+     0.29%  [JIT] tid 43279                                     [.] 0x0000400052580490
+     0.28%  libc.so.6                                           [.] cfree@GLIBC_2.17
+     0.27%  [JIT] tid 43279                                     [.] 0x00004000518000e4
+     0.27%  libc.so.6                                           [.] __aarch64_swp8_acq
+     0.26%  [JIT] tid 43279                                     [.] 0x0000400052581e18
+     0.24%  [JIT] tid 43279                                     [.] 0x0000400052581960
+     0.24%  [JIT] tid 43279                                     [.] 0x0000400052582218
+     0.24%  omppool.cpython-312-aarch64-linux-gnu.so            [.] create_schedule(RangeActual const&, unsigned long)
+     0.23%  python3.12                                          [.] _PyObject_Malloc
+     0.21%  [JIT] tid 43279                                     [.] 0x0000400052581e14
+     0.21%  [JIT] tid 43279                                     [.] 0x0000400052581e1c
+     0.20%  [JIT] tid 43279                                     [.] 0x0000400051990180
+     0.20%  libgomp.so.1.0.0                                    [.] 0x000000000003dbf0
+     0.19%  omppool.cpython-312-aarch64-linux-gnu.so            [.] divide_work(RangeActual const&, std::vector<RangeActual, std::allocator<RangeActual> >&, std::vector<isf_range, std::allocator<isf_range> >&, unsigned long, unsigned long, std::vector<dimlength, std::allocator<dimlength> > const&, unsigned long)
+     0.18%  [JIT] tid 43279                                     [.] 0x00004000513c00e8
+     0.17%  python3.12                                          [.] PyUnicode_FromFormatV
+     0.16%  [JIT] tid 43279                                     [.] 0x000040004b9e0068
+     0.16%  [JIT] tid 43279                                     [.] 0x00004000519901b8
+     0.15%  python3.12                                          [.] _PyObject_Free
+     0.14%  [JIT] tid 43279                                     [.] 0x00004000525804a8
+     0.14%  [JIT] tid 43279                                     [.] 0x0000400052582214
+     0.14%  python3.12                                          [.] _PyObject_Realloc
+     0.13%  [JIT] tid 43279                                     [.] 0x0000400051770148
+     0.13%  [JIT] tid 43279                                     [.] 0x00004000516e0180
+     0.12%  [JIT] tid 43279                                     [.] 0x0000400051990184
+     0.12%  _dispatcher.cpython-312-aarch64-linux-gnu.so        [.] Dispatcher_call(Dispatcher*, _object*, _object*)
+     0.12%  python3.12                                          [.] _PyFrame_ClearExceptCode
+     0.12%  python3.12                                          [.] _Py_type_getattro
+     0.12%  [JIT] tid 43279                                     [.] 0x0000400052580d54
+     0.12%  [JIT] tid 43279                                     [.] 0x0000400052581e10
+     0.12%  omppool.cpython-312-aarch64-linux-gnu.so            [.] void std::vector<long, std::allocator<long> >::_M_realloc_append<long const&>(long const&)
+     0.12%  python3.12                                          [.] slot_tp_new
+     0.11%  [JIT] tid 43279                                     [.] 0x00004000516e01a4
+     0.11%  [JIT] tid 43279                                     [.] 0x00004000525810b4
+     0.11%  [JIT] tid 43279                                     [.] 0x0000400052581864
+     0.11%  python3.12                                          [.] dict_get
+     0.10%  [JIT] tid 43279                                     [.] 0x00004000513c0148
+     0.10%  [JIT] tid 43279                                     [.] 0x00004000516e01b8
+     0.10%  libc.so.6                                           [.] malloc_consolidate
+     0.10%  libgomp.so.1.0.0                                    [.] GOMP_parallel
+     0.10%  libstdc++.so.6.0.33                                 [.] malloc@plt
+     0.10%  python3.12                                          [.] take_gil.llvm.16830040300935712214
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

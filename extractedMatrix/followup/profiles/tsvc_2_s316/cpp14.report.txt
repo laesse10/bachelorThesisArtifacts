@@ -1,0 +1,17 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 89K of event 'cycles:u'
+# Event count (approx.): 8981800000
+#
+# Overhead  Shared Object          Symbol                                
+# ........  .....................  ......................................
+#
+    99.95%  libtsvc_2_s316_cpp.so  [.] tsvc_2_s316_fp64
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

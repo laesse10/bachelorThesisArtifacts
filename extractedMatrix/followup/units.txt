@@ -11,3 +11,38 @@ scat   | scatter_accum_dup          | ext  | 10  | c fortran fortran14=fortran:b
 tri2   | triangle_count             | ext  | 30  | c cshift=c:src=variants/triangle_count_cshift.c:src32=variants/triangle_count_cshift_fp32.c numba
 esirkN2 | warpx_esirkepov_deposition | ext2 | 300 | c numba nbnort=numba:src=variants/warpx_esirkepov_deposition_nbnort.py
 cometN  | comet_int4_gemm            | ext  | 3000 | c cpp native=cpp:src=variants/comet_int4_gemm_native_fp64.cpp native32=cpp:src=variants/comet_int4_gemm_native_fp64.cpp:src32=variants/comet_int4_gemm_native_fp32.cpp
+# --- batch A (compilers, flags, environment) ---
+s316c   | tsvc_2_s316                | ext  | 10  | c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14 numba
+qtx     | quatrex_rgf                | ext  | 60  | c ccx=c:bin=bin_cx cpp cppcx=cpp:bin=bin_cx fortran
+borisnb | warpx_boris_push           | ext  | 300 | c numba nbnovec=numba:env=NUMBA_LOOP_VECTORIZE=0:env=NUMBA_SLP_VECTORIZE=0
+tri3    | triangle_count             | ext  | 30  | c cpp cpp14=cpp:bin=bin_gxx14
+nfa     | nfa_frontier               | ext2 | 2   | c cpp cpp14=cpp:bin=bin_gxx14 numba | --rounds 2 --reps 10
+# --- batch B1 (source variants) ---
+s318r   | tsvc_2_s318                | ext  | 10  | c csel=c:src=variants/tsvc_2_s318_csel.c numba
+s3110r  | tsvc_2_s3110               | ext  | 10  | c csel=c:src=variants/tsvc_2_s3110_csel.c numba
+argmr   | argmax_with_index          | ext  | 10  | c csel=c:src=variants/argmax_with_index_csel.c numba
+s3111r  | tsvc_2_s3111               | ext  | 10  | c novec=c:src=variants/tsvc_2_s3111_novec.c novecsel=c:src=variants/tsvc_2_s3111_novecsel.c numba
+borisV  | warpx_boris_push           | ext  | 300 | c cvla=c:src=variants/warpx_boris_push_cvla.c fortran numba nbnofuse=numba:src=variants/warpx_boris_push_nbnofuse.py nbnofusenovec=numba:src=variants/warpx_boris_push_nbnofuse.py:env=NUMBA_LOOP_VECTORIZE=0:env=NUMBA_SLP_VECTORIZE=0
+spg     | spgemm_hash                | ext  | 10  | c cmod1=c:src=variants/spgemm_hash_cmod1_fp64.c:src32=variants/spgemm_hash_cmod1_fp32.c cmask=c:src=variants/spgemm_hash_cmask_fp64.c:src32=variants/spgemm_hash_cmask_fp32.c fortran numba
+cometL  | comet_int4_gemm            | ext  | 3000 | c cloops=c:src=variants/comet_int4_gemm_cloops_fp64.c:src32=variants/comet_int4_gemm_cloops_fp32.c cloopsT=c:src=variants/comet_int4_gemm_cloopsT_fp64.c:src32=variants/comet_int4_gemm_cloopsT_fp32.c fortran numba native32=cpp:src=variants/comet_int4_gemm_native_fp64.cpp:src32=variants/comet_int4_gemm_native_fp32.cpp native32noomp=cpp:src=variants/comet_int4_gemm_native_noomp_fp64.cpp:src32=variants/comet_int4_gemm_native_fp32.cpp
+borisH  | warpx_boris_push           | ext  | 300 | c fortran native=cpp:src=../adapters/warpx_boris_push_native.cpp nativenoomp=cpp:src=variants/warpx_boris_push_native_noomp.cpp fortnp=fortran:bin=bin_noparens
+# --- batch B2 (source variants) ---
+qtxN    | quatrex_rgf                | ext  | 60  | c numba nbnoblas=numba:src=variants/quatrex_rgf_nbnoblas.py
+agscat  | scatter_accum_dup          | ext  | 10  | c agent=c:src=variants/scatter_accum_dup_agent.c agent1t=c:src=variants/scatter_accum_dup_agent1t.c agent1tplain=c:src=variants/scatter_accum_dup_agent1tplain.c catomic=c:src=variants/scatter_accum_dup_catomic.c catomicomp=c:src=variants/scatter_accum_dup_catomicomp.c
+agscan  | scan_affine_decay          | ext  | 10  | c agent=c:src=variants/scan_affine_decay_agent.c agent3p=c:src=variants/scan_affine_decay_agent3p.c
+i231    | tsvc_2_s231                | ext  | 10  | c cinter=c:src=variants/tsvc_2_s231_cinter.c agent=c:src=variants/tsvc_2_s231_agent.c
+i2233   | tsvc_2_s2233               | ext  | 10  | c cinter=c:src=variants/tsvc_2_s2233_cinter.c
+i235    | tsvc_2_s235                | ext  | 10  | c cinter=c:src=variants/tsvc_2_s235_cinter.c agent=fortran:src=variants/tsvc_2_s235_agent.f90
+i2275   | tsvc_2_s2275               | ext  | 10  | c cinter=c:src=variants/tsvc_2_s2275_cinter.c agent=c:src=variants/tsvc_2_s2275_agent.c
+i1232   | tsvc_2_s1232               | ext  | 10  | c cinter=c:src=variants/tsvc_2_s1232_cinter.c agent=fortran:src=variants/tsvc_2_s1232_agent.f90
+fuseD   | fuse_diamond               | ext  | 10  | c cstatic=c:src=variants/fuse_diamond_cstatic.c cfused=c:src=variants/fuse_diamond_cfused.c hand=c:src=variants/fuse_diamond_hand.c agent=fortran:src=variants/fuse_diamond_agent.f90
+fuseS   | fuse_stencil_through_transient | ext | 10 | c cstatic=c:src=variants/fuse_stencil_through_transient_cstatic.c cfused=c:src=variants/fuse_stencil_through_transient_cfused.c hand=c:src=variants/fuse_stencil_through_transient_hand.c agent=c:src=variants/fuse_stencil_through_transient_agent.c
+esirkV  | warpx_esirkepov_deposition | ext  | 300 | c cvla=c:src=variants/warpx_esirkepov_deposition_cvla.c fortran fortnp=fortran:bin=bin_noparens
+fgathV  | warpx_field_gather         | ext2 | 60  | c cvla=c:src=variants/warpx_field_gather_cvla.c fortran fortnp=fortran:bin=bin_noparens
+argh    | argmax_with_index          | ext  | 10  | c csel=c:src=variants/argmax_with_index_csel.c cselhalf=c:src=variants/argmax_with_index_cselhalf.c numba
+s3110h  | tsvc_2_s3110               | ext  | 10  | c csel=c:src=variants/tsvc_2_s3110_csel.c cselhalf=c:src=variants/tsvc_2_s3110_cselhalf.c numba
+nfaU    | nfa_frontier               | ext2 | 2   | c numba nbuidx=numba:src=variants/nfa_frontier_nbuidx.py | --rounds 2 --reps 10
+# --- batch C ---
+borisM  | warpx_boris_push           | ext  | 300 | c fortran cmal=c:env=MALLOC_MMAP_THRESHOLD_=33554432:env=MALLOC_TRIM_THRESHOLD_=68719476736 fmal=fortran:env=MALLOC_MMAP_THRESHOLD_=33554432:env=MALLOC_TRIM_THRESHOLD_=68719476736
+fgathM  | warpx_field_gather         | ext  | 60  | c fortran cmal=c:env=MALLOC_MMAP_THRESHOLD_=33554432:env=MALLOC_TRIM_THRESHOLD_=68719476736 fmal=fortran:env=MALLOC_MMAP_THRESHOLD_=33554432:env=MALLOC_TRIM_THRESHOLD_=68719476736
+agscat2 | scatter_accum_dup          | ext  | 10  | c agent1tplain=c:src=variants/scatter_accum_dup_agent1tplain.c agent1tnostage=c:src=variants/scatter_accum_dup_agent1tnostage.c

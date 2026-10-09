@@ -1,0 +1,30 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 62K of event 'cycles:u'
+# Event count (approx.): 6212500000
+#
+# Overhead  Shared Object                                       Symbol                                                                   
+# ........  ..................................................  .........................................................................
+#
+    88.87%  libcomet_int4_gemm_cc.so                            [.] comet_int4_gemm_fp32
+     2.59%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.62%  python3.12                                          [.] gc_collect_main.llvm.9922376833999885437
+     0.53%  python3.12                                          [.] deduce_unreachable
+     0.45%  python3.12                                          [.] PyDict_GetItemWithError
+     0.39%  python3.12                                          [.] visit_decref
+     0.38%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+     0.38%  python3.12                                          [.] _PyObject_Malloc
+     0.28%  python3.12                                          [.] visit_reachable
+     0.15%  python3.12                                          [.] _PyObject_Free
+     0.15%  python3.12                                          [.] _PyObject_LookupAttr
+     0.14%  python3.12                                          [.] PyObject_GenericGetAttr
+     0.11%  libc.so.6                                           [.] _int_malloc
+     0.10%  python3.12                                          [.] subtype_dealloc
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

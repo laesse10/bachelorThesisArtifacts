@@ -1,0 +1,32 @@
+unit argh kernel=argmax_with_index bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006561 start=2026-10-09T10:33:22+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006561 1 1
+SRUN[argh]: srun --nodes=1 --ntasks=1 -w nid006561 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel argmax_with_index --cells c csel=c:src=variants/argmax_with_index_csel.c cselhalf=c:src=variants/argmax_with_index_cselhalf.c numba --rounds 3 --perf --record-reps 10 --out parts/argh.csv --scratch scratch/argh --db-shard 206
+pristine argmax_with_index_fp64.c 6062ff45a669bb05
+pristine argmax_with_index_fp64.cpp 8ab01a3f24b94651
+pristine argmax_with_index_fp64.f90 42fd8cf2ca198c8d
+pristine argmax_with_index_fp32.c 34ee97f6060864a6
+pristine argmax_with_index_fp32.cpp d75a355ccbc972c7
+pristine argmax_with_index_fp32.f90 3579ad6286428d0e
+pristine argmax_with_index_numba_np.py c7769a06872cc58f
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell csel: c src=variants/argmax_with_index_csel.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cselhalf: c src=variants/argmax_with_index_cselhalf.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 71.405 ms 
+  [1] csel             ok           min 249.934 ms 
+  [1] cselhalf         ok           min 206.209 ms 
+  [1] numba            ok           min 180.705 ms 
+  [2] numba            ok           min 181.081 ms 
+  [2] cselhalf         ok           min 205.839 ms 
+  [2] csel             ok           min 249.933 ms 
+  [2] c                ok           min 71.697 ms 
+  [3] c                ok           min 71.541 ms 
+  [3] csel             ok           min 250.146 ms 
+  [3] cselhalf         ok           min 206.096 ms 
+  [3] numba            ok           min 180.754 ms 
+  [record] c                ok           min 73.986 ms 
+  [record] csel             ok           min 255.004 ms 
+  [record] cselhalf         ok           min 210.597 ms 
+  [record] numba            ok           min 185.511 ms 
+wrote 16 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/argh.csv
+unit argh node=nid006561 end=2026-10-09T10:37:38+02:00

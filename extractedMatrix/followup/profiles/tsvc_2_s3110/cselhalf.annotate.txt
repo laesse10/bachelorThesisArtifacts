@@ -1,0 +1,79 @@
+########## tsvc_2_s3110_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s3110_cc.so for cycles:u (98689 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <tsvc_2_s3110_fp64>:
+         : 6   tsvc_2_s3110_fp64():
+    0.00 :   640:    ldr     d31, [x0]
+    0.00 :   644:    cmp     x2, #0x0
+    0.00 :   648:    b.le    74c <tsvc_2_s3110_fp64+0x10c>
+    0.00 :   64c:    sub     x10, x2, #0x2
+    0.00 :   650:    lsl     x12, x2, #3
+    0.00 :   654:    and     x10, x10, #0xfffffffffffffffe
+    0.00 :   658:    mov     x8, x0
+    0.00 :   65c:    add     x10, x10, #0x2
+    0.00 :   660:    sub     x7, x0, #0x8
+    0.00 :   664:    mov     x4, #0x0                        // #0
+    0.00 :   668:    mov     x5, #0x0                        // #0
+    0.00 :   66c:    cmp     x2, #0x1
+    0.00 :   670:    b.eq    73c <tsvc_2_s3110_fp64+0xfc>  // b.none
+    0.00 :   674:    mov     x11, #0x0                       // #0
+    0.00 :   678:    mov     x6, #0x0                        // #0
+    0.00 :   67c:    mov     x4, #0x0                        // #0
+    0.00 :   680:    mov     x5, #0x0                        // #0
+    0.00 :   684:    mov     x9, #0x0                        // #0
+    0.00 :   688:    mov     x3, #0x1                        // #1
+    1.88 :   68c:    ldr     d2, [x7, x3, lsl #3]
+    1.97 :   690:    fcmpe   d2, d31
+    1.83 :   694:    b.gt    6f4 <tsvc_2_s3110_fp64+0xb4>
+   84.68 :   698:    fmov    d2, d31
+    1.87 :   69c:    ldr     d1, [x8, x3, lsl #3]
+    1.89 :   6a0:    fcmpe   d1, d2
+    0.23 :   6a4:    csel    x4, x3, x4, gt
+    1.79 :   6a8:    add     x3, x3, #0x2
+    0.50 :   6ac:    csel    x5, x6, x5, gt
+    1.41 :   6b0:    fcsel   d31, d1, d2, gt
+    1.94 :   6b4:    cmp     x3, x2
+    0.00 :   6b8:    b.lt    68c <tsvc_2_s3110_fp64+0x4c>  // b.tstop
+    0.00 :   6bc:    cmp     x2, x10
+    0.00 :   6c0:    b.le    6d4 <tsvc_2_s3110_fp64+0x94>
+    0.00 :   6c4:    add     x11, x10, x11
+    0.00 :   6c8:    ldr     d30, [x0, x11, lsl #3]
+    0.00 :   6cc:    fcmpe   d31, d30
+    0.00 :   6d0:    b.mi    700 <tsvc_2_s3110_fp64+0xc0>  // b.first
+    0.01 :   6d4:    add     x6, x6, #0x1
+    0.00 :   6d8:    add     x9, x9, x2
+    0.00 :   6dc:    add     x8, x8, x12
+    0.00 :   6e0:    add     x7, x7, x12
+    0.00 :   6e4:    cmp     x2, x6
+    0.00 :   6e8:    b.eq    73c <tsvc_2_s3110_fp64+0xfc>  // b.none
+    0.00 :   6ec:    mov     x11, x9
+    0.00 :   6f0:    b       688 <tsvc_2_s3110_fp64+0x48>
+    0.00 :   6f4:    sub     x4, x3, #0x1
+    0.00 :   6f8:    mov     x5, x6
+    0.00 :   6fc:    b       69c <tsvc_2_s3110_fp64+0x5c>
+    0.00 :   700:    add     x3, x6, #0x1
+    0.00 :   704:    add     x9, x9, x2
+    0.00 :   708:    add     x8, x8, x12
+    0.00 :   70c:    add     x7, x7, x12
+    0.00 :   710:    cmp     x2, x3
+    0.00 :   714:    b.eq    730 <tsvc_2_s3110_fp64+0xf0>  // b.none
+    0.00 :   718:    mov     x5, x6
+    0.00 :   71c:    fmov    d31, d30
+    0.00 :   720:    mov     x6, x3
+    0.00 :   724:    mov     x11, x9
+    0.00 :   728:    mov     x4, x10
+    0.00 :   72c:    b       688 <tsvc_2_s3110_fp64+0x48>
+    0.00 :   730:    fmov    d31, d30
+    0.00 :   734:    mov     x4, x10
+    0.00 :   738:    mov     x5, x6
+    0.00 :   73c:    scvtf   d0, x5
+    0.00 :   740:    scvtf   d29, x4
+    0.00 :   744:    fadd    d31, d0, d31
+    0.00 :   748:    fadd    d31, d31, d29
+    0.00 :   74c:    str     d31, [x1]
+    0.00 :   750:    ret

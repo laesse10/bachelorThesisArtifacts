@@ -1,0 +1,99 @@
+# objdump -d libfuse_stencil_through_transient_cc.so, functions matching fuse_stencil_through_transient_fp64* (sha256 3e142c1ca45a6d24)
+
+0000000000000700 <fuse_stencil_through_transient_fp64>:    # address mod 64 = 0
+ 700:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+ 704:	910003fd 	mov	x29, sp
+ 708:	a9025bf5 	stp	x21, x22, [sp, #32]
+ 70c:	90000116 	adrp	x22, 20000 <__gmon_start__@Base>
+ 710:	aa0203f5 	mov	x21, x2
+ 714:	f9001bf7 	str	x23, [sp, #48]
+ 718:	910102d7 	add	x23, x22, #0x40
+ 71c:	a90153f3 	stp	x19, x20, [sp, #16]
+ 720:	aa0003f3 	mov	x19, x0
+ 724:	aa0103f4 	mov	x20, x1
+ 728:	f94012e2 	ldr	x2, [x23, #32]
+ 72c:	f94022c4 	ldr	x4, [x22, #64]
+ 730:	eb0202bf 	cmp	x21, x2
+ 734:	5400080c 	b.gt	834 <fuse_stencil_through_transient_fp64+0x134>
+ 738:	f1000abf 	cmp	x21, #0x2
+ 73c:	5400072d 	b.le	820 <fuse_stencil_through_transient_fp64+0x120>
+ 740:	d1000aa5 	sub	x5, x21, #0x2
+ 744:	f1000ebf 	cmp	x21, #0x3
+ 748:	540008a0 	b.eq	85c <fuse_stencil_through_transient_fp64+0x15c>  // b.none
+ 74c:	aa1303e2 	mov	x2, x19
+ 750:	d341fea0 	lsr	x0, x21, #1
+ 754:	d1000400 	sub	x0, x0, #0x1
+ 758:	d2800103 	mov	x3, #0x8                   	// #8
+ 75c:	3cc0845f 	ldr	q31, [x2], #8
+ 760:	d37cec01 	lsl	x1, x0, #4
+ 764:	8b030021 	add	x1, x1, x3
+ 768:	3ce36a7d 	ldr	q29, [x19, x3]
+ 76c:	3ce3685e 	ldr	q30, [x2, x3]
+ 770:	4e7fd7bd 	fadd	v29.2d, v29.2d, v31.2d
+ 774:	4ebe1fdf 	mov	v31.16b, v30.16b
+ 778:	4e7ed7bd 	fadd	v29.2d, v29.2d, v30.2d
+ 77c:	3ca3689d 	str	q29, [x4, x3]
+ 780:	91004063 	add	x3, x3, #0x10
+ 784:	eb03003f 	cmp	x1, x3
+ 788:	54ffff01 	b.ne	768 <fuse_stencil_through_transient_fp64+0x68>  // b.any
+ 78c:	d37ff800 	lsl	x0, x0, #1
+ 790:	eb0000bf 	cmp	x5, x0
+ 794:	54000180 	b.eq	7c4 <fuse_stencil_through_transient_fp64+0xc4>  // b.none
+ 798:	91000400 	add	x0, x0, #0x1
+ 79c:	8b000e61 	add	x1, x19, x0, lsl #3
+ 7a0:	d37df000 	lsl	x0, x0, #3
+ 7a4:	fc606a7b 	ldr	d27, [x19, x0]
+ 7a8:	fc5f8020 	ldur	d0, [x1, #-8]
+ 7ac:	fd40043c 	ldr	d28, [x1, #8]
+ 7b0:	1e7b281b 	fadd	d27, d0, d27
+ 7b4:	1e7c2b7c 	fadd	d28, d27, d28
+ 7b8:	fc20689c 	str	d28, [x4, x0]
+ 7bc:	f1000ebf 	cmp	x21, #0x3
+ 7c0:	54000300 	b.eq	820 <fuse_stencil_through_transient_fp64+0x120>  // b.none
+ 7c4:	d1000ea3 	sub	x3, x21, #0x3
+ 7c8:	f10012bf 	cmp	x21, #0x4
+ 7cc:	54000440 	b.eq	854 <fuse_stencil_through_transient_fp64+0x154>  // b.none
+ 7d0:	d341fc60 	lsr	x0, x3, #1
+ 7d4:	d2800102 	mov	x2, #0x8                   	// #8
+ 7d8:	d37cec00 	lsl	x0, x0, #4
+ 7dc:	91002081 	add	x1, x4, #0x8
+ 7e0:	8b020000 	add	x0, x0, x2
+ 7e4:	3ce2683a 	ldr	q26, [x1, x2]
+ 7e8:	3ce26899 	ldr	q25, [x4, x2]
+ 7ec:	6e79df59 	fmul	v25.2d, v26.2d, v25.2d
+ 7f0:	3ca26a99 	str	q25, [x20, x2]
+ 7f4:	91004042 	add	x2, x2, #0x10
+ 7f8:	eb00005f 	cmp	x2, x0
+ 7fc:	54ffff41 	b.ne	7e4 <fuse_stencil_through_transient_fp64+0xe4>  // b.any
+ 800:	36000103 	tbz	w3, #0, 820 <fuse_stencil_through_transient_fp64+0x120>
+ 804:	b2400063 	orr	x3, x3, #0x1
+ 808:	8b030c80 	add	x0, x4, x3, lsl #3
+ 80c:	d37df063 	lsl	x3, x3, #3
+ 810:	fc636897 	ldr	d23, [x4, x3]
+ 814:	fd400418 	ldr	d24, [x0, #8]
+ 818:	1e770b17 	fmul	d23, d24, d23
+ 81c:	fc236a97 	str	d23, [x20, x3]
+ 820:	f9401bf7 	ldr	x23, [sp, #48]
+ 824:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 828:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 82c:	a8c47bfd 	ldp	x29, x30, [sp], #64
+ 830:	d65f03c0 	ret
+ 834:	aa0403e0 	mov	x0, x4
+ 838:	97ffff6a 	bl	5e0 <free@plt>
+ 83c:	d37df2a0 	lsl	x0, x21, #3
+ 840:	97ffff64 	bl	5d0 <malloc@plt>
+ 844:	aa0003e4 	mov	x4, x0
+ 848:	f90022c0 	str	x0, [x22, #64]
+ 84c:	f90012f5 	str	x21, [x23, #32]
+ 850:	17ffffba 	b	738 <fuse_stencil_through_transient_fp64+0x38>
+ 854:	d2800023 	mov	x3, #0x1                   	// #1
+ 858:	17ffffec 	b	808 <fuse_stencil_through_transient_fp64+0x108>
+ 85c:	d2800020 	mov	x0, #0x1                   	// #1
+ 860:	17ffffcf 	b	79c <fuse_stencil_through_transient_fp64+0x9c>
+ 864:	d503201f 	nop
+ 868:	d503201f 	nop
+ 86c:	d503201f 	nop
+ 870:	d503201f 	nop
+ 874:	d503201f 	nop
+ 878:	d503201f 	nop
+ 87c:	d503201f 	nop

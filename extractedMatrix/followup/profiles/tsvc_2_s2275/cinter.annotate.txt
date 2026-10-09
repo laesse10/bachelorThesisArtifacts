@@ -1,0 +1,92 @@
+########## tsvc_2_s2275_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s2275_cc.so for cycles:u (24000 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <tsvc_2_s2275_fp64>:
+         : 6   tsvc_2_s2275_fp64():
+    0.00 :   640:    cmp     x7, #0x0
+    0.00 :   644:    b.le    77c <tsvc_2_s2275_fp64+0x13c>
+    0.00 :   648:    stp     x29, x30, [sp, #-32]!
+    0.00 :   64c:    mov     x29, sp
+    0.00 :   650:    mov     x14, #0x0                       // #0
+    0.00 :   654:    mov     x16, #0x0                       // #0
+    0.00 :   658:    mov     x15, #0x0                       // #0
+    0.00 :   65c:    and     x17, x7, #0xfffffffffffffffe
+    0.00 :   660:    stp     x19, x20, [sp, #16]
+    0.00 :   664:    lsr     x20, x7, #1
+    0.00 :   668:    lsl     x19, x7, #3
+    0.00 :   66c:    lsl     x12, x20, #4
+    0.00 :   670:    cmp     x7, #0x1
+    0.00 :   674:    b.eq    774 <tsvc_2_s2275_fp64+0x134>  // b.none
+    0.00 :   678:    mov     x30, x17
+    0.00 :   67c:    mov     x18, x20
+    0.00 :   680:    mov     x13, x17
+    0.00 :   684:    add     x9, x1, x14
+    0.00 :   688:    add     x11, x3, x14
+    0.00 :   68c:    mov     x8, #0x0                        // #0
+    0.00 :   690:    add     x10, x5, x14
+    0.00 :   694:    nop
+    0.00 :   698:    nop
+    0.00 :   69c:    nop
+    2.05 :   6a0:    ldr     q29, [x9, x8]
+   52.07 :   6a4:    ldr     q31, [x11, x8]
+   21.71 :   6a8:    ldr     q30, [x10, x8]
+   18.21 :   6ac:    fmla    v29.2d, v31.2d, v30.2d
+    1.99 :   6b0:    str     q29, [x9, x8]
+    1.90 :   6b4:    add     x8, x8, #0x10
+    2.03 :   6b8:    cmp     x12, x8
+    0.00 :   6bc:    b.ne    6a0 <tsvc_2_s2275_fp64+0x60>  // b.any
+    0.00 :   6c0:    cmp     x7, x17
+    0.00 :   6c4:    b.eq    75c <tsvc_2_s2275_fp64+0x11c>  // b.none
+    0.00 :   6c8:    add     x8, x13, x16
+    0.00 :   6cc:    add     x15, x15, #0x1
+    0.00 :   6d0:    lsl     x8, x8, #3
+    0.00 :   6d4:    add     x16, x16, x7
+    0.00 :   6d8:    add     x14, x14, x19
+    0.00 :   6dc:    ldr     d26, [x1, x8]
+    0.03 :   6e0:    ldr     d28, [x5, x8]
+    0.00 :   6e4:    ldr     d27, [x3, x8]
+    0.00 :   6e8:    fmadd   d26, d28, d27, d26
+    0.00 :   6ec:    str     d26, [x1, x8]
+    0.00 :   6f0:    cmp     x7, x15
+    0.00 :   6f4:    b.ne    670 <tsvc_2_s2275_fp64+0x30>  // b.any
+    0.00 :   6f8:    cmp     x7, #0x1
+    0.00 :   6fc:    b.eq    780 <tsvc_2_s2275_fp64+0x140>  // b.none
+    0.00 :   700:    and     x30, x7, #0xfffffffffffffffe
+    0.00 :   704:    lsr     x18, x7, #1
+    0.00 :   708:    mov     x1, #0x0                        // #0
+    0.00 :   70c:    lsl     x3, x18, #4
+    0.00 :   710:    ldr     q25, [x6, x1]
+    0.00 :   714:    ldr     q24, [x4, x1]
+    0.00 :   718:    ldr     q23, [x2, x1]
+    0.00 :   71c:    fmla    v23.2d, v25.2d, v24.2d
+    0.00 :   720:    str     q23, [x0, x1]
+    0.00 :   724:    add     x1, x1, #0x10
+    0.00 :   728:    cmp     x3, x1
+    0.00 :   72c:    b.ne    710 <tsvc_2_s2275_fp64+0xd0>  // b.any
+    0.00 :   730:    cmp     x7, x30
+    0.00 :   734:    b.eq    750 <tsvc_2_s2275_fp64+0x110>  // b.none
+    0.00 :   738:    lsl     x1, x30, #3
+    0.00 :   73c:    ldr     d22, [x6, x1]
+    0.00 :   740:    ldr     d21, [x4, x1]
+    0.00 :   744:    ldr     d20, [x2, x1]
+    0.00 :   748:    fmadd   d20, d22, d21, d20
+    0.00 :   74c:    str     d20, [x0, x1]
+    0.00 :   750:    ldp     x19, x20, [sp, #16]
+    0.00 :   754:    ldp     x29, x30, [sp], #32
+    0.00 :   758:    ret
+    0.00 :   75c:    add     x15, x15, #0x1
+    0.00 :   760:    add     x16, x16, x7
+    0.00 :   764:    add     x14, x14, x19
+    0.00 :   768:    cmp     x15, x7
+    0.00 :   76c:    b.ne    684 <tsvc_2_s2275_fp64+0x44>  // b.any
+    0.00 :   770:    b       708 <tsvc_2_s2275_fp64+0xc8>
+    0.00 :   774:    mov     x13, #0x0                       // #0
+    0.00 :   778:    b       6c8 <tsvc_2_s2275_fp64+0x88>
+    0.00 :   77c:    ret
+    0.00 :   780:    mov     x30, #0x0                       // #0
+    0.00 :   784:    b       738 <tsvc_2_s2275_fp64+0xf8>

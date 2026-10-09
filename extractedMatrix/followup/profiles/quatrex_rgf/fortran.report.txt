@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 12K of event 'cycles:u'
+# Event count (approx.): 1246100000
+#
+# Overhead  Shared Object                                       Symbol                                                  
+# ........  ..................................................  ........................................................
+#
+    97.99%  libquatrex_rgf_fortran.so                           [.] quatrex_rgf_fp64
+     0.55%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.22%  libm.so.6                                           [.] hypot@@GLIBC_2.35
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

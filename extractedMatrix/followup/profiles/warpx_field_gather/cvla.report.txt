@@ -1,0 +1,26 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 14K of event 'cycles:u'
+# Event count (approx.): 1487900000
+#
+# Overhead  Shared Object                                       Symbol                                                  
+# ........  ..................................................  ........................................................
+#
+    91.83%  libwarpx_field_gather_cc.so                         [.] warpx_field_gather_fp64
+     2.57%  libc.so.6                                           [.] __GI___memcpy_sve
+     1.75%  [unknown]                                           [k] 0xffffa4554ea5b908
+     0.68%  libc.so.6                                           [.] __GI___memset_generic
+     0.60%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.17%  python3.12                                          [.] _PyObject_Malloc
+     0.15%  python3.12                                          [.] PyDict_GetItemWithError
+     0.13%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+     0.11%  python3.12                                          [.] deduce_unreachable
+     0.10%  libc.so.6                                           [.] _int_free_create_chunk
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

@@ -1,0 +1,17 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 247K of event 'cycles:u'
+# Event count (approx.): 24771600000
+#
+# Overhead  Shared Object                                       Symbol                                        
+# ........  ..................................................  ..............................................
+#
+    99.97%  libtsvc_2_s235_cc.so                                [.] tsvc_2_s235_fp64
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

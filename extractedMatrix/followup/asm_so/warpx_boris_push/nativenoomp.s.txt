@@ -1,0 +1,11 @@
+# objdump -d libwarpx_boris_push_cpp.so, functions matching warpx_boris_push_fp64* (sha256 57a54957af8d1ee5)
+
+0000000000001040 <warpx_boris_push_fp64>:    # address mod 64 = 0
+    1040:	1e604003 	fmov	d3, d0
+    1044:	b0000008 	adrp	x8, 2000 <warpx_boris_push_fp32+0xfa0>
+    1048:	1e604022 	fmov	d2, d1
+    104c:	fd413900 	ldr	d0, [x8, #624]
+    1050:	1e604061 	fmov	d1, d3
+    1054:	17fffd8f 	b	690 <warpx_boris_push_original@plt>
+    1058:	d503201f 	nop
+    105c:	d503201f 	nop

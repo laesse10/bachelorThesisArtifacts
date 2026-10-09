@@ -1,0 +1,37 @@
+unit fuseS kernel=fuse_stencil_through_transient bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006559 start=2026-10-09T10:33:22+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006559 1 1
+SRUN[fuseS]: srun --nodes=1 --ntasks=1 -w nid006559 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel fuse_stencil_through_transient --cells c cstatic=c:src=variants/fuse_stencil_through_transient_cstatic.c cfused=c:src=variants/fuse_stencil_through_transient_cfused.c hand=c:src=variants/fuse_stencil_through_transient_hand.c agent=c:src=variants/fuse_stencil_through_transient_agent.c --rounds 3 --perf --record-reps 10 --out parts/fuseS.csv --scratch scratch/fuseS --db-shard 205
+pristine fuse_stencil_through_transient_fp64.c 9346c0469d98cdeb
+pristine fuse_stencil_through_transient_fp64.cpp 8149b15c84e14a19
+pristine fuse_stencil_through_transient_fp64.f90 03566ed6f216d854
+pristine fuse_stencil_through_transient_fp32.c 9f8090361a257570
+pristine fuse_stencil_through_transient_fp32.cpp 75396326c7654906
+pristine fuse_stencil_through_transient_fp32.f90 3d64f98607802c1c
+pristine fuse_stencil_through_transient_numba_np.py c09677ee6d6e714f
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cstatic: c src=variants/fuse_stencil_through_transient_cstatic.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cfused: c src=variants/fuse_stencil_through_transient_cfused.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell hand: c src=variants/fuse_stencil_through_transient_hand.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell agent: c src=variants/fuse_stencil_through_transient_agent.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+  [1] c                ok           min 112.330 ms 
+  [1] cstatic          ok           min 97.634 ms 
+  [1] cfused           ok           min 47.327 ms 
+  [1] hand             ok           min 47.505 ms 
+  [1] agent            ok           min 47.233 ms 
+  [2] agent            ok           min 46.970 ms 
+  [2] hand             ok           min 46.996 ms 
+  [2] cfused           ok           min 46.867 ms 
+  [2] cstatic          ok           min 96.319 ms 
+  [2] c                ok           min 113.424 ms 
+  [3] c                ok           min 111.546 ms 
+  [3] cstatic          ok           min 97.439 ms 
+  [3] cfused           ok           min 47.080 ms 
+  [3] hand             ok           min 47.332 ms 
+  [3] agent            ok           min 47.322 ms 
+  [record] c                ok           min 118.299 ms 
+  [record] cstatic          ok           min 91.710 ms 
+  [record] cfused           ok           min 45.787 ms 
+  [record] hand             ok           min 46.518 ms 
+  [record] agent            ok           min 53.260 ms 
+wrote 20 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/fuseS.csv
+unit fuseS node=nid006559 end=2026-10-09T10:38:50+02:00

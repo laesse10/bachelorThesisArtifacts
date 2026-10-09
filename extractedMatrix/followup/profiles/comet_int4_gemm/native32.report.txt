@@ -3,64 +3,67 @@
 #
 # Total Lost Samples: 0
 #
-# Samples: 19K of event 'cycles:u'
-# Event count (approx.): 1902300000
+# Samples: 18K of event 'cycles:u'
+# Event count (approx.): 1894500000
 #
 # Overhead  Shared Object                                       Symbol                                                                                                                      
 # ........  ..................................................  ............................................................................................................................
 #
-    64.42%  libcomet_int4_gemm_cpp.so                           [.] (anonymous namespace)::tc_int4_gemm_impl(signed char const*, signed char const*, int*, int, int, int) [clone ._omp_fn.0]
-     8.04%  python3.12                                          [.] _PyEval_EvalFrameDefault
-     2.11%  python3.12                                          [.] gc_collect_main.llvm.9922376833999885437
-     1.82%  python3.12                                          [.] deduce_unreachable
-     1.47%  python3.12                                          [.] PyDict_GetItemWithError
-     1.35%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
-     1.24%  python3.12                                          [.] _PyObject_Malloc
+    64.83%  libcomet_int4_gemm_cpp.so                           [.] (anonymous namespace)::tc_int4_gemm_impl(signed char const*, signed char const*, int*, int, int, int) [clone ._omp_fn.0]
+     7.94%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     2.03%  python3.12                                          [.] gc_collect_main.llvm.9922376833999885437
+     1.74%  python3.12                                          [.] deduce_unreachable
+     1.59%  python3.12                                          [.] PyDict_GetItemWithError
      1.22%  python3.12                                          [.] visit_decref
-     0.81%  python3.12                                          [.] visit_reachable
-     0.56%  python3.12                                          [.] _PyObject_LookupAttr
-     0.47%  python3.12                                          [.] PyObject_GenericGetAttr
-     0.47%  python3.12                                          [.] _PyObject_Free
-     0.44%  python3.12                                          [.] dict_traverse
-     0.29%  python3.12                                          [.] subtype_dealloc
-     0.28%  python3.12                                          [.] tupledealloc
-     0.26%  python3.12                                          [.] subtype_traverse
-     0.25%  python3.12                                          [.] _ctypes_callproc
-     0.25%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] _typenum_fromtypeobj
-     0.22%  python3.12                                          [.] PyCFuncPtr_call
-     0.21%  python3.12                                          [.] member_get
-     0.20%  python3.12                                          [.] PyType_IsSubtype
+     1.09%  python3.12                                          [.] _PyObject_Malloc
+     1.09%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+     0.83%  python3.12                                          [.] visit_reachable
+     0.57%  python3.12                                          [.] _PyObject_LookupAttr
+     0.50%  python3.12                                          [.] _PyObject_Free
+     0.49%  python3.12                                          [.] PyObject_GenericGetAttr
+     0.40%  python3.12                                          [.] dict_traverse
+     0.31%  python3.12                                          [.] subtype_traverse
+     0.27%  python3.12                                          [.] PyObject_CallOneArg
+     0.27%  python3.12                                          [.] _PyDict_GetItem_KnownHash
+     0.27%  python3.12                                          [.] dict_get
+     0.26%  python3.12                                          [.] subtype_dealloc
+     0.24%  python3.12                                          [.] member_get
+     0.22%  python3.12                                          [.] tupledealloc
+     0.21%  libc.so.6                                           [.] _int_malloc
+     0.20%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] PyArray_GetCastInfo
      0.20%  python3.12                                          [.] _PyFrame_ClearExceptCode
-     0.20%  python3.12                                          [.] object_issubclass.llvm.2621902095845655118
-     0.19%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] PyArray_GetCastInfo
-     0.19%  python3.12                                          [.] PyDict_SetItem
-     0.17%  python3.12                                          [.] PyImport_ImportModuleLevelObject
-     0.17%  python3.12                                          [.] _PyDict_GetItem_KnownHash
-     0.17%  python3.12                                          [.] dict_get
-     0.17%  python3.12                                          [.] object_isinstance.llvm.2621902095845655118
-     0.17%  python3.12                                          [.] _Py_type_getattro
-     0.17%  python3.12                                          [.] type_call
-     0.16%  python3.12                                          [.] PyObject_CallOneArg
+     0.20%  python3.12                                          [.] _PyFunction_Vectorcall
+     0.20%  python3.12                                          [.] type_call
+     0.19%  python3.12                                          [.] getset_get
+     0.18%  python3.12                                          [.] PyCFuncPtr_call
+     0.18%  python3.12                                          [.] _ctypes_callproc
+     0.17%  python3.12                                          [.] _PyObject_Realloc
+     0.17%  python3.12                                          [.] method_get
+     0.17%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] _typenum_fromtypeobj
+     0.17%  python3.12                                          [.] object_issubclass.llvm.2621902095845655118
      0.16%  python3.12                                          [.] tuplecontains
-     0.16%  libc.so.6                                           [.] _int_malloc
-     0.16%  python3.12                                          [.] dict_dealloc
-     0.16%  python3.12                                          [.] getset_get
-     0.15%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] array_descr_get
-     0.15%  libc.so.6                                           [.] __GI___strlen_asimd
-     0.15%  libc.so.6                                           [.] __aarch64_swp4_rel
-     0.15%  python3.12                                          [.] _PyObject_Realloc
-     0.15%  python3.12                                          [.] dict_subscript
-     0.15%  python3.12                                          [.] vgetargskeywords.llvm.6399774617150839654
-     0.14%  python3.12                                          [.] ffi_call_int
-     0.14%  python3.12                                          [.] PyUnicode_FromFormatV
-     0.13%  python3.12                                          [.] _PyObject_CallFunctionVa.llvm.1493041499630052838
+     0.16%  python3.12                                          [.] PyImport_ImportModuleLevelObject
+     0.16%  python3.12                                          [.] _Py_type_getattro
+     0.15%  python3.12                                          [.] PyDict_SetItem
+     0.15%  python3.12                                          [.] object_isinstance.llvm.2621902095845655118
+     0.14%  python3.12                                          [.] dict_dealloc
+     0.14%  python3.12                                          [.] dict_subscript
+     0.14%  python3.12                                          [.] do_mkvalue.llvm.3026081403717506991
      0.13%  python3.12                                          [.] type_traverse
-     0.12%  python3.12                                          [.] method_get
-     0.12%  python3.12                                          [.] PyType_GenericAlloc
-     0.12%  python3.12                                          [.] PyUnicode_FromString
-     0.12%  python3.12                                          [.] object_recursive_isinstance.llvm.2621902095845655118
-     0.11%  python3.12                                          [.] _PyFunction_Vectorcall
-     0.11%  python3.12                                          [.] _PyObject_LookupSpecial
+     0.13%  python3.12                                          [.] PyUnicode_FromFormatV
+     0.13%  python3.12                                          [.] _PyObject_CallFunctionVa.llvm.1493041499630052838
+     0.13%  python3.12                                          [.] _PyObject_LookupSpecial
+     0.13%  python3.12                                          [.] vgetargskeywords.llvm.6399774617150839654
+     0.12%  _multiarray_umath.cpython-312-aarch64-linux-gnu.so  [.] array_descr_get
+     0.12%  python3.12                                          [.] tuplerichcompare
+     0.11%  python3.12                                          [.] PyUnicode_AsUTF8AndSize
+     0.11%  python3.12                                          [.] take_gil.llvm.16830040300935712214
+     0.11%  libc.so.6                                           [.] __GI___strlen_asimd
+     0.11%  python3.12                                          [.] long_to_decimal_string
+     0.10%  python3.12                                          [.] PyCSimpleType_from_param
+     0.10%  python3.12                                          [.] PyType_GenericAlloc
+     0.10%  python3.12                                          [.] PyType_IsSubtype
+     0.10%  python3.12                                          [.] _PyObject_CallMethod_SizeT
 
 
 #

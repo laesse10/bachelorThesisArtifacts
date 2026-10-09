@@ -1,0 +1,183 @@
+########## scan_affine_decay_fp64._omp_fn.0
+ Percent |	Source code & Disassembly of libscan_affine_decay_cc.so for cycles:u (76298 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   00000000000008e0 <scan_affine_decay_fp64._omp_fn.0>:
+         : 6   scan_affine_decay_fp64._omp_fn.0():
+    0.00 :   8e0:    stp     x29, x30, [sp, #-208]!
+    0.00 :   8e4:    mov     x29, sp
+    0.00 :   8e8:    stp     x19, x20, [sp, #16]
+    0.00 :   8ec:    stp     x21, x22, [sp, #32]
+    0.00 :   8f0:    stp     x23, x24, [sp, #48]
+    0.00 :   8f4:    stp     x25, x26, [sp, #64]
+    0.00 :   8f8:    stp     x27, x28, [sp, #80]
+    0.00 :   8fc:    str     x0, [sp, #184]
+    0.00 :   900:    ldp     x25, x1, [x0]
+    0.00 :   904:    ldr     x27, [x0, #64]
+    0.00 :   908:    str     x1, [sp, #160]
+    0.00 :   90c:    add     x1, x0, #0x10
+    0.00 :   910:    ldp     x22, x20, [x1]
+    0.00 :   914:    add     x1, x0, #0x20
+    0.00 :   918:    ldp     x19, x21, [x1]
+    0.00 :   91c:    add     x1, x0, #0x30
+    0.00 :   920:    ldp     x24, x23, [x1]
+    0.00 :   924:    cmp     x22, #0x0
+    0.00 :   928:    b.le    b78 <scan_affine_decay_fp64._omp_fn.0+0x298>
+    0.00 :   92c:    mov     x26, #0x0                       // #0
+    0.00 :   930:    sub     x28, x25, #0x1
+    0.00 :   934:    bl      750 <omp_get_num_threads@plt>
+    0.00 :   938:    sxtw    x0, w0
+    0.00 :   93c:    str     x0, [sp, #168]
+    0.00 :   940:    bl      780 <omp_get_thread_num@plt>
+    0.00 :   944:    sxtw    x0, w0
+    0.00 :   948:    lsl     x1, x22, #7
+    0.00 :   94c:    sub     x22, x21, #0x8
+    0.00 :   950:    str     x0, [sp, #112]
+    0.00 :   954:    sub     x0, x20, #0x8
+    0.00 :   958:    str     x1, [sp, #176]
+    0.00 :   95c:    str     x0, [sp, #96]
+    0.00 :   960:    sub     x0, x19, #0x8
+    0.00 :   964:    str     x0, [sp, #104]
+    0.00 :   968:    b       99c <scan_affine_decay_fp64._omp_fn.0+0xbc>
+    0.00 :   96c:    stp     x14, x7, [sp, #120]
+    0.00 :   970:    stp     x8, x13, [sp, #136]
+    0.00 :   974:    bl      790 <GOMP_barrier@plt>
+    0.00 :   978:    bl      7a0 <GOMP_single_start@plt>
+    0.00 :   97c:    ldp     x14, x7, [sp, #120]
+    0.00 :   980:    ldp     x8, x13, [sp, #136]
+    0.00 :   984:    tbnz    w0, #0, ae0 <scan_affine_decay_fp64._omp_fn.0+0x200>
+    0.00 :   988:    bl      790 <GOMP_barrier@plt>
+    0.00 :   98c:    bl      790 <GOMP_barrier@plt>
+    0.00 :   990:    ldr     x0, [sp, #176]
+    0.00 :   994:    cmp     x0, x26
+    0.00 :   998:    b.eq    b78 <scan_affine_decay_fp64._omp_fn.0+0x298>  // b.none
+    0.00 :   99c:    ldr     x0, [sp, #160]
+    0.00 :   9a0:    mov     x14, x26
+    0.00 :   9a4:    str     x26, [sp, #152]
+    0.00 :   9a8:    add     x26, x26, #0x80
+    0.00 :   9ac:    cmp     x26, x0
+    0.00 :   9b0:    csel    x13, x26, x0, le
+    0.00 :   9b4:    ldr     x0, [sp, #168]
+    0.00 :   9b8:    sub     x7, x13, x14
+    0.00 :   9bc:    sdiv    x8, x7, x0
+    0.00 :   9c0:    msub    x7, x8, x0, x7
+    0.00 :   9c4:    ldr     x0, [sp, #112]
+    0.00 :   9c8:    cmp     x0, x7
+    0.00 :   9cc:    b.lt    b6c <scan_affine_decay_fp64._omp_fn.0+0x28c>  // b.tstop
+    0.00 :   9d0:    ldr     x0, [sp, #112]
+    0.00 :   9d4:    madd    x7, x8, x0, x7
+    0.00 :   9d8:    add     x8, x8, x7
+    0.00 :   9dc:    cmp     x7, x8
+    0.00 :   9e0:    b.ge    96c <scan_affine_decay_fp64._omp_fn.0+0x8c>  // b.tcont
+    0.00 :   9e4:    add     x5, x14, x7
+    0.00 :   9e8:    add     x12, x14, x8
+    0.00 :   9ec:    add     x6, x5, #0x1
+    0.00 :   9f0:    lsl     x15, x6, #12
+    0.00 :   9f4:    sub     x16, x15, #0xfff
+    0.00 :   9f8:    nop
+    0.00 :   9fc:    nop
+    0.00 :   a00:    cmp     x25, x15
+    0.00 :   a04:    movi    d31, #0x0
+    0.00 :   a08:    csel    x17, x28, x15, le
+    0.00 :   a0c:    fmov    d30, #1.000000000000000000e+00
+    0.00 :   a10:    mov     x0, x16
+    0.00 :   a14:    add     x3, x17, #0x1
+    0.00 :   a18:    cmp     x17, x16
+    0.00 :   a1c:    b.lt    a3c <scan_affine_decay_fp64._omp_fn.0+0x15c>  // b.tstop
+    8.56 :   a20:    ldr     d29, [x24, x0, lsl #3]
+   27.57 :   a24:    ldr     d28, [x23, x0, lsl #3]
+    2.57 :   a28:    add     x0, x0, #0x1
+    9.05 :   a2c:    fmul    d30, d30, d29
+    0.34 :   a30:    fmadd   d31, d29, d31, d28
+    1.63 :   a34:    cmp     x0, x3
+    0.00 :   a38:    b.ne    a20 <scan_affine_decay_fp64._omp_fn.0+0x140>  // b.any
+    0.00 :   a3c:    str     d30, [x20, x5, lsl #3]
+    0.03 :   a40:    add     x15, x15, #0x1, lsl #12
+    0.00 :   a44:    add     x16, x16, #0x1, lsl #12
+    0.00 :   a48:    str     d31, [x19, x5, lsl #3]
+    0.00 :   a4c:    add     x5, x5, #0x1
+    0.00 :   a50:    cmp     x12, x5
+    0.00 :   a54:    b.gt    a00 <scan_affine_decay_fp64._omp_fn.0+0x120>
+    0.00 :   a58:    stp     x14, x7, [sp, #120]
+    0.00 :   a5c:    stp     x8, x12, [sp, #136]
+    0.00 :   a60:    stp     x13, x6, [sp, #192]
+    0.00 :   a64:    bl      790 <GOMP_barrier@plt>
+    0.00 :   a68:    bl      7a0 <GOMP_single_start@plt>
+    0.00 :   a6c:    ldp     x14, x7, [sp, #120]
+    0.00 :   a70:    ldp     x8, x12, [sp, #136]
+    0.00 :   a74:    ldp     x13, x6, [sp, #192]
+    0.00 :   a78:    tbnz    w0, #0, ae0 <scan_affine_decay_fp64._omp_fn.0+0x200>
+    0.00 :   a7c:    stp     x12, x6, [sp, #120]
+    0.00 :   a80:    bl      790 <GOMP_barrier@plt>
+    0.00 :   a84:    ldp     x12, x6, [sp, #120]
+    0.00 :   a88:    lsl     x5, x6, #12
+    0.00 :   a8c:    sub     x7, x5, #0xfff
+    0.00 :   a90:    cmp     x25, x5
+    0.00 :   a94:    mov     x0, x7
+    0.00 :   a98:    csel    x8, x28, x5, le
+    0.00 :   a9c:    ldr     d24, [x22, x6, lsl #3]
+    0.04 :   aa0:    add     x3, x8, #0x1
+    0.00 :   aa4:    cmp     x8, x7
+    0.00 :   aa8:    b.lt    ac8 <scan_affine_decay_fp64._omp_fn.0+0x1e8>  // b.tstop
+    1.54 :   aac:    ldr     d23, [x24, x0, lsl #3]
+    1.98 :   ab0:    ldr     d22, [x23, x0, lsl #3]
+    1.90 :   ab4:    fmadd   d24, d23, d24, d22
+    1.56 :   ab8:    str     d24, [x27, x0, lsl #3]
+   41.61 :   abc:    add     x0, x0, #0x1
+    1.57 :   ac0:    cmp     x0, x3
+    0.00 :   ac4:    b.ne    aac <scan_affine_decay_fp64._omp_fn.0+0x1cc>  // b.any
+    0.00 :   ac8:    add     x5, x5, #0x1, lsl #12
+    0.00 :   acc:    add     x7, x7, #0x1, lsl #12
+    0.00 :   ad0:    cmp     x6, x12
+    0.00 :   ad4:    b.ge    98c <scan_affine_decay_fp64._omp_fn.0+0xac>  // b.tcont
+    0.01 :   ad8:    add     x6, x6, #0x1
+    0.00 :   adc:    b       a90 <scan_affine_decay_fp64._omp_fn.0+0x1b0>
+    0.00 :   ae0:    ldr     x0, [sp, #184]
+    0.00 :   ae4:    ldr     x1, [sp, #152]
+    0.00 :   ae8:    ldr     d27, [x0, #72]
+    0.00 :   aec:    add     x0, x1, #0x1
+    0.00 :   af0:    str     d27, [x21, x1, lsl #3]
+    0.00 :   af4:    cmp     x13, x0
+    0.00 :   af8:    b.le    b24 <scan_affine_decay_fp64._omp_fn.0+0x244>
+    0.00 :   afc:    nop
+    0.00 :   b00:    ldr     x1, [sp, #96]
+    0.00 :   b04:    ldr     d1, [x1, x0, lsl #3]
+    0.01 :   b08:    ldr     x1, [sp, #104]
+    0.00 :   b0c:    ldr     d0, [x1, x0, lsl #3]
+    0.00 :   b10:    fmadd   d27, d1, d27, d0
+    0.00 :   b14:    str     d27, [x21, x0, lsl #3]
+    0.00 :   b18:    add     x0, x0, #0x1
+    0.00 :   b1c:    cmp     x13, x0
+    0.00 :   b20:    b.ne    b00 <scan_affine_decay_fp64._omp_fn.0+0x220>  // b.any
+    0.00 :   b24:    lsl     x0, x13, #3
+    0.00 :   b28:    str     x8, [sp, #136]
+    0.00 :   b2c:    sub     x0, x0, #0x8
+    0.00 :   b30:    ldr     d26, [x20, x0]
+    0.00 :   b34:    ldr     d25, [x19, x0]
+    0.00 :   b38:    ldr     x0, [sp, #184]
+    0.00 :   b3c:    fmadd   d25, d26, d27, d25
+    0.00 :   b40:    str     d25, [x0, #72]
+    0.00 :   b44:    stp     x14, x7, [sp, #120]
+    0.00 :   b48:    bl      790 <GOMP_barrier@plt>
+    0.00 :   b4c:    ldr     x8, [sp, #136]
+    0.00 :   b50:    ldp     x14, x7, [sp, #120]
+    0.00 :   b54:    cmp     x7, x8
+    0.00 :   b58:    b.ge    98c <scan_affine_decay_fp64._omp_fn.0+0xac>  // b.tcont
+    0.00 :   b5c:    add     x7, x14, x7
+    0.00 :   b60:    add     x12, x14, x8
+    0.00 :   b64:    add     x6, x7, #0x1
+    0.00 :   b68:    b       a88 <scan_affine_decay_fp64._omp_fn.0+0x1a8>
+    0.00 :   b6c:    add     x8, x8, #0x1
+    0.00 :   b70:    mov     x7, #0x0                        // #0
+    0.00 :   b74:    b       9d0 <scan_affine_decay_fp64._omp_fn.0+0xf0>
+    0.00 :   b78:    ldp     x19, x20, [sp, #16]
+    0.00 :   b7c:    ldp     x21, x22, [sp, #32]
+    0.00 :   b80:    ldp     x23, x24, [sp, #48]
+    0.00 :   b84:    ldp     x25, x26, [sp, #64]
+    0.00 :   b88:    ldp     x27, x28, [sp, #80]
+    0.00 :   b8c:    ldp     x29, x30, [sp], #208
+    0.00 :   b90:    ret

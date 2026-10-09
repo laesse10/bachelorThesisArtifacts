@@ -1,0 +1,18 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 9K of event 'cycles:u'
+# Event count (approx.): 915100000
+#
+# Overhead  Shared Object                                       Symbol                                           
+# ........  ..................................................  .................................................
+#
+    99.48%  libfuse_diamond_cc.so                               [.] fuse_diamond_fp64
+     0.16%  python3.12                                          [.] _PyEval_EvalFrameDefault
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

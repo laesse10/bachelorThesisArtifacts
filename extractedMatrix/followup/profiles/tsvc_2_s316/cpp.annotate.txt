@@ -1,0 +1,28 @@
+########## tsvc_2_s316_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s316_cpp.so for cycles:u (29249 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000680 <tsvc_2_s316_fp64>:
+         : 6   tsvc_2_s316_fp64():
+    0.00 :   680:    ldr     d1, [x0]
+    0.00 :   684:    cmp     x2, #0x1
+    0.00 :   688:    b.le    6b8 <tsvc_2_s316_fp64+0x38>
+    0.00 :   68c:    add     x2, x0, x2, lsl #3
+    0.00 :   690:    add     x0, x0, #0x8
+    0.00 :   694:    nop
+    0.00 :   698:    nop
+    0.00 :   69c:    nop
+   10.32 :   6a0:    ldr     d0, [x0]
+   31.50 :   6a4:    fcmpe   d1, d0
+    9.70 :   6a8:    b.gt    6c0 <tsvc_2_s316_fp64+0x40>
+   38.74 :   6ac:    add     x0, x0, #0x8
+    9.74 :   6b0:    cmp     x2, x0
+    0.00 :   6b4:    b.ne    6a0 <tsvc_2_s316_fp64+0x20>  // b.any
+    0.00 :   6b8:    str     d1, [x1]
+    0.00 :   6bc:    ret
+    0.00 :   6c0:    fmov    d1, d0
+    0.00 :   6c4:    b       6ac <tsvc_2_s316_fp64+0x2c>

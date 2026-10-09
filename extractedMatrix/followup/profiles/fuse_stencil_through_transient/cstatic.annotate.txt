@@ -1,0 +1,99 @@
+########## fuse_stencil_through_transient_fp64
+ Percent |	Source code & Disassembly of libfuse_stencil_through_transient_cc.so for cycles:u (29105 samples, percent: local period)
+----------------------------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000700 <fuse_stencil_through_transient_fp64>:
+         : 6   fuse_stencil_through_transient_fp64():
+    0.00 :   700:    stp     x29, x30, [sp, #-64]!
+    0.00 :   704:    mov     x29, sp
+    0.00 :   708:    stp     x21, x22, [sp, #32]
+    0.00 :   70c:    adrp    x22, 20000 <__gmon_start__@Base>
+    0.00 :   710:    mov     x21, x2
+    0.00 :   714:    str     x23, [sp, #48]
+    0.00 :   718:    add     x23, x22, #0x40
+    0.00 :   71c:    stp     x19, x20, [sp, #16]
+    0.00 :   720:    mov     x19, x0
+    0.00 :   724:    mov     x20, x1
+    0.00 :   728:    ldr     x2, [x23, #32]
+    0.00 :   72c:    ldr     x4, [x22, #64]
+    0.00 :   730:    cmp     x21, x2
+    0.00 :   734:    b.gt    834 <fuse_stencil_through_transient_fp64+0x134>
+    0.00 :   738:    cmp     x21, #0x2
+    0.00 :   73c:    b.le    820 <fuse_stencil_through_transient_fp64+0x120>
+    0.00 :   740:    sub     x5, x21, #0x2
+    0.00 :   744:    cmp     x21, #0x3
+    0.00 :   748:    b.eq    85c <fuse_stencil_through_transient_fp64+0x15c>  // b.none
+    0.00 :   74c:    mov     x2, x19
+    0.00 :   750:    lsr     x0, x21, #1
+    0.00 :   754:    sub     x0, x0, #0x1
+    0.00 :   758:    mov     x3, #0x8                        // #8
+    0.00 :   75c:    ldr     q31, [x2], #8
+    0.00 :   760:    lsl     x1, x0, #4
+    0.00 :   764:    add     x1, x1, x3
+    2.17 :   768:    ldr     q29, [x19, x3]
+   10.69 :   76c:    ldr     q30, [x2, x3]
+    2.95 :   770:    fadd    v29.2d, v29.2d, v31.2d
+    0.11 :   774:    mov     v31.16b, v30.16b
+    1.97 :   778:    fadd    v29.2d, v29.2d, v30.2d
+    1.99 :   77c:    str     q29, [x4, x3]
+   28.06 :   780:    add     x3, x3, #0x10
+    2.12 :   784:    cmp     x1, x3
+    0.00 :   788:    b.ne    768 <fuse_stencil_through_transient_fp64+0x68>  // b.any
+    0.00 :   78c:    lsl     x0, x0, #1
+    0.00 :   790:    cmp     x5, x0
+    0.00 :   794:    b.eq    7c4 <fuse_stencil_through_transient_fp64+0xc4>  // b.none
+    0.00 :   798:    add     x0, x0, #0x1
+    0.00 :   79c:    add     x1, x19, x0, lsl #3
+    0.00 :   7a0:    lsl     x0, x0, #3
+    0.00 :   7a4:    ldr     d27, [x19, x0]
+    0.00 :   7a8:    ldur    d0, [x1, #-8]
+    0.00 :   7ac:    ldr     d28, [x1, #8]
+    0.00 :   7b0:    fadd    d27, d0, d27
+    0.00 :   7b4:    fadd    d28, d27, d28
+    0.00 :   7b8:    str     d28, [x4, x0]
+    0.00 :   7bc:    cmp     x21, #0x3
+    0.00 :   7c0:    b.eq    820 <fuse_stencil_through_transient_fp64+0x120>  // b.none
+    0.00 :   7c4:    sub     x3, x21, #0x3
+    0.00 :   7c8:    cmp     x21, #0x4
+    0.00 :   7cc:    b.eq    854 <fuse_stencil_through_transient_fp64+0x154>  // b.none
+    0.00 :   7d0:    lsr     x0, x3, #1
+    0.00 :   7d4:    mov     x2, #0x8                        // #8
+    0.00 :   7d8:    lsl     x0, x0, #4
+    0.00 :   7dc:    add     x1, x4, #0x8
+    0.00 :   7e0:    add     x0, x0, x2
+    2.01 :   7e4:    ldr     q26, [x1, x2]
+   15.28 :   7e8:    ldr     q25, [x4, x2]
+    3.53 :   7ec:    fmul    v25.2d, v26.2d, v25.2d
+    1.88 :   7f0:    str     q25, [x20, x2]
+   25.09 :   7f4:    add     x2, x2, #0x10
+    2.13 :   7f8:    cmp     x2, x0
+    0.00 :   7fc:    b.ne    7e4 <fuse_stencil_through_transient_fp64+0xe4>  // b.any
+    0.00 :   800:    tbz     w3, #0, 820 <fuse_stencil_through_transient_fp64+0x120>
+    0.00 :   804:    orr     x3, x3, #0x1
+    0.00 :   808:    add     x0, x4, x3, lsl #3
+    0.00 :   80c:    lsl     x3, x3, #3
+    0.00 :   810:    ldr     d23, [x4, x3]
+    0.00 :   814:    ldr     d24, [x0, #8]
+    0.00 :   818:    fmul    d23, d24, d23
+    0.00 :   81c:    str     d23, [x20, x3]
+    0.00 :   820:    ldr     x23, [sp, #48]
+    0.00 :   824:    ldp     x19, x20, [sp, #16]
+    0.00 :   828:    ldp     x21, x22, [sp, #32]
+    0.00 :   82c:    ldp     x29, x30, [sp], #64
+    0.00 :   830:    ret
+    0.00 :   834:    mov     x0, x4
+    0.00 :   838:    bl      5e0 <free@plt>
+    0.00 :   83c:    lsl     x0, x21, #3
+    0.00 :   840:    bl      5d0 <malloc@plt>
+    0.00 :   844:    mov     x4, x0
+    0.00 :   848:    str     x0, [x22, #64]
+    0.00 :   84c:    str     x21, [x23, #32]
+    0.00 :   850:    b       738 <fuse_stencil_through_transient_fp64+0x38>
+    0.00 :   854:    mov     x3, #0x1                        // #1
+    0.00 :   858:    b       808 <fuse_stencil_through_transient_fp64+0x108>
+    0.00 :   85c:    mov     x0, #0x1                        // #1
+    0.00 :   860:    b       79c <fuse_stencil_through_transient_fp64+0x9c>

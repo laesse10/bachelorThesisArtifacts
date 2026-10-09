@@ -1,0 +1,32 @@
+unit borisM kernel=warpx_boris_push bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006562 start=2026-10-09T10:56:46+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006562 1 1
+SRUN[borisM]: srun --nodes=1 --ntasks=1 -w nid006562 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel warpx_boris_push --cells c fortran cmal=c:env=MALLOC_MMAP_THRESHOLD_=33554432:env=MALLOC_TRIM_THRESHOLD_=68719476736 fmal=fortran:env=MALLOC_MMAP_THRESHOLD_=33554432:env=MALLOC_TRIM_THRESHOLD_=68719476736 --rounds 3 --perf --record-reps 300 --out parts/borisM.csv --scratch scratch/borisM --db-shard 200
+pristine warpx_boris_push_fp64.c 4df974435c75288a
+pristine warpx_boris_push_fp64.cpp 735afa550f3e31aa
+pristine warpx_boris_push_fp64.f90 49cae026e972751d
+pristine warpx_boris_push_fp32.c dfb4904c9ea7f7c3
+pristine warpx_boris_push_fp32.cpp 5325c09787509d1c
+pristine warpx_boris_push_fp32.f90 8bf89db8ccd34c11
+pristine warpx_boris_push_numba_np.py 5b74c30bace6d710
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cmal: c src=- src32=- bin=- env={'MALLOC_MMAP_THRESHOLD_': '33554432', 'MALLOC_TRIM_THRESHOLD_': '68719476736'} -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell fmal: fortran src=- src32=- bin=- env={'MALLOC_MMAP_THRESHOLD_': '33554432', 'MALLOC_TRIM_THRESHOLD_': '68719476736'} -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+  [1] c                ok           min 3.091 ms 
+  [1] fortran          ok           min 3.412 ms 
+  [1] cmal             ok           min 2.924 ms 
+  [1] fmal             ok           min 2.897 ms 
+  [2] fmal             ok           min 2.925 ms 
+  [2] cmal             ok           min 2.909 ms 
+  [2] fortran          ok           min 3.411 ms 
+  [2] c                ok           min 3.047 ms 
+  [3] c                ok           min 3.039 ms 
+  [3] fortran          ok           min 3.449 ms 
+  [3] cmal             ok           min 2.899 ms 
+  [3] fmal             ok           min 2.922 ms 
+  [record] c                ok           min 3.137 ms 
+  [record] fortran          ok           min 3.517 ms 
+  [record] cmal             ok           min 2.926 ms 
+  [record] fmal             ok           min 2.975 ms 
+wrote 16 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/borisM.csv
+unit borisM node=nid006562 end=2026-10-09T10:58:31+02:00

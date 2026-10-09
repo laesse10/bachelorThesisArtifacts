@@ -1,0 +1,27 @@
+unit s318r kernel=tsvc_2_s318 bench=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext node=nid006545 start=2026-10-07T16:07:46+02:00 gfortran=/users/lhulsbergen/bin/gfortran bin14=/usr/bin/gfortran-14
+PROBE nid006545 1 1
+SRUN[s318r]: srun --nodes=1 --ntasks=1 -w nid006545 --exclusive --cpu-bind=cores --hint=nomultithread --time=28 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_gap.py --kernel tsvc_2_s318 --cells c csel=c:src=variants/tsvc_2_s318_csel.c numba --rounds 3 --perf --record-reps 10 --out parts/s318r.csv --scratch scratch/s318r --db-shard 200
+pristine tsvc_2_s318_fp64.c 484d489ea5a3ca07
+pristine tsvc_2_s318_fp64.cpp c125f5d2a4bb2ea7
+pristine tsvc_2_s318_fp64.f90 cd95757c2db9c513
+pristine tsvc_2_s318_fp32.c 6f4d1a4be171e694
+pristine tsvc_2_s318_fp32.cpp b3c0688734880307
+pristine tsvc_2_s318_fp32.f90 f51f079d62ce548c
+pristine tsvc_2_s318_numba_np.py 7b6c5145be0c6ec9
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell csel: c src=variants/tsvc_2_s318_csel.c src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 79.012 ms 
+  [1] csel             ok           min 284.091 ms 
+  [1] numba            ok           min 283.961 ms 
+  [2] numba            ok           min 284.053 ms 
+  [2] csel             ok           min 284.058 ms 
+  [2] c                ok           min 78.962 ms 
+  [3] c                ok           min 79.010 ms 
+  [3] csel             ok           min 284.046 ms 
+  [3] numba            ok           min 283.933 ms 
+  [record] c                ok           min 81.341 ms 
+  [record] csel             ok           min 289.143 ms 
+  [record] numba            ok           min 289.316 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/followup/parts/s318r.csv
+unit s318r node=nid006545 end=2026-10-07T16:11:34+02:00

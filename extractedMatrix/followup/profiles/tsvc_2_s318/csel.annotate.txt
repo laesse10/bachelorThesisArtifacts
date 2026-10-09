@@ -1,0 +1,44 @@
+########## tsvc_2_s318_fp64
+ Percent |	Source code & Disassembly of libtsvc_2_s318_cc.so for cycles:u (92557 samples, percent: local period)
+---------------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3   Disassembly of section .text:
+         :
+         : 5   0000000000000640 <tsvc_2_s318_fp64>:
+         : 6   tsvc_2_s318_fp64():
+    0.00 :   640:    ldr     d31, [x0]
+    0.00 :   644:    fabs    d31, d31
+    0.00 :   648:    cmp     x2, #0x1
+    0.00 :   64c:    b.le    688 <tsvc_2_s318_fp64+0x48>
+    0.00 :   650:    mov     x4, #0x0                        // #0
+    0.00 :   654:    cmp     x3, #0x1
+    0.00 :   658:    b.ne    690 <tsvc_2_s318_fp64+0x50>  // b.any
+    0.00 :   65c:    nop
+   42.43 :   660:    ldr     d1, [x0, x3, lsl #3]
+   48.58 :   664:    fabs    d1, d1
+    0.67 :   668:    fcmpe   d31, d1
+    2.78 :   66c:    csel    x4, x3, x4, mi  // mi = first
+    0.00 :   670:    add     x3, x3, #0x1
+    2.79 :   674:    fcsel   d31, d1, d31, mi        // mi = first
+    2.75 :   678:    cmp     x2, x3
+    0.00 :   67c:    b.ne    660 <tsvc_2_s318_fp64+0x20>  // b.any
+    0.00 :   680:    scvtf   d30, x4
+    0.00 :   684:    fadd    d31, d31, d30
+    0.00 :   688:    str     d31, [x1]
+    0.00 :   68c:    ret
+    0.00 :   690:    add     x0, x0, x3, lsl #3
+    0.00 :   694:    mov     x5, #0x1                        // #1
+    0.00 :   698:    lsl     x3, x3, #3
+    0.00 :   69c:    nop
+    0.00 :   6a0:    ldr     d0, [x0]
+    0.00 :   6a4:    add     x0, x0, x3
+    0.00 :   6a8:    fabs    d0, d0
+    0.00 :   6ac:    fcmpe   d31, d0
+    0.00 :   6b0:    csel    x4, x5, x4, mi  // mi = first
+    0.00 :   6b4:    add     x5, x5, #0x1
+    0.00 :   6b8:    fcsel   d31, d0, d31, mi        // mi = first
+    0.00 :   6bc:    cmp     x2, x5
+    0.00 :   6c0:    b.ne    6a0 <tsvc_2_s318_fp64+0x60>  // b.any
+    0.00 :   6c4:    b       680 <tsvc_2_s318_fp64+0x40>

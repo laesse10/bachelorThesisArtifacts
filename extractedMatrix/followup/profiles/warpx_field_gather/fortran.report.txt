@@ -4,19 +4,23 @@
 # Total Lost Samples: 0
 #
 # Samples: 15K of event 'cycles:u'
-# Event count (approx.): 1561100000
+# Event count (approx.): 1576500000
 #
 # Overhead  Shared Object                                       Symbol                                                  
 # ........  ..................................................  ........................................................
 #
-    92.08%  libwarpx_field_gather_fortran.so                    [.] warpx_field_gather_fp64
-     2.56%  libc.so.6                                           [.] __GI___memcpy_sve
-     1.78%  [unknown]                                           [k] 0xffffb26a308bb908
-     0.62%  python3.12                                          [.] _PyEval_EvalFrameDefault
-     0.42%  libc.so.6                                           [.] __GI___memset_generic
-     0.19%  python3.12                                          [.] _PyObject_Malloc
-     0.17%  python3.12                                          [.] PyDict_GetItemWithError
-     0.13%  [unknown]                                           [k] 0xffffb26a2f9e9ebc
+    91.89%  libwarpx_field_gather_fortran.so                    [.] warpx_field_gather_fp64
+     2.75%  libc.so.6                                           [.] __GI___memcpy_sve
+     1.80%  [unknown]                                           [k] 0xffffb3894b7bb908
+     0.63%  python3.12                                          [.] _PyEval_EvalFrameDefault
+     0.30%  libc.so.6                                           [.] __GI___memset_generic
+     0.24%  python3.12                                          [.] _PyObject_Malloc
+     0.19%  python3.12                                          [.] PyDict_GetItemWithError
+     0.13%  python3.12                                          [.] _PyObject_GenericGetAttrWithDict
+     0.11%  libc.so.6                                           [.] cfree@GLIBC_2.17
+     0.11%  libc.so.6                                           [.] malloc
+     0.11%  [unknown]                                           [k] 0xffffb3894a8e9ebc
+     0.10%  python3.12                                          [.] deduce_unreachable
 
 
 #

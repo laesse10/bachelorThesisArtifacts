@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 4K of event 'cycles:u'
+# Event count (approx.): 400200000
+#
+# Overhead  Shared Object               Symbol                                           
+# ........  ..........................  .................................................
+#
+    93.38%  libtsvc_2_s1232_fortran.so  [.] tsvc_2_s1232_fp64._omp_fn.0
+     5.15%  libgomp.so.1.0.0            [.] 0x000000000003dc50
+     0.35%  python3.12                  [.] _PyEval_EvalFrameDefault
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
