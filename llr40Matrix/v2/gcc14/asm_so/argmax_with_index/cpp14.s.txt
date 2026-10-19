@@ -1,0 +1,27 @@
+# objdump -d libargmax_with_index_cpp.so, functions matching argmax_with_index_fp64* (sha256 d754c69c5b99d37b)
+
+0000000000000680 <argmax_with_index_fp64>:    # address mod 64 = 0
+ 680:	fd40001f 	ldr	d31, [x0]
+ 684:	d2800005 	mov	x5, #0x0                   	// #0
+ 688:	f100047f 	cmp	x3, #0x1
+ 68c:	5400016d 	b.le	6b8 <argmax_with_index_fp64+0x38>
+ 690:	d2800024 	mov	x4, #0x1                   	// #1
+ 694:	d503201f 	nop
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop
+ 6a0:	fc64781e 	ldr	d30, [x0, x4, lsl #3]
+ 6a4:	1e7e23f0 	fcmpe	d31, d30
+ 6a8:	540000e4 	b.mi	6c4 <argmax_with_index_fp64+0x44>  // b.first
+ 6ac:	91000484 	add	x4, x4, #0x1
+ 6b0:	eb04007f 	cmp	x3, x4
+ 6b4:	54ffff61 	b.ne	6a0 <argmax_with_index_fp64+0x20>  // b.any
+ 6b8:	f9000025 	str	x5, [x1]
+ 6bc:	fd00005f 	str	d31, [x2]
+ 6c0:	d65f03c0 	ret
+ 6c4:	1e6043df 	fmov	d31, d30
+ 6c8:	aa0403e5 	mov	x5, x4
+ 6cc:	17fffff8 	b	6ac <argmax_with_index_fp64+0x2c>
+ 6d0:	d503201f 	nop
+ 6d4:	d503201f 	nop
+ 6d8:	d503201f 	nop
+ 6dc:	d503201f 	nop

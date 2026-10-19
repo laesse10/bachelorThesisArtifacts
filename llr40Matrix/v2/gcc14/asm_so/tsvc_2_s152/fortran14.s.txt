@@ -1,0 +1,51 @@
+# objdump -d libtsvc_2_s152_fortran.so, functions matching tsvc_2_s152_fp64* (sha256 74b4984e5072e04e)
+
+0000000000000660 <tsvc_2_s152_fp64>:    # address mod 64 = 32
+ 660:	f10000bf 	cmp	x5, #0x0
+ 664:	5400050d 	b.le	704 <tsvc_2_s152_fp64+0xa4>
+ 668:	d341fca8 	lsr	x8, x5, #1
+ 66c:	d2800006 	mov	x6, #0x0                   	// #0
+ 670:	d2800007 	mov	x7, #0x0                   	// #0
+ 674:	f10004bf 	cmp	x5, #0x1
+ 678:	54000480 	b.eq	708 <tsvc_2_s152_fp64+0xa8>  // b.none
+ 67c:	d503201f 	nop
+ 680:	3ce6687d 	ldr	q29, [x3, x6]
+ 684:	910004e7 	add	x7, x7, #0x1
+ 688:	3ce6689c 	ldr	q28, [x4, x6]
+ 68c:	6e7cdfbc 	fmul	v28.2d, v29.2d, v28.2d
+ 690:	3ca6683c 	str	q28, [x1, x6]
+ 694:	910040c6 	add	x6, x6, #0x10
+ 698:	eb07011f 	cmp	x8, x7
+ 69c:	54ffff21 	b.ne	680 <tsvc_2_s152_fp64+0x20>  // b.any
+ 6a0:	927ff8a6 	and	x6, x5, #0xfffffffffffffffe
+ 6a4:	360000a5 	tbz	w5, #0, 6b8 <tsvc_2_s152_fp64+0x58>
+ 6a8:	fc66787b 	ldr	d27, [x3, x6, lsl #3]
+ 6ac:	fc66789a 	ldr	d26, [x4, x6, lsl #3]
+ 6b0:	1e7a0b7a 	fmul	d26, d27, d26
+ 6b4:	fc26783a 	str	d26, [x1, x6, lsl #3]
+ 6b8:	d2800003 	mov	x3, #0x0                   	// #0
+ 6bc:	d2800004 	mov	x4, #0x0                   	// #0
+ 6c0:	3ce36817 	ldr	q23, [x0, x3]
+ 6c4:	91000484 	add	x4, x4, #0x1
+ 6c8:	3ce36839 	ldr	q25, [x1, x3]
+ 6cc:	3ce36858 	ldr	q24, [x2, x3]
+ 6d0:	4e78cf37 	fmla	v23.2d, v25.2d, v24.2d
+ 6d4:	3ca36817 	str	q23, [x0, x3]
+ 6d8:	91004063 	add	x3, x3, #0x10
+ 6dc:	eb08009f 	cmp	x4, x8
+ 6e0:	54ffff01 	b.ne	6c0 <tsvc_2_s152_fp64+0x60>  // b.any
+ 6e4:	eb0600bf 	cmp	x5, x6
+ 6e8:	540000e0 	b.eq	704 <tsvc_2_s152_fp64+0xa4>  // b.none
+ 6ec:	fc667840 	ldr	d0, [x2, x6, lsl #3]
+ 6f0:	fc667835 	ldr	d21, [x1, x6, lsl #3]
+ 6f4:	fc667816 	ldr	d22, [x0, x6, lsl #3]
+ 6f8:	1e750815 	fmul	d21, d0, d21
+ 6fc:	1e752ad6 	fadd	d22, d22, d21
+ 700:	fc267816 	str	d22, [x0, x6, lsl #3]
+ 704:	d65f03c0 	ret
+ 708:	fd40007f 	ldr	d31, [x3]
+ 70c:	fd40009e 	ldr	d30, [x4]
+ 710:	1e7e0bfe 	fmul	d30, d31, d30
+ 714:	fd00003e 	str	d30, [x1]
+ 718:	17fffff5 	b	6ec <tsvc_2_s152_fp64+0x8c>
+ 71c:	d503201f 	nop

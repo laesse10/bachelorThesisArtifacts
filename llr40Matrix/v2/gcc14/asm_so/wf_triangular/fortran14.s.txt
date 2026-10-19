@@ -1,0 +1,43 @@
+# objdump -d libwf_triangular_fortran.so, functions matching wf_triangular_fp64* (sha256 e797dbcf2261bbe0)
+
+0000000000000660 <wf_triangular_fp64>:    # address mod 64 = 32
+ 660:	f100043f 	cmp	x1, #0x1
+ 664:	540003ed 	b.le	6e0 <wf_triangular_fp64+0x80>
+ 668:	8aa1fc23 	bic	x3, x1, x1, asr #63
+ 66c:	d2800024 	mov	x4, #0x1                   	// #1
+ 670:	aa2303e2 	mvn	x2, x3
+ 674:	8b040067 	add	x7, x3, x4
+ 678:	8b030442 	add	x2, x2, x3, lsl #1
+ 67c:	d37df0e7 	lsl	x7, x7, #3
+ 680:	d10020e6 	sub	x6, x7, #0x8
+ 684:	8b020c05 	add	x5, x0, x2, lsl #3
+ 688:	cb030042 	sub	x2, x2, x3
+ 68c:	8b020c03 	add	x3, x0, x2, lsl #3
+ 690:	aa0503e2 	mov	x2, x5
+ 694:	d503201f 	nop
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop
+ 6a0:	fd4004bf 	ldr	d31, [x5, #8]
+ 6a4:	aa0403e0 	mov	x0, x4
+ 6a8:	91000484 	add	x4, x4, #0x1
+ 6ac:	91000400 	add	x0, x0, #0x1
+ 6b0:	fc60785e 	ldr	d30, [x2, x0, lsl #3]
+ 6b4:	fc60787d 	ldr	d29, [x3, x0, lsl #3]
+ 6b8:	1e7d2bdd 	fadd	d29, d30, d29
+ 6bc:	1e7d2bff 	fadd	d31, d31, d29
+ 6c0:	fc20785f 	str	d31, [x2, x0, lsl #3]
+ 6c4:	eb01001f 	cmp	x0, x1
+ 6c8:	54ffff2b 	b.lt	6ac <wf_triangular_fp64+0x4c>  // b.tstop
+ 6cc:	8b0700a5 	add	x5, x5, x7
+ 6d0:	8b060042 	add	x2, x2, x6
+ 6d4:	8b060063 	add	x3, x3, x6
+ 6d8:	eb04003f 	cmp	x1, x4
+ 6dc:	54fffe21 	b.ne	6a0 <wf_triangular_fp64+0x40>  // b.any
+ 6e0:	d65f03c0 	ret
+ 6e4:	d503201f 	nop
+ 6e8:	d503201f 	nop
+ 6ec:	d503201f 	nop
+ 6f0:	d503201f 	nop
+ 6f4:	d503201f 	nop
+ 6f8:	d503201f 	nop
+ 6fc:	d503201f 	nop

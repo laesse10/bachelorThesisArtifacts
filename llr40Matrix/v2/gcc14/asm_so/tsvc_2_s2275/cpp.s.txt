@@ -1,0 +1,35 @@
+# objdump -d libtsvc_2_s2275_cpp.so, functions matching tsvc_2_s2275_fp64* (sha256 6f580f09e97fd309)
+
+0000000000000680 <tsvc_2_s2275_fp64>:    # address mod 64 = 0
+ 680:	f10000ff 	cmp	x7, #0x0
+ 684:	5400036d 	b.le	6f0 <tsvc_2_s2275_fp64+0x70>
+ 688:	d37df0eb 	lsl	x11, x7, #3
+ 68c:	d280000c 	mov	x12, #0x0                   	// #0
+ 690:	d37df188 	lsl	x8, x12, #3
+ 694:	d2800009 	mov	x9, #0x0                   	// #0
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop
+ 6a0:	fc686820 	ldr	d0, [x1, x8]
+ 6a4:	aa0903ea 	mov	x10, x9
+ 6a8:	91000529 	add	x9, x9, #0x1
+ 6ac:	fc686862 	ldr	d2, [x3, x8]
+ 6b0:	fc6868a1 	ldr	d1, [x5, x8]
+ 6b4:	1f410040 	fmadd	d0, d2, d1, d0
+ 6b8:	fc286820 	str	d0, [x1, x8]
+ 6bc:	8b0b0108 	add	x8, x8, x11
+ 6c0:	eb0900ff 	cmp	x7, x9
+ 6c4:	54fffee1 	b.ne	6a0 <tsvc_2_s2275_fp64+0x20>  // b.any
+ 6c8:	fc6c7882 	ldr	d2, [x4, x12, lsl #3]
+ 6cc:	91000588 	add	x8, x12, #0x1
+ 6d0:	fc6c78c1 	ldr	d1, [x6, x12, lsl #3]
+ 6d4:	fc6c7840 	ldr	d0, [x2, x12, lsl #3]
+ 6d8:	1f410040 	fmadd	d0, d2, d1, d0
+ 6dc:	fc2c7800 	str	d0, [x0, x12, lsl #3]
+ 6e0:	eb0a019f 	cmp	x12, x10
+ 6e4:	54000060 	b.eq	6f0 <tsvc_2_s2275_fp64+0x70>  // b.none
+ 6e8:	aa0803ec 	mov	x12, x8
+ 6ec:	17ffffe9 	b	690 <tsvc_2_s2275_fp64+0x10>
+ 6f0:	d65f03c0 	ret
+ 6f4:	d503201f 	nop
+ 6f8:	d503201f 	nop
+ 6fc:	d503201f 	nop

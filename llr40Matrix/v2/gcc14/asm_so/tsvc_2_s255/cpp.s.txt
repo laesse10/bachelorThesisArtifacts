@@ -1,0 +1,27 @@
+# objdump -d libtsvc_2_s255_cpp.so, functions matching tsvc_2_s255_fp64* (sha256 9ba3d04157224ca3)
+
+0000000000000680 <tsvc_2_s255_fp64>:    # address mod 64 = 0
+ 680:	8b020c23 	add	x3, x1, x2, lsl #3
+ 684:	6d7f0463 	ldp	d3, d1, [x3, #-16]
+ 688:	f100005f 	cmp	x2, #0x0
+ 68c:	540001ed 	b.le	6c8 <tsvc_2_s255_fp64+0x48>
+ 690:	90000004 	adrp	x4, 0 <_init-0x4f8>
+ 694:	d2800003 	mov	x3, #0x0                   	// #0
+ 698:	fd43a084 	ldr	d4, [x4, #1856]
+ 69c:	d503201f 	nop
+ 6a0:	fc637822 	ldr	d2, [x1, x3, lsl #3]
+ 6a4:	1e622820 	fadd	d0, d1, d2
+ 6a8:	1e632800 	fadd	d0, d0, d3
+ 6ac:	1e604023 	fmov	d3, d1
+ 6b0:	1e604041 	fmov	d1, d2
+ 6b4:	1e640800 	fmul	d0, d0, d4
+ 6b8:	fc237800 	str	d0, [x0, x3, lsl #3]
+ 6bc:	91000463 	add	x3, x3, #0x1
+ 6c0:	eb03005f 	cmp	x2, x3
+ 6c4:	54fffee1 	b.ne	6a0 <tsvc_2_s255_fp64+0x20>  // b.any
+ 6c8:	d65f03c0 	ret
+ 6cc:	d503201f 	nop
+ 6d0:	d503201f 	nop
+ 6d4:	d503201f 	nop
+ 6d8:	d503201f 	nop
+ 6dc:	d503201f 	nop

@@ -1,0 +1,67 @@
+# objdump -d libtsvc_2_s119_fortran.so, functions matching tsvc_2_s119_fp64* (sha256 e587d4523bf02dd7)
+
+0000000000000660 <tsvc_2_s119_fp64>:    # address mod 64 = 32
+ 660:	f100045f 	cmp	x2, #0x1
+ 664:	5400076d 	b.le	750 <tsvc_2_s119_fp64+0xf0>
+ 668:	8aa2fc4e 	bic	x14, x2, x2, asr #63
+ 66c:	d1000450 	sub	x16, x2, #0x1
+ 670:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 674:	d1002009 	sub	x9, x0, #0x8
+ 678:	927ffa12 	and	x18, x16, #0xfffffffffffffffe
+ 67c:	d341fe08 	lsr	x8, x16, #1
+ 680:	d10005cc 	sub	x12, x14, #0x1
+ 684:	d37df1cf 	lsl	x15, x14, #3
+ 688:	8b0c0c2a 	add	x10, x1, x12, lsl #3
+ 68c:	91000a5e 	add	x30, x18, #0x2
+ 690:	92400210 	and	x16, x16, #0x1
+ 694:	910041f1 	add	x17, x15, #0x10
+ 698:	9280000d 	mov	x13, #0xffffffffffffffff    	// #-1
+ 69c:	d280002b 	mov	x11, #0x1                   	// #1
+ 6a0:	910003fd 	mov	x29, sp
+ 6a4:	9100056b 	add	x11, x11, #0x1
+ 6a8:	f100085f 	cmp	x2, #0x2
+ 6ac:	540003e0 	b.eq	728 <tsvc_2_s119_fp64+0xc8>  // b.none
+ 6b0:	d2800003 	mov	x3, #0x0                   	// #0
+ 6b4:	d2800004 	mov	x4, #0x0                   	// #0
+ 6b8:	91002127 	add	x7, x9, #0x8
+ 6bc:	91004146 	add	x6, x10, #0x10
+ 6c0:	8b090225 	add	x5, x17, x9
+ 6c4:	3ce368fd 	ldr	q29, [x7, x3]
+ 6c8:	91000484 	add	x4, x4, #0x1
+ 6cc:	3ce368dc 	ldr	q28, [x6, x3]
+ 6d0:	4e7cd7bc 	fadd	v28.2d, v29.2d, v28.2d
+ 6d4:	3ca368bc 	str	q28, [x5, x3]
+ 6d8:	91004063 	add	x3, x3, #0x10
+ 6dc:	eb04011f 	cmp	x8, x4
+ 6e0:	54ffff21 	b.ne	6c4 <tsvc_2_s119_fp64+0x64>  // b.any
+ 6e4:	8b0f0124 	add	x4, x9, x15
+ 6e8:	b4000110 	cbz	x16, 708 <tsvc_2_s119_fp64+0xa8>
+ 6ec:	8b0d0243 	add	x3, x18, x13
+ 6f0:	8b0c03c5 	add	x5, x30, x12
+ 6f4:	91000463 	add	x3, x3, #0x1
+ 6f8:	fc65783a 	ldr	d26, [x1, x5, lsl #3]
+ 6fc:	fc63781b 	ldr	d27, [x0, x3, lsl #3]
+ 700:	1e7a2b7a 	fadd	d26, d27, d26
+ 704:	fc25781a 	str	d26, [x0, x5, lsl #3]
+ 708:	8b0e01ad 	add	x13, x13, x14
+ 70c:	aa0403e9 	mov	x9, x4
+ 710:	8b0e018c 	add	x12, x12, x14
+ 714:	8b0f014a 	add	x10, x10, x15
+ 718:	eb02017f 	cmp	x11, x2
+ 71c:	54fffc41 	b.ne	6a4 <tsvc_2_s119_fp64+0x44>  // b.any
+ 720:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 724:	d65f03c0 	ret
+ 728:	8b0f0124 	add	x4, x9, x15
+ 72c:	d2800023 	mov	x3, #0x1                   	// #1
+ 730:	fc63793f 	ldr	d31, [x9, x3, lsl #3]
+ 734:	91000463 	add	x3, x3, #0x1
+ 738:	fc63795e 	ldr	d30, [x10, x3, lsl #3]
+ 73c:	1e7f2bde 	fadd	d30, d30, d31
+ 740:	fc23789e 	str	d30, [x4, x3, lsl #3]
+ 744:	eb03005f 	cmp	x2, x3
+ 748:	54ffff41 	b.ne	730 <tsvc_2_s119_fp64+0xd0>  // b.any
+ 74c:	17ffffef 	b	708 <tsvc_2_s119_fp64+0xa8>
+ 750:	d65f03c0 	ret
+ 754:	d503201f 	nop
+ 758:	d503201f 	nop
+ 75c:	d503201f 	nop

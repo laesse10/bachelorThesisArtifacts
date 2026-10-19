@@ -1,0 +1,35 @@
+# objdump -d libext_war_unit_fortran.so, functions matching ext_war_unit_fp64* (sha256 c671f4f2e9fca3e9)
+
+0000000000000660 <ext_war_unit_fp64>:    # address mod 64 = 32
+ 660:	f100045f 	cmp	x2, #0x1
+ 664:	540002ed 	b.le	6c0 <ext_war_unit_fp64+0x60>
+ 668:	d1000443 	sub	x3, x2, #0x1
+ 66c:	f100085f 	cmp	x2, #0x2
+ 670:	540002a0 	b.eq	6c4 <ext_war_unit_fp64+0x64>  // b.none
+ 674:	d341fc66 	lsr	x6, x3, #1
+ 678:	91002005 	add	x5, x0, #0x8
+ 67c:	d2800002 	mov	x2, #0x0                   	// #0
+ 680:	d2800004 	mov	x4, #0x0                   	// #0
+ 684:	3ce268a0 	ldr	q0, [x5, x2]
+ 688:	91000484 	add	x4, x4, #0x1
+ 68c:	3ce26821 	ldr	q1, [x1, x2]
+ 690:	4e61d400 	fadd	v0.2d, v0.2d, v1.2d
+ 694:	3ca26800 	str	q0, [x0, x2]
+ 698:	91004042 	add	x2, x2, #0x10
+ 69c:	eb0400df 	cmp	x6, x4
+ 6a0:	54ffff21 	b.ne	684 <ext_war_unit_fp64+0x24>  // b.any
+ 6a4:	927ff862 	and	x2, x3, #0xfffffffffffffffe
+ 6a8:	360000c3 	tbz	w3, #0, 6c0 <ext_war_unit_fp64+0x60>
+ 6ac:	8b020c03 	add	x3, x0, x2, lsl #3
+ 6b0:	fc627820 	ldr	d0, [x1, x2, lsl #3]
+ 6b4:	fd400461 	ldr	d1, [x3, #8]
+ 6b8:	1e612800 	fadd	d0, d0, d1
+ 6bc:	fc227800 	str	d0, [x0, x2, lsl #3]
+ 6c0:	d65f03c0 	ret
+ 6c4:	d2800002 	mov	x2, #0x0                   	// #0
+ 6c8:	17fffff9 	b	6ac <ext_war_unit_fp64+0x4c>
+ 6cc:	d503201f 	nop
+ 6d0:	d503201f 	nop
+ 6d4:	d503201f 	nop
+ 6d8:	d503201f 	nop
+ 6dc:	d503201f 	nop

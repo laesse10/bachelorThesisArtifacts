@@ -1,0 +1,121 @@
+PROBE nid005578 1 1
+unit fuse_stencil_through_transient kernel=fuse_stencil_through_transient node=nid005578 start=2026-10-19T16:04:00+02:00
+pristine fuse_stencil_through_transient_fp64.c 9346c0469d98cdeb
+pristine fuse_stencil_through_transient_fp64.cpp 8149b15c84e14a19
+pristine fuse_stencil_through_transient_fp64.f90 03566ed6f216d854
+pristine fuse_stencil_through_transient_fp32.c 9f8090361a257570
+pristine fuse_stencil_through_transient_fp32.cpp 75396326c7654906
+pristine fuse_stencil_through_transient_fp32.f90 3d64f98607802c1c
+pristine fuse_stencil_through_transient_numba_np.py c09677ee6d6e714f
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- src32=- bin=bin14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 120.121 ms 
+  [1] cpp              ok           min 111.788 ms 
+  [1] cpp14            ok           min 112.034 ms 
+  [1] fortran          ok           min 111.568 ms 
+  [1] fortran14        ok           min 112.629 ms 
+  [2] fortran14        ok           min 112.203 ms 
+  [2] fortran          ok           min 119.262 ms 
+  [2] cpp14            ok           min 114.362 ms 
+  [2] cpp              ok           min 111.599 ms 
+  [2] c                ok           min 120.134 ms 
+  [3] c                ok           min 118.760 ms 
+  [3] cpp              ok           min 117.257 ms 
+  [3] cpp14            ok           min 117.771 ms 
+  [3] fortran          ok           min 113.677 ms 
+  [3] fortran14        ok           min 113.744 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/parts/fuse_stencil_through_transient.csv
+unit fuse_stencil_through_transient end=2026-10-19T16:09:01+02:00
+unit s2233 kernel=tsvc_2_s2233 node=nid005578 start=2026-10-19T16:09:01+02:00
+pristine tsvc_2_s2233_fp64.c c3ab39167d568ebf
+pristine tsvc_2_s2233_fp64.cpp 43d058eb6ed0a1cc
+pristine tsvc_2_s2233_fp64.f90 54b770181fb345f2
+pristine tsvc_2_s2233_fp32.c dbdaaad3fbdeda18
+pristine tsvc_2_s2233_fp32.cpp 85bd4b7aa6c22b44
+pristine tsvc_2_s2233_fp32.f90 fb35c3efcf431849
+pristine tsvc_2_s2233_numba_np.py b10fd64e4bebd232
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- src32=- bin=bin14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 388.741 ms 
+  [1] cpp              ok           min 419.040 ms 
+  [1] cpp14            ok           min 418.760 ms 
+  [1] fortran          ok           min 416.344 ms 
+  [1] fortran14        ok           min 396.287 ms 
+  [2] fortran14        ok           min 421.797 ms 
+  [2] fortran          ok           min 268.339 ms 
+  [2] cpp14            ok           min 332.884 ms 
+  [2] cpp              ok           min 419.865 ms 
+  [2] c                ok           min 420.381 ms 
+  [3] c                ok           min 424.172 ms 
+  [3] cpp              ok           min 418.769 ms 
+  [3] cpp14            ok           min 418.143 ms 
+  [3] fortran          ok           min 420.062 ms 
+  [3] fortran14        ok           min 281.731 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/parts/s2233.csv
+unit s2233 end=2026-10-19T16:16:25+02:00
+unit s3110 kernel=tsvc_2_s3110 node=nid005578 start=2026-10-19T16:16:25+02:00
+pristine tsvc_2_s3110_fp64.c 13cdddec8a503656
+pristine tsvc_2_s3110_fp64.cpp 95fdb406dab63a16
+pristine tsvc_2_s3110_fp64.f90 2826f2bbc16e65f0
+pristine tsvc_2_s3110_fp32.c 97dde7ce19f197cf
+pristine tsvc_2_s3110_fp32.cpp e286c6c1e86bfc5a
+pristine tsvc_2_s3110_fp32.f90 b7798776d0db7b82
+pristine tsvc_2_s3110_numba_np.py a300e6f62ef4bd81
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- src32=- bin=bin14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 120.922 ms 
+  [1] cpp              ok           min 121.104 ms 
+  [1] cpp14            ok           min 120.698 ms 
+  [1] fortran          ok           min 120.229 ms 
+  [1] fortran14        ok           min 120.368 ms 
+  [2] fortran14        ok           min 120.322 ms 
+  [2] fortran          ok           min 120.883 ms 
+  [2] cpp14            ok           min 120.540 ms 
+  [2] cpp              ok           min 120.420 ms 
+  [2] c                ok           min 120.841 ms 
+  [3] c                ok           min 120.451 ms 
+  [3] cpp              ok           min 120.665 ms 
+  [3] cpp14            ok           min 120.859 ms 
+  [3] fortran          ok           min 120.675 ms 
+  [3] fortran14        ok           min 120.574 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/parts/s3110.csv
+unit s3110 end=2026-10-19T16:21:15+02:00
+unit vtvtv kernel=tsvc_2_vtvtv node=nid005578 start=2026-10-19T16:21:15+02:00
+pristine tsvc_2_vtvtv_fp64.c cfc93f49a42483de
+pristine tsvc_2_vtvtv_fp64.cpp c91f4fad6cb178b8
+pristine tsvc_2_vtvtv_fp64.f90 d267eb5fdb62557f
+pristine tsvc_2_vtvtv_fp32.c 76e167f3e3e03ae3
+pristine tsvc_2_vtvtv_fp32.cpp 9886bbc4e7183595
+pristine tsvc_2_vtvtv_fp32.f90 163ca0dcfaf16911
+pristine tsvc_2_vtvtv_numba_np.py 7882f9284bf7d8b1
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- src32=- bin=bin14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 96.470 ms 
+  [1] cpp              ok           min 96.334 ms 
+  [1] cpp14            ok           min 96.038 ms 
+  [1] fortran          ok           min 95.937 ms 
+  [1] fortran14        ok           min 96.517 ms 
+  [2] fortran14        ok           min 96.710 ms 
+  [2] fortran          ok           min 96.965 ms 
+  [2] cpp14            ok           min 96.748 ms 
+  [2] cpp              ok           min 96.517 ms 
+  [2] c                ok           min 96.496 ms 
+  [3] c                ok           min 97.018 ms 
+  [3] cpp              ok           min 95.966 ms 
+  [3] cpp14            ok           min 96.601 ms 
+  [3] fortran          ok           min 96.656 ms 
+  [3] fortran14        ok           min 96.362 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/gcc14/parts/vtvtv.csv
+unit vtvtv end=2026-10-19T16:26:38+02:00

@@ -1,0 +1,187 @@
+# objdump -d libfuse_diamond_cpp.so, functions matching fuse_diamond_fp64* (sha256 d76a098179222974)
+
+0000000000000720 <fuse_diamond_fp64>:    # address mod 64 = 32
+ 720:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+ 724:	910003fd 	mov	x29, sp
+ 728:	a9025bf5 	stp	x21, x22, [sp, #32]
+ 72c:	d37df056 	lsl	x22, x2, #3
+ 730:	a90363f7 	stp	x23, x24, [sp, #48]
+ 734:	aa0003f7 	mov	x23, x0
+ 738:	aa1603e0 	mov	x0, x22
+ 73c:	aa0103f8 	mov	x24, x1
+ 740:	a90153f3 	stp	x19, x20, [sp, #16]
+ 744:	aa0203f4 	mov	x20, x2
+ 748:	97ffffa2 	bl	5d0 <malloc@plt>
+ 74c:	aa0003f3 	mov	x19, x0
+ 750:	aa1603e0 	mov	x0, x22
+ 754:	97ffff9f 	bl	5d0 <malloc@plt>
+ 758:	aa0003f5 	mov	x21, x0
+ 75c:	aa1603e0 	mov	x0, x22
+ 760:	97ffff9c 	bl	5d0 <malloc@plt>
+ 764:	aa0003f6 	mov	x22, x0
+ 768:	f100029f 	cmp	x20, #0x0
+ 76c:	540010ad 	b.le	980 <fuse_diamond_fp64+0x260>
+ 770:	d1000681 	sub	x1, x20, #0x1
+ 774:	f100083f 	cmp	x1, #0x2
+ 778:	540013c9 	b.ls	9f0 <fuse_diamond_fp64+0x2d0>  // b.plast
+ 77c:	d342fe85 	lsr	x5, x20, #2
+ 780:	d2800003 	mov	x3, #0x0                   	// #0
+ 784:	d37be8a4 	lsl	x4, x5, #5
+ 788:	910042e0 	add	x0, x23, #0x10
+ 78c:	91004262 	add	x2, x19, #0x10
+ 790:	3ce36ae1 	ldr	q1, [x23, x3]
+ 794:	3ce36800 	ldr	q0, [x0, x3]
+ 798:	6e61dc21 	fmul	v1.2d, v1.2d, v1.2d
+ 79c:	6e60dc00 	fmul	v0.2d, v0.2d, v0.2d
+ 7a0:	3ca36a61 	str	q1, [x19, x3]
+ 7a4:	3ca36840 	str	q0, [x2, x3]
+ 7a8:	91008063 	add	x3, x3, #0x20
+ 7ac:	eb04007f 	cmp	x3, x4
+ 7b0:	54ffff01 	b.ne	790 <fuse_diamond_fp64+0x70>  // b.any
+ 7b4:	927ef683 	and	x3, x20, #0xfffffffffffffffc
+ 7b8:	aa0303e4 	mov	x4, x3
+ 7bc:	aa0303e0 	mov	x0, x3
+ 7c0:	eb03029f 	cmp	x20, x3
+ 7c4:	540002a0 	b.eq	818 <fuse_diamond_fp64+0xf8>  // b.none
+ 7c8:	cb000282 	sub	x2, x20, x0
+ 7cc:	f100045f 	cmp	x2, #0x1
+ 7d0:	54000120 	b.eq	7f4 <fuse_diamond_fp64+0xd4>  // b.none
+ 7d4:	d37df000 	lsl	x0, x0, #3
+ 7d8:	92400046 	and	x6, x2, #0x1
+ 7dc:	3ce06ae0 	ldr	q0, [x23, x0]
+ 7e0:	6e60dc00 	fmul	v0.2d, v0.2d, v0.2d
+ 7e4:	3ca06a60 	str	q0, [x19, x0]
+ 7e8:	36000ec2 	tbz	w2, #0, 9c0 <fuse_diamond_fp64+0x2a0>
+ 7ec:	927ff842 	and	x2, x2, #0xfffffffffffffffe
+ 7f0:	8b020084 	add	x4, x4, x2
+ 7f4:	d37df082 	lsl	x2, x4, #3
+ 7f8:	fc626ae0 	ldr	d0, [x23, x2]
+ 7fc:	1e600800 	fmul	d0, d0, d0
+ 800:	fc226a60 	str	d0, [x19, x2]
+ 804:	f100083f 	cmp	x1, #0x2
+ 808:	54000d69 	b.ls	9b4 <fuse_diamond_fp64+0x294>  // b.plast
+ 80c:	d342fe85 	lsr	x5, x20, #2
+ 810:	91004262 	add	x2, x19, #0x10
+ 814:	927ef683 	and	x3, x20, #0xfffffffffffffffc
+ 818:	6f03f602 	fmov	v2.2d, #1.000000000000000000e+00
+ 81c:	d37be8a6 	lsl	x6, x5, #5
+ 820:	d2800004 	mov	x4, #0x0                   	// #0
+ 824:	910042a0 	add	x0, x21, #0x10
+ 828:	3ce46a61 	ldr	q1, [x19, x4]
+ 82c:	3ce46840 	ldr	q0, [x2, x4]
+ 830:	4e62d421 	fadd	v1.2d, v1.2d, v2.2d
+ 834:	4e62d400 	fadd	v0.2d, v0.2d, v2.2d
+ 838:	3ca46aa1 	str	q1, [x21, x4]
+ 83c:	3ca46800 	str	q0, [x0, x4]
+ 840:	91008084 	add	x4, x4, #0x20
+ 844:	eb06009f 	cmp	x4, x6
+ 848:	54ffff01 	b.ne	828 <fuse_diamond_fp64+0x108>  // b.any
+ 84c:	aa0303e0 	mov	x0, x3
+ 850:	aa0303e6 	mov	x6, x3
+ 854:	eb03029f 	cmp	x20, x3
+ 858:	540002e0 	b.eq	8b4 <fuse_diamond_fp64+0x194>  // b.none
+ 85c:	cb060283 	sub	x3, x20, x6
+ 860:	f100047f 	cmp	x3, #0x1
+ 864:	54000140 	b.eq	88c <fuse_diamond_fp64+0x16c>  // b.none
+ 868:	d37df0c6 	lsl	x6, x6, #3
+ 86c:	6f03f601 	fmov	v1.2d, #1.000000000000000000e+00
+ 870:	92400062 	and	x2, x3, #0x1
+ 874:	3ce66a60 	ldr	q0, [x19, x6]
+ 878:	4e61d400 	fadd	v0.2d, v0.2d, v1.2d
+ 87c:	3ca66aa0 	str	q0, [x21, x6]
+ 880:	36000aa3 	tbz	w3, #0, 9d4 <fuse_diamond_fp64+0x2b4>
+ 884:	927ff863 	and	x3, x3, #0xfffffffffffffffe
+ 888:	8b030000 	add	x0, x0, x3
+ 88c:	d37df000 	lsl	x0, x0, #3
+ 890:	1e6e1001 	fmov	d1, #1.000000000000000000e+00
+ 894:	fc606a60 	ldr	d0, [x19, x0]
+ 898:	1e612800 	fadd	d0, d0, d1
+ 89c:	fc206aa0 	str	d0, [x21, x0]
+ 8a0:	f100083f 	cmp	x1, #0x2
+ 8a4:	54000829 	b.ls	9a8 <fuse_diamond_fp64+0x288>  // b.plast
+ 8a8:	d342fe85 	lsr	x5, x20, #2
+ 8ac:	91004262 	add	x2, x19, #0x10
+ 8b0:	927ef683 	and	x3, x20, #0xfffffffffffffffc
+ 8b4:	6f07f602 	fmov	v2.2d, #-1.000000000000000000e+00
+ 8b8:	d37be8a5 	lsl	x5, x5, #5
+ 8bc:	d2800004 	mov	x4, #0x0                   	// #0
+ 8c0:	910042c0 	add	x0, x22, #0x10
+ 8c4:	3ce46a61 	ldr	q1, [x19, x4]
+ 8c8:	3ce46840 	ldr	q0, [x2, x4]
+ 8cc:	4e62d421 	fadd	v1.2d, v1.2d, v2.2d
+ 8d0:	4e62d400 	fadd	v0.2d, v0.2d, v2.2d
+ 8d4:	3ca46ac1 	str	q1, [x22, x4]
+ 8d8:	3ca46800 	str	q0, [x0, x4]
+ 8dc:	91008084 	add	x4, x4, #0x20
+ 8e0:	eb0400bf 	cmp	x5, x4
+ 8e4:	54ffff01 	b.ne	8c4 <fuse_diamond_fp64+0x1a4>  // b.any
+ 8e8:	aa0303e2 	mov	x2, x3
+ 8ec:	eb03029f 	cmp	x20, x3
+ 8f0:	54000260 	b.eq	93c <fuse_diamond_fp64+0x21c>  // b.none
+ 8f4:	cb020280 	sub	x0, x20, x2
+ 8f8:	f100041f 	cmp	x0, #0x1
+ 8fc:	54000120 	b.eq	920 <fuse_diamond_fp64+0x200>  // b.none
+ 900:	d37df042 	lsl	x2, x2, #3
+ 904:	6f07f601 	fmov	v1.2d, #-1.000000000000000000e+00
+ 908:	3ce26a60 	ldr	q0, [x19, x2]
+ 90c:	4e61d400 	fadd	v0.2d, v0.2d, v1.2d
+ 910:	3ca26ac0 	str	q0, [x22, x2]
+ 914:	36000100 	tbz	w0, #0, 934 <fuse_diamond_fp64+0x214>
+ 918:	927ff800 	and	x0, x0, #0xfffffffffffffffe
+ 91c:	8b000063 	add	x3, x3, x0
+ 920:	d37df063 	lsl	x3, x3, #3
+ 924:	1e6e1001 	fmov	d1, #1.000000000000000000e+00
+ 928:	fc636a60 	ldr	d0, [x19, x3]
+ 92c:	1e613800 	fsub	d0, d0, d1
+ 930:	fc236ac0 	str	d0, [x22, x3]
+ 934:	f100069f 	cmp	x20, #0x1
+ 938:	54000580 	b.eq	9e8 <fuse_diamond_fp64+0x2c8>  // b.none
+ 93c:	d341fe80 	lsr	x0, x20, #1
+ 940:	d2800002 	mov	x2, #0x0                   	// #0
+ 944:	d37cec00 	lsl	x0, x0, #4
+ 948:	3ce26ac0 	ldr	q0, [x22, x2]
+ 94c:	3ce26aa1 	ldr	q1, [x21, x2]
+ 950:	6e61dc00 	fmul	v0.2d, v0.2d, v1.2d
+ 954:	3ca26b00 	str	q0, [x24, x2]
+ 958:	91004042 	add	x2, x2, #0x10
+ 95c:	eb02001f 	cmp	x0, x2
+ 960:	54ffff41 	b.ne	948 <fuse_diamond_fp64+0x228>  // b.any
+ 964:	927ffa82 	and	x2, x20, #0xfffffffffffffffe
+ 968:	360000d4 	tbz	w20, #0, 980 <fuse_diamond_fp64+0x260>
+ 96c:	d37df042 	lsl	x2, x2, #3
+ 970:	fc626ac0 	ldr	d0, [x22, x2]
+ 974:	fc626aa1 	ldr	d1, [x21, x2]
+ 978:	1e610800 	fmul	d0, d0, d1
+ 97c:	fc226b00 	str	d0, [x24, x2]
+ 980:	aa1303e0 	mov	x0, x19
+ 984:	97ffff0b 	bl	5b0 <free@plt>
+ 988:	aa1503e0 	mov	x0, x21
+ 98c:	97ffff09 	bl	5b0 <free@plt>
+ 990:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 994:	aa1603e0 	mov	x0, x22
+ 998:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 99c:	a94363f7 	ldp	x23, x24, [sp, #48]
+ 9a0:	a8c47bfd 	ldp	x29, x30, [sp], #64
+ 9a4:	17ffff03 	b	5b0 <free@plt>
+ 9a8:	d2800002 	mov	x2, #0x0                   	// #0
+ 9ac:	d2800003 	mov	x3, #0x0                   	// #0
+ 9b0:	17ffffd1 	b	8f4 <fuse_diamond_fp64+0x1d4>
+ 9b4:	d2800006 	mov	x6, #0x0                   	// #0
+ 9b8:	d2800000 	mov	x0, #0x0                   	// #0
+ 9bc:	17ffffa8 	b	85c <fuse_diamond_fp64+0x13c>
+ 9c0:	f100083f 	cmp	x1, #0x2
+ 9c4:	54fff248 	b.hi	80c <fuse_diamond_fp64+0xec>  // b.pmore
+ 9c8:	d2800043 	mov	x3, #0x2                   	// #2
+ 9cc:	d2800000 	mov	x0, #0x0                   	// #0
+ 9d0:	17ffffa6 	b	868 <fuse_diamond_fp64+0x148>
+ 9d4:	f100083f 	cmp	x1, #0x2
+ 9d8:	54fff688 	b.hi	8a8 <fuse_diamond_fp64+0x188>  // b.pmore
+ 9dc:	aa1403e0 	mov	x0, x20
+ 9e0:	d2800003 	mov	x3, #0x0                   	// #0
+ 9e4:	17ffffc7 	b	900 <fuse_diamond_fp64+0x1e0>
+ 9e8:	d2800002 	mov	x2, #0x0                   	// #0
+ 9ec:	17ffffe0 	b	96c <fuse_diamond_fp64+0x24c>
+ 9f0:	d2800000 	mov	x0, #0x0                   	// #0
+ 9f4:	d2800004 	mov	x4, #0x0                   	// #0
+ 9f8:	17ffff74 	b	7c8 <fuse_diamond_fp64+0xa8>
+ 9fc:	d503201f 	nop

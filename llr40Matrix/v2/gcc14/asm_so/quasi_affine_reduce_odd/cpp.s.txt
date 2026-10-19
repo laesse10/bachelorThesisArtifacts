@@ -1,0 +1,19 @@
+# objdump -d libquasi_affine_reduce_odd_cpp.so, functions matching quasi_affine_reduce_odd_fp64* (sha256 b8103953864edeab)
+
+00000000000006a0 <quasi_affine_reduce_odd_fp64>:    # address mod 64 = 32
+ 6a0:	f900003f 	str	xzr, [x1]
+ 6a4:	f100045f 	cmp	x2, #0x1
+ 6a8:	5400018d 	b.le	6d8 <quasi_affine_reduce_odd_fp64+0x38>
+ 6ac:	2f00e400 	movi	d0, #0x0
+ 6b0:	d2800023 	mov	x3, #0x1                   	// #1
+ 6b4:	d503201f 	nop
+ 6b8:	d503201f 	nop
+ 6bc:	d503201f 	nop
+ 6c0:	fc637801 	ldr	d1, [x0, x3, lsl #3]
+ 6c4:	91000863 	add	x3, x3, #0x2
+ 6c8:	1e612800 	fadd	d0, d0, d1
+ 6cc:	eb03005f 	cmp	x2, x3
+ 6d0:	54ffff8c 	b.gt	6c0 <quasi_affine_reduce_odd_fp64+0x20>
+ 6d4:	fd000020 	str	d0, [x1]
+ 6d8:	d65f03c0 	ret
+ 6dc:	d503201f 	nop

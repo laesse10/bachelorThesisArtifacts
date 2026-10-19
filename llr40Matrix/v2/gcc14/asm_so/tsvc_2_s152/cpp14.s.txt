@@ -1,0 +1,51 @@
+# objdump -d libtsvc_2_s152_cpp.so, functions matching tsvc_2_s152_fp64* (sha256 c767a88c4997a4aa)
+
+0000000000000680 <tsvc_2_s152_fp64>:    # address mod 64 = 0
+ 680:	f10000bf 	cmp	x5, #0x0
+ 684:	540004cd 	b.le	71c <tsvc_2_s152_fp64+0x9c>
+ 688:	f10004bf 	cmp	x5, #0x1
+ 68c:	540004a0 	b.eq	720 <tsvc_2_s152_fp64+0xa0>  // b.none
+ 690:	d341fca7 	lsr	x7, x5, #1
+ 694:	d2800006 	mov	x6, #0x0                   	// #0
+ 698:	d37cece8 	lsl	x8, x7, #4
+ 69c:	d503201f 	nop
+ 6a0:	3ce6687d 	ldr	q29, [x3, x6]
+ 6a4:	3ce6689c 	ldr	q28, [x4, x6]
+ 6a8:	6e7cdfbc 	fmul	v28.2d, v29.2d, v28.2d
+ 6ac:	3ca6683c 	str	q28, [x1, x6]
+ 6b0:	910040c6 	add	x6, x6, #0x10
+ 6b4:	eb06011f 	cmp	x8, x6
+ 6b8:	54ffff41 	b.ne	6a0 <tsvc_2_s152_fp64+0x20>  // b.any
+ 6bc:	927ff8a6 	and	x6, x5, #0xfffffffffffffffe
+ 6c0:	360000c5 	tbz	w5, #0, 6d8 <tsvc_2_s152_fp64+0x58>
+ 6c4:	d37df0c8 	lsl	x8, x6, #3
+ 6c8:	fc68687b 	ldr	d27, [x3, x8]
+ 6cc:	fc68689a 	ldr	d26, [x4, x8]
+ 6d0:	1e7a0b7a 	fmul	d26, d27, d26
+ 6d4:	fc28683a 	str	d26, [x1, x8]
+ 6d8:	d2800003 	mov	x3, #0x0                   	// #0
+ 6dc:	d37cece4 	lsl	x4, x7, #4
+ 6e0:	3ce36817 	ldr	q23, [x0, x3]
+ 6e4:	3ce36859 	ldr	q25, [x2, x3]
+ 6e8:	3ce36838 	ldr	q24, [x1, x3]
+ 6ec:	4e78cf37 	fmla	v23.2d, v25.2d, v24.2d
+ 6f0:	3ca36817 	str	q23, [x0, x3]
+ 6f4:	91004063 	add	x3, x3, #0x10
+ 6f8:	eb04007f 	cmp	x3, x4
+ 6fc:	54ffff21 	b.ne	6e0 <tsvc_2_s152_fp64+0x60>  // b.any
+ 700:	360000e5 	tbz	w5, #0, 71c <tsvc_2_s152_fp64+0x9c>
+ 704:	d37df0c3 	lsl	x3, x6, #3
+ 708:	fc636814 	ldr	d20, [x0, x3]
+ 70c:	fc636856 	ldr	d22, [x2, x3]
+ 710:	fc636835 	ldr	d21, [x1, x3]
+ 714:	1f5552d4 	fmadd	d20, d22, d21, d20
+ 718:	fc236814 	str	d20, [x0, x3]
+ 71c:	d65f03c0 	ret
+ 720:	fd40007f 	ldr	d31, [x3]
+ 724:	d2800006 	mov	x6, #0x0                   	// #0
+ 728:	fd40009e 	ldr	d30, [x4]
+ 72c:	1e7e0bfe 	fmul	d30, d31, d30
+ 730:	fd00003e 	str	d30, [x1]
+ 734:	17fffff4 	b	704 <tsvc_2_s152_fp64+0x84>
+ 738:	d503201f 	nop
+ 73c:	d503201f 	nop

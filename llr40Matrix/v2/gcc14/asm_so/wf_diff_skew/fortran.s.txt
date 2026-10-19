@@ -1,0 +1,83 @@
+# objdump -d libwf_diff_skew_fortran.so, functions matching wf_diff_skew_fp64* (sha256 7afd8a46c8d43912)
+
+0000000000000660 <wf_diff_skew_fp64>:    # address mod 64 = 32
+ 660:	f100003f 	cmp	x1, #0x0
+ 664:	9a9fa031 	csel	x17, x1, xzr, ge	// ge = tcont
+ 668:	aa3103e9 	mvn	x9, x17
+ 66c:	f100043f 	cmp	x1, #0x1
+ 670:	540004ed 	b.le	70c <wf_diff_skew_fp64+0xac>
+ 674:	8b110529 	add	x9, x9, x17, lsl #1
+ 678:	d100042a 	sub	x10, x1, #0x1
+ 67c:	d37df22d 	lsl	x13, x17, #3
+ 680:	927ff950 	and	x16, x10, #0xfffffffffffffffe
+ 684:	d341fd4f 	lsr	x15, x10, #1
+ 688:	cb110126 	sub	x6, x9, x17
+ 68c:	8b090c03 	add	x3, x0, x9, lsl #3
+ 690:	91000a10 	add	x16, x16, #0x2
+ 694:	910004c5 	add	x5, x6, #0x1
+ 698:	8b060c08 	add	x8, x0, x6, lsl #3
+ 69c:	b240014b 	orr	x11, x10, #0x1
+ 6a0:	8b050c05 	add	x5, x0, x5, lsl #3
+ 6a4:	92400152 	and	x18, x10, #0x1
+ 6a8:	d280002c 	mov	x12, #0x1                   	// #1
+ 6ac:	9100058c 	add	x12, x12, #0x1
+ 6b0:	f100083f 	cmp	x1, #0x2
+ 6b4:	540000a0 	b.eq	6c8 <wf_diff_skew_fp64+0x68>  // b.none
+ 6b8:	d1000522 	sub	x2, x9, #0x1
+ 6bc:	cb060042 	sub	x2, x2, x6
+ 6c0:	f100045f 	cmp	x2, #0x1
+ 6c4:	54000268 	b.hi	710 <wf_diff_skew_fp64+0xb0>  // b.pmore
+ 6c8:	d2800002 	mov	x2, #0x0                   	// #0
+ 6cc:	91000442 	add	x2, x2, #0x1
+ 6d0:	fc627900 	ldr	d0, [x8, x2, lsl #3]
+ 6d4:	fc627862 	ldr	d2, [x3, x2, lsl #3]
+ 6d8:	fc6278a1 	ldr	d1, [x5, x2, lsl #3]
+ 6dc:	1e622800 	fadd	d0, d0, d2
+ 6e0:	1e612800 	fadd	d0, d0, d1
+ 6e4:	fc227860 	str	d0, [x3, x2, lsl #3]
+ 6e8:	eb02015f 	cmp	x10, x2
+ 6ec:	54ffff01 	b.ne	6cc <wf_diff_skew_fp64+0x6c>  // b.any
+ 6f0:	8b110129 	add	x9, x9, x17
+ 6f4:	8b0d0063 	add	x3, x3, x13
+ 6f8:	8b1100c6 	add	x6, x6, x17
+ 6fc:	8b0d0108 	add	x8, x8, x13
+ 700:	8b0d00a5 	add	x5, x5, x13
+ 704:	eb01019f 	cmp	x12, x1
+ 708:	54fffd21 	b.ne	6ac <wf_diff_skew_fp64+0x4c>  // b.any
+ 70c:	d65f03c0 	ret
+ 710:	91002067 	add	x7, x3, #0x8
+ 714:	9100410e 	add	x14, x8, #0x10
+ 718:	d2800002 	mov	x2, #0x0                   	// #0
+ 71c:	d2800004 	mov	x4, #0x0                   	// #0
+ 720:	3ce268e0 	ldr	q0, [x7, x2]
+ 724:	91000484 	add	x4, x4, #0x1
+ 728:	3ce268a2 	ldr	q2, [x5, x2]
+ 72c:	3ce269c1 	ldr	q1, [x14, x2]
+ 730:	4e62d400 	fadd	v0.2d, v0.2d, v2.2d
+ 734:	4e61d400 	fadd	v0.2d, v0.2d, v1.2d
+ 738:	3ca268e0 	str	q0, [x7, x2]
+ 73c:	91004042 	add	x2, x2, #0x10
+ 740:	eb0401ff 	cmp	x15, x4
+ 744:	54fffee1 	b.ne	720 <wf_diff_skew_fp64+0xc0>  // b.any
+ 748:	b4fffd52 	cbz	x18, 6f0 <wf_diff_skew_fp64+0x90>
+ 74c:	8b0b0127 	add	x7, x9, x11
+ 750:	8b0b00c4 	add	x4, x6, x11
+ 754:	8b1000c2 	add	x2, x6, x16
+ 758:	8b110129 	add	x9, x9, x17
+ 75c:	fc677802 	ldr	d2, [x0, x7, lsl #3]
+ 760:	8b0d0063 	add	x3, x3, x13
+ 764:	8b1100c6 	add	x6, x6, x17
+ 768:	8b0d0108 	add	x8, x8, x13
+ 76c:	8b0d00a5 	add	x5, x5, x13
+ 770:	fc647800 	ldr	d0, [x0, x4, lsl #3]
+ 774:	fc627801 	ldr	d1, [x0, x2, lsl #3]
+ 778:	1e622800 	fadd	d0, d0, d2
+ 77c:	1e612800 	fadd	d0, d0, d1
+ 780:	fc277800 	str	d0, [x0, x7, lsl #3]
+ 784:	eb01019f 	cmp	x12, x1
+ 788:	54fff921 	b.ne	6ac <wf_diff_skew_fp64+0x4c>  // b.any
+ 78c:	17ffffe0 	b	70c <wf_diff_skew_fp64+0xac>
+ 790:	d503201f 	nop
+ 794:	d503201f 	nop
+ 798:	d503201f 	nop
+ 79c:	d503201f 	nop

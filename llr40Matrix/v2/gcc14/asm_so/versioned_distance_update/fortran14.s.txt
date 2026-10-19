@@ -1,0 +1,59 @@
+# objdump -d libversioned_distance_update_fortran.so, functions matching versioned_distance_update_fp64* (sha256 10169e4a1509dc87)
+
+0000000000000680 <versioned_distance_update_fp64>:    # address mod 64 = 0
+ 680:	eb03009f 	cmp	x4, x3
+ 684:	5400046d 	b.le	710 <versioned_distance_update_fp64+0x90>
+ 688:	cb03008a 	sub	x10, x4, x3
+ 68c:	f100055f 	cmp	x10, #0x1
+ 690:	54000420 	b.eq	714 <versioned_distance_update_fp64+0x94>  // b.none
+ 694:	f100047f 	cmp	x3, #0x1
+ 698:	540003e0 	b.eq	714 <versioned_distance_update_fp64+0x94>  // b.none
+ 69c:	6f03f51f 	fmov	v31.2d, #7.500000000000000000e-01
+ 6a0:	8b030c29 	add	x9, x1, x3, lsl #3
+ 6a4:	d2800004 	mov	x4, #0x0                   	// #0
+ 6a8:	d2800005 	mov	x5, #0x0                   	// #0
+ 6ac:	8b030c47 	add	x7, x2, x3, lsl #3
+ 6b0:	d341fd48 	lsr	x8, x10, #1
+ 6b4:	8b030c06 	add	x6, x0, x3, lsl #3
+ 6b8:	d503201f 	nop
+ 6bc:	d503201f 	nop
+ 6c0:	3ce46922 	ldr	q2, [x9, x4]
+ 6c4:	910004a5 	add	x5, x5, #0x1
+ 6c8:	3ce468e1 	ldr	q1, [x7, x4]
+ 6cc:	3ce4681e 	ldr	q30, [x0, x4]
+ 6d0:	6e61dc41 	fmul	v1.2d, v2.2d, v1.2d
+ 6d4:	4e7fcfc1 	fmla	v1.2d, v30.2d, v31.2d
+ 6d8:	3ca468c1 	str	q1, [x6, x4]
+ 6dc:	91004084 	add	x4, x4, #0x10
+ 6e0:	eb05011f 	cmp	x8, x5
+ 6e4:	54fffee1 	b.ne	6c0 <versioned_distance_update_fp64+0x40>  // b.any
+ 6e8:	3600014a 	tbz	w10, #0, 710 <versioned_distance_update_fp64+0x90>
+ 6ec:	927ff94a 	and	x10, x10, #0xfffffffffffffffe
+ 6f0:	8b0a0063 	add	x3, x3, x10
+ 6f4:	fc6a781d 	ldr	d29, [x0, x10, lsl #3]
+ 6f8:	fc637820 	ldr	d0, [x1, x3, lsl #3]
+ 6fc:	fc63785c 	ldr	d28, [x2, x3, lsl #3]
+ 700:	1e7f0bbd 	fmul	d29, d29, d31
+ 704:	1e7c081c 	fmul	d28, d0, d28
+ 708:	1e7d2b9d 	fadd	d29, d28, d29
+ 70c:	fc23781d 	str	d29, [x0, x3, lsl #3]
+ 710:	d65f03c0 	ret
+ 714:	1e6d101b 	fmov	d27, #7.500000000000000000e-01
+ 718:	cb030c05 	sub	x5, x0, x3, lsl #3
+ 71c:	d503201f 	nop
+ 720:	fc6378ba 	ldr	d26, [x5, x3, lsl #3]
+ 724:	fc637843 	ldr	d3, [x2, x3, lsl #3]
+ 728:	fc637839 	ldr	d25, [x1, x3, lsl #3]
+ 72c:	1e7b0b5a 	fmul	d26, d26, d27
+ 730:	1e790879 	fmul	d25, d3, d25
+ 734:	1e7a2b3a 	fadd	d26, d25, d26
+ 738:	fc23781a 	str	d26, [x0, x3, lsl #3]
+ 73c:	91000463 	add	x3, x3, #0x1
+ 740:	eb04007f 	cmp	x3, x4
+ 744:	54fffee1 	b.ne	720 <versioned_distance_update_fp64+0xa0>  // b.any
+ 748:	d65f03c0 	ret
+ 74c:	d503201f 	nop
+ 750:	d503201f 	nop
+ 754:	d503201f 	nop
+ 758:	d503201f 	nop
+ 75c:	d503201f 	nop

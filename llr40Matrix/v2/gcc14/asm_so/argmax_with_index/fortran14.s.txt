@@ -1,0 +1,35 @@
+# objdump -d libargmax_with_index_fortran.so, functions matching argmax_with_index_fp64* (sha256 78e541d494a85402)
+
+0000000000000660 <argmax_with_index_fp64>:    # address mod 64 = 32
+ 660:	fd40001f 	ldr	d31, [x0]
+ 664:	f100047f 	cmp	x3, #0x1
+ 668:	5400026d 	b.le	6b4 <argmax_with_index_fp64+0x54>
+ 66c:	d2800005 	mov	x5, #0x0                   	// #0
+ 670:	d2800024 	mov	x4, #0x1                   	// #1
+ 674:	d503201f 	nop
+ 678:	d503201f 	nop
+ 67c:	d503201f 	nop
+ 680:	fc64781e 	ldr	d30, [x0, x4, lsl #3]
+ 684:	1e7e23f0 	fcmpe	d31, d30
+ 688:	54000104 	b.mi	6a8 <argmax_with_index_fp64+0x48>  // b.first
+ 68c:	91000484 	add	x4, x4, #0x1
+ 690:	eb04007f 	cmp	x3, x4
+ 694:	54ffff61 	b.ne	680 <argmax_with_index_fp64+0x20>  // b.any
+ 698:	910004a5 	add	x5, x5, #0x1
+ 69c:	fd00005f 	str	d31, [x2]
+ 6a0:	f9000025 	str	x5, [x1]
+ 6a4:	d65f03c0 	ret
+ 6a8:	1e6043df 	fmov	d31, d30
+ 6ac:	aa0403e5 	mov	x5, x4
+ 6b0:	17fffff7 	b	68c <argmax_with_index_fp64+0x2c>
+ 6b4:	d2800025 	mov	x5, #0x1                   	// #1
+ 6b8:	fd00005f 	str	d31, [x2]
+ 6bc:	f9000025 	str	x5, [x1]
+ 6c0:	d65f03c0 	ret
+ 6c4:	d503201f 	nop
+ 6c8:	d503201f 	nop
+ 6cc:	d503201f 	nop
+ 6d0:	d503201f 	nop
+ 6d4:	d503201f 	nop
+ 6d8:	d503201f 	nop
+ 6dc:	d503201f 	nop

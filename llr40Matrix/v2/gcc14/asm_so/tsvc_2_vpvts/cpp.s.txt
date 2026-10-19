@@ -1,0 +1,35 @@
+# objdump -d libtsvc_2_vpvts_cpp.so, functions matching tsvc_2_vpvts_fp64* (sha256 7ca00c932a3cb7ff)
+
+0000000000000680 <tsvc_2_vpvts_fp64>:    # address mod 64 = 0
+ 680:	9e670062 	fmov	d2, x3
+ 684:	aa0203e5 	mov	x5, x2
+ 688:	f100005f 	cmp	x2, #0x0
+ 68c:	540002cd 	b.le	6e4 <tsvc_2_vpvts_fp64+0x64>
+ 690:	5e61d842 	scvtf	d2, d2
+ 694:	f100045f 	cmp	x2, #0x1
+ 698:	54000280 	b.eq	6e8 <tsvc_2_vpvts_fp64+0x68>  // b.none
+ 69c:	4e080443 	dup	v3.2d, v2.d[0]
+ 6a0:	d341fc44 	lsr	x4, x2, #1
+ 6a4:	d2800003 	mov	x3, #0x0                   	// #0
+ 6a8:	d37cec84 	lsl	x4, x4, #4
+ 6ac:	3ce36800 	ldr	q0, [x0, x3]
+ 6b0:	3ce36821 	ldr	q1, [x1, x3]
+ 6b4:	4e63cc20 	fmla	v0.2d, v1.2d, v3.2d
+ 6b8:	3ca36800 	str	q0, [x0, x3]
+ 6bc:	91004063 	add	x3, x3, #0x10
+ 6c0:	eb04007f 	cmp	x3, x4
+ 6c4:	54ffff41 	b.ne	6ac <tsvc_2_vpvts_fp64+0x2c>  // b.any
+ 6c8:	927ff8a2 	and	x2, x5, #0xfffffffffffffffe
+ 6cc:	360000c5 	tbz	w5, #0, 6e4 <tsvc_2_vpvts_fp64+0x64>
+ 6d0:	d37df042 	lsl	x2, x2, #3
+ 6d4:	fc626800 	ldr	d0, [x0, x2]
+ 6d8:	fc626821 	ldr	d1, [x1, x2]
+ 6dc:	1f410040 	fmadd	d0, d2, d1, d0
+ 6e0:	fc226800 	str	d0, [x0, x2]
+ 6e4:	d65f03c0 	ret
+ 6e8:	d2800002 	mov	x2, #0x0                   	// #0
+ 6ec:	17fffff9 	b	6d0 <tsvc_2_vpvts_fp64+0x50>
+ 6f0:	d503201f 	nop
+ 6f4:	d503201f 	nop
+ 6f8:	d503201f 	nop
+ 6fc:	d503201f 	nop

@@ -1,0 +1,43 @@
+# objdump -d libtsvc_2_s318_fortran.so, functions matching tsvc_2_s318_fp64* (sha256 742512a0a5731330)
+
+0000000000000660 <tsvc_2_s318_fp64>:    # address mod 64 = 32
+ 660:	fd400001 	ldr	d1, [x0]
+ 664:	1e60c021 	fabs	d1, d1
+ 668:	f100045f 	cmp	x2, #0x1
+ 66c:	540001cd 	b.le	6a4 <tsvc_2_s318_fp64+0x44>
+ 670:	9e6703e2 	fmov	d2, xzr
+ 674:	f100047f 	cmp	x3, #0x1
+ 678:	54000201 	b.ne	6b8 <tsvc_2_s318_fp64+0x58>  // b.any
+ 67c:	d503201f 	nop
+ 680:	fc637800 	ldr	d0, [x0, x3, lsl #3]
+ 684:	1e60c000 	fabs	d0, d0
+ 688:	1e602030 	fcmpe	d1, d0
+ 68c:	54000104 	b.mi	6ac <tsvc_2_s318_fp64+0x4c>  // b.first
+ 690:	91000463 	add	x3, x3, #0x1
+ 694:	eb03005f 	cmp	x2, x3
+ 698:	54ffff41 	b.ne	680 <tsvc_2_s318_fp64+0x20>  // b.any
+ 69c:	5e61d842 	scvtf	d2, d2
+ 6a0:	1e622821 	fadd	d1, d1, d2
+ 6a4:	fd000021 	str	d1, [x1]
+ 6a8:	d65f03c0 	ret
+ 6ac:	9e670062 	fmov	d2, x3
+ 6b0:	1e604001 	fmov	d1, d0
+ 6b4:	17fffff7 	b	690 <tsvc_2_s318_fp64+0x30>
+ 6b8:	8b030c00 	add	x0, x0, x3, lsl #3
+ 6bc:	d2800024 	mov	x4, #0x1                   	// #1
+ 6c0:	d37df063 	lsl	x3, x3, #3
+ 6c4:	fd400000 	ldr	d0, [x0]
+ 6c8:	1e60c000 	fabs	d0, d0
+ 6cc:	1e602030 	fcmpe	d1, d0
+ 6d0:	540000c4 	b.mi	6e8 <tsvc_2_s318_fp64+0x88>  // b.first
+ 6d4:	91000484 	add	x4, x4, #0x1
+ 6d8:	8b030000 	add	x0, x0, x3
+ 6dc:	eb04005f 	cmp	x2, x4
+ 6e0:	54ffff21 	b.ne	6c4 <tsvc_2_s318_fp64+0x64>  // b.any
+ 6e4:	17ffffee 	b	69c <tsvc_2_s318_fp64+0x3c>
+ 6e8:	9e670082 	fmov	d2, x4
+ 6ec:	1e604001 	fmov	d1, d0
+ 6f0:	17fffff9 	b	6d4 <tsvc_2_s318_fp64+0x74>
+ 6f4:	d503201f 	nop
+ 6f8:	d503201f 	nop
+ 6fc:	d503201f 	nop

@@ -1,0 +1,51 @@
+# objdump -d libversioned_distance_update_fortran.so, functions matching versioned_distance_update_fp64* (sha256 ba491b29d62b848f)
+
+0000000000000680 <versioned_distance_update_fp64>:    # address mod 64 = 0
+ 680:	eb03009f 	cmp	x4, x3
+ 684:	5400024d 	b.le	6cc <versioned_distance_update_fp64+0x4c>
+ 688:	cb030086 	sub	x6, x4, x3
+ 68c:	f10004df 	cmp	x6, #0x1
+ 690:	54000060 	b.eq	69c <versioned_distance_update_fp64+0x1c>  // b.none
+ 694:	f100047f 	cmp	x3, #0x1
+ 698:	540001c1 	b.ne	6d0 <versioned_distance_update_fp64+0x50>  // b.any
+ 69c:	1e6d1003 	fmov	d3, #7.500000000000000000e-01
+ 6a0:	cb030c05 	sub	x5, x0, x3, lsl #3
+ 6a4:	fc6378a1 	ldr	d1, [x5, x3, lsl #3]
+ 6a8:	fc637840 	ldr	d0, [x2, x3, lsl #3]
+ 6ac:	fc637822 	ldr	d2, [x1, x3, lsl #3]
+ 6b0:	1e630821 	fmul	d1, d1, d3
+ 6b4:	1e620800 	fmul	d0, d0, d2
+ 6b8:	1e612800 	fadd	d0, d0, d1
+ 6bc:	fc237800 	str	d0, [x0, x3, lsl #3]
+ 6c0:	91000463 	add	x3, x3, #0x1
+ 6c4:	eb04007f 	cmp	x3, x4
+ 6c8:	54fffee1 	b.ne	6a4 <versioned_distance_update_fp64+0x24>  // b.any
+ 6cc:	d65f03c0 	ret
+ 6d0:	6f03f502 	fmov	v2.2d, #7.500000000000000000e-01
+ 6d4:	8b030c2a 	add	x10, x1, x3, lsl #3
+ 6d8:	d341fcc9 	lsr	x9, x6, #1
+ 6dc:	d2800004 	mov	x4, #0x0                   	// #0
+ 6e0:	8b030c48 	add	x8, x2, x3, lsl #3
+ 6e4:	d2800005 	mov	x5, #0x0                   	// #0
+ 6e8:	8b030c07 	add	x7, x0, x3, lsl #3
+ 6ec:	3ce46940 	ldr	q0, [x10, x4]
+ 6f0:	910004a5 	add	x5, x5, #0x1
+ 6f4:	3ce46903 	ldr	q3, [x8, x4]
+ 6f8:	3ce46801 	ldr	q1, [x0, x4]
+ 6fc:	6e63dc00 	fmul	v0.2d, v0.2d, v3.2d
+ 700:	4e62cc20 	fmla	v0.2d, v1.2d, v2.2d
+ 704:	3ca468e0 	str	q0, [x7, x4]
+ 708:	91004084 	add	x4, x4, #0x10
+ 70c:	eb05013f 	cmp	x9, x5
+ 710:	54fffee1 	b.ne	6ec <versioned_distance_update_fp64+0x6c>  // b.any
+ 714:	927ff8c4 	and	x4, x6, #0xfffffffffffffffe
+ 718:	8b040063 	add	x3, x3, x4
+ 71c:	3607fd86 	tbz	w6, #0, 6cc <versioned_distance_update_fp64+0x4c>
+ 720:	fc647801 	ldr	d1, [x0, x4, lsl #3]
+ 724:	fc637820 	ldr	d0, [x1, x3, lsl #3]
+ 728:	fc637843 	ldr	d3, [x2, x3, lsl #3]
+ 72c:	1e620821 	fmul	d1, d1, d2
+ 730:	1e630800 	fmul	d0, d0, d3
+ 734:	1e612800 	fadd	d0, d0, d1
+ 738:	fc237800 	str	d0, [x0, x3, lsl #3]
+ 73c:	d65f03c0 	ret

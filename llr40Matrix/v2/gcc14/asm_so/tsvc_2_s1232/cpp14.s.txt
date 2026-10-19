@@ -1,0 +1,35 @@
+# objdump -d libtsvc_2_s1232_cpp.so, functions matching tsvc_2_s1232_fp64* (sha256 2f13a69dff4d8327)
+
+0000000000000680 <tsvc_2_s1232_fp64>:    # address mod 64 = 0
+ 680:	f100007f 	cmp	x3, #0x0
+ 684:	5400038d 	b.le	6f4 <tsvc_2_s1232_fp64+0x74>
+ 688:	9b047c6b 	mul	x11, x3, x4
+ 68c:	d280000a 	mov	x10, #0x0                   	// #0
+ 690:	d2800008 	mov	x8, #0x0                   	// #0
+ 694:	d37df067 	lsl	x7, x3, #3
+ 698:	d2800009 	mov	x9, #0x0                   	// #0
+ 69c:	9100056b 	add	x11, x11, #0x1
+ 6a0:	d37df16b 	lsl	x11, x11, #3
+ 6a4:	aa0803e6 	mov	x6, x8
+ 6a8:	eb08007f 	cmp	x3, x8
+ 6ac:	540001ad 	b.le	6e0 <tsvc_2_s1232_fp64+0x60>
+ 6b0:	aa0a03e5 	mov	x5, x10
+ 6b4:	d503201f 	nop
+ 6b8:	d503201f 	nop
+ 6bc:	d503201f 	nop
+ 6c0:	fc65683f 	ldr	d31, [x1, x5]
+ 6c4:	910004c6 	add	x6, x6, #0x1
+ 6c8:	fc65685e 	ldr	d30, [x2, x5]
+ 6cc:	1e7e2bfe 	fadd	d30, d31, d30
+ 6d0:	fc25681e 	str	d30, [x0, x5]
+ 6d4:	8b0700a5 	add	x5, x5, x7
+ 6d8:	eb06007f 	cmp	x3, x6
+ 6dc:	54ffff21 	b.ne	6c0 <tsvc_2_s1232_fp64+0x40>  // b.any
+ 6e0:	91000529 	add	x9, x9, #0x1
+ 6e4:	8b040108 	add	x8, x8, x4
+ 6e8:	8b0b014a 	add	x10, x10, x11
+ 6ec:	eb09007f 	cmp	x3, x9
+ 6f0:	54fffda1 	b.ne	6a4 <tsvc_2_s1232_fp64+0x24>  // b.any
+ 6f4:	d65f03c0 	ret
+ 6f8:	d503201f 	nop
+ 6fc:	d503201f 	nop

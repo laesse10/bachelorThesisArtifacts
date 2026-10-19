@@ -1,0 +1,51 @@
+# objdump -d libversioned_distance_update_cpp.so, functions matching versioned_distance_update_fp64* (sha256 f0e35ba68cec8315)
+
+00000000000006a0 <versioned_distance_update_fp64>:    # address mod 64 = 32
+ 6a0:	eb04007f 	cmp	x3, x4
+ 6a4:	5400024a 	b.ge	6ec <versioned_distance_update_fp64+0x4c>  // b.tcont
+ 6a8:	cb030087 	sub	x7, x4, x3
+ 6ac:	f10004ff 	cmp	x7, #0x1
+ 6b0:	54000080 	b.eq	6c0 <versioned_distance_update_fp64+0x20>  // b.none
+ 6b4:	d37df065 	lsl	x5, x3, #3
+ 6b8:	f10020bf 	cmp	x5, #0x8
+ 6bc:	540001a1 	b.ne	6f0 <versioned_distance_update_fp64+0x50>  // b.any
+ 6c0:	1e6d1003 	fmov	d3, #7.500000000000000000e-01
+ 6c4:	cb030c05 	sub	x5, x0, x3, lsl #3
+ 6c8:	fc637820 	ldr	d0, [x1, x3, lsl #3]
+ 6cc:	fc637842 	ldr	d2, [x2, x3, lsl #3]
+ 6d0:	fc6378a1 	ldr	d1, [x5, x3, lsl #3]
+ 6d4:	1e620800 	fmul	d0, d0, d2
+ 6d8:	1f430020 	fmadd	d0, d1, d3, d0
+ 6dc:	fc237800 	str	d0, [x0, x3, lsl #3]
+ 6e0:	91000463 	add	x3, x3, #0x1
+ 6e4:	eb03009f 	cmp	x4, x3
+ 6e8:	54ffff01 	b.ne	6c8 <versioned_distance_update_fp64+0x28>  // b.any
+ 6ec:	d65f03c0 	ret
+ 6f0:	6f03f501 	fmov	v1.2d, #7.500000000000000000e-01
+ 6f4:	d341fce6 	lsr	x6, x7, #1
+ 6f8:	8b050029 	add	x9, x1, x5
+ 6fc:	8b050048 	add	x8, x2, x5
+ 700:	d37cecc6 	lsl	x6, x6, #4
+ 704:	8b050005 	add	x5, x0, x5
+ 708:	d2800004 	mov	x4, #0x0                   	// #0
+ 70c:	3ce46920 	ldr	q0, [x9, x4]
+ 710:	3ce46903 	ldr	q3, [x8, x4]
+ 714:	3ce46802 	ldr	q2, [x0, x4]
+ 718:	6e63dc00 	fmul	v0.2d, v0.2d, v3.2d
+ 71c:	4e61cc40 	fmla	v0.2d, v2.2d, v1.2d
+ 720:	3ca468a0 	str	q0, [x5, x4]
+ 724:	91004084 	add	x4, x4, #0x10
+ 728:	eb06009f 	cmp	x4, x6
+ 72c:	54ffff01 	b.ne	70c <versioned_distance_update_fp64+0x6c>  // b.any
+ 730:	927ff8e4 	and	x4, x7, #0xfffffffffffffffe
+ 734:	8b030083 	add	x3, x4, x3
+ 738:	3607fda7 	tbz	w7, #0, 6ec <versioned_distance_update_fp64+0x4c>
+ 73c:	d37df063 	lsl	x3, x3, #3
+ 740:	fc647802 	ldr	d2, [x0, x4, lsl #3]
+ 744:	fc636820 	ldr	d0, [x1, x3]
+ 748:	fc636843 	ldr	d3, [x2, x3]
+ 74c:	1e630800 	fmul	d0, d0, d3
+ 750:	1f410040 	fmadd	d0, d2, d1, d0
+ 754:	fc236800 	str	d0, [x0, x3]
+ 758:	d65f03c0 	ret
+ 75c:	d503201f 	nop

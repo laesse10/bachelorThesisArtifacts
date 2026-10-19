@@ -1,0 +1,51 @@
+# objdump -d libtsvc_2_s275_fortran.so, functions matching tsvc_2_s275_fp64* (sha256 c40dc0b45ca07744)
+
+0000000000000660 <tsvc_2_s275_fp64>:    # address mod 64 = 32
+ 660:	f100007f 	cmp	x3, #0x0
+ 664:	9a9fa067 	csel	x7, x3, xzr, ge	// ge = tcont
+ 668:	aa2703e4 	mvn	x4, x7
+ 66c:	5400056d 	b.le	718 <tsvc_2_s275_fp64+0xb8>
+ 670:	aa0003eb 	mov	x11, x0
+ 674:	8b070488 	add	x8, x4, x7, lsl #1
+ 678:	d37df0e9 	lsl	x9, x7, #3
+ 67c:	cb070c07 	sub	x7, x0, x7, lsl #3
+ 680:	fc5f8560 	ldr	d0, [x11], #-8
+ 684:	91000508 	add	x8, x8, #0x1
+ 688:	d37df108 	lsl	x8, x8, #3
+ 68c:	1e602018 	fcmpe	d0, #0.0
+ 690:	540001ac 	b.gt	6c4 <tsvc_2_s275_fp64+0x64>
+ 694:	d2800026 	mov	x6, #0x1                   	// #1
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop
+ 6a0:	aa0603ea 	mov	x10, x6
+ 6a4:	91002108 	add	x8, x8, #0x8
+ 6a8:	910004c6 	add	x6, x6, #0x1
+ 6ac:	eb0a007f 	cmp	x3, x10
+ 6b0:	5400034d 	b.le	718 <tsvc_2_s275_fp64+0xb8>
+ 6b4:	fc667960 	ldr	d0, [x11, x6, lsl #3]
+ 6b8:	1e602018 	fcmpe	d0, #0.0
+ 6bc:	540000ac 	b.gt	6d0 <tsvc_2_s275_fp64+0x70>
+ 6c0:	17fffff8 	b	6a0 <tsvc_2_s275_fp64+0x40>
+ 6c4:	f100047f 	cmp	x3, #0x1
+ 6c8:	54000280 	b.eq	718 <tsvc_2_s275_fp64+0xb8>  // b.none
+ 6cc:	d2800026 	mov	x6, #0x1                   	// #1
+ 6d0:	aa0603ea 	mov	x10, x6
+ 6d4:	aa0803e4 	mov	x4, x8
+ 6d8:	d2800025 	mov	x5, #0x1                   	// #1
+ 6dc:	d503201f 	nop
+ 6e0:	fc646820 	ldr	d0, [x1, x4]
+ 6e4:	910004a5 	add	x5, x5, #0x1
+ 6e8:	fc646842 	ldr	d2, [x2, x4]
+ 6ec:	fc6468e1 	ldr	d1, [x7, x4]
+ 6f0:	1e620800 	fmul	d0, d0, d2
+ 6f4:	1e612800 	fadd	d0, d0, d1
+ 6f8:	fc246800 	str	d0, [x0, x4]
+ 6fc:	8b090084 	add	x4, x4, x9
+ 700:	eb0300bf 	cmp	x5, x3
+ 704:	54fffee1 	b.ne	6e0 <tsvc_2_s275_fp64+0x80>  // b.any
+ 708:	910004c6 	add	x6, x6, #0x1
+ 70c:	91002108 	add	x8, x8, #0x8
+ 710:	eb0a007f 	cmp	x3, x10
+ 714:	54fffd0c 	b.gt	6b4 <tsvc_2_s275_fp64+0x54>
+ 718:	d65f03c0 	ret
+ 71c:	d503201f 	nop

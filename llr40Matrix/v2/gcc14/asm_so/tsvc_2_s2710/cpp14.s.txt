@@ -1,0 +1,67 @@
+# objdump -d libtsvc_2_s2710_cpp.so, functions matching tsvc_2_s2710_fp64* (sha256 9696056896c5a741)
+
+0000000000000680 <tsvc_2_s2710_fp64>:    # address mod 64 = 0
+ 680:	f10000df 	cmp	x6, #0x0
+ 684:	5400030d 	b.le	6e4 <tsvc_2_s2710_fp64+0x64>
+ 688:	d2800007 	mov	x7, #0x0                   	// #0
+ 68c:	f10028df 	cmp	x6, #0xa
+ 690:	540002cc 	b.gt	6e8 <tsvc_2_s2710_fp64+0x68>
+ 694:	1e6e101b 	fmov	d27, #1.000000000000000000e+00
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop
+ 6a0:	fc67781a 	ldr	d26, [x0, x7, lsl #3]
+ 6a4:	fc677830 	ldr	d16, [x1, x7, lsl #3]
+ 6a8:	1e702350 	fcmpe	d26, d16
+ 6ac:	5400054c 	b.gt	754 <tsvc_2_s2710_fp64+0xd4>
+ 6b0:	fc677898 	ldr	d24, [x4, x7, lsl #3]
+ 6b4:	fd4000a6 	ldr	d6, [x5]
+ 6b8:	1e780b18 	fmul	d24, d24, d24
+ 6bc:	1e6020d8 	fcmpe	d6, #0.0
+ 6c0:	1e782b47 	fadd	d7, d26, d24
+ 6c4:	fc277827 	str	d7, [x1, x7, lsl #3]
+ 6c8:	5400052c 	b.gt	76c <tsvc_2_s2710_fp64+0xec>
+ 6cc:	fc677859 	ldr	d25, [x2, x7, lsl #3]
+ 6d0:	1e792b17 	fadd	d23, d24, d25
+ 6d4:	fc277857 	str	d23, [x2, x7, lsl #3]
+ 6d8:	910004e7 	add	x7, x7, #0x1
+ 6dc:	eb0700df 	cmp	x6, x7
+ 6e0:	54fffe01 	b.ne	6a0 <tsvc_2_s2710_fp64+0x20>  // b.any
+ 6e4:	d65f03c0 	ret
+ 6e8:	fc67781f 	ldr	d31, [x0, x7, lsl #3]
+ 6ec:	fc677823 	ldr	d3, [x1, x7, lsl #3]
+ 6f0:	1e6323f0 	fcmpe	d31, d3
+ 6f4:	540001ec 	b.gt	730 <tsvc_2_s2710_fp64+0xb0>
+ 6f8:	fc67789d 	ldr	d29, [x4, x7, lsl #3]
+ 6fc:	fd4000a1 	ldr	d1, [x5]
+ 700:	1e7d0bbd 	fmul	d29, d29, d29
+ 704:	1e602038 	fcmpe	d1, #0.0
+ 708:	1e7d2be2 	fadd	d2, d31, d29
+ 70c:	fc277822 	str	d2, [x1, x7, lsl #3]
+ 710:	540001cc 	b.gt	748 <tsvc_2_s2710_fp64+0xc8>
+ 714:	fc67785e 	ldr	d30, [x2, x7, lsl #3]
+ 718:	1e7e2bbc 	fadd	d28, d29, d30
+ 71c:	fc27785c 	str	d28, [x2, x7, lsl #3]
+ 720:	910004e7 	add	x7, x7, #0x1
+ 724:	eb0700df 	cmp	x6, x7
+ 728:	54fffe01 	b.ne	6e8 <tsvc_2_s2710_fp64+0x68>  // b.any
+ 72c:	d65f03c0 	ret
+ 730:	fc677864 	ldr	d4, [x3, x7, lsl #3]
+ 734:	fc67785c 	ldr	d28, [x2, x7, lsl #3]
+ 738:	1f447c63 	fmadd	d3, d3, d4, d31
+ 73c:	1f44709c 	fmadd	d28, d4, d4, d28
+ 740:	fc277803 	str	d3, [x0, x7, lsl #3]
+ 744:	17fffff6 	b	71c <tsvc_2_s2710_fp64+0x9c>
+ 748:	fc677860 	ldr	d0, [x3, x7, lsl #3]
+ 74c:	1f407c1c 	fmadd	d28, d0, d0, d31
+ 750:	17fffff3 	b	71c <tsvc_2_s2710_fp64+0x9c>
+ 754:	fc677871 	ldr	d17, [x3, x7, lsl #3]
+ 758:	fc677897 	ldr	d23, [x4, x7, lsl #3]
+ 75c:	1f516a10 	fmadd	d16, d16, d17, d26
+ 760:	1f576e37 	fmadd	d23, d17, d23, d27
+ 764:	fc277810 	str	d16, [x0, x7, lsl #3]
+ 768:	17ffffdb 	b	6d4 <tsvc_2_s2710_fp64+0x54>
+ 76c:	fc677865 	ldr	d5, [x3, x7, lsl #3]
+ 770:	1f4568b7 	fmadd	d23, d5, d5, d26
+ 774:	17ffffd8 	b	6d4 <tsvc_2_s2710_fp64+0x54>
+ 778:	d503201f 	nop
+ 77c:	d503201f 	nop

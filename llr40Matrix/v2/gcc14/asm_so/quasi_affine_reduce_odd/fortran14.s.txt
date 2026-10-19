@@ -1,0 +1,19 @@
+# objdump -d libquasi_affine_reduce_odd_fortran.so, functions matching quasi_affine_reduce_odd_fp64* (sha256 3e1e4d5a9698b681)
+
+0000000000000680 <quasi_affine_reduce_odd_fp64>:    # address mod 64 = 0
+ 680:	d1000843 	sub	x3, x2, #0x2
+ 684:	f900003f 	str	xzr, [x1]
+ 688:	d341fc63 	lsr	x3, x3, #1
+ 68c:	f100045f 	cmp	x2, #0x1
+ 690:	5400016d 	b.le	6bc <quasi_affine_reduce_odd_fp64+0x3c>
+ 694:	2f00e41f 	movi	d31, #0x0
+ 698:	d37ff863 	lsl	x3, x3, #1
+ 69c:	d2800022 	mov	x2, #0x1                   	// #1
+ 6a0:	91000c63 	add	x3, x3, #0x3
+ 6a4:	fc62781e 	ldr	d30, [x0, x2, lsl #3]
+ 6a8:	91000842 	add	x2, x2, #0x2
+ 6ac:	1e7e2bff 	fadd	d31, d31, d30
+ 6b0:	eb03005f 	cmp	x2, x3
+ 6b4:	54ffff81 	b.ne	6a4 <quasi_affine_reduce_odd_fp64+0x24>  // b.any
+ 6b8:	fd00003f 	str	d31, [x1]
+ 6bc:	d65f03c0 	ret

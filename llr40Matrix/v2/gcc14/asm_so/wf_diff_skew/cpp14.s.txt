@@ -1,0 +1,83 @@
+# objdump -d libwf_diff_skew_cpp.so, functions matching wf_diff_skew_fp64* (sha256 467468f625593571)
+
+0000000000000680 <wf_diff_skew_fp64>:    # address mod 64 = 0
+ 680:	f100043f 	cmp	x1, #0x1
+ 684:	5400064d 	b.le	74c <wf_diff_skew_fp64+0xcc>
+ 688:	d100042c 	sub	x12, x1, #0x1
+ 68c:	8b010c03 	add	x3, x0, x1, lsl #3
+ 690:	d37df02b 	lsl	x11, x1, #3
+ 694:	d341fd86 	lsr	x6, x12, #1
+ 698:	9240018d 	and	x13, x12, #0x1
+ 69c:	d2800008 	mov	x8, #0x0                   	// #0
+ 6a0:	d37cecc6 	lsl	x6, x6, #4
+ 6a4:	927ff98c 	and	x12, x12, #0xfffffffffffffffe
+ 6a8:	91002004 	add	x4, x0, #0x8
+ 6ac:	aa0103e7 	mov	x7, x1
+ 6b0:	d280002a 	mov	x10, #0x1                   	// #1
+ 6b4:	f100083f 	cmp	x1, #0x2
+ 6b8:	540004c0 	b.eq	750 <wf_diff_skew_fp64+0xd0>  // b.none
+ 6bc:	d10004e2 	sub	x2, x7, #0x1
+ 6c0:	cb080042 	sub	x2, x2, x8
+ 6c4:	d37df042 	lsl	x2, x2, #3
+ 6c8:	f100205f 	cmp	x2, #0x8
+ 6cc:	54000429 	b.ls	750 <wf_diff_skew_fp64+0xd0>  // b.plast
+ 6d0:	d2800002 	mov	x2, #0x0                   	// #0
+ 6d4:	d1002085 	sub	x5, x4, #0x8
+ 6d8:	d503201f 	nop
+ 6dc:	d503201f 	nop
+ 6e0:	3ce26860 	ldr	q0, [x3, x2]
+ 6e4:	3ce268be 	ldr	q30, [x5, x2]
+ 6e8:	3ce2689f 	ldr	q31, [x4, x2]
+ 6ec:	4e7ed41e 	fadd	v30.2d, v0.2d, v30.2d
+ 6f0:	4e7fd7df 	fadd	v31.2d, v30.2d, v31.2d
+ 6f4:	3ca2687f 	str	q31, [x3, x2]
+ 6f8:	91004042 	add	x2, x2, #0x10
+ 6fc:	eb0200df 	cmp	x6, x2
+ 700:	54ffff01 	b.ne	6e0 <wf_diff_skew_fp64+0x60>  // b.any
+ 704:	b400016d 	cbz	x13, 730 <wf_diff_skew_fp64+0xb0>
+ 708:	8b0c00e2 	add	x2, x7, x12
+ 70c:	8b0c0105 	add	x5, x8, x12
+ 710:	d37df042 	lsl	x2, x2, #3
+ 714:	910004a9 	add	x9, x5, #0x1
+ 718:	fc657801 	ldr	d1, [x0, x5, lsl #3]
+ 71c:	fc62681c 	ldr	d28, [x0, x2]
+ 720:	fc69781d 	ldr	d29, [x0, x9, lsl #3]
+ 724:	1e7c283c 	fadd	d28, d1, d28
+ 728:	1e7d2b9d 	fadd	d29, d28, d29
+ 72c:	fc22681d 	str	d29, [x0, x2]
+ 730:	9100054a 	add	x10, x10, #0x1
+ 734:	8b0b0084 	add	x4, x4, x11
+ 738:	8b0100e7 	add	x7, x7, x1
+ 73c:	8b010108 	add	x8, x8, x1
+ 740:	8b0b0063 	add	x3, x3, x11
+ 744:	eb0a003f 	cmp	x1, x10
+ 748:	54fffba1 	b.ne	6bc <wf_diff_skew_fp64+0x3c>  // b.any
+ 74c:	d65f03c0 	ret
+ 750:	aa0403e2 	mov	x2, x4
+ 754:	cb0800e9 	sub	x9, x7, x8
+ 758:	d503201f 	nop
+ 75c:	d503201f 	nop
+ 760:	d1002045 	sub	x5, x2, #0x8
+ 764:	fc5f8042 	ldur	d2, [x2, #-8]
+ 768:	fc6978ba 	ldr	d26, [x5, x9, lsl #3]
+ 76c:	fc40845b 	ldr	d27, [x2], #8
+ 770:	1e7a285a 	fadd	d26, d2, d26
+ 774:	1e7b2b5b 	fadd	d27, d26, d27
+ 778:	fc2978bb 	str	d27, [x5, x9, lsl #3]
+ 77c:	eb02007f 	cmp	x3, x2
+ 780:	54ffff01 	b.ne	760 <wf_diff_skew_fp64+0xe0>  // b.any
+ 784:	9100054a 	add	x10, x10, #0x1
+ 788:	8b0b0084 	add	x4, x4, x11
+ 78c:	8b0100e7 	add	x7, x7, x1
+ 790:	8b010108 	add	x8, x8, x1
+ 794:	8b0b0063 	add	x3, x3, x11
+ 798:	eb0a003f 	cmp	x1, x10
+ 79c:	54fff8c1 	b.ne	6b4 <wf_diff_skew_fp64+0x34>  // b.any
+ 7a0:	d65f03c0 	ret
+ 7a4:	d503201f 	nop
+ 7a8:	d503201f 	nop
+ 7ac:	d503201f 	nop
+ 7b0:	d503201f 	nop
+ 7b4:	d503201f 	nop
+ 7b8:	d503201f 	nop
+ 7bc:	d503201f 	nop
