@@ -1,0 +1,35 @@
+# objdump -d libwf_triangular_cc.so, functions matching wf_triangular_fp64* (sha256 f37b6b9a7b592a09)
+
+0000000000000640 <wf_triangular_fp64>:    # address mod 64 = 0
+ 640:	f100043f 	cmp	x1, #0x1
+ 644:	5400030d 	b.le	6a4 <wf_triangular_fp64+0x64>
+ 648:	91000427 	add	x7, x1, #0x1
+ 64c:	aa0003e3 	mov	x3, x0
+ 650:	d37df0e7 	lsl	x7, x7, #3
+ 654:	d2800024 	mov	x4, #0x1                   	// #1
+ 658:	d10020e6 	sub	x6, x7, #0x8
+ 65c:	8b060005 	add	x5, x0, x6
+ 660:	aa0503e2 	mov	x2, x5
+ 664:	fd4000bf 	ldr	d31, [x5]
+ 668:	aa0403e0 	mov	x0, x4
+ 66c:	fc60785e 	ldr	d30, [x2, x0, lsl #3]
+ 670:	fc60787d 	ldr	d29, [x3, x0, lsl #3]
+ 674:	1e7d2bdd 	fadd	d29, d30, d29
+ 678:	1e7d2bff 	fadd	d31, d31, d29
+ 67c:	fc20785f 	str	d31, [x2, x0, lsl #3]
+ 680:	91000400 	add	x0, x0, #0x1
+ 684:	eb00003f 	cmp	x1, x0
+ 688:	54ffff2c 	b.gt	66c <wf_triangular_fp64+0x2c>
+ 68c:	91000484 	add	x4, x4, #0x1
+ 690:	8b0700a5 	add	x5, x5, x7
+ 694:	8b060042 	add	x2, x2, x6
+ 698:	8b060063 	add	x3, x3, x6
+ 69c:	eb04003f 	cmp	x1, x4
+ 6a0:	54fffe21 	b.ne	664 <wf_triangular_fp64+0x24>  // b.any
+ 6a4:	d65f03c0 	ret
+ 6a8:	d503201f 	nop
+ 6ac:	d503201f 	nop
+ 6b0:	d503201f 	nop
+ 6b4:	d503201f 	nop
+ 6b8:	d503201f 	nop
+ 6bc:	d503201f 	nop

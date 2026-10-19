@@ -1,0 +1,51 @@
+# objdump -d libfuse_stencil_through_transient_cc.so, functions matching fuse_stencil_through_transient_fp64* (sha256 58a5cfc08b369ab7)
+
+0000000000000700 <fuse_stencil_through_transient_fp64>:    # address mod 64 = 0
+ 700:	f1000c5f 	cmp	x2, #0x3
+ 704:	5400052d 	b.le	7a8 <fuse_stencil_through_transient_fp64+0xa8>
+ 708:	d1000c47 	sub	x7, x2, #0x3
+ 70c:	f100105f 	cmp	x2, #0x4
+ 710:	540004e0 	b.eq	7ac <fuse_stencil_through_transient_fp64+0xac>  // b.none
+ 714:	3dc0001f 	ldr	q31, [x0]
+ 718:	d341fce3 	lsr	x3, x7, #1
+ 71c:	91004006 	add	x6, x0, #0x10
+ 720:	d2800002 	mov	x2, #0x0                   	// #0
+ 724:	d37cec63 	lsl	x3, x3, #4
+ 728:	3cc0801e 	ldur	q30, [x0, #8]
+ 72c:	91006005 	add	x5, x0, #0x18
+ 730:	91002024 	add	x4, x1, #0x8
+ 734:	d503201f 	nop
+ 738:	d503201f 	nop
+ 73c:	d503201f 	nop
+ 740:	4e7ed7fb 	fadd	v27.2d, v31.2d, v30.2d
+ 744:	3ce268dd 	ldr	q29, [x6, x2]
+ 748:	3ce268bc 	ldr	q28, [x5, x2]
+ 74c:	4e7ed7ba 	fadd	v26.2d, v29.2d, v30.2d
+ 750:	4e7dd77b 	fadd	v27.2d, v27.2d, v29.2d
+ 754:	4ebd1fbf 	mov	v31.16b, v29.16b
+ 758:	4ebc1f9e 	mov	v30.16b, v28.16b
+ 75c:	4e7cd75a 	fadd	v26.2d, v26.2d, v28.2d
+ 760:	6e7adf7a 	fmul	v26.2d, v27.2d, v26.2d
+ 764:	3ca2689a 	str	q26, [x4, x2]
+ 768:	91004042 	add	x2, x2, #0x10
+ 76c:	eb02007f 	cmp	x3, x2
+ 770:	54fffe81 	b.ne	740 <fuse_stencil_through_transient_fp64+0x40>  // b.any
+ 774:	360001a7 	tbz	w7, #0, 7a8 <fuse_stencil_through_transient_fp64+0xa8>
+ 778:	b24000e7 	orr	x7, x7, #0x1
+ 77c:	d37df0e7 	lsl	x7, x7, #3
+ 780:	8b070002 	add	x2, x0, x7
+ 784:	fc676819 	ldr	d25, [x0, x7]
+ 788:	fc5f8057 	ldur	d23, [x2, #-8]
+ 78c:	6d40d858 	ldp	d24, d22, [x2, #8]
+ 790:	1e772b37 	fadd	d23, d25, d23
+ 794:	1e792b00 	fadd	d0, d24, d25
+ 798:	1e782af7 	fadd	d23, d23, d24
+ 79c:	1e762816 	fadd	d22, d0, d22
+ 7a0:	1e770ad7 	fmul	d23, d22, d23
+ 7a4:	fc276837 	str	d23, [x1, x7]
+ 7a8:	d65f03c0 	ret
+ 7ac:	d2800027 	mov	x7, #0x1                   	// #1
+ 7b0:	17fffff3 	b	77c <fuse_stencil_through_transient_fp64+0x7c>
+ 7b4:	d503201f 	nop
+ 7b8:	d503201f 	nop
+ 7bc:	d503201f 	nop

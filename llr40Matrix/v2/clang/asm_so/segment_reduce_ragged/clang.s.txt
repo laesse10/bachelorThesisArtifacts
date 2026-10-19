@@ -1,0 +1,62 @@
+# objdump -d libsegment_reduce_ragged_cc.so, functions matching segment_reduce_ragged_fp64* (sha256 6e5bf529365d0912)
+
+0000000000000604 <segment_reduce_ragged_fp64>:    # address mod 64 = 4
+ 604:	f100049f 	cmp	x4, #0x1
+ 608:	5400072b 	b.lt	6ec <segment_reduce_ragged_fp64+0xe8>  // b.tstop
+ 60c:	f81f0ff3 	str	x19, [sp, #-16]!
+ 610:	f940002f 	ldr	x15, [x1]
+ 614:	04a0e3e9 	cntw	x9
+ 618:	25d8e3e0 	ptrue	p0.d
+ 61c:	aa1f03e8 	mov	x8, xzr
+ 620:	04e0e3ea 	cntd	x10
+ 624:	cb0903eb 	neg	x11, x9
+ 628:	14000006 	b	640 <segment_reduce_ragged_fp64+0x3c>
+ 62c:	eb04019f 	cmp	x12, x4
+ 630:	fc287800 	str	d0, [x0, x8, lsl #3]
+ 634:	aa0d03ef 	mov	x15, x13
+ 638:	aa0c03e8 	mov	x8, x12
+ 63c:	54000560 	b.eq	6e8 <segment_reduce_ragged_fp64+0xe4>  // b.none
+ 640:	9100050c 	add	x12, x8, #0x1
+ 644:	2f00e400 	movi	d0, #0x0
+ 648:	f86c782d 	ldr	x13, [x1, x12, lsl #3]
+ 64c:	eb0f01ae 	subs	x14, x13, x15
+ 650:	54fffeed 	b.le	62c <segment_reduce_ragged_fp64+0x28>
+ 654:	2f00e400 	movi	d0, #0x0
+ 658:	eb0901df 	cmp	x14, x9
+ 65c:	54000323 	b.cc	6c0 <segment_reduce_ragged_fp64+0xbc>  // b.lo, b.ul, b.last
+ 660:	2f00e400 	movi	d0, #0x0
+ 664:	d37df1e6 	lsl	x6, x15, #3
+ 668:	8a0b01d1 	and	x17, x14, x11
+ 66c:	aa1f03f0 	mov	x16, xzr
+ 670:	8b1101ef 	add	x15, x15, x17
+ 674:	cb1103f2 	neg	x18, x17
+ 678:	8b060065 	add	x5, x3, x6
+ 67c:	8b060046 	add	x6, x2, x6
+ 680:	aa0a03e7 	mov	x7, x10
+ 684:	a5f040c1 	ld1d	{z1.d}, p0/z, [x6, x16, lsl #3]
+ 688:	a5f040a2 	ld1d	{z2.d}, p0/z, [x5, x16, lsl #3]
+ 68c:	04b0e3f0 	incw	x16
+ 690:	65c20821 	fmul	z1.d, z1.d, z2.d
+ 694:	a5e740a2 	ld1d	{z2.d}, p0/z, [x5, x7, lsl #3]
+ 698:	65d82020 	fadda	d0, p0, d0, z1.d
+ 69c:	a5e740c1 	ld1d	{z1.d}, p0/z, [x6, x7, lsl #3]
+ 6a0:	04b0e3e7 	incw	x7
+ 6a4:	65c20821 	fmul	z1.d, z1.d, z2.d
+ 6a8:	8b070253 	add	x19, x18, x7
+ 6ac:	04f0e7f3 	decd	x19
+ 6b0:	65d82020 	fadda	d0, p0, d0, z1.d
+ 6b4:	b5fffe93 	cbnz	x19, 684 <segment_reduce_ragged_fp64+0x80>
+ 6b8:	eb1101df 	cmp	x14, x17
+ 6bc:	54fffb80 	b.eq	62c <segment_reduce_ragged_fp64+0x28>  // b.none
+ 6c0:	d37df1f0 	lsl	x16, x15, #3
+ 6c4:	cb0f01ae 	sub	x14, x13, x15
+ 6c8:	8b10006f 	add	x15, x3, x16
+ 6cc:	8b100050 	add	x16, x2, x16
+ 6d0:	fc408601 	ldr	d1, [x16], #8
+ 6d4:	f10005ce 	subs	x14, x14, #0x1
+ 6d8:	fc4085e2 	ldr	d2, [x15], #8
+ 6dc:	1f420020 	fmadd	d0, d1, d2, d0
+ 6e0:	54ffff81 	b.ne	6d0 <segment_reduce_ragged_fp64+0xcc>  // b.any
+ 6e4:	17ffffd2 	b	62c <segment_reduce_ragged_fp64+0x28>
+ 6e8:	f84107f3 	ldr	x19, [sp], #16
+ 6ec:	d65f03c0 	ret

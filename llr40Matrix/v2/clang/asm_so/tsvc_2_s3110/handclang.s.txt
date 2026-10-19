@@ -1,0 +1,29 @@
+# objdump -d libtsvc_2_s3110_cc.so, functions matching tsvc_2_s3110_fp64* (sha256 cdc86da3effd658e)
+
+00000000000005e4 <tsvc_2_s3110_fp64>:    # address mod 64 = 36
+ 5e4:	fd400000 	ldr	d0, [x0]
+ 5e8:	f100045f 	cmp	x2, #0x1
+ 5ec:	540002cb 	b.lt	644 <tsvc_2_s3110_fp64+0x60>  // b.tstop
+ 5f0:	d37df04a 	lsl	x10, x2, #3
+ 5f4:	aa1f03e8 	mov	x8, xzr
+ 5f8:	aa1f03e9 	mov	x9, xzr
+ 5fc:	aa1f03eb 	mov	x11, xzr
+ 600:	aa1f03ec 	mov	x12, xzr
+ 604:	fc6c7801 	ldr	d1, [x0, x12, lsl #3]
+ 608:	1e602020 	fcmp	d1, d0
+ 60c:	1e60cc20 	fcsel	d0, d1, d0, gt
+ 610:	9a8bc18b 	csel	x11, x12, x11, gt
+ 614:	9100058c 	add	x12, x12, #0x1
+ 618:	9a88c128 	csel	x8, x9, x8, gt
+ 61c:	eb0c005f 	cmp	x2, x12
+ 620:	54ffff21 	b.ne	604 <tsvc_2_s3110_fp64+0x20>  // b.any
+ 624:	91000529 	add	x9, x9, #0x1
+ 628:	8b0a0000 	add	x0, x0, x10
+ 62c:	eb02013f 	cmp	x9, x2
+ 630:	54fffe81 	b.ne	600 <tsvc_2_s3110_fp64+0x1c>  // b.any
+ 634:	9e620101 	scvtf	d1, x8
+ 638:	1e612800 	fadd	d0, d0, d1
+ 63c:	9e620161 	scvtf	d1, x11
+ 640:	1e612800 	fadd	d0, d0, d1
+ 644:	fd000020 	str	d0, [x1]
+ 648:	d65f03c0 	ret

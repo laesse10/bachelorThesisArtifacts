@@ -1,0 +1,57 @@
+# clang 22.1.0 against GCC 14.2 on LLR-40
+
+Median of the 90 timed runs per cell (three interleaved rounds of 30, one exclusive node per kernel).
+A ratio above 1: the named build is faster than its baseline.
+
+| comparison | n | geomean | 95% CI | faster / within 3% / slower |
+|---|---:|---:|---|---|
+| clang_over_gcc | 39 | 0.894 | 0.794 - 1.007 | 8 / 23 / 8 |
+| handclang_over_hand | 34 | 0.880 | 0.767 - 1.009 | 6 / 20 / 8 |
+| clang_over_numba | 39 | 1.016 | 0.916 - 1.127 | 13 / 17 / 9 |
+
+| kernel | clang/GCC (translated) | clang/GCC (hand-written) | clang vs Numba |
+|---|---:|---:|---:|
+| `argmax_with_index` | 0.2909 | 0.2906 | 0.7247 |
+| `compact_threshold_pack` | 1.0334 |  | 0.9832 |
+| `ext_break_capture` | 0.9994 | 0.9992 | 1.0564 |
+| `ext_war_unit` | 0.9997 | 1.0000 | 1.0017 |
+| `fuse_diamond` | 1.0041 | 1.0078 | 1.0836 |
+| `fuse_move_ifs` | 1.0038 | 0.9822 | 0.9960 |
+| `fuse_stencil_through_transient` | 0.9859 | 0.9405 | 1.7129 |
+| `quasi_affine_reduce_odd` | 0.9439 | 0.9853 | 0.9987 |
+| `scan_affine_decay` | 1.0003 |  | 1.2443 |
+| `scatter_accum_dup` | 0.9762 |  | 1.1354 |
+| `segment_reduce_ragged` | 0.8952 |  | 1.2669 |
+| `tsvc_2_s115` |  |  |  |
+| `tsvc_2_s119` | 1.0000 | 1.0018 | 0.9733 |
+| `tsvc_2_s1232` | 1.0799 | 1.2710 | 1.2525 |
+| `tsvc_2_s1244` | 0.9936 | 0.9882 | 1.0131 |
+| `tsvc_2_s152` | 1.0089 | 0.9963 | 1.0049 |
+| `tsvc_2_s2233` | 0.9967 | 1.0054 | 1.0577 |
+| `tsvc_2_s2275` | 1.1138 | 0.9961 | 1.1985 |
+| `tsvc_2_s231` | 1.0037 | 1.0947 | 0.8649 |
+| `tsvc_2_s233` | 0.9978 | 1.0043 | 1.0288 |
+| `tsvc_2_s235` | 1.0639 | 1.1087 | 0.8858 |
+| `tsvc_2_s252` | 1.0851 | 1.0572 | 0.9946 |
+| `tsvc_2_s255` | 1.1897 | 1.1938 | 1.2190 |
+| `tsvc_2_s2710` | 0.9930 | 0.9932 | 0.4763 |
+| `tsvc_2_s275` | 1.0458 | 0.8522 | 0.7991 |
+| `tsvc_2_s311` | 1.0000 | 1.0003 | 0.9985 |
+| `tsvc_2_s3110` | 0.2882 | 0.2881 | 0.7536 |
+| `tsvc_2_s3111` | 0.4005 | 0.4005 | 0.9993 |
+| `tsvc_2_s3112` | 1.0001 | 0.9999 | 0.9987 |
+| `tsvc_2_s316` | 0.9521 | 0.9517 | 0.4251 |
+| `tsvc_2_s318` | 0.2834 | 0.2829 | 0.9998 |
+| `tsvc_2_s319` | 0.9946 | 0.9868 | 1.0275 |
+| `tsvc_2_s323` | 0.9387 | 0.9377 | 0.9238 |
+| `tsvc_2_s4112` | 1.0393 | 1.0362 | 1.0485 |
+| `tsvc_2_vag` | 1.0015 | 0.9981 | 0.9940 |
+| `tsvc_2_vpvts` | 0.9845 | 0.9790 | 0.9688 |
+| `tsvc_2_vtvtv` | 0.9991 | 0.9992 | 1.0010 |
+| `versioned_distance_update` | 1.0026 |  | 1.0927 |
+| `wf_diff_skew` | 1.0004 | 1.0003 | 1.0221 |
+| `wf_triangular` | 1.0100 | 1.0073 | 3.7903 |
+
+Cells not ok: `tsvc_2_s115`/c (incorrect), `tsvc_2_s115`/clang (incorrect), `tsvc_2_s115`/hand (incorrect), `tsvc_2_s115`/handclang (incorrect)
+
+Clang cells whose library carries no clang mark: none

@@ -1,0 +1,59 @@
+# objdump -d libtsvc_2_s252_cc.so, functions matching tsvc_2_s252_fp64* (sha256 cf292d945e2b1ab3)
+
+00000000000005e4 <tsvc_2_s252_fp64>:    # address mod 64 = 36
+ 5e4:	f100047f 	cmp	x3, #0x1
+ 5e8:	540006cb 	b.lt	6c0 <tsvc_2_s252_fp64+0xdc>  // b.tstop
+ 5ec:	04a0e3e8 	cntw	x8
+ 5f0:	eb08007f 	cmp	x3, x8
+ 5f4:	54000082 	b.cs	604 <tsvc_2_s252_fp64+0x20>  // b.hs, b.nlast
+ 5f8:	2f00e400 	movi	d0, #0x0
+ 5fc:	aa1f03e8 	mov	x8, xzr
+ 600:	14000023 	b	68c <tsvc_2_s252_fp64+0xa8>
+ 604:	6f00e402 	movi	v2.2d, #0x0
+ 608:	25d8e021 	ptrue	p1.d, vl1
+ 60c:	cb0803e8 	neg	x8, x8
+ 610:	2518e3e0 	ptrue	p0.b
+ 614:	8a080068 	and	x8, x3, x8
+ 618:	aa1f03e9 	mov	x9, xzr
+ 61c:	05f44021 	rev	p1.d, p1.d
+ 620:	aa0803ea 	mov	x10, x8
+ 624:	8b09002b 	add	x11, x1, x9
+ 628:	a4094023 	ld1b	{z3.b}, p0/z, [x1, x9]
+ 62c:	8b09004c 	add	x12, x2, x9
+ 630:	a4094044 	ld1b	{z4.b}, p0/z, [x2, x9]
+ 634:	85804565 	ldr	z5, [x11, #1, mul vl]
+ 638:	85804586 	ldr	z6, [x12, #1, mul vl]
+ 63c:	04623040 	mov	z0.d, z2.d
+ 640:	04b0e7ea 	decw	x10
+ 644:	8b09000b 	add	x11, x0, x9
+ 648:	65c40861 	fmul	z1.d, z3.d, z4.d
+ 64c:	65c608a2 	fmul	z2.d, z5.d, z6.d
+ 650:	05ed8403 	splice	z3.d, p1, {z0.d-z1.d}
+ 654:	05ed8424 	splice	z4.d, p1, {z1.d-z2.d}
+ 658:	65c10063 	fadd	z3.d, z3.d, z1.d
+ 65c:	65c20084 	fadd	z4.d, z4.d, z2.d
+ 660:	e4094003 	st1b	{z3.b}, p0, [x0, x9]
+ 664:	0431e3e9 	incb	x9, all, mul #2
+ 668:	e5804564 	str	z4, [x11, #1, mul vl]
+ 66c:	b5fffdca 	cbnz	x10, 624 <tsvc_2_s252_fp64+0x40>
+ 670:	eb08007f 	cmp	x3, x8
+ 674:	54000260 	b.eq	6c0 <tsvc_2_s252_fp64+0xdc>  // b.none
+ 678:	12800009 	mov	w9, #0xffffffff            	// #-1
+ 67c:	04f0e3e9 	incd	x9
+ 680:	2a0903e9 	mov	w9, w9
+ 684:	25e91ff0 	whilels	p0.d, xzr, x9
+ 688:	05e38040 	lastb	d0, p0, z2.d
+ 68c:	d37df10b 	lsl	x11, x8, #3
+ 690:	cb080068 	sub	x8, x3, x8
+ 694:	8b0b0009 	add	x9, x0, x11
+ 698:	8b0b004a 	add	x10, x2, x11
+ 69c:	8b0b002b 	add	x11, x1, x11
+ 6a0:	fc408561 	ldr	d1, [x11], #8
+ 6a4:	f1000508 	subs	x8, x8, #0x1
+ 6a8:	fc408542 	ldr	d2, [x10], #8
+ 6ac:	1e620821 	fmul	d1, d1, d2
+ 6b0:	1e612800 	fadd	d0, d0, d1
+ 6b4:	fc008520 	str	d0, [x9], #8
+ 6b8:	1e604020 	fmov	d0, d1
+ 6bc:	54ffff21 	b.ne	6a0 <tsvc_2_s252_fp64+0xbc>  // b.any
+ 6c0:	d65f03c0 	ret

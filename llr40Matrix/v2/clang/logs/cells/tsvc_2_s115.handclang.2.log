@@ -1,0 +1,128 @@
+$ perf stat -x, -e cycles,instructions,branch-misses,page-faults --delay=-1 --control=fifo:/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/scratch/s115/perf.tsvc_2_s115.handclang.272586.ctl.fifo,/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/scratch/s115/perf.tsvc_2_s115.handclang.272586.ack.fifo -o /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/scratch/s115/perf.tsvc_2_s115.handclang.272586.csv -- env PATH=/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin:/users/lhulsbergen/.local/bin:/users/lhulsbergen/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python -m hpcagent_bench.cli run --benchmark tsvc_2_s115 --framework cc --precision fp64 --preset M --mode single_core --repeat 30 --validate --output /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/scratch/s115/tsvc_2_s115.handclang.272586.jsonl
+[exit 0]
+--- stdout
+numpyto_c: emitted tsvc_2_s115_fp64.{c,cpp} + tsvc_2_s115_fp64_pluto_input.c + tsvc_2_s115_fp64_binding.json
+numpyto_c: emitted tsvc_2_s115_fp32.{c,cpp} + tsvc_2_s115_fp32_pluto_input.c + tsvc_2_s115_fp32_binding.json
+***** Testing C (gcc) with tsvc_2_s115 on the M dataset, datatype float64 *****
+C (gcc) - default: NaN position mismatch: expected 20364 NaN, got 20362, first at (117,)
+C (gcc) - default did not validate!
+C (gcc) - default - median: 85.170ms
+agentbench: wrote 1 rows to /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/scratch/s115/tsvc_2_s115.handclang.272586.jsonl
+
+--- stderr
+Events disabled
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:20:38: warning: unused function '__npb_conj' [-Wunused-function]
+   20 | static inline NPB_HD double _Complex __npb_conj(double _Complex z) {
+      |                                      ^~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:61:29: warning: unused function '__npb_fmax_f' [-Wunused-function]
+   61 | static inline NPB_HD double __npb_fmax_f(double a, double b) {
+      |                             ^~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:64:29: warning: unused function '__npb_fmin_f' [-Wunused-function]
+   64 | static inline NPB_HD double __npb_fmin_f(double a, double b) {
+      |                             ^~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:67:30: warning: unused function '__npb_fmax_i' [-Wunused-function]
+   67 | static inline NPB_HD int64_t __npb_fmax_i(int64_t a, int64_t b) { return a > b ? a : b; }
+      |                              ^~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:68:30: warning: unused function '__npb_fmin_i' [-Wunused-function]
+   68 | static inline NPB_HD int64_t __npb_fmin_i(int64_t a, int64_t b) { return a < b ? a : b; }
+      |                              ^~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:69:31: warning: unused function '__npb_fmax_u' [-Wunused-function]
+   69 | static inline NPB_HD uint64_t __npb_fmax_u(uint64_t a, uint64_t b) { return a > b ? a : b; }
+      |                               ^~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:70:31: warning: unused function '__npb_fmin_u' [-Wunused-function]
+   70 | static inline NPB_HD uint64_t __npb_fmin_u(uint64_t a, uint64_t b) { return a < b ? a : b; }
+      |                               ^~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:73:29: warning: unused function '__npb_sign' [-Wunused-function]
+   73 | static inline NPB_HD double __npb_sign(double x) {
+      |                             ^~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:85:29: warning: unused function '__npb_floordiv_f' [-Wunused-function]
+   85 | static inline NPB_HD double __npb_floordiv_f(double a, double b) { return floor(a / b); }
+      |                             ^~~~~~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:89:31: warning: unused function '__npb_floordiv_u' [-Wunused-function]
+   89 | static inline NPB_HD uint64_t __npb_floordiv_u(uint64_t a, uint64_t b) { return a / b; }
+      |                               ^~~~~~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:90:31: warning: unused function '__npb_ceildiv_u' [-Wunused-function]
+   90 | static inline NPB_HD uint64_t __npb_ceildiv_u(uint64_t a, uint64_t b) { return a / b + (a % b != 0); }
+      |                               ^~~~~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:91:31: warning: unused function '__npb_mod_u' [-Wunused-function]
+   91 | static inline NPB_HD uint64_t __npb_mod_u(uint64_t a, uint64_t b) { return a % b; }
+      |                               ^~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:128:29: warning: unused function '__npb_ceildiv_f' [-Wunused-function]
+  128 | static inline NPB_HD double __npb_ceildiv_f(double a, double b) { return ceil(a / b); }
+      |                             ^~~~~~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:139:30: warning: unused function 'floord' [-Wunused-function]
+  139 | static inline NPB_HD int64_t floord(int64_t a, int64_t b) {
+      |                              ^~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:144:30: warning: unused function 'ceild' [-Wunused-function]
+  144 | static inline NPB_HD int64_t ceild(int64_t a, int64_t b) {
+      |                              ^~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:151:30: warning: unused function '__npb_mod_i' [-Wunused-function]
+  151 | static inline NPB_HD int64_t __npb_mod_i(int64_t a, int64_t b) { return (a % b + b) % b; }
+      |                              ^~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:155:29: warning: unused function 'python_fmod' [-Wunused-function]
+  155 | static inline NPB_HD double python_fmod(double a, double b) {
+      |                             ^~~~~~~~~~~
+/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s115/cpp_backend/tsvc_2_s115_fp32.c:168:30: warning: unused function '__npb_int_pow' [-Wunused-function]
+  168 | static inline NPB_HD int64_t __npb_int_pow(int64_t base, int64_t exp) {
+      |                              ^~~~~~~~~~~~~
+18 warnings generated.
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled
+Events enabled
+Events disabled

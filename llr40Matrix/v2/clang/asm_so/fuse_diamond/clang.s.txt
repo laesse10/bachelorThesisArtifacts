@@ -1,0 +1,164 @@
+# objdump -d libfuse_diamond_cc.so, functions matching fuse_diamond_fp64* (sha256 6e482d60c031c6c1)
+
+0000000000000684 <fuse_diamond_fp64>:    # address mod 64 = 4
+ 684:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+ 688:	a9015ff8 	stp	x24, x23, [sp, #16]
+ 68c:	a90257f6 	stp	x22, x21, [sp, #32]
+ 690:	a9034ff4 	stp	x20, x19, [sp, #48]
+ 694:	910003fd 	mov	x29, sp
+ 698:	d37df055 	lsl	x21, x2, #3
+ 69c:	aa0003f8 	mov	x24, x0
+ 6a0:	aa0203f7 	mov	x23, x2
+ 6a4:	aa0103f6 	mov	x22, x1
+ 6a8:	aa1503e0 	mov	x0, x21
+ 6ac:	97ffffb1 	bl	570 <malloc@plt>
+ 6b0:	aa0003f3 	mov	x19, x0
+ 6b4:	aa1503e0 	mov	x0, x21
+ 6b8:	97ffffae 	bl	570 <malloc@plt>
+ 6bc:	aa0003f4 	mov	x20, x0
+ 6c0:	aa1503e0 	mov	x0, x21
+ 6c4:	97ffffab 	bl	570 <malloc@plt>
+ 6c8:	f10006ff 	cmp	x23, #0x1
+ 6cc:	aa0003f5 	mov	x21, x0
+ 6d0:	5400108b 	b.lt	8e0 <fuse_diamond_fp64+0x25c>  // b.tstop
+ 6d4:	04a0e3e8 	cntw	x8
+ 6d8:	eb0802ff 	cmp	x23, x8
+ 6dc:	54000062 	b.cs	6e8 <fuse_diamond_fp64+0x64>  // b.hs, b.nlast
+ 6e0:	aa1f03e9 	mov	x9, xzr
+ 6e4:	14000012 	b	72c <fuse_diamond_fp64+0xa8>
+ 6e8:	cb0803e9 	neg	x9, x8
+ 6ec:	aa1803ea 	mov	x10, x24
+ 6f0:	aa1303eb 	mov	x11, x19
+ 6f4:	8a0902e9 	and	x9, x23, x9
+ 6f8:	aa0903ec 	mov	x12, x9
+ 6fc:	85804140 	ldr	z0, [x10]
+ 700:	85804541 	ldr	z1, [x10, #1, mul vl]
+ 704:	04b0e7ec 	decw	x12
+ 708:	0431e3ea 	incb	x10, all, mul #2
+ 70c:	65c00800 	fmul	z0.d, z0.d, z0.d
+ 710:	65c10821 	fmul	z1.d, z1.d, z1.d
+ 714:	e5804160 	str	z0, [x11]
+ 718:	e5804561 	str	z1, [x11, #1, mul vl]
+ 71c:	0431e3eb 	incb	x11, all, mul #2
+ 720:	b5fffeec 	cbnz	x12, 6fc <fuse_diamond_fp64+0x78>
+ 724:	eb0902ff 	cmp	x23, x9
+ 728:	54000140 	b.eq	750 <fuse_diamond_fp64+0xcc>  // b.none
+ 72c:	d37df12b 	lsl	x11, x9, #3
+ 730:	cb0902e9 	sub	x9, x23, x9
+ 734:	8b0b026a 	add	x10, x19, x11
+ 738:	8b0b030b 	add	x11, x24, x11
+ 73c:	fc408560 	ldr	d0, [x11], #8
+ 740:	f1000529 	subs	x9, x9, #0x1
+ 744:	1e600800 	fmul	d0, d0, d0
+ 748:	fc008540 	str	d0, [x10], #8
+ 74c:	54ffff81 	b.ne	73c <fuse_diamond_fp64+0xb8>  // b.any
+ 750:	eb0802ff 	cmp	x23, x8
+ 754:	54000062 	b.cs	760 <fuse_diamond_fp64+0xdc>  // b.hs, b.nlast
+ 758:	aa1f03e9 	mov	x9, xzr
+ 75c:	14000013 	b	7a8 <fuse_diamond_fp64+0x124>
+ 760:	cb0803e9 	neg	x9, x8
+ 764:	25d8e3e0 	ptrue	p0.d
+ 768:	aa1303ea 	mov	x10, x19
+ 76c:	8a0902e9 	and	x9, x23, x9
+ 770:	aa1403eb 	mov	x11, x20
+ 774:	aa0903ec 	mov	x12, x9
+ 778:	85804140 	ldr	z0, [x10]
+ 77c:	85804541 	ldr	z1, [x10, #1, mul vl]
+ 780:	04b0e7ec 	decw	x12
+ 784:	0431e3ea 	incb	x10, all, mul #2
+ 788:	65d88020 	fadd	z0.d, p0/m, z0.d, #1.0
+ 78c:	65d88021 	fadd	z1.d, p0/m, z1.d, #1.0
+ 790:	e5804160 	str	z0, [x11]
+ 794:	e5804561 	str	z1, [x11, #1, mul vl]
+ 798:	0431e3eb 	incb	x11, all, mul #2
+ 79c:	b5fffeec 	cbnz	x12, 778 <fuse_diamond_fp64+0xf4>
+ 7a0:	eb0902ff 	cmp	x23, x9
+ 7a4:	54000160 	b.eq	7d0 <fuse_diamond_fp64+0x14c>  // b.none
+ 7a8:	d37df12b 	lsl	x11, x9, #3
+ 7ac:	1e6e1000 	fmov	d0, #1.000000000000000000e+00
+ 7b0:	cb0902e9 	sub	x9, x23, x9
+ 7b4:	8b0b028a 	add	x10, x20, x11
+ 7b8:	8b0b026b 	add	x11, x19, x11
+ 7bc:	fc408561 	ldr	d1, [x11], #8
+ 7c0:	f1000529 	subs	x9, x9, #0x1
+ 7c4:	1e602821 	fadd	d1, d1, d0
+ 7c8:	fc008541 	str	d1, [x10], #8
+ 7cc:	54ffff81 	b.ne	7bc <fuse_diamond_fp64+0x138>  // b.any
+ 7d0:	eb0802ff 	cmp	x23, x8
+ 7d4:	54000062 	b.cs	7e0 <fuse_diamond_fp64+0x15c>  // b.hs, b.nlast
+ 7d8:	aa1f03e9 	mov	x9, xzr
+ 7dc:	14000013 	b	828 <fuse_diamond_fp64+0x1a4>
+ 7e0:	cb0803e9 	neg	x9, x8
+ 7e4:	25f9de00 	fmov	z0.d, #-1.000000000000000000e+00
+ 7e8:	aa1303ea 	mov	x10, x19
+ 7ec:	8a0902e9 	and	x9, x23, x9
+ 7f0:	aa1503eb 	mov	x11, x21
+ 7f4:	aa0903ec 	mov	x12, x9
+ 7f8:	85804141 	ldr	z1, [x10]
+ 7fc:	85804542 	ldr	z2, [x10, #1, mul vl]
+ 800:	04b0e7ec 	decw	x12
+ 804:	0431e3ea 	incb	x10, all, mul #2
+ 808:	65c00021 	fadd	z1.d, z1.d, z0.d
+ 80c:	65c00042 	fadd	z2.d, z2.d, z0.d
+ 810:	e5804161 	str	z1, [x11]
+ 814:	e5804562 	str	z2, [x11, #1, mul vl]
+ 818:	0431e3eb 	incb	x11, all, mul #2
+ 81c:	b5fffeec 	cbnz	x12, 7f8 <fuse_diamond_fp64+0x174>
+ 820:	eb0902ff 	cmp	x23, x9
+ 824:	54000160 	b.eq	850 <fuse_diamond_fp64+0x1cc>  // b.none
+ 828:	d37df12b 	lsl	x11, x9, #3
+ 82c:	1e7e1000 	fmov	d0, #-1.000000000000000000e+00
+ 830:	cb0902e9 	sub	x9, x23, x9
+ 834:	8b0b02aa 	add	x10, x21, x11
+ 838:	8b0b026b 	add	x11, x19, x11
+ 83c:	fc408561 	ldr	d1, [x11], #8
+ 840:	f1000529 	subs	x9, x9, #0x1
+ 844:	1e602821 	fadd	d1, d1, d0
+ 848:	fc008541 	str	d1, [x10], #8
+ 84c:	54ffff81 	b.ne	83c <fuse_diamond_fp64+0x1b8>  // b.any
+ 850:	eb0802ff 	cmp	x23, x8
+ 854:	54000062 	b.cs	860 <fuse_diamond_fp64+0x1dc>  // b.hs, b.nlast
+ 858:	aa1f03e8 	mov	x8, xzr
+ 85c:	14000016 	b	8b4 <fuse_diamond_fp64+0x230>
+ 860:	cb0803e8 	neg	x8, x8
+ 864:	2518e3e0 	ptrue	p0.b
+ 868:	aa1f03e9 	mov	x9, xzr
+ 86c:	8a0802e8 	and	x8, x23, x8
+ 870:	aa0803ea 	mov	x10, x8
+ 874:	a4094280 	ld1b	{z0.b}, p0/z, [x20, x9]
+ 878:	a40942a1 	ld1b	{z1.b}, p0/z, [x21, x9]
+ 87c:	8b09028b 	add	x11, x20, x9
+ 880:	8b0902ac 	add	x12, x21, x9
+ 884:	85804562 	ldr	z2, [x11, #1, mul vl]
+ 888:	04b0e7ea 	decw	x10
+ 88c:	85804583 	ldr	z3, [x12, #1, mul vl]
+ 890:	8b0902cb 	add	x11, x22, x9
+ 894:	65c10800 	fmul	z0.d, z0.d, z1.d
+ 898:	65c30841 	fmul	z1.d, z2.d, z3.d
+ 89c:	e40942c0 	st1b	{z0.b}, p0, [x22, x9]
+ 8a0:	0431e3e9 	incb	x9, all, mul #2
+ 8a4:	e5804561 	str	z1, [x11, #1, mul vl]
+ 8a8:	b5fffe6a 	cbnz	x10, 874 <fuse_diamond_fp64+0x1f0>
+ 8ac:	eb0802ff 	cmp	x23, x8
+ 8b0:	54000180 	b.eq	8e0 <fuse_diamond_fp64+0x25c>  // b.none
+ 8b4:	d37df10b 	lsl	x11, x8, #3
+ 8b8:	cb0802e8 	sub	x8, x23, x8
+ 8bc:	8b0b02c9 	add	x9, x22, x11
+ 8c0:	8b0b02aa 	add	x10, x21, x11
+ 8c4:	8b0b028b 	add	x11, x20, x11
+ 8c8:	fc408560 	ldr	d0, [x11], #8
+ 8cc:	f1000508 	subs	x8, x8, #0x1
+ 8d0:	fc408541 	ldr	d1, [x10], #8
+ 8d4:	1e610800 	fmul	d0, d0, d1
+ 8d8:	fc008520 	str	d0, [x9], #8
+ 8dc:	54ffff61 	b.ne	8c8 <fuse_diamond_fp64+0x244>  // b.any
+ 8e0:	aa1303e0 	mov	x0, x19
+ 8e4:	97ffff27 	bl	580 <free@plt>
+ 8e8:	aa1403e0 	mov	x0, x20
+ 8ec:	97ffff25 	bl	580 <free@plt>
+ 8f0:	aa1503e0 	mov	x0, x21
+ 8f4:	a9434ff4 	ldp	x20, x19, [sp, #48]
+ 8f8:	a94257f6 	ldp	x22, x21, [sp, #32]
+ 8fc:	a9415ff8 	ldp	x24, x23, [sp, #16]
+ 900:	a8c47bfd 	ldp	x29, x30, [sp], #64
+ 904:	17ffff1f 	b	580 <free@plt>

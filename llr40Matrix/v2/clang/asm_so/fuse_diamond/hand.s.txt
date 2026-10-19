@@ -1,0 +1,51 @@
+# objdump -d libfuse_diamond_cc.so, functions matching fuse_diamond_fp64* (sha256 0dc7e062bf7bcee4)
+
+00000000000006e0 <fuse_diamond_fp64>:    # address mod 64 = 32
+ 6e0:	f100005f 	cmp	x2, #0x0
+ 6e4:	5400054d 	b.le	78c <fuse_diamond_fp64+0xac>
+ 6e8:	04a0e3e4 	cntw	x4
+ 6ec:	d1000443 	sub	x3, x2, #0x1
+ 6f0:	d1000485 	sub	x5, x4, #0x1
+ 6f4:	eb05007f 	cmp	x3, x5
+ 6f8:	d2800003 	mov	x3, #0x0                   	// #0
+ 6fc:	54000343 	b.cc	764 <fuse_diamond_fp64+0x84>  // b.lo, b.ul, b.last
+ 700:	cb040047 	sub	x7, x2, x4
+ 704:	04205026 	addvl	x6, x0, #1
+ 708:	2518e3e7 	ptrue	p7.b
+ 70c:	25f9ce1f 	fmov	z31.d, #1.000000000000000000e+00
+ 710:	25f9de1e 	fmov	z30.d, #-1.000000000000000000e+00
+ 714:	04215025 	addvl	x5, x1, #1
+ 718:	d503201f 	nop
+ 71c:	d503201f 	nop
+ 720:	a5e35c1d 	ld1d	{z29.d}, p7/z, [x0, x3, lsl #3]
+ 724:	0420bffb 	movprfx	z27, z31
+ 728:	65fd1fbb 	fmla	z27.d, p7/m, z29.d, z29.d
+ 72c:	65fe9fbd 	fmad	z29.d, p7/m, z29.d, z30.d
+ 730:	65dd0b7d 	fmul	z29.d, z27.d, z29.d
+ 734:	e5e35c3d 	st1d	{z29.d}, p7, [x1, x3, lsl #3]
+ 738:	a5e35cdc 	ld1d	{z28.d}, p7/z, [x6, x3, lsl #3]
+ 73c:	0420bffa 	movprfx	z26, z31
+ 740:	65fc1f9a 	fmla	z26.d, p7/m, z28.d, z28.d
+ 744:	65fe9f9c 	fmad	z28.d, p7/m, z28.d, z30.d
+ 748:	65dc0b5c 	fmul	z28.d, z26.d, z28.d
+ 74c:	e5e35cbc 	st1d	{z28.d}, p7, [x5, x3, lsl #3]
+ 750:	8b040063 	add	x3, x3, x4
+ 754:	eb0300ff 	cmp	x7, x3
+ 758:	54fffe42 	b.cs	720 <fuse_diamond_fp64+0x40>  // b.hs, b.nlast
+ 75c:	eb03005f 	cmp	x2, x3
+ 760:	54000160 	b.eq	78c <fuse_diamond_fp64+0xac>  // b.none
+ 764:	1e6e1019 	fmov	d25, #1.000000000000000000e+00
+ 768:	1e7e1018 	fmov	d24, #-1.000000000000000000e+00
+ 76c:	fc637817 	ldr	d23, [x0, x3, lsl #3]
+ 770:	1f5766f6 	fmadd	d22, d23, d23, d25
+ 774:	1f5762f7 	fmadd	d23, d23, d23, d24
+ 778:	1e760af7 	fmul	d23, d23, d22
+ 77c:	fc237837 	str	d23, [x1, x3, lsl #3]
+ 780:	91000463 	add	x3, x3, #0x1
+ 784:	eb03005f 	cmp	x2, x3
+ 788:	54ffff2c 	b.gt	76c <fuse_diamond_fp64+0x8c>
+ 78c:	d65f03c0 	ret
+ 790:	d503201f 	nop
+ 794:	d503201f 	nop
+ 798:	d503201f 	nop
+ 79c:	d503201f 	nop

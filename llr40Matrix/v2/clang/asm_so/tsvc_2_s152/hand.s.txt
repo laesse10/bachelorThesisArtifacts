@@ -1,0 +1,35 @@
+# objdump -d libtsvc_2_s152_cc.so, functions matching tsvc_2_s152_fp64* (sha256 7042afce3173d38c)
+
+0000000000000640 <tsvc_2_s152_fp64>:    # address mod 64 = 0
+ 640:	f10000bf 	cmp	x5, #0x0
+ 644:	540003ad 	b.le	6b8 <tsvc_2_s152_fp64+0x78>
+ 648:	d2800006 	mov	x6, #0x0                   	// #0
+ 64c:	f10004bf 	cmp	x5, #0x1
+ 650:	54000220 	b.eq	694 <tsvc_2_s152_fp64+0x54>  // b.none
+ 654:	d341fca7 	lsr	x7, x5, #1
+ 658:	d37cece7 	lsl	x7, x7, #4
+ 65c:	d503201f 	nop
+ 660:	3ce66860 	ldr	q0, [x3, x6]
+ 664:	3ce6689e 	ldr	q30, [x4, x6]
+ 668:	3ce6681f 	ldr	q31, [x0, x6]
+ 66c:	3ce6685d 	ldr	q29, [x2, x6]
+ 670:	6e7edc1e 	fmul	v30.2d, v0.2d, v30.2d
+ 674:	4e7dcfdf 	fmla	v31.2d, v30.2d, v29.2d
+ 678:	3ca6683e 	str	q30, [x1, x6]
+ 67c:	3ca6681f 	str	q31, [x0, x6]
+ 680:	910040c6 	add	x6, x6, #0x10
+ 684:	eb0700df 	cmp	x6, x7
+ 688:	54fffec1 	b.ne	660 <tsvc_2_s152_fp64+0x20>  // b.any
+ 68c:	927ff8a6 	and	x6, x5, #0xfffffffffffffffe
+ 690:	36000145 	tbz	w5, #0, 6b8 <tsvc_2_s152_fp64+0x78>
+ 694:	d37df0c5 	lsl	x5, x6, #3
+ 698:	fc656881 	ldr	d1, [x4, x5]
+ 69c:	fc65687b 	ldr	d27, [x3, x5]
+ 6a0:	fc65681c 	ldr	d28, [x0, x5]
+ 6a4:	fc65685a 	ldr	d26, [x2, x5]
+ 6a8:	1e7b083b 	fmul	d27, d1, d27
+ 6ac:	1f5b735c 	fmadd	d28, d26, d27, d28
+ 6b0:	fc25683b 	str	d27, [x1, x5]
+ 6b4:	fc25681c 	str	d28, [x0, x5]
+ 6b8:	d65f03c0 	ret
+ 6bc:	d503201f 	nop

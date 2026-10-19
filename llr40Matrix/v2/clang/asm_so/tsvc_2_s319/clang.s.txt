@@ -1,0 +1,20 @@
+# objdump -d libtsvc_2_s319_cc.so, functions matching tsvc_2_s319_fp64* (sha256 e01eb9631fbbedf3)
+
+00000000000005e4 <tsvc_2_s319_fp64>:    # address mod 64 = 36
+ 5e4:	2f00e400 	movi	d0, #0x0
+ 5e8:	f10004bf 	cmp	x5, #0x1
+ 5ec:	540001ab 	b.lt	620 <tsvc_2_s319_fp64+0x3c>  // b.tstop
+ 5f0:	aa0103e8 	mov	x8, x1
+ 5f4:	fc408441 	ldr	d1, [x2], #8
+ 5f8:	f10004a5 	subs	x5, x5, #0x1
+ 5fc:	fc408462 	ldr	d2, [x3], #8
+ 600:	fc408483 	ldr	d3, [x4], #8
+ 604:	1e622822 	fadd	d2, d1, d2
+ 608:	1e632821 	fadd	d1, d1, d3
+ 60c:	1e622800 	fadd	d0, d0, d2
+ 610:	fc008402 	str	d2, [x0], #8
+ 614:	fc008501 	str	d1, [x8], #8
+ 618:	1e612800 	fadd	d0, d0, d1
+ 61c:	54fffec1 	b.ne	5f4 <tsvc_2_s319_fp64+0x10>  // b.any
+ 620:	fd000020 	str	d0, [x1]
+ 624:	d65f03c0 	ret

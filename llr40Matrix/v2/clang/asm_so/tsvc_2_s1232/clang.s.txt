@@ -1,0 +1,66 @@
+# objdump -d libtsvc_2_s1232_cc.so, functions matching tsvc_2_s1232_fp64* (sha256 142fbfea0a1f9d26)
+
+00000000000005e4 <tsvc_2_s1232_fp64>:    # address mod 64 = 36
+ 5e4:	f100047f 	cmp	x3, #0x1
+ 5e8:	540007ab 	b.lt	6dc <tsvc_2_s1232_fp64+0xf8>  // b.tstop
+ 5ec:	a9bf4ff4 	stp	x20, x19, [sp, #-16]!
+ 5f0:	d37df08d 	lsl	x13, x4, #3
+ 5f4:	04a0e3e9 	cntw	x9
+ 5f8:	d37df06a 	lsl	x10, x3, #3
+ 5fc:	2518e3e0 	ptrue	p0.b
+ 600:	aa1f03e8 	mov	x8, xzr
+ 604:	5280002b 	mov	w11, #0x1                   	// #1
+ 608:	cb0903ec 	neg	x12, x9
+ 60c:	910021ad 	add	x13, x13, #0x8
+ 610:	aa0003ee 	mov	x14, x0
+ 614:	aa0203ef 	mov	x15, x2
+ 618:	aa0103f0 	mov	x16, x1
+ 61c:	1400000a 	b	644 <tsvc_2_s1232_fp64+0x60>
+ 620:	91000508 	add	x8, x8, #0x1
+ 624:	8b0d0210 	add	x16, x16, x13
+ 628:	8b0d01ef 	add	x15, x15, x13
+ 62c:	8b0d01ce 	add	x14, x14, x13
+ 630:	eb03011f 	cmp	x8, x3
+ 634:	91002000 	add	x0, x0, #0x8
+ 638:	91002042 	add	x2, x2, #0x8
+ 63c:	91002021 	add	x1, x1, #0x8
+ 640:	540004c0 	b.eq	6d8 <tsvc_2_s1232_fp64+0xf4>  // b.none
+ 644:	9b087c91 	mul	x17, x4, x8
+ 648:	eb03023f 	cmp	x17, x3
+ 64c:	54fffeaa 	b.ge	620 <tsvc_2_s1232_fp64+0x3c>  // b.tcont
+ 650:	cb110172 	sub	x18, x11, x17
+ 654:	eb09025f 	cmp	x18, x9
+ 658:	fa412860 	ccmp	x3, #0x1, #0x0, cs	// cs = hs, nlast
+ 65c:	540002a1 	b.ne	6b0 <tsvc_2_s1232_fp64+0xcc>  // b.any
+ 660:	8a0c0245 	and	x5, x18, x12
+ 664:	aa1f03e6 	mov	x6, xzr
+ 668:	8a0c0247 	and	x7, x18, x12
+ 66c:	8b050231 	add	x17, x17, x5
+ 670:	a4064200 	ld1b	{z0.b}, p0/z, [x16, x6]
+ 674:	a40641e1 	ld1b	{z1.b}, p0/z, [x15, x6]
+ 678:	8b060213 	add	x19, x16, x6
+ 67c:	8b0601f4 	add	x20, x15, x6
+ 680:	85804662 	ldr	z2, [x19, #1, mul vl]
+ 684:	04b0e7e7 	decw	x7
+ 688:	85804683 	ldr	z3, [x20, #1, mul vl]
+ 68c:	8b0601d3 	add	x19, x14, x6
+ 690:	65c10000 	fadd	z0.d, z0.d, z1.d
+ 694:	65c30041 	fadd	z1.d, z2.d, z3.d
+ 698:	e40641c0 	st1b	{z0.b}, p0, [x14, x6]
+ 69c:	0431e3e6 	incb	x6, all, mul #2
+ 6a0:	e5804661 	str	z1, [x19, #1, mul vl]
+ 6a4:	b5fffe67 	cbnz	x7, 670 <tsvc_2_s1232_fp64+0x8c>
+ 6a8:	eb05025f 	cmp	x18, x5
+ 6ac:	54fffba0 	b.eq	620 <tsvc_2_s1232_fp64+0x3c>  // b.none
+ 6b0:	9b117d52 	mul	x18, x10, x17
+ 6b4:	cb110071 	sub	x17, x3, x17
+ 6b8:	fc726820 	ldr	d0, [x1, x18]
+ 6bc:	fc726841 	ldr	d1, [x2, x18]
+ 6c0:	f1000631 	subs	x17, x17, #0x1
+ 6c4:	1e612800 	fadd	d0, d0, d1
+ 6c8:	fc326800 	str	d0, [x0, x18]
+ 6cc:	8b0a0252 	add	x18, x18, x10
+ 6d0:	54ffff41 	b.ne	6b8 <tsvc_2_s1232_fp64+0xd4>  // b.any
+ 6d4:	17ffffd3 	b	620 <tsvc_2_s1232_fp64+0x3c>
+ 6d8:	a8c14ff4 	ldp	x20, x19, [sp], #16
+ 6dc:	d65f03c0 	ret

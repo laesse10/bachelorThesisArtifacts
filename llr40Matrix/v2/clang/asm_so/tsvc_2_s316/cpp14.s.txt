@@ -1,0 +1,19 @@
+# objdump -d libtsvc_2_s316_cpp.so, functions matching tsvc_2_s316_fp64* (sha256 a110e6580a268f9f)
+
+0000000000000680 <tsvc_2_s316_fp64>:    # address mod 64 = 0
+ 680:	fd40001f 	ldr	d31, [x0]
+ 684:	f100045f 	cmp	x2, #0x1
+ 688:	5400016d 	b.le	6b4 <tsvc_2_s316_fp64+0x34>
+ 68c:	8b020c02 	add	x2, x0, x2, lsl #3
+ 690:	91002000 	add	x0, x0, #0x8
+ 694:	d503201f 	nop
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop
+ 6a0:	fc40841e 	ldr	d30, [x0], #8
+ 6a4:	1e7f23d0 	fcmpe	d30, d31
+ 6a8:	1e7f4fdf 	fcsel	d31, d30, d31, mi	// mi = first
+ 6ac:	eb00005f 	cmp	x2, x0
+ 6b0:	54ffff81 	b.ne	6a0 <tsvc_2_s316_fp64+0x20>  // b.any
+ 6b4:	fd00003f 	str	d31, [x1]
+ 6b8:	d65f03c0 	ret
+ 6bc:	d503201f 	nop

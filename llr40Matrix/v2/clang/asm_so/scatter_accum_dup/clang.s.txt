@@ -1,0 +1,13 @@
+# objdump -d libscatter_accum_dup_cc.so, functions matching scatter_accum_dup_fp64* (sha256 e571f870ae241ea2)
+
+00000000000005e4 <scatter_accum_dup_fp64>:    # address mod 64 = 36
+ 5e4:	f100047f 	cmp	x3, #0x1
+ 5e8:	5400010b 	b.lt	608 <scatter_accum_dup_fp64+0x24>  // b.tstop
+ 5ec:	b8804428 	ldrsw	x8, [x1], #4
+ 5f0:	f1000463 	subs	x3, x3, #0x1
+ 5f4:	fc408441 	ldr	d1, [x2], #8
+ 5f8:	fc687800 	ldr	d0, [x0, x8, lsl #3]
+ 5fc:	1e612800 	fadd	d0, d0, d1
+ 600:	fc287800 	str	d0, [x0, x8, lsl #3]
+ 604:	54ffff41 	b.ne	5ec <scatter_accum_dup_fp64+0x8>  // b.any
+ 608:	d65f03c0 	ret

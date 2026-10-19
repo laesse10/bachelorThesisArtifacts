@@ -1,0 +1,21 @@
+# objdump -d libcompact_threshold_pack_cc.so, functions matching compact_threshold_pack_fp64* (sha256 eb6fe877648f3e87)
+
+0000000000000604 <compact_threshold_pack_fp64>:    # address mod 64 = 4
+ 604:	f100049f 	cmp	x4, #0x1
+ 608:	540001cb 	b.lt	640 <compact_threshold_pack_fp64+0x3c>  // b.tstop
+ 60c:	aa1f03e8 	mov	x8, xzr
+ 610:	14000004 	b	620 <compact_threshold_pack_fp64+0x1c>
+ 614:	f1000484 	subs	x4, x4, #0x1
+ 618:	91002063 	add	x3, x3, #0x8
+ 61c:	54000140 	b.eq	644 <compact_threshold_pack_fp64+0x40>  // b.none
+ 620:	fc408440 	ldr	d0, [x2], #8
+ 624:	1e602008 	fcmp	d0, #0.0
+ 628:	54ffff6d 	b.le	614 <compact_threshold_pack_fp64+0x10>
+ 62c:	fd400061 	ldr	d1, [x3]
+ 630:	1e610800 	fmul	d0, d0, d1
+ 634:	fc287820 	str	d0, [x1, x8, lsl #3]
+ 638:	91000508 	add	x8, x8, #0x1
+ 63c:	17fffff6 	b	614 <compact_threshold_pack_fp64+0x10>
+ 640:	aa1f03e8 	mov	x8, xzr
+ 644:	f9000008 	str	x8, [x0]
+ 648:	d65f03c0 	ret

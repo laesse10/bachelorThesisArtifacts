@@ -1,0 +1,121 @@
+PROBE nid005606 1 1
+unit fuse_diamond kernel=fuse_diamond node=nid005606 start=2026-10-19T15:04:06+02:00
+pristine fuse_diamond_fp64.c 0e733926ca6c514d
+pristine fuse_diamond_fp64.cpp e5c99a7f757aa143
+pristine fuse_diamond_fp64.f90 1cdc65122276f426
+pristine fuse_diamond_fp32.c 61c773d67b02293b
+pristine fuse_diamond_fp32.cpp 8e5c60ba99210e7b
+pristine fuse_diamond_fp32.f90 c60ece32bf620186
+pristine fuse_diamond_numba_np.py 3ffaae46e23a09fe
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell clang: c src=- src32=- bin=llvmbin env={'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm', 'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell hand: c src=REF src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell handclang: c src=REF src32=- bin=llvmbin env={'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm', 'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 170.107 ms 
+  [1] clang            ok           min 170.640 ms 
+  [1] hand             ok           min 29.396 ms 
+  [1] handclang        ok           min 29.470 ms 
+  [1] numba            ok           min 187.025 ms 
+  [2] numba            ok           min 184.691 ms 
+  [2] handclang        ok           min 29.396 ms 
+  [2] hand             ok           min 29.493 ms 
+  [2] clang            ok           min 169.055 ms 
+  [2] c                ok           min 166.722 ms 
+  [3] c                ok           min 171.051 ms 
+  [3] clang            ok           min 170.381 ms 
+  [3] hand             ok           min 30.607 ms 
+  [3] handclang        ok           min 30.364 ms 
+  [3] numba            ok           min 181.823 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/parts/fuse_diamond.csv
+unit fuse_diamond end=2026-10-19T15:08:14+02:00
+unit s1244 kernel=tsvc_2_s1244 node=nid005606 start=2026-10-19T15:08:14+02:00
+pristine tsvc_2_s1244_fp64.c 80056322383fd21d
+pristine tsvc_2_s1244_fp64.cpp 49e15ae37d1ae98c
+pristine tsvc_2_s1244_fp64.f90 de5c22c53845558f
+pristine tsvc_2_s1244_fp32.c 77c6165b78582de6
+pristine tsvc_2_s1244_fp32.cpp bc8645602f6966fc
+pristine tsvc_2_s1244_fp32.f90 759110699a404848
+pristine tsvc_2_s1244_numba_np.py 5bbc3ef51420a338
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell clang: c src=- src32=- bin=llvmbin env={'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm', 'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell hand: c src=REF src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell handclang: c src=REF src32=- bin=llvmbin env={'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm', 'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 52.638 ms 
+  [1] clang            ok           min 52.594 ms 
+  [1] hand             ok           min 52.247 ms 
+  [1] handclang        ok           min 53.106 ms 
+  [1] numba            ok           min 53.221 ms 
+  [2] numba            ok           min 53.703 ms 
+  [2] handclang        ok           min 52.976 ms 
+  [2] hand             ok           min 52.259 ms 
+  [2] clang            ok           min 52.360 ms 
+  [2] c                ok           min 52.227 ms 
+  [3] c                ok           min 51.743 ms 
+  [3] clang            ok           min 52.621 ms 
+  [3] hand             ok           min 52.055 ms 
+  [3] handclang        ok           min 52.572 ms 
+  [3] numba            ok           min 52.986 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/parts/s1244.csv
+unit s1244 end=2026-10-19T15:12:13+02:00
+unit s275 kernel=tsvc_2_s275 node=nid005606 start=2026-10-19T15:12:13+02:00
+pristine tsvc_2_s275_fp64.c bf894895dc11c83f
+pristine tsvc_2_s275_fp64.cpp 6c81d952586589bc
+pristine tsvc_2_s275_fp64.f90 10d01e278e345301
+pristine tsvc_2_s275_fp32.c ace6764afa501f7a
+pristine tsvc_2_s275_fp32.cpp 71d62f58dc6c985c
+pristine tsvc_2_s275_fp32.f90 bb6f5d61dc6da81c
+pristine tsvc_2_s275_numba_np.py 88ce5d2e049bfd60
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell clang: c src=- src32=- bin=llvmbin env={'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm', 'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell hand: c src=REF src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell handclang: c src=REF src32=- bin=llvmbin env={'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm', 'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 764.089 ms 
+  [1] clang            ok           min 789.361 ms 
+  [1] hand             ok           min 795.621 ms 
+  [1] handclang        ok           min 745.192 ms 
+  [1] numba            ok           min 571.284 ms 
+  [2] numba            ok           min 586.471 ms 
+  [2] handclang        ok           min 728.137 ms 
+  [2] hand             ok           min 713.822 ms 
+  [2] clang            ok           min 773.171 ms 
+  [2] c                ok           min 739.746 ms 
+  [3] c                ok           min 664.133 ms 
+  [3] clang            ok           min 690.750 ms 
+  [3] hand             ok           min 714.332 ms 
+  [3] handclang        ok           min 553.341 ms 
+  [3] numba            ok           min 582.037 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/parts/s275.csv
+unit s275 end=2026-10-19T15:25:35+02:00
+unit vag kernel=tsvc_2_vag node=nid005606 start=2026-10-19T15:25:35+02:00
+pristine tsvc_2_vag_fp64.c f89cd77d91f6102f
+pristine tsvc_2_vag_fp64.cpp fffb55b1d936c03d
+pristine tsvc_2_vag_fp64.f90 229530196987f102
+pristine tsvc_2_vag_fp32.c a25946e341619c11
+pristine tsvc_2_vag_fp32.cpp 6d66c4edadbf723c
+pristine tsvc_2_vag_fp32.f90 5d0c4e8d2107f508
+pristine tsvc_2_vag_numba_np.py 511e10d5186025f6
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell clang: c src=- src32=- bin=llvmbin env={'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm', 'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell hand: c src=REF src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell handclang: c src=REF src32=- bin=llvmbin env={'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm', 'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell numba: numba src=- src32=- bin=- env=- -> ('numba', 'numba 0.67.0')
+  [1] c                ok           min 434.713 ms 
+  [1] clang            ok           min 430.927 ms 
+  [1] hand             ok           min 434.193 ms 
+  [1] handclang        ok           min 436.260 ms 
+  [1] numba            ok           min 435.374 ms 
+  [2] numba            ok           min 432.986 ms 
+  [2] handclang        ok           min 436.723 ms 
+  [2] hand             ok           min 435.591 ms 
+  [2] clang            ok           min 436.894 ms 
+  [2] c                ok           min 437.064 ms 
+  [3] c                ok           min 436.914 ms 
+  [3] clang            ok           min 438.506 ms 
+  [3] hand             ok           min 435.871 ms 
+  [3] handclang        ok           min 434.326 ms 
+  [3] numba            ok           min 433.367 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/clang/parts/vag.csv
+unit vag end=2026-10-19T15:32:55+02:00
