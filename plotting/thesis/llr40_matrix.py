@@ -11,7 +11,7 @@ next to this one; ``$THESIS_FIGURES`` overrides the directory):
   grouped by transformation class, with a geomean summary per column;
 * ``llr40_speedup.csv``        the value behind every mark of the figure;
 * ``llr40_geomean.{csv,tex}``  the summary rows as a table;
-* ``llr40_matrix.tex``         the full matrix (min-of-k per cell) for the appendix.
+* ``llr40_matrix.tex``         the full matrix (median of 30 runs per cell) for the appendix.
 
 Figure conventions are HPCAgent-Bench's (``plotting/docs/plotting.md``): log2 speedup axis with
 ratio ticks, framework colours from the registry, a missing answer as a hollow cross at 1x, one
@@ -54,7 +54,8 @@ NAME = {
 SHORT = {"c_reference": "Hand-written C"}
 COLOR = {
     "c_reference": palette.framework_color("cc"),
-    "cpp": palette.framework_color("cpp"),
+    # The registry's C++ brown is hard to tell from the Fortran purple at marker size: blue instead.
+    "cpp": palette.tab20_slot(0),
     "fortran": palette.framework_color("fortran"),
     "numba": palette.framework_color("numba"),
     "agent": palette.tab20_slot(6),
@@ -114,6 +115,8 @@ def load() -> tuple[dict[str, dict[str, dict[str, str]]], dict[str, str]]:
 def unstable_kernels() -> set[str]:
     """Kernels whose GCC cells disagree between the two campaigns by more than ``UNSTABLE_RATIO``."""
 
+    # Fastest runs, whatever STAT is: the flag asks whether the same code could reach the same speed
+    # in both campaigns, which is what the interleaved re-measurement of these kernels tested.
     def minima(path: pathlib.Path) -> dict[tuple[str, str], float]:
         with open(path, newline="") as fh:
             return {
@@ -131,8 +134,35 @@ def unstable_kernels() -> set[str]:
     return flagged
 
 
+#: The per-cell statistic: the median of the 30 timed runs (default) or their minimum
+#: (``LLR40_STAT=min``, the statistic of the first draft).
+STAT = os.environ.get("LLR40_STAT", "median")
+assert STAT in ("median", "min"), STAT
+
+
 def minimum(cell: dict[str, str]) -> float:
-    return float(cell["time_ns_min"]) if cell["status"] == "ok" else math.nan
+    """The cell's time under :data:`STAT` (the name predates the median default)."""
+    return float(cell[f"time_ns_{STAT}"]) if cell["status"] == "ok" else math.nan
+
+
+def median_interval(cell: dict[str, str], confidence: float = 0.95) -> tuple[float, float]:
+    """Distribution-free interval of the cell's median: the order statistics ``j`` and ``n - j + 1`` of its
+    timed runs with the largest ``j`` that still covers ``confidence`` (ranks 10 and 21 of 30, 95.7%)."""
+    if cell["status"] != "ok":
+        return math.nan, math.nan
+    from scipy.stats import binom
+
+    t = sorted(float(x) for x in cell["time_ns_all"].split())
+    n, j = len(t), 1
+    while j + 1 <= n // 2 and binom.cdf(n - j - 1, n, 0.5) - binom.cdf(j, n, 0.5) >= confidence:
+        j += 1
+    return t[j - 1], t[n - j]
+
+
+def speedup_interval(cells: dict[str, dict[str, str]], column: str) -> tuple[float, float]:
+    """Conservative interval of ``t_C / t_column`` from the two medians' intervals."""
+    (c_lo, c_hi), (x_lo, x_hi) = median_interval(cells[BASELINE]), median_interval(cells[column])
+    return c_lo / x_hi, c_hi / x_lo
 
 
 def speedup(cells: dict[str, dict[str, str]], column: str) -> float:
@@ -205,6 +235,10 @@ def figure(cells, labels, stats, unstable) -> None:
     for yy, kernel in rows:
         for offset, column in zip(dodge, COLUMNS):
             ratio = speedup(cells[kernel], column)
+            if math.isfinite(ratio) and STAT == "median":
+                lo, hi = speedup_interval(cells[kernel], column)
+                ax.plot([summary.log2_change(lo), summary.log2_change(hi)], [yy + offset] * 2, color=COLOR[column],
+                        linewidth=0.6, alpha=0.8, zorder=style.CONNECTOR_Z, solid_capstyle="butt")
             if math.isfinite(ratio):
                 style.point_mark(ax, summary.log2_change(ratio), yy + offset, COLOR[column], MARKER[column],
                                  filled=True, size=11.0)

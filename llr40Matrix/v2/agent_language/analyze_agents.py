@@ -21,10 +21,17 @@ Definitions
   signed-rank p on log r (two-sided); counts C better (r > 1.1), Fortran better (r < 1/1.1),
   within 10%.
 """
-import csv, glob, json, math, pathlib, statistics, sys
+import csv, glob, json, math, os, pathlib, statistics, sys
 from collections import defaultdict
 
 HERE = pathlib.Path(__file__).resolve().parent
+# TIME_STAT=median times a candidate by the median of its 30 runs instead of the fastest, and writes the
+# statistics (paired_*, stats.csv, spearman.csv) to median/; results.csv and validity.csv are the same.
+TIME_STAT = os.environ.get("TIME_STAT", "min")
+assert TIME_STAT in ("min", "median"), TIME_STAT
+TCOL = f"time_ns_{TIME_STAT}"
+OUT = HERE / "median" if TIME_STAT == "median" else HERE
+OUT.mkdir(exist_ok=True)
 picks = json.load(open(HERE.parent / "agent_picks.json"))
 rows = []
 for f in sorted(glob.glob(str(HERE / "parts" / "*.csv"))):
@@ -35,15 +42,15 @@ with open(HERE / "results.csv", "w", newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
 
 cand = [r for r in rows if r["role"] == "candidate"]
-ref = {(r["kernel"], r["threads"]): int(r["time_ns_min"]) for r in rows
-       if r["role"] == "translated_c" and r["status"] == "ok" and r["time_ns_min"]}
+ref = {(r["kernel"], r["threads"]): float(r[TCOL]) for r in rows
+       if r["role"] == "translated_c" and r["status"] == "ok" and r[TCOL]}
 by = {}   # (sha256, build, threads) -> row
 for r in cand:
     by[(r["kernel"], r["sha256"], r["build"], r["threads"])] = r
 
 
 def tmin(r):
-    return int(r["time_ns_min"]) if r and r["status"] == "ok" and r["time_ns_min"] else None
+    return float(r[TCOL]) if r and r["status"] == "ok" and r[TCOL] else None
 
 
 # ---------------------------------------------------------------- build / validity shares
@@ -167,7 +174,7 @@ for build, threads in settings:
                     continue
                 pairs.append({"kernel": kernel, "model": model, "n_c": nc, "n_fortran": nf, "k": kf,
                               "t_c_ns": int(tc), "t_fortran_ns": int(tf), "ratio_f_over_c": tf / tc})
-        with open(HERE / f"paired_{stat}_{build}_t{threads.replace('/', '_')}.csv", "w", newline="") as fh:
+        with open(OUT / f"paired_{stat}_{build}_t{threads.replace('/', '_')}.csv", "w", newline="") as fh:
             fields = ["kernel", "model", "n_c", "n_fortran", "k", "t_c_ns", "t_fortran_ns", "ratio_f_over_c"]
             w = csv.DictWriter(fh, fieldnames=fields); w.writeheader(); w.writerows(pairs)
         for model in ["pooled"] + models:
@@ -175,7 +182,7 @@ for build, threads in settings:
             stats_rows.append({"build": build, "threads": threads, "statistic": stat, "model": model, **summarize(sel)})
 fields = ["build", "threads", "statistic", "model", "n_pairs", "geomean_f_over_c", "ci95_low", "ci95_high",
           "wilcoxon_p", "c_better", "fortran_better", "within_10pct"]
-with open(HERE / "stats.csv", "w", newline="") as fh:
+with open(OUT / "stats.csv", "w", newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=fields, extrasaction="ignore"); w.writeheader(); w.writerows(stats_rows)
 
 # ---------------------------------------------------------------- Spearman per arm
@@ -191,12 +198,12 @@ for arm in arms:
             if threads == "72" and by.get((r["kernel"], r["sha256"], "default", "1"), {}).get("status") != "ok":
                 continue
             rt = ref.get((r["kernel"], threads))
-            if not rt or not r["time_ns_min"]:
+            if not rt or not r[TCOL]:
                 continue
-            xs.append(float(r["campaign_speedup"])); ys.append(rt / int(r["time_ns_min"]))
+            xs.append(float(r["campaign_speedup"])); ys.append(rt / float(r[TCOL]))
         rho, p = spearmanr(xs, ys) if len(xs) >= 3 else (float("nan"), float("nan"))
         sp.append({"arm": arm, "threads": threads, "n": len(xs), "spearman_rho": f"{rho:.3f}", "p": f"{p:.4g}"})
-with open(HERE / "spearman.csv", "w", newline="") as fh:
+with open(OUT / "spearman.csv", "w", newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=["arm", "threads", "n", "spearman_rho", "p"]); w.writeheader(); w.writerows(sp)
 
 if __name__ == "__main__":

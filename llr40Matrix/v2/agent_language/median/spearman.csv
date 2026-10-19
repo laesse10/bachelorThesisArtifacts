@@ -1,0 +1,13 @@
+arm,threads,n,spearman_rho,p
+llr40v10-kimi27sglang-c,1,89,0.339,0.001175
+llr40v10-kimi27sglang-c,72,88,0.434,2.381e-05
+llr40v10-kimi27sglang-fortran,1,66,0.113,0.3678
+llr40v10-kimi27sglang-fortran,72,66,0.519,7.852e-06
+llr40v10-oss120b-c,1,66,0.661,1.594e-09
+llr40v10-oss120b-c,72,66,0.878,3.546e-22
+llr40v10-oss120b-fortran,1,63,0.456,0.0001716
+llr40v10-oss120b-fortran,72,63,0.892,9.723e-23
+llr40v10-qwen38-c,1,91,0.439,1.352e-05
+llr40v10-qwen38-c,72,91,0.586,1.065e-09
+llr40v10-qwen38-fortran,1,67,0.341,0.004714
+llr40v10-qwen38-fortran,72,67,0.650,2.574e-09
