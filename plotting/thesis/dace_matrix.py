@@ -206,7 +206,7 @@ def codegen_table(cells) -> None:
             m = {c: statistics.median(cells[(k, c)]) for c in ("cpp", f"{pipe}_old", f"{pipe}_legacy", f"{pipe}_new")}
             name = rf"\texttt{{{short(k)}}}"
             lines.append(
-                f"  {name} & {'optimised' if pipe == 'canon' else 'none'} & {fmt(m['cpp'])} & "
+                f"  {name} & {'optimized' if pipe == 'canon' else 'none'} & {fmt(m['cpp'])} & "
                 f"{fmt(m[pipe + '_old'])} & {fmt(m[pipe + '_legacy'])} & {fmt(m[pipe + '_new'])} \\\\"
             )
     geo = {}
