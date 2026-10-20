@@ -1,0 +1,5 @@
+{
+  "symbol": "sparse_cholesky_csr_fp64",
+  "language": "c",
+  "signature": "#include <stdint.h>\n#include <stddef.h>\n#include <stdbool.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n#include <omp.h>\n\nvoid sparse_cholesky_csr_fp64(\n    const double *restrict A_data /* csr A: value of each entry */,\n    const int64_t *restrict A_indices /* csr A: COLUMN index of each entry, ascending within a row; 0-based int64 */,\n    const int64_t *restrict A_indptr /* csr A: row r's entries are [indptr[r], indptr[r+1]); 0-based int64 */,\n    const int64_t *restrict L_indices,\n    const int64_t *restrict L_indptr,\n    const int64_t *restrict L_to_Lc,\n    double *restrict Lc_data,\n    const int64_t *restrict Lc_indices,\n    const int64_t *restrict Lc_indptr,\n    const double *restrict b,\n    double *restrict y,\n    const int64_t EDGE,\n    uint8_t *restrict workspace,\n    const int64_t workspace_size) {\n    /* implement the kernel here */\n}\n"
+}

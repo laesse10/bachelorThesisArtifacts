@@ -1,0 +1,3 @@
+time_first 107.2689 time_best 107.2689
+time_first 5.7668 time_best 5.7634
+time_first 2.4479 time_best 2.4479

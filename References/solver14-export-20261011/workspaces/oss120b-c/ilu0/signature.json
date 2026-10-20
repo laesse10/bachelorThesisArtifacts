@@ -1,0 +1,5 @@
+{
+  "symbol": "ilu0_fp64",
+  "language": "c",
+  "signature": "#include <stdint.h>\n#include <stddef.h>\n#include <stdbool.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n#include <omp.h>\n\nvoid ilu0_fp64(\n    double *restrict A_data,\n    const int64_t *restrict A_indices,\n    const int64_t *restrict A_indptr,\n    const int64_t N,\n    const int64_t nnz,\n    uint8_t *restrict workspace,\n    const int64_t workspace_size) {\n    /* implement the kernel here */\n}\n"
+}

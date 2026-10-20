@@ -1,0 +1,12 @@
+amg_setup
+bdf_newton_krylov
+householder_qr
+jfnk_bratu
+lanczos_reorth
+mg_vcycle
+mixed_precision_ir
+rb_sor
+rk45_ensemble
+rk4_ensemble
+sgs_pcg
+sptrsv_level

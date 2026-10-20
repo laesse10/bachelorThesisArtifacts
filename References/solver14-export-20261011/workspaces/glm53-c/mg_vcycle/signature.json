@@ -1,0 +1,5 @@
+{
+  "symbol": "mg_vcycle_fp64",
+  "language": "c",
+  "signature": "#include <stdint.h>\n#include <stddef.h>\n#include <stdbool.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n#include <omp.h>\n\nvoid mg_vcycle_fp64(\n    const double *restrict f,\n    double *restrict u,\n    const int64_t N,\n    const int64_t ncycles,\n    uint8_t *restrict workspace,\n    const int64_t workspace_size) {\n    /* implement the kernel here */\n}\n"
+}

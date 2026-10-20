@@ -1,0 +1,5 @@
+{
+  "symbol": "amg_setup_csr_fp64",
+  "language": "c",
+  "signature": "#include <stdint.h>\n#include <stddef.h>\n#include <stdbool.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n#include <omp.h>\n\nvoid amg_setup_csr_fp64(\n    const double *restrict A_data /* csr A: value of each entry */,\n    const int64_t *restrict A_indices /* csr A: COLUMN index of each entry, ascending within a row; 0-based int64 */,\n    const int64_t *restrict A_indptr /* csr A: row r's entries are [indptr[r], indptr[r+1]); 0-based int64 */,\n    int64_t *restrict agg0,\n    int64_t *restrict level_n,\n    int64_t *restrict level_nnz,\n    int64_t *restrict nlevels,\n    const int64_t NX,\n    const int64_t NY,\n    const int64_t NZ,\n    const double theta,\n    uint8_t *restrict workspace,\n    const int64_t workspace_size) {\n    /* implement the kernel here */\n}\n"
+}

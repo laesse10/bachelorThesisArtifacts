@@ -1,0 +1,10 @@
+import numpy as np, sys
+exec(open('rb_sor_numpy.py').read())
+N = int(sys.argv[1]); TSTEPS = int(sys.argv[2]); omega = float(sys.argv[3])
+rng = np.random.default_rng(42)
+f = rng.standard_normal((N, N))
+u = np.zeros((N, N))
+np.save('f.bin.npy', f)
+rb_sor(f, u, N, TSTEPS, omega)
+np.save('u_ref.bin.npy', u)
+print("saved N", N)

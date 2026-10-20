@@ -1,0 +1,7 @@
+setup,study,model,language,device,packet,harness,temperature
+solver14-oss120b-c,solver14,oss120b,c,cpu,,claude,1.0
+solver14-oss120b-c-solver,solver14,oss120b,c,cpu,solver,claude,1.0
+solver14-qwen38-c,solver14,qwen38,c,cpu,,claude,1.0
+solver14-qwen38-c-solver,solver14,qwen38,c,cpu,solver,claude,1.0
+solver14-glm53-c,solver14,glm53,c,cpu,,claude,1.0
+solver14-glm53-c-solver,solver14,glm53,c,cpu,solver,claude,1.0

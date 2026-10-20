@@ -1,0 +1,5 @@
+{
+  "symbol": "householder_qr_fp64",
+  "language": "c",
+  "signature": "#include <stdint.h>\n#include <stddef.h>\n#include <stdbool.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n#include <omp.h>\n\nvoid householder_qr_fp64(\n    double *restrict A,\n    double *restrict Q,\n    double *restrict R,\n    const double *restrict b,\n    double *restrict x,\n    const int64_t M,\n    const int64_t N,\n    uint8_t *restrict workspace,\n    const int64_t workspace_size) {\n    /* implement the kernel here */\n}\n"
+}

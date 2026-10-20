@@ -1,0 +1,5 @@
+{
+  "symbol": "bdf_newton_krylov_fp64",
+  "language": "c",
+  "signature": "#include <stdint.h>\n#include <stddef.h>\n#include <stdbool.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n#include <omp.h>\n\nvoid bdf_newton_krylov_fp64(\n    double *restrict diagnostics,\n    int64_t *restrict order_history,\n    double *restrict u,\n    double *restrict v,\n    const double A,\n    const double B,\n    const int64_t N,\n    const double alpha,\n    const int64_t max_steps,\n    const double t_end,\n    uint8_t *restrict workspace,\n    const int64_t workspace_size) {\n    /* implement the kernel here */\n}\n"
+}

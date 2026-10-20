@@ -1,0 +1,503 @@
+/* Variable-order variable-step BDF integrator over a Newton-Krylov corrector.
+ * Faithful C port of bdf_newton_krylov_numpy.py.
+ */
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <omp.h>
+
+/* ---- fixed constants of the algorithm (mirroring the NumPy reference) ---- */
+#define H0           1.0e-3
+#define CONV_DEGRADE 0.3
+#define SAFETY       0.9
+#define MIN_FACTOR   0.2
+#define MAX_FACTOR   6.0
+
+/* knobs fixed by the task manifest (not carried through the C ABI) */
+#define RTOL          1.0e-8
+#define ABSTOL        1.0e-8
+#define NEWTON_RTOL   1.0e-12
+#define MAX_ORDER     5
+#define MAX_NEWTON    12
+#define GMRES_RESTART 30
+#define GMRES_TOL     1.0e-6
+
+#define MAXHIST (MAX_ORDER + 1)
+#define RST     (GMRES_RESTART)
+
+/* ------------------------------------------------------------------ */
+static void laplacian(const double *restrict U, double *restrict L, int64_t N)
+{
+    /* 5-point Laplacian with zero-flux boundaries via mirrored ghosts. */
+    {
+        const double *restrict Un = U + N; /* mirror of row -1 is row 1 */
+        const double *restrict Uc = U;
+        double *restrict Lr = L;
+        Lr[0] = 2.0 * Un[0] + 2.0 * Uc[1] - 4.0 * Uc[0];
+        for (int64_t j = 1; j < N - 1; j++)
+            Lr[j] = 2.0 * Un[j] + Uc[j - 1] + Uc[j + 1] - 4.0 * Uc[j];
+        Lr[N - 1] = 2.0 * Un[N - 1] + 2.0 * Uc[N - 2] - 4.0 * Uc[N - 1];
+    }
+    for (int64_t i = 1; i < N - 1; i++) {
+        const double *restrict Up = U + (i - 1) * N;
+        const double *restrict Un = U + (i + 1) * N;
+        const double *restrict Uc = U + i * N;
+        double *restrict Lr = L + i * N;
+        Lr[0] = Up[0] + Un[0] + 2.0 * Uc[1] - 4.0 * Uc[0];
+        for (int64_t j = 1; j < N - 1; j++)
+            Lr[j] = Up[j] + Un[j] + Uc[j - 1] + Uc[j + 1] - 4.0 * Uc[j];
+        Lr[N - 1] = Up[N - 1] + Un[N - 1] + 2.0 * Uc[N - 2] - 4.0 * Uc[N - 1];
+    }
+    {
+        const double *restrict Up = U + (N - 2) * N;
+        const double *restrict Uc = U + (N - 1) * N;
+        double *restrict Lr = L + (N - 1) * N;
+        Lr[0] = 2.0 * Up[0] + 2.0 * Uc[1] - 4.0 * Uc[0];
+        for (int64_t j = 1; j < N - 1; j++)
+            Lr[j] = 2.0 * Up[j] + Uc[j - 1] + Uc[j + 1] - 4.0 * Uc[j];
+        Lr[N - 1] = 2.0 * Up[N - 1] + 2.0 * Uc[N - 2] - 4.0 * Uc[N - 1];
+    }
+}
+
+static void brusselator_rhs(const double *restrict u, const double *restrict v,
+                            int64_t N, double h, double alpha, double A, double B,
+                            double *restrict lap_u, double *restrict lap_v,
+                            double *restrict du, double *restrict dv)
+{
+    int64_t NN = N * N;
+    laplacian(u, lap_u, N);
+    laplacian(v, lap_v, N);
+    double invh2 = 1.0 / (h * h);
+    for (int64_t i = 0; i < NN; i++) {
+        double uu = u[i];
+        double uuv = uu * uu * v[i];
+        du[i] = A + uuv - (B + 1.0) * uu + alpha * lap_u[i] * invh2;
+        dv[i] = B * uu - uuv + alpha * lap_v[i] * invh2;
+    }
+}
+
+static void newton_matvec(const double *restrict du, const double *restrict dv,
+                          const double *restrict uf, const double *restrict vf,
+                          int64_t N, double h, double alpha, double B, double hbeta0,
+                          double *restrict lap_du, double *restrict lap_dv,
+                          double *restrict out_du, double *restrict out_dv)
+{
+    int64_t NN = N * N;
+    laplacian(du, lap_du, N);
+    laplacian(dv, lap_dv, N);
+    double invh2 = 1.0 / (h * h);
+    for (int64_t i = 0; i < NN; i++) {
+        double t = uf[i] * vf[i];
+        double f2 = uf[i] * uf[i];
+        out_du[i] = du[i] - hbeta0 * ((2.0 * t - (B + 1.0)) * du[i] + f2 * dv[i]
+                                       + alpha * lap_du[i] * invh2);
+        out_dv[i] = dv[i] - hbeta0 * ((B - 2.0 * t) * du[i] - f2 * dv[i]
+                                      + alpha * lap_dv[i] * invh2);
+    }
+}
+
+static double wrms_norm(const double *restrict au, const double *restrict av,
+                        double at, double rt,
+                        const double *restrict refu, const double *restrict refv,
+                        int64_t NN)
+{
+    double s = 0.0;
+    for (int64_t i = 0; i < NN; i++) {
+        double wu = at + rt * fabs(refu[i]);
+        double wv = at + rt * fabs(refv[i]);
+        double pu = au[i] / wu;
+        double pv = av[i] / wv;
+        s += pu * pu + pv * pv;
+    }
+    return sqrt(s / (2.0 * (double)NN));
+}
+
+static void lagrange_weights(const double *nodes, int k1, int deriv,
+                             double aug[8][9], double *weights)
+{
+    /* weights w[0..k1-1] with sum_j w_j nodes[j]^m = delta(m,deriv), m = 0..k1-1 */
+    for (int row = 0; row < k1; row++) {
+        for (int col = 0; col < k1; col++) {
+            double power = 1.0;
+            for (int e = 0; e < row; e++)
+                power = power * nodes[col];
+            aug[row][col] = power;
+        }
+    }
+    for (int row = 0; row < k1; row++)
+        aug[row][k1] = 0.0;
+    aug[deriv][k1] = 1.0;
+    for (int col = 0; col < k1; col++) {
+        double pivot = aug[col][col];
+        for (int w = 0; w <= k1; w++)
+            aug[col][w] = aug[col][w] / pivot;
+        for (int row = 0; row < k1; row++) {
+            if (row != col) {
+                double factor = aug[row][col];
+                for (int w = 0; w <= k1; w++)
+                    aug[row][w] = aug[row][w] - factor * aug[col][w];
+            }
+        }
+    }
+    for (int j = 0; j < k1; j++)
+        weights[j] = aug[j][k1];
+}
+
+/* ------------------------------------------------------------------ */
+typedef struct {
+    int64_t N, NN;
+    double *lap_u, *lap_v, *lap_du, *lap_dv;
+    double *qu, *qv;            /* (RST+1) * NN */
+    double *hess;                /* (RST+1) * RST */
+    double cs[RST], sn[RST], g[RST + 1], y[RST];
+    double *wu, *wv;
+} GmresWork;
+
+static double dot2(const double *restrict a, const double *restrict b,
+                   const double *restrict c, const double *restrict d, int64_t NN)
+{
+    double s = 0.0;
+    for (int64_t i = 0; i < NN; i++)
+        s += a[i] * b[i] + c[i] * d[i];
+    return s;
+}
+
+static void gmres_matfree(const double *restrict rhs_u, const double *restrict rhs_v,
+                          const double *restrict uf, const double *restrict vf,
+                          GmresWork *w, int64_t N, double h, double alpha, double B,
+                          double hbeta0, int restart, double tol,
+                          double *restrict du, double *restrict dv)
+{
+    int64_t NN = N * N;
+    double *qu = w->qu, *qv = w->qv;
+    double *hess = w->hess;
+    double *cs = w->cs, *sn = w->sn, *g = w->g, *y = w->y;
+    double *wu = w->wu, *wv = w->wv;
+    size_t sz = (size_t)NN * sizeof(double);
+    memset(hess, 0, (size_t)(restart + 1) * restart * sizeof(double));
+
+    double beta = sqrt(dot2(rhs_u, rhs_u, rhs_v, rhs_v, NN));
+    memset(du, 0, sz);
+    memset(dv, 0, sz);
+    if (beta == 0.0)
+        return;
+    for (int64_t i = 0; i < NN; i++) {
+        qu[i] = rhs_u[i] / beta;
+        qv[i] = rhs_v[i] / beta;
+    }
+    g[0] = beta;
+
+    int m_used = restart;
+    for (int k = 0; k < restart; k++) {
+        newton_matvec(qu + (size_t)k * NN, qv + (size_t)k * NN, uf, vf, N, h, alpha, B,
+                      hbeta0, w->lap_du, w->lap_dv, wu, wv);
+        for (int p = 0; p <= k; p++) {
+            double h_pk = dot2(qu + (size_t)p * NN, wu, qv + (size_t)p * NN, wv, NN);
+            hess[(size_t)p * restart + k] = h_pk;
+            for (int64_t i = 0; i < NN; i++) {
+                wu[i] = wu[i] - h_pk * qu[(size_t)p * NN + i];
+                wv[i] = wv[i] - h_pk * qv[(size_t)p * NN + i];
+            }
+        }
+        double h_next = sqrt(dot2(wu, wu, wv, wv, NN));
+        hess[(size_t)(k + 1) * restart + k] = h_next;
+
+        for (int p = 0; p < k; p++) {
+            double temp = cs[p] * hess[(size_t)p * restart + k]
+                        + sn[p] * hess[(size_t)(p + 1) * restart + k];
+            hess[(size_t)(p + 1) * restart + k] = -sn[p] * hess[(size_t)p * restart + k]
+                                                + cs[p] * hess[(size_t)(p + 1) * restart + k];
+            hess[(size_t)p * restart + k] = temp;
+        }
+        double hkk = hess[(size_t)k * restart + k];
+        double hk1 = hess[(size_t)(k + 1) * restart + k];
+        double denom = sqrt(hkk * hkk + hk1 * hk1);
+        cs[k] = hkk / denom;
+        sn[k] = hk1 / denom;
+        hess[(size_t)k * restart + k] = cs[k] * hkk + sn[k] * hk1;
+        hess[(size_t)(k + 1) * restart + k] = 0.0;
+        double temp = cs[k] * g[k];
+        g[k + 1] = -sn[k] * g[k];
+        g[k] = temp;
+
+        double rel = fabs(g[k + 1]) / beta;
+        if (rel < tol || h_next < 1.0e-13 || k == restart - 1) {
+            m_used = k + 1;
+            break;
+        }
+        double inv = 1.0 / h_next;
+        for (int64_t i = 0; i < NN; i++) {
+            qu[(size_t)(k + 1) * NN + i] = wu[i] * inv;
+            qv[(size_t)(k + 1) * NN + i] = wv[i] * inv;
+        }
+    }
+
+    for (int row = 0; row < m_used; row++) {
+        int rr = m_used - 1 - row;
+        double s = g[rr];
+        for (int col = rr + 1; col < m_used; col++)
+            s = s - hess[(size_t)rr * restart + col] * y[col];
+        y[rr] = s / hess[(size_t)rr * restart + rr];
+    }
+    for (int p = 0; p < m_used; p++) {
+        double yp = y[p];
+        const double *qpu = qu + (size_t)p * NN;
+        const double *qpv = qv + (size_t)p * NN;
+        for (int64_t i = 0; i < NN; i++) {
+            du[i] = du[i] + qpu[i] * yp;
+            dv[i] = dv[i] + qpv[i] * yp;
+        }
+    }
+}
+
+/* ------------------------------------------------------------------ */
+void bdf_newton_krylov_fp64(
+    double *restrict diagnostics,
+    int64_t *restrict order_history,
+    double *restrict u,
+    double *restrict v,
+    const double A,
+    const double B,
+    const int64_t N,
+    const double alpha,
+    const int64_t max_steps,
+    const double t_end,
+    uint8_t *restrict workspace,
+    const int64_t workspace_size)
+{
+    (void)workspace;
+    (void)workspace_size;
+
+    int64_t NN = N * N;
+    size_t sz = (size_t)NN * sizeof(double);
+    int maxhist = MAXHIST;
+
+    /* one big scratch block */
+    size_t ndbl = (size_t)NN * (size_t)(4              /* laps */
+                                    + 2 * (RST + 1)    /* qu, qv */
+                                    + 2);              /* wu, wv */
+    double *base = (double *)malloc(ndbl * sizeof(double) + 4096);
+    if (!base)
+        return;
+    double *p = base;
+    double *lap_u = p; p += NN;
+    double *lap_v = p; p += NN;
+    double *lap_du = p; p += NN;
+    double *lap_dv = p; p += NN;
+    double *qu = p; p += (size_t)(RST + 1) * NN;
+    double *qv = p; p += (size_t)(RST + 1) * NN;
+    double *wu = p; p += NN;
+    double *wv = p; p += NN;
+
+    /* main-loop temporaries */
+    enum { NTMP = 20 };
+    double *tmp = (double *)malloc((size_t)NTMP * NN * sizeof(double)
+                                   + (size_t)2 * maxhist * NN * sizeof(double)
+                                   + (size_t)(RST + 1) * RST * sizeof(double));
+    if (!tmp) { free(base); return; }
+    double *tp = tmp;
+    double *uf = tp; tp += NN;
+    double *vf = tp; tp += NN;
+    double *u_pred = tp; tp += NN;
+    double *v_pred = tp; tp += NN;
+    double *u_trial = tp; tp += NN;
+    double *v_trial = tp; tp += NN;
+    double *rhs_u = tp; tp += NN;
+    double *rhs_v = tp; tp += NN;
+    double *f_u = tp; tp += NN;
+    double *f_v = tp; tp += NN;
+    double *res_u = tp; tp += NN;
+    double *res_v = tp; tp += NN;
+    double *nres_u = tp; tp += NN;
+    double *nres_v = tp; tp += NN;
+    double *err_u = tp; tp += NN;
+    double *err_v = tp; tp += NN;
+    double *sdu = tp; tp += NN;
+    double *sdv = tp; tp += NN;
+    double *hist_u = tp; tp += (size_t)maxhist * NN;
+    double *hist_v = tp; tp += (size_t)maxhist * NN;
+    double *hess = tp; tp += (size_t)(RST + 1) * RST;
+
+    GmresWork gw;
+    gw.N = N; gw.NN = NN;
+    gw.lap_u = lap_u; gw.lap_v = lap_v; gw.lap_du = lap_du; gw.lap_dv = lap_dv;
+    gw.qu = qu; gw.qv = qv; gw.wu = wu; gw.wv = wv; gw.hess = hess;
+
+    double nodes_p[MAXHIST], nodes_c[MAXHIST], w_pred[MAXHIST], c_corr[MAXHIST];
+    double aug[8][9];
+
+    double t = 0.0;
+    double h = H0;
+    int order = 1;
+    int steps_since_order_change = 0;
+    int consecutive_reject = 0;
+    int njev = 0;
+    int nsteps = 0;
+    int have_jac = 0;
+    double h_grid = 1.0 / (double)N;
+
+    memcpy(hist_u, u, sz);
+    memcpy(hist_v, v, sz);
+    memset(hist_u + NN, 0, (size_t)(maxhist - 1) * NN * sizeof(double));
+    memset(hist_v + NN, 0, (size_t)(maxhist - 1) * NN * sizeof(double));
+    double hist_t[MAXHIST];
+    hist_t[0] = 0.0;
+    int n_hist = 1;
+
+    while (t < t_end && nsteps < max_steps) {
+        if (t + h > t_end)
+            h = t_end - t;
+        int k = order < n_hist ? order : n_hist;
+        double t_new = t + h;
+
+        int deg = k < n_hist - 1 ? k : n_hist - 1;
+        for (int j = 0; j < deg + 1; j++)
+            nodes_p[j] = hist_t[j] - t_new;
+        lagrange_weights(nodes_p, deg + 1, 0, aug, w_pred);
+        memset(u_pred, 0, sz);
+        memset(v_pred, 0, sz);
+        for (int j = 0; j < deg + 1; j++) {
+            double wj = w_pred[j];
+            const double *hu = hist_u + (size_t)j * NN;
+            const double *hv = hist_v + (size_t)j * NN;
+            for (int64_t i = 0; i < NN; i++) {
+                u_pred[i] = u_pred[i] + wj * hu[i];
+                v_pred[i] = v_pred[i] + wj * hv[i];
+            }
+        }
+
+        nodes_c[0] = 0.0;
+        for (int j = 0; j < k; j++)
+            nodes_c[j + 1] = hist_t[j] - t_new;
+        lagrange_weights(nodes_c, k + 1, 1, aug, c_corr);
+        double c0 = c_corr[0];
+        double hbeta0 = 1.0 / c0;
+        memset(rhs_u, 0, sz);
+        memset(rhs_v, 0, sz);
+        for (int j = 1; j <= k; j++) {
+            double cj = c_corr[j] / c0;
+            const double *hu = hist_u + (size_t)(j - 1) * NN;
+            const double *hv = hist_v + (size_t)(j - 1) * NN;
+            for (int64_t i = 0; i < NN; i++) {
+                rhs_u[i] = rhs_u[i] - cj * hu[i];
+                rhs_v[i] = rhs_v[i] - cj * hv[i];
+            }
+        }
+
+        memcpy(u_trial, u_pred, sz);
+        memcpy(v_trial, v_pred, sz);
+        if (have_jac == 0) {
+            memcpy(uf, u_trial, sz);
+            memcpy(vf, v_trial, sz);
+            njev += 1;
+            have_jac = 1;
+        }
+
+        int converged = 0;
+        int refactored_this_step = 0;
+        double prev_resnorm = -1.0;
+        for (int it = 0; it < MAX_NEWTON; it++) {
+            brusselator_rhs(u_trial, v_trial, N, h_grid, alpha, A, B, lap_u, lap_v, f_u, f_v);
+            for (int64_t i = 0; i < NN; i++) {
+                res_u[i] = u_trial[i] - hbeta0 * f_u[i] - rhs_u[i];
+                res_v[i] = v_trial[i] - hbeta0 * f_v[i] - rhs_v[i];
+            }
+            double resnorm = wrms_norm(res_u, res_v, NEWTON_RTOL, NEWTON_RTOL,
+                                       u_trial, v_trial, NN);
+            if (resnorm < 1.0) {
+                converged = 1;
+                break;
+            }
+            if (prev_resnorm > 0.0) {
+                double rate = resnorm / prev_resnorm;
+                if (rate > CONV_DEGRADE && refactored_this_step == 0) {
+                    memcpy(uf, u_trial, sz);
+                    memcpy(vf, v_trial, sz);
+                    njev += 1;
+                    refactored_this_step = 1;
+                }
+            }
+            prev_resnorm = resnorm;
+            for (int64_t i = 0; i < NN; i++) {
+                nres_u[i] = -res_u[i];
+                nres_v[i] = -res_v[i];
+            }
+            gmres_matfree(nres_u, nres_v, uf, vf, &gw, N, h_grid, alpha, B, hbeta0,
+                          RST, GMRES_TOL, sdu, sdv);
+            for (int64_t i = 0; i < NN; i++) {
+                u_trial[i] = u_trial[i] + sdu[i];
+                v_trial[i] = v_trial[i] + sdv[i];
+            }
+        }
+
+        if (converged == 0) {
+            h = h * 0.25;
+            if (order > 1)
+                order = order - 1;
+            continue;
+        }
+
+        double c_err = 1.0 / (double)(k + 1);
+        for (int64_t i = 0; i < NN; i++) {
+            err_u[i] = c_err * (u_trial[i] - u_pred[i]);
+            err_v[i] = c_err * (v_trial[i] - v_pred[i]);
+        }
+        double err_est = wrms_norm(err_u, err_v, ABSTOL, RTOL, u_trial, v_trial, NN);
+
+        if (err_est <= 1.0) {
+            consecutive_reject = 0;
+            t = t_new;
+            order_history[nsteps] = order;
+            nsteps += 1;
+
+            for (int j = maxhist - 1; j > 0; j--) {
+                memcpy(hist_u + (size_t)j * NN, hist_u + (size_t)(j - 1) * NN, sz);
+                memcpy(hist_v + (size_t)j * NN, hist_v + (size_t)(j - 1) * NN, sz);
+                hist_t[j] = hist_t[j - 1];
+            }
+            memcpy(hist_u, u_trial, sz);
+            memcpy(hist_v, v_trial, sz);
+            hist_t[0] = t;
+            if (n_hist < maxhist)
+                n_hist = n_hist + 1;
+
+            steps_since_order_change += 1;
+            if (order < MAX_ORDER && steps_since_order_change > order && n_hist > order + 1) {
+                order += 1;
+                steps_since_order_change = 0;
+            } else if (refactored_this_step == 1 && order > 1) {
+                order -= 1;
+                steps_since_order_change = 0;
+            }
+
+            double fac;
+            if (err_est > 0.0)
+                fac = SAFETY * pow(err_est, -1.0 / (double)(k + 1));
+            else
+                fac = MAX_FACTOR;
+            fac = fmin(MAX_FACTOR, fmax(MIN_FACTOR, fac));
+            h = h * fac;
+        } else {
+            consecutive_reject += 1;
+            double fac = SAFETY * pow(err_est, -1.0 / (double)(k + 1));
+            fac = fmin(1.0, fmax(MIN_FACTOR, fac));
+            h = h * fac;
+            if (consecutive_reject >= 2 && order > 1) {
+                order -= 1;
+                steps_since_order_change = 0;
+            }
+        }
+    }
+
+    memcpy(u, hist_u, sz);
+    memcpy(v, hist_v, sz);
+    diagnostics[0] = (double)nsteps;
+    diagnostics[1] = (double)njev;
+    diagnostics[2] = t;
+
+    free(base);
+    free(tmp);
+}

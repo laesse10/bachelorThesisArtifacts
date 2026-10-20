@@ -1,0 +1,4 @@
+model,language,leg,score,cost,kernels,test,score_p,cost_p,score_p_adjusted,cost_p_adjusted,score_verdict,cost_verdict,correction,family_size
+glm53,c,C,1.1080118418269829,1.324830347154599,11,sign-flip v1,0.6640625,0.5107421875,0.794921875,0.794921875,not-significant,not-significant,benjamini-hochberg,6
+oss120b,c,C,1.1866597325549946,1.1360639713964882,12,sign-flip v1,0.4599609375,0.6046142578125,0.794921875,0.794921875,not-significant,not-significant,benjamini-hochberg,6
+qwen38,c,C,0.9448737544218236,0.8365002739794382,11,sign-flip v1,0.794921875,0.3831787109375,0.794921875,0.794921875,not-significant,not-significant,benjamini-hochberg,6

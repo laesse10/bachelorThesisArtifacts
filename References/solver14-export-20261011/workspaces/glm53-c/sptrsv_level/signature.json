@@ -1,0 +1,5 @@
+{
+  "symbol": "sptrsv_level_csr_fp64",
+  "language": "c",
+  "signature": "#include <stdint.h>\n#include <stddef.h>\n#include <stdbool.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n#include <omp.h>\n\nvoid sptrsv_level_csr_fp64(\n    const double *restrict L_data /* csr L: value of each entry */,\n    const int64_t *restrict L_indices /* csr L: COLUMN index of each entry, ascending within a row; 0-based int64 */,\n    const int64_t *restrict L_indptr /* csr L: row r's entries are [indptr[r], indptr[r+1]); 0-based int64 */,\n    const double *restrict b,\n    const int64_t *restrict level_ptr,\n    const int64_t *restrict perm,\n    double *restrict x,\n    const int64_t N,\n    const int64_t NNZ_L,\n    uint8_t *restrict workspace,\n    const int64_t workspace_size) {\n    /* implement the kernel here */\n}\n"
+}

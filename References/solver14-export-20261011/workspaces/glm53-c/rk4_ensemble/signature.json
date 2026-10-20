@@ -1,0 +1,5 @@
+{
+  "symbol": "rk4_ensemble_fp64",
+  "language": "c",
+  "signature": "#include <stdint.h>\n#include <stddef.h>\n#include <stdbool.h>\n#include <stdlib.h>\n#include <string.h>\n#include <math.h>\n#include <omp.h>\n\nvoid rk4_ensemble_fp64(\n    double *restrict y,\n    const double *restrict y0,\n    const int64_t NSTEPS,\n    const int64_t NSYS,\n    const double a,\n    const double b,\n    const double ep,\n    const double t_end,\n    uint8_t *restrict workspace,\n    const int64_t workspace_size) {\n    /* implement the kernel here */\n}\n"
+}
