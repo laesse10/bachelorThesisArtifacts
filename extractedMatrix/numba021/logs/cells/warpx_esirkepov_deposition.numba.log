@@ -1,0 +1,15 @@
+$ numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python -m hpcagent_bench.cli run --benchmark warpx_esirkepov_deposition --framework numba --precision fp64 --preset M --mode single_core --repeat 30 --validate --output /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/scratch/numba021.warpx_esirkepov_deposition/warpx_esirkepov_deposition.numba.30419.jsonl
+[exit 0]
+--- stdout
+***** Testing Numba with warpx_esirkepov_deposition on the M dataset, datatype float64 *****
+Failed to execute the Numba - nopython-mode-parallel implementation.
+agentbench: wrote 1 rows to /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/scratch/numba021.warpx_esirkepov_deposition/warpx_esirkepov_deposition.numba.30419.jsonl
+
+--- stderr
+Traceback (most recent call last):
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext3/hpcagent_bench/frameworks/test.py", line 364, in _execute
+    plan.run()
+  File "/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext3/hpcagent_bench/frameworks/framework.py", line 270, in run
+    self.result = self.f.post_call(self.impl(*args, **kwargs))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Sizes of $7418binary_subscr.82, $7436binary_subscr.91, $7458binary_subscr.101, $7476binary_subscr.110, $7516binary_subscr.123, $7534binary_subscr.132, $7556binary_subscr.142, $7574binary_subscr.151 do not match on /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext3/hpcagent_bench/benchmarks/scientific_computing/n_body_methods/esirkepov_deposition/warpx_esirkepov_deposition_numba_np.py (332)

@@ -1,0 +1,6 @@
+column,n,geomean_speedup_over_c,ci95_low,ci95_high,faster,within_3pct,slower,kernels
+"numba (matrix, 26a4f0cf translator)",5,1.085,0.546,2.157,3,0,2,comet_int4_gemm spgemm_hash warpx_boris_push triangle_count nfa_frontier
+numba + field_gather v0.2.1 (vs matrix c),6,0.968,0.533,1.759,3,0,3,comet_int4_gemm spgemm_hash warpx_boris_push triangle_count nfa_frontier warpx_field_gather
+numba + field_gather v0.2.1 (vs job c),6,0.971,0.536,1.757,3,0,3,comet_int4_gemm spgemm_hash warpx_boris_push triangle_count nfa_frontier warpx_field_gather
+numba + field_gather v0.2.1 - comet (vs matrix c),5,1.134,0.636,2.021,3,0,2,spgemm_hash warpx_boris_push triangle_count nfa_frontier warpx_field_gather
+numba + numba_hand + field_gather v0.2.1 (vs matrix c),8,0.982,0.617,1.564,4,0,4,comet_int4_gemm spgemm_hash warpx_boris_push triangle_count nfa_frontier quatrex_rgf warpx_esirkepov_deposition warpx_field_gather

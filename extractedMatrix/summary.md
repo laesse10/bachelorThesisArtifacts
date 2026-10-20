@@ -21,6 +21,15 @@ Files: `results.csv` (every timing, v2 layout plus provenance/adapter), `cells.c
 > `triangle_count` gap is the floor-division helper (shifts: C 1.55x faster); the hand-written Numba deposition
 > loses a third of its time to NRT reference counting. The text below is as first written.
 
+> **Update (2026-10-20, `numba021/README.md`, `DEVIATIONS.md` item 13).** The `warpx_field_gather` `numba`
+> build error is fixed in the HPCAgent-Bench v0.2.1 Numba translator (PR #113). Its module, emitted by
+> v0.2.1 and timed by the unchanged 26a4f0cf harness (job 5105398), is **ok at 20.787 ms: x0.545** of the
+> matrix's `c` (x0.555 of the same C re-timed in that job, which was 1.8% slower than in job 4990441). With
+> it, the `numba` column (translator output) has 6 kernels: geomean **0.968** (0.533 - 1.759), 3 / 0 / 3,
+> instead of 1.085 over 5. The v0.2.1 translator's `warpx_esirkepov_deposition` module now types, but its
+> first call raises in Numba's parfor size check (line 332, on the graded 3-D path) and produces no output,
+> so that cell stays `numba_hand`. The other five translated modules are byte-identical under v0.2.1.
+
 ## Status
 
 **33 ok, 1 build_error, 6 unsupported, 0 incorrect, 0 timeout.** x = speedup over translated C (`c`).

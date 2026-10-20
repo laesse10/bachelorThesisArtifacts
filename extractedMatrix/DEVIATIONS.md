@@ -102,3 +102,27 @@ Every way this work departs from the task text or from the LLR-40 v2 protocol, w
    The `native` row in `results.csv` is left as recorded; use `followup/` for this cell. `warpx_boris_push`'s
    `native` cell is unaffected (float64 arguments). No LLR-40 kernel is affected: each has a float64 argument.
 
+13. **`warpx_field_gather` and `warpx_esirkepov_deposition` `numba` with the v0.2.1 translator (`numba021/`,
+   job 5105398, 2026-10-20, nid006532 and nid006534).** HPCAgent-Bench PR #113 (merged into release-v0.2.1
+   as 4fc77b245, review fixes e22a6b6ef) fixes the lowering of item 10. The modules were emitted with the
+   release-v0.2.1 tree at 305559cc9 from the 26a4f0cf NumPy references and the bench-info the 26a4f0cf
+   harness builds; the v0.2.1 schema rejects one of its fields, `precisions`, which was dropped
+   (`numba021/tools/emit_v021.sh`). They were emitted on macOS (HPCAgent-Bench `.venv`, which has the
+   pinned relayout 2718b2fe; `venv_llr40v2` on daint lacks it and its dependencies). The other five
+   translated kernels emit byte-identical to `emitted_sources/` under v0.2.1, so their rows stand. The
+   timing used a fresh 26a4f0cf worktree, `HPCAgent-Bench-ext3`, in which `numba021/tools/seed_cache.py`
+   put each v0.2.1 module into the kernel's `.cache/` with the fingerprint the 26a4f0cf code computes
+   (it checks that the tree's bench-info is byte-identical to the one the translator was given), so
+   `autogen.ensure` takes it as a cache hit and does not emit. The hand-written Esirkepov override was
+   moved aside in that tree only. Harness, scripts (`sweep_extracted.py`, `opt_reports_extracted.py`),
+   protocol, compilers, Numba 0.67 and geometry probe are those of job 4990441; `numba021/run_numba021.sh`
+   is `run_extracted.sh` with other paths and a column list. `-ext`, `parts/` and `results.csv` are
+   unchanged. Results (`numba021/cells.csv`): `warpx_field_gather` `numba` ok, min 20.787 ms (median
+   20.907, RSD 0.30%), x0.545 of the matrix's `c`. The `c` cell, byte-identical source, re-timed in the
+   same job as a drift check: 11.540 ms against 11.336 ms (+1.8%), so x0.555 against it. The translated
+   `warpx_esirkepov_deposition` module types now, but its first call raises `AssertionError: Sizes of ...
+   do not match` at line 332, the outer product of two slices with run-time bounds in the GEOM_3D branch
+   that the graded configuration (geom 3) runs; the runner recorded it as `incorrect` with no timings,
+   but no output was produced (`numba021/logs/cells/warpx_esirkepov_deposition.numba.log`). Run with
+   `NUMBA_DISABLE_JIT=1` (preset S, on macOS) the same module matches NumPy exactly, so this is a
+   remaining gap of the Numba lowering, not a wrong translation. The Esirkepov cell stays `numba_hand`.

@@ -1,0 +1,2 @@
+job=5105398 nodes=nid006532 nid006534 units=warpx_field_gather=numba+c warpx_esirkepov_deposition=numba start=2026-10-20T14:24:31+02:00
+job=5105398 end=2026-10-20T14:30:11+02:00

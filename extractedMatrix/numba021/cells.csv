@@ -1,0 +1,4 @@
+kernel,column,status,slurm_job,node,n_reps,min_ms,median_ms,rsd_pct,matrix_min_ms,speedup_over_matrix_c,speedup_over_job_c,source_sha256,notes
+warpx_field_gather,numba,ok,normal/5105398,nid006532,30,20.7874,20.9071,0.30,,0.545,0.555,de229b196296fee002b3697c5dc17e6b0eeec3a455b54274a2782b32c2fac399,
+warpx_field_gather,c,ok,normal/5105398,nid006532,30,11.5404,11.7738,1.03,11.3364,0.982,1.000,a9cd07ab2ad515099d21a524146fdbe1477ea56572ebbae5d8942a9b071081a7,
+warpx_esirkepov_deposition,numba,incorrect,normal/5105398,nid006534,0,,,,,,,118c507426dc14613056f97cebd56117e98c2bbbbce20c7e55c3e0085d83fdd3,output did not match the NumPy reference | 

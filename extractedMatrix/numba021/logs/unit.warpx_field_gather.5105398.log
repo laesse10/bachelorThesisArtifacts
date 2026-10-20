@@ -1,0 +1,12 @@
+unit warpx_field_gather node=nid006532 reprs=numba,c start=2026-10-20T14:24:31+02:00 g++=/users/lhulsbergen/bin/g++ gfortran=/users/lhulsbergen/bin/gfortran
+PROBE nid006532 1 1
+SRUN[warpx_field_gather]: srun --nodes=1 --ntasks=1 -w nid006532 --exclusive --cpu-bind=cores --hint=nomultithread --time=50 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext3 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_extracted.py --kernels warpx_field_gather --reprs numba,c --preset M --warmup 5 --reps 30 --out numba021/parts/warpx_field_gather.csv --scratch scratch/numba021.warpx_field_gather --logs numba021/logs/cells --emitted-dir numba021/emitted_sources --db-shard 120
+[1/1] warpx_field_gather
+    numba        ok           median 20.907 ms 
+    c            ok           median 11.774 ms 
+
+wrote 2 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/numba021/parts/warpx_field_gather.csv
+SRUN[warpx_field_gather]: srun --nodes=1 --ntasks=1 -w nid006532 --exclusive --cpu-bind=cores --hint=nomultithread --time=50 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-ext3 numactl --cpunodebind=0 --membind=0 /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python opt_reports_extracted.py --out-dir numba021/opt_reports --index numba021/parts/optrep.warpx_field_gather.csv warpx_field_gather:numba:python:numba021/emitted_sources/warpx_field_gather/warpx_field_gather_numba_np.py warpx_field_gather:c:c:numba021/emitted_sources/warpx_field_gather/warpx_field_gather_fp64.c
+warpx_field_gather           numba        ok
+warpx_field_gather           c            ok
+unit warpx_field_gather node=nid006532 end=2026-10-20T14:29:58+02:00
