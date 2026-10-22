@@ -12,7 +12,7 @@ for cc in gcc-13 gcc-14; do
   objdump -d "$out/s316.o" > "$out/s316.s.txt"
   echo "== $cc: fcsel=$(grep -c fcsel "$out/s316.s.txt" || true) b.gt=$(grep -c 'b.gt' "$out/s316.s.txt" || true)"
   # tree level: MIN_EXPR / COND_EXPR / phiopt; RTL level: if_then_else / cond-exec (ce1, ce2, ce3)
-  for f in $(ls "$out" | grep -E '\.(t|r)\.' | sort -t. -k3,3n); do
-    if grep -qE "MIN_EXPR|COND_EXPR|if_then_else" "$out/$f"; then echo "   first conditional form in: $f"; break; fi
+  for f in $(ls "$out" | grep -E 's316\.c\.[0-9]+[tr]\.' | sort -t. -k3,3n); do
+    if grep -qE "MIN_EXPR| \? |if_then_else" "$out/$f"; then echo "   first conditional form in: $f"; break; fi
   done
 done

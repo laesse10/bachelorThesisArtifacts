@@ -1,0 +1,52 @@
+
+;; Function tsvc_2_s316_fp64 (tsvc_2_s316_fp64, funcdef_no=25, decl_uid=6007, cgraph_uid=26, symbol_order=25)
+
+Removing basic block 4
+;; basic block 4, loop depth 1
+;;  pred:       3
+;;  succ:       5
+
+
+COND_EXPR in block 3 and PHI in block 5 converted to straightline code.
+Merging blocks 3 and 5
+fix_loop_structure: fixing up loops for function
+void tsvc_2_s316_fp64 (const double * restrict a, double * restrict result, const int64_t LEN_1D)
+{
+  int64_t i;
+  double x;
+  long unsigned int i.0_1;
+  long unsigned int _2;
+  const double * _3;
+  double _4;
+  _Bool _6;
+  double _7;
+
+  <bb 2> :
+  x_13 = *a_12(D);
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  i.0_1 = (long unsigned int) i_10;
+  _2 = i.0_1 * 8;
+  _3 = a_12(D) + _2;
+  _4 = *_3;
+  _6 = _4 < x_9;
+  _7 = _6 ? _4 : x_9;
+  i_19 = i_10 + 1;
+
+  <bb 4> :
+  # x_9 = PHI <x_13(2), _7(3)>
+  # i_10 = PHI <1(2), i_19(3)>
+  if (i_10 < LEN_1D_15(D))
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  # x_5 = PHI <x_9(4)>
+  *result_16(D) = x_5;
+  return;
+
+}
+
+

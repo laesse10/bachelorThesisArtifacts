@@ -1,0 +1,48 @@
+
+;; Function tsvc_2_s316_fp64 (tsvc_2_s316_fp64, funcdef_no=25, decl_uid=5965, cgraph_uid=26, symbol_order=25)
+
+void tsvc_2_s316_fp64 (const double * restrict a, double * restrict result, const int64_t LEN_1D)
+{
+  int64_t i;
+  double x;
+  long unsigned int i.0_1;
+  long unsigned int _2;
+  const double * _3;
+  double _4;
+
+  <bb 2> :
+  x_13 = *a_12(D);
+  goto <bb 6>; [INV]
+
+  <bb 3> :
+  i.0_1 = (long unsigned int) i_10;
+  _2 = i.0_1 * 8;
+  _3 = a_12(D) + _2;
+  _4 = *_3;
+  if (_4 < x_9)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+
+  <bb 5> :
+  # x_8 = PHI <x_9(3), _4(4)>
+  i_19 = i_10 + 1;
+
+  <bb 6> :
+  # x_9 = PHI <x_13(2), x_8(5)>
+  # i_10 = PHI <1(2), i_19(5)>
+  if (i_10 < LEN_1D_15(D))
+    goto <bb 3>; [INV]
+  else
+    goto <bb 7>; [INV]
+
+  <bb 7> :
+  # x_5 = PHI <x_9(6)>
+  *result_16(D) = x_5;
+  return;
+
+}
+
+

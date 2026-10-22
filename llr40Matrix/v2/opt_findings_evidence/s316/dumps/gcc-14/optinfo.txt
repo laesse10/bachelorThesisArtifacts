@@ -1,0 +1,13 @@
+Unit growth for small function inlining: 13->13 (0%)
+
+Inlined 0 calls, eliminated 0 functions
+
+BB 3 is always executed in loop 1
+loop 1's coldest_outermost_loop is 1, hotter_than_inner_loop is NULL
+../../s316.c:181:31: missed: couldn't vectorize loop
+../../s316.c:178:6: missed: not vectorized: unsupported use in stmt.
+../../s316.c:178:6: note: vectorized 0 loops in function.
+../../s316.c:187:1: note: ***** Analysis failed with vector mode V2DF
+../../s316.c:187:1: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DF
+BB 3 is always executed in loop 1
+loop 1's coldest_outermost_loop is 1, hotter_than_inner_loop is NULL

@@ -1,0 +1,12 @@
+# UNIT | KERNEL | CELLS   (all cells of a unit run in 3 interleaved rounds on one exclusive node)
+# c is GCC 14.2 as in the matrix; cpp and fortran are GCC 13.3 (the default build); cpp14 and fortran14 the same
+# sources built by GCC 14.2 (bin_gxx14/g++, bin14/gfortran first on PATH). CoMet's C and C++ call OpenBLAS: their
+# cells get the uenv's OpenBLAS on PKG_CONFIG_PATH, as in ../DEVIATIONS.md item 9 (the job mounts the uenv).
+comet_int4_gemm             | comet_int4_gemm             | c=c:env=PKG_CONFIG_PATH=/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/lib/pkgconfig cpp=cpp:env=PKG_CONFIG_PATH=/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/lib/pkgconfig cpp14=cpp:bin=bin_gxx14:env=PKG_CONFIG_PATH=/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/lib/pkgconfig fortran fortran14=fortran:bin=bin14
+quatrex_rgf                 | quatrex_rgf                 | c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14
+spgemm_hash                 | spgemm_hash                 | c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14
+warpx_boris_push            | warpx_boris_push            | c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14
+warpx_esirkepov_deposition  | warpx_esirkepov_deposition  | c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14
+warpx_field_gather          | warpx_field_gather          | c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14
+triangle_count              | triangle_count              | c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14
+nfa_frontier                | nfa_frontier                | c cpp cpp14=cpp:bin=bin_gxx14 fortran fortran14=fortran:bin=bin14
