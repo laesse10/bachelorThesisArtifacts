@@ -1,0 +1,3 @@
+row,framework,n,gm_tokens,gm_tokens_low,gm_tokens_high
+Qwen3.8-27B - No Packet,scicomp40-qwen38-c,38,1506581.759706001,1339010.9374359278,1621586.4198888629
+OSS-120B - No Packet,scicomp40-oss120b-c,38,233194.58197393082,182283.65927449238,306548.6771543487
