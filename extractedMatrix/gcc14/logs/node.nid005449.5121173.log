@@ -1,0 +1,31 @@
+PROBE nid005449 1 1
+unit comet_int4_gemm kernel=comet_int4_gemm node=nid005449 start=2026-10-22T15:57:16+02:00
+pristine comet_int4_gemm_fp64.c c83275c6544d7fb4
+pristine comet_int4_gemm_fp64.cpp 03e5bfa63ed36cf7
+pristine comet_int4_gemm_fp64.f90 3fe78aeb1a82db23
+pristine comet_int4_gemm_fp32.c 221dec81903cc55e
+pristine comet_int4_gemm_fp32.cpp 192e8f32c52a4dc1
+pristine comet_int4_gemm_fp32.f90 14d8a8a787c8d425
+pristine comet_int4_gemm_numba_np.py 4f0802f89f2e1a5c
+cell c: c src=- src32=- bin=- env={'PKG_CONFIG_PATH': '/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/lib/pkgconfig'} -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env={'PKG_CONFIG_PATH': '/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/lib/pkgconfig'} -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env={'PKG_CONFIG_PATH': '/user-environment/linux-neoverse_v2/openblas-0.3.29-eekzy6wkqav6gy67vccd7iobftsnozea/lib/pkgconfig'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- src32=- bin=bin14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 0.086 ms 
+  [1] cpp              ok           min 0.086 ms 
+  [1] cpp14            ok           min 0.084 ms 
+  [1] fortran          ok           min 0.378 ms 
+  [1] fortran14        ok           min 0.376 ms 
+  [2] fortran14        ok           min 0.377 ms 
+  [2] fortran          ok           min 0.377 ms 
+  [2] cpp14            ok           min 0.085 ms 
+  [2] cpp              ok           min 0.085 ms 
+  [2] c                ok           min 0.086 ms 
+  [3] c                ok           min 0.085 ms 
+  [3] cpp              ok           min 0.084 ms 
+  [3] cpp14            ok           min 0.084 ms 
+  [3] fortran          ok           min 0.378 ms 
+  [3] fortran14        ok           min 0.376 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/parts/comet_int4_gemm.csv
+unit comet_int4_gemm end=2026-10-22T15:58:57+02:00

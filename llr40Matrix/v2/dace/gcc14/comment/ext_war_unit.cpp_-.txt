@@ -1,0 +1,5 @@
+lib=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/benchmarks/loop_level_reasoning/ext_war_unit/cpp_backend/build/libext_war_unit_cpp.so
+
+String dump of section '.comment':
+  [     0]  GCC: (SUSE Linux) 14.2.0
+

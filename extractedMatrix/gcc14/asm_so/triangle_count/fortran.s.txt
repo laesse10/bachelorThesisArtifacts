@@ -1,0 +1,123 @@
+# objdump -d libtriangle_count_fortran.so, functions matching triangle_count_fp64* (sha256 9d80a6991f908aa7)
+
+0000000000000660 <triangle_count_fp64>:    # address mod 64 = 32
+ 660:	f100009f 	cmp	x4, #0x0
+ 664:	54000e4d 	b.le	82c <triangle_count_fp64+0x1cc>
+ 668:	d280000f 	mov	x15, #0x0                   	// #0
+ 66c:	d2800011 	mov	x17, #0x0                   	// #0
+ 670:	14000004 	b	680 <triangle_count_fp64+0x20>
+ 674:	910005ef 	add	x15, x15, #0x1
+ 678:	eb0f009f 	cmp	x4, x15
+ 67c:	54000b20 	b.eq	7e0 <triangle_count_fp64+0x180>  // b.none
+ 680:	f86f7826 	ldr	x6, [x1, x15, lsl #3]
+ 684:	f86f7805 	ldr	x5, [x0, x15, lsl #3]
+ 688:	8b060c47 	add	x7, x2, x6, lsl #3
+ 68c:	f8667850 	ldr	x16, [x2, x6, lsl #3]
+ 690:	8b050c46 	add	x6, x2, x5, lsl #3
+ 694:	f94004ee 	ldr	x14, [x7, #8]
+ 698:	f8657849 	ldr	x9, [x2, x5, lsl #3]
+ 69c:	f94004cc 	ldr	x12, [x6, #8]
+ 6a0:	cb1001ce 	sub	x14, x14, x16
+ 6a4:	f10001df 	cmp	x14, #0x0
+ 6a8:	cb09018c 	sub	x12, x12, x9
+ 6ac:	fa40c984 	ccmp	x12, #0x0, #0x4, gt
+ 6b0:	54fffe2d 	b.le	674 <triangle_count_fp64+0x14>
+ 6b4:	eb0c01df 	cmp	x14, x12
+ 6b8:	540000ed 	b.le	6d4 <triangle_count_fp64+0x74>
+ 6bc:	aa0e03e6 	mov	x6, x14
+ 6c0:	aa1003e5 	mov	x5, x16
+ 6c4:	aa0c03ee 	mov	x14, x12
+ 6c8:	aa0903f0 	mov	x16, x9
+ 6cc:	aa0603ec 	mov	x12, x6
+ 6d0:	aa0503e9 	mov	x9, x5
+ 6d4:	8b100c10 	add	x16, x0, x16, lsl #3
+ 6d8:	d280000d 	mov	x13, #0x0                   	// #0
+ 6dc:	d503201f 	nop
+ 6e0:	f86d7a08 	ldr	x8, [x16, x13, lsl #3]
+ 6e4:	d280040a 	mov	x10, #0x20                  	// #32
+ 6e8:	d280000b 	mov	x11, #0x0                   	// #0
+ 6ec:	d2800032 	mov	x18, #0x1                   	// #1
+ 6f0:	8b0b0145 	add	x5, x10, x11
+ 6f4:	eb0a025f 	cmp	x18, x10
+ 6f8:	540002aa 	b.ge	74c <triangle_count_fp64+0xec>  // b.tcont
+ 6fc:	8b45fca5 	add	x5, x5, x5, lsr #63
+ 700:	9341fca6 	asr	x6, x5, #1
+ 704:	9b0c7cc7 	mul	x7, x6, x12
+ 708:	f10000ff 	cmp	x7, #0x0
+ 70c:	91007ce5 	add	x5, x7, #0x1f
+ 710:	9a87b0a5 	csel	x5, x5, x7, lt	// lt = tstop
+ 714:	9345fca5 	asr	x5, x5, #5
+ 718:	f24010ff 	tst	x7, #0x1f
+ 71c:	54000040 	b.eq	724 <triangle_count_fp64+0xc4>  // b.none
+ 720:	cb47fca5 	sub	x5, x5, x7, lsr #63
+ 724:	8b050125 	add	x5, x9, x5
+ 728:	f8657805 	ldr	x5, [x0, x5, lsl #3]
+ 72c:	eb05011f 	cmp	x8, x5
+ 730:	54000480 	b.eq	7c0 <triangle_count_fp64+0x160>  // b.none
+ 734:	5400070b 	b.lt	814 <triangle_count_fp64+0x1b4>  // b.tstop
+ 738:	aa0603eb 	mov	x11, x6
+ 73c:	910004d2 	add	x18, x6, #0x1
+ 740:	8b0b0145 	add	x5, x10, x11
+ 744:	eb0a025f 	cmp	x18, x10
+ 748:	54fffdab 	b.lt	6fc <triangle_count_fp64+0x9c>  // b.tstop
+ 74c:	9b0c7d6b 	mul	x11, x11, x12
+ 750:	f100017f 	cmp	x11, #0x0
+ 754:	91007d67 	add	x7, x11, #0x1f
+ 758:	9a8bb0e7 	csel	x7, x7, x11, lt	// lt = tstop
+ 75c:	9345fce7 	asr	x7, x7, #5
+ 760:	f240117f 	tst	x11, #0x1f
+ 764:	54000040 	b.eq	76c <triangle_count_fp64+0x10c>  // b.none
+ 768:	cb4bfce7 	sub	x7, x7, x11, lsr #63
+ 76c:	9b0c7d4a 	mul	x10, x10, x12
+ 770:	f100015f 	cmp	x10, #0x0
+ 774:	91007d46 	add	x6, x10, #0x1f
+ 778:	9a8ab0c6 	csel	x6, x6, x10, lt	// lt = tstop
+ 77c:	9345fcc6 	asr	x6, x6, #5
+ 780:	f240115f 	tst	x10, #0x1f
+ 784:	54000040 	b.eq	78c <triangle_count_fp64+0x12c>  // b.none
+ 788:	cb4afcc6 	sub	x6, x6, x10, lsr #63
+ 78c:	d10004c6 	sub	x6, x6, #0x1
+ 790:	8b0600eb 	add	x11, x7, x6
+ 794:	8b4bfd65 	add	x5, x11, x11, lsr #63
+ 798:	9341fca5 	asr	x5, x5, #1
+ 79c:	aa0503ea 	mov	x10, x5
+ 7a0:	3600004b 	tbz	w11, #0, 7a8 <triangle_count_fp64+0x148>
+ 7a4:	b7f8022b 	tbnz	x11, #63, 7e8 <triangle_count_fp64+0x188>
+ 7a8:	eb0700df 	cmp	x6, x7
+ 7ac:	540003cb 	b.lt	824 <triangle_count_fp64+0x1c4>  // b.tstop
+ 7b0:	8b050125 	add	x5, x9, x5
+ 7b4:	f8657805 	ldr	x5, [x0, x5, lsl #3]
+ 7b8:	eb05011f 	cmp	x8, x5
+ 7bc:	54000241 	b.ne	804 <triangle_count_fp64+0x1a4>  // b.any
+ 7c0:	d2800025 	mov	x5, #0x1                   	// #1
+ 7c4:	910005ad 	add	x13, x13, #0x1
+ 7c8:	8b050231 	add	x17, x17, x5
+ 7cc:	eb0d01df 	cmp	x14, x13
+ 7d0:	54fff881 	b.ne	6e0 <triangle_count_fp64+0x80>  // b.any
+ 7d4:	910005ef 	add	x15, x15, #0x1
+ 7d8:	eb0f009f 	cmp	x4, x15
+ 7dc:	54fff521 	b.ne	680 <triangle_count_fp64+0x20>  // b.any
+ 7e0:	f9000071 	str	x17, [x3]
+ 7e4:	d65f03c0 	ret
+ 7e8:	eb0700df 	cmp	x6, x7
+ 7ec:	540001cb 	b.lt	824 <triangle_count_fp64+0x1c4>  // b.tstop
+ 7f0:	d10004aa 	sub	x10, x5, #0x1
+ 7f4:	8b0a0125 	add	x5, x9, x10
+ 7f8:	f8657805 	ldr	x5, [x0, x5, lsl #3]
+ 7fc:	eb05011f 	cmp	x8, x5
+ 800:	54fffe00 	b.eq	7c0 <triangle_count_fp64+0x160>  // b.none
+ 804:	eb05011f 	cmp	x8, x5
+ 808:	540000aa 	b.ge	81c <triangle_count_fp64+0x1bc>  // b.tcont
+ 80c:	d1000546 	sub	x6, x10, #0x1
+ 810:	17ffffe0 	b	790 <triangle_count_fp64+0x130>
+ 814:	aa0603ea 	mov	x10, x6
+ 818:	17ffffb6 	b	6f0 <triangle_count_fp64+0x90>
+ 81c:	91000547 	add	x7, x10, #0x1
+ 820:	17ffffdc 	b	790 <triangle_count_fp64+0x130>
+ 824:	d2800005 	mov	x5, #0x0                   	// #0
+ 828:	17ffffe7 	b	7c4 <triangle_count_fp64+0x164>
+ 82c:	d2800011 	mov	x17, #0x0                   	// #0
+ 830:	f9000071 	str	x17, [x3]
+ 834:	d65f03c0 	ret
+ 838:	d503201f 	nop
+ 83c:	d503201f 	nop

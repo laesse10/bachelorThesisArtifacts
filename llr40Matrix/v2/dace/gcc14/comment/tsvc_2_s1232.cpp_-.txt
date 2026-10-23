@@ -1,0 +1,5 @@
+lib=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/benchmarks/loop_level_reasoning/tsvc_2_s1232/cpp_backend/build/libtsvc_2_s1232_cpp.so
+
+String dump of section '.comment':
+  [     0]  GCC: (SUSE Linux) 14.2.0
+

@@ -1,0 +1,195 @@
+# objdump -d libnfa_frontier_cpp.so, functions matching nfa_frontier_fp64* (sha256 95c617773c392584)
+
+0000000000000720 <nfa_frontier_fp64>:    # address mod 64 = 32
+ 720:	a9b77bfd 	stp	x29, x30, [sp, #-144]!
+ 724:	910003fd 	mov	x29, sp
+ 728:	a90153f3 	stp	x19, x20, [sp, #16]
+ 72c:	f9405ff4 	ldr	x20, [sp, #184]
+ 730:	a90363f7 	stp	x23, x24, [sp, #48]
+ 734:	aa0003f7 	mov	x23, x0
+ 738:	a94a4bf8 	ldp	x24, x18, [sp, #160]
+ 73c:	d37df294 	lsl	x20, x20, #3
+ 740:	aa1403e0 	mov	x0, x20
+ 744:	a9046bf9 	stp	x25, x26, [sp, #64]
+ 748:	aa0603fa 	mov	x26, x6
+ 74c:	a94927f9 	ldp	x25, x9, [sp, #144]
+ 750:	a9071fe4 	stp	x4, x7, [sp, #112]
+ 754:	f94067e4 	ldr	x4, [sp, #200]
+ 758:	a9025bf5 	stp	x21, x22, [sp, #32]
+ 75c:	aa0103f6 	mov	x22, x1
+ 760:	d2800021 	mov	x1, #0x1                   	// #1
+ 764:	aa0503f5 	mov	x21, x5
+ 768:	a90573fb 	stp	x27, x28, [sp, #80]
+ 76c:	aa0203fc 	mov	x28, x2
+ 770:	aa0303fb 	mov	x27, x3
+ 774:	f90037e4 	str	x4, [sp, #104]
+ 778:	a90827f2 	stp	x18, x9, [sp, #128]
+ 77c:	97ffff8d 	bl	5b0 <calloc@plt>
+ 780:	d2800021 	mov	x1, #0x1                   	// #1
+ 784:	aa0003f3 	mov	x19, x0
+ 788:	aa1403e0 	mov	x0, x20
+ 78c:	97ffff89 	bl	5b0 <calloc@plt>
+ 790:	aa0003e2 	mov	x2, x0
+ 794:	d2800021 	mov	x1, #0x1                   	// #1
+ 798:	aa1403e0 	mov	x0, x20
+ 79c:	aa0203f4 	mov	x20, x2
+ 7a0:	97ffff84 	bl	5b0 <calloc@plt>
+ 7a4:	a947cbe7 	ldp	x7, x18, [sp, #120]
+ 7a8:	aa0003ea 	mov	x10, x0
+ 7ac:	f94037e4 	ldr	x4, [sp, #104]
+ 7b0:	f94047e9 	ldr	x9, [sp, #136]
+ 7b4:	f100025f 	cmp	x18, #0x0
+ 7b8:	540010ad 	b.le	9cc <nfa_frontier_fp64+0x2ac>
+ 7bc:	910020e1 	add	x1, x7, #0x8
+ 7c0:	d1000491 	sub	x17, x4, #0x1
+ 7c4:	d280000d 	mov	x13, #0x0                   	// #0
+ 7c8:	d2800028 	mov	x8, #0x1                   	// #1
+ 7cc:	aa0703eb 	mov	x11, x7
+ 7d0:	f86d796e 	ldr	x14, [x11, x13, lsl #3]
+ 7d4:	f86d7825 	ldr	x5, [x1, x13, lsl #3]
+ 7d8:	eb0501df 	cmp	x14, x5
+ 7dc:	5400118a 	b.ge	a0c <nfa_frontier_fp64+0x2ec>  // b.tcont
+ 7e0:	8b0e0f40 	add	x0, x26, x14, lsl #3
+ 7e4:	d2800003 	mov	x3, #0x0                   	// #0
+ 7e8:	8b050f4c 	add	x12, x26, x5, lsl #3
+ 7ec:	f9400002 	ldr	x2, [x0]
+ 7f0:	91002000 	add	x0, x0, #0x8
+ 7f4:	d37df046 	lsl	x6, x2, #3
+ 7f8:	f8666a67 	ldr	x7, [x19, x6]
+ 7fc:	b50000c7 	cbnz	x7, 814 <nfa_frontier_fp64+0xf4>
+ 800:	f86d7b87 	ldr	x7, [x28, x13, lsl #3]
+ 804:	f8266a68 	str	x8, [x19, x6]
+ 808:	8b070066 	add	x6, x3, x7
+ 80c:	91000463 	add	x3, x3, #0x1
+ 810:	f8267a82 	str	x2, [x20, x6, lsl #3]
+ 814:	eb0c001f 	cmp	x0, x12
+ 818:	54fffea1 	b.ne	7ec <nfa_frontier_fp64+0xcc>  // b.any
+ 81c:	f100009f 	cmp	x4, #0x0
+ 820:	54000fcd 	b.le	a18 <nfa_frontier_fp64+0x2f8>
+ 824:	d280000c 	mov	x12, #0x0                   	// #0
+ 828:	d2800006 	mov	x6, #0x0                   	// #0
+ 82c:	a907cbeb 	stp	x11, x18, [sp, #120]
+ 830:	aa0403f0 	mov	x16, x4
+ 834:	f90047e1 	str	x1, [sp, #136]
+ 838:	d503201f 	nop
+ 83c:	d503201f 	nop
+ 840:	52800022 	mov	w2, #0x1                   	// #1
+ 844:	eb11019f 	cmp	x12, x17
+ 848:	54000080 	b.eq	858 <nfa_frontier_fp64+0x138>  // b.none
+ 84c:	f86c7920 	ldr	x0, [x9, x12, lsl #3]
+ 850:	f100281f 	cmp	x0, #0xa
+ 854:	1a9f17e2 	cset	w2, eq	// eq = none
+ 858:	f100007f 	cmp	x3, #0x0
+ 85c:	54000d4d 	b.le	a04 <nfa_frontier_fp64+0x2e4>
+ 860:	f86d7b8f 	ldr	x15, [x28, x13, lsl #3]
+ 864:	d2800004 	mov	x4, #0x0                   	// #0
+ 868:	b9006be2 	str	w2, [sp, #104]
+ 86c:	f86c7932 	ldr	x18, [x9, x12, lsl #3]
+ 870:	8b0f0063 	add	x3, x3, x15
+ 874:	8b0f0e80 	add	x0, x20, x15, lsl #3
+ 878:	d37df1e1 	lsl	x1, x15, #3
+ 87c:	8b030e9e 	add	x30, x20, x3, lsl #3
+ 880:	f9400002 	ldr	x2, [x0]
+ 884:	8b0401eb 	add	x11, x15, x4
+ 888:	91002000 	add	x0, x0, #0x8
+ 88c:	8b022307 	add	x7, x24, x2, lsl #8
+ 890:	d37df043 	lsl	x3, x2, #3
+ 894:	387268e7 	ldrb	w7, [x7, x18]
+ 898:	34000127 	cbz	w7, 8bc <nfa_frontier_fp64+0x19c>
+ 89c:	f8636ae7 	ldr	x7, [x23, x3]
+ 8a0:	91000484 	add	x4, x4, #0x1
+ 8a4:	f82b7942 	str	x2, [x10, x11, lsl #3]
+ 8a8:	38626b62 	ldrb	w2, [x27, x2]
+ 8ac:	910004e7 	add	x7, x7, #0x1
+ 8b0:	7100005f 	cmp	w2, #0x0
+ 8b4:	9a8604c6 	cinc	x6, x6, ne	// ne = any
+ 8b8:	f8236ae7 	str	x7, [x23, x3]
+ 8bc:	f8236a7f 	str	xzr, [x19, x3]
+ 8c0:	eb0003df 	cmp	x30, x0
+ 8c4:	54fffde1 	b.ne	880 <nfa_frontier_fp64+0x160>  // b.any
+ 8c8:	b9406be2 	ldr	w2, [sp, #104]
+ 8cc:	f100009f 	cmp	x4, #0x0
+ 8d0:	540009ad 	b.le	a04 <nfa_frontier_fp64+0x2e4>
+ 8d4:	8b0f0084 	add	x4, x4, x15
+ 8d8:	8b010141 	add	x1, x10, x1
+ 8dc:	8b040d47 	add	x7, x10, x4, lsl #3
+ 8e0:	d2800003 	mov	x3, #0x0                   	// #0
+ 8e4:	f9400020 	ldr	x0, [x1]
+ 8e8:	d37df000 	lsl	x0, x0, #3
+ 8ec:	8b0002a4 	add	x4, x21, x0
+ 8f0:	f8606aa0 	ldr	x0, [x21, x0]
+ 8f4:	f940049e 	ldr	x30, [x4, #8]
+ 8f8:	eb1e001f 	cmp	x0, x30
+ 8fc:	5400024a 	b.ge	944 <nfa_frontier_fp64+0x224>  // b.tcont
+ 900:	8b000ec0 	add	x0, x22, x0, lsl #3
+ 904:	2a0203eb 	mov	w11, w2
+ 908:	f90037e1 	str	x1, [sp, #104]
+ 90c:	8b1e0ede 	add	x30, x22, x30, lsl #3
+ 910:	f9400002 	ldr	x2, [x0]
+ 914:	8b0301f2 	add	x18, x15, x3
+ 918:	91002000 	add	x0, x0, #0x8
+ 91c:	d37df044 	lsl	x4, x2, #3
+ 920:	f8646a61 	ldr	x1, [x19, x4]
+ 924:	b5000081 	cbnz	x1, 934 <nfa_frontier_fp64+0x214>
+ 928:	91000463 	add	x3, x3, #0x1
+ 92c:	f8246a68 	str	x8, [x19, x4]
+ 930:	f8327a82 	str	x2, [x20, x18, lsl #3]
+ 934:	eb0003df 	cmp	x30, x0
+ 938:	54fffec1 	b.ne	910 <nfa_frontier_fp64+0x1f0>  // b.any
+ 93c:	f94037e1 	ldr	x1, [sp, #104]
+ 940:	2a0b03e2 	mov	w2, w11
+ 944:	91002021 	add	x1, x1, #0x8
+ 948:	eb0100ff 	cmp	x7, x1
+ 94c:	54fffcc1 	b.ne	8e4 <nfa_frontier_fp64+0x1c4>  // b.any
+ 950:	eb0501df 	cmp	x14, x5
+ 954:	5400026a 	b.ge	9a0 <nfa_frontier_fp64+0x280>  // b.tcont
+ 958:	aa0e03e0 	mov	x0, x14
+ 95c:	d503201f 	nop
+ 960:	38606b21 	ldrb	w1, [x25, x0]
+ 964:	7100003f 	cmp	w1, #0x0
+ 968:	7a401840 	ccmp	w2, #0x0, #0x0, ne	// ne = any
+ 96c:	54000140 	b.eq	994 <nfa_frontier_fp64+0x274>  // b.none
+ 970:	f8607b41 	ldr	x1, [x26, x0, lsl #3]
+ 974:	d37df024 	lsl	x4, x1, #3
+ 978:	f8646a67 	ldr	x7, [x19, x4]
+ 97c:	b50000c7 	cbnz	x7, 994 <nfa_frontier_fp64+0x274>
+ 980:	f86d7b87 	ldr	x7, [x28, x13, lsl #3]
+ 984:	f8246a68 	str	x8, [x19, x4]
+ 988:	8b070064 	add	x4, x3, x7
+ 98c:	91000463 	add	x3, x3, #0x1
+ 990:	f8247a81 	str	x1, [x20, x4, lsl #3]
+ 994:	91000400 	add	x0, x0, #0x1
+ 998:	eb0000bf 	cmp	x5, x0
+ 99c:	54fffe21 	b.ne	960 <nfa_frontier_fp64+0x240>  // b.any
+ 9a0:	9100058c 	add	x12, x12, #0x1
+ 9a4:	eb0c021f 	cmp	x16, x12
+ 9a8:	54fff4c1 	b.ne	840 <nfa_frontier_fp64+0x120>  // b.any
+ 9ac:	a947cbeb 	ldp	x11, x18, [sp, #120]
+ 9b0:	aa1003e4 	mov	x4, x16
+ 9b4:	f94047e1 	ldr	x1, [sp, #136]
+ 9b8:	f9403be0 	ldr	x0, [sp, #112]
+ 9bc:	f82d7806 	str	x6, [x0, x13, lsl #3]
+ 9c0:	910005ad 	add	x13, x13, #0x1
+ 9c4:	eb0d025f 	cmp	x18, x13
+ 9c8:	54fff041 	b.ne	7d0 <nfa_frontier_fp64+0xb0>  // b.any
+ 9cc:	aa1303e0 	mov	x0, x19
+ 9d0:	f90037ea 	str	x10, [sp, #104]
+ 9d4:	97fffefb 	bl	5c0 <free@plt>
+ 9d8:	aa1403e0 	mov	x0, x20
+ 9dc:	97fffef9 	bl	5c0 <free@plt>
+ 9e0:	f94037ea 	ldr	x10, [sp, #104]
+ 9e4:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 9e8:	a9425bf5 	ldp	x21, x22, [sp, #32]
+ 9ec:	aa0a03e0 	mov	x0, x10
+ 9f0:	a94363f7 	ldp	x23, x24, [sp, #48]
+ 9f4:	a9446bf9 	ldp	x25, x26, [sp, #64]
+ 9f8:	a94573fb 	ldp	x27, x28, [sp, #80]
+ 9fc:	a8c97bfd 	ldp	x29, x30, [sp], #144
+ a00:	17fffef0 	b	5c0 <free@plt>
+ a04:	d2800003 	mov	x3, #0x0                   	// #0
+ a08:	17ffffd2 	b	950 <nfa_frontier_fp64+0x230>
+ a0c:	d2800003 	mov	x3, #0x0                   	// #0
+ a10:	f100009f 	cmp	x4, #0x0
+ a14:	54fff08c 	b.gt	824 <nfa_frontier_fp64+0x104>
+ a18:	d2800006 	mov	x6, #0x0                   	// #0
+ a1c:	17ffffe7 	b	9b8 <nfa_frontier_fp64+0x298>

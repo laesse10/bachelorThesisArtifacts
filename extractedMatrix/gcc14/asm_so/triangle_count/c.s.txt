@@ -1,0 +1,115 @@
+# objdump -d libtriangle_count_cc.so, functions matching triangle_count_fp64* (sha256 1a1a275d044f5067)
+
+0000000000000640 <triangle_count_fp64>:    # address mod 64 = 0
+ 640:	f100009f 	cmp	x4, #0x0
+ 644:	54000ccd 	b.le	7dc <triangle_count_fp64+0x19c>
+ 648:	d280000f 	mov	x15, #0x0                   	// #0
+ 64c:	d2800007 	mov	x7, #0x0                   	// #0
+ 650:	14000004 	b	660 <triangle_count_fp64+0x20>
+ 654:	910005ef 	add	x15, x15, #0x1
+ 658:	eb0f009f 	cmp	x4, x15
+ 65c:	54000ae0 	b.eq	7b8 <triangle_count_fp64+0x178>  // b.none
+ 660:	f86f7825 	ldr	x5, [x1, x15, lsl #3]
+ 664:	f86f7806 	ldr	x6, [x0, x15, lsl #3]
+ 668:	d37df0a5 	lsl	x5, x5, #3
+ 66c:	8b050048 	add	x8, x2, x5
+ 670:	f865684c 	ldr	x12, [x2, x5]
+ 674:	d37df0c6 	lsl	x6, x6, #3
+ 678:	f9400505 	ldr	x5, [x8, #8]
+ 67c:	8b060048 	add	x8, x2, x6
+ 680:	f866684a 	ldr	x10, [x2, x6]
+ 684:	f940050e 	ldr	x14, [x8, #8]
+ 688:	cb0c00a5 	sub	x5, x5, x12
+ 68c:	f10000bf 	cmp	x5, #0x0
+ 690:	cb0a01ce 	sub	x14, x14, x10
+ 694:	fa40c9c4 	ccmp	x14, #0x0, #0x4, gt
+ 698:	54fffded 	b.le	654 <triangle_count_fp64+0x14>
+ 69c:	eb0e00bf 	cmp	x5, x14
+ 6a0:	540000ed 	b.le	6bc <triangle_count_fp64+0x7c>
+ 6a4:	aa0503e8 	mov	x8, x5
+ 6a8:	aa0c03e6 	mov	x6, x12
+ 6ac:	aa0e03e5 	mov	x5, x14
+ 6b0:	aa0a03ec 	mov	x12, x10
+ 6b4:	aa0803ee 	mov	x14, x8
+ 6b8:	aa0603ea 	mov	x10, x6
+ 6bc:	8b0c00a5 	add	x5, x5, x12
+ 6c0:	8b0c0c0c 	add	x12, x0, x12, lsl #3
+ 6c4:	8b050c0d 	add	x13, x0, x5, lsl #3
+ 6c8:	f940018b 	ldr	x11, [x12]
+ 6cc:	d2800409 	mov	x9, #0x20                  	// #32
+ 6d0:	d2800010 	mov	x16, #0x0                   	// #0
+ 6d4:	91000611 	add	x17, x16, #0x1
+ 6d8:	8b100125 	add	x5, x9, x16
+ 6dc:	eb11013f 	cmp	x9, x17
+ 6e0:	5400024d 	b.le	728 <triangle_count_fp64+0xe8>
+ 6e4:	8b45fca5 	add	x5, x5, x5, lsr #63
+ 6e8:	9341fca6 	asr	x6, x5, #1
+ 6ec:	9b067dc8 	mul	x8, x14, x6
+ 6f0:	f100011f 	cmp	x8, #0x0
+ 6f4:	91007d05 	add	x5, x8, #0x1f
+ 6f8:	9a88b0a5 	csel	x5, x5, x8, lt	// lt = tstop
+ 6fc:	9345fca5 	asr	x5, x5, #5
+ 700:	f240111f 	tst	x8, #0x1f
+ 704:	cb48fca8 	sub	x8, x5, x8, lsr #63
+ 708:	9a851105 	csel	x5, x8, x5, ne	// ne = any
+ 70c:	8b050145 	add	x5, x10, x5
+ 710:	f8657805 	ldr	x5, [x0, x5, lsl #3]
+ 714:	eb05017f 	cmp	x11, x5
+ 718:	54000420 	b.eq	79c <triangle_count_fp64+0x15c>  // b.none
+ 71c:	5400052b 	b.lt	7c0 <triangle_count_fp64+0x180>  // b.tstop
+ 720:	aa0603f0 	mov	x16, x6
+ 724:	17ffffec 	b	6d4 <triangle_count_fp64+0x94>
+ 728:	9b107dd0 	mul	x16, x14, x16
+ 72c:	9b097dc9 	mul	x9, x14, x9
+ 730:	f100021f 	cmp	x16, #0x0
+ 734:	91007e11 	add	x17, x16, #0x1f
+ 738:	9a90b231 	csel	x17, x17, x16, lt	// lt = tstop
+ 73c:	f240121f 	tst	x16, #0x1f
+ 740:	9345fe31 	asr	x17, x17, #5
+ 744:	91007d28 	add	x8, x9, #0x1f
+ 748:	cb50fe30 	sub	x16, x17, x16, lsr #63
+ 74c:	9a911211 	csel	x17, x16, x17, ne	// ne = any
+ 750:	f100013f 	cmp	x9, #0x0
+ 754:	9a89b108 	csel	x8, x8, x9, lt	// lt = tstop
+ 758:	9345fd08 	asr	x8, x8, #5
+ 75c:	f240113f 	tst	x9, #0x1f
+ 760:	cb49fd09 	sub	x9, x8, x9, lsr #63
+ 764:	9a881128 	csel	x8, x9, x8, ne	// ne = any
+ 768:	d1000508 	sub	x8, x8, #0x1
+ 76c:	8b080226 	add	x6, x17, x8
+ 770:	eb08023f 	cmp	x17, x8
+ 774:	5400016c 	b.gt	7a0 <triangle_count_fp64+0x160>
+ 778:	8b46fcc5 	add	x5, x6, x6, lsr #63
+ 77c:	f24000df 	tst	x6, #0x1
+ 780:	9341fca5 	asr	x5, x5, #1
+ 784:	cb46fca6 	sub	x6, x5, x6, lsr #63
+ 788:	9a8510c5 	csel	x5, x6, x5, ne	// ne = any
+ 78c:	8b050146 	add	x6, x10, x5
+ 790:	f8667806 	ldr	x6, [x0, x6, lsl #3]
+ 794:	eb06017f 	cmp	x11, x6
+ 798:	54000181 	b.ne	7c8 <triangle_count_fp64+0x188>  // b.any
+ 79c:	910004e7 	add	x7, x7, #0x1
+ 7a0:	9100218c 	add	x12, x12, #0x8
+ 7a4:	eb0c01bf 	cmp	x13, x12
+ 7a8:	54fff901 	b.ne	6c8 <triangle_count_fp64+0x88>  // b.any
+ 7ac:	910005ef 	add	x15, x15, #0x1
+ 7b0:	eb0f009f 	cmp	x4, x15
+ 7b4:	54fff561 	b.ne	660 <triangle_count_fp64+0x20>  // b.any
+ 7b8:	f9000067 	str	x7, [x3]
+ 7bc:	d65f03c0 	ret
+ 7c0:	aa0603e9 	mov	x9, x6
+ 7c4:	17ffffc5 	b	6d8 <triangle_count_fp64+0x98>
+ 7c8:	5400006a 	b.ge	7d4 <triangle_count_fp64+0x194>  // b.tcont
+ 7cc:	d10004a8 	sub	x8, x5, #0x1
+ 7d0:	17ffffe7 	b	76c <triangle_count_fp64+0x12c>
+ 7d4:	910004b1 	add	x17, x5, #0x1
+ 7d8:	17ffffe5 	b	76c <triangle_count_fp64+0x12c>
+ 7dc:	d2800007 	mov	x7, #0x0                   	// #0
+ 7e0:	f9000067 	str	x7, [x3]
+ 7e4:	d65f03c0 	ret
+ 7e8:	d503201f 	nop
+ 7ec:	d503201f 	nop
+ 7f0:	d503201f 	nop
+ 7f4:	d503201f 	nop
+ 7f8:	d503201f 	nop
+ 7fc:	d503201f 	nop

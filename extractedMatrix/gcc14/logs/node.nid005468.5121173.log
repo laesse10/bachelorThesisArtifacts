@@ -1,0 +1,31 @@
+PROBE nid005468 1 1
+unit warpx_field_gather kernel=warpx_field_gather node=nid005468 start=2026-10-22T15:57:16+02:00
+pristine warpx_field_gather_fp64.c a9cd07ab2ad51509
+pristine warpx_field_gather_fp64.cpp ecfc884ae77c7857
+pristine warpx_field_gather_fp64.f90 65f9a50f18a58642
+pristine warpx_field_gather_fp32.c ccaa4bd464005c99
+pristine warpx_field_gather_fp32.cpp a0f748f376b93e18
+pristine warpx_field_gather_fp32.f90 54afef5b5819cfd3
+pristine warpx_field_gather_numba_np.py 43555889e7428c62
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- src32=- bin=bin14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 12.022 ms 
+  [1] cpp              ok           min 12.300 ms 
+  [1] cpp14            ok           min 12.065 ms 
+  [1] fortran          ok           min 13.380 ms 
+  [1] fortran14        ok           min 13.201 ms 
+  [2] fortran14        ok           min 13.187 ms 
+  [2] fortran          ok           min 13.175 ms 
+  [2] cpp14            ok           min 11.930 ms 
+  [2] cpp              ok           min 12.317 ms 
+  [2] c                ok           min 12.033 ms 
+  [3] c                ok           min 12.044 ms 
+  [3] cpp              ok           min 12.297 ms 
+  [3] cpp14            ok           min 11.950 ms 
+  [3] fortran          ok           min 12.749 ms 
+  [3] fortran14        ok           min 12.977 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/parts/warpx_field_gather.csv
+unit warpx_field_gather end=2026-10-22T16:07:15+02:00

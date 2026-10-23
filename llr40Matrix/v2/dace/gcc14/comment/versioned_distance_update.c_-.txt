@@ -1,0 +1,5 @@
+lib=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/benchmarks/loop_level_reasoning/versioned_distance_update/cpp_backend/build/libversioned_distance_update_cc.so
+
+String dump of section '.comment':
+  [     0]  GCC: (SUSE Linux) 14.2.0
+

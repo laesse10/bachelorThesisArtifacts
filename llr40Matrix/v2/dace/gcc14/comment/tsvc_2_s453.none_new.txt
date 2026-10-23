@@ -1,0 +1,5 @@
+lib=/capstor/scratch/cscs/lhulsbergen/llr40_dace_gcc14/time/build/tsvc_2_s453.none_new/dacecache_rank0/canon_cpu/build/libcanon_cpu.so
+
+String dump of section '.comment':
+  [     0]  GCC: (SUSE Linux) 14.2.0
+

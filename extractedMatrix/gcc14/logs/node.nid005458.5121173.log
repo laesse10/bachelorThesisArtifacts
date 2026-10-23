@@ -1,0 +1,31 @@
+PROBE nid005458 1 1
+unit spgemm_hash kernel=spgemm_hash node=nid005458 start=2026-10-22T15:57:16+02:00
+pristine spgemm_hash_fp64.c 0cd7b2db99500ed7
+pristine spgemm_hash_fp64.cpp 88e2a4a3e0529781
+pristine spgemm_hash_fp64.f90 13bcff56ccf6a02f
+pristine spgemm_hash_fp32.c 006276a1c62b3784
+pristine spgemm_hash_fp32.cpp 8eba4c95912f16e1
+pristine spgemm_hash_fp32.f90 7b0e6d572d83c3e6
+pristine spgemm_hash_numba_np.py 627a19e0ffb7e245
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell cpp: cpp src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/g++', 'g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell cpp14: cpp src=- src32=- bin=bin_gxx14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/bin_gxx14/g++', 'g++ (SUSE Linux) 14.2.0')
+cell fortran: fortran src=- src32=- bin=- env=- -> ('/users/lhulsbergen/bin/gfortran', 'GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0]')
+cell fortran14: fortran src=- src32=- bin=bin14 env=- -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/bin14/gfortran', 'GNU Fortran (SUSE Linux) 14.2.0')
+  [1] c                ok           min 261.555 ms 
+  [1] cpp              ok           min 262.611 ms 
+  [1] cpp14            ok           min 261.258 ms 
+  [1] fortran          ok           min 181.772 ms 
+  [1] fortran14        ok           min 186.099 ms 
+  [2] fortran14        ok           min 186.129 ms 
+  [2] fortran          ok           min 181.717 ms 
+  [2] cpp14            ok           min 261.216 ms 
+  [2] cpp              ok           min 262.548 ms 
+  [2] c                ok           min 261.437 ms 
+  [3] c                ok           min 261.481 ms 
+  [3] cpp              ok           min 262.717 ms 
+  [3] cpp14            ok           min 261.514 ms 
+  [3] fortran          ok           min 181.906 ms 
+  [3] fortran14        ok           min 186.209 ms 
+wrote 15 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/extractedMatrix/gcc14/parts/spgemm_hash.csv
+unit spgemm_hash end=2026-10-22T16:01:07+02:00

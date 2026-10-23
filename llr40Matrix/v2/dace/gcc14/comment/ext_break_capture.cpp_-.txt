@@ -1,0 +1,5 @@
+lib=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-dace/hpcagent_bench/benchmarks/loop_level_reasoning/ext_break_capture/cpp_backend/build/libext_break_capture_cpp.so
+
+String dump of section '.comment':
+  [     0]  GCC: (SUSE Linux) 14.2.0
+
