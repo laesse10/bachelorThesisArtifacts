@@ -1,4 +1,5 @@
-"""The LLR-40 matrix for the thesis: one figure, two LaTeX tables and the CSVs behind them.
+"""The LLR-40 matrix for the thesis: the overview figure, one small figure per paragraph, two LaTeX tables
+and the CSVs behind them.
 
     python plotting/run.py plotting/thesis/llr40_matrix.py
 
@@ -7,8 +8,10 @@ measurement ``llr40Matrix/results.csv`` to flag kernels whose GCC cells did not 
 the thesis repository's ``Paper/figures/`` (github.com/laesse10/BachelorthesisPaper, by default checked out
 next to this one; ``$THESIS_FIGURES`` overrides the directory):
 
-* ``llr40_speedup.{pdf,png}``  per-kernel speedup of every column over the translated C column,
-  grouped by transformation class, with a geomean summary per column;
+* ``llr40_speedup.{pdf,png}``  per-kernel speedup of every column over the faster of translated C and
+  Numba (the benchmark's baseline), grouped by transformation class, with a geomean summary per column;
+* ``llr40_<panel>.{pdf,png}``  the same marks for the few kernels one paragraph discusses (:data:`PANELS`),
+  and ``llr40_summary`` with the geomean rows alone;
 * ``llr40_speedup.csv``        the value behind every mark of the figure;
 * ``llr40_geomean.{csv,tex}``  the summary rows as a table;
 * ``llr40_matrix.tex``         the full matrix (median of 30 runs per cell) for the appendix.
@@ -33,6 +36,11 @@ from matplotlib.transforms import blended_transform_factory  # noqa: E402
 from hpcagent_bench import experiment_tags as et  # noqa: E402
 from hpcagent_bench.stats import palette, style, summary  # noqa: E402
 
+import sys  # noqa: E402
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import panels  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DATA = ROOT / "llr40Matrix" / "v2"
 OUT = pathlib.Path(os.environ.get("THESIS_FIGURES", ROOT.parent / "BachelorthesisPaper" / "Paper" / "figures"))
@@ -40,20 +48,22 @@ OUT = pathlib.Path(os.environ.get("THESIS_FIGURES", ROOT.parent / "Bachelorthesi
 #: Thesis \textwidth (369pt, memoir a4 11pt), the width the figure is placed at.
 TEXT_WIDTH_IN = 369.0 / 72.27
 
-BASELINE = "c"
-COLUMNS = ("c_reference", "cpp", "fortran", "numba", "agent")
+#: The baseline of every speedup: the faster of these two cells, kernel by kernel, as the benchmark's judge
+#: grades (``best-of(numba,c)``). A cell that is not valid cannot be the baseline.
+BASELINE = ("c", "numba")
+COLUMNS = ("c", "cpp", "fortran", "numba", "agent")
 NAME = {
-    "c": f"Translated C ({et.framework_name('cc')})",
-    "c_reference": f"Hand-written C ({et.framework_name('cc')})",
-    "cpp": et.framework_name("cpp"),
-    "fortran": et.framework_name("fortran"),
+    "c": "C",
+    "cpp": "C++",
+    "fortran": "Fortran",
     "numba": et.framework_name("numba"),
     "agent": "Agent",
 }
 #: Summary-row labels; the legend carries the full names.
-SHORT = {"c_reference": "Hand-written C"}
+SHORT: dict[str, str] = {}
+BASELINE_NAME = "Faster of C and Numba"
 COLOR = {
-    "c_reference": palette.framework_color("cc"),
+    "c": palette.framework_color("cc"),
     # The registry's C++ brown is hard to tell from the Fortran purple at marker size: blue instead.
     "cpp": palette.tab20_slot(0),
     "fortran": palette.framework_color("fortran"),
@@ -61,7 +71,7 @@ COLOR = {
     "agent": palette.tab20_slot(6),
 }
 MARKER = {
-    "c_reference": palette.language_marker("c"),
+    "c": palette.language_marker("c"),
     "cpp": palette.language_marker("cpp"),
     "fortran": palette.language_marker("fortran"),
     "numba": palette.language_marker("python"),
@@ -86,9 +96,6 @@ CLASSES = (
     ("wavefront", "Wavefront"),
 )
 
-#: Left out of the figure: no GCC column validates at preset M (FMA contraction), so there is no
-#: baseline to divide by. It stays in the appendix table.
-NO_BASELINE = ("tsvc_2_s115",)
 #: Recorded ok at preset M, but the outputs compared equal only because both are mostly inf/NaN.
 VACUOUS = ("wf_triangular", "wf_diff_skew")
 
@@ -98,7 +105,24 @@ TIE = 0.03  # +-3%: the faster / tie / slower split of the summary table
 #: in the two measurement campaigns (v1 at e2bceb68, v2 at 26a4f0cf). Its GCC columns then differ by
 #: noise, not by code. The flagged set is separated from the rest: 1.20x and up versus 1.09x and down.
 UNSTABLE_RATIO = 1.15
-GCC_COLUMNS = ("c", "c_reference", "cpp", "fortran")
+GCC_COLUMNS = ("c", "cpp", "fortran")
+
+#: One small figure per paragraph of the evaluation: the kernels the paragraph discusses, in groups, and the
+#: columns it compares.
+GENERATED = ("c", "cpp", "fortran", "numba")
+PANELS = {
+    "sums": ((("", ("tsvc_2_s311", "tsvc_2_s3111", "scan_affine_decay")),), GENERATED),
+    "select": ((("", ("tsvc_2_s316", "argmax_with_index", "tsvc_2_s3110", "tsvc_2_s318")),), GENERATED),
+    "invariant": ((("", ("tsvc_2_s2710",)),), GENERATED),
+    "carried": ((("", ("versioned_distance_update", "wf_triangular")),), GENERATED + ("agent",)),
+    "restructure": (
+        (("Interchange", ("tsvc_2_s1232", "tsvc_2_s231", "tsvc_2_s233", "tsvc_2_s235")),
+         ("Distribution", ("tsvc_2_s2275",)),
+         ("Fusion", ("fuse_diamond", "fuse_stencil_through_transient")),
+         ("Many threads", ("scan_affine_decay", "scatter_accum_dup"))),
+        ("c", "numba", "agent"),
+    ),
+}
 
 
 def load() -> tuple[dict[str, dict[str, dict[str, str]]], dict[str, str]]:
@@ -159,22 +183,28 @@ def median_interval(cell: dict[str, str], confidence: float = 0.95) -> tuple[flo
     return t[j - 1], t[n - j]
 
 
+def baseline(cells: dict[str, dict[str, str]]) -> str:
+    """The column that is the kernel's baseline: the faster valid one of :data:`BASELINE`."""
+    valid = [c for c in BASELINE if c in cells and math.isfinite(minimum(cells[c]))]
+    return min(valid, key=lambda c: minimum(cells[c]))
+
+
 def speedup_interval(cells: dict[str, dict[str, str]], column: str) -> tuple[float, float]:
-    """Conservative interval of ``t_C / t_column`` from the two medians' intervals."""
-    (c_lo, c_hi), (x_lo, x_hi) = median_interval(cells[BASELINE]), median_interval(cells[column])
+    """Conservative interval of ``t_base / t_column`` from the two medians' intervals."""
+    (c_lo, c_hi), (x_lo, x_hi) = median_interval(cells[baseline(cells)]), median_interval(cells[column])
     return c_lo / x_hi, c_hi / x_lo
 
 
 def speedup(cells: dict[str, dict[str, str]], column: str) -> float:
-    """``t_C / t_column``: above 1 the column is faster than translated C."""
-    base, other = minimum(cells[BASELINE]), minimum(cells[column])
+    """``t_base / t_column``: above 1 the column is faster than the faster of translated C and Numba."""
+    base, other = minimum(cells[baseline(cells)]), minimum(cells[column])
     return base / other if math.isfinite(base) and math.isfinite(other) else math.nan
 
 
 def ordered_kernels(cells, labels) -> list[tuple[str, list[str]]]:
     groups = []
     for key, _ in CLASSES:
-        kernels = [k for k in cells if labels[k] == key and k not in NO_BASELINE]
+        kernels = [k for k in cells if labels[k] == key]
         agent = {k: speedup(cells[k], "agent") for k in kernels}
         kernels.sort(key=lambda k: -agent[k] if math.isfinite(agent[k]) else -1.0)
         if kernels:
@@ -185,7 +215,7 @@ def ordered_kernels(cells, labels) -> list[tuple[str, list[str]]]:
 def geomeans(cells) -> dict[str, dict[str, float]]:
     out = {}
     for column in COLUMNS:
-        ratios = [r for k in cells if k not in NO_BASELINE for r in [speedup(cells[k], column)] if math.isfinite(r)]
+        ratios = [r for k in cells for r in [speedup(cells[k], column)] if math.isfinite(r)]
         interval = summary.geomean_interval(ratios)
         out[column] = {
             "n": len(ratios),
@@ -260,10 +290,7 @@ def figure(cells, labels, stats, unstable) -> None:
     ax.axhline(summary_top - 0.65, color=style.MUTED, linewidth=0.5, linestyle=(0, (3, 2)), zorder=1)
 
     ticks = [yy for yy, _ in rows] + [yy for yy, _ in summary_rows]
-    names = [
-        et.kernel_compact_display_name(k) + ("$^\\dagger$" if k in VACUOUS else "") + ("$^\\S$" if k in unstable else "")
-        for _, k in rows
-    ]
+    names = [kernel_label(k, unstable) for _, k in rows]
     for yy, kernel in rows:
         if kernel in unstable:
             ax.axhspan(yy - 0.5, yy + 0.5, color=style.MINOR_RULE, linewidth=0, zorder=0)
@@ -285,17 +312,17 @@ def figure(cells, labels, stats, unstable) -> None:
     ax.tick_params(axis="x", labelsize=scale.tick_pt, length=2.5, width=0.6, pad=2)
     style.minor_ticks(ax.xaxis, style.MinorKind.LOG2)
     ax.grid(axis="x", which="major", color=style.RULE, linewidth=0.5, zorder=0)
-    ax.set_xlabel("Speedup over translated C (log scale)", fontsize=scale.label_pt, labelpad=3)
+    ax.set_xlabel("Speedup over the faster of C and Numba (log scale)", fontsize=scale.label_pt, labelpad=3)
     style.despine(ax, keep=("bottom",))
 
     handles = [
         Line2D([], [], linestyle="none", marker=MARKER[c], color=COLOR[c], markersize=4.0, label=NAME[c])
         for c in COLUMNS
     ]
-    handles.append(Line2D([], [], color=style.REFERENCE, linewidth=scale.hairline_width, label=f"{NAME['c']}, 1x"))
+    handles.append(Line2D([], [], color=style.REFERENCE, linewidth=scale.hairline_width, label=f"{BASELINE_NAME}, 1x"))
     handles.append(
         Line2D([], [], linestyle="none", marker="x", color=style.MUTED, markersize=3.5,
-               label=style.NOT_DELIVERED_LABEL)
+               label="No valid result (drawn at 1x)")
     )
     # Size the margins from the measured labels (kernel and summary names left, class names right),
     # then place the one legend under the stretched axes.
@@ -309,23 +336,23 @@ def write_csvs(cells, labels, stats, unstable) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     with open(OUT / "llr40_speedup.csv", "w", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["kernel", "class", "column", "status", "t_c_ms", "t_column_ms", "speedup_over_c", "log2_speedup",
-                    "in_figure", "bandwidth_unstable"])
+        w.writerow(["kernel", "class", "column", "status", "baseline", "t_baseline_ms", "t_column_ms",
+                    "speedup_over_baseline", "log2_speedup", "bandwidth_unstable"])
         for kernel in sorted(cells):
             for column in COLUMNS:
                 cell = cells[kernel].get(column)
                 if cell is None:
                     continue
-                ratio = speedup(cells[kernel], column)
+                ratio, base = speedup(cells[kernel], column), baseline(cells[kernel])
                 w.writerow([
-                    kernel, labels[kernel], column, cell["status"],
-                    f"{minimum(cells[kernel][BASELINE]) / 1e6:.4f}", f"{minimum(cell) / 1e6:.4f}",
-                    f"{ratio:.4f}", f"{summary.log2_change(ratio):.4f}", kernel not in NO_BASELINE,
-                    kernel in unstable,
+                    kernel, labels[kernel], column, cell["status"], base,
+                    f"{minimum(cells[kernel][base]) / 1e6:.4f}", f"{minimum(cell) / 1e6:.4f}",
+                    f"{ratio:.4f}", f"{summary.log2_change(ratio):.4f}", kernel in unstable,
                 ])
     with open(OUT / "llr40_geomean.csv", "w", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["column", "n", "geomean_speedup_over_c", "ci95_lo", "ci95_hi", "faster", "tie_3pct", "slower"])
+        w.writerow(["column", "n", "geomean_speedup_over_baseline", "ci95_lo", "ci95_hi", "faster", "tie_3pct",
+                    "slower"])
         for column in COLUMNS:
             s = stats[column]
             w.writerow([column, s["n"], f"{s['geomean']:.4f}", f"{s['lo']:.4f}", f"{s['hi']:.4f}", s["faster"],
@@ -341,7 +368,7 @@ def write_geomean_table(stats) -> None:
         r"% Generated by plotting/thesis/llr40_matrix.py -- do not edit.",
         r"\begin{tabular}{@{}lrcrrr@{}}",
         r"  \toprule",
-        r"  Column & $n$ & Speedup over C (95\% CI) & Faster & Tie & Slower \\",
+        r"  Column & $n$ & Speedup (95\% CI) & Faster & Tie & Slower \\",
         r"  \midrule",
     ]
     for column in COLUMNS:
@@ -355,8 +382,8 @@ def write_geomean_table(stats) -> None:
 
 
 def write_matrix_table(cells, labels, unstable) -> None:
-    order = ("c",) + COLUMNS
-    header = ["C", "Hand-written C", "C++", "Fortran", "Numba", "Agent"]
+    order = COLUMNS
+    header = ["C", "C++", "Fortran", "Numba", "Agent"]
     lines = [
         r"% Generated by plotting/thesis/llr40_matrix.py -- do not edit.",
         r"\begin{tabular}{@{}l" + "r" * len(order) + r"@{}}",
@@ -390,6 +417,30 @@ def write_matrix_table(cells, labels, unstable) -> None:
     (OUT / "llr40_matrix.tex").write_text("\n".join(lines))
 
 
+def kernel_label(kernel: str, unstable: set[str]) -> str:
+    """The name the text uses (``s311``, ``scan_affine_decay``), with the figure's footnote marks."""
+    return (kernel.removeprefix("tsvc_2_") + ("$^\\dagger$" if kernel in VACUOUS else "")
+            + ("$^\\S$" if kernel in unstable else ""))
+
+
+def panel_figures(cells, stats, unstable) -> None:
+    """One small figure per paragraph (:data:`PANELS`), and the geomean rows alone (``llr40_summary``)."""
+
+    def value(kernel: str, column: str) -> panels.Value:
+        ratio = speedup(cells[kernel], column)
+        lo, hi = speedup_interval(cells[kernel], column) if math.isfinite(ratio) else (math.nan, math.nan)
+        return ratio, lo, hi, False
+
+    common = dict(label=lambda k: kernel_label(k, unstable), name=NAME, color=COLOR, marker=MARKER,
+                  baseline_name=BASELINE_NAME, xlabel="Speedup over the faster of C and Numba (log scale)")
+    for stem, (groups, columns) in PANELS.items():
+        panels.draw(OUT / f"llr40_{stem}", groups, columns, value, **common)
+    rows = [(f"{SHORT.get(c, NAME[c])} ($n$ = {stats[c]['n']})", c,
+             (stats[c]["geomean"], stats[c]["lo"], stats[c]["hi"])) for c in COLUMNS]
+    panels.draw(OUT / "llr40_summary", (), COLUMNS, value, summary_rows=rows,
+                **{**common, "xlabel": "Geometric mean of the speedup over the faster of C and Numba"})
+
+
 def main() -> None:
     cells, labels = load()
     unstable = unstable_kernels()
@@ -398,10 +449,11 @@ def main() -> None:
     write_geomean_table(stats)
     write_matrix_table(cells, labels, unstable)
     figure(cells, labels, stats, unstable)
+    panel_figures(cells, stats, unstable)
     print("bandwidth-unstable kernels:", ", ".join(sorted(unstable)))
     for column in COLUMNS:
         s = stats[column]
-        print(f"{column:12s} n={s['n']:2d} speedup over C {s['geomean']:.3f} [{s['lo']:.3f}, {s['hi']:.3f}]"
+        print(f"{column:12s} n={s['n']:2d} speedup over best-of(C, Numba) {s['geomean']:.3f} [{s['lo']:.3f}, {s['hi']:.3f}]"
               f"  faster {s['faster']:2d}  tie {s['tie']:2d}  slower {s['slower']:2d}")
     print(f"wrote {OUT}/llr40_speedup.pdf, .png, .csv; llr40_geomean.csv/.tex; llr40_matrix.tex")
 

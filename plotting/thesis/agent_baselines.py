@@ -1,10 +1,11 @@
-"""Agents against compilers on LLR-40 and the scientific-computing set, for the thesis: one figure, two CSVs.
+"""Agents against compilers on LLR-40 and the scientific-computing set, for the thesis: two figures, two CSVs.
 
     python plotting/run.py plotting/thesis/agent_baselines.py
 
 Reads ``References/hb-baselines-v021/`` (the no-skill arm of the HPCAgent-Bench v0.2.1 campaign, two models in
 C and HIP on llr40 and scicomp40, and the compiler sweep beside it; snapshot 2026-10-22, see its README.md).
-Writes ``agent_baselines.{pdf,png,csv}`` and ``agent_baselines_summary.csv`` under the thesis repository's
+Writes ``agent_baselines_<set>.{pdf,png}`` (one figure per set), ``agent_baselines.csv`` and
+``agent_baselines_summary.csv`` under the thesis repository's
 ``Paper/figures/`` (``$THESIS_FIGURES`` overrides).
 
 Every speedup is over the faster of the benchmark's GCC and Numba references, on an AMD MI300A node.
@@ -149,10 +150,11 @@ def main() -> None:
                  else f"  all {row['geomean_all_unmarked_as_1']:.2f}")
         print(f"{row['set']:10s} {row['row']:32s} n={row['n']:2d}/{row['of']} "
               f"{row['geomean']:8.2f} [{row['ci95_low']:.2f}, {row['ci95_high']:.2f}]{extra}")
-    print(f"wrote {OUT / 'agent_baselines'}.pdf, .png, .csv and agent_baselines_summary.csv")
+    print(f"wrote {OUT}/agent_baselines_<set>.pdf, .png, agent_baselines.csv and agent_baselines_summary.csv")
 
 
 def figure(data) -> None:
+    """One figure per kernel set (``agent_baselines_<set>``), each placed beside the paragraph on that set."""
     style.apply()
     scale = style.PRINT_SCALE
     small = style.PRINT_LEGEND_PT
@@ -163,9 +165,10 @@ def figure(data) -> None:
             y += gap
         ys.append(y)
         y += 1.0
-    height_in = 0.62 + 0.25 + (ys[-1] + 1.0) * 0.25
-    fig, axes = plt.subplots(1, 2, figsize=(TEXT_WIDTH_IN, height_in), sharey=True)
-    for ax, (setname, _, title, total) in zip(axes, SETS):
+    height_in = 0.62 + 0.05 + (ys[-1] + 1.0) * 0.2
+    for setname, _, _, total in SETS:
+        fig = plt.figure(figsize=(TEXT_WIDTH_IN, height_in))
+        ax = fig.add_axes((0.3, 0.62 / height_in, 0.6, 1 - 0.67 / height_in))
         cells = data[setname]
         for yy, (key, _, _, kind) in zip(ys, ROWS):
             values = sorted(cells.get(key, {}).values())
@@ -192,25 +195,21 @@ def figure(data) -> None:
         ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(style.log2_ratio_tick))
         ax.tick_params(axis="x", labelsize=scale.tick_pt, length=2.5, width=0.6, pad=2)
         ax.grid(axis="x", which="major", color=style.RULE, linewidth=0.5, zorder=0)
-        ax.set_title(title, fontsize=scale.label_pt, pad=3)
+        ax.set_xlabel("Speedup over the faster of C and Numba (log scale)", fontsize=scale.label_pt, labelpad=3)
         style.despine(ax, keep=("bottom",))
-    axes[0].set_ylim(ys[-1] + 0.7, -0.7)
-    axes[0].set_yticks(ys)
-    axes[0].set_yticklabels([label for _, label, _, _ in ROWS], fontsize=small)
-    for ax in axes:
+        ax.set_ylim(ys[-1] + 0.7, -0.7)
+        ax.set_yticks(ys)
+        ax.set_yticklabels([label for _, label, _, _ in ROWS], fontsize=small)
         ax.tick_params(axis="y", length=0, pad=2)
-    handles = [Line2D([], [], linestyle="none", marker="o", color="black", markersize=3.5, label="Agent"),
-               Line2D([], [], linestyle="none", marker="s", color="black", markersize=3.5, label="Compiler"),
-               Line2D([], [], linestyle="none", marker="o", color="black", alpha=0.45, markersize=2.0,
-                      label="One kernel"),
-               Line2D([], [], color="black", linewidth=scale.line_width, label="Geomean, 95% CI")]
-    fig.subplots_adjust(left=0.2, right=0.92, top=0.92, bottom=0.62 / height_in + 0.03, wspace=0.24)
-    fig.text(0.56, 0.30 / height_in, "Speedup over the faster of GCC and Numba (log scale)",
-             ha="center", va="bottom", fontsize=scale.label_pt)
-    style.legend_below(fig, handles, ncol=4, y=0.005, fontsize=small, markerscale=1.0, columnspacing=1.2,
-                       handlelength=1.4)
-    style.save(fig, OUT / "agent_baselines", width_in=TEXT_WIDTH_IN)
-
+        handles = [Line2D([], [], linestyle="none", marker="o", color="black", markersize=3.5, label="Agent"),
+                   Line2D([], [], linestyle="none", marker="s", color="black", markersize=3.5, label="Compiler"),
+                   Line2D([], [], linestyle="none", marker="o", color="black", alpha=0.45, markersize=2.0,
+                          label="One kernel"),
+                   Line2D([], [], color="black", linewidth=scale.line_width, label="Geomean, 95% CI")]
+        style.fill_width(fig, pad_in=0.06)
+        style.legend_below(fig, handles, ncol=4, y=0.005, fontsize=small, markerscale=1.0, columnspacing=1.2,
+                           handlelength=1.4)
+        style.save(fig, OUT / f"agent_baselines_{setname}", width_in=TEXT_WIDTH_IN)
 
 if __name__ == "__main__":
     main()
