@@ -1,0 +1,76 @@
+
+s2710.o:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000000000 <tsvc_2_s2710_fp64>:
+       0: f10004df     	cmp	x6, #0x1
+       4: 5400088b     	b.lt	0x114 <tsvc_2_s2710_fp64+0x114>
+       8: f10028df     	cmp	x6, #0xa
+       c: 54000208     	b.hi	0x4c <tsvc_2_s2710_fp64+0x4c>
+      10: 1e6e1000     	fmov	d0, #1.00000000
+      14: 1400002e     	b	0xcc <tsvc_2_s2710_fp64+0xcc>
+      18: fd400062     	ldr	d2, [x3]
+      1c: fd400043     	ldr	d3, [x2]
+      20: 1f420020     	fmadd	d0, d1, d2, d0
+      24: 1f420c41     	fmadd	d1, d2, d2, d3
+      28: fd000000     	str	d0, [x0]
+      2c: fd000041     	str	d1, [x2]
+      30: f10004c6     	subs	x6, x6, #0x1
+      34: 91002042     	add	x2, x2, #0x8
+      38: 91002063     	add	x3, x3, #0x8
+      3c: 91002084     	add	x4, x4, #0x8
+      40: 91002021     	add	x1, x1, #0x8
+      44: 91002000     	add	x0, x0, #0x8
+      48: 54000660     	b.eq	0x114 <tsvc_2_s2710_fp64+0x114>
+      4c: fd400000     	ldr	d0, [x0]
+      50: fd400021     	ldr	d1, [x1]
+      54: 1e612000     	fcmp	d0, d1
+      58: 54fffe0c     	b.gt	0x18 <tsvc_2_s2710_fp64+0x18>
+      5c: fd400081     	ldr	d1, [x4]
+      60: fd4000a2     	ldr	d2, [x5]
+      64: 1e610821     	fmul	d1, d1, d1
+      68: 1e602048     	fcmp	d2, #0.0
+      6c: 1e612803     	fadd	d3, d0, d1
+      70: fd000023     	str	d3, [x1]
+      74: 540000ad     	b.le	0x88 <tsvc_2_s2710_fp64+0x88>
+      78: fd400061     	ldr	d1, [x3]
+      7c: 1f410020     	fmadd	d0, d1, d1, d0
+      80: fd000040     	str	d0, [x2]
+      84: 17ffffeb     	b	0x30 <tsvc_2_s2710_fp64+0x30>
+      88: fd400040     	ldr	d0, [x2]
+      8c: 1e602820     	fadd	d0, d1, d0
+      90: fd000040     	str	d0, [x2]
+      94: 17ffffe7     	b	0x30 <tsvc_2_s2710_fp64+0x30>
+      98: fd400063     	ldr	d3, [x3]
+      9c: fd400084     	ldr	d4, [x4]
+      a0: 1f430441     	fmadd	d1, d2, d3, d1
+      a4: 1f440062     	fmadd	d2, d3, d4, d0
+      a8: fd000001     	str	d1, [x0]
+      ac: fd000042     	str	d2, [x2]
+      b0: 91002042     	add	x2, x2, #0x8
+      b4: 91002063     	add	x3, x3, #0x8
+      b8: f10004c6     	subs	x6, x6, #0x1
+      bc: 91002084     	add	x4, x4, #0x8
+      c0: 91002021     	add	x1, x1, #0x8
+      c4: 91002000     	add	x0, x0, #0x8
+      c8: 54000260     	b.eq	0x114 <tsvc_2_s2710_fp64+0x114>
+      cc: fd400001     	ldr	d1, [x0]
+      d0: fd400022     	ldr	d2, [x1]
+      d4: 1e622020     	fcmp	d1, d2
+      d8: 54fffe0c     	b.gt	0x98 <tsvc_2_s2710_fp64+0x98>
+      dc: fd400082     	ldr	d2, [x4]
+      e0: fd4000a3     	ldr	d3, [x5]
+      e4: 1e620842     	fmul	d2, d2, d2
+      e8: 1e602068     	fcmp	d3, #0.0
+      ec: 1e622824     	fadd	d4, d1, d2
+      f0: fd000024     	str	d4, [x1]
+      f4: 5400008d     	b.le	0x104 <tsvc_2_s2710_fp64+0x104>
+      f8: fd400062     	ldr	d2, [x3]
+      fc: 1f420441     	fmadd	d1, d2, d2, d1
+     100: 14000003     	b	0x10c <tsvc_2_s2710_fp64+0x10c>
+     104: fd400041     	ldr	d1, [x2]
+     108: 1e612841     	fadd	d1, d2, d1
+     10c: fd000041     	str	d1, [x2]
+     110: 17ffffe8     	b	0xb0 <tsvc_2_s2710_fp64+0xb0>
+     114: d65f03c0     	ret

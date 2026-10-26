@@ -1,0 +1,162 @@
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+   15 |             if ((x[0] > 0.0)) {
+      |                  ^
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+s2710.c:6:25: remark: hoisting icmp [-Rpass=licm]
+    6 |             if ((LEN_1D > 10)) {
+      |                         ^
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+   15 |             if ((x[0] > 0.0)) {
+      |                  ^
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+s2710.c:4:16: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+    4 |           if ((a[i] > b[i])) {
+      |                ^
+s2710.c:4:23: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+    4 |           if ((a[i] > b[i])) {
+      |                       ^
+s2710.c:14:29: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   14 |             b[i] = (a[i] + (e[i] * e[i]));
+      |                             ^
+s2710.c:14:34: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fmul [-Rpass-analysis=loop-vectorize]
+   14 |             b[i] = (a[i] + (e[i] * e[i]));
+      |                                  ^
+s2710.c:14:26: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+   14 |             b[i] = (a[i] + (e[i] * e[i]));
+      |                          ^
+s2710.c:14:18: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+   14 |             b[i] = (a[i] + (e[i] * e[i]));
+      |                  ^
+s2710.c:15:18: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   15 |             if ((x[0] > 0.0)) {
+      |                  ^
+s2710.c:19:23: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   19 |               c[i] = (c[i] + (e[i] * e[i]));
+      |                       ^
+s2710.c:19:28: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+   19 |               c[i] = (c[i] + (e[i] * e[i]));
+      |                            ^
+s2710.c:19:20: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+   19 |               c[i] = (c[i] + (e[i] * e[i]));
+      |                    ^
+s2710.c:16:31: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   16 |               c[i] = (a[i] + (d[i] * d[i]));
+      |                               ^
+s2710.c:16:36: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fmul [-Rpass-analysis=loop-vectorize]
+   16 |               c[i] = (a[i] + (d[i] * d[i]));
+      |                                    ^
+s2710.c:16:28: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+   16 |               c[i] = (a[i] + (d[i] * d[i]));
+      |                            ^
+s2710.c:16:20: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+   16 |               c[i] = (a[i] + (d[i] * d[i]));
+      |                    ^
+s2710.c:5:36: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+    5 |             a[i] = (a[i] + (b[i] * d[i]));
+      |                                    ^
+s2710.c:5:34: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fmul [-Rpass-analysis=loop-vectorize]
+    5 |             a[i] = (a[i] + (b[i] * d[i]));
+      |                                  ^
+s2710.c:5:26: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+    5 |             a[i] = (a[i] + (b[i] * d[i]));
+      |                          ^
+s2710.c:5:18: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+    5 |             a[i] = (a[i] + (b[i] * d[i]));
+      |                  ^
+s2710.c:10:31: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   10 |               c[i] = ((d[i] * e[i]) + 1.0);
+      |                               ^
+s2710.c:10:29: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fmul [-Rpass-analysis=loop-vectorize]
+   10 |               c[i] = ((d[i] * e[i]) + 1.0);
+      |                             ^
+s2710.c:10:37: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+   10 |               c[i] = ((d[i] * e[i]) + 1.0);
+      |                                     ^
+s2710.c:10:20: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+   10 |               c[i] = ((d[i] * e[i]) + 1.0);
+      |                    ^
+s2710.c:3:41: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): <Invalid operator>  [-Rpass-analysis=loop-vectorize]
+    3 |         for (int64_t i = 0; i < LEN_1D; ++i) {
+      |                                         ^
+s2710.c:3:9: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+    3 |         for (int64_t i = 0; i < LEN_1D; ++i) {
+      |         ^
+s2710.c:3:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+s2710.c:4:16: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+    4 |           if ((a[i] > b[i])) {
+      |                ^
+s2710.c:4:23: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+    4 |           if ((a[i] > b[i])) {
+      |                       ^
+s2710.c:14:29: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   14 |             b[i] = (a[i] + (e[i] * e[i]));
+      |                             ^
+s2710.c:14:34: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fmul [-Rpass-analysis=loop-vectorize]
+   14 |             b[i] = (a[i] + (e[i] * e[i]));
+      |                                  ^
+s2710.c:14:26: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+   14 |             b[i] = (a[i] + (e[i] * e[i]));
+      |                          ^
+s2710.c:14:18: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+   14 |             b[i] = (a[i] + (e[i] * e[i]));
+      |                  ^
+s2710.c:15:18: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   15 |             if ((x[0] > 0.0)) {
+      |                  ^
+s2710.c:19:23: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   19 |               c[i] = (c[i] + (e[i] * e[i]));
+      |                       ^
+s2710.c:19:28: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+   19 |               c[i] = (c[i] + (e[i] * e[i]));
+      |                            ^
+s2710.c:19:20: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+   19 |               c[i] = (c[i] + (e[i] * e[i]));
+      |                    ^
+s2710.c:16:31: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+   16 |               c[i] = (a[i] + (d[i] * d[i]));
+      |                               ^
+s2710.c:16:36: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fmul [-Rpass-analysis=loop-vectorize]
+   16 |               c[i] = (a[i] + (d[i] * d[i]));
+      |                                    ^
+s2710.c:16:28: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+   16 |               c[i] = (a[i] + (d[i] * d[i]));
+      |                            ^
+s2710.c:16:20: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+   16 |               c[i] = (a[i] + (d[i] * d[i]));
+      |                    ^
+s2710.c:5:36: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+    5 |             a[i] = (a[i] + (b[i] * d[i]));
+      |                                    ^
+s2710.c:5:34: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fmul [-Rpass-analysis=loop-vectorize]
+    5 |             a[i] = (a[i] + (b[i] * d[i]));
+      |                                  ^
+s2710.c:5:26: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+    5 |             a[i] = (a[i] + (b[i] * d[i]));
+      |                          ^
+s2710.c:5:18: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+    5 |             a[i] = (a[i] + (b[i] * d[i]));
+      |                  ^
+s2710.c:7:23: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): load [-Rpass-analysis=loop-vectorize]
+    7 |               c[i] = (c[i] + (d[i] * d[i]));
+      |                       ^
+s2710.c:7:36: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fmul [-Rpass-analysis=loop-vectorize]
+    7 |               c[i] = (c[i] + (d[i] * d[i]));
+      |                                    ^
+s2710.c:7:28: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): fadd [-Rpass-analysis=loop-vectorize]
+    7 |               c[i] = (c[i] + (d[i] * d[i]));
+      |                            ^
+s2710.c:7:20: remark: Recipe with invalid costs prevented vectorization at VF=(vscale x 1): store [-Rpass-analysis=loop-vectorize]
+    7 |               c[i] = (c[i] + (d[i] * d[i]));
+      |                    ^
+s2710.c:3:9: remark: the cost-model indicates that vectorization is not beneficial [-Rpass-missed=loop-vectorize]
+    3 |         for (int64_t i = 0; i < LEN_1D; ++i) {
+      |         ^
+s2710.c:3:9: remark: the cost-model indicates that interleaving is not beneficial [-Rpass-missed=loop-vectorize]
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]
+   15 |             if ((x[0] > 0.0)) {
+      |                  ^
+s2710.c:15:18: remark: failed to hoist load with loop-invariant address because load is conditionally executed [-Rpass-missed=licm]

@@ -1,0 +1,70 @@
+cmp x6, #0x1
+b.lt
+cmp x6, #0xa
+b.hi
+fmov d0, #1.00000000
+b
+ldr d2, [x3]
+ldr d3, [x2]
+fmadd d0, d1, d2, d0
+fmadd d1, d2, d2, d3
+str d0, [x0]
+str d1, [x2]
+subs x6, x6, #0x1
+add x2, x2, #0x8
+add x3, x3, #0x8
+add x4, x4, #0x8
+add x1, x1, #0x8
+add x0, x0, #0x8
+b.eq
+ldr d0, [x0]
+ldr d1, [x1]
+fcmp d0, d1
+b.gt
+ldr d1, [x4]
+ldr d2, [x5]
+fmul d1, d1, d1
+fcmp d2, #0.0
+fadd d3, d0, d1
+str d3, [x1]
+b.le
+ldr d1, [x3]
+fmadd d0, d1, d1, d0
+str d0, [x2]
+b
+ldr d0, [x2]
+fadd d0, d1, d0
+str d0, [x2]
+b
+ldr d3, [x3]
+ldr d4, [x4]
+fmadd d1, d2, d3, d1
+fmadd d2, d3, d4, d0
+str d1, [x0]
+str d2, [x2]
+add x2, x2, #0x8
+add x3, x3, #0x8
+subs x6, x6, #0x1
+add x4, x4, #0x8
+add x1, x1, #0x8
+add x0, x0, #0x8
+b.eq
+ldr d1, [x0]
+ldr d2, [x1]
+fcmp d1, d2
+b.gt
+ldr d2, [x4]
+ldr d3, [x5]
+fmul d2, d2, d2
+fcmp d3, #0.0
+fadd d4, d1, d2
+str d4, [x1]
+b.le
+ldr d2, [x3]
+fmadd d1, d2, d2, d1
+b
+ldr d1, [x2]
+fadd d1, d2, d1
+str d1, [x2]
+b
+ret
