@@ -26,13 +26,16 @@ from matplotlib.lines import Line2D  # noqa: E402
 from hpcagent_bench.stats import palette, style, summary  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-DATA = ROOT / "References" / "solver14-report" / "speedup.csv"
+#: The report's local copy; ``References/old runs/`` is where it lives after the References folder was tidied.
+DATA = next((d / "solver14-report" / "speedup.csv" for d in (ROOT / "References", ROOT / "References" / "old runs")
+             if (d / "solver14-report" / "speedup.csv").is_file()), ROOT / "References" / "solver14-report" / "speedup.csv")
 OUT = pathlib.Path(os.environ.get("THESIS_FIGURES", ROOT.parent / "BachelorthesisPaper" / "Paper" / "figures"))
 TEXT_WIDTH_IN = 369.0 / 72.27
 
 MODELS = (("oss120b", "GPT-OSS-120B"), ("qwen38", "Qwen3.8-27B"))
-SETTINGS = (("none", "No skill"), ("preconditioner-v4-single", "Skill, one page"),
-            ("preconditioner-v4-split", "Skill, five pages"))
+#: Legend labels use the thesis's names (Table 5.2): v2 is the tested skill, the benchmark's page is v1.
+SETTINGS = (("none", "No skill"), ("preconditioner-v4-single", "v2-single (one page)"),
+            ("preconditioner-v4-split", "v2-split (five pages)"))
 COLOR = {"none": "black", "preconditioner-v4-single": palette.tab20_slot(0),
          "preconditioner-v4-split": palette.tab20_slot(2)}
 MARKER = {"none": "o", "preconditioner-v4-single": "s", "preconditioner-v4-split": "D"}
