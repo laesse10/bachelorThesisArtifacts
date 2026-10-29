@@ -68,7 +68,7 @@ CAUSES = {
 }
 GROUP_NAME = {
     "gain": "Faster: a restructuring",
-    "loss": "Slower: a form written for many threads",
+    "loss": "Slower: code written for multithreaded execution",
     "tie": "Within 3%",
 }
 GROUP_COLOR = {"gain": palette.tab20_slot(4), "loss": palette.tab20_slot(6), "tie": style.MUTED}

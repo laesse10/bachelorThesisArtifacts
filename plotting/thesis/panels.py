@@ -21,6 +21,8 @@ from hpcagent_bench.stats import style, summary  # noqa: E402
 
 #: Thesis \textwidth (369pt, memoir a4 11pt).
 TEXT_WIDTH_IN = 369.0 / 72.27
+#: The least height of a panel's axes, so that a panel of one kernel is not a thin strip.
+MIN_AXES_IN = 0.9
 
 #: (speedup, ci_lo, ci_hi, hollow); a nan speedup draws the missing cross.
 Value = tuple[float, float, float, bool]
@@ -76,6 +78,8 @@ def draw(
     xlo, xhi = x_range(values)
 
     pitch_in = 0.21 if n <= 3 else 0.26
+    # A panel of one or two kernels would be a thin strip: give its axes at least MIN_AXES_IN of height.
+    pitch_in = max(pitch_in, MIN_AXES_IN / (total + 0.5))
     top_in, bottom_in = 0.04, 0.62
     height_in = top_in + bottom_in + (total + 0.5) * pitch_in
     fig = plt.figure(figsize=(width_in, height_in))

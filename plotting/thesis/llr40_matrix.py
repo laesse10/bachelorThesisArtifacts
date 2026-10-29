@@ -119,7 +119,7 @@ PANELS = {
         (("Interchange", ("tsvc_2_s1232", "tsvc_2_s231", "tsvc_2_s233", "tsvc_2_s235")),
          ("Distribution", ("tsvc_2_s2275",)),
          ("Fusion", ("fuse_diamond", "fuse_stencil_through_transient")),
-         ("Many threads", ("scan_affine_decay", "scatter_accum_dup"))),
+         ("Multithreaded", ("compact_threshold_pack", "wf_triangular", "scan_affine_decay", "scatter_accum_dup"))),
         ("c", "numba", "agent"),
     ),
 }
