@@ -1,0 +1,153 @@
+PROBE nid005645 1 1
+unit fuse_move_ifs kernel=fuse_move_ifs node=nid005645 start=2026-11-01T14:28:53+01:00
+{
+ "gcc": {
+  "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "cpp": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+ },
+ "llvm": {
+  "cc": "-O3 -march=native -fopenmp=libomp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -Xarch_host -fveclib=libmvec -Wall -Wextra",
+  "llvm": "-O3 -march=native -fopenmp=libomp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -Xarch_host -fveclib=libmvec -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp  -ffp-contract=fast -fPIC -fveclib=libmvec -fdo-concurrent-to-openmp=host"
+ }
+}
+pristine fuse_move_ifs_fp64.c 02a8c4bb04f2a9c3
+pristine fuse_move_ifs_fp64.cpp ba341360baf0254f
+pristine fuse_move_ifs_fp64.f90 e451211e77193bf2
+pristine fuse_move_ifs_fp32.c 0287b072a5237ba6
+pristine fuse_move_ifs_fp32.cpp b4f328f70bbd3765
+pristine fuse_move_ifs_fp32.f90 988bb15119f8ca90
+pristine fuse_move_ifs_numba_np.py bd437b73c09f7070
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell clang: c src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu', 'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell clangxx: llvm src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/clang++', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell flang: fortran src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu', 'HPCAGENT_BENCH_BUILD_COMPILER_FORTRAN': 'llvm'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/flang', 'flang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+  [1] c                ok           min 67.571 ms 
+  [1] clang            ok           min 67.386 ms 
+  [1] clangxx          ok           min 67.283 ms 
+  [1] flang            ok           min 67.515 ms 
+  [2] flang            ok           min 65.592 ms 
+  [2] clangxx          ok           min 67.656 ms 
+  [2] clang            ok           min 67.477 ms 
+  [2] c                ok           min 67.411 ms 
+  [3] c                ok           min 67.361 ms 
+  [3] clang            ok           min 67.490 ms 
+  [3] clangxx          ok           min 65.573 ms 
+  [3] flang            ok           min 67.124 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/parts/fuse_move_ifs.csv
+unit fuse_move_ifs end=2026-11-01T14:33:42+01:00
+unit tsvc_2_s152 kernel=tsvc_2_s152 node=nid005645 start=2026-11-01T14:33:42+01:00
+{
+ "gcc": {
+  "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "cpp": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+ },
+ "llvm": {
+  "cc": "-O3 -march=native -fopenmp=libomp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -Xarch_host -fveclib=libmvec -Wall -Wextra",
+  "llvm": "-O3 -march=native -fopenmp=libomp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -Xarch_host -fveclib=libmvec -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp  -ffp-contract=fast -fPIC -fveclib=libmvec -fdo-concurrent-to-openmp=host"
+ }
+}
+pristine tsvc_2_s152_fp64.c de66532682753d57
+pristine tsvc_2_s152_fp64.cpp d8b4b22a1836ffa0
+pristine tsvc_2_s152_fp64.f90 012c1c0130f15853
+pristine tsvc_2_s152_fp32.c a6747ce364b31ef0
+pristine tsvc_2_s152_fp32.cpp 4ce3b6c434010917
+pristine tsvc_2_s152_fp32.f90 4ef15468ea5e5c19
+pristine tsvc_2_s152_numba_np.py 5d3a36e103c1a323
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell clang: c src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu', 'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell clangxx: llvm src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/clang++', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell flang: fortran src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu', 'HPCAGENT_BENCH_BUILD_COMPILER_FORTRAN': 'llvm'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/flang', 'flang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+  [1] c                ok           min 63.552 ms 
+  [1] clang            ok           min 64.499 ms 
+  [1] clangxx          ok           min 64.572 ms 
+  [1] flang            ok           min 63.445 ms 
+  [2] flang            ok           min 63.818 ms 
+  [2] clangxx          ok           min 63.679 ms 
+  [2] clang            ok           min 64.239 ms 
+  [2] c                ok           min 63.238 ms 
+  [3] c                ok           min 63.386 ms 
+  [3] clang            ok           min 63.364 ms 
+  [3] clangxx          ok           min 63.511 ms 
+  [3] flang            ok           min 63.838 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/parts/tsvc_2_s152.csv
+unit tsvc_2_s152 end=2026-11-01T14:36:54+01:00
+unit tsvc_2_s311 kernel=tsvc_2_s311 node=nid005645 start=2026-11-01T14:36:54+01:00
+{
+ "gcc": {
+  "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "cpp": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+ },
+ "llvm": {
+  "cc": "-O3 -march=native -fopenmp=libomp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -Xarch_host -fveclib=libmvec -Wall -Wextra",
+  "llvm": "-O3 -march=native -fopenmp=libomp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -Xarch_host -fveclib=libmvec -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp  -ffp-contract=fast -fPIC -fveclib=libmvec -fdo-concurrent-to-openmp=host"
+ }
+}
+pristine tsvc_2_s311_fp64.c c94e603a089b8fc2
+pristine tsvc_2_s311_fp64.cpp 56aa2ee830154462
+pristine tsvc_2_s311_fp64.f90 5c49e125ced37011
+pristine tsvc_2_s311_fp32.c e135bde595de463c
+pristine tsvc_2_s311_fp32.cpp 7355b3ce29acab60
+pristine tsvc_2_s311_fp32.f90 9bdcd3076b6cdca0
+pristine tsvc_2_s311_numba_np.py b485f133daba6cc6
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell clang: c src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu', 'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell clangxx: llvm src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/clang++', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell flang: fortran src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu', 'HPCAGENT_BENCH_BUILD_COMPILER_FORTRAN': 'llvm'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/flang', 'flang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+  [1] c                ok           min 135.736 ms 
+  [1] clang            ok           min 135.718 ms 
+  [1] clangxx          ok           min 135.715 ms 
+  [1] flang            ok           min 135.701 ms 
+  [2] flang            ok           min 135.677 ms 
+  [2] clangxx          ok           min 135.647 ms 
+  [2] clang            ok           min 135.760 ms 
+  [2] c                ok           min 135.779 ms 
+  [3] c                ok           min 135.718 ms 
+  [3] clang            ok           min 135.786 ms 
+  [3] clangxx          ok           min 135.752 ms 
+  [3] flang            ok           min 135.704 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/parts/tsvc_2_s311.csv
+unit tsvc_2_s311 end=2026-11-01T14:43:19+01:00
+unit tsvc_2_vpvts kernel=tsvc_2_vpvts node=nid005645 start=2026-11-01T14:43:19+01:00
+{
+ "gcc": {
+  "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "cpp": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-clang/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+ },
+ "llvm": {
+  "cc": "-O3 -march=native -fopenmp=libomp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -Xarch_host -fveclib=libmvec -Wall -Wextra",
+  "llvm": "-O3 -march=native -fopenmp=libomp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -Xarch_host -fveclib=libmvec -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp  -ffp-contract=fast -fPIC -fveclib=libmvec -fdo-concurrent-to-openmp=host"
+ }
+}
+pristine tsvc_2_vpvts_fp64.c 8e689f37b4f7bd12
+pristine tsvc_2_vpvts_fp64.cpp 88696e2f16900e72
+pristine tsvc_2_vpvts_fp64.f90 77fc0ad949ad5ba2
+pristine tsvc_2_vpvts_fp32.c 27d72638108362cf
+pristine tsvc_2_vpvts_fp32.cpp 9809c08f1676bbff
+pristine tsvc_2_vpvts_fp32.f90 7b2895fe3283a72f
+pristine tsvc_2_vpvts_numba_np.py 9de506eda728b8b7
+cell c: c src=- src32=- bin=- env=- -> ('/usr/bin/gcc-14', 'gcc-14 (SUSE Linux) 14.2.0')
+cell clang: c src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu', 'HPCAGENT_BENCH_BUILD_COMPILER_C': 'llvm'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/clang', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell clangxx: llvm src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/clang++', 'clang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+cell flang: fortran src=- src32=- bin=llvmbin env={'LD_LIBRARY_PATH': '/capstor/scratch/cscs/lhulsbergen/llvm/LLVM-22.1.0-Linux-ARM64/lib/aarch64-unknown-linux-gnu', 'HPCAGENT_BENCH_BUILD_COMPILER_FORTRAN': 'llvm'} -> ('/capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/llvmbin/flang', 'flang version 22.1.0 (https://github.com/llvm/llvm-project 4434dabb69916856b824f68a64b029c67175e532)')
+  [1] c                ok           min 86.810 ms 
+  [1] clang            ok           min 88.492 ms 
+  [1] clangxx          ok           min 88.425 ms 
+  [1] flang            ok           min 88.287 ms 
+  [2] flang            ok           min 88.515 ms 
+  [2] clangxx          ok           min 88.682 ms 
+  [2] clang            ok           min 88.474 ms 
+  [2] c                ok           min 86.790 ms 
+  [3] c                ok           min 86.766 ms 
+  [3] clang            ok           min 88.253 ms 
+  [3] clangxx          ok           min 88.260 ms 
+  [3] flang            ok           min 88.516 ms 
+wrote 12 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-clang/llr40Matrix/v2/llvm/parts/tsvc_2_vpvts.csv
+unit tsvc_2_vpvts end=2026-11-01T14:47:40+01:00

@@ -1,0 +1,19 @@
+# objdump -d libtsvc_2_vag_cc.so, functions matching tsvc_2_vag_fp64* (sha256 7fc4b812e7a50b3b)
+
+0000000000000640 <tsvc_2_vag_fp64>:    # address mod 64 = 0
+ 640:	f100007f 	cmp	x3, #0x0
+ 644:	5400010d 	b.le	664 <tsvc_2_vag_fp64+0x24>
+ 648:	d2800004 	mov	x4, #0x0                   	// #0
+ 64c:	b8a47845 	ldrsw	x5, [x2, x4, lsl #2]
+ 650:	fc65783f 	ldr	d31, [x1, x5, lsl #3]
+ 654:	fc24781f 	str	d31, [x0, x4, lsl #3]
+ 658:	91000484 	add	x4, x4, #0x1
+ 65c:	eb04007f 	cmp	x3, x4
+ 660:	54ffff61 	b.ne	64c <tsvc_2_vag_fp64+0xc>  // b.any
+ 664:	d65f03c0 	ret
+ 668:	d503201f 	nop
+ 66c:	d503201f 	nop
+ 670:	d503201f 	nop
+ 674:	d503201f 	nop
+ 678:	d503201f 	nop
+ 67c:	d503201f 	nop

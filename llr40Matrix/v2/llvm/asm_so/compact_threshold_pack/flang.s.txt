@@ -1,0 +1,22 @@
+# objdump -d libcompact_threshold_pack_fortran.so, functions matching compact_threshold_pack_fp64* (sha256 e14f67b87af83f00)
+
+0000000000000564 <compact_threshold_pack_fp64>:    # address mod 64 = 36
+ 564:	f100049f 	cmp	x4, #0x1
+ 568:	540001eb 	b.lt	5a4 <compact_threshold_pack_fp64+0x40>  // b.tstop
+ 56c:	aa1f03e8 	mov	x8, xzr
+ 570:	14000004 	b	580 <compact_threshold_pack_fp64+0x1c>
+ 574:	f1000484 	subs	x4, x4, #0x1
+ 578:	91002063 	add	x3, x3, #0x8
+ 57c:	54000160 	b.eq	5a8 <compact_threshold_pack_fp64+0x44>  // b.none
+ 580:	fc408440 	ldr	d0, [x2], #8
+ 584:	1e602008 	fcmp	d0, #0.0
+ 588:	54ffff6d 	b.le	574 <compact_threshold_pack_fp64+0x10>
+ 58c:	fd400061 	ldr	d1, [x3]
+ 590:	91000509 	add	x9, x8, #0x1
+ 594:	1e610800 	fmul	d0, d0, d1
+ 598:	fc287820 	str	d0, [x1, x8, lsl #3]
+ 59c:	aa0903e8 	mov	x8, x9
+ 5a0:	17fffff5 	b	574 <compact_threshold_pack_fp64+0x10>
+ 5a4:	aa1f03e8 	mov	x8, xzr
+ 5a8:	f9000008 	str	x8, [x0]
+ 5ac:	d65f03c0 	ret

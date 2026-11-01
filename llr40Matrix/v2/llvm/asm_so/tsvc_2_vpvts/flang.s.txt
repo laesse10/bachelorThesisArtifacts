@@ -1,0 +1,43 @@
+# objdump -d libtsvc_2_vpvts_fortran.so, functions matching tsvc_2_vpvts_fp64* (sha256 e7d66f05f697e4ac)
+
+0000000000000564 <tsvc_2_vpvts_fp64>:    # address mod 64 = 36
+ 564:	f100045f 	cmp	x2, #0x1
+ 568:	540004cb 	b.lt	600 <tsvc_2_vpvts_fp64+0x9c>  // b.tstop
+ 56c:	9e620060 	scvtf	d0, x3
+ 570:	04a0e3e8 	cntw	x8
+ 574:	eb08005f 	cmp	x2, x8
+ 578:	54000062 	b.cs	584 <tsvc_2_vpvts_fp64+0x20>  // b.hs, b.nlast
+ 57c:	aa1f03e8 	mov	x8, xzr
+ 580:	14000016 	b	5d8 <tsvc_2_vpvts_fp64+0x74>
+ 584:	cb0803e8 	neg	x8, x8
+ 588:	05282001 	mov	z1.d, d0
+ 58c:	25d8e3e0 	ptrue	p0.d
+ 590:	8a080048 	and	x8, x2, x8
+ 594:	aa0003e9 	mov	x9, x0
+ 598:	aa0103ea 	mov	x10, x1
+ 59c:	aa0803eb 	mov	x11, x8
+ 5a0:	85804122 	ldr	z2, [x9]
+ 5a4:	85804143 	ldr	z3, [x10]
+ 5a8:	04b0e7eb 	decw	x11
+ 5ac:	85804524 	ldr	z4, [x9, #1, mul vl]
+ 5b0:	85804545 	ldr	z5, [x10, #1, mul vl]
+ 5b4:	0431e3ea 	incb	x10, all, mul #2
+ 5b8:	65e10062 	fmla	z2.d, p0/m, z3.d, z1.d
+ 5bc:	65e100a4 	fmla	z4.d, p0/m, z5.d, z1.d
+ 5c0:	e5804122 	str	z2, [x9]
+ 5c4:	e5804524 	str	z4, [x9, #1, mul vl]
+ 5c8:	0431e3e9 	incb	x9, all, mul #2
+ 5cc:	b5fffeab 	cbnz	x11, 5a0 <tsvc_2_vpvts_fp64+0x3c>
+ 5d0:	eb08005f 	cmp	x2, x8
+ 5d4:	54000160 	b.eq	600 <tsvc_2_vpvts_fp64+0x9c>  // b.none
+ 5d8:	d37df10a 	lsl	x10, x8, #3
+ 5dc:	cb080048 	sub	x8, x2, x8
+ 5e0:	8b0a0009 	add	x9, x0, x10
+ 5e4:	8b0a002a 	add	x10, x1, x10
+ 5e8:	fd400121 	ldr	d1, [x9]
+ 5ec:	fc408542 	ldr	d2, [x10], #8
+ 5f0:	f1000508 	subs	x8, x8, #0x1
+ 5f4:	1f400441 	fmadd	d1, d2, d0, d1
+ 5f8:	fc008521 	str	d1, [x9], #8
+ 5fc:	54ffff61 	b.ne	5e8 <tsvc_2_vpvts_fp64+0x84>  // b.any
+ 600:	d65f03c0 	ret

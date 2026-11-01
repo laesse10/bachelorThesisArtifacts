@@ -1,0 +1,21 @@
+# objdump -d libtsvc_2_s323_cc.so, functions matching tsvc_2_s323_fp64* (sha256 b85b3a076219d260)
+
+00000000000005e4 <tsvc_2_s323_fp64>:    # address mod 64 = 36
+ 5e4:	f10008bf 	cmp	x5, #0x2
+ 5e8:	5400020b 	b.lt	628 <tsvc_2_s323_fp64+0x44>  // b.tstop
+ 5ec:	fc408420 	ldr	d0, [x1], #8
+ 5f0:	d10004a8 	sub	x8, x5, #0x1
+ 5f4:	91002089 	add	x9, x4, #0x8
+ 5f8:	9100200a 	add	x10, x0, #0x8
+ 5fc:	9100206b 	add	x11, x3, #0x8
+ 600:	9100204c 	add	x12, x2, #0x8
+ 604:	fc408581 	ldr	d1, [x12], #8
+ 608:	f1000508 	subs	x8, x8, #0x1
+ 60c:	fc408562 	ldr	d2, [x11], #8
+ 610:	1f420022 	fmadd	d2, d1, d2, d0
+ 614:	fc408520 	ldr	d0, [x9], #8
+ 618:	1f400820 	fmadd	d0, d1, d0, d2
+ 61c:	fc008542 	str	d2, [x10], #8
+ 620:	fc008420 	str	d0, [x1], #8
+ 624:	54ffff01 	b.ne	604 <tsvc_2_s323_fp64+0x20>  // b.any
+ 628:	d65f03c0 	ret

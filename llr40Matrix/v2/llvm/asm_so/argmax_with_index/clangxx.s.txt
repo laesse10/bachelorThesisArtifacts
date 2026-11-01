@@ -1,0 +1,21 @@
+# objdump -d libargmax_with_index_llvm.so, functions matching argmax_with_index_fp64* (sha256 6c2d47f1331e8990)
+
+0000000000000604 <argmax_with_index_fp64>:    # address mod 64 = 4
+ 604:	fd400000 	ldr	d0, [x0]
+ 608:	f100087f 	cmp	x3, #0x2
+ 60c:	540001ab 	b.lt	640 <argmax_with_index_fp64+0x3c>  // b.tstop
+ 610:	aa1f03e8 	mov	x8, xzr
+ 614:	52800029 	mov	w9, #0x1                   	// #1
+ 618:	fc697801 	ldr	d1, [x0, x9, lsl #3]
+ 61c:	1e602020 	fcmp	d1, d0
+ 620:	1e60cc20 	fcsel	d0, d1, d0, gt
+ 624:	9a88c128 	csel	x8, x9, x8, gt
+ 628:	91000529 	add	x9, x9, #0x1
+ 62c:	eb09007f 	cmp	x3, x9
+ 630:	54ffff41 	b.ne	618 <argmax_with_index_fp64+0x14>  // b.any
+ 634:	fd000040 	str	d0, [x2]
+ 638:	f9000028 	str	x8, [x1]
+ 63c:	d65f03c0 	ret
+ 640:	fd000040 	str	d0, [x2]
+ 644:	f900003f 	str	xzr, [x1]
+ 648:	d65f03c0 	ret

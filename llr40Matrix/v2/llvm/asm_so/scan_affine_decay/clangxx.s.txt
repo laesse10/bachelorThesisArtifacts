@@ -1,0 +1,16 @@
+# objdump -d libscan_affine_decay_llvm.so, functions matching scan_affine_decay_fp64* (sha256 98dea7c6a5d4efdd)
+
+0000000000000604 <scan_affine_decay_fp64>:    # address mod 64 = 4
+ 604:	f100087f 	cmp	x3, #0x2
+ 608:	5400016b 	b.lt	634 <scan_affine_decay_fp64+0x30>  // b.tstop
+ 60c:	fc408440 	ldr	d0, [x2], #8
+ 610:	d1000468 	sub	x8, x3, #0x1
+ 614:	91002029 	add	x9, x1, #0x8
+ 618:	9100200a 	add	x10, x0, #0x8
+ 61c:	fc408541 	ldr	d1, [x10], #8
+ 620:	f1000508 	subs	x8, x8, #0x1
+ 624:	fc408522 	ldr	d2, [x9], #8
+ 628:	1f400820 	fmadd	d0, d1, d0, d2
+ 62c:	fc008440 	str	d0, [x2], #8
+ 630:	54ffff61 	b.ne	61c <scan_affine_decay_fp64+0x18>  // b.any
+ 634:	d65f03c0 	ret

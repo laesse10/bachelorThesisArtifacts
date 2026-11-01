@@ -1,0 +1,67 @@
+# objdump -d libsegment_reduce_ragged_fortran.so, functions matching segment_reduce_ragged_fp64* (sha256 684478beaff285cf)
+
+0000000000000564 <segment_reduce_ragged_fp64>:    # address mod 64 = 36
+ 564:	f100049f 	cmp	x4, #0x1
+ 568:	540007cb 	b.lt	660 <segment_reduce_ragged_fp64+0xfc>  // b.tstop
+ 56c:	a9bf4ff4 	stp	x20, x19, [sp, #-16]!
+ 570:	f9400030 	ldr	x16, [x1]
+ 574:	04a0e3e9 	cntw	x9
+ 578:	25d8e3e0 	ptrue	p0.d
+ 57c:	aa1f03e8 	mov	x8, xzr
+ 580:	04e0e3ea 	cntd	x10
+ 584:	cb0903eb 	neg	x11, x9
+ 588:	14000007 	b	5a4 <segment_reduce_ragged_fp64+0x40>
+ 58c:	2f00e400 	movi	d0, #0x0
+ 590:	eb04019f 	cmp	x12, x4
+ 594:	fc287800 	str	d0, [x0, x8, lsl #3]
+ 598:	aa0d03f0 	mov	x16, x13
+ 59c:	aa0c03e8 	mov	x8, x12
+ 5a0:	540005e0 	b.eq	65c <segment_reduce_ragged_fp64+0xf8>  // b.none
+ 5a4:	9100050c 	add	x12, x8, #0x1
+ 5a8:	f86c782d 	ldr	x13, [x1, x12, lsl #3]
+ 5ac:	cb1001ae 	sub	x14, x13, x16
+ 5b0:	f10005df 	cmp	x14, #0x1
+ 5b4:	54fffecb 	b.lt	58c <segment_reduce_ragged_fp64+0x28>  // b.tstop
+ 5b8:	eb0901df 	cmp	x14, x9
+ 5bc:	54000082 	b.cs	5cc <segment_reduce_ragged_fp64+0x68>  // b.hs, b.nlast
+ 5c0:	2f00e400 	movi	d0, #0x0
+ 5c4:	cb1001af 	sub	x15, x13, x16
+ 5c8:	1400001a 	b	630 <segment_reduce_ragged_fp64+0xcc>
+ 5cc:	2f00e400 	movi	d0, #0x0
+ 5d0:	d37df207 	lsl	x7, x16, #3
+ 5d4:	8a0b01d2 	and	x18, x14, x11
+ 5d8:	aa1f03f1 	mov	x17, xzr
+ 5dc:	cb1201cf 	sub	x15, x14, x18
+ 5e0:	8b120210 	add	x16, x16, x18
+ 5e4:	cb1203e5 	neg	x5, x18
+ 5e8:	8b070066 	add	x6, x3, x7
+ 5ec:	8b070047 	add	x7, x2, x7
+ 5f0:	aa0a03f3 	mov	x19, x10
+ 5f4:	a5f140e1 	ld1d	{z1.d}, p0/z, [x7, x17, lsl #3]
+ 5f8:	a5f140c2 	ld1d	{z2.d}, p0/z, [x6, x17, lsl #3]
+ 5fc:	04b0e3f1 	incw	x17
+ 600:	65c20821 	fmul	z1.d, z1.d, z2.d
+ 604:	a5f340c2 	ld1d	{z2.d}, p0/z, [x6, x19, lsl #3]
+ 608:	65d82020 	fadda	d0, p0, d0, z1.d
+ 60c:	a5f340e1 	ld1d	{z1.d}, p0/z, [x7, x19, lsl #3]
+ 610:	04b0e3f3 	incw	x19
+ 614:	65c20821 	fmul	z1.d, z1.d, z2.d
+ 618:	8b1300b4 	add	x20, x5, x19
+ 61c:	04f0e7f4 	decd	x20
+ 620:	65d82020 	fadda	d0, p0, d0, z1.d
+ 624:	b5fffe94 	cbnz	x20, 5f4 <segment_reduce_ragged_fp64+0x90>
+ 628:	eb1201df 	cmp	x14, x18
+ 62c:	54fffb20 	b.eq	590 <segment_reduce_ragged_fp64+0x2c>  // b.none
+ 630:	d37df210 	lsl	x16, x16, #3
+ 634:	910005ee 	add	x14, x15, #0x1
+ 638:	8b10004f 	add	x15, x2, x16
+ 63c:	8b100070 	add	x16, x3, x16
+ 640:	fc4085e1 	ldr	d1, [x15], #8
+ 644:	d10005ce 	sub	x14, x14, #0x1
+ 648:	fc408602 	ldr	d2, [x16], #8
+ 64c:	f10005df 	cmp	x14, #0x1
+ 650:	1f420020 	fmadd	d0, d1, d2, d0
+ 654:	54ffff68 	b.hi	640 <segment_reduce_ragged_fp64+0xdc>  // b.pmore
+ 658:	17ffffce 	b	590 <segment_reduce_ragged_fp64+0x2c>
+ 65c:	a8c14ff4 	ldp	x20, x19, [sp], #16
+ 660:	d65f03c0 	ret

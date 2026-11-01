@@ -1,0 +1,14 @@
+# objdump -d libscatter_accum_dup_fortran.so, functions matching scatter_accum_dup_fp64* (sha256 dcb471a3c9d1ecd8)
+
+0000000000000564 <scatter_accum_dup_fp64>:    # address mod 64 = 36
+ 564:	f100047f 	cmp	x3, #0x1
+ 568:	5400012b 	b.lt	58c <scatter_accum_dup_fp64+0x28>  // b.tstop
+ 56c:	b8804428 	ldrsw	x8, [x1], #4
+ 570:	f1000463 	subs	x3, x3, #0x1
+ 574:	fc408441 	ldr	d1, [x2], #8
+ 578:	8b080c08 	add	x8, x0, x8, lsl #3
+ 57c:	fc5f8100 	ldur	d0, [x8, #-8]
+ 580:	1e612800 	fadd	d0, d0, d1
+ 584:	fc1f8100 	stur	d0, [x8, #-8]
+ 588:	54ffff21 	b.ne	56c <scatter_accum_dup_fp64+0x8>  // b.any
+ 58c:	d65f03c0 	ret

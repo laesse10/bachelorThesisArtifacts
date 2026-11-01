@@ -1,0 +1,31 @@
+# objdump -d libtsvc_2_vag_llvm.so, functions matching tsvc_2_vag_fp64* (sha256 55c1d5f25f2ce7d9)
+
+0000000000000604 <tsvc_2_vag_fp64>:    # address mod 64 = 4
+ 604:	f100047f 	cmp	x3, #0x1
+ 608:	5400034b 	b.lt	670 <tsvc_2_vag_fp64+0x6c>  // b.tstop
+ 60c:	54000061 	b.ne	618 <tsvc_2_vag_fp64+0x14>  // b.any
+ 610:	aa1f03e8 	mov	x8, xzr
+ 614:	1400000f 	b	650 <tsvc_2_vag_fp64+0x4c>
+ 618:	927ff468 	and	x8, x3, #0x7ffffffffffffffe
+ 61c:	91001049 	add	x9, x2, #0x4
+ 620:	9100200a 	add	x10, x0, #0x8
+ 624:	927ff46b 	and	x11, x3, #0x7ffffffffffffffe
+ 628:	697fb52c 	ldpsw	x12, x13, [x9, #-4]
+ 62c:	f100096b 	subs	x11, x11, #0x2
+ 630:	91002129 	add	x9, x9, #0x8
+ 634:	fc6c7820 	ldr	d0, [x1, x12, lsl #3]
+ 638:	fc6d7821 	ldr	d1, [x1, x13, lsl #3]
+ 63c:	6d3f8540 	stp	d0, d1, [x10, #-8]
+ 640:	9100414a 	add	x10, x10, #0x10
+ 644:	54ffff21 	b.ne	628 <tsvc_2_vag_fp64+0x24>  // b.any
+ 648:	eb08007f 	cmp	x3, x8
+ 64c:	54000120 	b.eq	670 <tsvc_2_vag_fp64+0x6c>  // b.none
+ 650:	8b080c09 	add	x9, x0, x8, lsl #3
+ 654:	8b08084a 	add	x10, x2, x8, lsl #2
+ 658:	cb080068 	sub	x8, x3, x8
+ 65c:	b880454b 	ldrsw	x11, [x10], #4
+ 660:	f1000508 	subs	x8, x8, #0x1
+ 664:	fc6b7820 	ldr	d0, [x1, x11, lsl #3]
+ 668:	fc008520 	str	d0, [x9], #8
+ 66c:	54ffff81 	b.ne	65c <tsvc_2_vag_fp64+0x58>  // b.any
+ 670:	d65f03c0 	ret

@@ -37,7 +37,7 @@ Rows: `results.csv`, one per (candidate, build, threads), with every timing. Job
 
 **T72 and the T1 binary.** The harness rebuilds the library at every run (DEVIATIONS 4), so each T72
 row records whether its library is byte-identical to the default/T1 library. **All C T72 binaries
-are identical. 77 of 196 Fortran T72 binaries differ**, because gfortran's
+are identical. 86 of 196 Fortran T72 binaries differ** (corrected 2026-11-01; this text first said 77), because gfortran's
 `-ftree-parallelize-loops={n}` takes n from the affinity (72 at T72) and autoparallelised some
 loops. The main T72 tables therefore show the harness default at T72. A sensitivity table restricted
 to identical binaries follows them.
@@ -221,3 +221,22 @@ Ratio t_Fortran / t_C per (model, kernel); > 1 means C is faster.
   (DEVIATIONS 12). It is excluded from the T72 statistics.
 - Translated C validates on 38 of 39 kernels. `tsvc_2_s115` is `incorrect` there, as in the v2
   matrix (FMA contraction).
+
+## T72 without gfortran's automatic parallelization (2026-11-01, `noautopar/`)
+
+Every valid submission of both languages re-timed at T72 with `-ftree-parallelize-loops=1` (job 5229692, and
+5229835 for `quasi_affine_reduce_odd`); setting `noautopar/72` in `stats.csv` and `median/stats.csv`. The C times
+and those of the 103 Fortran libraries that were identical to their T1 build are unchanged (geomean 0.99 and 1.00
+of the original T72); the 86 Fortran libraries that gfortran had autoparallelised are 1.94x slower.
+
+C against Fortran, pooled, medians of 30 runs (`median/stats.csv`), ratio > 1: C faster:
+
+| statistic | pairs | geomean F/C | 95% interval | Wilcoxon p |
+|---|---:|---:|---|---:|
+| best | 81 | 1.370 | 1.087-1.727 | 0.0255 |
+| FIRST | 75 | 1.335 | 0.961-1.855 | 0.1073 |
+| median | 81 | 1.681 | 1.289-2.194 | 0.0011 |
+| best of first k | 79 | 1.421 | 1.101-1.832 | 0.0369 |
+
+With the fifth setting, 20 pooled tests; Bonferroni 0.05/20 = 0.0025. Only the median at `noautopar/72` passes.
+Per model, Kimi-K2.7 (median 2.65x) and Qwen3.8-27B (1.74x) carry it; GPT-OSS-120B is within its interval of 1.

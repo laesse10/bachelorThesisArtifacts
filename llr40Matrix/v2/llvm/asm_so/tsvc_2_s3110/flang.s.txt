@@ -1,0 +1,37 @@
+# objdump -d libtsvc_2_s3110_fortran.so, functions matching tsvc_2_s3110_fp64* (sha256 dccd975781a96ad0)
+
+0000000000000564 <tsvc_2_s3110_fp64>:    # address mod 64 = 36
+ 564:	fd400000 	ldr	d0, [x0]
+ 568:	f100045f 	cmp	x2, #0x1
+ 56c:	5400034b 	b.lt	5d4 <tsvc_2_s3110_fp64+0x70>  // b.tstop
+ 570:	8aa2fc4a 	bic	x10, x2, x2, asr #63
+ 574:	aa1f03e9 	mov	x9, xzr
+ 578:	aa1f03e8 	mov	x8, xzr
+ 57c:	aa1f03eb 	mov	x11, xzr
+ 580:	d37df14a 	lsl	x10, x10, #3
+ 584:	aa1f03ec 	mov	x12, xzr
+ 588:	fc6c7801 	ldr	d1, [x0, x12, lsl #3]
+ 58c:	aa0c03ed 	mov	x13, x12
+ 590:	9100058c 	add	x12, x12, #0x1
+ 594:	1e602020 	fcmp	d1, d0
+ 598:	1e60cc20 	fcsel	d0, d1, d0, gt
+ 59c:	9a88c1a8 	csel	x8, x13, x8, gt
+ 5a0:	9a8bc12b 	csel	x11, x9, x11, gt
+ 5a4:	eb0c005f 	cmp	x2, x12
+ 5a8:	54ffff01 	b.ne	588 <tsvc_2_s3110_fp64+0x24>  // b.any
+ 5ac:	91000529 	add	x9, x9, #0x1
+ 5b0:	8b0a0000 	add	x0, x0, x10
+ 5b4:	eb02013f 	cmp	x9, x2
+ 5b8:	54fffe61 	b.ne	584 <tsvc_2_s3110_fp64+0x20>  // b.any
+ 5bc:	9e620161 	scvtf	d1, x11
+ 5c0:	9e620102 	scvtf	d2, x8
+ 5c4:	1e612800 	fadd	d0, d0, d1
+ 5c8:	1e622800 	fadd	d0, d0, d2
+ 5cc:	fd000020 	str	d0, [x1]
+ 5d0:	d65f03c0 	ret
+ 5d4:	2f00e401 	movi	d1, #0x0
+ 5d8:	2f00e402 	movi	d2, #0x0
+ 5dc:	1e612800 	fadd	d0, d0, d1
+ 5e0:	1e622800 	fadd	d0, d0, d2
+ 5e4:	fd000020 	str	d0, [x1]
+ 5e8:	d65f03c0 	ret

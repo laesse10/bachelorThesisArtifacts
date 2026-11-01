@@ -1,0 +1,20 @@
+# objdump -d libtsvc_2_s1244_fortran.so, functions matching tsvc_2_s1244_fp64* (sha256 84301eedad8cad76)
+
+0000000000000564 <tsvc_2_s1244_fp64>:    # address mod 64 = 36
+ 564:	f100089f 	cmp	x4, #0x2
+ 568:	540001eb 	b.lt	5a4 <tsvc_2_s1244_fp64+0x40>  // b.tstop
+ 56c:	d1000488 	sub	x8, x4, #0x1
+ 570:	91002009 	add	x9, x0, #0x8
+ 574:	fc408420 	ldr	d0, [x1], #8
+ 578:	f1000508 	subs	x8, x8, #0x1
+ 57c:	fc408441 	ldr	d1, [x2], #8
+ 580:	1f410022 	fmadd	d2, d1, d1, d0
+ 584:	1f400800 	fmadd	d0, d0, d0, d2
+ 588:	1e602820 	fadd	d0, d1, d0
+ 58c:	fd400121 	ldr	d1, [x9]
+ 590:	1e602821 	fadd	d1, d1, d0
+ 594:	fc1f8120 	stur	d0, [x9, #-8]
+ 598:	91002129 	add	x9, x9, #0x8
+ 59c:	fc008461 	str	d1, [x3], #8
+ 5a0:	54fffea1 	b.ne	574 <tsvc_2_s1244_fp64+0x10>  // b.any
+ 5a4:	d65f03c0 	ret

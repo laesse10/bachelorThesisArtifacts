@@ -1,0 +1,27 @@
+# objdump -d libext_break_capture_cc.so, functions matching ext_break_capture_fp64* (sha256 3bcf5fb066801663)
+
+0000000000000640 <ext_break_capture_fp64>:    # address mod 64 = 0
+ 640:	1e7e101f 	fmov	d31, #-1.000000000000000000e+00
+ 644:	92800004 	mov	x4, #0xffffffffffffffff    	// #-1
+ 648:	f9000024 	str	x4, [x1]
+ 64c:	fd00005f 	str	d31, [x2]
+ 650:	f100007f 	cmp	x3, #0x0
+ 654:	5400012d 	b.le	678 <ext_break_capture_fp64+0x38>
+ 658:	1e6e101f 	fmov	d31, #1.000000000000000000e+00
+ 65c:	d2800004 	mov	x4, #0x0                   	// #0
+ 660:	fc64781e 	ldr	d30, [x0, x4, lsl #3]
+ 664:	1e7f23d0 	fcmpe	d30, d31
+ 668:	540000ac 	b.gt	67c <ext_break_capture_fp64+0x3c>
+ 66c:	91000484 	add	x4, x4, #0x1
+ 670:	eb04007f 	cmp	x3, x4
+ 674:	54ffff61 	b.ne	660 <ext_break_capture_fp64+0x20>  // b.any
+ 678:	d65f03c0 	ret
+ 67c:	f9000024 	str	x4, [x1]
+ 680:	fd00005e 	str	d30, [x2]
+ 684:	d65f03c0 	ret
+ 688:	d503201f 	nop
+ 68c:	d503201f 	nop
+ 690:	d503201f 	nop
+ 694:	d503201f 	nop
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop

@@ -1,0 +1,20 @@
+# objdump -d libtsvc_2_s1244_llvm.so, functions matching tsvc_2_s1244_fp64* (sha256 639b0085dcfa53eb)
+
+0000000000000604 <tsvc_2_s1244_fp64>:    # address mod 64 = 4
+ 604:	f100089f 	cmp	x4, #0x2
+ 608:	540001eb 	b.lt	644 <tsvc_2_s1244_fp64+0x40>  // b.tstop
+ 60c:	d1000488 	sub	x8, x4, #0x1
+ 610:	91002009 	add	x9, x0, #0x8
+ 614:	fc408420 	ldr	d0, [x1], #8
+ 618:	f1000508 	subs	x8, x8, #0x1
+ 61c:	fc408441 	ldr	d1, [x2], #8
+ 620:	1f410022 	fmadd	d2, d1, d1, d0
+ 624:	1f400800 	fmadd	d0, d0, d0, d2
+ 628:	1e602820 	fadd	d0, d1, d0
+ 62c:	fd400121 	ldr	d1, [x9]
+ 630:	1e602821 	fadd	d1, d1, d0
+ 634:	fc1f8120 	stur	d0, [x9, #-8]
+ 638:	91002129 	add	x9, x9, #0x8
+ 63c:	fc008461 	str	d1, [x3], #8
+ 640:	54fffea1 	b.ne	614 <tsvc_2_s1244_fp64+0x10>  // b.any
+ 644:	d65f03c0 	ret

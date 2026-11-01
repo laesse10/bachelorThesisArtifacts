@@ -1,0 +1,88 @@
+# objdump -d libfuse_move_ifs_cc.so, functions matching fuse_move_ifs_fp64* (sha256 3e1f231ff15978eb)
+
+00000000000005e4 <fuse_move_ifs_fp64>:    # address mod 64 = 36
+ 5e4:	f10004bf 	cmp	x5, #0x1
+ 5e8:	54000a6b 	b.lt	734 <fuse_move_ifs_fp64+0x150>  // b.tstop
+ 5ec:	04a0e3e8 	cntw	x8
+ 5f0:	d37df0a9 	lsl	x9, x5, #3
+ 5f4:	aa1f03ea 	mov	x10, xzr
+ 5f8:	cb0803eb 	neg	x11, x8
+ 5fc:	aa0303ec 	mov	x12, x3
+ 600:	8a0b00ab 	and	x11, x5, x11
+ 604:	14000006 	b	61c <fuse_move_ifs_fp64+0x38>
+ 608:	9100054a 	add	x10, x10, #0x1
+ 60c:	8b090000 	add	x0, x0, x9
+ 610:	8b09018c 	add	x12, x12, x9
+ 614:	eb05015f 	cmp	x10, x5
+ 618:	540003e0 	b.eq	694 <fuse_move_ifs_fp64+0xb0>  // b.none
+ 61c:	fc6a7840 	ldr	d0, [x2, x10, lsl #3]
+ 620:	1e602008 	fcmp	d0, #0.0
+ 624:	54ffff2d 	b.le	608 <fuse_move_ifs_fp64+0x24>
+ 628:	eb0800bf 	cmp	x5, x8
+ 62c:	54000062 	b.cs	638 <fuse_move_ifs_fp64+0x54>  // b.hs, b.nlast
+ 630:	aa1f03ed 	mov	x13, xzr
+ 634:	14000011 	b	678 <fuse_move_ifs_fp64+0x94>
+ 638:	aa0c03ed 	mov	x13, x12
+ 63c:	aa0003ee 	mov	x14, x0
+ 640:	aa0b03ef 	mov	x15, x11
+ 644:	858041a0 	ldr	z0, [x13]
+ 648:	858045a1 	ldr	z1, [x13, #1, mul vl]
+ 64c:	04b0e7ef 	decw	x15
+ 650:	0431e3ed 	incb	x13, all, mul #2
+ 654:	65c00000 	fadd	z0.d, z0.d, z0.d
+ 658:	65c10021 	fadd	z1.d, z1.d, z1.d
+ 65c:	e58041c0 	str	z0, [x14]
+ 660:	e58045c1 	str	z1, [x14, #1, mul vl]
+ 664:	0431e3ee 	incb	x14, all, mul #2
+ 668:	b5fffeef 	cbnz	x15, 644 <fuse_move_ifs_fp64+0x60>
+ 66c:	eb0b00bf 	cmp	x5, x11
+ 670:	aa0b03ed 	mov	x13, x11
+ 674:	54fffca0 	b.eq	608 <fuse_move_ifs_fp64+0x24>  // b.none
+ 678:	fc6d7980 	ldr	d0, [x12, x13, lsl #3]
+ 67c:	1e602800 	fadd	d0, d0, d0
+ 680:	fc2d7800 	str	d0, [x0, x13, lsl #3]
+ 684:	910005ad 	add	x13, x13, #0x1
+ 688:	eb0d00bf 	cmp	x5, x13
+ 68c:	54ffff61 	b.ne	678 <fuse_move_ifs_fp64+0x94>  // b.any
+ 690:	17ffffde 	b	608 <fuse_move_ifs_fp64+0x24>
+ 694:	f100049f 	cmp	x4, #0x1
+ 698:	540004eb 	b.lt	734 <fuse_move_ifs_fp64+0x150>  // b.tstop
+ 69c:	1e6e1000 	fmov	d0, #1.000000000000000000e+00
+ 6a0:	cb0803eb 	neg	x11, x8
+ 6a4:	25d8e3e0 	ptrue	p0.d
+ 6a8:	aa1f03ea 	mov	x10, xzr
+ 6ac:	8a0b00ab 	and	x11, x5, x11
+ 6b0:	14000006 	b	6c8 <fuse_move_ifs_fp64+0xe4>
+ 6b4:	9100054a 	add	x10, x10, #0x1
+ 6b8:	8b090021 	add	x1, x1, x9
+ 6bc:	8b090063 	add	x3, x3, x9
+ 6c0:	eb05015f 	cmp	x10, x5
+ 6c4:	54000380 	b.eq	734 <fuse_move_ifs_fp64+0x150>  // b.none
+ 6c8:	eb0800bf 	cmp	x5, x8
+ 6cc:	54000062 	b.cs	6d8 <fuse_move_ifs_fp64+0xf4>  // b.hs, b.nlast
+ 6d0:	aa1f03ec 	mov	x12, xzr
+ 6d4:	14000011 	b	718 <fuse_move_ifs_fp64+0x134>
+ 6d8:	aa0303ec 	mov	x12, x3
+ 6dc:	aa0103ed 	mov	x13, x1
+ 6e0:	aa0b03ee 	mov	x14, x11
+ 6e4:	85804181 	ldr	z1, [x12]
+ 6e8:	85804582 	ldr	z2, [x12, #1, mul vl]
+ 6ec:	04b0e7ee 	decw	x14
+ 6f0:	0431e3ec 	incb	x12, all, mul #2
+ 6f4:	65d88021 	fadd	z1.d, p0/m, z1.d, #1.0
+ 6f8:	65d88022 	fadd	z2.d, p0/m, z2.d, #1.0
+ 6fc:	e58041a1 	str	z1, [x13]
+ 700:	e58045a2 	str	z2, [x13, #1, mul vl]
+ 704:	0431e3ed 	incb	x13, all, mul #2
+ 708:	b5fffeee 	cbnz	x14, 6e4 <fuse_move_ifs_fp64+0x100>
+ 70c:	eb0b00bf 	cmp	x5, x11
+ 710:	aa0b03ec 	mov	x12, x11
+ 714:	54fffd00 	b.eq	6b4 <fuse_move_ifs_fp64+0xd0>  // b.none
+ 718:	fc6c7861 	ldr	d1, [x3, x12, lsl #3]
+ 71c:	1e602821 	fadd	d1, d1, d0
+ 720:	fc2c7821 	str	d1, [x1, x12, lsl #3]
+ 724:	9100058c 	add	x12, x12, #0x1
+ 728:	eb0c00bf 	cmp	x5, x12
+ 72c:	54ffff61 	b.ne	718 <fuse_move_ifs_fp64+0x134>  // b.any
+ 730:	17ffffe1 	b	6b4 <fuse_move_ifs_fp64+0xd0>
+ 734:	d65f03c0 	ret

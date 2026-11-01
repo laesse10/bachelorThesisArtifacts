@@ -1,0 +1,43 @@
+# objdump -d libsegment_reduce_ragged_cc.so, functions matching segment_reduce_ragged_fp64* (sha256 58d66a47ccfed5c3)
+
+0000000000000660 <segment_reduce_ragged_fp64>:    # address mod 64 = 32
+ 660:	f100009f 	cmp	x4, #0x0
+ 664:	5400038d 	b.le	6d4 <segment_reduce_ragged_fp64+0x74>
+ 668:	d280000a 	mov	x10, #0x0                   	// #0
+ 66c:	9100202b 	add	x11, x1, #0x8
+ 670:	04e0e3e9 	cntd	x9
+ 674:	d503201f 	nop
+ 678:	d503201f 	nop
+ 67c:	d503201f 	nop
+ 680:	f86a7827 	ldr	x7, [x1, x10, lsl #3]
+ 684:	f86a7966 	ldr	x6, [x11, x10, lsl #3]
+ 688:	eb0600ff 	cmp	x7, x6
+ 68c:	5400026a 	b.ge	6d8 <segment_reduce_ragged_fp64+0x78>  // b.tcont
+ 690:	2f00e41f 	movi	d31, #0x0
+ 694:	cb0700c6 	sub	x6, x6, x7
+ 698:	8b070c48 	add	x8, x2, x7, lsl #3
+ 69c:	d2800005 	mov	x5, #0x0                   	// #0
+ 6a0:	25e61fe7 	whilelo	p7.d, xzr, x6
+ 6a4:	8b070c67 	add	x7, x3, x7, lsl #3
+ 6a8:	a5e55d1e 	ld1d	{z30.d}, p7/z, [x8, x5, lsl #3]
+ 6ac:	a5e55cfd 	ld1d	{z29.d}, p7/z, [x7, x5, lsl #3]
+ 6b0:	8b0900a5 	add	x5, x5, x9
+ 6b4:	65de0bbd 	fmul	z29.d, z29.d, z30.d
+ 6b8:	65d83fbf 	fadda	d31, p7, d31, z29.d
+ 6bc:	25e61ca7 	whilelo	p7.d, x5, x6
+ 6c0:	54ffff41 	b.ne	6a8 <segment_reduce_ragged_fp64+0x48>  // b.any
+ 6c4:	fc2a781f 	str	d31, [x0, x10, lsl #3]
+ 6c8:	9100054a 	add	x10, x10, #0x1
+ 6cc:	eb0a009f 	cmp	x4, x10
+ 6d0:	54fffd81 	b.ne	680 <segment_reduce_ragged_fp64+0x20>  // b.any
+ 6d4:	d65f03c0 	ret
+ 6d8:	2f00e41f 	movi	d31, #0x0
+ 6dc:	fc2a781f 	str	d31, [x0, x10, lsl #3]
+ 6e0:	9100054a 	add	x10, x10, #0x1
+ 6e4:	eb0a009f 	cmp	x4, x10
+ 6e8:	54fffcc1 	b.ne	680 <segment_reduce_ragged_fp64+0x20>  // b.any
+ 6ec:	17fffffa 	b	6d4 <segment_reduce_ragged_fp64+0x74>
+ 6f0:	d503201f 	nop
+ 6f4:	d503201f 	nop
+ 6f8:	d503201f 	nop
+ 6fc:	d503201f 	nop

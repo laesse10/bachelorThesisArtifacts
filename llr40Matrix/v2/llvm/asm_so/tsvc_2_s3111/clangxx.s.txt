@@ -1,0 +1,14 @@
+# objdump -d libtsvc_2_s3111_llvm.so, functions matching tsvc_2_s3111_fp64* (sha256 0cf9572efd31eada)
+
+0000000000000604 <tsvc_2_s3111_fp64>:    # address mod 64 = 4
+ 604:	2f00e400 	movi	d0, #0x0
+ 608:	f100045f 	cmp	x2, #0x1
+ 60c:	540000eb 	b.lt	628 <tsvc_2_s3111_fp64+0x24>  // b.tstop
+ 610:	fc408401 	ldr	d1, [x0], #8
+ 614:	1e612802 	fadd	d2, d0, d1
+ 618:	1e602028 	fcmp	d1, #0.0
+ 61c:	1e60cc40 	fcsel	d0, d2, d0, gt
+ 620:	f1000442 	subs	x2, x2, #0x1
+ 624:	54ffff61 	b.ne	610 <tsvc_2_s3111_fp64+0xc>  // b.any
+ 628:	fd000020 	str	d0, [x1]
+ 62c:	d65f03c0 	ret

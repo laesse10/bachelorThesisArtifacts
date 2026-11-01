@@ -1,0 +1,34 @@
+# objdump -d libtsvc_2_vag_fortran.so, functions matching tsvc_2_vag_fp64* (sha256 56f94ceb14ca4866)
+
+0000000000000564 <tsvc_2_vag_fp64>:    # address mod 64 = 36
+ 564:	f100047f 	cmp	x3, #0x1
+ 568:	540003ab 	b.lt	5dc <tsvc_2_vag_fp64+0x78>  // b.tstop
+ 56c:	54000061 	b.ne	578 <tsvc_2_vag_fp64+0x14>  // b.any
+ 570:	aa1f03e8 	mov	x8, xzr
+ 574:	14000011 	b	5b8 <tsvc_2_vag_fp64+0x54>
+ 578:	927ff468 	and	x8, x3, #0x7ffffffffffffffe
+ 57c:	91001049 	add	x9, x2, #0x4
+ 580:	9100200a 	add	x10, x0, #0x8
+ 584:	927ff46b 	and	x11, x3, #0x7ffffffffffffffe
+ 588:	697fb52c 	ldpsw	x12, x13, [x9, #-4]
+ 58c:	f100096b 	subs	x11, x11, #0x2
+ 590:	91002129 	add	x9, x9, #0x8
+ 594:	8b0c0c2c 	add	x12, x1, x12, lsl #3
+ 598:	8b0d0c2d 	add	x13, x1, x13, lsl #3
+ 59c:	fc5f8180 	ldur	d0, [x12, #-8]
+ 5a0:	fc5f81a1 	ldur	d1, [x13, #-8]
+ 5a4:	6d3f8540 	stp	d0, d1, [x10, #-8]
+ 5a8:	9100414a 	add	x10, x10, #0x10
+ 5ac:	54fffee1 	b.ne	588 <tsvc_2_vag_fp64+0x24>  // b.any
+ 5b0:	eb08007f 	cmp	x3, x8
+ 5b4:	54000140 	b.eq	5dc <tsvc_2_vag_fp64+0x78>  // b.none
+ 5b8:	8b080849 	add	x9, x2, x8, lsl #2
+ 5bc:	8b080c0a 	add	x10, x0, x8, lsl #3
+ 5c0:	cb080068 	sub	x8, x3, x8
+ 5c4:	b880452b 	ldrsw	x11, [x9], #4
+ 5c8:	f1000508 	subs	x8, x8, #0x1
+ 5cc:	8b0b0c2b 	add	x11, x1, x11, lsl #3
+ 5d0:	fc5f8160 	ldur	d0, [x11, #-8]
+ 5d4:	fc008540 	str	d0, [x10], #8
+ 5d8:	54ffff61 	b.ne	5c4 <tsvc_2_vag_fp64+0x60>  // b.any
+ 5dc:	d65f03c0 	ret

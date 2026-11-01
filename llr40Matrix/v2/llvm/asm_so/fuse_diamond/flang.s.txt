@@ -1,0 +1,156 @@
+# objdump -d libfuse_diamond_fortran.so, functions matching fuse_diamond_fp64* (sha256 54b7129eca54381f)
+
+0000000000000564 <fuse_diamond_fp64>:    # address mod 64 = 36
+ 564:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 568:	8aa2fc48 	bic	x8, x2, x2, asr #63
+ 56c:	910003e9 	mov	x9, sp
+ 570:	f9000bf3 	str	x19, [sp, #16]
+ 574:	910003fd 	mov	x29, sp
+ 578:	d37df108 	lsl	x8, x8, #3
+ 57c:	91003d08 	add	x8, x8, #0xf
+ 580:	927ced0a 	and	x10, x8, #0xfffffffffffffff0
+ 584:	cb0a012b 	sub	x11, x9, x10
+ 588:	9100017f 	mov	sp, x11
+ 58c:	910003e8 	mov	x8, sp
+ 590:	cb0a0108 	sub	x8, x8, x10
+ 594:	9100011f 	mov	sp, x8
+ 598:	910003e9 	mov	x9, sp
+ 59c:	cb0a0129 	sub	x9, x9, x10
+ 5a0:	9100013f 	mov	sp, x9
+ 5a4:	f100045f 	cmp	x2, #0x1
+ 5a8:	5400108b 	b.lt	7b8 <fuse_diamond_fp64+0x254>  // b.tstop
+ 5ac:	04a0e3ea 	cntw	x10
+ 5b0:	eb0a005f 	cmp	x2, x10
+ 5b4:	54000062 	b.cs	5c0 <fuse_diamond_fp64+0x5c>  // b.hs, b.nlast
+ 5b8:	aa1f03ec 	mov	x12, xzr
+ 5bc:	14000012 	b	604 <fuse_diamond_fp64+0xa0>
+ 5c0:	cb0a03ec 	neg	x12, x10
+ 5c4:	aa0003ed 	mov	x13, x0
+ 5c8:	aa0b03ee 	mov	x14, x11
+ 5cc:	8a0c004c 	and	x12, x2, x12
+ 5d0:	aa0c03ef 	mov	x15, x12
+ 5d4:	858041a0 	ldr	z0, [x13]
+ 5d8:	858045a1 	ldr	z1, [x13, #1, mul vl]
+ 5dc:	04b0e7ef 	decw	x15
+ 5e0:	0431e3ed 	incb	x13, all, mul #2
+ 5e4:	65c00800 	fmul	z0.d, z0.d, z0.d
+ 5e8:	65c10821 	fmul	z1.d, z1.d, z1.d
+ 5ec:	e58041c0 	str	z0, [x14]
+ 5f0:	e58045c1 	str	z1, [x14, #1, mul vl]
+ 5f4:	0431e3ee 	incb	x14, all, mul #2
+ 5f8:	b5fffeef 	cbnz	x15, 5d4 <fuse_diamond_fp64+0x70>
+ 5fc:	eb0c005f 	cmp	x2, x12
+ 600:	54000140 	b.eq	628 <fuse_diamond_fp64+0xc4>  // b.none
+ 604:	d37df18e 	lsl	x14, x12, #3
+ 608:	cb0c004c 	sub	x12, x2, x12
+ 60c:	8b0e000d 	add	x13, x0, x14
+ 610:	8b0e016e 	add	x14, x11, x14
+ 614:	fc4085a0 	ldr	d0, [x13], #8
+ 618:	f100058c 	subs	x12, x12, #0x1
+ 61c:	1e600800 	fmul	d0, d0, d0
+ 620:	fc0085c0 	str	d0, [x14], #8
+ 624:	54ffff81 	b.ne	614 <fuse_diamond_fp64+0xb0>  // b.any
+ 628:	eb0a005f 	cmp	x2, x10
+ 62c:	54000062 	b.cs	638 <fuse_diamond_fp64+0xd4>  // b.hs, b.nlast
+ 630:	aa1f03ec 	mov	x12, xzr
+ 634:	14000013 	b	680 <fuse_diamond_fp64+0x11c>
+ 638:	cb0a03ec 	neg	x12, x10
+ 63c:	25d8e3e0 	ptrue	p0.d
+ 640:	aa0b03ed 	mov	x13, x11
+ 644:	8a0c004c 	and	x12, x2, x12
+ 648:	aa0803ee 	mov	x14, x8
+ 64c:	aa0c03ef 	mov	x15, x12
+ 650:	858041a0 	ldr	z0, [x13]
+ 654:	858045a1 	ldr	z1, [x13, #1, mul vl]
+ 658:	04b0e7ef 	decw	x15
+ 65c:	0431e3ed 	incb	x13, all, mul #2
+ 660:	65d88020 	fadd	z0.d, p0/m, z0.d, #1.0
+ 664:	65d88021 	fadd	z1.d, p0/m, z1.d, #1.0
+ 668:	e58041c0 	str	z0, [x14]
+ 66c:	e58045c1 	str	z1, [x14, #1, mul vl]
+ 670:	0431e3ee 	incb	x14, all, mul #2
+ 674:	b5fffeef 	cbnz	x15, 650 <fuse_diamond_fp64+0xec>
+ 678:	eb0c005f 	cmp	x2, x12
+ 67c:	54000160 	b.eq	6a8 <fuse_diamond_fp64+0x144>  // b.none
+ 680:	d37df18e 	lsl	x14, x12, #3
+ 684:	1e6e1000 	fmov	d0, #1.000000000000000000e+00
+ 688:	cb0c004c 	sub	x12, x2, x12
+ 68c:	8b0e016d 	add	x13, x11, x14
+ 690:	8b0e010e 	add	x14, x8, x14
+ 694:	fc4085a1 	ldr	d1, [x13], #8
+ 698:	f100058c 	subs	x12, x12, #0x1
+ 69c:	1e602821 	fadd	d1, d1, d0
+ 6a0:	fc0085c1 	str	d1, [x14], #8
+ 6a4:	54ffff81 	b.ne	694 <fuse_diamond_fp64+0x130>  // b.any
+ 6a8:	eb0a005f 	cmp	x2, x10
+ 6ac:	54000062 	b.cs	6b8 <fuse_diamond_fp64+0x154>  // b.hs, b.nlast
+ 6b0:	aa1f03ec 	mov	x12, xzr
+ 6b4:	14000013 	b	700 <fuse_diamond_fp64+0x19c>
+ 6b8:	cb0a03ec 	neg	x12, x10
+ 6bc:	25f9de00 	fmov	z0.d, #-1.000000000000000000e+00
+ 6c0:	aa0b03ed 	mov	x13, x11
+ 6c4:	8a0c004c 	and	x12, x2, x12
+ 6c8:	aa0903ee 	mov	x14, x9
+ 6cc:	aa0c03ef 	mov	x15, x12
+ 6d0:	858041a1 	ldr	z1, [x13]
+ 6d4:	858045a2 	ldr	z2, [x13, #1, mul vl]
+ 6d8:	04b0e7ef 	decw	x15
+ 6dc:	0431e3ed 	incb	x13, all, mul #2
+ 6e0:	65c00021 	fadd	z1.d, z1.d, z0.d
+ 6e4:	65c00042 	fadd	z2.d, z2.d, z0.d
+ 6e8:	e58041c1 	str	z1, [x14]
+ 6ec:	e58045c2 	str	z2, [x14, #1, mul vl]
+ 6f0:	0431e3ee 	incb	x14, all, mul #2
+ 6f4:	b5fffeef 	cbnz	x15, 6d0 <fuse_diamond_fp64+0x16c>
+ 6f8:	eb0c005f 	cmp	x2, x12
+ 6fc:	54000160 	b.eq	728 <fuse_diamond_fp64+0x1c4>  // b.none
+ 700:	d37df18d 	lsl	x13, x12, #3
+ 704:	1e7e1000 	fmov	d0, #-1.000000000000000000e+00
+ 708:	cb0c004c 	sub	x12, x2, x12
+ 70c:	8b0d016b 	add	x11, x11, x13
+ 710:	8b0d012d 	add	x13, x9, x13
+ 714:	fc408561 	ldr	d1, [x11], #8
+ 718:	f100058c 	subs	x12, x12, #0x1
+ 71c:	1e602821 	fadd	d1, d1, d0
+ 720:	fc0085a1 	str	d1, [x13], #8
+ 724:	54ffff81 	b.ne	714 <fuse_diamond_fp64+0x1b0>  // b.any
+ 728:	eb0a005f 	cmp	x2, x10
+ 72c:	54000062 	b.cs	738 <fuse_diamond_fp64+0x1d4>  // b.hs, b.nlast
+ 730:	aa1f03ea 	mov	x10, xzr
+ 734:	14000016 	b	78c <fuse_diamond_fp64+0x228>
+ 738:	cb0a03ea 	neg	x10, x10
+ 73c:	2518e3e0 	ptrue	p0.b
+ 740:	aa1f03eb 	mov	x11, xzr
+ 744:	8a0a004a 	and	x10, x2, x10
+ 748:	aa0a03ec 	mov	x12, x10
+ 74c:	a40b4100 	ld1b	{z0.b}, p0/z, [x8, x11]
+ 750:	a40b4121 	ld1b	{z1.b}, p0/z, [x9, x11]
+ 754:	8b0b010d 	add	x13, x8, x11
+ 758:	8b0b012e 	add	x14, x9, x11
+ 75c:	858045a2 	ldr	z2, [x13, #1, mul vl]
+ 760:	04b0e7ec 	decw	x12
+ 764:	858045c3 	ldr	z3, [x14, #1, mul vl]
+ 768:	8b0b002d 	add	x13, x1, x11
+ 76c:	65c10800 	fmul	z0.d, z0.d, z1.d
+ 770:	65c30841 	fmul	z1.d, z2.d, z3.d
+ 774:	e40b4020 	st1b	{z0.b}, p0, [x1, x11]
+ 778:	0431e3eb 	incb	x11, all, mul #2
+ 77c:	e58045a1 	str	z1, [x13, #1, mul vl]
+ 780:	b5fffe6c 	cbnz	x12, 74c <fuse_diamond_fp64+0x1e8>
+ 784:	eb0a005f 	cmp	x2, x10
+ 788:	54000180 	b.eq	7b8 <fuse_diamond_fp64+0x254>  // b.none
+ 78c:	d37df14b 	lsl	x11, x10, #3
+ 790:	cb0a004a 	sub	x10, x2, x10
+ 794:	8b0b0108 	add	x8, x8, x11
+ 798:	8b0b0129 	add	x9, x9, x11
+ 79c:	8b0b002b 	add	x11, x1, x11
+ 7a0:	fc408500 	ldr	d0, [x8], #8
+ 7a4:	f100054a 	subs	x10, x10, #0x1
+ 7a8:	fc408521 	ldr	d1, [x9], #8
+ 7ac:	1e610800 	fmul	d0, d0, d1
+ 7b0:	fc008560 	str	d0, [x11], #8
+ 7b4:	54ffff61 	b.ne	7a0 <fuse_diamond_fp64+0x23c>  // b.any
+ 7b8:	910003bf 	mov	sp, x29
+ 7bc:	f9400bf3 	ldr	x19, [sp, #16]
+ 7c0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 7c4:	d65f03c0 	ret

@@ -1,0 +1,16 @@
+# objdump -d libscan_affine_decay_fortran.so, functions matching scan_affine_decay_fp64* (sha256 25dd6e42e9a1126f)
+
+0000000000000564 <scan_affine_decay_fp64>:    # address mod 64 = 36
+ 564:	f100087f 	cmp	x3, #0x2
+ 568:	5400016b 	b.lt	594 <scan_affine_decay_fp64+0x30>  // b.tstop
+ 56c:	fc408440 	ldr	d0, [x2], #8
+ 570:	d1000468 	sub	x8, x3, #0x1
+ 574:	91002009 	add	x9, x0, #0x8
+ 578:	9100202a 	add	x10, x1, #0x8
+ 57c:	fc408521 	ldr	d1, [x9], #8
+ 580:	f1000508 	subs	x8, x8, #0x1
+ 584:	fc408542 	ldr	d2, [x10], #8
+ 588:	1f400820 	fmadd	d0, d1, d0, d2
+ 58c:	fc008440 	str	d0, [x2], #8
+ 590:	54ffff61 	b.ne	57c <scan_affine_decay_fp64+0x18>  // b.any
+ 594:	d65f03c0 	ret

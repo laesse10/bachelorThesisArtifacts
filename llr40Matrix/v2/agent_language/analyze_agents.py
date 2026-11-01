@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Part B analysis: C against Fortran agent submissions on GH200.
 
-Inputs: parts/<kernel>.csv (sweep_agents.py), ../agent_picks.json. Outputs: results.csv (all rows),
+Inputs: parts/<kernel>.csv (sweep_agents.py), noautopar/parts/<kernel>.csv (noautopar/sweep_noautopar.py:
+T72 again, both languages, without gfortran's automatic parallelization; the setting ``noautopar/72``),
+../agent_picks.json. Outputs: results.csv (all rows),
 validity.csv, paired_<stat>.csv per statistic and setting, stats.csv (the per-statistic summaries),
 spearman.csv; analysis.md quotes them.
 
@@ -38,12 +40,14 @@ for f in sorted(glob.glob(str(HERE / "parts" / "*.csv"))):
     rows += list(csv.DictReader(open(f)))
 if not rows:
     sys.exit("no rows")
+for f in sorted(glob.glob(str(HERE / "noautopar" / "parts" / "*.csv"))):
+    rows += list(csv.DictReader(open(f)))
 with open(HERE / "results.csv", "w", newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
 
 cand = [r for r in rows if r["role"] == "candidate"]
 ref = {(r["kernel"], r["threads"]): float(r[TCOL]) for r in rows
-       if r["role"] == "translated_c" and r["status"] == "ok" and r[TCOL]}
+       if r["role"] == "translated_c" and r["build"] == "default" and r["status"] == "ok" and r[TCOL]}
 by = {}   # (sha256, build, threads) -> row
 for r in cand:
     by[(r["kernel"], r["sha256"], r["build"], r["threads"])] = r
@@ -96,9 +100,9 @@ def stat_value(kernel, model, lang, stat, build, threads, k_first):
     if not ss:
         return None, 0
     def t(c):
-        # timed only if valid in its own build: default T72 needs default/T1 valid; gcc14 its gcc14/T1
+        # timed only if valid in its own build: T72 (default or noautopar) needs default/T1 valid; gcc14 its gcc14/T1
         thr = threads.split("/")[0]
-        if build == "default" and thr == "72":
+        if thr == "72":
             v = by.get((kernel, c["sha256"], "default", "1"))
             if not v or v["status"] != "ok":
                 return None
@@ -156,7 +160,7 @@ def same_binary(r1, r72):
     return bool(r72["lib_sha256"]) and r72["lib_sha256"] == r1["lib_sha256"]
 
 
-settings = [("default", "1"), ("default", "72"), ("default", "72/identical"), ("gcc14", "1")]
+settings = [("default", "1"), ("default", "72"), ("default", "72/identical"), ("gcc14", "1"), ("noautopar", "72")]
 models = sorted({c["arm"].split("-")[1] for v in picks.values() for c in v})
 stats_rows = []
 for build, threads in settings:

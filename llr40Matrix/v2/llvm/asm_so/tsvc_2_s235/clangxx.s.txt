@@ -1,0 +1,36 @@
+# objdump -d libtsvc_2_s235_llvm.so, functions matching tsvc_2_s235_fp64* (sha256 ebd323760a553ab6)
+
+0000000000000604 <tsvc_2_s235_fp64>:    # address mod 64 = 4
+ 604:	f10004a8 	subs	x8, x5, #0x1
+ 608:	540003eb 	b.lt	684 <tsvc_2_s235_fp64+0x80>  // b.tstop
+ 60c:	540000e1 	b.ne	628 <tsvc_2_s235_fp64+0x24>  // b.any
+ 610:	fd400080 	ldr	d0, [x4]
+ 614:	fd400041 	ldr	d1, [x2]
+ 618:	fd400002 	ldr	d2, [x0]
+ 61c:	1f400820 	fmadd	d0, d1, d0, d2
+ 620:	fd000000 	str	d0, [x0]
+ 624:	d65f03c0 	ret
+ 628:	d37df0a9 	lsl	x9, x5, #3
+ 62c:	aa1f03ea 	mov	x10, xzr
+ 630:	fc6a7800 	ldr	d0, [x0, x10, lsl #3]
+ 634:	fc6a7841 	ldr	d1, [x2, x10, lsl #3]
+ 638:	aa0303eb 	mov	x11, x3
+ 63c:	fc6a7882 	ldr	d2, [x4, x10, lsl #3]
+ 640:	aa0103ec 	mov	x12, x1
+ 644:	aa0803ed 	mov	x13, x8
+ 648:	1f420020 	fmadd	d0, d1, d2, d0
+ 64c:	fc2a7800 	str	d0, [x0, x10, lsl #3]
+ 650:	8b09016b 	add	x11, x11, x9
+ 654:	fd400181 	ldr	d1, [x12]
+ 658:	8b09018c 	add	x12, x12, x9
+ 65c:	fd400162 	ldr	d2, [x11]
+ 660:	f10005ad 	subs	x13, x13, #0x1
+ 664:	1f420401 	fmadd	d1, d0, d2, d1
+ 668:	fd000181 	str	d1, [x12]
+ 66c:	54ffff21 	b.ne	650 <tsvc_2_s235_fp64+0x4c>  // b.any
+ 670:	9100054a 	add	x10, x10, #0x1
+ 674:	91002021 	add	x1, x1, #0x8
+ 678:	91002063 	add	x3, x3, #0x8
+ 67c:	eb05015f 	cmp	x10, x5
+ 680:	54fffd81 	b.ne	630 <tsvc_2_s235_fp64+0x2c>  // b.any
+ 684:	d65f03c0 	ret

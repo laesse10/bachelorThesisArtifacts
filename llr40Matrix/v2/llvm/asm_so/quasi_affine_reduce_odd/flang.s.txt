@@ -1,0 +1,38 @@
+# objdump -d libquasi_affine_reduce_odd_fortran.so, functions matching quasi_affine_reduce_odd_fp64* (sha256 f4e84c49016bd87d)
+
+0000000000000584 <quasi_affine_reduce_odd_fp64>:    # address mod 64 = 4
+ 584:	f100085f 	cmp	x2, #0x2
+ 588:	f900003f 	str	xzr, [x1]
+ 58c:	5400040b 	b.lt	60c <quasi_affine_reduce_odd_fp64+0x88>  // b.tstop
+ 590:	d341fc48 	lsr	x8, x2, #1
+ 594:	f100105f 	cmp	x2, #0x4
+ 598:	540000a2 	b.cs	5ac <quasi_affine_reduce_odd_fp64+0x28>  // b.hs, b.nlast
+ 59c:	2f00e400 	movi	d0, #0x0
+ 5a0:	52800029 	mov	w9, #0x1                   	// #1
+ 5a4:	aa0803ea 	mov	x10, x8
+ 5a8:	14000011 	b	5ec <quasi_affine_reduce_odd_fp64+0x68>
+ 5ac:	927ff10b 	and	x11, x8, #0x3ffffffffffffffe
+ 5b0:	2f00e400 	movi	d0, #0x0
+ 5b4:	52800029 	mov	w9, #0x1                   	// #1
+ 5b8:	d341fd6c 	lsr	x12, x11, #1
+ 5bc:	d341044a 	ubfx	x10, x2, #1, #1
+ 5c0:	927ff10d 	and	x13, x8, #0x3ffffffffffffffe
+ 5c4:	b37ef189 	bfi	x9, x12, #2, #61
+ 5c8:	9100600c 	add	x12, x0, #0x18
+ 5cc:	fc5f0181 	ldur	d1, [x12, #-16]
+ 5d0:	f10009ad 	subs	x13, x13, #0x2
+ 5d4:	1e612800 	fadd	d0, d0, d1
+ 5d8:	fc420581 	ldr	d1, [x12], #32
+ 5dc:	1e612800 	fadd	d0, d0, d1
+ 5e0:	54ffff61 	b.ne	5cc <quasi_affine_reduce_odd_fp64+0x48>  // b.any
+ 5e4:	eb0b011f 	cmp	x8, x11
+ 5e8:	54000100 	b.eq	608 <quasi_affine_reduce_odd_fp64+0x84>  // b.none
+ 5ec:	8b090c08 	add	x8, x0, x9, lsl #3
+ 5f0:	91000549 	add	x9, x10, #0x1
+ 5f4:	fc410501 	ldr	d1, [x8], #16
+ 5f8:	d1000529 	sub	x9, x9, #0x1
+ 5fc:	f100053f 	cmp	x9, #0x1
+ 600:	1e612800 	fadd	d0, d0, d1
+ 604:	54ffff88 	b.hi	5f4 <quasi_affine_reduce_odd_fp64+0x70>  // b.pmore
+ 608:	fd000020 	str	d0, [x1]
+ 60c:	d65f03c0 	ret

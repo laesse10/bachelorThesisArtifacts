@@ -1,0 +1,37 @@
+# objdump -d libtsvc_2_s235_fortran.so, functions matching tsvc_2_s235_fp64* (sha256 661abd00f0ecb73f)
+
+0000000000000564 <tsvc_2_s235_fp64>:    # address mod 64 = 36
+ 564:	f10004a8 	subs	x8, x5, #0x1
+ 568:	5400040b 	b.lt	5e8 <tsvc_2_s235_fp64+0x84>  // b.tstop
+ 56c:	540000e1 	b.ne	588 <tsvc_2_s235_fp64+0x24>  // b.any
+ 570:	fd400000 	ldr	d0, [x0]
+ 574:	fd400041 	ldr	d1, [x2]
+ 578:	fd400082 	ldr	d2, [x4]
+ 57c:	1f420020 	fmadd	d0, d1, d2, d0
+ 580:	fd000000 	str	d0, [x0]
+ 584:	d65f03c0 	ret
+ 588:	8aa5fca9 	bic	x9, x5, x5, asr #63
+ 58c:	aa1f03ea 	mov	x10, xzr
+ 590:	d37df129 	lsl	x9, x9, #3
+ 594:	fc6a7800 	ldr	d0, [x0, x10, lsl #3]
+ 598:	fc6a7841 	ldr	d1, [x2, x10, lsl #3]
+ 59c:	aa0803eb 	mov	x11, x8
+ 5a0:	fc6a7882 	ldr	d2, [x4, x10, lsl #3]
+ 5a4:	aa0303ec 	mov	x12, x3
+ 5a8:	aa0103ed 	mov	x13, x1
+ 5ac:	1f420020 	fmadd	d0, d1, d2, d0
+ 5b0:	fc2a7800 	str	d0, [x0, x10, lsl #3]
+ 5b4:	8b09018c 	add	x12, x12, x9
+ 5b8:	fd4001a1 	ldr	d1, [x13]
+ 5bc:	8b0901ad 	add	x13, x13, x9
+ 5c0:	fd400182 	ldr	d2, [x12]
+ 5c4:	f100056b 	subs	x11, x11, #0x1
+ 5c8:	1f420401 	fmadd	d1, d0, d2, d1
+ 5cc:	fd0001a1 	str	d1, [x13]
+ 5d0:	54ffff21 	b.ne	5b4 <tsvc_2_s235_fp64+0x50>  // b.any
+ 5d4:	9100054a 	add	x10, x10, #0x1
+ 5d8:	91002021 	add	x1, x1, #0x8
+ 5dc:	91002063 	add	x3, x3, #0x8
+ 5e0:	eb05015f 	cmp	x10, x5
+ 5e4:	54fffd81 	b.ne	594 <tsvc_2_s235_fp64+0x30>  // b.any
+ 5e8:	d65f03c0 	ret

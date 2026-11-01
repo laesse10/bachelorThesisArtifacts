@@ -1,0 +1,32 @@
+# objdump -d libwf_triangular_fortran.so, functions matching wf_triangular_fp64* (sha256 acd479491306956e)
+
+0000000000000564 <wf_triangular_fp64>:    # address mod 64 = 36
+ 564:	f100083f 	cmp	x1, #0x2
+ 568:	5400036b 	b.lt	5d4 <wf_triangular_fp64+0x70>  // b.tstop
+ 56c:	8aa1fc29 	bic	x9, x1, x1, asr #63
+ 570:	aa1f03e8 	mov	x8, xzr
+ 574:	d100042c 	sub	x12, x1, #0x1
+ 578:	9100200d 	add	x13, x0, #0x8
+ 57c:	5280002e 	mov	w14, #0x1                   	// #1
+ 580:	d37df129 	lsl	x9, x9, #3
+ 584:	9100212a 	add	x10, x9, #0x8
+ 588:	8b09000b 	add	x11, x0, x9
+ 58c:	9b087d4f 	mul	x15, x10, x8
+ 590:	aa0c03f0 	mov	x16, x12
+ 594:	fc6f6960 	ldr	d0, [x11, x15]
+ 598:	aa0d03ef 	mov	x15, x13
+ 59c:	fc6969e1 	ldr	d1, [x15, x9]
+ 5a0:	fd4001e2 	ldr	d2, [x15]
+ 5a4:	f1000610 	subs	x16, x16, #0x1
+ 5a8:	1e622821 	fadd	d1, d1, d2
+ 5ac:	1e602820 	fadd	d0, d1, d0
+ 5b0:	fc2969e0 	str	d0, [x15, x9]
+ 5b4:	910021ef 	add	x15, x15, #0x8
+ 5b8:	54ffff21 	b.ne	59c <wf_triangular_fp64+0x38>  // b.any
+ 5bc:	910005ce 	add	x14, x14, #0x1
+ 5c0:	91000508 	add	x8, x8, #0x1
+ 5c4:	d100058c 	sub	x12, x12, #0x1
+ 5c8:	eb0101df 	cmp	x14, x1
+ 5cc:	8b0a01ad 	add	x13, x13, x10
+ 5d0:	54fffde1 	b.ne	58c <wf_triangular_fp64+0x28>  // b.any
+ 5d4:	d65f03c0 	ret

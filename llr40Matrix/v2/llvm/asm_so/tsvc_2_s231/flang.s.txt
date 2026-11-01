@@ -1,0 +1,25 @@
+# objdump -d libtsvc_2_s231_fortran.so, functions matching tsvc_2_s231_fp64* (sha256 1be34a7f257e1644)
+
+0000000000000564 <tsvc_2_s231_fp64>:    # address mod 64 = 36
+ 564:	f100085f 	cmp	x2, #0x2
+ 568:	5400028b 	b.lt	5b8 <tsvc_2_s231_fp64+0x54>  // b.tstop
+ 56c:	8aa2fc48 	bic	x8, x2, x2, asr #63
+ 570:	aa1f03e9 	mov	x9, xzr
+ 574:	d37df108 	lsl	x8, x8, #3
+ 578:	d100044a 	sub	x10, x2, #0x1
+ 57c:	aa0103eb 	mov	x11, x1
+ 580:	aa0003ec 	mov	x12, x0
+ 584:	8b08016b 	add	x11, x11, x8
+ 588:	fd400180 	ldr	d0, [x12]
+ 58c:	8b08018c 	add	x12, x12, x8
+ 590:	fd400161 	ldr	d1, [x11]
+ 594:	f100054a 	subs	x10, x10, #0x1
+ 598:	1e612800 	fadd	d0, d0, d1
+ 59c:	fd000180 	str	d0, [x12]
+ 5a0:	54ffff21 	b.ne	584 <tsvc_2_s231_fp64+0x20>  // b.any
+ 5a4:	91000529 	add	x9, x9, #0x1
+ 5a8:	91002000 	add	x0, x0, #0x8
+ 5ac:	91002021 	add	x1, x1, #0x8
+ 5b0:	eb02013f 	cmp	x9, x2
+ 5b4:	54fffe21 	b.ne	578 <tsvc_2_s231_fp64+0x14>  // b.any
+ 5b8:	d65f03c0 	ret

@@ -101,7 +101,7 @@ def main() -> None:
     handles = [Line2D([], [], linestyle="none", marker=MARKER[s], color=COLOR[s], markersize=3.5, label=label)
                for s, label in SETTINGS]
     handles.append(Line2D([], [], linestyle="none", marker="o", markerfacecolor="none", color=style.MUTED,
-                          markersize=3.5, label="Not credited (score 1)"))
+                          markersize=3.5, label="Hollow: not credited (score 1)"))
     fig.subplots_adjust(left=0.24, right=0.98, top=0.93, bottom=0.17, wspace=0.06)
     style.legend_below(fig, handles, ncol=4, y=0.005, fontsize=small, markerscale=1.0, columnspacing=1.0,
                        handlelength=1.0)

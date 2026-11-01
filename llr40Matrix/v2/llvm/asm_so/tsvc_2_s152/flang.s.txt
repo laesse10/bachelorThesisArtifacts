@@ -1,0 +1,83 @@
+# objdump -d libtsvc_2_s152_fortran.so, functions matching tsvc_2_s152_fp64* (sha256 57b3e46cdd2c6916)
+
+0000000000000564 <tsvc_2_s152_fp64>:    # address mod 64 = 36
+ 564:	f10004bf 	cmp	x5, #0x1
+ 568:	540009cb 	b.lt	6a0 <tsvc_2_s152_fp64+0x13c>  // b.tstop
+ 56c:	04a0e3e8 	cntw	x8
+ 570:	eb0800bf 	cmp	x5, x8
+ 574:	54000062 	b.cs	580 <tsvc_2_s152_fp64+0x1c>  // b.hs, b.nlast
+ 578:	aa1f03e9 	mov	x9, xzr
+ 57c:	14000016 	b	5d4 <tsvc_2_s152_fp64+0x70>
+ 580:	cb0803e9 	neg	x9, x8
+ 584:	2518e3e0 	ptrue	p0.b
+ 588:	aa1f03ea 	mov	x10, xzr
+ 58c:	8a0900a9 	and	x9, x5, x9
+ 590:	aa0903eb 	mov	x11, x9
+ 594:	a40a4060 	ld1b	{z0.b}, p0/z, [x3, x10]
+ 598:	a40a4081 	ld1b	{z1.b}, p0/z, [x4, x10]
+ 59c:	8b0a006c 	add	x12, x3, x10
+ 5a0:	8b0a008d 	add	x13, x4, x10
+ 5a4:	85804582 	ldr	z2, [x12, #1, mul vl]
+ 5a8:	04b0e7eb 	decw	x11
+ 5ac:	858045a3 	ldr	z3, [x13, #1, mul vl]
+ 5b0:	8b0a002c 	add	x12, x1, x10
+ 5b4:	65c10800 	fmul	z0.d, z0.d, z1.d
+ 5b8:	65c30841 	fmul	z1.d, z2.d, z3.d
+ 5bc:	e40a4020 	st1b	{z0.b}, p0, [x1, x10]
+ 5c0:	0431e3ea 	incb	x10, all, mul #2
+ 5c4:	e5804581 	str	z1, [x12, #1, mul vl]
+ 5c8:	b5fffe6b 	cbnz	x11, 594 <tsvc_2_s152_fp64+0x30>
+ 5cc:	eb0900bf 	cmp	x5, x9
+ 5d0:	54000180 	b.eq	600 <tsvc_2_s152_fp64+0x9c>  // b.none
+ 5d4:	d37df12c 	lsl	x12, x9, #3
+ 5d8:	cb0900a9 	sub	x9, x5, x9
+ 5dc:	8b0c006a 	add	x10, x3, x12
+ 5e0:	8b0c008b 	add	x11, x4, x12
+ 5e4:	8b0c002c 	add	x12, x1, x12
+ 5e8:	fc408540 	ldr	d0, [x10], #8
+ 5ec:	f1000529 	subs	x9, x9, #0x1
+ 5f0:	fc408561 	ldr	d1, [x11], #8
+ 5f4:	1e610800 	fmul	d0, d0, d1
+ 5f8:	fc008580 	str	d0, [x12], #8
+ 5fc:	54ffff61 	b.ne	5e8 <tsvc_2_s152_fp64+0x84>  // b.any
+ 600:	eb0800bf 	cmp	x5, x8
+ 604:	54000062 	b.cs	610 <tsvc_2_s152_fp64+0xac>  // b.hs, b.nlast
+ 608:	aa1f03e8 	mov	x8, xzr
+ 60c:	14000019 	b	670 <tsvc_2_s152_fp64+0x10c>
+ 610:	cb0803e8 	neg	x8, x8
+ 614:	2518e3e0 	ptrue	p0.b
+ 618:	aa1f03e9 	mov	x9, xzr
+ 61c:	8a0800a8 	and	x8, x5, x8
+ 620:	25d8e3e1 	ptrue	p1.d
+ 624:	aa0803ea 	mov	x10, x8
+ 628:	a4094000 	ld1b	{z0.b}, p0/z, [x0, x9]
+ 62c:	a4094021 	ld1b	{z1.b}, p0/z, [x1, x9]
+ 630:	8b09000b 	add	x11, x0, x9
+ 634:	a4094042 	ld1b	{z2.b}, p0/z, [x2, x9]
+ 638:	8b09002c 	add	x12, x1, x9
+ 63c:	8b09004d 	add	x13, x2, x9
+ 640:	85804563 	ldr	z3, [x11, #1, mul vl]
+ 644:	85804584 	ldr	z4, [x12, #1, mul vl]
+ 648:	858045a5 	ldr	z5, [x13, #1, mul vl]
+ 64c:	04b0e7ea 	decw	x10
+ 650:	65e20420 	fmla	z0.d, p1/m, z1.d, z2.d
+ 654:	65e50483 	fmla	z3.d, p1/m, z4.d, z5.d
+ 658:	e4094000 	st1b	{z0.b}, p0, [x0, x9]
+ 65c:	0431e3e9 	incb	x9, all, mul #2
+ 660:	e5804563 	str	z3, [x11, #1, mul vl]
+ 664:	b5fffe2a 	cbnz	x10, 628 <tsvc_2_s152_fp64+0xc4>
+ 668:	eb0800bf 	cmp	x5, x8
+ 66c:	540001a0 	b.eq	6a0 <tsvc_2_s152_fp64+0x13c>  // b.none
+ 670:	d37df10b 	lsl	x11, x8, #3
+ 674:	cb0800a8 	sub	x8, x5, x8
+ 678:	8b0b0009 	add	x9, x0, x11
+ 67c:	8b0b002a 	add	x10, x1, x11
+ 680:	8b0b004b 	add	x11, x2, x11
+ 684:	fc408540 	ldr	d0, [x10], #8
+ 688:	fd400121 	ldr	d1, [x9]
+ 68c:	fc408562 	ldr	d2, [x11], #8
+ 690:	f1000508 	subs	x8, x8, #0x1
+ 694:	1f420400 	fmadd	d0, d0, d2, d1
+ 698:	fc008520 	str	d0, [x9], #8
+ 69c:	54ffff41 	b.ne	684 <tsvc_2_s152_fp64+0x120>  // b.any
+ 6a0:	d65f03c0 	ret

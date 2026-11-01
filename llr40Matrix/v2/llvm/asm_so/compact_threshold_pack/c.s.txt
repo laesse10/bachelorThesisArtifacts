@@ -1,0 +1,27 @@
+# objdump -d libcompact_threshold_pack_cc.so, functions matching compact_threshold_pack_fp64* (sha256 f1f74dad728f6e2b)
+
+0000000000000660 <compact_threshold_pack_fp64>:    # address mod 64 = 32
+ 660:	f100009f 	cmp	x4, #0x0
+ 664:	5400020d 	b.le	6a4 <compact_threshold_pack_fp64+0x44>
+ 668:	d2800005 	mov	x5, #0x0                   	// #0
+ 66c:	d2800006 	mov	x6, #0x0                   	// #0
+ 670:	fc65785f 	ldr	d31, [x2, x5, lsl #3]
+ 674:	1e6023f8 	fcmpe	d31, #0.0
+ 678:	540000cc 	b.gt	690 <compact_threshold_pack_fp64+0x30>
+ 67c:	910004a5 	add	x5, x5, #0x1
+ 680:	eb05009f 	cmp	x4, x5
+ 684:	54ffff61 	b.ne	670 <compact_threshold_pack_fp64+0x10>  // b.any
+ 688:	f9000006 	str	x6, [x0]
+ 68c:	d65f03c0 	ret
+ 690:	fc65787e 	ldr	d30, [x3, x5, lsl #3]
+ 694:	1e7f0bde 	fmul	d30, d30, d31
+ 698:	fc26783e 	str	d30, [x1, x6, lsl #3]
+ 69c:	910004c6 	add	x6, x6, #0x1
+ 6a0:	17fffff7 	b	67c <compact_threshold_pack_fp64+0x1c>
+ 6a4:	d2800006 	mov	x6, #0x0                   	// #0
+ 6a8:	f9000006 	str	x6, [x0]
+ 6ac:	d65f03c0 	ret
+ 6b0:	d503201f 	nop
+ 6b4:	d503201f 	nop
+ 6b8:	d503201f 	nop
+ 6bc:	d503201f 	nop

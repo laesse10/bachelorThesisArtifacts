@@ -1,0 +1,24 @@
+# objdump -d libtsvc_2_s231_cc.so, functions matching tsvc_2_s231_fp64* (sha256 22b693438eb40f94)
+
+00000000000005e4 <tsvc_2_s231_fp64>:    # address mod 64 = 36
+ 5e4:	f100085f 	cmp	x2, #0x2
+ 5e8:	5400026b 	b.lt	634 <tsvc_2_s231_fp64+0x50>  // b.tstop
+ 5ec:	d37df048 	lsl	x8, x2, #3
+ 5f0:	aa1f03e9 	mov	x9, xzr
+ 5f4:	aa0103ea 	mov	x10, x1
+ 5f8:	aa0003eb 	mov	x11, x0
+ 5fc:	d100044c 	sub	x12, x2, #0x1
+ 600:	8b08014a 	add	x10, x10, x8
+ 604:	fd400160 	ldr	d0, [x11]
+ 608:	8b08016b 	add	x11, x11, x8
+ 60c:	fd400141 	ldr	d1, [x10]
+ 610:	f100058c 	subs	x12, x12, #0x1
+ 614:	1e612800 	fadd	d0, d0, d1
+ 618:	fd000160 	str	d0, [x11]
+ 61c:	54ffff21 	b.ne	600 <tsvc_2_s231_fp64+0x1c>  // b.any
+ 620:	91000529 	add	x9, x9, #0x1
+ 624:	91002000 	add	x0, x0, #0x8
+ 628:	91002021 	add	x1, x1, #0x8
+ 62c:	eb02013f 	cmp	x9, x2
+ 630:	54fffe21 	b.ne	5f4 <tsvc_2_s231_fp64+0x10>  // b.any
+ 634:	d65f03c0 	ret

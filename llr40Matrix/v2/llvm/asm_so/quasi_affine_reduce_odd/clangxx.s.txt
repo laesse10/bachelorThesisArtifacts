@@ -1,0 +1,38 @@
+# objdump -d libquasi_affine_reduce_odd_llvm.so, functions matching quasi_affine_reduce_odd_fp64* (sha256 ffe3b9acf57fa38e)
+
+0000000000000624 <quasi_affine_reduce_odd_fp64>:    # address mod 64 = 36
+ 624:	f1000848 	subs	x8, x2, #0x2
+ 628:	f900003f 	str	xzr, [x1]
+ 62c:	5400040b 	b.lt	6ac <quasi_affine_reduce_odd_fp64+0x88>  // b.tstop
+ 630:	d341fd09 	lsr	x9, x8, #1
+ 634:	04a0e3e8 	cntw	x8
+ 638:	eb08013f 	cmp	x9, x8
+ 63c:	54000082 	b.cs	64c <quasi_affine_reduce_odd_fp64+0x28>  // b.hs, b.nlast
+ 640:	2f00e400 	movi	d0, #0x0
+ 644:	52800028 	mov	w8, #0x1                   	// #1
+ 648:	14000013 	b	694 <quasi_affine_reduce_odd_fp64+0x70>
+ 64c:	9280000a 	mov	x10, #0xffffffffffffffff    	// #-1
+ 650:	91000529 	add	x9, x9, #0x1
+ 654:	2f00e400 	movi	d0, #0x0
+ 658:	04b0e3ea 	incw	x10
+ 65c:	25d8e3e0 	ptrue	p0.d
+ 660:	ea0a012a 	ands	x10, x9, x10
+ 664:	9a8a0108 	csel	x8, x8, x10, eq	// eq = none
+ 668:	9100200a 	add	x10, x0, #0x8
+ 66c:	cb080129 	sub	x9, x9, x8
+ 670:	52800028 	mov	w8, #0x1                   	// #1
+ 674:	aa090508 	orr	x8, x8, x9, lsl #1
+ 678:	a5a0e141 	ld2d	{z1.d-z2.d}, p0/z, [x10]
+ 67c:	04b0e7e9 	decw	x9
+ 680:	65d82020 	fadda	d0, p0, d0, z1.d
+ 684:	a5a1e141 	ld2d	{z1.d-z2.d}, p0/z, [x10, #2, mul vl]
+ 688:	0433e3ea 	incb	x10, all, mul #4
+ 68c:	65d82020 	fadda	d0, p0, d0, z1.d
+ 690:	b5ffff49 	cbnz	x9, 678 <quasi_affine_reduce_odd_fp64+0x54>
+ 694:	fc687801 	ldr	d1, [x0, x8, lsl #3]
+ 698:	91000908 	add	x8, x8, #0x2
+ 69c:	eb02011f 	cmp	x8, x2
+ 6a0:	1e612800 	fadd	d0, d0, d1
+ 6a4:	54ffff8b 	b.lt	694 <quasi_affine_reduce_odd_fp64+0x70>  // b.tstop
+ 6a8:	fd000020 	str	d0, [x1]
+ 6ac:	d65f03c0 	ret

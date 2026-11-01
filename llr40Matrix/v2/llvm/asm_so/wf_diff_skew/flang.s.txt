@@ -1,0 +1,83 @@
+# objdump -d libwf_diff_skew_fortran.so, functions matching wf_diff_skew_fp64* (sha256 b61c248faad37485)
+
+0000000000000564 <wf_diff_skew_fp64>:    # address mod 64 = 36
+ 564:	f1000828 	subs	x8, x1, #0x2
+ 568:	540009cb 	b.lt	6a0 <wf_diff_skew_fp64+0x13c>  // b.tstop
+ 56c:	8aa1fc29 	bic	x9, x1, x1, asr #63
+ 570:	d37df02a 	lsl	x10, x1, #3
+ 574:	04a0e3ed 	cntw	x13
+ 578:	f10019bf 	cmp	x13, #0x6
+ 57c:	2518e3e0 	ptrue	p0.b
+ 580:	9b08052b 	madd	x11, x9, x8, x1
+ 584:	d100214a 	sub	x10, x10, #0x8
+ 588:	d37df128 	lsl	x8, x9, #3
+ 58c:	25d8e3e1 	ptrue	p1.d
+ 590:	9b0a012c 	madd	x12, x9, x10, x0
+ 594:	528000c9 	mov	w9, #0x6                   	// #6
+ 598:	8b08000e 	add	x14, x0, x8
+ 59c:	9a8981a9 	csel	x9, x13, x9, hi	// hi = pmore
+ 5a0:	cb0d03ed 	neg	x13, x13
+ 5a4:	8b0b0c0b 	add	x11, x0, x11, lsl #3
+ 5a8:	d100216f 	sub	x15, x11, #0x8
+ 5ac:	8b0c014c 	add	x12, x10, x12
+ 5b0:	9100200a 	add	x10, x0, #0x8
+ 5b4:	eb0f01df 	cmp	x14, x15
+ 5b8:	fa4c3002 	ccmp	x0, x12, #0x2, cc	// cc = lo, ul, last
+ 5bc:	1a9f27ef 	cset	w15, cc	// cc = lo, ul, last
+ 5c0:	eb0b01df 	cmp	x14, x11
+ 5c4:	d100042b 	sub	x11, x1, #0x1
+ 5c8:	fa4c3142 	ccmp	x10, x12, #0x2, cc	// cc = lo, ul, last
+ 5cc:	8a0d016d 	and	x13, x11, x13
+ 5d0:	5280002e 	mov	w14, #0x1                   	// #1
+ 5d4:	fa402908 	ccmp	x8, #0x0, #0x8, cs	// cs = hs, nlast
+ 5d8:	1a9f55ec 	csinc	w12, w15, wzr, pl	// pl = nfrst
+ 5dc:	d280002f 	mov	x15, #0x1                   	// #1
+ 5e0:	14000006 	b	5f8 <wf_diff_skew_fp64+0x94>
+ 5e4:	910005ce 	add	x14, x14, #0x1
+ 5e8:	8b080000 	add	x0, x0, x8
+ 5ec:	8b08014a 	add	x10, x10, x8
+ 5f0:	eb0101df 	cmp	x14, x1
+ 5f4:	54000560 	b.eq	6a0 <wf_diff_skew_fp64+0x13c>  // b.none
+ 5f8:	eb09017f 	cmp	x11, x9
+ 5fc:	1a9f27f0 	cset	w16, cc	// cc = lo, ul, last
+ 600:	2a0c0210 	orr	w16, w16, w12
+ 604:	36000070 	tbz	w16, #0, 610 <wf_diff_skew_fp64+0xac>
+ 608:	aa1f03f0 	mov	x16, xzr
+ 60c:	14000017 	b	668 <wf_diff_skew_fp64+0x104>
+ 610:	aa0d03f0 	mov	x16, x13
+ 614:	aa0003f1 	mov	x17, x0
+ 618:	a4084220 	ld1b	{z0.b}, p0/z, [x17, x8]
+ 61c:	85804221 	ldr	z1, [x17]
+ 620:	8b080232 	add	x18, x17, x8
+ 624:	85804642 	ldr	z2, [x18, #1, mul vl]
+ 628:	85804623 	ldr	z3, [x17, #1, mul vl]
+ 62c:	91002222 	add	x2, x17, #0x8
+ 630:	04b0e7f0 	decw	x16
+ 634:	65c10000 	fadd	z0.d, z0.d, z1.d
+ 638:	a5ef4621 	ld1d	{z1.d}, p1/z, [x17, x15, lsl #3]
+ 63c:	65c30042 	fadd	z2.d, z2.d, z3.d
+ 640:	85804443 	ldr	z3, [x2, #1, mul vl]
+ 644:	65c10000 	fadd	z0.d, z0.d, z1.d
+ 648:	65c30041 	fadd	z1.d, z2.d, z3.d
+ 64c:	e4084220 	st1b	{z0.b}, p0, [x17, x8]
+ 650:	0431e3f1 	incb	x17, all, mul #2
+ 654:	e5804641 	str	z1, [x18, #1, mul vl]
+ 658:	b5fffe10 	cbnz	x16, 618 <wf_diff_skew_fp64+0xb4>
+ 65c:	eb0d017f 	cmp	x11, x13
+ 660:	aa0d03f0 	mov	x16, x13
+ 664:	54fffc00 	b.eq	5e4 <wf_diff_skew_fp64+0x80>  // b.none
+ 668:	d37df212 	lsl	x18, x16, #3
+ 66c:	cb100170 	sub	x16, x11, x16
+ 670:	8b120151 	add	x17, x10, x18
+ 674:	8b120112 	add	x18, x8, x18
+ 678:	6d7f8a21 	ldp	d1, d2, [x17, #-8]
+ 67c:	f1000610 	subs	x16, x16, #0x1
+ 680:	fc726800 	ldr	d0, [x0, x18]
+ 684:	91002231 	add	x17, x17, #0x8
+ 688:	1e612800 	fadd	d0, d0, d1
+ 68c:	1e622800 	fadd	d0, d0, d2
+ 690:	fc326800 	str	d0, [x0, x18]
+ 694:	91002252 	add	x18, x18, #0x8
+ 698:	54ffff01 	b.ne	678 <wf_diff_skew_fp64+0x114>  // b.any
+ 69c:	17ffffd2 	b	5e4 <wf_diff_skew_fp64+0x80>
+ 6a0:	d65f03c0 	ret

@@ -1,0 +1,37 @@
+unit tsvc_2_s2275 node=nid006377 start=2026-11-01T14:30:41+01:00
+T72 binding: PROBE nid006377 72 1
+SRUN[tsvc_2_s2275]: srun --nodes=1 --ntasks=1 -w nid006377 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=120 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang-noautopar /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_noautopar.py --kernel tsvc_2_s2275 --out parts/tsvc_2_s2275.csv --scratch scratch/tsvc_2_s2275 --logs logs/cells --db-shard 415
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  }
+ },
+ "flags_t72": {
+  "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang-noautopar/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+ }
+}
+  translated_c c        translator             seq=    T72 ok             832.584 ms 
+  candidate    c        llr40v10-oss120b-c     seq=  1 T72 ok               6.088 ms 
+  candidate    c        llr40v10-qwen38-c      seq=  1 T72 ok               6.137 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  1 T72 ok               6.203 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  2 T72 ok               6.082 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  3 T72 ok               6.210 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  5 T72 ok               6.128 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  6 T72 ok               6.182 ms 
+  candidate    fortran  r40v10-oss120b-fortran seq=  1 T72 ok              26.057 ms 
+  candidate    fortran  0-kimi27sglang-fortran seq=  1 T72 ok               6.145 ms 
+  candidate    c        llr40v10-oss120b-c     seq=  1 T72 ok               6.170 ms 
+  candidate    c        llr40v10-qwen38-c      seq=  1 T72 ok               6.094 ms 
+  candidate    fortran  r40v10-oss120b-fortran seq=  1 T72 ok              25.309 ms 
+  candidate    fortran  lr40v10-qwen38-fortran seq=  1 T72 ok               6.108 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  1 T72 ok               6.130 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  2 T72 ok               6.244 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  3 T72 ok               6.061 ms 
+  candidate    fortran  0-kimi27sglang-fortran seq=  1 T72 ok              73.441 ms 
+  candidate    fortran  lr40v10-qwen38-fortran seq=  1 T72 ok               6.173 ms 
+wrote 19 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/noautopar/parts/tsvc_2_s2275.csv
+unit tsvc_2_s2275 node=nid006377 end=2026-11-01T14:37:07+01:00

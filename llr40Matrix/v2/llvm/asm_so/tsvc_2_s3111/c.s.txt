@@ -1,0 +1,27 @@
+# objdump -d libtsvc_2_s3111_cc.so, functions matching tsvc_2_s3111_fp64* (sha256 4ee1155e7873adf9)
+
+0000000000000640 <tsvc_2_s3111_fp64>:    # address mod 64 = 0
+ 640:	f100005f 	cmp	x2, #0x0
+ 644:	540001ed 	b.le	680 <tsvc_2_s3111_fp64+0x40>
+ 648:	2f00e41f 	movi	d31, #0x0
+ 64c:	d2800003 	mov	x3, #0x0                   	// #0
+ 650:	04e0e3e4 	cntd	x4
+ 654:	25e21fe7 	whilelo	p7.d, xzr, x2
+ 658:	d503201f 	nop
+ 65c:	d503201f 	nop
+ 660:	a5e35c1e 	ld1d	{z30.d}, p7/z, [x0, x3, lsl #3]
+ 664:	8b040063 	add	x3, x3, x4
+ 668:	65d03fd6 	fcmgt	p6.d, p7/z, z30.d, #0.0
+ 66c:	25e21c67 	whilelo	p7.d, x3, x2
+ 670:	65d83bdf 	fadda	d31, p6, d31, z30.d
+ 674:	54ffff61 	b.ne	660 <tsvc_2_s3111_fp64+0x20>  // b.any
+ 678:	fd00003f 	str	d31, [x1]
+ 67c:	d65f03c0 	ret
+ 680:	2f00e41f 	movi	d31, #0x0
+ 684:	fd00003f 	str	d31, [x1]
+ 688:	d65f03c0 	ret
+ 68c:	d503201f 	nop
+ 690:	d503201f 	nop
+ 694:	d503201f 	nop
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop

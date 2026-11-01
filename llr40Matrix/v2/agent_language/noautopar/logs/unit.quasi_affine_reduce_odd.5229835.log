@@ -1,0 +1,34 @@
+unit quasi_affine_reduce_odd node=nid005453 start=2026-11-01T14:46:37+01:00
+T72 binding: PROBE nid005453 72 1
+SRUN[quasi_affine_reduce_odd]: srun --nodes=1 --ntasks=1 -w nid005453 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=35 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang-noautopar /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_noautopar.py --kernel quasi_affine_reduce_odd --out parts/quasi_affine_reduce_odd.csv --scratch scratch/quasi_affine_reduce_odd --logs logs/cells --db-shard 480
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  }
+ },
+ "flags_t72": {
+  "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang-noautopar/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+ }
+}
+  translated_c c        translator             seq=    T72 ok              62.570 ms 
+  candidate    c        llr40v10-oss120b-c     seq=  1 T72 ok              63.991 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  1 T72 ok              63.518 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  3 T72 ok               3.569 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  5 T72 ok               3.394 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  6 T72 ok               3.523 ms 
+  candidate    fortran  r40v10-oss120b-fortran seq=  1 T72 ok               3.415 ms 
+  candidate    fortran  0-kimi27sglang-fortran seq=  1 T72 ok               3.596 ms 
+  candidate    c        llr40v10-oss120b-c     seq=  1 T72 ok               3.442 ms 
+  candidate    fortran  r40v10-oss120b-fortran seq=  1 T72 ok               3.520 ms 
+  candidate    fortran  lr40v10-qwen38-fortran seq=  1 T72 ok              62.494 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  1 T72 ok               3.583 ms 
+  candidate    c        lr40v10-kimi27sglang-c seq=  3 T72 ok               3.407 ms 
+  candidate    fortran  0-kimi27sglang-fortran seq=  1 T72 ok               3.418 ms 
+  candidate    c        llr40v10-qwen38-c      seq=  1 T72 ok               3.409 ms 
+  candidate    fortran  lr40v10-qwen38-fortran seq=  1 T72 ok               3.433 ms 
+wrote 16 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/noautopar/parts/quasi_affine_reduce_odd.csv
+unit quasi_affine_reduce_odd node=nid005453 end=2026-11-01T14:49:35+01:00

@@ -1,0 +1,61 @@
+# objdump -d libwf_diff_skew_cc.so, functions matching wf_diff_skew_fp64* (sha256 63e0df1000ade432)
+
+00000000000005e4 <wf_diff_skew_fp64>:    # address mod 64 = 36
+ 5e4:	f100083f 	cmp	x1, #0x2
+ 5e8:	5400070b 	b.lt	6c8 <wf_diff_skew_fp64+0xe4>  // b.tstop
+ 5ec:	04a0e3e9 	cntw	x9
+ 5f0:	d37df02a 	lsl	x10, x1, #3
+ 5f4:	d1000428 	sub	x8, x1, #0x1
+ 5f8:	2518e3e0 	ptrue	p0.b
+ 5fc:	cb0903eb 	neg	x11, x9
+ 600:	5280002d 	mov	w13, #0x1                   	// #1
+ 604:	25d8e3e1 	ptrue	p1.d
+ 608:	8a0b010b 	and	x11, x8, x11
+ 60c:	8b0a000c 	add	x12, x0, x10
+ 610:	d280002e 	mov	x14, #0x1                   	// #1
+ 614:	14000006 	b	62c <wf_diff_skew_fp64+0x48>
+ 618:	910005ad 	add	x13, x13, #0x1
+ 61c:	8b0a0000 	add	x0, x0, x10
+ 620:	8b0a018c 	add	x12, x12, x10
+ 624:	eb0101bf 	cmp	x13, x1
+ 628:	54000500 	b.eq	6c8 <wf_diff_skew_fp64+0xe4>  // b.none
+ 62c:	eb09011f 	cmp	x8, x9
+ 630:	54000062 	b.cs	63c <wf_diff_skew_fp64+0x58>  // b.hs, b.nlast
+ 634:	aa1f03ef 	mov	x15, xzr
+ 638:	14000017 	b	694 <wf_diff_skew_fp64+0xb0>
+ 63c:	aa0b03ef 	mov	x15, x11
+ 640:	aa0003f0 	mov	x16, x0
+ 644:	a40a4200 	ld1b	{z0.b}, p0/z, [x16, x10]
+ 648:	85804201 	ldr	z1, [x16]
+ 64c:	8b0a0211 	add	x17, x16, x10
+ 650:	85804622 	ldr	z2, [x17, #1, mul vl]
+ 654:	85804603 	ldr	z3, [x16, #1, mul vl]
+ 658:	91002212 	add	x18, x16, #0x8
+ 65c:	04b0e7ef 	decw	x15
+ 660:	65c10000 	fadd	z0.d, z0.d, z1.d
+ 664:	a5ee4601 	ld1d	{z1.d}, p1/z, [x16, x14, lsl #3]
+ 668:	65c30042 	fadd	z2.d, z2.d, z3.d
+ 66c:	85804643 	ldr	z3, [x18, #1, mul vl]
+ 670:	65c10000 	fadd	z0.d, z0.d, z1.d
+ 674:	65c30041 	fadd	z1.d, z2.d, z3.d
+ 678:	e40a4200 	st1b	{z0.b}, p0, [x16, x10]
+ 67c:	0431e3f0 	incb	x16, all, mul #2
+ 680:	e5804621 	str	z1, [x17, #1, mul vl]
+ 684:	b5fffe0f 	cbnz	x15, 644 <wf_diff_skew_fp64+0x60>
+ 688:	eb0b011f 	cmp	x8, x11
+ 68c:	aa0b03ef 	mov	x15, x11
+ 690:	54fffc40 	b.eq	618 <wf_diff_skew_fp64+0x34>  // b.none
+ 694:	d37df1f1 	lsl	x17, x15, #3
+ 698:	cb0f010f 	sub	x15, x8, x15
+ 69c:	8b110190 	add	x16, x12, x17
+ 6a0:	8b110011 	add	x17, x0, x17
+ 6a4:	fd400200 	ldr	d0, [x16]
+ 6a8:	fd400221 	ldr	d1, [x17]
+ 6ac:	f10005ef 	subs	x15, x15, #0x1
+ 6b0:	1e612800 	fadd	d0, d0, d1
+ 6b4:	fc408e21 	ldr	d1, [x17, #8]!
+ 6b8:	1e612800 	fadd	d0, d0, d1
+ 6bc:	fc008600 	str	d0, [x16], #8
+ 6c0:	54ffff21 	b.ne	6a4 <wf_diff_skew_fp64+0xc0>  // b.any
+ 6c4:	17ffffd5 	b	618 <wf_diff_skew_fp64+0x34>
+ 6c8:	d65f03c0 	ret

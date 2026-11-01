@@ -1,0 +1,69 @@
+# objdump -d libversioned_distance_update_fortran.so, functions matching versioned_distance_update_fp64* (sha256 6c89d1a8566f39c4)
+
+0000000000000584 <versioned_distance_update_fp64>:    # address mod 64 = 4
+ 584:	cb030088 	sub	x8, x4, x3
+ 588:	f100051f 	cmp	x8, #0x1
+ 58c:	540007eb 	b.lt	688 <versioned_distance_update_fp64+0x104>  // b.tstop
+ 590:	04a0e3eb 	cntw	x11
+ 594:	eb0b011f 	cmp	x8, x11
+ 598:	54000062 	b.cs	5a4 <versioned_distance_update_fp64+0x20>  // b.hs, b.nlast
+ 59c:	aa0303ea 	mov	x10, x3
+ 5a0:	1400002a 	b	648 <versioned_distance_update_fp64+0xc4>
+ 5a4:	d37df06e 	lsl	x14, x3, #3
+ 5a8:	04bf5049 	rdvl	x9, #2
+ 5ac:	aa0303ea 	mov	x10, x3
+ 5b0:	eb0901df 	cmp	x14, x9
+ 5b4:	540004a3 	b.cc	648 <versioned_distance_update_fp64+0xc4>  // b.lo, b.ul, b.last
+ 5b8:	aa0e03ef 	mov	x15, x14
+ 5bc:	cb0b03ea 	neg	x10, x11
+ 5c0:	25f9cd00 	fmov	z0.d, #7.500000000000000000e-01
+ 5c4:	0430e3ef 	incb	x15
+ 5c8:	2518e3e0 	ptrue	p0.b
+ 5cc:	8a0a010c 	and	x12, x8, x10
+ 5d0:	25d8e3e1 	ptrue	p1.d
+ 5d4:	aa1f03e9 	mov	x9, xzr
+ 5d8:	8b0e000b 	add	x11, x0, x14
+ 5dc:	cb0c010d 	sub	x13, x8, x12
+ 5e0:	8b0c006a 	add	x10, x3, x12
+ 5e4:	8b0e0050 	add	x16, x2, x14
+ 5e8:	8b0f000f 	add	x15, x0, x15
+ 5ec:	8b0e002e 	add	x14, x1, x14
+ 5f0:	aa0c03f1 	mov	x17, x12
+ 5f4:	8b0901d2 	add	x18, x14, x9
+ 5f8:	8b090204 	add	x4, x16, x9
+ 5fc:	a40941c1 	ld1b	{z1.b}, p0/z, [x14, x9]
+ 600:	a4094202 	ld1b	{z2.b}, p0/z, [x16, x9]
+ 604:	85804643 	ldr	z3, [x18, #1, mul vl]
+ 608:	85804484 	ldr	z4, [x4, #1, mul vl]
+ 60c:	8b090012 	add	x18, x0, x9
+ 610:	04b0e7f1 	decw	x17
+ 614:	65c20821 	fmul	z1.d, z1.d, z2.d
+ 618:	65c40863 	fmul	z3.d, z3.d, z4.d
+ 61c:	a4094002 	ld1b	{z2.b}, p0/z, [x0, x9]
+ 620:	85804644 	ldr	z4, [x18, #1, mul vl]
+ 624:	65e00441 	fmla	z1.d, p1/m, z2.d, z0.d
+ 628:	65e00483 	fmla	z3.d, p1/m, z4.d, z0.d
+ 62c:	e4094161 	st1b	{z1.b}, p0, [x11, x9]
+ 630:	e40941e3 	st1b	{z3.b}, p0, [x15, x9]
+ 634:	0431e3e9 	incb	x9, all, mul #2
+ 638:	b5fffdf1 	cbnz	x17, 5f4 <versioned_distance_update_fp64+0x70>
+ 63c:	eb0c011f 	cmp	x8, x12
+ 640:	aa0d03e8 	mov	x8, x13
+ 644:	54000220 	b.eq	688 <versioned_distance_update_fp64+0x104>  // b.none
+ 648:	d37df14c 	lsl	x12, x10, #3
+ 64c:	1e6d1000 	fmov	d0, #7.500000000000000000e-01
+ 650:	cb030fe9 	neg	x9, x3, lsl #3
+ 654:	91000508 	add	x8, x8, #0x1
+ 658:	8b0c000a 	add	x10, x0, x12
+ 65c:	8b0c002b 	add	x11, x1, x12
+ 660:	8b0c004c 	add	x12, x2, x12
+ 664:	fc408561 	ldr	d1, [x11], #8
+ 668:	d1000508 	sub	x8, x8, #0x1
+ 66c:	fc408582 	ldr	d2, [x12], #8
+ 670:	f100051f 	cmp	x8, #0x1
+ 674:	1e620821 	fmul	d1, d1, d2
+ 678:	fc696942 	ldr	d2, [x10, x9]
+ 67c:	1f400441 	fmadd	d1, d2, d0, d1
+ 680:	fc008541 	str	d1, [x10], #8
+ 684:	54ffff08 	b.hi	664 <versioned_distance_update_fp64+0xe0>  // b.pmore
+ 688:	d65f03c0 	ret

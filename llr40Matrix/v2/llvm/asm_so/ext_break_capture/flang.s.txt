@@ -1,0 +1,20 @@
+# objdump -d libext_break_capture_fortran.so, functions matching ext_break_capture_fp64* (sha256 6990edcf4e686d95)
+
+0000000000000564 <ext_break_capture_fp64>:    # address mod 64 = 36
+ 564:	d2f7fe08 	mov	x8, #0xbff0000000000000    	// #-4616189618054758400
+ 568:	f100047f 	cmp	x3, #0x1
+ 56c:	f900003f 	str	xzr, [x1]
+ 570:	f9000048 	str	x8, [x2]
+ 574:	5400012b 	b.lt	598 <ext_break_capture_fp64+0x34>  // b.tstop
+ 578:	1e6e1000 	fmov	d0, #1.000000000000000000e+00
+ 57c:	aa1f03e8 	mov	x8, xzr
+ 580:	fc687801 	ldr	d1, [x0, x8, lsl #3]
+ 584:	91000508 	add	x8, x8, #0x1
+ 588:	1e602020 	fcmp	d1, d0
+ 58c:	5400008c 	b.gt	59c <ext_break_capture_fp64+0x38>
+ 590:	eb08007f 	cmp	x3, x8
+ 594:	54ffff61 	b.ne	580 <ext_break_capture_fp64+0x1c>  // b.any
+ 598:	d65f03c0 	ret
+ 59c:	f9000028 	str	x8, [x1]
+ 5a0:	fd000041 	str	d1, [x2]
+ 5a4:	d65f03c0 	ret

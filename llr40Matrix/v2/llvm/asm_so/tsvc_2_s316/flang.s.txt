@@ -1,0 +1,15 @@
+# objdump -d libtsvc_2_s316_fortran.so, functions matching tsvc_2_s316_fp64* (sha256 86ed91f55a549a62)
+
+0000000000000564 <tsvc_2_s316_fp64>:    # address mod 64 = 36
+ 564:	fd400000 	ldr	d0, [x0]
+ 568:	f100085f 	cmp	x2, #0x2
+ 56c:	5400010b 	b.lt	58c <tsvc_2_s316_fp64+0x28>  // b.tstop
+ 570:	d1000448 	sub	x8, x2, #0x1
+ 574:	91002009 	add	x9, x0, #0x8
+ 578:	fc408521 	ldr	d1, [x9], #8
+ 57c:	1e602020 	fcmp	d1, d0
+ 580:	1e604c20 	fcsel	d0, d1, d0, mi	// mi = first
+ 584:	f1000508 	subs	x8, x8, #0x1
+ 588:	54ffff81 	b.ne	578 <tsvc_2_s316_fp64+0x14>  // b.any
+ 58c:	fd000020 	str	d0, [x1]
+ 590:	d65f03c0 	ret

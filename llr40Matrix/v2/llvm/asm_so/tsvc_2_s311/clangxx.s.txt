@@ -1,0 +1,34 @@
+# objdump -d libtsvc_2_s311_llvm.so, functions matching tsvc_2_s311_fp64* (sha256 996ecda3bc7ea177)
+
+0000000000000604 <tsvc_2_s311_fp64>:    # address mod 64 = 4
+ 604:	f100045f 	cmp	x2, #0x1
+ 608:	f900003f 	str	xzr, [x1]
+ 60c:	5400038b 	b.lt	67c <tsvc_2_s311_fp64+0x78>  // b.tstop
+ 610:	2f00e400 	movi	d0, #0x0
+ 614:	04a0e3e8 	cntw	x8
+ 618:	eb08005f 	cmp	x2, x8
+ 61c:	54000062 	b.cs	628 <tsvc_2_s311_fp64+0x24>  // b.hs, b.nlast
+ 620:	aa1f03e8 	mov	x8, xzr
+ 624:	1400000f 	b	660 <tsvc_2_s311_fp64+0x5c>
+ 628:	cb0803e8 	neg	x8, x8
+ 62c:	25d8e3e0 	ptrue	p0.d
+ 630:	aa0003e9 	mov	x9, x0
+ 634:	8a080048 	and	x8, x2, x8
+ 638:	aa0803ea 	mov	x10, x8
+ 63c:	85804121 	ldr	z1, [x9]
+ 640:	04b0e7ea 	decw	x10
+ 644:	65d82020 	fadda	d0, p0, d0, z1.d
+ 648:	85804521 	ldr	z1, [x9, #1, mul vl]
+ 64c:	0431e3e9 	incb	x9, all, mul #2
+ 650:	65d82020 	fadda	d0, p0, d0, z1.d
+ 654:	b5ffff4a 	cbnz	x10, 63c <tsvc_2_s311_fp64+0x38>
+ 658:	eb08005f 	cmp	x2, x8
+ 65c:	540000e0 	b.eq	678 <tsvc_2_s311_fp64+0x74>  // b.none
+ 660:	8b080c09 	add	x9, x0, x8, lsl #3
+ 664:	cb080048 	sub	x8, x2, x8
+ 668:	fc408521 	ldr	d1, [x9], #8
+ 66c:	f1000508 	subs	x8, x8, #0x1
+ 670:	1e612800 	fadd	d0, d0, d1
+ 674:	54ffffa1 	b.ne	668 <tsvc_2_s311_fp64+0x64>  // b.any
+ 678:	fd000020 	str	d0, [x1]
+ 67c:	d65f03c0 	ret

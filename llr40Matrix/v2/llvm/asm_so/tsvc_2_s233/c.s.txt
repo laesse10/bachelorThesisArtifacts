@@ -1,0 +1,43 @@
+# objdump -d libtsvc_2_s233_cc.so, functions matching tsvc_2_s233_fp64* (sha256 82d56df21ebfcb29)
+
+0000000000000640 <tsvc_2_s233_fp64>:    # address mod 64 = 0
+ 640:	f100207f 	cmp	x3, #0x8
+ 644:	540004ad 	b.le	6d8 <tsvc_2_s233_fp64+0x98>
+ 648:	9100046b 	add	x11, x3, #0x1
+ 64c:	cb030c0a 	sub	x10, x0, x3, lsl #3
+ 650:	d37df068 	lsl	x8, x3, #3
+ 654:	d37ae56b 	lsl	x11, x11, #6
+ 658:	d280010c 	mov	x12, #0x8                   	// #8
+ 65c:	d1002029 	sub	x9, x1, #0x8
+ 660:	aa0b03e4 	mov	x4, x11
+ 664:	d2800105 	mov	x5, #0x8                   	// #8
+ 668:	fc64695f 	ldr	d31, [x10, x4]
+ 66c:	aa0503e6 	mov	x6, x5
+ 670:	910004a5 	add	x5, x5, #0x1
+ 674:	fc64685e 	ldr	d30, [x2, x4]
+ 678:	1e7e2bfe 	fadd	d30, d31, d30
+ 67c:	fc24681e 	str	d30, [x0, x4]
+ 680:	8b080084 	add	x4, x4, x8
+ 684:	eb05007f 	cmp	x3, x5
+ 688:	54ffff01 	b.ne	668 <tsvc_2_s233_fp64+0x28>  // b.any
+ 68c:	aa0b03e4 	mov	x4, x11
+ 690:	d2800107 	mov	x7, #0x8                   	// #8
+ 694:	d503201f 	nop
+ 698:	d503201f 	nop
+ 69c:	d503201f 	nop
+ 6a0:	fc64693d 	ldr	d29, [x9, x4]
+ 6a4:	eb0700df 	cmp	x6, x7
+ 6a8:	910004e7 	add	x7, x7, #0x1
+ 6ac:	fc64685c 	ldr	d28, [x2, x4]
+ 6b0:	1e7c2bbc 	fadd	d28, d29, d28
+ 6b4:	fc24683c 	str	d28, [x1, x4]
+ 6b8:	8b080084 	add	x4, x4, x8
+ 6bc:	54ffff21 	b.ne	6a0 <tsvc_2_s233_fp64+0x60>  // b.any
+ 6c0:	9100216b 	add	x11, x11, #0x8
+ 6c4:	91000584 	add	x4, x12, #0x1
+ 6c8:	eb06019f 	cmp	x12, x6
+ 6cc:	54000060 	b.eq	6d8 <tsvc_2_s233_fp64+0x98>  // b.none
+ 6d0:	aa0403ec 	mov	x12, x4
+ 6d4:	17ffffe3 	b	660 <tsvc_2_s233_fp64+0x20>
+ 6d8:	d65f03c0 	ret
+ 6dc:	d503201f 	nop

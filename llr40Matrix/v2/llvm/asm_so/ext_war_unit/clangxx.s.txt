@@ -1,0 +1,49 @@
+# objdump -d libext_war_unit_llvm.so, functions matching ext_war_unit_fp64* (sha256 14c5ee7e50598ebb)
+
+0000000000000604 <ext_war_unit_fp64>:    # address mod 64 = 4
+ 604:	f100085f 	cmp	x2, #0x2
+ 608:	5400058b 	b.lt	6b8 <ext_war_unit_fp64+0xb4>  // b.tstop
+ 60c:	d1000448 	sub	x8, x2, #0x1
+ 610:	04a0e3e9 	cntw	x9
+ 614:	eb09011f 	cmp	x8, x9
+ 618:	54000062 	b.cs	624 <ext_war_unit_fp64+0x20>  // b.hs, b.nlast
+ 61c:	aa1f03e9 	mov	x9, xzr
+ 620:	14000019 	b	684 <ext_war_unit_fp64+0x80>
+ 624:	cb0903e9 	neg	x9, x9
+ 628:	04bf502a 	rdvl	x10, #1
+ 62c:	25d8e3e0 	ptrue	p0.d
+ 630:	8a090109 	and	x9, x8, x9
+ 634:	2518e3e1 	ptrue	p1.b
+ 638:	9100214a 	add	x10, x10, #0x8
+ 63c:	d280002b 	mov	x11, #0x1                   	// #1
+ 640:	aa0103ec 	mov	x12, x1
+ 644:	aa0903ed 	mov	x13, x9
+ 648:	aa0003ee 	mov	x14, x0
+ 64c:	a5eb41c0 	ld1d	{z0.d}, p0/z, [x14, x11, lsl #3]
+ 650:	85804181 	ldr	z1, [x12]
+ 654:	04b0e7ed 	decw	x13
+ 658:	a40a45c2 	ld1b	{z2.b}, p1/z, [x14, x10]
+ 65c:	85804583 	ldr	z3, [x12, #1, mul vl]
+ 660:	0431e3ec 	incb	x12, all, mul #2
+ 664:	65c10000 	fadd	z0.d, z0.d, z1.d
+ 668:	65c30041 	fadd	z1.d, z2.d, z3.d
+ 66c:	e58041c0 	str	z0, [x14]
+ 670:	e58045c1 	str	z1, [x14, #1, mul vl]
+ 674:	0431e3ee 	incb	x14, all, mul #2
+ 678:	b5fffead 	cbnz	x13, 64c <ext_war_unit_fp64+0x48>
+ 67c:	eb09011f 	cmp	x8, x9
+ 680:	540001c0 	b.eq	6b8 <ext_war_unit_fp64+0xb4>  // b.none
+ 684:	d37df12a 	lsl	x10, x9, #3
+ 688:	aa2903e8 	mvn	x8, x9
+ 68c:	8b020108 	add	x8, x8, x2
+ 690:	8b000149 	add	x9, x10, x0
+ 694:	8b0a002a 	add	x10, x1, x10
+ 698:	91002129 	add	x9, x9, #0x8
+ 69c:	fd400120 	ldr	d0, [x9]
+ 6a0:	fc408541 	ldr	d1, [x10], #8
+ 6a4:	f1000508 	subs	x8, x8, #0x1
+ 6a8:	1e612800 	fadd	d0, d0, d1
+ 6ac:	fc1f8120 	stur	d0, [x9, #-8]
+ 6b0:	91002129 	add	x9, x9, #0x8
+ 6b4:	54ffff41 	b.ne	69c <ext_war_unit_fp64+0x98>  // b.any
+ 6b8:	d65f03c0 	ret

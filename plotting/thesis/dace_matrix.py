@@ -70,9 +70,10 @@ GROUP_NAME = {
     "gain": "Faster: a restructuring",
     "loss": "Slower: code written for multithreaded execution",
     "tie": "Within 3%",
+    "open": "Differs, not examined",
 }
-GROUP_COLOR = {"gain": palette.tab20_slot(4), "loss": palette.tab20_slot(6), "tie": style.MUTED}
-GROUP_MARKER = {"gain": "o", "loss": "s", "tie": "D"}
+GROUP_COLOR = {"gain": palette.tab20_slot(4), "loss": palette.tab20_slot(6), "tie": style.MUTED, "open": "black"}
+GROUP_MARKER = {"gain": "o", "loss": "s", "tie": "D", "open": "x"}
 
 
 def median_interval(series: list[float], confidence: float = 0.95) -> tuple[float, float]:
@@ -116,7 +117,7 @@ def figure(cells) -> None:
         cpp, dace = cells[(k, "cpp")], cells[(k, "canon_new")]
         ratio = statistics.median(cpp) / statistics.median(dace)
         (c_lo, c_hi), (d_lo, d_hi) = median_interval(cpp), median_interval(dace)
-        group = CAUSES[k][0] if k in CAUSES else "tie"
+        group = CAUSES[k][0] if k in CAUSES else "open" if abs(ratio - 1) > TIE else "tie"
         rows.append((ratio, c_lo / d_hi, c_hi / d_lo, k, group))
     rows.sort(key=lambda r: -r[0])
     pitch_in = 0.112
@@ -144,9 +145,10 @@ def figure(cells) -> None:
     ax.set_xlabel("Speedup of DaCe over translated C++ (log scale)", fontsize=scale.label_pt, labelpad=3)
     style.despine(ax, keep=("bottom",))
     handles = [Line2D([], [], linestyle="none", marker=GROUP_MARKER[g], color=GROUP_COLOR[g], markersize=4.0,
-                      label=GROUP_NAME[g]) for g in ("gain", "loss", "tie")]
+                      label=GROUP_NAME[g]) for g in ("gain", "loss", "tie", "open")
+               if any(r[4] == g for r in rows)]
     style.fill_width(fig, pad_in=0.06)
-    style.legend_below(fig, handles, ncol=3, y=0.005, fontsize=small, markerscale=1.0, columnspacing=1.2,
+    style.legend_below(fig, handles, ncol=len(handles), y=0.005, fontsize=small, markerscale=1.0, columnspacing=1.2,
                        handlelength=1.6)
     style.save(fig, OUT / "dace_speedup", width_in=TEXT_WIDTH_IN)
 
@@ -181,7 +183,7 @@ def causes_table(followup) -> None:
     for group, side, title in groups:
         lines.append(rf"  \multicolumn{{5}}{{@{{}}l}}{{\emph{{{title}}}}} \\")
         for k, (g, s, label, cause) in CAUSES.items():
-            if (g, s) != (group, side):
+            if (g, s) != (group, side) or k not in roster():
                 continue
             row = [rf"\quad\texttt{{{short(k)}}}", fmt(med[(k, "cpp")]), fmt(med[(k, "canon")]), cause,
                    fmt(med[(k, label)])]

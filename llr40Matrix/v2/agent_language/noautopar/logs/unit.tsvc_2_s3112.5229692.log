@@ -1,0 +1,24 @@
+unit tsvc_2_s3112 node=nid005625 start=2026-11-01T14:34:38+01:00
+T72 binding: PROBE nid005625 72 1
+SRUN[tsvc_2_s3112]: srun --nodes=1 --ntasks=1 -w nid005625 --exclusive --cpus-per-task=288 --cpu-bind=cores --hint=nomultithread --time=120 env LLR40_BENCH=/capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang-noautopar /capstor/scratch/cscs/lhulsbergen/venv_llr40v2/bin/python sweep_noautopar.py --kernel tsvc_2_s3112 --out parts/tsvc_2_s3112.csv --scratch scratch/tsvc_2_s3112 --logs logs/cells --db-shard 426
+{
+ "versions": {
+  "default": {
+   "gcc": "gcc-14 (SUSE Linux) 14.2.0 [/usr/bin/gcc-14]",
+   "g++": "g++ (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/g++]",
+   "gfortran": "GNU Fortran (SUSE Linux) 13.3.1 20250313 [revision 4ef1d8c84faeebffeb0cc01ee22e891b41e5c4e0] [/users/lhulsbergen/bin/gfortran]"
+  }
+ },
+ "flags_t72": {
+  "c": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -include /capstor/scratch/cscs/lhulsbergen/HPCAgent-Bench-agentlang-noautopar/hpcagent_bench/envs/vecmath.h -Wall -Wextra",
+  "fortran": "-O3 -march=native -fopenmp -fno-math-errno -fno-trapping-math -fno-signed-zeros  -ffp-contract=fast -fstrict-aliasing -fPIC -ftree-parallelize-loops=1 -Wall -Wextra"
+ }
+}
+  translated_c c        translator             seq=    T72 ok              82.128 ms 
+  candidate    fortran  r40v10-oss120b-fortran seq=  1 T72 ok              82.118 ms 
+  candidate    fortran  lr40v10-qwen38-fortran seq=  1 T72 ok              82.070 ms 
+  candidate    c        llr40v10-oss120b-c     seq=  1 T72 ok              82.061 ms 
+  candidate    c        llr40v10-oss120b-c     seq=  2 T72 ok              82.051 ms 
+  candidate    fortran  lr40v10-qwen38-fortran seq=  1 T72 ok              82.084 ms 
+wrote 6 rows -> /capstor/scratch/cscs/lhulsbergen/bachelorThesisArtifacts-extracted/llr40Matrix/v2/agent_language/noautopar/parts/tsvc_2_s3112.csv
+unit tsvc_2_s3112 node=nid005625 end=2026-11-01T14:36:30+01:00

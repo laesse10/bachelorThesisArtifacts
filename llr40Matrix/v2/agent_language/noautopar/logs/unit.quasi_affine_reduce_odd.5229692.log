@@ -1,0 +1,7 @@
+unit quasi_affine_reduce_odd node=nid006377 start=2026-11-01T14:28:21+01:00
+srun: error: slurm_receive_msgs: [nid006377:6818] failed: Socket timed out on send/recv operation
+srun: error: Task launch for StepId=5229692.7 failed on node nid006377: Socket timed out on send/recv operation
+srun: error: Application launch failed: Socket timed out on send/recv operation
+srun: Job step aborted
+T72 binding: 
+GEOMETRY_FAILED [quasi_affine_reduce_odd]: T72 ''

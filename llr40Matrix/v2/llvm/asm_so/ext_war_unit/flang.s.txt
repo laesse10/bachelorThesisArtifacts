@@ -1,0 +1,49 @@
+# objdump -d libext_war_unit_fortran.so, functions matching ext_war_unit_fp64* (sha256 2e69ec6f8d4c4103)
+
+0000000000000564 <ext_war_unit_fp64>:    # address mod 64 = 36
+ 564:	f100085f 	cmp	x2, #0x2
+ 568:	5400058b 	b.lt	618 <ext_war_unit_fp64+0xb4>  // b.tstop
+ 56c:	d1000448 	sub	x8, x2, #0x1
+ 570:	04a0e3e9 	cntw	x9
+ 574:	eb09011f 	cmp	x8, x9
+ 578:	54000062 	b.cs	584 <ext_war_unit_fp64+0x20>  // b.hs, b.nlast
+ 57c:	aa1f03e9 	mov	x9, xzr
+ 580:	14000019 	b	5e4 <ext_war_unit_fp64+0x80>
+ 584:	cb0903e9 	neg	x9, x9
+ 588:	04bf502a 	rdvl	x10, #1
+ 58c:	25d8e3e0 	ptrue	p0.d
+ 590:	8a090109 	and	x9, x8, x9
+ 594:	2518e3e1 	ptrue	p1.b
+ 598:	9100214a 	add	x10, x10, #0x8
+ 59c:	d280002b 	mov	x11, #0x1                   	// #1
+ 5a0:	aa0103ec 	mov	x12, x1
+ 5a4:	aa0903ed 	mov	x13, x9
+ 5a8:	aa0003ee 	mov	x14, x0
+ 5ac:	a5eb41c0 	ld1d	{z0.d}, p0/z, [x14, x11, lsl #3]
+ 5b0:	85804181 	ldr	z1, [x12]
+ 5b4:	04b0e7ed 	decw	x13
+ 5b8:	a40a45c2 	ld1b	{z2.b}, p1/z, [x14, x10]
+ 5bc:	85804583 	ldr	z3, [x12, #1, mul vl]
+ 5c0:	0431e3ec 	incb	x12, all, mul #2
+ 5c4:	65c10000 	fadd	z0.d, z0.d, z1.d
+ 5c8:	65c30041 	fadd	z1.d, z2.d, z3.d
+ 5cc:	e58041c0 	str	z0, [x14]
+ 5d0:	e58045c1 	str	z1, [x14, #1, mul vl]
+ 5d4:	0431e3ee 	incb	x14, all, mul #2
+ 5d8:	b5fffead 	cbnz	x13, 5ac <ext_war_unit_fp64+0x48>
+ 5dc:	eb09011f 	cmp	x8, x9
+ 5e0:	540001c0 	b.eq	618 <ext_war_unit_fp64+0xb4>  // b.none
+ 5e4:	d37df12a 	lsl	x10, x9, #3
+ 5e8:	aa2903e8 	mvn	x8, x9
+ 5ec:	8b020108 	add	x8, x8, x2
+ 5f0:	8b000149 	add	x9, x10, x0
+ 5f4:	8b0a002a 	add	x10, x1, x10
+ 5f8:	91002129 	add	x9, x9, #0x8
+ 5fc:	fd400120 	ldr	d0, [x9]
+ 600:	fc408541 	ldr	d1, [x10], #8
+ 604:	f1000508 	subs	x8, x8, #0x1
+ 608:	1e612800 	fadd	d0, d0, d1
+ 60c:	fc1f8120 	stur	d0, [x9, #-8]
+ 610:	91002129 	add	x9, x9, #0x8
+ 614:	54ffff41 	b.ne	5fc <ext_war_unit_fp64+0x98>  // b.any
+ 618:	d65f03c0 	ret
