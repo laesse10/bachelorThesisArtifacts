@@ -240,3 +240,12 @@ C against Fortran, pooled, medians of 30 runs (`median/stats.csv`), ratio > 1: C
 
 With the fifth setting, 20 pooled tests; Bonferroni 0.05/20 = 0.0025. Only the median at `noautopar/72` passes.
 Per model, Kimi-K2.7 (median 2.65x) and Qwen3.8-27B (1.74x) carry it; GPT-OSS-120B is within its interval of 1.
+
+## OpenMP in the sources (2026-11-01)
+
+`omp_count.py` (run on daint against `../agent_picks.json`, every source sha256-checked; output in
+`omp_count.txt`) counts the default/T1-valid submissions that contain a thread-level OpenMP construct
+(`#pragma omp parallel|target|taskloop`, `!$omp parallel|target|taskloop`) or `do concurrent`.
+C: 217 of 246 (88%); Fortran: 145 of 196 (74%), and one `do concurrent`. Per model, C against
+Fortran: Kimi-K2.7 97% / 71%, Qwen3.8-27B 79% / 67%, GPT-OSS-120B 89% / 84%. The two models whose
+C is faster at T72 without autoparallelization are the two with the larger gap. Thesis: Section 6.5.

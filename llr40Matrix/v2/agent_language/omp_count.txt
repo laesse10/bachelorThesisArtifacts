@@ -1,0 +1,9 @@
+missing or changed: 0
+c        all       n=246  parallel=217 (88%)  simd= 38  do_concurrent=  0
+c        kimi27sglang n= 89  parallel= 86 (97%)  simd= 28  do_concurrent=  0
+c        oss120b   n= 66  parallel= 59 (89%)  simd=  8  do_concurrent=  0
+c        qwen38    n= 91  parallel= 72 (79%)  simd=  2  do_concurrent=  0
+fortran  all       n=196  parallel=145 (74%)  simd= 20  do_concurrent=  1
+fortran  kimi27sglang n= 66  parallel= 47 (71%)  simd=  9  do_concurrent=  1
+fortran  oss120b   n= 63  parallel= 53 (84%)  simd=  9  do_concurrent=  0
+fortran  qwen38    n= 67  parallel= 45 (67%)  simd=  2  do_concurrent=  0

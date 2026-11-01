@@ -166,6 +166,11 @@ def short(kernel: str) -> str:
     return tex(name if len(name) <= 16 else name[:14]) + (r"\ldots" if len(name) > 16 else "")
 
 
+# Outputs that overflow at this commit's preset M, so the check tests nothing (wf_triangular averages
+# its neighbours since 9d1c3237a and no longer overflows).
+OVERFLOW = {"wf_diff_skew"}
+
+
 def causes_table(followup) -> None:
     med = {key: statistics.median(v) for key, v in followup.items() if v}
     lines = [
@@ -185,7 +190,7 @@ def causes_table(followup) -> None:
         for k, (g, s, label, cause) in CAUSES.items():
             if (g, s) != (group, side) or k not in roster():
                 continue
-            row = [rf"\quad\texttt{{{short(k)}}}", fmt(med[(k, "cpp")]), fmt(med[(k, "canon")]), cause,
+            row = [rf"\quad\texttt{{{short(k)}}}" + (r"$^\dagger$" if k in OVERFLOW else ""), fmt(med[(k, "cpp")]), fmt(med[(k, "canon")]), cause,
                    fmt(med[(k, label)])]
             lines.append("  " + " & ".join(row) + r" \\")
     lines += [r"  \bottomrule", r"\end{tabular}", ""]
