@@ -1,0 +1,11 @@
+scicomp40-oss120b-c                solved 36  geomean  0.98  faster 12  slower 21
+scicomp40-oss120b-c-lang-skills    solved 31  geomean  1.16  faster 16  slower 14
+scicomp40-oss120b-hip              solved 22  geomean 12.80  faster 20  slower  2
+scicomp40-oss120b-hip-lang-skills  solved 20  geomean 16.35  faster 19  slower  1
+scicomp40-qwen38-c                 solved 39  geomean  4.29  faster 34  slower  4
+scicomp40-qwen38-c-lang-skills     solved 40  geomean  3.14  faster 30  slower  9
+without skills, C, solved by both: 35 kernels; qwen38 / oss120b geomean 4.73, qwen38 faster on 32, oss120b faster on 0
+language skills against none (figures/pairs.csv, speedup leg):
+  scicomp40-qwen38-c-lang-skills: ratio 0.72 on 39 kernels, p = 0.08, adjusted 0.46 (not-significant)
+  scicomp40-oss120b-c-lang-skills: ratio 1.01 on 31 kernels, p = 0.90, adjusted 0.90 (not-significant)
+  scicomp40-oss120b-hip-lang-skills: ratio 0.94 on 17 kernels, p = 0.51, adjusted 0.90 (not-significant)

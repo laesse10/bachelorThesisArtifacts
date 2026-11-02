@@ -1,0 +1,3 @@
+row,framework,n,geomean,geomean_low,geomean_high,median,wins,losses,excluded
+OSS-120B - No Skill Packet,scicomp40-oss120b-hip,22,12.80192471822799,5.4407757984811,31.880261560241387,8.86410377353505,20,2,none
+OSS-120B - Language Skill Packet,scicomp40-oss120b-hip-lang-skills,20,16.35077638292021,7.669642276643135,43.22431442408291,10.23901441417986,19,1,none

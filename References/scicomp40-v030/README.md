@@ -1,4 +1,7 @@
-# scicomp40, C, HPCAgent-Bench v0.3.0 (second campaign of thesis Section 6.4)
+# scicomp40, C, HPCAgent-Bench v0.3.0 (second campaign of thesis Section 6.4 until 2026-11-02)
+
+Replaced in the thesis by `../scicomp40-20261102/` (both models, C and HIP, with and without the language
+skills), whose grading did not cut the agents' feedback. Kept for the record.
 
 Qwen3.8-27B (job 695497) and GPT-OSS-120B (job 695498) on the 40 kernels of the scicomp40 study, C only,
 one agent per kernel with a 20 h budget, preset S plus fuzzed grading, one AMD MI300A node. Benchmark commit

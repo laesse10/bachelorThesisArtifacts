@@ -1,0 +1,5 @@
+row,framework,n,gm_tokens,gm_tokens_low,gm_tokens_high
+Qwen3.8-27B - No Skill Packet,scicomp40-qwen38-c,40,4886865.629465081,3961988.6489315676,6005532.377586577
+Qwen3.8-27B - Language Skill Packet,scicomp40-qwen38-c-lang-skills,40,4636486.090993693,3875035.2355356775,5576323.967951618
+OSS-120B - No Skill Packet,scicomp40-oss120b-c,40,314646.0612355381,202990.6298077499,490271.1646119428
+OSS-120B - Language Skill Packet,scicomp40-oss120b-c-lang-skills,40,341040.14637331135,235724.54119273686,486874.2488652645

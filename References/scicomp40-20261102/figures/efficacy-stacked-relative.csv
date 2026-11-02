@@ -1,0 +1,4 @@
+model,language,leg,score_verdict,cost_verdict,kernels,family_size,test,correction
+qwen38,c,C,not-significant,not-significant,39,6,sign-flip v1,benjamini-hochberg
+oss120b,c,C,not-significant,not-significant,31,6,sign-flip v1,benjamini-hochberg
+oss120b,hip,HIP,not-significant,not-significant,17,6,sign-flip v1,benjamini-hochberg
