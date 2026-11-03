@@ -1,0 +1,17 @@
+scicomp40-oss120b-c                solved 36  geomean  0.98  faster 12  slower 21  fallbacks 5
+scicomp40-oss120b-c-lang-skills    solved 31  geomean  1.16  faster 16  slower 14  fallbacks 2
+scicomp40-oss120b-hip              solved 22  geomean 12.80  faster 20  slower  2  fallbacks 0
+scicomp40-oss120b-hip-lang-skills  solved 20  geomean 16.35  faster 19  slower  1  fallbacks 0
+scicomp40-qwen38-c                 solved 39  geomean  4.29  faster 34  slower  4  fallbacks 0
+scicomp40-qwen38-c-lang-skills     solved 40  geomean  3.14  faster 30  slower  9  fallbacks 2
+scicomp40-qwen38-hip               solved 37  geomean 43.54  faster 37  slower  0  fallbacks 0
+scicomp40-qwen38-hip-lang-skills   solved 37  geomean 56.85  faster 37  slower  0  fallbacks 0
+without skills, c, qwen38 / oss120b, solved by both: 35 kernels; geomean 4.73, first faster on 32, second faster on 0
+  without fallbacks: 30 kernels; geomean 4.45, first faster on 27, second faster on 0
+without skills, hip, qwen38 / oss120b, solved by both: 20 kernels; geomean 4.49, first faster on 18, second faster on 2
+  without fallbacks: 20 kernels; geomean 4.49, first faster on 18, second faster on 2
+language skills against none (figures/pairs.csv, speedup leg):
+  scicomp40-qwen38-c-lang-skills: ratio 0.72 on 39 kernels, p = 0.08, adjusted 0.54 (not-significant)
+  scicomp40-oss120b-c-lang-skills: ratio 1.01 on 31 kernels, p = 0.90, adjusted 0.90 (not-significant)
+  scicomp40-oss120b-hip-lang-skills: ratio 0.94 on 17 kernels, p = 0.51, adjusted 0.90 (not-significant)
+  scicomp40-qwen38-hip-lang-skills: ratio 1.19 on 36 kernels, p = 0.24, adjusted 0.85 (not-significant)

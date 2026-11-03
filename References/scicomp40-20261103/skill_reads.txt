@@ -1,0 +1,30 @@
+scicomp40-oss120b-c                episodes 40  read a skill page  0
+scicomp40-oss120b-c-lang-skills    episodes 40  read a skill page 35
+    lang-c.md              35
+    openmp-c.md            35
+    profiling.md            2
+    optimization.md         1
+    solver.md               1
+scicomp40-oss120b-hip              episodes 40  read a skill page  0
+scicomp40-oss120b-hip-lang-skills  episodes 40  read a skill page 30
+    lang-hip.md            30
+    lang-cpp.md            26
+    optimization.md         1
+scicomp40-qwen38-c                 episodes 40  read a skill page  0
+scicomp40-qwen38-c-lang-skills     episodes 40  read a skill page 40
+    lang-c.md              40
+    openmp-c.md            40
+    optimization.md        32
+    profiling.md           12
+    solver.md               9
+    divide-and-conquer.md   2
+    opt-reports.md          2
+scicomp40-qwen38-hip               episodes 40  read a skill page  0
+scicomp40-qwen38-hip-lang-skills   episodes 40  read a skill page 40
+    lang-cpp.md            40
+    lang-hip.md            40
+    optimization.md        32
+    rocprof.md             22
+    profiling.md           11
+    solver.md              10
+    divide-and-conquer.md   2
