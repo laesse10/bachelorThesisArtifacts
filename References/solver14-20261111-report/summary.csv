@@ -1,0 +1,7 @@
+model,skill,job,read,solved,geomean,ratio_vs_none,ci95_low,ci95_high,wins,losses,wilcoxon_p,note
+qwen38,none,734916,,14,4.61,,,,,,,
+qwen38,v2-single,734910,,,,,,,,,,"node failure, no results"
+qwen38,v2-split,734911,14/14,14,3.58,0.78,0.36,1.67,6,8,0.90,
+oss120b,none,734917,,13,1.15,,,,,,,
+oss120b,v2-single,734918,7/14,14,1.32,1.14,0.80,1.63,6,6,0.69,
+oss120b,v2-split,734919,11/14,13,1.47,1.28,0.92,1.76,9,3,0.16,
