@@ -20,3 +20,8 @@ is not in the repository. `summarize.py` reads it from `../solver14-20261111/` a
 Score: the credited speedup of the episode's final (or promoted) grade, over the faster of C and
 Numba; an uncredited kernel counts as 1. Two episodes have none: oss120b none `bdf_newton_krylov`
 (no correct answer) and oss120b v2-split `householder_qr` (submitted a wrong answer).
+
+`split_reads.py` counts which of the five v2-split pages each episode read (`split_reads.txt`):
+oss120b read all five in 5 of the 11 episodes that opened one, qwen38 in 9 of 14. qwen38 skipped
+only `solver-preconditioners-ladder`, in five episodes (`amg_setup`, `ilu0`, `sptrsv_level`,
+`mg_vcycle`, `rb_sor`), all with a frozen preconditioner.

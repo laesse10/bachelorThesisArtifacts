@@ -1,0 +1,30 @@
+734919: episodes 14, opened 11, all five (any tool) 5, all five via Read 5
+    problem-0-worker-0 Read: verdict | Bash only: -
+    problem-1-worker-1 Read: - | Bash only: -
+    problem-2-worker-2 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-3-worker-3 Read: - | Bash only: -
+    problem-4-worker-4 Read: frozen,verdict,verify | Bash only: -
+    problem-5-worker-5 Read: frozen,verdict,verify | Bash only: -
+    problem-6-worker-6 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-7-worker-7 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-8-worker-8 Read: frozen,samples,verdict,verify | Bash only: -
+    problem-9-worker-9 Read: frozen,verdict | Bash only: -
+    problem-10-worker-10 Read: frozen,ladder,verdict,verify | Bash only: -
+    problem-11-worker-11 Read: - | Bash only: -
+    problem-12-worker-12 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-13-worker-13 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+734911: episodes 14, opened 14, all five (any tool) 9, all five via Read 8
+    problem-0-worker-0 Read: frozen,samples,verdict,verify | Bash only: ladder
+    problem-1-worker-1 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-2-worker-2 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-3-worker-3 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-4-worker-4 Read: frozen,samples,verdict,verify | Bash only: -
+    problem-5-worker-5 Read: frozen,samples,verdict,verify | Bash only: -
+    problem-6-worker-6 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-7-worker-7 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-8-worker-8 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-9-worker-9 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-10-worker-10 Read: frozen,samples,verdict,verify | Bash only: -
+    problem-11-worker-11 Read: frozen,ladder,samples,verdict,verify | Bash only: -
+    problem-12-worker-12 Read: frozen,samples,verdict,verify | Bash only: -
+    problem-13-worker-13 Read: frozen,samples,verdict,verify | Bash only: -
