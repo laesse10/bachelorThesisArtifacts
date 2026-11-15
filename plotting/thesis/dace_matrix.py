@@ -30,7 +30,6 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.lines import Line2D  # noqa: E402
 
-from hpcagent_bench import experiment_tags as et  # noqa: E402
 from hpcagent_bench.stats import palette, style, summary  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
@@ -137,7 +136,8 @@ def figure(cells) -> None:
                          size=11.0)
     ax.axvline(0.0, color=style.REFERENCE, linewidth=scale.hairline_width, zorder=2)
     ax.set_yticks(range(len(rows)))
-    ax.set_yticklabels([et.kernel_compact_display_name(r[3]) for r in rows], fontsize=small)
+    # The names the text uses, not the compact ones, which appear nowhere else.
+    ax.set_yticklabels([r[3].removeprefix("tsvc_2_") for r in rows], fontsize=small)
     ax.tick_params(axis="y", length=0, pad=2)
     ax.set_xticks(range(-1, 5))
     ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(style.log2_ratio_tick))
