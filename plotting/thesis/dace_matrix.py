@@ -57,7 +57,9 @@ CAUSES = {
     "tsvc_2_s311": ("gain", "undo", "dinorder", "library sum, reordered into partial sums"),
     "wf_triangular": ("gain", "undo", "duntiled", "skewed $64\\times64$ tiling"),
     "versioned_distance_update": ("gain", "undo", "dnolib", "library recurrence kept in a register"),
-    "tsvc_2_s275": ("gain", "undo", "dhoist", "interchange, but loop bounds recomputed in the band loop"),
+    # Interchanged C++ (cppinter) beats DaCe, whose band loop recomputes its bounds; hoisted (dhoist), DaCe
+    # matches it. The C++ cell tests the cause, as for the other interchanges.
+    "tsvc_2_s275": ("gain", "apply", "cppinter", "interchange; DaCe's band loop also recomputes its bounds"),
     "compact_threshold_pack": ("loss", "undo", "dseq", "scan-based compaction, four passes"),
     "tsvc_2_s323": ("loss", "undo", "dseq", "recurrence as a scan with two extra passes"),
     "tsvc_2_s3112": ("loss", "undo", "dnolib", "library prefix sum"),

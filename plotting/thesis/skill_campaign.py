@@ -83,8 +83,9 @@ def main() -> None:
         ax.axhline(len(kernels) - 0.1, color=style.MUTED, linewidth=0.5, linestyle=(0, (3, 2)), zorder=1)
         for i in range(1, len(kernels)):
             ax.axhline(i - 0.5, color=style.RULE, linewidth=0.25, zorder=1)
-        ax.set_xlim(-3.5, 6.5)
-        ax.set_xticks(range(-2, 7, 2))
+        # Up to 2^8.5: Qwen3.8-27B's rk4_ensemble (264x, 209x) and rk45_ensemble (155x) lie beyond 2^6.5.
+        ax.set_xlim(-3.5, 8.5)
+        ax.set_xticks(range(-2, 9, 2))
         ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(style.log2_ratio_tick))
         ax.tick_params(axis="x", labelsize=scale.tick_pt, length=2.5, width=0.6, pad=2)
         ax.grid(axis="x", which="major", color=style.RULE, linewidth=0.5, zorder=0)

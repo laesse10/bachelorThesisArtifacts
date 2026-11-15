@@ -1,4 +1,8 @@
 oss120b preconditioner-v4-single: as scored 0.71 | credited in both n=12 0.69 W/L 5/7 p=0.30 | raised to 1 0.92 W/L 5/6 p=0.83
 oss120b preconditioner-v4-split: as scored 0.94 | credited in both n=11 1.05 W/L 6/5 p=0.97 | raised to 1 0.94 W/L 5/7 p=0.57
 qwen38 preconditioner-v4-single: as scored 0.86 | credited in both n=6 1.28 W/L 4/2 p=0.56 | raised to 1 0.79 W/L 7/5 p=0.97
-qwen38 preconditioner-v4-split: 4 of 14 kernels at the snapshot, skipped
+qwen38 preconditioner-v4-split: 4 of 14 kernels, skipped
+rerun oss120b v2-single: as scored 1.14 | credited in both n=13 1.15 W/L 5/6 p=0.76 | raised to 1 0.94 W/L 5/5 p=0.70
+rerun oss120b v2-split: as scored 1.28 | credited in both n=12 1.19 W/L 8/3 p=0.32 | raised to 1 0.98 W/L 6/3 p=0.91
+rerun qwen38 v2-single: 0 of 14 kernels, skipped
+rerun qwen38 v2-split: as scored 0.78 | credited in both n=14 0.78 W/L 6/8 p=0.90 | raised to 1 0.85 W/L 6/8 p=0.86

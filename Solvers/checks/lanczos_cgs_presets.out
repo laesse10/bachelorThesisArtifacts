@@ -1,0 +1,4 @@
+ S 16^3, m= 50:  Q 4.6e-05   alpha 1.3e-06   beta 6.1e-07   max|Q^T Q - I| (CGS) 2.1e-15   (0 s)
+ M 64^3, m=100:  Q 3.9e-06   alpha 1.5e-06   beta 8.8e-07   max|Q^T Q - I| (CGS) 2.3e-14   (6 s)
+ L 96^3, m=123:  Q 2.7e-06   alpha 2.2e-06   beta 1.0e-06   max|Q^T Q - I| (CGS) 3.5e-14   (28 s)
+XL 145^3, m=152:  Q 2.3e-06   alpha 2.1e-06   beta 1.0e-06   max|Q^T Q - I| (CGS) 6.6e-14   (170 s)
